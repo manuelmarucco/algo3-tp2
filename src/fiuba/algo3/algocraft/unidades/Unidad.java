@@ -1,6 +1,9 @@
 package fiuba.algo3.algocraft.unidades;
 
+import java.util.Map;
+
 public class Unidad {
+    private ClaseDeUnidad clase;
     private int vida;
     private int danioAereo;
     private int danioTerrestre;
@@ -15,6 +18,17 @@ public class Unidad {
         this.danioTerrestre=danioTerrestre;
         this.rangoDeAtaque=rangoDeAtaque;
         this.vision=vision;
+    }
+
+    public Unidad(int vida, int danioTerrestre, int danioAereo, int rangoDeAtaque, int vision, RazaDeUnidad raza, TerrenoDeUnidad terreno, ClaseDeUnidad clase) {
+        this.vida=vida;
+        this.danioAereo=danioAereo;
+        this.danioTerrestre=danioTerrestre;
+        this.rangoDeAtaque=rangoDeAtaque;
+        this.vision=vision;
+        this.raza=raza;
+        this.terreno=terreno;
+        this.clase=clase;
     }
 
     public int getVida() {
@@ -42,7 +56,8 @@ public class Unidad {
     }
 
     private void recibirDanio(Unidad atacante) {
-        this.vida-=this.terreno.recibirDanio(atacante);
+        int danioParcial=this.terreno.recibirDanio(atacante);
+        this.vida-=this.raza.recibirDanio(danioParcial);
     }
 
     public void setTerreno(TerrenoDeUnidad terreno) {
@@ -57,11 +72,23 @@ public class Unidad {
         this.raza = raza;
     }
 
-    public RazaDeUnidad getRaza() {
-        return raza;
+    public void setClase(ClaseDeUnidad clase) {
+        this.clase = clase;
     }
 
- //   public getAtributoDeRaza() {
-   //     return raza.getAtributos();
-    //}
+    public RazaDeUnidad getRaza() {
+        return this.raza;
+    }
+
+    public Map<String, Integer> getAtributoDeRaza() {
+        return raza.getAtributos();
+    }
+
+    public int getAtributoDeRaza(String atributo) {
+        return raza.getAtributos().get(atributo);
+    }
+
+    public ClaseDeUnidad getClase() {
+        return clase;
+    }
 }
