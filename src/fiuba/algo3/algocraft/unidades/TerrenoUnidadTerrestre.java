@@ -1,6 +1,6 @@
 package fiuba.algo3.algocraft.unidades;
 
-public class TerrenoUnidadTerrestre implements TerrenoDeUnidad {
+public class TerrenoUnidadTerrestre extends TerrenoDeUnidad {
     public int recibirDanio(Unidad atacante) {
         return atacante.getDanioTerrestre();
     }
