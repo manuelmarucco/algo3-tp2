@@ -5,21 +5,19 @@ public class Unidad {
     private int danioAereo;
     private int danioTerrestre;
     private int rangoDeAtaque;
+    private int vision;
+    private TerrenoDeUnidad terreno;
 
-    public Unidad(int vida) {
+    public Unidad(int vida, int danioTerrestre, int danioAereo, int rangoDeAtaque, int vision) {
         this.vida=vida;
+        this.danioAereo=danioAereo;
+        this.danioTerrestre=danioTerrestre;
+        this.rangoDeAtaque=rangoDeAtaque;
+        this.vision=vision;
     }
 
     public int getVida() {
         return vida;
-    }
-
-    public void setDanioAereo(int danioAereo) {
-        this.danioAereo = danioAereo;
-    }
-
-    public void setDanioTerrestre(int danioTerrestre) {
-        this.danioTerrestre = danioTerrestre;
     }
 
     public int getDanioAereo() {
@@ -30,11 +28,27 @@ public class Unidad {
         return danioTerrestre;
     }
 
-    public void setRangoDeAtaque(int rangoDeAtaque) {
-        this.rangoDeAtaque = rangoDeAtaque;
-    }
-
     public int getRangoDeAtaque() {
         return rangoDeAtaque;
+    }
+
+    public int getVision() {
+        return vision;
+    }
+
+    public void atacar(Unidad marine2) {
+        marine2.recibirDanio(this);
+    }
+
+    private void recibirDanio(Unidad atacante) {
+        this.vida-=this.terreno.recibirDanio(atacante);
+    }
+
+    public void setTerreno(TerrenoDeUnidad terreno) {
+        this.terreno=terreno;
+    }
+
+    public TerrenoDeUnidad getTerreno() {
+        return terreno;
     }
 }
