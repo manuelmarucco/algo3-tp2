@@ -1,26 +1,26 @@
 package construccionesTerran_tests;
 
+
 import org.junit.Assert;
 import org.junit.Test;
 
+import construccionesTerran.CentroDeMineral;
 import construccionesTerran.ConstruccionTerran;
-import construccionesTerran.Refineria;
 
-public class Refineria_tests {
+public class CentroDeMineral_tests {
 
 	@Test
 	public void VidaInicializada() {
-		ConstruccionTerran r = new Refineria();
+		ConstruccionTerran r = new CentroDeMineral();
 		
 		Assert.assertEquals(150, r.getVida());
 	}
 	
 	@Test
 	public void recoletaGasVespeno() {
-		Refineria r = new Refineria();
+		CentroDeMineral r = new CentroDeMineral();
 		
-		Assert.assertEquals(10, r.getGasRecolectado());
+		Assert.assertNotEquals(0, r.getMineralRecolectado());
 	}
-
 
 }

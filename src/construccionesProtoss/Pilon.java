@@ -1,12 +1,12 @@
-package construccionesTerran;
+package construccionesProtoss;
 
-
-public class DepositoDeSuministros extends ConstruccionTerran{
+public class Pilon extends ConstruccionProtoss{
 	
 	private final int capacidadExtra = 5;
 	
-	public DepositoDeSuministros(){
+	public Pilon(){
 		vida = 200;
+		escudo = 50;
 	}
 	
 	public int getCapacidadExtra(){

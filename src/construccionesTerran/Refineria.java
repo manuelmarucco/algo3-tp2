@@ -2,7 +2,7 @@ package construccionesTerran;
 
 public class Refineria extends ConstruccionTerran {
 	
-	public final int gasRecolectado = 10; //por turno
+	private final int gasRecolectado = 10; //por turno
 	
 	public Refineria(){
 		vida = 150;
