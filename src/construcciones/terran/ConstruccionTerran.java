@@ -13,7 +13,7 @@ public abstract class ConstruccionTerran extends Construccion{
 	@Override
 	public void recibirDanio(int danioParcial){
 	        
-	        	vida = Math.max(vida-danioParcial,0);
+		vida = Math.max(vida-danioParcial,0);
 	        	
 	}
 

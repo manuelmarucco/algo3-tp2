@@ -1,14 +1,22 @@
 package tests_de_integracion;
 
-import static org.junit.Assert.*;
+import org.junit.Assert;
+import jugabilidad.Jugador;
 
 import org.junit.Test;
+
+import construcciones.terran.BaseTerran;
 
 public class validacionEnLaCreacionDeContruccionesTests {
 
 	@Test
-	public void test() {
-		fail("Not yet implemented");
+	public void construyoBarracaYSeGuardaEnConstruccionesCreadas() {
+		BaseTerran base = new BaseTerran();
+		Jugador jugador1 = new Jugador();
+		
+		jugador1.construir(base.construirBarraca());
+		
+		Assert.assertEquals((jugador1.buscarConstruccionCreada("barraca")).getNombre(), "barraca");
 	}
 
 }

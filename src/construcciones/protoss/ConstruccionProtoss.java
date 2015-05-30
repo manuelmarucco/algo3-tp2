@@ -20,6 +20,7 @@ public abstract class ConstruccionProtoss extends Construccion implements Recarg
 		return escudo;
 	}
 	
+	@Override
 	public void recibirDanio(int danioParcial){
 		 int danioALaVida= danioParcial-this.escudo;
 	        
