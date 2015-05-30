@@ -16,6 +16,13 @@ public class NexoMineral_tests {
 	}
 	
 	@Test
+	public void EscudoInicializado() {
+		ConstruccionProtoss a = new NexoMineral();
+		
+		Assert.assertEquals(50, a.getEscudo());
+	}
+	
+	@Test
 	public void recoletaGasVespeno() {
 		NexoMineral n = new NexoMineral();
 		

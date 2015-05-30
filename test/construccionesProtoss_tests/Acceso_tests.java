@@ -3,31 +3,23 @@ package construccionesProtoss_tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import construccionesProtoss.Asimilador;
+import construccionesProtoss.Acceso;
 import construccionesProtoss.ConstruccionProtoss;
 
-public class Asimilador_tests {
+public class Acceso_tests {
 
 	@Test
 	public void VidaInicializada() {
-		ConstruccionProtoss a = new Asimilador();
+		ConstruccionProtoss a = new Acceso();
 		
 		Assert.assertEquals(150, a.getVida());
 	}
-	
+
 	@Test
 	public void EscudoInicializado() {
-		ConstruccionProtoss a = new Asimilador();
+		ConstruccionProtoss a = new Acceso();
 		
 		Assert.assertEquals(50, a.getEscudo());
 	}
-	
-	@Test
-	public void recoletaGasVespeno() {
-		Asimilador a = new Asimilador();
-		
-		Assert.assertEquals(10, a.getGasRecolectado());
-	}
-
 
 }
