@@ -74,7 +74,7 @@ public class UnidadTest {
         ClaseDeUnidad mago = new UnidadMagica();
         terran.setRaza(terrans);
         terran.setClase(mago);
-        Assert.assertEquals(terran.getClase(),mago);
+        Assert.assertEquals(terran.getClase(), mago);
     }
 
     @Test
@@ -113,13 +113,13 @@ public class UnidadTest {
     }
 
     @Test
-    public void testAtacarUnidadTerrestreTerran(){
+    public void testAtacarUnidadTerrestreTerran(){//este esta mal
         RazaDeUnidad raza = new UnidadRazaTerran();
         TerrenoDeUnidad terreno = new TerrenoUnidadTerrestre();
         ClaseDeUnidad clase = new UnidadGerrera();
         Unidad terran1 = new Unidad(200,6,5,4,7,raza,terreno,clase);
         Unidad terran2 = new Unidad(200,6,5,4,7,raza,terreno,clase);
-        terran1.atacar(terran2);
+        terran1.actuar("atacar", terran2);
         Assert.assertEquals(terran2.getVida(), 194);
     }
 
@@ -130,7 +130,7 @@ public class UnidadTest {
         ClaseDeUnidad clase = new UnidadGerrera();
         Unidad terran1 = new Unidad(200,6,5,4,7,raza,terreno,clase);
         Unidad terran2 = new Unidad(200,6,5,4,7,raza,terreno,clase);
-        terran1.atacar(terran2);
+        terran1.actuar("atacar", terran2);
         Assert.assertEquals(terran2.getVida(), 195);
     }
 
@@ -141,7 +141,7 @@ public class UnidadTest {
         ClaseDeUnidad clase = new UnidadGerrera();
         Unidad proto1 = new Unidad(200,6,5,4,7,raza,terreno,clase);
         Unidad proto2 = new Unidad(200,6,5,4,7,raza,terreno,clase);
-        proto1.atacar(proto2);
+        proto1.actuar("atacar", proto2);
         Assert.assertEquals(proto2.getVida(), 200);
         Assert.assertEquals(proto2.getAtributoDeRaza().get("escudo").intValue(),4);
     }
@@ -153,7 +153,7 @@ public class UnidadTest {
         ClaseDeUnidad clase = new UnidadGerrera();
         Unidad proto1 = new Unidad(200,20,5,4,7,raza,terreno,clase);
         Unidad proto2 = new Unidad(200,6,5,4,7,raza,terreno,clase);
-        proto1.atacar(proto2);
+        proto1.actuar("atacar", proto2);
         Assert.assertEquals(proto2.getVida(), 190);
         Assert.assertEquals(proto2.getAtributoDeRaza().get("escudo").intValue(),0);
     }
@@ -165,7 +165,7 @@ public class UnidadTest {
         ClaseDeUnidad clase = new UnidadGerrera();
         Unidad proto1 = new Unidad(200,6,5,4,7,raza,terreno,clase);
         Unidad proto2 = new Unidad(200,6,5,4,7,raza,terreno,clase);
-        proto1.atacar(proto2);
+        proto1.actuar("atacar", proto2);
         Assert.assertEquals(proto2.getVida(), 200);
         Assert.assertEquals(proto2.getAtributoDeRaza().get("escudo").intValue(),5);
     }
@@ -177,7 +177,7 @@ public class UnidadTest {
         ClaseDeUnidad clase = new UnidadGerrera();
         Unidad proto1 = new Unidad(200,20,30,4,7,raza,terreno,clase);
         Unidad proto2 = new Unidad(200,6,5,4,7,raza,terreno,clase);
-        proto1.atacar(proto2);
+        proto1.actuar("atacar",proto2);
         Assert.assertEquals(proto2.getVida(), 180);
         Assert.assertEquals(proto2.getAtributoDeRaza().get("escudo").intValue(),0);
     }
