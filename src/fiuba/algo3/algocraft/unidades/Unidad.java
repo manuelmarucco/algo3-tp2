@@ -7,6 +7,7 @@ public class Unidad {
     private int rangoDeAtaque;
     private int vision;
     private TerrenoDeUnidad terreno;
+    private RazaDeUnidad raza;
 
     public Unidad(int vida, int danioTerrestre, int danioAereo, int rangoDeAtaque, int vision) {
         this.vida=vida;
@@ -51,4 +52,16 @@ public class Unidad {
     public TerrenoDeUnidad getTerreno() {
         return terreno;
     }
+
+    public void setRaza(RazaDeUnidad raza) {
+        this.raza = raza;
+    }
+
+    public RazaDeUnidad getRaza() {
+        return raza;
+    }
+
+ //   public getAtributoDeRaza() {
+   //     return raza.getAtributos();
+    //}
 }
