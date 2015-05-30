@@ -1,7 +1,11 @@
 package fiuba.algo3.algocraft.unidades;
 
+import fiuba.algo3.algocraft.comandos.AccionRegenerar;
+import fiuba.algo3.algocraft.comandos.AccionesDeRazaDeUnidad;
+
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Set;
 
 public class UnidadRazaProtos extends RazaDeUnidad {
     private int escudo;
@@ -10,9 +14,10 @@ public class UnidadRazaProtos extends RazaDeUnidad {
     public UnidadRazaProtos(int escudo, int regeneracion) {
         this.escudo=escudo;
         this.regeneracion=regeneracion;
+        this.acciones=new HashMap<String, AccionesDeRazaDeUnidad>();
+        this.acciones.put("regenerar",new AccionRegenerar());
     }
 
-    @Override
     public Map<String, Integer> getAtributos() {
         Map<String,Integer> atributos = new HashMap<String,Integer>();
         atributos.put("escudo",escudo);
@@ -20,12 +25,10 @@ public class UnidadRazaProtos extends RazaDeUnidad {
         return atributos;
     }
 
-    @Override
     public String nombre() {
         return "protos";
     }
 
-    @Override
     public int recibirDanio(int danioParcial) {
         int danioALaVida= danioParcial-this.escudo;
         this.escudo-=danioParcial;
@@ -35,4 +38,10 @@ public class UnidadRazaProtos extends RazaDeUnidad {
         }
         return 0;
     }
+
+    @Override
+    public Set<String> getAcciones() {
+        return this.acciones.keySet();
+    }
+
 }

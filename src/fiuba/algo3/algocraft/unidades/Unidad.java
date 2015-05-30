@@ -5,6 +5,7 @@ import java.util.Map;
 public class Unidad {
     private ClaseDeUnidad clase;
     private int vida;
+    private int vidaMaxima;
     private int danioAereo;
     private int danioTerrestre;
     private int rangoDeAtaque;
@@ -14,6 +15,7 @@ public class Unidad {
 
     public Unidad(int vida, int danioTerrestre, int danioAereo, int rangoDeAtaque, int vision) {
         this.vida=vida;
+        this.vidaMaxima=vida;
         this.danioAereo=danioAereo;
         this.danioTerrestre=danioTerrestre;
         this.rangoDeAtaque=rangoDeAtaque;
@@ -22,6 +24,7 @@ public class Unidad {
 
     public Unidad(int vida, int danioTerrestre, int danioAereo, int rangoDeAtaque, int vision, RazaDeUnidad raza, TerrenoDeUnidad terreno, ClaseDeUnidad clase) {
         this.vida=vida;
+        this.vidaMaxima=vida;
         this.danioAereo=danioAereo;
         this.danioTerrestre=danioTerrestre;
         this.rangoDeAtaque=rangoDeAtaque;
@@ -51,11 +54,7 @@ public class Unidad {
         return vision;
     }
 
-    public void atacar(Unidad marine2) {
-        marine2.recibirDanio(this);
-    }
-
-    private void recibirDanio(Unidad atacante) {
+    public void recibirDanio(Unidad atacante) {
         int danioParcial=this.terreno.recibirDanio(atacante);
         this.vida-=this.raza.recibirDanio(danioParcial);
     }
@@ -90,5 +89,9 @@ public class Unidad {
 
     public ClaseDeUnidad getClase() {
         return clase;
+    }
+
+    public void actuar(String accion, Unidad objetivo) {
+        this.clase.actuar(accion,objetivo,this);
     }
 }
