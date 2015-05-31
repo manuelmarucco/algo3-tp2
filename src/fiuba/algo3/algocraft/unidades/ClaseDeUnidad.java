@@ -1,5 +1,6 @@
 package fiuba.algo3.algocraft.unidades;
 
+import fiuba.algo3.algocraft.comandos.Accion;
 import fiuba.algo3.algocraft.comandos.AccionesDeClasedeUnidad;
 
 import java.util.HashMap;

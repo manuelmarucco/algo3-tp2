@@ -1,5 +1,7 @@
 package fiuba.algo3.algocraft.unidades;
 
+import fiuba.algo3.algocraft.comandos.Accion;
+
 public class Unidad {
     private Danio danio;
     private ClaseDeUnidad clase;
