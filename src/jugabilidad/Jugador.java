@@ -10,7 +10,8 @@ import excepciones.ExcepcionNecesitaConstruirFabrica;
 import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
 
 public class Jugador {
-
+	
+	private 
 	private ArrayList<Construccion> construccionesCreadas = new ArrayList<Construccion>();
 
 	public void construir(Construccion construccion){

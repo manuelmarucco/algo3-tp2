@@ -33,6 +33,16 @@ public class validacionEnLaCreacionDeContruccionesTests {
 	}
 	
 	@Test
+	public void TrataDeConstruirFabricaPeroSinBarracaAntesNoSeConstruye() {
+		Jugador jugador1 = new Jugador();
+		BaseTerran base = new BaseTerran();
+
+		jugador1.construir(base.construirFabrica());
+		
+		Assert.assertEquals(jugador1.buscarConstruccionCreada("Fabrica"), null);
+	}
+	
+	@Test
 	public void PuedeConstruirPuertoEstelar() {
 		Jugador jugador1 = new Jugador();
 		BaseTerran base = new BaseTerran();
@@ -42,6 +52,16 @@ public class validacionEnLaCreacionDeContruccionesTests {
 		jugador1.construir(base.construirPuertoEstelar());
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("PuertoEstelar").getNombre(), "PuertoEstelar");
+	}
+	
+	@Test
+	public void TrataDeConstruirPuertoEstelarPeroSinFabricaAntesNoSeConstruye() {
+		Jugador jugador1 = new Jugador();
+		BaseTerran base = new BaseTerran();
+
+		jugador1.construir(base.construirPuertoEstelar());
+		
+		Assert.assertEquals(jugador1.buscarConstruccionCreada("PuertoEstelar"), null);
 	}
 	
 	@Test
@@ -56,6 +76,17 @@ public class validacionEnLaCreacionDeContruccionesTests {
 	}
 	
 	@Test
+	public void TrataDeConstruirPortalEstelarPeroSinAccesoAntesNoSeConstruye() {
+		Jugador jugador1 = new Jugador();
+		BaseProtoss base = new BaseProtoss();
+
+		jugador1.construir(base.construirPortalEstelar());
+		
+		Assert.assertEquals(jugador1.buscarConstruccionCreada("PortalEstelar"), null);
+	}
+	
+	
+	@Test
 	public void PuedeConstruirArchivosTemplarios() {
 		Jugador jugador1 = new Jugador();
 		BaseProtoss base = new BaseProtoss();
@@ -66,5 +97,16 @@ public class validacionEnLaCreacionDeContruccionesTests {
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("ArchivosTemplarios").getNombre(), "ArchivosTemplarios");
 	}
+	
+	@Test
+	public void TrataDeConstruirArchivosTemplariosPeroSinPortalEstelarAntesNoSeConstruye() {
+		Jugador jugador1 = new Jugador();
+		BaseProtoss base = new BaseProtoss();
+
+		jugador1.construir(base.construirArchivosTemplarios());
+		
+		Assert.assertEquals(jugador1.buscarConstruccionCreada("ArchivosTemplarios"), null);
+	}
+	
 	
 }

@@ -1,14 +1,13 @@
 package construcciones.protoss;
 
 import construcciones.Construccion;
-import interfaces.Recargable;
 
-public abstract class ConstruccionProtoss extends Construccion implements Recargable{
+public abstract class ConstruccionProtoss extends Construccion{
 	
 	protected int vida;
 	protected int escudo;
 	
-	public void recargarEscudo(){	//llamar a este metodo una vez por turno
+	public void regenerar(){	//llamar a este metodo una vez por turno
 		escudo = escudo + 3;
 	}
 	
