@@ -4,6 +4,7 @@ import fiuba.algo3.algocraft.comandos.Accion;
 import fiuba.algo3.algocraft.comandos.AccionDeClase;
 
 import java.util.HashMap;
+import java.util.Set;
 
 public abstract class ClaseDeUnidad {
     public HashMap<Accion, AccionDeClase> accion;
@@ -18,5 +19,9 @@ public abstract class ClaseDeUnidad {
 
     public void actuar(Accion accion, Unidad objetivo) {
         this.accion.get(accion).actuar(objetivo);
+    }
+
+    public Set<Accion> getAcciones() {
+        return this.accion.keySet();
     }
 }
