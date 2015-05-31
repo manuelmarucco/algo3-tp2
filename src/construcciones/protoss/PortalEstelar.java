@@ -1,5 +1,7 @@
 package construcciones.protoss;
 
+import fiuba.algo3.algocraft.unidades.VidaEscudo;
+
 
 public class PortalEstelar extends ConstruccionProtoss{
 	
@@ -7,8 +9,7 @@ public class PortalEstelar extends ConstruccionProtoss{
 	
 			public PortalEstelar(){
 				nombre = "PortalEstelar";
-				vida = 150;
-				escudo = 50;
+				vidaEscudo = new VidaEscudo(150,50);
 			}
 		
 }

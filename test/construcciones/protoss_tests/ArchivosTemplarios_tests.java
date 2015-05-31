@@ -19,7 +19,7 @@ public class ArchivosTemplarios_tests {
 	public void EscudoInicializado() {
 		ArchivosTemplarios f = new ArchivosTemplarios();
 		
-		Assert.assertEquals(150, f.getVida());
+		Assert.assertEquals(50, f.getEscudo());
 	}
 
 }

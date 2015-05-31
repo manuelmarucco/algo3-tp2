@@ -1,5 +1,6 @@
 package construcciones.terran;
 
+import auxiliares.Costo;
 import construcciones.Construccion;
 import fiuba.algo3.algocraft.unidades.Vida;
 
@@ -7,6 +8,7 @@ public class BaseTerran extends ConstruccionTerran{
 	
 	public BaseTerran() {
 		vida = new Vida(500);
+		costo = new Costo(400,0);
 	}
 	
 	public Barraca construirBarraca(){

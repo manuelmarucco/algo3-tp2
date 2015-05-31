@@ -7,8 +7,8 @@ public abstract class ConstruccionTerran extends Construccion{
 
 	protected Vida vida;
 	
-	public Vida getVida(){
-		return vida;
+	public int getVida(){
+		return vida.getVidaActual();
 	}
 	
 	@Override

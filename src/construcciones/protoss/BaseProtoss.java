@@ -1,10 +1,11 @@
 package construcciones.protoss;
 
+import fiuba.algo3.algocraft.unidades.VidaEscudo;
+
 public class BaseProtoss extends ConstruccionProtoss{
 	public BaseProtoss() {
 		nombre = "BaseProtoss";
-		vida = 400;
-		escudo = 50;
+		vidaEscudo = new VidaEscudo(400,50);
 	}
 	
 	public Acceso construirAcceso(){

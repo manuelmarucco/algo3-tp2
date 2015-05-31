@@ -1,33 +1,23 @@
 package construcciones.protoss;
 
 import construcciones.Construccion;
+import fiuba.algo3.algocraft.unidades.VidaEscudo;
 
 public abstract class ConstruccionProtoss extends Construccion{
 	
-	protected int vida;
-	protected int escudo;
-	
-	public void regenerar(){	//llamar a este metodo una vez por turno
-		escudo = escudo + 3;
-	}
+	protected  VidaEscudo vidaEscudo;
 	
 	public int getVida() {
-		return vida;
+		return vidaEscudo.getVidaActual();
 	}
 	
 	public int getEscudo() {
-		return escudo;
+		return vidaEscudo.getEscudoActual();
 	}
 	
 	@Override
 	public void recibirDanio(int danioParcial){
-		 int danioALaVida= danioParcial-this.escudo;
-	        
-	        if (danioALaVida>0){
-	            escudo=0;
-	            vida -= danioALaVida; 
-	        }else
-	        	escudo-=danioParcial;
+		 vidaEscudo.quitar(danioParcial);
 	}
 	
 }

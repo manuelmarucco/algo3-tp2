@@ -11,7 +11,8 @@ import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
 
 public class Jugador {
 	
-	private 
+	private int mineralesRecolectados;
+	private int gasVespenoRecolectado;
 	private ArrayList<Construccion> construccionesCreadas = new ArrayList<Construccion>();
 
 	public void construir(Construccion construccion){

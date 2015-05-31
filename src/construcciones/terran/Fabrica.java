@@ -1,5 +1,8 @@
 package construcciones.terran;
 
+import fiuba.algo3.algocraft.unidades.Vida;
+import auxiliares.Costo;
+
 
 public class Fabrica extends ConstruccionTerran{
 	
@@ -7,7 +10,8 @@ public class Fabrica extends ConstruccionTerran{
 	
 	public Fabrica(){
 		nombre = "Fabrica";
-		vida = 250;
+		vida = new Vida(200);
+		costo = new Costo(150,100);
 	}
 	
 }

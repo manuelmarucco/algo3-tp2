@@ -3,7 +3,6 @@ package fiuba.algo3.algocraft.unidades;
 public class Vida {
     private int vidaTotal;
     private int vidaActual;
-    private int escudo;
 
     public Vida(int total) {
         this.vidaTotal = this.vidaActual = total;
@@ -11,6 +10,10 @@ public class Vida {
 
     public int getVidaActual() {
         return vidaActual;
+    }
+    
+    public int getVidaTotal() {
+        return vidaTotal;
     }
 
     public void regenerar() {}

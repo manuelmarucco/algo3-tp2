@@ -1,5 +1,7 @@
 package construcciones.terran;
 
+import fiuba.algo3.algocraft.unidades.Vida;
+
 
 public class PuertoEstelar extends ConstruccionTerran{
 
@@ -7,7 +9,7 @@ public class PuertoEstelar extends ConstruccionTerran{
 	
 		public PuertoEstelar(){
 			nombre = "PuertoEstelar";
-			vida = 250;
+			vida = new Vida(250);
 		}
 	
 }

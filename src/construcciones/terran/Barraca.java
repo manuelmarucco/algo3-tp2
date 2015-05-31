@@ -1,19 +1,22 @@
 package construcciones.terran;
 
+import auxiliares.Costo;
 import fiuba.algo3.algocraft.unidades.*;
 
 public class Barraca extends ConstruccionTerran {
 
 	public Barraca() {
 
-		this.vida=new Vida(250);
-		this.regenerar=new NoRegenerar();
+		this.vida = new Vida(250);
+		//this.regenerar = new NoRegenerar();
 		nombre = "Barraca";
+		costo = new Costo(150,0);
 	}
-
+	/*
 	public void update(){
 		this.regenerar.regenerar(this);
 	}
+	*/
 	public Unidad crearMarine() {
 		Ubicacion terreno = new Terrestre();
 		ClaseDeUnidad clase = new UnidadGuerrera(new Danio(6,6, 4));
