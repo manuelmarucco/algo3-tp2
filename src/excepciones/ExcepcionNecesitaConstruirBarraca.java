@@ -1,4 +1,4 @@
 package excepciones;
 
 @SuppressWarnings("serial")
-public class ExcepcionNecesitaConstruirBarraca extends Exception{}
+public class ExcepcionNecesitaConstruirBarraca extends ExcepcionNecesitaCrearOtraConstruccionPrevia{}

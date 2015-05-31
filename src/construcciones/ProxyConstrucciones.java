@@ -6,16 +6,14 @@ import excepciones.ExcepcionNecesitaConstruirAcceso;
 import excepciones.ExcepcionNecesitaConstruirBarraca;
 import excepciones.ExcepcionNecesitaConstruirFabrica;
 import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
+import excepciones.ExcepcionNecesitaCrearOtraConstruccionPrevia;
 
 public class ProxyConstrucciones {
 	
 	//HABRIA QUE BUSCAR UNA MANERA MEJOR DE RESOLVER ESTO, POR AHORA ES PARA Q PASE
 	
 	public void esConstruible(Construccion construccion, ArrayList<Construccion> construccionesCreadas) 
-					throws 	ExcepcionNecesitaConstruirBarraca, 
-							ExcepcionNecesitaConstruirAcceso, 
-							ExcepcionNecesitaConstruirFabrica, 
-							ExcepcionNecesitaConstruirPortalEstelar
+					throws 	ExcepcionNecesitaCrearOtraConstruccionPrevia
 	{
 		if(construccion.getNombre() == "Fabrica"){
 			this.fabricaEsConstruible(construccionesCreadas);
