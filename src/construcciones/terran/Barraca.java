@@ -1,6 +1,8 @@
 package construcciones.terran;
 
 import auxiliares.Costo;
+import auxiliares.Recursos;
+import excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.unidades.*;
 
 public class Barraca extends ConstruccionTerran {
@@ -17,6 +19,7 @@ public class Barraca extends ConstruccionTerran {
 	}
 	*/
 	public Unidad crearMarine() {
+		
 		Ubicacion terreno = new Terrestre();
 		ClaseDeUnidad clase = new UnidadGuerrera(new Danio(6,6, 4));
 		Unidad marine = new Unidad(new Vida(40), 7, terreno, clase,new Costo(10,10));
