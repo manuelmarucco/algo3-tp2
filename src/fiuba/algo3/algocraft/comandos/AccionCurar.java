@@ -3,9 +3,15 @@ package fiuba.algo3.algocraft.comandos;
 import fiuba.algo3.algocraft.unidades.Unidad;
 
 public class AccionCurar extends AccionDeClase {
+
+    private final int cantidad;
+
+    public AccionCurar(int cantidad) {
+        super();
+        this.cantidad = cantidad;
+    }
     @Override
-    public void actuar(Unidad objetivo, Unidad actor) {
-        // TODO: Ver como le saco a actor la cantidad a regenerar al objetivo.
-        objetivo.getVida().regenerar(0);
+    public void actuar(Unidad objetivo) {
+        objetivo.getVida().regenerar(cantidad);
     }
 }

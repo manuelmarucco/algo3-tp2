@@ -3,7 +3,6 @@ package fiuba.algo3.algocraft.unidades;
 import fiuba.algo3.algocraft.comandos.Accion;
 
 public class Unidad {
-    private Danio danio;
     private ClaseDeUnidad clase;
     private Vida vida;
     private int vision;
@@ -15,12 +14,11 @@ public class Unidad {
         this.vision=vision;
     }
 
-    public Unidad(Vida vida, Danio danio, int vision, Ubicacion ubicacion, ClaseDeUnidad clase) {
-        this(vida, danio, vision, ubicacion, clase, new NoRegenerar());
+    public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase) {
+        this(vida, vision, ubicacion, clase, new NoRegenerar());
     }
-    public Unidad(Vida vida, Danio danio, int vision, Ubicacion ubicacion, ClaseDeUnidad clase, Regenerable regenerar) {
+    public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase, Regenerable regenerar) {
         this.vida=vida;
-        this.danio = danio;
         this.vision=vision;
         this.regenerar=regenerar;
         this.ubicacion =ubicacion;
@@ -31,16 +29,12 @@ public class Unidad {
         return vida;
     }
 
-    public Danio getDanio() {
-        return danio;
-    }
-
     public int getVision() {
         return vision;
     }
 
-    public void recibirDanio(Unidad atacante) {
-        this.vida.quitar(this.ubicacion.danioDe(atacante.getDanio()));
+    public void recibirDanio(Danio danio) {
+        this.vida.quitar(this.ubicacion.danioDe(danio));
     }
     public Ubicacion getUbicacion() {
         return ubicacion;
@@ -51,6 +45,6 @@ public class Unidad {
     }
 
     public void actuar(Accion accion, Unidad objetivo) {
-        this.clase.actuar(accion,objetivo,this);
+        this.clase.actuar(accion, objetivo);
     }
 }

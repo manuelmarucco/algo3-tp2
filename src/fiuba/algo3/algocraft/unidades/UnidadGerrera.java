@@ -5,8 +5,8 @@ import fiuba.algo3.algocraft.comandos.AccionAtacar;
 
 public class UnidadGerrera extends ClaseDeUnidad {
 
-    public UnidadGerrera(){
+    public UnidadGerrera(Danio danio) {
         super();
-        this.accion.put(Accion.ATACAR, new AccionAtacar());
+        this.accion.put(Accion.ATACAR, new AccionAtacar(danio));
     }
 }

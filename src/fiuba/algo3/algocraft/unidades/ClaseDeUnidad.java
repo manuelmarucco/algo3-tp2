@@ -16,7 +16,7 @@ public abstract class ClaseDeUnidad {
         this.accion.put(nombre, accion);
     }
 
-    public void actuar(Accion accion, Unidad objetivo, Unidad actor) {
-        this.accion.get(accion).actuar(objetivo, actor);
+    public void actuar(Accion accion, Unidad objetivo) {
+        this.accion.get(accion).actuar(objetivo);
     }
 }
