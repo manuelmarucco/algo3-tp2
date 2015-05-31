@@ -1,6 +1,9 @@
 package fiuba.algo3.algocraft.unidades;
 
 import fiuba.algo3.algocraft.comandos.Accion;
+import interfaces.Actuable;
+
+import java.util.HashMap;
 
 public class Unidad implements Regenerable {
     private ClaseDeUnidad clase;
@@ -8,6 +11,7 @@ public class Unidad implements Regenerable {
     private int vision;
     private Ubicacion ubicacion;
     private Regeneracion regenerar;
+    private HashMap<Accion, Actuable> poolDeAcciones;
 
     public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase) {
         this(vida, vision, ubicacion, clase, new NoRegenerar());

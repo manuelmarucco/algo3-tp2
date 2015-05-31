@@ -2,8 +2,9 @@ package fiuba.algo3.algocraft.comandos;
 
 import fiuba.algo3.algocraft.unidades.Danio;
 import fiuba.algo3.algocraft.unidades.Unidad;
+import interfaces.Actuable;
 
-public class AccionAtacar extends AccionDeClase {
+public class AccionAtacar implements Actuable  {
 
     private final Danio danio;
 

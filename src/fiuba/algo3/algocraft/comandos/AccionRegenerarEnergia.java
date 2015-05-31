@@ -2,8 +2,9 @@ package fiuba.algo3.algocraft.comandos;
 
 import fiuba.algo3.algocraft.unidades.Energia;
 import fiuba.algo3.algocraft.unidades.Unidad;
+import interfaces.Actuable;
 
-public class AccionRegenerarEnergia extends AccionDeClase {
+public class AccionRegenerarEnergia implements Actuable {
     private final Energia energia;
 
     public AccionRegenerarEnergia(Energia energia) {
