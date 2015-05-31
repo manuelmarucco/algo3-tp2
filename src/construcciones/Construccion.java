@@ -1,6 +1,5 @@
 package construcciones;
 
-import fiuba.algo3.algocraft.comandos.AccionDeClase;
 import auxiliares.Costo;
 
 

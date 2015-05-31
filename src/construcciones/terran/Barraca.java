@@ -8,7 +8,6 @@ public class Barraca extends ConstruccionTerran {
 	public Barraca() {
 
 		this.vida = new Vida(250);
-		//this.regenerar = new NoRegenerar();
 		nombre = "Barraca";
 		costo = new Costo(150,0);
 	}
@@ -20,7 +19,7 @@ public class Barraca extends ConstruccionTerran {
 	public Unidad crearMarine() {
 		Ubicacion terreno = new Terrestre();
 		ClaseDeUnidad clase = new UnidadGuerrera(new Danio(6,6, 4));
-		Unidad marine = new Unidad(new Vida(40), 7, terreno, clase);
+		Unidad marine = new Unidad(new Vida(40), 7, terreno, clase,new Costo(10,10));
 		
 		return marine;
 		

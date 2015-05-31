@@ -20,6 +20,7 @@ public class Unidad implements Regenerable {
         this.ubicacion =ubicacion;
         this.clase=clase;
         this.costo=costo;
+        this.poolDeAcciones=new HashMap<Accion, Actuable>();
     }
 
     public Vida getVida() {
