@@ -9,11 +9,6 @@ public class Unidad implements Regenerable {
     private Ubicacion ubicacion;
     private Regeneracion regenerar;
 
-    public Unidad(Vida vida, int vision) {
-        this.vida=vida;
-        this.vision=vision;
-    }
-
     public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase) {
         this(vida, vision, ubicacion, clase, new NoRegenerar());
     }
