@@ -18,5 +18,9 @@ public abstract class Construccion{
 	public String getNombre() {
 		return nombre;
 	}
+
+	public Costo getCosto() {
+		return costo;
+	}
 	
 }
