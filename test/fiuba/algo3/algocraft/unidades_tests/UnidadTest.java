@@ -31,7 +31,7 @@ public class UnidadTest {
 
     @Test
     public void testNuevaUnidadTerranMagica(){
-        Unidad terran = new Unidad(new Vida(200), 7, new Terrestre(), new UnidadMagica(100,15,1));
+        Unidad terran = new Unidad(new Vida(200), 7, new Terrestre(), new UnidadMagica(new Energia(100,15,1)));
         Assert.assertEquals(UnidadMagica.class, terran.getClase().getClass());
     }
 
