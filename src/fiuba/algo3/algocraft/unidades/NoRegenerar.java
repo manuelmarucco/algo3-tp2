@@ -1,7 +1,7 @@
 package fiuba.algo3.algocraft.unidades;
 
-public class NoRegenerar implements Regenerable {
+public class NoRegenerar extends Regeneracion {
     @Override
-    public void regenerar(Unidad unidad) {
+    public void regenerar(Regenerable unidad) {
     }
 }

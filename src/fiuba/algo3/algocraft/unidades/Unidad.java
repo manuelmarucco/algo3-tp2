@@ -2,12 +2,12 @@ package fiuba.algo3.algocraft.unidades;
 
 import fiuba.algo3.algocraft.comandos.Accion;
 
-public class Unidad {
+public class Unidad implements Regenerable {
     private ClaseDeUnidad clase;
     private Vida vida;
     private int vision;
     private Ubicacion ubicacion;
-    private Regenerable regenerar;
+    private Regeneracion regenerar;
 
     public Unidad(Vida vida, int vision) {
         this.vida=vida;
@@ -17,7 +17,7 @@ public class Unidad {
     public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase) {
         this(vida, vision, ubicacion, clase, new NoRegenerar());
     }
-    public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase, Regenerable regenerar) {
+    public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase, Regeneracion regenerar) {
         this.vida=vida;
         this.vision=vision;
         this.regenerar=regenerar;
@@ -27,6 +27,10 @@ public class Unidad {
 
     public Vida getVida() {
         return vida;
+    }
+
+    public void update(){
+        this.regenerar.regenerar(this);
     }
 
     public int getVision() {

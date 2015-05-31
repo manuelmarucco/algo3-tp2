@@ -10,7 +10,7 @@ public abstract class ClaseDeUnidad {
     public HashMap<Accion, AccionDeClase> accion;
 
     public ClaseDeUnidad() {
-        this.accion = new HashMap<>();
+        this.accion = new HashMap();
     }
 
     public void setAccion(Accion nombre, AccionDeClase accion) {

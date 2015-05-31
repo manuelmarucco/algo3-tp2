@@ -1,19 +1,20 @@
 package construcciones.terran;
 
 import construcciones.Construccion;
+import fiuba.algo3.algocraft.unidades.Vida;
 
 public abstract class ConstruccionTerran extends Construccion{
 
-	protected int vida;
+	protected Vida vida;
 	
-	public int getVida(){
+	public Vida getVida(){
 		return vida;
 	}
 	
 	@Override
 	public void recibirDanio(int danioParcial){
 	        
-		vida = Math.max(vida-danioParcial,0);
+		vida.quitar(danioParcial);
 	        	
 	}
 

@@ -5,11 +5,15 @@ import fiuba.algo3.algocraft.unidades.*;
 public class Barraca extends ConstruccionTerran {
 
 	public Barraca() {
-		
+
+		this.vida=new Vida(250);
+		this.regenerar=new NoRegenerar();
 		nombre = "Barraca";
-		vida = 250;
 	}
 
+	public void update(){
+		this.regenerar.regenerar(this);
+	}
 	public Unidad crearMarine() {
 		Ubicacion terreno = new Terrestre();
 		ClaseDeUnidad clase = new UnidadGuerrera(new Danio(6,6, 4));
