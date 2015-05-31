@@ -1,16 +1,19 @@
 package construcciones.terran;
 
-import construcciones.Construccion;
-
 public class BaseTerran extends ConstruccionTerran{
 	
 	public BaseTerran() {
 		vida = 500;
 	}
 	
-	public Construccion construirBarraca(){
+	public Barraca construirBarraca(){
 		Barraca barraca = new Barraca();
 		return barraca;
+	}
+	
+	public Fabrica construirFabrica(){
+		Fabrica fabrica = new Fabrica();
+		return fabrica;
 	}
 	
 }

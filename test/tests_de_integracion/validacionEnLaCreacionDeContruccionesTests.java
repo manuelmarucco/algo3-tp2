@@ -16,7 +16,7 @@ public class validacionEnLaCreacionDeContruccionesTests {
 		
 		jugador1.construir(base.construirBarraca());
 		
-		Assert.assertEquals((jugador1.buscarConstruccionCreada("barraca")).getNombre(), "barraca");
+		Assert.assertEquals((jugador1.buscarConstruccionCreada("Barraca")).getNombre(), "Barraca");
 	}
 
 }

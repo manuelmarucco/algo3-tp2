@@ -12,7 +12,7 @@ public class Barraca extends ConstruccionTerran {
 
 	public Barraca() {
 		
-		nombre = "barraca";
+		nombre = "Barraca";
 		vida = 250;
 	}
 

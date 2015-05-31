@@ -2,7 +2,7 @@ package construcciones;
 
 public abstract class Construccion {
 	
-	protected String nombre;
+	protected static String nombre;
 	
 	public abstract void recibirDanio(int danioParcial);
 
