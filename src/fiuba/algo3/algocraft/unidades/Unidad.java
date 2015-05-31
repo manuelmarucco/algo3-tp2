@@ -9,14 +9,10 @@ public class Unidad implements Regenerable {
     private Ubicacion ubicacion;
     private Regeneracion regenerar;
 
-    public Unidad(Vida vida, int vision) {
-        this.vida=vida;
-        this.vision=vision;
-    }
-
     public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase) {
         this(vida, vision, ubicacion, clase, new NoRegenerar());
     }
+
     public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase, Regeneracion regenerar) {
         this.vida=vida;
         this.vision=vision;
@@ -40,6 +36,7 @@ public class Unidad implements Regenerable {
     public void recibirDanio(Danio danio) {
         this.vida.quitar(this.ubicacion.danioDe(danio));
     }
+
     public Ubicacion getUbicacion() {
         return ubicacion;
     }

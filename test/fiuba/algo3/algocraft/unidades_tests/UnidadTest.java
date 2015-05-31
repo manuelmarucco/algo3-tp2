@@ -31,7 +31,7 @@ public class UnidadTest {
 
     @Test
     public void testNuevaUnidadTerranMagica(){
-        Unidad terran = new Unidad(new Vida(200), 7, new Terrestre(), new UnidadMagica());
+        Unidad terran = new Unidad(new Vida(200), 7, new Terrestre(), new UnidadMagica(new Energia(100,15,1)));
         Assert.assertEquals(UnidadMagica.class, terran.getClase().getClass());
     }
 
@@ -82,8 +82,33 @@ public class UnidadTest {
     public void testAtacarUnidadAereaProtosConEscudoRoto(){
         Unidad proto1 =  new Unidad(new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGuerrera(new Danio(20, 30, 4)));
         Unidad proto2 =  new Unidad(new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGuerrera(new Danio(6, 5, 4)));
-        proto1.actuar(Accion.ATACAR,proto2);
+        proto1.actuar(Accion.ATACAR, proto2);
         Assert.assertEquals(180, proto2.getVida().getVidaActual());
         Assert.assertEquals(0, ((VidaEscudo) proto2.getVida()).getEscudoActual());
     }
+
+    @Test
+    public void testRegeneracionDeEscudo(){
+        Unidad proto1 =  new Unidad(new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGuerrera(new Danio(20, 30, 4)));
+        Unidad proto2 =  new Unidad(new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGuerrera(new Danio(6, 5, 4)));
+        proto1.actuar(Accion.ATACAR, proto2);
+        proto2.update();
+        Assert.assertEquals(200,((VidaEscudo) proto2.getVida()).getEscudoActual());
+    }
+
+    @Test
+    public void testTerranNoRegeneraVida(){
+        Unidad terran1 = new Unidad(new Vida(200),7,new Aereo(),new UnidadGuerrera(new Danio (20,30,4)));
+        Unidad terran2 = new Unidad(new Vida(200),7,new Aereo(),new UnidadGuerrera(new Danio (20,30,4)));
+        terran1.actuar(Accion.ATACAR,terran2);
+        terran2.update();
+        Assert.assertEquals(170,terran2.getVida().getVidaActual());
+    }
+
+    @Test
+    public void testUnidadAereaEsAerea(){
+        Unidad terran1 = new Unidad(new Vida(200),7,new Aereo(),new UnidadGuerrera(new Danio (20,30,4)));
+        Assert.assertEquals(Aereo.class,terran1.getUbicacion().getClass());
+    }
+
 }
