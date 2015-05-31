@@ -1,32 +1,39 @@
 package fiuba.algo3.algocraft.unidades;
 
+import auxiliares.Costo;
 import fiuba.algo3.algocraft.comandos.Accion;
+import interfaces.Actuable;
+
+import java.util.HashMap;
 
 public class Unidad implements Regenerable {
     private ClaseDeUnidad clase;
     private Vida vida;
     private int vision;
     private Ubicacion ubicacion;
-    private Regeneracion regenerar;
+    private HashMap<Accion, Actuable> poolDeAcciones;
+    private Costo costo;
 
-    public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase) {
-        this(vida, vision, ubicacion, clase, new NoRegenerar());
-    }
-
-    public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase, Regeneracion regenerar) {
+    public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase , Costo costo) {
         this.vida=vida;
         this.vision=vision;
-        this.regenerar=regenerar;
         this.ubicacion =ubicacion;
         this.clase=clase;
+        this.costo=costo;
     }
 
     public Vida getVida() {
         return vida;
     }
 
+    public Costo getCosto(){
+        return costo;
+    }
+
     public void update(){
-        this.regenerar.regenerar(this);
+        for(Accion a: this.poolDeAcciones.keySet()){
+            poolDeAcciones.get(a).actuar(this);
+        }
     }
 
     public int getVision() {
@@ -47,5 +54,9 @@ public class Unidad implements Regenerable {
 
     public void actuar(Accion accion, Unidad objetivo) {
         this.clase.actuar(accion, objetivo);
+    }
+
+    public void agregarAccion(Accion nombre,Actuable accion){
+        poolDeAcciones.put(nombre,accion);
     }
 }

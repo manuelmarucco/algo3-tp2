@@ -1,8 +1,9 @@
 package fiuba.algo3.algocraft.comandos;
 
 import fiuba.algo3.algocraft.unidades.Unidad;
+import interfaces.Actuable;
 
-public class AccionCurar extends AccionDeClase {
+public class AccionCurar implements Actuable {
 
     private final int cantidad;
 

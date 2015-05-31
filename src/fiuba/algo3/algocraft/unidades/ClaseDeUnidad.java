@@ -1,19 +1,19 @@
 package fiuba.algo3.algocraft.unidades;
 
 import fiuba.algo3.algocraft.comandos.Accion;
-import fiuba.algo3.algocraft.comandos.AccionDeClase;
+import interfaces.Actuable;
 
 import java.util.HashMap;
 import java.util.Set;
 
 public abstract class ClaseDeUnidad {
-    public HashMap<Accion, AccionDeClase> accion;
+    public HashMap<Accion, Actuable> accion;
 
     public ClaseDeUnidad() {
         this.accion = new HashMap();
     }
 
-    public void setAccion(Accion nombre, AccionDeClase accion) {
+    public void setAccion(Accion nombre, Actuable accion) {
         this.accion.put(nombre, accion);
     }
 

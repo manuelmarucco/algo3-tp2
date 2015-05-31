@@ -1,12 +1,7 @@
 package construcciones;
 
-import fiuba.algo3.algocraft.comandos.Accion;
 import fiuba.algo3.algocraft.comandos.AccionDeClase;
-import fiuba.algo3.algocraft.unidades.Regenerable;
-import fiuba.algo3.algocraft.unidades.Regeneracion;
 import auxiliares.Costo;
-
-import java.util.HashMap;
 
 
 public abstract class Construccion{
