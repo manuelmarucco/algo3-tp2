@@ -2,6 +2,6 @@ package interfaces;
 
 public interface ColocableEnMapa {
 
-	//public Mapa agregarse(Mapa mapa);
+	void agregarse(Mapa mapa, Coordenadas coordenadas);
 	
 }
