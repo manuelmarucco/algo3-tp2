@@ -12,6 +12,10 @@ public abstract class ClaseDeUnidad {
         this.accion = new HashMap<>();
     }
 
+    public void setAccion(Accion nombre, AccionDeClase accion) {
+        this.accion.put(nombre, accion);
+    }
+
     public void actuar(Accion accion, Unidad objetivo, Unidad actor) {
         this.accion.get(accion).actuar(objetivo, actor);
     }
