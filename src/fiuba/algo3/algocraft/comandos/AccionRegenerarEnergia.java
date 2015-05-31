@@ -16,4 +16,5 @@ public class AccionRegenerarEnergia implements Actuable {
     public void actuar(Unidad objetivo) {
         this.energia.regenerar();
     }
+
 }
