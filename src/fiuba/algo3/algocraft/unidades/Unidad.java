@@ -1,53 +1,36 @@
 package fiuba.algo3.algocraft.unidades;
 
-import java.util.Map;
-
 public class Unidad {
+    private Danio danio;
     private ClaseDeUnidad clase;
-    private int vida;
-    private int vidaMaxima;
-    private int danioAereo;
-    private int danioTerrestre;
-    private int rangoDeAtaque;
+    private Vida vida;
     private int vision;
-    private TerrenoDeUnidad terreno;
-    private RazaDeUnidad raza;
+    private Ubicacion ubicacion;
+    private Regenerable regenerar;
 
-    public Unidad(int vida, int danioTerrestre, int danioAereo, int rangoDeAtaque, int vision) {
+    public Unidad(Vida vida, int vision) {
         this.vida=vida;
-        this.vidaMaxima=vida;
-        this.danioAereo=danioAereo;
-        this.danioTerrestre=danioTerrestre;
-        this.rangoDeAtaque=rangoDeAtaque;
         this.vision=vision;
     }
 
-    public Unidad(int vida, int danioTerrestre, int danioAereo, int rangoDeAtaque, int vision, RazaDeUnidad raza, TerrenoDeUnidad terreno, ClaseDeUnidad clase) {
+    public Unidad(Vida vida, Danio danio, int vision, Ubicacion ubicacion, ClaseDeUnidad clase) {
+        this(vida, danio, vision, ubicacion, clase, new NoRegenerar());
+    }
+    public Unidad(Vida vida, Danio danio, int vision, Ubicacion ubicacion, ClaseDeUnidad clase, Regenerable regenerar) {
         this.vida=vida;
-        this.vidaMaxima=vida;
-        this.danioAereo=danioAereo;
-        this.danioTerrestre=danioTerrestre;
-        this.rangoDeAtaque=rangoDeAtaque;
+        this.danio = danio;
         this.vision=vision;
-        this.raza=raza;
-        this.terreno=terreno;
+        this.regenerar=regenerar;
+        this.ubicacion =ubicacion;
         this.clase=clase;
     }
 
-    public int getVida() {
+    public Vida getVida() {
         return vida;
     }
 
-    public int getDanioAereo() {
-        return danioAereo;
-    }
-
-    public int getDanioTerrestre() {
-        return danioTerrestre;
-    }
-
-    public int getRangoDeAtaque() {
-        return rangoDeAtaque;
+    public Danio getDanio() {
+        return danio;
     }
 
     public int getVision() {
@@ -55,43 +38,17 @@ public class Unidad {
     }
 
     public void recibirDanio(Unidad atacante) {
-        int danioParcial=this.terreno.recibirDanio(atacante);
-        this.vida-=this.raza.recibirDanio(danioParcial);
+        this.vida.quitar(this.ubicacion.danioDe(atacante.getDanio()));
     }
-
-    public void setTerreno(TerrenoDeUnidad terreno) {
-        this.terreno=terreno;
-    }
-
-    public TerrenoDeUnidad getTerreno() {
-        return terreno;
-    }
-
-    public void setRaza(RazaDeUnidad raza) {
-        this.raza = raza;
-    }
-
-    public void setClase(ClaseDeUnidad clase) {
-        this.clase = clase;
-    }
-
-    public RazaDeUnidad getRaza() {
-        return this.raza;
-    }
-
-    public Map<String, Integer> getAtributoDeRaza() {
-        return raza.getAtributos();
-    }
-
-    public int getAtributoDeRaza(String atributo) {
-        return raza.getAtributos().get(atributo);
+    public Ubicacion getUbicacion() {
+        return ubicacion;
     }
 
     public ClaseDeUnidad getClase() {
         return clase;
     }
 
-    public void actuar(String accion, Unidad objetivo) {
+    public void actuar(Accion accion, Unidad objetivo) {
         this.clase.actuar(accion,objetivo,this);
     }
 }

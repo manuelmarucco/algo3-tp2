@@ -8,7 +8,7 @@ import java.util.HashMap;
 public class UnidadGerrera extends ClaseDeUnidad {
 
     public UnidadGerrera(){
-        this.accion=new HashMap<String, AccionesDeClasedeUnidad>();
-        this.accion.put("atacar",new AccionAtacar());
+        super();
+        this.accion.put(Accion.ATACAR, new AccionAtacar());
     }
 }
