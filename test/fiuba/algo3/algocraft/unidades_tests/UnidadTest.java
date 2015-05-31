@@ -8,7 +8,7 @@ import org.junit.Test;
 public class UnidadTest {
     @Test
     public void testConstructorSimple(){
-        Unidad marine = new Unidad(new Vida(200), 7, new Terrestre(), new UnidadGerrera(new Danio(6, 6, 4)));
+        Unidad marine = new Unidad(new Vida(200), 7, new Terrestre(), new UnidadGuerrera(new Danio(6, 6, 4)));
         Assert.assertEquals(200, marine.getVida().getVidaActual());
         Assert.assertEquals(7, marine.getVision());
     }
@@ -17,7 +17,7 @@ public class UnidadTest {
     public void testNuevaUnidadProtosConEscudoyRegeneracion() {
         int vidaUnidad = 200;
         int escudoUnidad = 50;
-        Unidad proto = new Unidad(new VidaEscudo(vidaUnidad, escudoUnidad), 7, new Terrestre(), new UnidadGerrera(new Danio(6, 5, 4)));
+        Unidad proto = new Unidad(new VidaEscudo(vidaUnidad, escudoUnidad), 7, new Terrestre(), new UnidadGuerrera(new Danio(6, 5, 4)));
         // TODO: lo de abajo sirve más para hacer un test de VidaEscudo
         VidaEscudo vidaEscudo = (VidaEscudo)proto.getVida();
         Assert.assertEquals(escudoUnidad, vidaEscudo.getEscudoActual());
@@ -37,24 +37,24 @@ public class UnidadTest {
 
     @Test
     public void testAtacarUnidadTerrestreTerran() {
-        Unidad terran1 = new Unidad(new Vida(200), 7, new Terrestre(), new UnidadGerrera(new Danio(6, 5, 4)));
-        Unidad terran2 = new Unidad(new Vida(200), 7, new Terrestre(), new UnidadGerrera(new Danio(6, 5, 4)));
+        Unidad terran1 = new Unidad(new Vida(200), 7, new Terrestre(), new UnidadGuerrera(new Danio(6, 5, 4)));
+        Unidad terran2 = new Unidad(new Vida(200), 7, new Terrestre(), new UnidadGuerrera(new Danio(6, 5, 4)));
         terran1.actuar(Accion.ATACAR, terran2);
         Assert.assertEquals(194, terran2.getVida().getVidaActual());
     }
 
     @Test
     public void testAtacarUnidadAereaTerran() {
-        Unidad terran1 = new Unidad(new Vida(200), 7, new Aereo(), new UnidadGerrera(new Danio(6, 5, 4)));
-        Unidad terran2 = new Unidad(new Vida(200), 7, new Aereo(), new UnidadGerrera(new Danio(6, 5, 4)));
+        Unidad terran1 = new Unidad(new Vida(200), 7, new Aereo(), new UnidadGuerrera(new Danio(6, 5, 4)));
+        Unidad terran2 = new Unidad(new Vida(200), 7, new Aereo(), new UnidadGuerrera(new Danio(6, 5, 4)));
         terran1.actuar(Accion.ATACAR, terran2);
         Assert.assertEquals(195, terran2.getVida().getVidaActual());
     }
 
     @Test
     public void testAtacarUnidadTerrestreProtosConEscudoResistente() {
-        Unidad proto1 =  new Unidad(new VidaEscudo(200, 10), 7, new Terrestre(), new UnidadGerrera(new Danio(6, 5, 4)));
-        Unidad proto2 =  new Unidad(new VidaEscudo(200, 10), 7, new Terrestre(), new UnidadGerrera(new Danio(6, 5, 4)));
+        Unidad proto1 =  new Unidad(new VidaEscudo(200, 10), 7, new Terrestre(), new UnidadGuerrera(new Danio(6, 5, 4)));
+        Unidad proto2 =  new Unidad(new VidaEscudo(200, 10), 7, new Terrestre(), new UnidadGuerrera(new Danio(6, 5, 4)));
         proto1.actuar(Accion.ATACAR, proto2);
         Assert.assertEquals(200, proto2.getVida().getVidaActual());
         Assert.assertEquals(4, ((VidaEscudo)proto2.getVida()).getEscudoActual());
@@ -62,8 +62,8 @@ public class UnidadTest {
 
     @Test
     public void testAtacarUnidadTerrestreProtosConEscudoRoto(){
-        Unidad proto1 =  new Unidad(new VidaEscudo(200, 10), 7, new Terrestre(), new UnidadGerrera(new Danio(20, 5, 4)));
-        Unidad proto2 =  new Unidad(new VidaEscudo(200, 10), 7, new Terrestre(), new UnidadGerrera(new Danio(6, 5, 4)));
+        Unidad proto1 =  new Unidad(new VidaEscudo(200, 10), 7, new Terrestre(), new UnidadGuerrera(new Danio(20, 5, 4)));
+        Unidad proto2 =  new Unidad(new VidaEscudo(200, 10), 7, new Terrestre(), new UnidadGuerrera(new Danio(6, 5, 4)));
         proto1.actuar(Accion.ATACAR, proto2);
         Assert.assertEquals(190, proto2.getVida().getVidaActual());
         Assert.assertEquals(0, ((VidaEscudo) proto2.getVida()).getEscudoActual());
@@ -71,8 +71,8 @@ public class UnidadTest {
 
     @Test
     public void testAtacarUnidadAereaProtosConEscudoResistente(){
-        Unidad proto1 =  new Unidad(new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGerrera(new Danio(20, 5, 4)));
-        Unidad proto2 =  new Unidad(new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGerrera(new Danio(6, 5, 4)));
+        Unidad proto1 =  new Unidad(new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGuerrera(new Danio(20, 5, 4)));
+        Unidad proto2 =  new Unidad(new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGuerrera(new Danio(6, 5, 4)));
         proto1.actuar(Accion.ATACAR, proto2);
         Assert.assertEquals(200, proto2.getVida().getVidaActual());
         Assert.assertEquals(5, ((VidaEscudo)proto2.getVida()).getEscudoActual());
@@ -80,8 +80,8 @@ public class UnidadTest {
 
     @Test
     public void testAtacarUnidadAereaProtosConEscudoRoto(){
-        Unidad proto1 =  new Unidad(new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGerrera(new Danio(20, 30, 4)));
-        Unidad proto2 =  new Unidad(new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGerrera(new Danio(6, 5, 4)));
+        Unidad proto1 =  new Unidad(new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGuerrera(new Danio(20, 30, 4)));
+        Unidad proto2 =  new Unidad(new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGuerrera(new Danio(6, 5, 4)));
         proto1.actuar(Accion.ATACAR,proto2);
         Assert.assertEquals(180, proto2.getVida().getVidaActual());
         Assert.assertEquals(0, ((VidaEscudo) proto2.getVida()).getEscudoActual());

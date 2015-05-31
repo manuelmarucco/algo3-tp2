@@ -12,7 +12,7 @@ public class Barraca extends ConstruccionTerran {
 
 	public Unidad crearMarine() {
 		Ubicacion terreno = new Terrestre();
-		ClaseDeUnidad clase = new UnidadGerrera(new Danio(6,6, 4));
+		ClaseDeUnidad clase = new UnidadGuerrera(new Danio(6,6, 4));
 		Unidad marine = new Unidad(new Vida(40), 7, terreno, clase);
 		
 		return marine;
