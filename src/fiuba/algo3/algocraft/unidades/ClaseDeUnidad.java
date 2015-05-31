@@ -1,12 +1,12 @@
 package fiuba.algo3.algocraft.unidades;
 
 import fiuba.algo3.algocraft.comandos.Accion;
-import fiuba.algo3.algocraft.comandos.AccionesDeClasedeUnidad;
+import fiuba.algo3.algocraft.comandos.AccionDeClase;
 
 import java.util.HashMap;
 
 public abstract class ClaseDeUnidad {
-    public HashMap<Accion, AccionesDeClasedeUnidad> accion;
+    public HashMap<Accion, AccionDeClase> accion;
 
     public ClaseDeUnidad() {
         this.accion = new HashMap<>();
