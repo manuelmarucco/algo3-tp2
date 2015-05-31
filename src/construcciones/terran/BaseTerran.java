@@ -1,5 +1,7 @@
 package construcciones.terran;
 
+import jugabilidad.Mapa;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import auxiliares.Costo;
 import construcciones.Construccion;
 import fiuba.algo3.algocraft.unidades.Vida;
@@ -24,6 +26,13 @@ public class BaseTerran extends ConstruccionTerran{
 	public Construccion construirPuertoEstelar() {
 		PuertoEstelar puertoEstelar = new PuertoEstelar();
 		return puertoEstelar;
+	}
+	
+	@Override
+	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
+		
+		mapa.agregarEnTierra(this, coordenadas);
+		
 	}
 	
 }

@@ -1,5 +1,7 @@
 package construcciones.terran;
 
+import jugabilidad.Mapa;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import fiuba.algo3.algocraft.unidades.Vida;
 
 
@@ -17,6 +19,13 @@ public class Refineria extends ConstruccionTerran {
 	//  v
 	public int getGasRecolectado(){
 		return gasRecolectado;
+	}
+	
+	@Override
+	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
+		
+		mapa.agregarEnTierra(this, coordenadas);
+		
 	}
 	
 }

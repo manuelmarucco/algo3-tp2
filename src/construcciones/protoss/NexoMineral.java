@@ -1,5 +1,7 @@
 package construcciones.protoss;
 
+import jugabilidad.Mapa;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import fiuba.algo3.algocraft.unidades.VidaEscudo;
 
 
@@ -17,5 +19,12 @@ public class NexoMineral extends ConstruccionProtoss{
 	//  v
 	public int getMineralRecolectado(){
 		return mineralRecolectado;
+	}
+	
+	@Override
+	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
+		
+		mapa.agregarEnTierra(this, coordenadas);
+		
 	}
 }

@@ -1,5 +1,7 @@
 package construcciones.protoss;
 
+import jugabilidad.Mapa;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import fiuba.algo3.algocraft.unidades.VidaEscudo;
 
 public class BaseProtoss extends ConstruccionProtoss{
@@ -21,6 +23,13 @@ public class BaseProtoss extends ConstruccionProtoss{
 	public ArchivosTemplarios construirArchivosTemplarios() {
 		ArchivosTemplarios archivosTemplarios = new ArchivosTemplarios();
 		return archivosTemplarios;
+	}
+	
+	@Override
+	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
+		
+		mapa.agregarEnTierra(this, coordenadas);
+		
 	}
 	
 }

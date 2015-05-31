@@ -1,9 +1,10 @@
 package construcciones;
 
+import interfaces.ColocableEnMapa;
 import auxiliares.Costo;
 
 
-public abstract class Construccion{
+public abstract class Construccion implements ColocableEnMapa{
 	
 	//protected Regeneracion regenerar;
 
