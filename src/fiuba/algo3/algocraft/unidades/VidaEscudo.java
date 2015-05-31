@@ -19,11 +19,6 @@ public class VidaEscudo extends Vida {
     }
 
     @Override
-    /*
-    50
-    e60
-    v100
-     */
     public void quitar(int cantidad) {
         super.quitar(Math.max(cantidad - escudoActual, 0));
         escudoActual = Math.max(escudoActual - cantidad, 0);
