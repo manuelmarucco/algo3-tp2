@@ -4,15 +4,26 @@ import java.util.ArrayList;
 
 import construcciones.Construccion;
 import construcciones.ProxyConstrucciones;
+import excepciones.ExcepcionNecesitaConstruirAcceso;
+import excepciones.ExcepcionNecesitaConstruirBarraca;
+import excepciones.ExcepcionNecesitaConstruirFabrica;
+import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
 
 public class Jugador {
 
 	private ArrayList<Construccion> construccionesCreadas = new ArrayList<Construccion>();
 
-	public void construir(Construccion construccion) {
+	public void construir(Construccion construccion){
 		ProxyConstrucciones proxy = new ProxyConstrucciones();
 		
-		proxy.esConstruible(construccion, construccionesCreadas);
+		try{
+			proxy.esConstruible(construccion, construccionesCreadas);
+		}catch(ExcepcionNecesitaConstruirBarraca | 
+				ExcepcionNecesitaConstruirAcceso |
+				ExcepcionNecesitaConstruirFabrica|
+				ExcepcionNecesitaConstruirPortalEstelar e){
+			return; //dentro de las excepciones habria q hacer q aparezca un cartelito q le avise al usuario porque no la puede construir
+		}
 		
 		construccionesCreadas.add(construccion);
 	}

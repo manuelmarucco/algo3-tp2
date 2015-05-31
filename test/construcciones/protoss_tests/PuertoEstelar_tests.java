@@ -4,21 +4,21 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import construcciones.protoss.ConstruccionProtoss;
-import construcciones.protoss.PuertoEstelar;
+import construcciones.protoss.PortalEstelar;
 
 
 public class PuertoEstelar_tests {
 
 	@Test
 	public void VidaInicializada() {
-		ConstruccionProtoss f = new PuertoEstelar();
+		ConstruccionProtoss f = new PortalEstelar();
 		
 		Assert.assertEquals(150, f.getVida());
 	}
 	
 	@Test
 	public void EscudoInicializado() {
-		PuertoEstelar f = new PuertoEstelar();
+		PortalEstelar f = new PortalEstelar();
 		
 		Assert.assertEquals(150, f.getVida());
 	}

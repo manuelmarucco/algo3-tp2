@@ -1,11 +1,12 @@
 package construcciones.protoss;
 
 
-public class PuertoEstelar extends ConstruccionProtoss{
+public class PortalEstelar extends ConstruccionProtoss{
 	
 	//necesita que el Acceso haya sido construida para poder crearse
 	
-			public PuertoEstelar(){
+			public PortalEstelar(){
+				nombre = "PortalEstelar";
 				vida = 150;
 				escudo = 50;
 			}

@@ -1,5 +1,7 @@
 package construcciones.terran;
 
+import construcciones.Construccion;
+
 public class BaseTerran extends ConstruccionTerran{
 	
 	public BaseTerran() {
@@ -14,6 +16,11 @@ public class BaseTerran extends ConstruccionTerran{
 	public Fabrica construirFabrica(){
 		Fabrica fabrica = new Fabrica();
 		return fabrica;
+	}
+
+	public Construccion construirPuertoEstelar() {
+		PuertoEstelar puertoEstelar = new PuertoEstelar();
+		return puertoEstelar;
 	}
 	
 }
