@@ -1,6 +1,5 @@
 package construcciones.terran_tests;
 
-
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -20,7 +19,9 @@ public class CentroDeMineral_tests {
 	public void recoletaGasVespeno() {
 		CentroDeMineral r = new CentroDeMineral();
 		
-		Assert.assertNotEquals(0, r.getMineralRecolectado());
+		Assert.assertTrue(0 != r.getMineralRecolectado());
+		//Assert.assertNotEquals(0, r.getMineralRecolectado()); <- ant no compila
 	}
+
 
 }

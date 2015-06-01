@@ -26,6 +26,7 @@ public class NexoMineral_tests {
 	public void recoletaGasVespeno() {
 		NexoMineral n = new NexoMineral();
 		
-		Assert.assertNotEquals(0, n.getMineralRecolectado());
+		Assert.assertTrue(0 != n.getMineralRecolectado());
+		//Assert.assertNotEquals(0, n.getMineralRecolectado()); <- ant no compila
 	}
 }
