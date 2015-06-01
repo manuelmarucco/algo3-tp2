@@ -4,10 +4,14 @@ package construcciones.terran;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 */
+
 import auxiliares.Costo;
+import fiuba.algo3.algocraft.unidades.*;
+import jugabilidad.Mapa;
+import jugabilidad.utilidadesMapa.Coordenadas;
+
 //import auxiliares.Recursos;
 //import excepciones.ExcepcionRecursosInsuficientes;
-import fiuba.algo3.algocraft.unidades.*;
 
 public class Barraca extends ConstruccionTerran {
 
@@ -32,12 +36,12 @@ public class Barraca extends ConstruccionTerran {
 		
 		//Falta agregarle el costo y que "alguien" lo disminuya del atributo "RecursosRecolectados" de la clase Jugador
 	}
-	/*
+
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-*/
+
 }

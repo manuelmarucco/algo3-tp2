@@ -1,15 +1,14 @@
 package jugabilidad;
 
 import interfaces.ColocableEnMapa;
+import jugabilidad.utilidadesMapa.Coordenadas;
 
 import java.util.HashMap;
 
-import jugabilidad.utilidadesMapa.Coordenadas;
-
 public class Mapa {
 	
-	private HashMap<Coordenadas, ColocableEnMapa> tierra = new HashMap<>();
-	private HashMap<Coordenadas, ColocableEnMapa> aire = new HashMap<>();
+	private HashMap<Coordenadas, ColocableEnMapa> tierra = new HashMap<Coordenadas, ColocableEnMapa>();
+	private HashMap<Coordenadas, ColocableEnMapa> aire = new HashMap<Coordenadas, ColocableEnMapa>();
 	
 	public Mapa(){
 	

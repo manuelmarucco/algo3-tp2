@@ -7,7 +7,7 @@ import auxiliares.Costo;
 
 
 
-public class DepositoDeSuministros extends ConstruccionTerran{
+public class DepositoDeSuministros extends ConstruccionTerran {
 	
 	private final int capacidadExtra = 5;
 	

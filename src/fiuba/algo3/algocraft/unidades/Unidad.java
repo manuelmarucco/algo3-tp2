@@ -4,12 +4,13 @@ import auxiliares.Costo;
 import fiuba.algo3.algocraft.comandos.Accion;
 import interfaces.Actuable;
 import interfaces.ColocableEnMapa;
+import interfaces.Targeteable;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 import java.util.HashMap;
 
-public class Unidad implements Regenerable, ColocableEnMapa {
+public class Unidad implements Regenerable, ColocableEnMapa, Targeteable {
     private ClaseDeUnidad clase;
     private Vida vida;
     private int vision;
