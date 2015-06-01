@@ -9,10 +9,12 @@ import construcciones.protoss.Pilon;
 public class Pilon_tests {
 	
 	@Test
-	public void EscudoInicializado() {
+	public void VidaEscudoInicializado() {
 		ConstruccionProtoss a = new Pilon();
 		
-		Assert.assertEquals(50, a.getEscudo());
+
+		Assert.assertEquals(300, a.getVida());
+		Assert.assertEquals(300, a.getEscudo());
 	}
 	
 	@Test

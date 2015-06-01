@@ -9,17 +9,10 @@ import construcciones.protoss.ConstruccionProtoss;
 public class Acceso_tests {
 
 	@Test
-	public void VidaInicializada() {
+	public void VidaEscudoInicializada() {
 		ConstruccionProtoss a = new Acceso();
 		
-		Assert.assertEquals(150, a.getVida());
+		Assert.assertEquals(500, a.getVida());
+		Assert.assertEquals(500, a.getEscudo());
 	}
-
-	@Test
-	public void EscudoInicializado() {
-		ConstruccionProtoss a = new Acceso();
-		
-		Assert.assertEquals(50, a.getEscudo());
-	}
-
 }

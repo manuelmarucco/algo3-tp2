@@ -10,16 +10,9 @@ public class ArchivosTemplarios_tests {
 
 	@Test
 	public void VidaInicializada() {
-		ConstruccionProtoss f = new ArchivosTemplarios();
+		ConstruccionProtoss a = new ArchivosTemplarios();
 		
-		Assert.assertEquals(150, f.getVida());
+		Assert.assertEquals(500, a.getVida());
+		Assert.assertEquals(500, a.getEscudo());
 	}
-	
-	@Test
-	public void EscudoInicializado() {
-		ArchivosTemplarios f = new ArchivosTemplarios();
-		
-		Assert.assertEquals(50, f.getEscudo());
-	}
-
 }

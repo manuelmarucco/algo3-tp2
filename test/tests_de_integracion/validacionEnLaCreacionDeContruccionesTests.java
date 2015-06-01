@@ -7,9 +7,9 @@ import jugabilidad.Jugador;
 import org.junit.Test;
 
 import auxiliares.Recursos;
+import razas.Protoss;
 import razas.Terran;
 import construcciones.comandos.ConstruccionesDisponibles;
-import construcciones.protoss.BaseProtoss;
 public class validacionEnLaCreacionDeContruccionesTests {
 
 	@Test
@@ -74,21 +74,19 @@ public class validacionEnLaCreacionDeContruccionesTests {
 	
 	@Test
 	public void PuedeConstruirPortalEstelar() {
-		Jugador jugador1 = new Jugador();
-		BaseProtoss base = new BaseProtoss();
+		Jugador jugador1 = new Jugador(new Protoss(),new Recursos(700,400));
 
-		jugador1.construir(base.construirAcceso());
-		jugador1.construir(base.construirPortalEstelar());
+		jugador1.construir(ConstruccionesDisponibles.ACCESO);
+		jugador1.construir(ConstruccionesDisponibles.PORTALESTELAR);
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("PortalEstelar").getNombre(), "PortalEstelar");
 	}
 	
 	@Test
 	public void TrataDeConstruirPortalEstelarPeroSinAccesoAntesNoSeConstruye() {
-		Jugador jugador1 = new Jugador();
-		BaseProtoss base = new BaseProtoss();
+		Jugador jugador1 = new Jugador(new Protoss(),new Recursos(700,400));
 
-		jugador1.construir(base.construirPortalEstelar());
+		jugador1.construir(ConstruccionesDisponibles.PORTALESTELAR);
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("PortalEstelar"), null);
 	}
@@ -96,22 +94,20 @@ public class validacionEnLaCreacionDeContruccionesTests {
 	
 	@Test
 	public void PuedeConstruirArchivosTemplarios() {
-		Jugador jugador1 = new Jugador();
-		BaseProtoss base = new BaseProtoss();
+		Jugador jugador1 = new Jugador(new Protoss(),new Recursos(700,400));
 
-		jugador1.construir(base.construirAcceso());
-		jugador1.construir(base.construirPortalEstelar());
-		jugador1.construir(base.construirArchivosTemplarios());
+		jugador1.construir(ConstruccionesDisponibles.ACCESO);
+		jugador1.construir(ConstruccionesDisponibles.PORTALESTELAR);
+		jugador1.construir(ConstruccionesDisponibles.ARCHIVOSTEMPLARIOS);
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("ArchivosTemplarios").getNombre(), "ArchivosTemplarios");
 	}
 	
 	@Test
 	public void TrataDeConstruirArchivosTemplariosPeroSinPortalEstelarAntesNoSeConstruye() {
-		Jugador jugador1 = new Jugador();
-		BaseProtoss base = new BaseProtoss();
+		Jugador jugador1 = new Jugador(new Protoss(),new Recursos(700,400));
 
-		jugador1.construir(base.construirArchivosTemplarios());
+		jugador1.construir(ConstruccionesDisponibles.ARCHIVOSTEMPLARIOS);
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("ArchivosTemplarios"), null);
 	}

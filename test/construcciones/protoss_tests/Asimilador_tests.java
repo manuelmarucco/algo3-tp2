@@ -11,16 +11,10 @@ public class Asimilador_tests {
 	@Test
 	public void VidaInicializada() {
 		ConstruccionProtoss a = new Asimilador();
-		
-		Assert.assertEquals(150, a.getVida());
-	}
-	
-	@Test
-	public void EscudoInicializado() {
-		ConstruccionProtoss a = new Asimilador();
-		
-		Assert.assertEquals(50, a.getEscudo());
-	}
+
+		Assert.assertEquals(450, a.getVida());
+		Assert.assertEquals(450, a.getEscudo());
+		}
 	
 	@Test
 	public void recoletaGasVespeno() {

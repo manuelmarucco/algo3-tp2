@@ -9,17 +9,11 @@ import construcciones.protoss.NexoMineral;
 public class NexoMineral_tests {
 
 	@Test
-	public void VidaInicializada() {
-		ConstruccionProtoss n = new NexoMineral();
-		
-		Assert.assertEquals(150, n.getVida());
-	}
-	
-	@Test
-	public void EscudoInicializado() {
+	public void VidaEscudoInicializada() {
 		ConstruccionProtoss a = new NexoMineral();
-		
-		Assert.assertEquals(50, a.getEscudo());
+
+		Assert.assertEquals(250, a.getVida());
+		Assert.assertEquals(250, a.getEscudo());
 	}
 	
 	@Test

@@ -23,15 +23,13 @@ public class Barraca extends ConstruccionTerran {
 		this.regenerar.regenerar(this);
 	}
 	*/
-	public Unidad crearMarine() {
+	public Unidad entrenarMarine() {
 		
 		Ubicacion terreno = new Terrestre();
 		ClaseDeUnidad clase = new UnidadGuerrera(new Danio(6,6, 4));
-		Unidad marine = new Unidad(new Vida(40), 7, terreno, clase,new Costo(10,10));
-		
+		Unidad marine = new Unidad(new Vida(40), 7, terreno, clase,new Costo(50,0));
+		//falta Transporte,TiempoDeCosntruccion,Suministro,RangoDeAtaque
 		return marine;
-		
-		//Falta agregarle el costo y que "alguien" lo disminuya del atributo "RecursosRecolectados" de la clase Jugador
 	}
 	/*
 	@Override
