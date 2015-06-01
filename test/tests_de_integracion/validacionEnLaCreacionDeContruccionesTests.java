@@ -54,7 +54,7 @@ public class validacionEnLaCreacionDeContruccionesTests {
 	
 	@Test
 	public void PuedeConstruirPuertoEstelar() {
-		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,400));
+		Jugador jugador1 = new Jugador(new Terran(),new Recursos(700,400));
 
 
 		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.BARRACA).accionConstruir());

@@ -1,4 +1,5 @@
 package construcciones.terran;
+import auxiliares.Costo;
 /*
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -13,6 +14,7 @@ public class PuertoEstelar extends ConstruccionTerran{
 	public PuertoEstelar(){
 		nombre = "PuertoEstelar";
 		vida = new Vida(250);
+		costo = new Costo(250,50);
 	}
 	/*
 	@Override
