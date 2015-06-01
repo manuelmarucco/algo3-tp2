@@ -10,15 +10,13 @@ import auxiliares.Recursos;
 import razas.Terran;
 import construcciones.comandos.ConstruccionesDisponibles;
 import construcciones.protoss.BaseProtoss;
-import construcciones.terran.BaseTerran;
-
 public class validacionEnLaCreacionDeContruccionesTests {
 
 	@Test
 	public void construyoBarracaYSeGuardaEnConstruccionesCreadas() {
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,400));
 		
-		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.BARRACA).accionConstruir());
+		jugador1.construir(ConstruccionesDisponibles.BARRACA);
 		
 		Assert.assertEquals((jugador1.buscarConstruccionCreada("Barraca")).getNombre(), "Barraca");
 	}
@@ -27,8 +25,8 @@ public class validacionEnLaCreacionDeContruccionesTests {
 	public void PuedeConstruirFabrica() {
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,400));
 
-		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.BARRACA).accionConstruir());
-		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.FABRICA).accionConstruir());
+		jugador1.construir(ConstruccionesDisponibles.BARRACA);
+		jugador1.construir(ConstruccionesDisponibles.FABRICA);
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("Fabrica").getNombre(), "Fabrica");
 	}
@@ -37,7 +35,7 @@ public class validacionEnLaCreacionDeContruccionesTests {
 	public void TrataDeConstruirFabricaPeroSinBarracaAntesNoSeConstruye() {
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,0));
 
-		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.FABRICA).accionConstruir());
+		jugador1.construir(ConstruccionesDisponibles.FABRICA);
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("Fabrica"), null);
 	}
@@ -46,7 +44,7 @@ public class validacionEnLaCreacionDeContruccionesTests {
 	public void IntentaConstruirFabricaYComoNoPuedeLosRecursosNoSeGastaron() {
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,0));
 
-		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.FABRICA).accionConstruir());
+		jugador1.construir(ConstruccionesDisponibles.FABRICA);
 		
 		Assert.assertEquals(jugador1.getRecursos().getMinerales(), 400);
 		Assert.assertEquals(jugador1.getRecursos().getGasVespeno(), 0);
@@ -57,19 +55,19 @@ public class validacionEnLaCreacionDeContruccionesTests {
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(700,400));
 
 
-		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.BARRACA).accionConstruir());
-		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.FABRICA).accionConstruir());
-		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.PUERTOESTELAR).accionConstruir());
+		jugador1.construir(ConstruccionesDisponibles.BARRACA);
+		jugador1.construir(ConstruccionesDisponibles.FABRICA);
+		jugador1.construir(ConstruccionesDisponibles.PUERTOESTELAR);
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("PuertoEstelar").getNombre(), "PuertoEstelar");
 	}
 	
 	@Test
 	public void TrataDeConstruirPuertoEstelarPeroSinFabricaAntesNoSeConstruye() {
-		Jugador jugador1 = new Jugador();
-		BaseTerran base = new BaseTerran();
+		Jugador jugador1 = new Jugador(new Terran(),new Recursos(700,400));
 
-		jugador1.construir(base.construirPuertoEstelar());
+		jugador1.construir(ConstruccionesDisponibles.BARRACA);
+		jugador1.construir(ConstruccionesDisponibles.PUERTOESTELAR);
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("PuertoEstelar"), null);
 	}

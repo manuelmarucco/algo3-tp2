@@ -1,6 +1,6 @@
 package razas;
 
-import interfaces.AccionConstruir;
+import interfaces.Construible;
 
 import java.util.HashMap;
 
@@ -8,19 +8,20 @@ import construcciones.comandos.ConstruccionesDisponibles;
 
 public class Raza {
 	
-	/*protected Comandos comandos;
+	protected HashMap<ConstruccionesDisponibles,Construible> comandos;
 	
-	public Comandos getComandos(){
-		return comandos;
-	}*/
-	
-	protected HashMap<ConstruccionesDisponibles,AccionConstruir> comandos;
-
+	/*
 	public HashMap<ConstruccionesDisponibles,AccionConstruir> getComandos() {
 		return comandos;
 	}
-
+	*/
+	/*
 	public void setComandos(HashMap<ConstruccionesDisponibles,AccionConstruir> comandos) {
 		this.comandos = comandos;
+	}
+	*/
+	
+	public Construible seleccionarConstruccion(ConstruccionesDisponibles construccion){
+		return  comandos.get(construccion);
 	}
 }

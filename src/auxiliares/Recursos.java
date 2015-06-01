@@ -12,17 +12,23 @@ public class Recursos {
 		this.gasVespeno = g;
 	}
 	
+	public void validacionRecursosSuficientes(Costo costoDeEntidad) throws ExcepcionRecursosInsuficientes{
+
+		if (minerales< costoDeEntidad.getCostoMineral())
+			throw new ExcepcionRecursosInsuficientes();
+		
+		if (gasVespeno< costoDeEntidad.getCostoGas())
+			throw new ExcepcionRecursosInsuficientes(); 
+		
+		//despues se puede hacer una excepcion para minerales y otra para gas
+	}
+	
 	public void gastarRecursos(Costo costoDeEntidad) throws ExcepcionRecursosInsuficientes{
 		
-		if (minerales>= costoDeEntidad.getCostoMineral())
-			minerales -= costoDeEntidad.getCostoMineral();
-		else
-			throw new ExcepcionRecursosInsuficientes();
+		this.validacionRecursosSuficientes(costoDeEntidad);
 		
-		if (gasVespeno>= costoDeEntidad.getCostoGas())
-			gasVespeno -= costoDeEntidad.getCostoGas();
-		else
-			throw new ExcepcionRecursosInsuficientes();
+		minerales -= costoDeEntidad.getCostoMineral();
+		gasVespeno -= costoDeEntidad.getCostoGas();
 	}
 
 	public int getMinerales() {

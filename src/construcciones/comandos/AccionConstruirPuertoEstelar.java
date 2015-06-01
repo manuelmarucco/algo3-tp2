@@ -1,10 +1,10 @@
 package construcciones.comandos;
 
-import interfaces.AccionConstruir;
+import interfaces.Construible;
 import construcciones.Construccion;
 import construcciones.terran.PuertoEstelar;
 
-public class AccionConstruirPuertoEstelar implements AccionConstruir{
+public class AccionConstruirPuertoEstelar implements Construible{
 	@Override
 	public Construccion accionConstruir(){
 		PuertoEstelar puertoEstelar = new PuertoEstelar();

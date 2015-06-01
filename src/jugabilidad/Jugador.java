@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import auxiliares.Recursos;
 import construcciones.Construccion;
 import construcciones.ProxyConstrucciones;
+import construcciones.comandos.ConstruccionesDisponibles;
 import excepciones.ExcepcionNecesitaCrearOtraConstruccionPrevia;
 import excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.unidades.Unidad;
@@ -22,8 +23,9 @@ public class Jugador {
 		recursosRecolectados = recursosIniciales;
 	}
 	
-	public void construir(Construccion construccion){
+	public void construir(ConstruccionesDisponibles construccion){
 		ProxyConstrucciones proxy = new ProxyConstrucciones();
+		Construccion construccionCreada;
 		
 		try{
 			proxy.esConstruible(construccion, construccionesCreadas);
@@ -31,13 +33,15 @@ public class Jugador {
 			return; //dentro de las excepciones habria q hacer q aparezca un cartelito q le avise al usuario porque no la puede construir
 		}
 		
+		construccionCreada = raza.seleccionarConstruccion(construccion).accionConstruir();
+		
 		try {
-			recursosRecolectados.gastarRecursos(construccion.getCosto());
+			recursosRecolectados.gastarRecursos(construccionCreada.getCosto());
 		} catch (ExcepcionRecursosInsuficientes e) {
 			return; //poner cartelito en la excepcion avisando que no se construye porque no tiene recursos
 		}
 		
-		construccionesCreadas.add(construccion);
+		construccionesCreadas.add(construccionCreada);
 	}
 	
 	public void crearUnidad(Unidad unidad){

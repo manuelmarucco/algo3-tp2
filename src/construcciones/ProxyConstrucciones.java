@@ -2,6 +2,7 @@ package construcciones;
 
 import java.util.ArrayList;
 
+import construcciones.comandos.ConstruccionesDisponibles;
 import excepciones.ExcepcionNecesitaConstruirAcceso;
 import excepciones.ExcepcionNecesitaConstruirBarraca;
 import excepciones.ExcepcionNecesitaConstruirFabrica;
@@ -12,24 +13,24 @@ public class ProxyConstrucciones {
 	
 	//HABRIA QUE BUSCAR UNA MANERA MEJOR DE RESOLVER ESTO, POR AHORA ES PARA Q PASE
 	
-	public void esConstruible(Construccion construccion, ArrayList<Construccion> construccionesCreadas) 
+	public void esConstruible(ConstruccionesDisponibles construccion, ArrayList<Construccion> construccionesCreadas) 
 					throws 	ExcepcionNecesitaCrearOtraConstruccionPrevia
 	{
-		if(construccion.getNombre() == "Fabrica"){
+		if(construccion.name() == "FABRICA"){
 			this.fabricaEsConstruible(construccionesCreadas);
 		}
-		if(construccion.getNombre() == "PuertoEstelar"){
+		if(construccion.name() == "PUERTOESTELAR"){
 			this.puertoEstelarEsConstruible(construccionesCreadas);
 		}
-		if(construccion.getNombre() == "PortalEstelar"){
+		if(construccion.name() == "PORTALESTELAR"){
 			this.portalEstelarEsConstruible(construccionesCreadas);
 		}
-		if(construccion.getNombre() == "ArchivosTemplarios"){
+		if(construccion.name() == "ARCHIVOSTEMPLARIOS"){
 			this.archivosTemplariosEsConstruible(construccionesCreadas);
 		}
 	};
 	
-	private void fabricaEsConstruible(ArrayList<Construccion> construccionesCreadas) 
+	private void fabricaEsConstruible(ArrayList<Construccion> construccionesCreadas)
 			throws ExcepcionNecesitaConstruirBarraca{
 		
 		boolean construible = false;
@@ -43,6 +44,7 @@ public class ProxyConstrucciones {
 		if(construible == false){
 			throw new ExcepcionNecesitaConstruirBarraca();
 		}
+		
 		
 	}
 	
@@ -61,6 +63,7 @@ public class ProxyConstrucciones {
 			throw new ExcepcionNecesitaConstruirFabrica();
 		}
 		
+		
 	}
 	
 	private void portalEstelarEsConstruible(ArrayList<Construccion> construccionesCreadas) 
@@ -77,10 +80,10 @@ public class ProxyConstrucciones {
 		if(construible == false){
 			throw new ExcepcionNecesitaConstruirAcceso();
 		}
-		
+
 	}
 	
-	private void archivosTemplariosEsConstruible(ArrayList<Construccion> construccionesCreadas) 
+	private void archivosTemplariosEsConstruible(ArrayList<Construccion> construccionesCreadas)
 			throws ExcepcionNecesitaConstruirPortalEstelar{
 		
 		boolean construible = false;
@@ -94,7 +97,7 @@ public class ProxyConstrucciones {
 		if(construible == false){
 			throw new ExcepcionNecesitaConstruirPortalEstelar();
 		}
-		
+
 	}
 
 

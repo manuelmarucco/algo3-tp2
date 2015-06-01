@@ -1,10 +1,10 @@
 package construcciones.comandos;
 
-import interfaces.AccionConstruir;
+import interfaces.Construible;
 import construcciones.Construccion;
 import construcciones.terran.Fabrica;
 
-public class AccionConstruirFabrica implements AccionConstruir{
+public class AccionConstruirFabrica implements Construible{
 	@Override
 	public Construccion accionConstruir(){
 		Fabrica fabrica = new Fabrica();
