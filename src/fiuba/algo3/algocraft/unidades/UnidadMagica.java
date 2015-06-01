@@ -2,6 +2,7 @@ package fiuba.algo3.algocraft.unidades;
 
 import fiuba.algo3.algocraft.comandos.Accion;
 import fiuba.algo3.algocraft.comandos.AccionRegenerarEnergia;
+import interfaces.Actuable;
 
 import java.util.HashMap;
 
@@ -13,7 +14,7 @@ public class UnidadMagica extends ClaseDeUnidad {
     public UnidadMagica(Energia energia) {
         super();
         this.energia=energia;
-        this.accion.put(Accion.ATACAR, new AccionRegenerarEnergia(energia));
+        this.accion.put(Accion.REGENERARENERGIA, new AccionRegenerarEnergia(energia));
     }
 
     @Override
@@ -23,5 +24,10 @@ public class UnidadMagica extends ClaseDeUnidad {
         parametros.put(Parametros.ENERGIATOTAL,energia.getEnergiaTotal());
         parametros.put(Parametros.REGENERACIONDEENERGIA,energia.getRegeneracionEnergia());
         return parametros;
+    }
+
+    @Override
+    public void agregarMetodosUpdate(HashMap<Accion, Actuable> poolDeAcciones) {
+        poolDeAcciones.put(Accion.REGENERARENERGIA,accion.get(Accion.REGENERARENERGIA));
     }
 }

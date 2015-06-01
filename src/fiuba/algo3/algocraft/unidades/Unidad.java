@@ -3,10 +3,13 @@ package fiuba.algo3.algocraft.unidades;
 import auxiliares.Costo;
 import fiuba.algo3.algocraft.comandos.Accion;
 import interfaces.Actuable;
+import interfaces.ColocableEnMapa;
+import jugabilidad.Mapa;
+import jugabilidad.utilidadesMapa.Coordenadas;
 
 import java.util.HashMap;
 
-public class Unidad implements Regenerable {
+public class Unidad implements Regenerable, ColocableEnMapa {
     private ClaseDeUnidad clase;
     private Vida vida;
     private int vision;
@@ -21,6 +24,7 @@ public class Unidad implements Regenerable {
         this.clase=clase;
         this.costo=costo;
         this.poolDeAcciones=new HashMap<Accion, Actuable>();
+        this.clase.agregarMetodosUpdate(poolDeAcciones);
     }
 
     public Vida getVida() {
@@ -63,5 +67,10 @@ public class Unidad implements Regenerable {
 
     public HashMap<Parametros,Integer>  getParametroDeClase() {
         return this.clase.getParametros();
+    }
+
+    @Override
+    public void agregarse(Mapa mapa, Coordenadas coordenadas) {
+        this.ubicacion.agregarse(this,mapa,coordenadas);
     }
 }

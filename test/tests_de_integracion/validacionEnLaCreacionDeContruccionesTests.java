@@ -117,6 +117,6 @@ public class validacionEnLaCreacionDeContruccionesTests {
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("ArchivosTemplarios"), null);
 	}
-	
-	
+
+
 }
