@@ -23,16 +23,16 @@ public class Fabrica extends ConstruccionTerran{
 		costo = new Costo(200,100);
 		tiempoDeConstruccion = 12;
 	}
-	
+	/*
 	public Unidad entrenarGoliat() {
 		
 		Ubicacion terreno = new Terrestre();
 		ClaseDeUnidad clase = new UnidadGuerrera(new Danio(12,10, 4));
-		Unidad goliat = new Unidad(new Vida(125), 8, terreno, clase,new Costo(100,50));
+		Unidad goliat = new Unidad("marine",new Vida(125), 8, terreno, clase,new Costo(100,50));
 		//falta Transporte,TiempoDeCosntruccion,Suministro,RangoDeAtaqueAereo y Terrestre
 		return goliat;
 	}
-
+*/
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		

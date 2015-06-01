@@ -10,7 +10,7 @@ import razas.Terran;
 import jugabilidad.Jugador;
 
 public class Jugador_tests {
-/*
+
 	@Test
 	public void JugadorRecolectaRecursos(){
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,0));
@@ -26,7 +26,6 @@ public class Jugador_tests {
 				
 		Assert.assertEquals(20 + mineralesAnterior,jugador1.getRecursos().getMinerales());
 		Assert.assertEquals(10 + mineralesAnterior,jugador1.getRecursos().getGasVespeno());
-<<<<<<< HEAD
 	}
 
 	@Test
@@ -39,8 +38,4 @@ public class Jugador_tests {
 		Assert.assertEquals(jugador1.buscarUnidadCreada("marine").getNombre(),"marine");
 		
 	}
-=======
-	}
-*/
->>>>>>> refs/remotes/origin/master
 }

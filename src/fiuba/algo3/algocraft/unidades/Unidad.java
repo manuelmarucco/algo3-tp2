@@ -10,15 +10,17 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 import java.util.HashMap;
 
 public class Unidad implements Regenerable, ColocableEnMapa {
-    private ClaseDeUnidad clase;
+    private String nombre;
+	private ClaseDeUnidad clase;
     private Vida vida;
     private int vision;
     private Ubicacion ubicacion;
     private HashMap<Accion, Actuable> poolDeAcciones;
     private Costo costo;
 
-    public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase , Costo costo) {
-        this.vida=vida;
+    public Unidad(String nombre,Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase , Costo costo) {
+        this.nombre = nombre;
+    	this.vida=vida;
         this.vision=vision;
         this.ubicacion =ubicacion;
         this.clase=clase;
@@ -73,4 +75,8 @@ public class Unidad implements Regenerable, ColocableEnMapa {
     public void agregarse(Mapa mapa, Coordenadas coordenadas) {
         this.ubicacion.agregarse(this,mapa,coordenadas);
     }
+
+	public String getNombre() {
+		return nombre;
+	}
 }
