@@ -1,10 +1,9 @@
 package construcciones.terran;
 
 import auxiliares.Recursos;
+import fiuba.algo3.algocraft.unidades.parametros.Vida;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import fiuba.algo3.algocraft.unidades.parametros.Vida;
-import auxiliares.Costo;
 
 
 public class CentroDeMineral extends ConstruccionTerran {
@@ -14,7 +13,6 @@ public class CentroDeMineral extends ConstruccionTerran {
 
 	public CentroDeMineral(Recursos recursos){
 		vida = new Vida(150);
-		costo = new Costo(50,0);
 		this.recursos = recursos;
 	}
 	

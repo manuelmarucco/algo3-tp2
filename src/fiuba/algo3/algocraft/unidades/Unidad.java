@@ -1,6 +1,5 @@
 package fiuba.algo3.algocraft.unidades;
 
-import auxiliares.Costo;
 import fiuba.algo3.algocraft.comandos.Accion;
 import fiuba.algo3.algocraft.unidades.clase.ClaseDeUnidad;
 import fiuba.algo3.algocraft.unidades.parametros.Danio;
@@ -21,24 +20,18 @@ public class Unidad implements ColocableEnMapa, Targeteable {
     private int vision;
     private Ubicacion ubicacion;
     private HashMap<Accion, Actuable> poolDeAcciones;
-    private Costo costo;
 
-    public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase , Costo costo) {
+    public Unidad(Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase) {
         this.vida=vida;
         this.vision=vision;
         this.ubicacion =ubicacion;
         this.clase=clase;
-        this.costo=costo;
         this.poolDeAcciones=new HashMap<Accion, Actuable>();
         this.clase.agregarMetodosUpdate(poolDeAcciones);
     }
 
     public Vida getVida() {
         return vida;
-    }
-
-    public Costo getCosto(){
-        return costo;
     }
 
     public void update(){

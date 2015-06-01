@@ -4,5 +4,5 @@ public enum Accion {
     ATACAR,
     REGENERAR,
     REGENERARENERGIA,
-    MOVER
+    ConstruirMarine, MOVER
 }

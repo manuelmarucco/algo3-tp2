@@ -1,9 +1,8 @@
 package construcciones.terran;
 
+import fiuba.algo3.algocraft.unidades.parametros.Vida;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import fiuba.algo3.algocraft.unidades.parametros.Vida;
-import auxiliares.Costo;
 
 
 
@@ -13,7 +12,6 @@ public class DepositoDeSuministros extends ConstruccionTerran {
 	
 	public DepositoDeSuministros(){
 		vida = new Vida(150);
-		costo = new Costo(100,0);
 	}
 	
 	public int getCapacidadExtra(){

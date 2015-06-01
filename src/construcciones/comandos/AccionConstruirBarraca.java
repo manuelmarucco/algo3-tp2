@@ -19,7 +19,7 @@ public class AccionConstruirBarraca implements AccionConstruir{
 	}
 
 	public void actuar(Coordenadas coordenadas){
-		Construccion barraca = new Barraca();
+		Construccion barraca = new Barraca(this.jugador,this.mapa);
 		try {
 			this.jugador.getRecursos().gastarRecursos(new Costo(150,0));
 		} catch (ExcepcionRecursosInsuficientes excepcionRecursosInsuficientes) {

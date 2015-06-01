@@ -5,8 +5,10 @@ import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 */
 
-import auxiliares.Costo;
+import construcciones.comandos.ConstruirMarine;
+import fiuba.algo3.algocraft.comandos.Accion;
 import fiuba.algo3.algocraft.unidades.parametros.Vida;
+import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
@@ -15,11 +17,12 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 
 public class Barraca extends ConstruccionTerran {
 
-	public Barraca() {
-
+	public Barraca(Jugador jugador,Mapa mapa) {
+		super();
 		this.vida = new Vida(250);
 		nombre = "Barraca";
-		costo = new Costo(150,0);
+		this.accionesPosibles.put(Accion.ConstruirMarine, new ConstruirMarine(jugador, mapa));
+
 	}
 	/*
 	public void update(){
@@ -32,6 +35,10 @@ public class Barraca extends ConstruccionTerran {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
+	}
+
+	public void actuar(Accion accion, Coordenadas Coordenadas) {
+		this.accionesPosibles.get(accion).actuar(Coordenadas);
 	}
 
 }

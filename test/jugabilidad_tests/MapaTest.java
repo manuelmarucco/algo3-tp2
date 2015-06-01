@@ -1,12 +1,15 @@
 package jugabilidad_tests;
 
-import static org.junit.Assert.*;
+import auxiliares.Recursos;
+import construcciones.terran.Barraca;
+import construcciones.terran.ConstruccionTerran;
+import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-
 import org.junit.Test;
+import razas.Terran;
 
-import construcciones.terran.Barraca;
+import static org.junit.Assert.assertEquals;
 
 
 public class MapaTest {
@@ -16,7 +19,8 @@ public class MapaTest {
 		
 		Mapa mapa = new Mapa();
 		Coordenadas coordenadas = new Coordenadas(1,2);
-		Barraca barraca = new Barraca();
+		Jugador jugador = new Jugador(new Terran(),new Recursos(50,0));
+		ConstruccionTerran barraca = new Barraca(jugador,mapa);
 		
 		mapa.agregar( barraca, coordenadas);
 		
