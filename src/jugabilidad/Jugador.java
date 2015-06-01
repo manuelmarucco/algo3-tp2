@@ -17,9 +17,9 @@ public class Jugador {
 	private ArrayList<Construccion> construccionesCreadas = new ArrayList<Construccion>();
 	private ArrayList<Unidad> unidadesCreadas = new ArrayList<Unidad>();
 
-	public Jugador(Raza r){
+	public Jugador(Raza r,Recursos recursosIniciales){
 		raza = r;
-		recursosRecolectados = new Recursos(400,0);
+		recursosRecolectados = recursosIniciales;
 	}
 	
 	public void construir(Construccion construccion){
@@ -61,6 +61,10 @@ public class Jugador {
 	
 	public Raza getRaza(){
 		return raza;
+	}
+
+	public Recursos getRecursos() {
+		return recursosRecolectados;
 	}
 	
 }
