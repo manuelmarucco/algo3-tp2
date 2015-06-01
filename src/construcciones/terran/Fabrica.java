@@ -1,8 +1,8 @@
 package construcciones.terran;
-/*
+
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-*/
+
 import fiuba.algo3.algocraft.unidades.ClaseDeUnidad;
 import fiuba.algo3.algocraft.unidades.Danio;
 import fiuba.algo3.algocraft.unidades.Terrestre;
@@ -32,12 +32,12 @@ public class Fabrica extends ConstruccionTerran{
 		//falta Transporte,TiempoDeCosntruccion,Suministro,RangoDeAtaqueAereo y Terrestre
 		return goliat;
 	}
-	/*
+
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-	*/
+
 }

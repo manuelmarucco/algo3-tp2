@@ -16,12 +16,12 @@ public class PortalEstelar extends ConstruccionProtoss{
 		costo = new Costo(150,150);
 		tiempoDeConstruccion = 10;
 	}
-	/*
+
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-	*/		
+
 }

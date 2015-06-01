@@ -1,9 +1,9 @@
 package construcciones.terran;
 
-/*
+
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-*/
+
 import auxiliares.Costo;
 //import auxiliares.Recursos;
 //import excepciones.ExcepcionRecursosInsuficientes;
@@ -31,12 +31,12 @@ public class Barraca extends ConstruccionTerran {
 		//falta Transporte,TiempoDeCosntruccion,Suministro,RangoDeAtaque
 		return marine;
 	}
-	/*
+
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-*/
+
 }

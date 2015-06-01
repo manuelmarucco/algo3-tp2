@@ -24,12 +24,12 @@ public class NexoMineral extends ConstruccionProtoss{
 	public int getMineralRecolectado(){
 		return mineralRecolectado;
 	}
-	/*
+
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-	*/
+
 }

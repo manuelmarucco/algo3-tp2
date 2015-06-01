@@ -20,12 +20,12 @@ public class DepositoDeSuministros extends ConstruccionTerran{
 	public int getCapacidadExtra(){
 		return capacidadExtra;
 	}
-	/*
+
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-	*/
+
 }

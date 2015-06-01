@@ -1,6 +1,8 @@
 package jugabilidad_tests;
 
 import static org.junit.Assert.*;
+
+import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
@@ -16,7 +18,7 @@ public class MapaTest {
 		
 		Mapa mapa = new Mapa();
 		Coordenadas coordenadas = new Coordenadas(1,2);
-		Barraca barraca = new Barraca();
+		ColocableEnMapa barraca = new Barraca();
 		
 		mapa.agregar( barraca, coordenadas);
 		

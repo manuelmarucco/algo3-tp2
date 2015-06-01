@@ -23,12 +23,12 @@ public class Asimilador extends ConstruccionProtoss{
 	public int getGasRecolectado(){
 		return gasRecolectado;
 	}
-	/*
+
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-	*/
+
 }

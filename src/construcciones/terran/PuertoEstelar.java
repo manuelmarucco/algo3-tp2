@@ -1,9 +1,9 @@
 package construcciones.terran;
 import auxiliares.Costo;
-/*
+
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-*/
+
 import fiuba.algo3.algocraft.unidades.Vida;
 
 
@@ -17,12 +17,12 @@ public class PuertoEstelar extends ConstruccionTerran{
 		costo = new Costo(150,100);
 		tiempoDeConstruccion = 10;
 	}
-	/*
+
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-	*/
+
 }

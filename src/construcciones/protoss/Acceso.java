@@ -14,12 +14,12 @@ public class Acceso extends ConstruccionProtoss{
 		costo = new Costo(150,0);
 		tiempoDeConstruccion = 8;
 	}
-	/*
+
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-	*/
+
 }

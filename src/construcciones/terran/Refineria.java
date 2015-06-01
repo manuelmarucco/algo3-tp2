@@ -24,12 +24,12 @@ public class Refineria extends ConstruccionTerran {
 	public int getGasRecolectado(){
 		return gasRecolectado;
 	}
-	/*
+
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-	*/
+
 }

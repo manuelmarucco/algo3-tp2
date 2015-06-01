@@ -14,12 +14,12 @@ public class ArchivosTemplarios extends ConstruccionProtoss{
 		costo = new Costo(150,200);
 		tiempoDeConstruccion = 9;
 	}
-	/*
+
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-	*/
+
 }
