@@ -1,8 +1,8 @@
 package fiuba.algo3.algocraft.comandos;
 
-import fiuba.algo3.algocraft.unidades.Danio;
-import fiuba.algo3.algocraft.unidades.Unidad;
+import fiuba.algo3.algocraft.unidades.parametros.Danio;
 import interfaces.Actuable;
+import interfaces.Targeteable;
 
 public class AccionAtacar implements Actuable  {
 
@@ -12,7 +12,7 @@ public class AccionAtacar implements Actuable  {
         this.danio = danio;
     }
     @Override
-    public void actuar(Unidad objetivo) {
+    public void actuar(Targeteable objetivo) {
         objetivo.recibirDanio(danio);
     }
 }

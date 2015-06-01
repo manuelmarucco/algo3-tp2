@@ -18,8 +18,6 @@ public abstract class Construccion implements ColocableEnMapa, Targeteable{
 	protected String nombre;
 	protected Costo costo;
 	protected HashMap<Accion, Actuable> poolDeAcciones;
-	
-	public abstract void recibirDanio(int danioParcial);
 
 	public String getNombre() {
 		return nombre;
@@ -28,6 +26,7 @@ public abstract class Construccion implements ColocableEnMapa, Targeteable{
 	public Costo getCosto() {
 		return costo;
 	}
+
 	public  void update(){
 		for(Accion a:poolDeAcciones.keySet()){
 			poolDeAcciones.get(a).actuar(this);

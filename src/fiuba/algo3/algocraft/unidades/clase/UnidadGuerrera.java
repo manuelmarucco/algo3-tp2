@@ -1,7 +1,9 @@
-package fiuba.algo3.algocraft.unidades;
+package fiuba.algo3.algocraft.unidades.clase;
 
 import fiuba.algo3.algocraft.comandos.Accion;
 import fiuba.algo3.algocraft.comandos.AccionAtacar;
+import fiuba.algo3.algocraft.unidades.parametros.Danio;
+import fiuba.algo3.algocraft.unidades.parametros.Parametros;
 import interfaces.Actuable;
 
 import java.util.HashMap;
@@ -27,6 +29,5 @@ public class UnidadGuerrera extends ClaseDeUnidad {
 
     @Override
     public void agregarMetodosUpdate(HashMap<Accion, Actuable> poolDeAcciones) {
-        return;
     }
 }

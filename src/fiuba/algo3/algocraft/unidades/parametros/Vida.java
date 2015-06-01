@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.unidades;
+package fiuba.algo3.algocraft.unidades.parametros;
 
 public class Vida {
     private int vidaTotal;

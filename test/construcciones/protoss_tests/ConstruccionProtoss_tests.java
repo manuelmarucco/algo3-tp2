@@ -1,5 +1,6 @@
 package construcciones.protoss_tests;
 
+import fiuba.algo3.algocraft.unidades.parametros.Danio;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -14,9 +15,9 @@ public class ConstruccionProtoss_tests {
 		
 		int escudo = construccion.getEscudo();
 		
-		construccion.recibirDanio((int)(escudo/2));
+		construccion.recibirDanio(new Danio((escudo/2),0,0));
 		
-		Assert.assertEquals(escudo-(int)(escudo/2), construccion.getEscudo());
+		Assert.assertEquals(escudo- escudo/2, construccion.getEscudo());
 	}
 	
 	@Test
@@ -24,11 +25,11 @@ public class ConstruccionProtoss_tests {
 		ConstruccionProtoss construccion = new Acceso();
 		
 		int escudo = construccion.getEscudo();
-		int vida = construccion.getVida();
+		int vida = construccion.getVida().getVidaActual();
 		
-		construccion.recibirDanio(escudo+(int)(vida/2));
+		construccion.recibirDanio(new Danio(escudo+ vida/2,1,1));
 		
-		Assert.assertEquals(vida-(int)(vida/2), construccion.getVida());
+		Assert.assertEquals(vida- vida/2, construccion.getVida().getVidaActual());
 	}
 
 }

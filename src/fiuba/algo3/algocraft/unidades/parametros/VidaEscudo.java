@@ -1,4 +1,6 @@
-package fiuba.algo3.algocraft.unidades;
+package fiuba.algo3.algocraft.unidades.parametros;
+
+import fiuba.algo3.algocraft.unidades.parametros.Vida;
 
 public class VidaEscudo extends Vida {
     private final int escudoTotal;

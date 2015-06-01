@@ -13,14 +13,14 @@ public class PuertoEstelar_tests {
 	public void VidaInicializada() {
 		ConstruccionProtoss f = new PortalEstelar();
 		
-		Assert.assertEquals(150, f.getVida());
+		Assert.assertEquals(150, f.getVida().getVidaActual());
 	}
 	
 	@Test
 	public void EscudoInicializado() {
 		PortalEstelar f = new PortalEstelar();
 		
-		Assert.assertEquals(150, f.getVida());
+		Assert.assertEquals(150, f.getVida().getVidaActual());
 	}
 
 }

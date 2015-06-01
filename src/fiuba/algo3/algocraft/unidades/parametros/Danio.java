@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.unidades;
+package fiuba.algo3.algocraft.unidades.parametros;
 
 public class Danio {
     private int tierra;

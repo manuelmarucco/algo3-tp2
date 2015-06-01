@@ -1,6 +1,7 @@
 package construcciones.terran_tests;
 
 
+import fiuba.algo3.algocraft.unidades.parametros.Danio;
 import org.junit.Assert;
 
 import org.junit.Test;
@@ -13,22 +14,22 @@ public class ConstruccionTerran_tests {
 	@Test
 	public void UnaConstruccionTerranRecibeDanio() {
 		ConstruccionTerran construccion = new Barraca();
-		int vidaAnterior = 0;
+		int vidaAnterior;
 		
-		vidaAnterior = construccion.getVida();
+		vidaAnterior = construccion.getVida().getVidaActual();
 		
-		construccion.recibirDanio(50);
+		construccion.recibirDanio(new Danio(50,20,1));
 		
-		Assert.assertEquals(vidaAnterior-50, construccion.getVida());
+		Assert.assertEquals(vidaAnterior-50, construccion.getVida().getVidaActual());
 	}
 	
 	@Test
 	public void UnaConstruccionTerranRecibeMasDanioQueSuVida() {
 		ConstruccionTerran construccion = new Barraca();
 		
-		construccion.recibirDanio(construccion.getVida()+50);
+		construccion.recibirDanio(new Danio(construccion.getVida().getVidaActual()+50,0,0));
 		
-		Assert.assertEquals(0, construccion.getVida());
+		Assert.assertEquals(0, construccion.getVida().getVidaActual());
 		
 	}
 

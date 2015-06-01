@@ -3,7 +3,12 @@ package fiuba.algo3.algocraft.unidades_tests;
 import auxiliares.Costo;
 import fiuba.algo3.algocraft.comandos.Accion;
 import fiuba.algo3.algocraft.comandos.Regenerar;
-import fiuba.algo3.algocraft.unidades.*;
+import fiuba.algo3.algocraft.unidades.Unidad;
+import fiuba.algo3.algocraft.unidades.clase.UnidadGuerrera;
+import fiuba.algo3.algocraft.unidades.clase.UnidadMagica;
+import fiuba.algo3.algocraft.unidades.parametros.*;
+import fiuba.algo3.algocraft.unidades.terreno.Aereo;
+import fiuba.algo3.algocraft.unidades.terreno.Terrestre;
 import org.junit.Assert;
 import org.junit.Test;
 

@@ -2,7 +2,7 @@ package construcciones.protoss;
 
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import fiuba.algo3.algocraft.unidades.VidaEscudo;
+import fiuba.algo3.algocraft.unidades.parametros.VidaEscudo;
 
 
 public class PortalEstelar extends ConstruccionProtoss{

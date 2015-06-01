@@ -1,5 +1,6 @@
-package fiuba.algo3.algocraft.unidades;
+package fiuba.algo3.algocraft.unidades.terreno;
 
+import fiuba.algo3.algocraft.unidades.parametros.Danio;
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;

@@ -1,7 +1,9 @@
-package fiuba.algo3.algocraft.unidades;
+package fiuba.algo3.algocraft.unidades.clase;
 
 import fiuba.algo3.algocraft.comandos.Accion;
 import fiuba.algo3.algocraft.comandos.AccionRegenerarEnergia;
+import fiuba.algo3.algocraft.unidades.parametros.Energia;
+import fiuba.algo3.algocraft.unidades.parametros.Parametros;
 import interfaces.Actuable;
 
 import java.util.HashMap;

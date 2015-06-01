@@ -12,7 +12,7 @@ public class Refineria_tests {
 	public void VidaInicializada() {
 		ConstruccionTerran r = new Refineria();
 		
-		Assert.assertEquals(150, r.getVida());
+		Assert.assertEquals(150, r.getVida().getVidaActual());
 	}
 	
 	@Test

@@ -1,12 +1,12 @@
 package fiuba.algo3.algocraft.comandos;
 
-import fiuba.algo3.algocraft.unidades.Unidad;
 import interfaces.Actuable;
+import interfaces.Targeteable;
 
 public class Regenerar implements Actuable {
 
     @Override
-    public void actuar(Unidad objetivo) {
+    public void actuar(Targeteable objetivo) {
         objetivo.getVida().regenerar();
     }
 }

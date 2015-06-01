@@ -12,7 +12,7 @@ public class NexoMineral_tests {
 	public void VidaInicializada() {
 		ConstruccionProtoss n = new NexoMineral();
 		
-		Assert.assertEquals(150, n.getVida());
+		Assert.assertEquals(150, n.getVida().getVidaActual());
 	}
 	
 	@Test

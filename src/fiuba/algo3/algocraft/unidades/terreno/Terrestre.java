@@ -1,5 +1,6 @@
-package fiuba.algo3.algocraft.unidades;
+package fiuba.algo3.algocraft.unidades.terreno;
 
+import fiuba.algo3.algocraft.unidades.parametros.Danio;
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -11,7 +12,7 @@ public class Terrestre implements Ubicacion {
 
     @Override
     public void agregarse(ColocableEnMapa unidad, Mapa mapa, Coordenadas coordenadas) {
-        mapa.agregarEnTierra(unidad,coordenadas);
+        mapa.agregarEnTierra(unidad, coordenadas);
 
     }
 }

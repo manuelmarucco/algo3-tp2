@@ -1,8 +1,8 @@
 package fiuba.algo3.algocraft.comandos;
 
-import fiuba.algo3.algocraft.unidades.Energia;
-import fiuba.algo3.algocraft.unidades.Unidad;
+import fiuba.algo3.algocraft.unidades.parametros.Energia;
 import interfaces.Actuable;
+import interfaces.Targeteable;
 
 public class AccionRegenerarEnergia implements Actuable {
     private final Energia energia;
@@ -13,7 +13,7 @@ public class AccionRegenerarEnergia implements Actuable {
     }
 
     @Override
-    public void actuar(Unidad objetivo) {
+    public void actuar(Targeteable objetivo) {
         this.energia.regenerar();
     }
 

@@ -1,14 +1,7 @@
 package tests_de_integracion;
 
-import auxiliares.Recursos;
-import construcciones.comandos.ConstruccionesDisponibles;
-import jugabilidad.Jugador;
-import org.junit.Assert;
-import org.junit.Test;
-import razas.Terran;
-
 public class validacionEnLaCreacionDeContruccionesTests {
-
+/*
 	@Test
 	public void construyoBarracaYSeGuardaEnConstruccionesCreadas() {
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,400));
@@ -27,7 +20,7 @@ public class validacionEnLaCreacionDeContruccionesTests {
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("Fabrica").getNombre(), "Fabrica");
 	}
-	
+
 	@Test
 	public void TrataDeConstruirFabricaPeroSinBarracaAntesNoSeConstruye() {
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,0));
@@ -46,7 +39,7 @@ public class validacionEnLaCreacionDeContruccionesTests {
 		Assert.assertEquals(jugador1.getRecursos().getMinerales(), 400);
 		Assert.assertEquals(jugador1.getRecursos().getGasVespeno(), 0);
 	}
-	
+
 	@Test
 	public void PuedeConstruirPuertoEstelar() {
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,400));
@@ -54,11 +47,11 @@ public class validacionEnLaCreacionDeContruccionesTests {
 
 		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.BARRACA).accionConstruir());
 		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.FABRICA).accionConstruir());
-		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.PUERTOESTELAR).accionConstruir());
+	//	jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.PUERTOESTELAR).accionConstruir());
 		
 		Assert.assertEquals(jugador1.buscarConstruccionCreada("PuertoEstelar").getNombre(), "PuertoEstelar");
 	}
-	/*
+
 	@Test
 	public void TrataDeConstruirPuertoEstelarPeroSinFabricaAntesNoSeConstruye() {
 		Jugador jugador1 = new Jugador();

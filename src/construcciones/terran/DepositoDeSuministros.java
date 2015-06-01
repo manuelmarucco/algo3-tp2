@@ -2,7 +2,7 @@ package construcciones.terran;
 
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import fiuba.algo3.algocraft.unidades.Vida;
+import fiuba.algo3.algocraft.unidades.parametros.Vida;
 import auxiliares.Costo;
 
 

@@ -12,7 +12,7 @@ public class Asimilador_tests {
 	public void VidaInicializada() {
 		ConstruccionProtoss a = new Asimilador();
 		
-		Assert.assertEquals(150, a.getVida());
+		Assert.assertEquals(150, a.getVida().getVidaActual());
 	}
 	
 	@Test

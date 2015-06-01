@@ -1,6 +1,9 @@
 package fiuba.algo3.algocraft.unidades_tests;
 
-import fiuba.algo3.algocraft.unidades.*;
+import fiuba.algo3.algocraft.unidades.parametros.Danio;
+import fiuba.algo3.algocraft.unidades.terreno.Aereo;
+import fiuba.algo3.algocraft.unidades.terreno.Terrestre;
+import fiuba.algo3.algocraft.unidades.terreno.Ubicacion;
 import org.junit.Assert;
 import org.junit.Test;
 

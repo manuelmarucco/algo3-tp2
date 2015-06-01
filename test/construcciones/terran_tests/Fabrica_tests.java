@@ -12,7 +12,7 @@ public class Fabrica_tests {
 	public void VidaInicializada() {
 		ConstruccionTerran f = new Fabrica();
 		
-		Assert.assertEquals(200, f.getVida());
+		Assert.assertEquals(200, f.getVida().getVidaActual());
 	}
 
 

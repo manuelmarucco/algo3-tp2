@@ -1,7 +1,7 @@
 package interfaces;
 
-import construcciones.Construccion;
+import jugabilidad.utilidadesMapa.Coordenadas;
 
 public interface AccionConstruir {
-	public Construccion accionConstruir();
+	void actuar(Coordenadas coordenadas);
 }

@@ -12,7 +12,7 @@ public class PuertoEstelar_tests {
 	public void VidaInicializada() {
 		ConstruccionTerran f = new PuertoEstelar();
 		
-		Assert.assertEquals(250, f.getVida());
+		Assert.assertEquals(250, f.getVida().getVidaActual());
 	}
 
 }

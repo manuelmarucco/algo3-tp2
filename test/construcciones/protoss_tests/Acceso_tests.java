@@ -12,7 +12,7 @@ public class Acceso_tests {
 	public void VidaInicializada() {
 		ConstruccionProtoss a = new Acceso();
 		
-		Assert.assertEquals(150, a.getVida());
+		Assert.assertEquals(150, a.getVida().getVidaActual());
 	}
 
 	@Test

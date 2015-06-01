@@ -12,7 +12,7 @@ public class ArchivosTemplarios_tests {
 	public void VidaInicializada() {
 		ConstruccionProtoss f = new ArchivosTemplarios();
 		
-		Assert.assertEquals(150, f.getVida());
+		Assert.assertEquals(150, f.getVida().getVidaActual());
 	}
 	
 	@Test
