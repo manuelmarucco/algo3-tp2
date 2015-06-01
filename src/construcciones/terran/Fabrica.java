@@ -13,8 +13,9 @@ public class Fabrica extends ConstruccionTerran{
 	
 	public Fabrica(){
 		nombre = "Fabrica";
-		vida = new Vida(200);
-		costo = new Costo(150,100);
+		vida = new Vida(1250);
+		costo = new Costo(200,100);
+		tiempoDeConstruccion = 12;
 	}
 	/*
 	@Override

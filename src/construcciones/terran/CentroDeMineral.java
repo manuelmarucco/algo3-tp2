@@ -11,8 +11,10 @@ public class CentroDeMineral extends ConstruccionTerran {
 	private final int mineralRecolectado = 10; //por turno
 	
 	public CentroDeMineral(){
-		vida = new Vida(150);
+		nombre = "CentroDeMineral";
+		vida = new Vida(500);
 		costo = new Costo(50,0);
+		tiempoDeConstruccion = 4;
 	}
 	
 	// esta funcion la debe llamar alguna clase en cada turno y debe modificar el atributo de la instancia Jugador
@@ -22,12 +24,12 @@ public class CentroDeMineral extends ConstruccionTerran {
 	public int getMineralRecolectado(){
 		return mineralRecolectado;
 	}
-	
+	/*
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-	
+	*/
 }

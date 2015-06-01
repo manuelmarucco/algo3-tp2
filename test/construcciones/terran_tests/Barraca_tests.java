@@ -11,7 +11,7 @@ public class Barraca_tests {
 	public void VidaInicializada() {
 		ConstruccionTerran b = new Barraca();
 		
-		Assert.assertEquals(250, b.getVida());
+		Assert.assertEquals(1000, b.getVida());
 	}
 
 	@Test

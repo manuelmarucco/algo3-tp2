@@ -2,6 +2,6 @@ package interfaces;
 
 import construcciones.Construccion;
 
-public interface Construible {
+public interface AccionConstruir {
 	public Construccion accionConstruir();
 }

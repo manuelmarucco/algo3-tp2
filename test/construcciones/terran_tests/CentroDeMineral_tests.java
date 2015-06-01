@@ -12,7 +12,7 @@ public class CentroDeMineral_tests {
 	public void VidaInicializada() {
 		ConstruccionTerran r = new CentroDeMineral();
 		
-		Assert.assertEquals(150, r.getVida());
+		Assert.assertEquals(500, r.getVida());
 	}
 	
 	@Test
@@ -20,7 +20,6 @@ public class CentroDeMineral_tests {
 		CentroDeMineral r = new CentroDeMineral();
 		
 		Assert.assertTrue(0 != r.getMineralRecolectado());
-		//Assert.assertNotEquals(0, r.getMineralRecolectado()); <- ant no compila
 	}
 
 

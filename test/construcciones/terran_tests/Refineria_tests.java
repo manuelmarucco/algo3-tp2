@@ -12,14 +12,14 @@ public class Refineria_tests {
 	public void VidaInicializada() {
 		ConstruccionTerran r = new Refineria();
 		
-		Assert.assertEquals(150, r.getVida());
+		Assert.assertEquals(750, r.getVida());
 	}
 	
 	@Test
 	public void recoletaGasVespeno() {
 		Refineria r = new Refineria();
 		
-		Assert.assertEquals(10, r.getGasRecolectado());
+		Assert.assertTrue(0 != r.getGasRecolectado());
 	}
 
 

@@ -13,8 +13,9 @@ public class PuertoEstelar extends ConstruccionTerran{
 	
 	public PuertoEstelar(){
 		nombre = "PuertoEstelar";
-		vida = new Vida(250);
-		costo = new Costo(250,50);
+		vida = new Vida(1300);
+		costo = new Costo(150,100);
+		tiempoDeConstruccion = 10;
 	}
 	/*
 	@Override

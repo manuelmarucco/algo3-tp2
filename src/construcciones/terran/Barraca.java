@@ -13,9 +13,10 @@ public class Barraca extends ConstruccionTerran {
 
 	public Barraca() {
 
-		this.vida = new Vida(250);
+		this.vida = new Vida(1000);
 		nombre = "Barraca";
 		costo = new Costo(150,0);
+		tiempoDeConstruccion = 12;
 	}
 	/*
 	public void update(){

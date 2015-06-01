@@ -21,6 +21,8 @@ public class Jugador {
 	public Jugador(Raza r,Recursos recursosIniciales){
 		raza = r;
 		recursosRecolectados = recursosIniciales;
+		//HAY QUE HACER QUE EL JUGADOR EMPIECE CON 5 RECOLECTARES....
+		//EL PROBLEMA DE ESTO ES QUE DEPENDE LA ESCRUCTURA EN CADA RAZA... HAY QUE VER COMO LO RESOLVEMOS
 	}
 	
 	public void construir(ConstruccionesDisponibles construccion){

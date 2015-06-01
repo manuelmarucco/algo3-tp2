@@ -12,18 +12,20 @@ public class DepositoDeSuministros extends ConstruccionTerran{
 	private final int capacidadExtra = 5;
 	
 	public DepositoDeSuministros(){
-		vida = new Vida(150);
+		vida = new Vida(750);
 		costo = new Costo(100,0);
+		tiempoDeConstruccion = 6;
 	}
 	
 	public int getCapacidadExtra(){
 		return capacidadExtra;
 	}
-	
+	/*
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
+	*/
 }

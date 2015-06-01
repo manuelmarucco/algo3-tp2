@@ -12,6 +12,7 @@ public abstract class Construccion /*implements ColocableEnMapa*/{
 
 	protected String nombre;
 	protected Costo costo;
+	protected int tiempoDeConstruccion;
 	
 	public abstract void recibirDanio(int danioParcial);
 

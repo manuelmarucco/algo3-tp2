@@ -1,10 +1,10 @@
-package construcciones.comandos;
+package construcciones.comandos.terran;
 
-import interfaces.Construible;
+import interfaces.AccionConstruir;
 import construcciones.Construccion;
 import construcciones.terran.CentroDeMineral;
 
-public class AccionConstruirCentroDeMineral implements Construible{
+public class AccionConstruirCentroDeMineral implements AccionConstruir{
 		@Override
 		public Construccion accionConstruir(){
 			CentroDeMineral centroDeMineral = new CentroDeMineral();
