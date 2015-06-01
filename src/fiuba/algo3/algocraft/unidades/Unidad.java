@@ -58,6 +58,10 @@ public class Unidad implements Regenerable {
     }
 
     public void agregarAccion(Accion nombre,Actuable accion){
-        poolDeAcciones.put(nombre,accion);
+        poolDeAcciones.put(nombre, accion);
+    }
+
+    public HashMap<Parametros,Integer>  getParametroDeClase() {
+        return this.clase.getParametros();
     }
 }

@@ -15,4 +15,16 @@ public class Energia {
     public void regenerar() {
         energiaActual = Math.min(energiaTotal,energiaActual+regeneracionEnergia);
     }
+
+    public int getEnergiaActual() {
+        return energiaActual;
+    }
+
+    public int getEnergiaTotal() {
+        return energiaTotal;
+    }
+
+    public Integer getRegeneracionEnergia() {
+        return regeneracionEnergia;
+    }
 }
