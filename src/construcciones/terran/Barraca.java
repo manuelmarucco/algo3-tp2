@@ -3,6 +3,9 @@ package construcciones.terran;
 
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.Jugador;
+import construcciones.comandos.AccionesDisponibles;
+import construcciones.comandos.terran.accionesDeEdficio.AccionEntrenarMarine;
 
 import auxiliares.Costo;
 //import auxiliares.Recursos;
@@ -17,12 +20,17 @@ public class Barraca extends ConstruccionTerran {
 		nombre = "Barraca";
 		costo = new Costo(150,0);
 		tiempoDeConstruccion = 12;
+		
+		acciones.put(AccionesDisponibles.EntrenarMarine,new AccionEntrenarMarine());
+		
 	}
+
 	/*
 	public void update(){
 		this.regenerar.regenerar(this);
 	}
 	*/
+	/*
 	public Unidad entrenarMarine() {
 		
 		Ubicacion terreno = new Terrestre();
@@ -31,12 +39,13 @@ public class Barraca extends ConstruccionTerran {
 		//falta Transporte,TiempoDeCosntruccion,Suministro,RangoDeAtaque
 		return marine;
 	}
-
+	*/
+	
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-
 }
+

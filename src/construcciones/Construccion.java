@@ -1,5 +1,9 @@
 package construcciones;
 
+import java.util.HashMap;
+
+import construcciones.comandos.AccionesDisponibles;
+import interfaces.AccionDeEdificio;
 import interfaces.ColocableEnMapa;
 import auxiliares.Costo;
 
@@ -8,7 +12,7 @@ public abstract class Construccion implements ColocableEnMapa{
 	
 	//protected Regeneracion regenerar;
 
-	//public HashMap<Accion, AccionDeEdificio> accion;
+	public HashMap<AccionesDisponibles, AccionDeEdificio> acciones;
 
 	protected String nombre;
 	protected Costo costo;
@@ -22,6 +26,10 @@ public abstract class Construccion implements ColocableEnMapa{
 
 	public Costo getCosto() {
 		return costo;
+	}
+
+	public void accionesDeEdificio(AccionesDisponibles accion) {
+		acciones.get(accion);	
 	}
 	
 }

@@ -47,10 +47,12 @@ public class Jugador {
 	}
 	
 	public void crearUnidad(Unidad unidad){
+		
 		try {
 			recursosRecolectados.gastarRecursos(unidad.getCosto());
 		} catch (ExcepcionRecursosInsuficientes e) {
-			return; //poner cartelito en la excepcion avisando que no se construye porque no tiene recursos
+			e.printStackTrace();
+			return;
 		}
 		
 		unidadesCreadas.add(unidad);
@@ -71,6 +73,19 @@ public class Jugador {
 
 	public Recursos getRecursos() {
 		return recursosRecolectados;
+	}
+
+	public void agregarUnidad(Unidad unidad) {
+		unidadesCreadas.add(unidad);
+	}
+
+	public Unidad buscarUnidadCreada(String nombre) {
+		for(Unidad c : unidadesCreadas){
+			if(c.getNombre() == nombre){
+					return c;
+			}
+		}
+		return null;
 	}
 	
 }

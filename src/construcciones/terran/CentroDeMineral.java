@@ -24,7 +24,6 @@ public class CentroDeMineral extends ConstruccionTerran {
 	public int getMineralRecolectado(){
 		return mineralRecolectado;
 	}
-
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
