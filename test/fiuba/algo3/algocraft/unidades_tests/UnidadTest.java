@@ -116,4 +116,22 @@ public class UnidadTest {
         Assert.assertEquals(Aereo.class,terran1.getUbicacion().getClass());
     }
 
+    @Test
+    public void testObtenerParametrosDeClaseGuerrera(){
+        Unidad terran1 = new Unidad(new Vida(200),7,new Aereo(),new UnidadGuerrera(new Danio (20,30,4)),new Costo(10,10));
+        Assert.assertEquals(20,terran1.getParametroDeClase().get(Parametros.TERRESTRE).intValue());
+        Assert.assertEquals(30,terran1.getParametroDeClase().get(Parametros.AEREO).intValue());
+        Assert.assertEquals(4,terran1.getParametroDeClase().get(Parametros.RANGO).intValue());
+
+    }
+
+    @Test
+    public void testObtenerParametrosDeClaseMago(){
+        Unidad terran1 = new Unidad(new Vida(200),7,new Aereo(),new UnidadMagica(new Energia(100,15,10)),new Costo(10,10));
+        Assert.assertEquals(100,terran1.getParametroDeClase().get(Parametros.ENERGIATOTAL).intValue());
+        Assert.assertEquals(15,terran1.getParametroDeClase().get(Parametros.ENERGIAACTUAL).intValue());
+        Assert.assertEquals(10,terran1.getParametroDeClase().get(Parametros.REGENERACIONDEENERGIA).intValue());
+
+    }
+
 }

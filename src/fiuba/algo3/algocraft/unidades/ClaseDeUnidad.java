@@ -26,4 +26,6 @@ public abstract class ClaseDeUnidad {
     }
 
     public abstract HashMap<Parametros,Integer> getParametros();
+
+    public abstract void agregarMetodosUpdate(HashMap<Accion, Actuable> poolDeAcciones);
 }
