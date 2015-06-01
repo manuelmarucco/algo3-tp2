@@ -5,21 +5,22 @@ import java.util.ArrayList;
 import auxiliares.Recursos;
 import construcciones.Construccion;
 import construcciones.ProxyConstrucciones;
-import excepciones.ExcepcionNecesitaConstruirAcceso;
-import excepciones.ExcepcionNecesitaConstruirBarraca;
-import excepciones.ExcepcionNecesitaConstruirFabrica;
-import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
 import excepciones.ExcepcionNecesitaCrearOtraConstruccionPrevia;
 import excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.unidades.Unidad;
+import razas.Raza;
 
 public class Jugador {
 	
+	private Raza raza;
 	private Recursos recursosRecolectados;
 	private ArrayList<Construccion> construccionesCreadas = new ArrayList<Construccion>();
 	private ArrayList<Unidad> unidadesCreadas = new ArrayList<Unidad>();
 
-	
+	public Jugador(Raza r){
+		raza = r;
+		recursosRecolectados = new Recursos(400,0);
+	}
 	
 	public void construir(Construccion construccion){
 		ProxyConstrucciones proxy = new ProxyConstrucciones();
@@ -56,6 +57,10 @@ public class Jugador {
 			}
 		}
 		return null;
+	}
+	
+	public Raza getRaza(){
+		return raza;
 	}
 	
 }

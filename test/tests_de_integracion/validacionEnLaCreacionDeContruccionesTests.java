@@ -6,6 +6,8 @@ import jugabilidad.Jugador;
 
 import org.junit.Test;
 
+import razas.Terran;
+import construcciones.comandos.ConstruccionesDisponibles;
 import construcciones.protoss.BaseProtoss;
 import construcciones.terran.BaseTerran;
 
@@ -13,10 +15,9 @@ public class validacionEnLaCreacionDeContruccionesTests {
 
 	@Test
 	public void construyoBarracaYSeGuardaEnConstruccionesCreadas() {
-		BaseTerran base = new BaseTerran();
-		Jugador jugador1 = new Jugador();
+		Jugador jugador1 = new Jugador(new Terran());
 		
-		jugador1.construir(base.construirBarraca());
+		jugador1.construir(((jugador1.getRaza()).getComandos()).get(ConstruccionesDisponibles.BARRACA).accionConstruir());
 		
 		Assert.assertEquals((jugador1.buscarConstruccionCreada("Barraca")).getNombre(), "Barraca");
 	}

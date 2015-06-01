@@ -4,7 +4,7 @@ import interfaces.ColocableEnMapa;
 import auxiliares.Costo;
 
 
-public abstract class Construccion implements ColocableEnMapa{
+public abstract class Construccion /*implements ColocableEnMapa*/{
 	
 	//protected Regeneracion regenerar;
 

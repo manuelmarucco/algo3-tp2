@@ -1,7 +1,9 @@
 package construcciones.terran;
 
+/*
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
+*/
 import auxiliares.Costo;
 //import auxiliares.Recursos;
 //import excepciones.ExcepcionRecursosInsuficientes;
@@ -30,12 +32,12 @@ public class Barraca extends ConstruccionTerran {
 		
 		//Falta agregarle el costo y que "alguien" lo disminuya del atributo "RecursosRecolectados" de la clase Jugador
 	}
-	
+	/*
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-
+*/
 }
