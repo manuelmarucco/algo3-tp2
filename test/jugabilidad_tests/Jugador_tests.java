@@ -33,7 +33,7 @@ public class Jugador_tests {
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,0));
 		
 		jugador1.construir(ConstruccionesDisponibles.BARRACA);
-		jugador1.buscarConstruccionCreada("Barraca").accionesDeEdificio(AccionesDisponibles.EntrenarMarine);
+		jugador1.buscarConstruccionCreada("Barraca").accionesDeEdificio(jugador1,AccionesDisponibles.EntrenarMarine);
 		
 		Assert.assertEquals(jugador1.buscarUnidadCreada("marine").getNombre(),"marine");
 		

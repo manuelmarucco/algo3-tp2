@@ -3,7 +3,6 @@ package construcciones.terran;
 
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import jugabilidad.Jugador;
 import construcciones.comandos.AccionesDisponibles;
 import construcciones.comandos.terran.accionesDeEdficio.AccionEntrenarMarine;
 
