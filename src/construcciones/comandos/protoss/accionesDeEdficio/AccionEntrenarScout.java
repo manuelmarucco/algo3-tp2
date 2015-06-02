@@ -1,6 +1,6 @@
 package construcciones.comandos.protoss.accionesDeEdficio;
 
-import excepciones.ExcepcionPoblacionMaximaInsuficiente;
+import excepciones.ExcepcionSuministrosInsuficientes;
 import excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.unidades.Protoss.Scout;
 import fiuba.algo3.algocraft.unidades.Unidad;
@@ -22,8 +22,8 @@ public class AccionEntrenarScout implements AccionDeEdificio{
 		}
 		
 		try {
-			jugador.agregarPoblacion(scout.getSuministro());
-		} catch (ExcepcionPoblacionMaximaInsuficiente e) {
+			jugador.agregarSuministros(scout.getSuministro());
+		} catch (ExcepcionSuministrosInsuficientes e) {
 			e.printStackTrace();
 			return;
 		}

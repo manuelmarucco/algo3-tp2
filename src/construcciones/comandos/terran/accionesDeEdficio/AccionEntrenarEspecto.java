@@ -1,6 +1,6 @@
 package construcciones.comandos.terran.accionesDeEdficio;
 
-import excepciones.ExcepcionPoblacionMaximaInsuficiente;
+import excepciones.ExcepcionSuministrosInsuficientes;
 import excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.unidades.Unidad;
 import fiuba.algo3.algocraft.unidades.terran.Espectro;
@@ -22,8 +22,8 @@ public class AccionEntrenarEspecto implements AccionDeEdificio{
 		}
 		
 		try {
-			jugador.agregarPoblacion(espectro.getSuministro());
-		} catch (ExcepcionPoblacionMaximaInsuficiente e) {
+			jugador.agregarSuministros(espectro.getSuministro());
+		} catch (ExcepcionSuministrosInsuficientes e) {
 			e.printStackTrace();
 			return;
 		}

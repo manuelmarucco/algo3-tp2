@@ -14,9 +14,5 @@ public class Barraca_Test {
 		Assert.assertEquals(1000, b.getVida());
 	}
 
-	@Test
-	public void creoMarineYEsMarine() {
-		
-	}
 
 }

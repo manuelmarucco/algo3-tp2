@@ -1,6 +1,6 @@
 package construcciones.comandos.protoss.accionesDeEdficio;
 
-import excepciones.ExcepcionPoblacionMaximaInsuficiente;
+import excepciones.ExcepcionSuministrosInsuficientes;
 import excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.unidades.Protoss.Zealot;
 import fiuba.algo3.algocraft.unidades.Unidad;
@@ -22,8 +22,8 @@ public class AccionEntrenarZealot implements AccionDeEdificio{
 		}
 		
 		try {
-			jugador.agregarPoblacion(zealot.getSuministro());
-		} catch (ExcepcionPoblacionMaximaInsuficiente e) {
+			jugador.agregarSuministros(zealot.getSuministro());
+		} catch (ExcepcionSuministrosInsuficientes e) {
 			e.printStackTrace();
 			return;
 		}

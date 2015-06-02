@@ -7,7 +7,7 @@ import construcciones.Construccion;
 import construcciones.ProxyConstrucciones;
 import construcciones.comandos.ConstruccionesDisponibles;
 import excepciones.ExcepcionNecesitaCrearOtraConstruccionPrevia;
-import excepciones.ExcepcionPoblacionMaximaInsuficiente;
+import excepciones.ExcepcionSuministrosInsuficientes;
 import excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.unidades.Unidad;
 import razas.Raza;
@@ -18,16 +18,16 @@ public class Jugador {
 	private Recursos recursosRecolectados;
 	private ArrayList<Construccion> construccionesCreadas = new ArrayList<Construccion>();
 	private ArrayList<Unidad> unidadesCreadas = new ArrayList<Unidad>();
-	protected int poblacionMaxima;
-	protected int poblacion;
+	protected int suministrosMaximos;
+	protected int suministrosUsados;
 
 
 	public Jugador() {}
 	public Jugador(Raza r,Recursos recursosIniciales){
 		this.raza = r;
 		this.recursosRecolectados = recursosIniciales;
-		this.poblacionMaxima = 0;
-		this.poblacion = 0;
+		this.suministrosMaximos = 0;
+		this.suministrosUsados = 0;
 		
 		//HAY QUE HACER QUE EL JUGADOR EMPIECE CON 5 RECOLECTARES....
 		//EL PROBLEMA DE ESTO ES QUE DEPENDE LA ESCRUCTURA EN CADA RAZA... HAY QUE VER COMO LO RESOLVEMOS
@@ -93,10 +93,11 @@ public class Jugador {
 		
 	}
 
-	public void agregarPoblacion(int suministro) throws ExcepcionPoblacionMaximaInsuficiente {
-		if(poblacionMaxima < poblacion + suministro){
-			throw new ExcepcionPoblacionMaximaInsuficiente();
-		}
+	public void agregarSuministros(int suministro) throws ExcepcionSuministrosInsuficientes {
+		if(suministrosMaximos < suministrosUsados + suministro){
+			throw new ExcepcionSuministrosInsuficientes();
+		}else
+			suministrosUsados += suministro;
 		
 	}
 
@@ -107,11 +108,14 @@ public class Jugador {
 		
 	}
 
-	public void aumentarPoblacionMaxima(int suministro){
-		poblacionMaxima  += suministro;
+	public void aumentarSuministrosMaximos(int suministro){
+		suministrosMaximos  += suministro;
 	}
-	public int getPoblacionMaxima() {
-		return poblacionMaxima;
+	public int getSuministrosMaximos() {
+		return suministrosMaximos;
+	}
+	public int getSuministrosUsados() {
+		return suministrosUsados;
 	}
 
 	

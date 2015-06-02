@@ -1,6 +1,6 @@
 package construcciones.comandos.protoss.accionesDeEdficio;
 
-import excepciones.ExcepcionPoblacionMaximaInsuficiente;
+import excepciones.ExcepcionSuministrosInsuficientes;
 import excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.unidades.Protoss.Dragon;
 import fiuba.algo3.algocraft.unidades.Unidad;
@@ -22,8 +22,8 @@ public class AccionEntrenarDragon implements AccionDeEdificio{
 		}
 		
 		try {
-			jugador.agregarPoblacion(dragon.getSuministro());
-		} catch (ExcepcionPoblacionMaximaInsuficiente e) {
+			jugador.agregarSuministros(dragon.getSuministro());
+		} catch (ExcepcionSuministrosInsuficientes e) {
 			e.printStackTrace();
 			return;
 		}

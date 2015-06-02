@@ -1,6 +1,6 @@
 package construcciones.comandos.terran.accionesDeEdficio;
 
-import excepciones.ExcepcionPoblacionMaximaInsuficiente;
+import excepciones.ExcepcionSuministrosInsuficientes;
 import excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.unidades.Unidad;
 import fiuba.algo3.algocraft.unidades.terran.Golliat;
@@ -22,8 +22,8 @@ public class AccionEntrenarGolliat implements AccionDeEdificio{
 		}
 		
 		try {
-			jugador.agregarPoblacion(golliat.getSuministro());
-		} catch (ExcepcionPoblacionMaximaInsuficiente e) {
+			jugador.agregarSuministros(golliat.getSuministro());
+		} catch (ExcepcionSuministrosInsuficientes e) {
 			e.printStackTrace();
 			return;
 		}

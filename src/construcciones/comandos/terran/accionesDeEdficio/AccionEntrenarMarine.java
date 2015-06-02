@@ -1,6 +1,6 @@
 package construcciones.comandos.terran.accionesDeEdficio;
 
-import excepciones.ExcepcionPoblacionMaximaInsuficiente;
+import excepciones.ExcepcionSuministrosInsuficientes;
 import excepciones.ExcepcionRecursosInsuficientes;
 import fiuba.algo3.algocraft.unidades.Unidad;
 import fiuba.algo3.algocraft.unidades.terran.Marine;
@@ -12,7 +12,6 @@ public class AccionEntrenarMarine implements AccionDeEdificio{
 	@Override
 	public void accionDeEdificio(Jugador jugador) {
 		Unidad marine = new Marine();
-		//falta Transporte,TiempoDeCosntruccion,Suministro,RangoDeAtaque
 		
 		try {
 			jugador.getRecursos().gastarRecursos(marine.getCosto());
@@ -22,8 +21,8 @@ public class AccionEntrenarMarine implements AccionDeEdificio{
 		}
 		
 		try {
-			jugador.agregarPoblacion(marine.getSuministro());
-		} catch (ExcepcionPoblacionMaximaInsuficiente e) {
+			jugador.agregarSuministros(marine.getSuministro());
+		} catch (ExcepcionSuministrosInsuficientes e) {
 			e.printStackTrace();
 			return;
 		}

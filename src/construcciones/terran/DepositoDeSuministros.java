@@ -16,7 +16,7 @@ public class DepositoDeSuministros extends ConstruccionTerran{
 		vida = new Vida(750);
 		costo = new Costo(100,0);
 		tiempoDeConstruccion = 6;
-		jugador.aumentarPoblacionMaxima(capacidadExtra);
+		jugador.aumentarSuministrosMaximos(capacidadExtra);
 	}
 	
 	public int getCapacidadExtra(){
