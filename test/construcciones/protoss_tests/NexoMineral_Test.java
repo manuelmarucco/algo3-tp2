@@ -1,11 +1,12 @@
 package construcciones.protoss_tests;
 
+import jugabilidad.auxiliares.Recursos;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-import auxiliares.Recursos;
-import construcciones.protoss.ConstruccionProtoss;
-import construcciones.protoss.NexoMineral;
+import razas.protoss.construcciones.ConstruccionProtoss;
+import razas.protoss.construcciones.NexoMineral;
 
 public class NexoMineral_Test {
 

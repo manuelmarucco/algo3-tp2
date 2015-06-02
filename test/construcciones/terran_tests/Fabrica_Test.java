@@ -3,8 +3,8 @@ package construcciones.terran_tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import construcciones.terran.ConstruccionTerran;
-import construcciones.terran.Fabrica;
+import razas.terran.construcciones.ConstruccionTerran;
+import razas.terran.construcciones.Fabrica;
 
 public class Fabrica_Test {
 

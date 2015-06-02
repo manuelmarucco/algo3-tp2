@@ -2,11 +2,10 @@ package construcciones.terran_tests;
 
 
 import org.junit.Assert;
-
 import org.junit.Test;
 
-import construcciones.terran.Barraca;
-import construcciones.terran.ConstruccionTerran;
+import razas.terran.construcciones.Barraca;
+import razas.terran.construcciones.ConstruccionTerran;
 
 public class ConstruccionTerran_Test {
 

@@ -1,5 +1,8 @@
 package auxiliares;
 
+import jugabilidad.auxiliares.Costo;
+import jugabilidad.auxiliares.Recursos;
+
 import org.junit.Assert;
 import org.junit.Test;
 

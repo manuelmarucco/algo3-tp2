@@ -1,6 +1,6 @@
 package interfaces;
 
-import fiuba.algo3.algocraft.unidades.Unidad;
+import manejoDeUnidades.Unidad;
 
 public interface Actuable {
     void actuar(Unidad objetivo);

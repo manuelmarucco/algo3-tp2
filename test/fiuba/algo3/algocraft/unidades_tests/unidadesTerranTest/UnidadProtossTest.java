@@ -1,15 +1,17 @@
 package fiuba.algo3.algocraft.unidades_tests.unidadesTerranTest;
 
-import fiuba.algo3.algocraft.unidades.Parametros;
-import fiuba.algo3.algocraft.unidades.Protoss.AltoTemplario;
-import fiuba.algo3.algocraft.unidades.Protoss.Dragon;
-import fiuba.algo3.algocraft.unidades.Protoss.Scout;
-import fiuba.algo3.algocraft.unidades.Protoss.Zealot;
-import fiuba.algo3.algocraft.unidades.Unidad;
-import fiuba.algo3.algocraft.unidades.VidaEscudo;
-import fiuba.algo3.algocraft.unidades.Protoss.NaveTransporte;
+import manejoDeUnidades.Parametros;
+import manejoDeUnidades.Unidad;
+import manejoDeUnidades.VidaEscudo;
+
 import org.junit.Assert;
 import org.junit.Test;
+
+import razas.protoss.unidades.AltoTemplario;
+import razas.protoss.unidades.Dragon;
+import razas.protoss.unidades.NaveTransporte;
+import razas.protoss.unidades.Scout;
+import razas.protoss.unidades.Zealot;
 
 public class UnidadProtossTest {
     @Test

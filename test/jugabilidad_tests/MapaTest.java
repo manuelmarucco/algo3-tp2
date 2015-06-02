@@ -1,14 +1,13 @@
 package jugabilidad_tests;
 
 import static org.junit.Assert.*;
-
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 import org.junit.Test;
 
-import construcciones.terran.Barraca;
+import razas.terran.construcciones.Barraca;
 
 
 public class MapaTest {

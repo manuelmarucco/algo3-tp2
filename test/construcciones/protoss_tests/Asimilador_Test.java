@@ -1,11 +1,12 @@
 package construcciones.protoss_tests;
 
+import jugabilidad.auxiliares.Recursos;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-import auxiliares.Recursos;
-import construcciones.protoss.Asimilador;
-import construcciones.protoss.ConstruccionProtoss;
+import razas.protoss.construcciones.Asimilador;
+import razas.protoss.construcciones.ConstruccionProtoss;
 
 public class Asimilador_Test {
 

@@ -1,11 +1,12 @@
 package construcciones.terran_tests;
 
+import jugabilidad.auxiliares.Recursos;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-import auxiliares.Recursos;
-import construcciones.terran.ConstruccionTerran;
-import construcciones.terran.Refineria;
+import razas.terran.construcciones.ConstruccionTerran;
+import razas.terran.construcciones.Refineria;
 
 public class Refineria_Test {
 

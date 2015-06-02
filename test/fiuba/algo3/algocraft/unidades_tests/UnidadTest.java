@@ -1,9 +1,10 @@
 package fiuba.algo3.algocraft.unidades_tests;
 
-import auxiliares.Costo;
-import fiuba.algo3.algocraft.comandos.Accion;
-import fiuba.algo3.algocraft.comandos.RegenerarVida;
-import fiuba.algo3.algocraft.unidades.*;
+import jugabilidad.auxiliares.Costo;
+import manejoDeUnidades.*;
+import manejoDeUnidades.comandos.Accion;
+import manejoDeUnidades.comandos.RegenerarVida;
+
 import org.junit.Assert;
 import org.junit.Test;
 

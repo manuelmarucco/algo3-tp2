@@ -3,8 +3,8 @@ package construcciones.protoss_tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import construcciones.protoss.ConstruccionProtoss;
-import construcciones.protoss.PortalEstelar;
+import razas.protoss.construcciones.ConstruccionProtoss;
+import razas.protoss.construcciones.PortalEstelar;
 
 
 public class PortalEstelar_Test {

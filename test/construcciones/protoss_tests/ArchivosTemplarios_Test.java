@@ -3,8 +3,8 @@ package construcciones.protoss_tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import construcciones.protoss.ArchivosTemplarios;
-import construcciones.protoss.ConstruccionProtoss;
+import razas.protoss.construcciones.ArchivosTemplarios;
+import razas.protoss.construcciones.ConstruccionProtoss;
 
 public class ArchivosTemplarios_Test {
 

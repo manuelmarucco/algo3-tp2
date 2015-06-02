@@ -1,6 +1,7 @@
 package fiuba.algo3.algocraft.unidades_tests;
 
-import fiuba.algo3.algocraft.unidades.*;
+import manejoDeUnidades.*;
+
 import org.junit.Assert;
 import org.junit.Test;
 

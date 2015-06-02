@@ -4,13 +4,13 @@ import interfaces.AccionConstruir;
 
 import java.util.HashMap;
 
-import construcciones.comandos.ConstruccionesDisponibles;
-import construcciones.comandos.terran.AccionConstruirBarraca;
-import construcciones.comandos.terran.AccionConstruirCentroDeMineral;
-import construcciones.comandos.terran.AccionConstruirDepositoDeSuministros;
-import construcciones.comandos.terran.AccionConstruirFabrica;
-import construcciones.comandos.terran.AccionConstruirPuertoEstelar;
-import construcciones.comandos.terran.AccionConstruirRefineria;
+import razas.terran.construcciones.accionesConstruir.AccionConstruirBarraca;
+import razas.terran.construcciones.accionesConstruir.AccionConstruirCentroDeMineral;
+import razas.terran.construcciones.accionesConstruir.AccionConstruirDepositoDeSuministros;
+import razas.terran.construcciones.accionesConstruir.AccionConstruirFabrica;
+import razas.terran.construcciones.accionesConstruir.AccionConstruirPuertoEstelar;
+import razas.terran.construcciones.accionesConstruir.AccionConstruirRefineria;
+import manejoDeConstrucciones.comandos.ConstruccionesDisponibles;
 
 public class Terran extends Raza{
 	

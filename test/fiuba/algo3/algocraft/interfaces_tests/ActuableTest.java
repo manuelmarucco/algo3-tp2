@@ -1,11 +1,12 @@
 package fiuba.algo3.algocraft.interfaces_tests;
 
 
-import auxiliares.Costo;
-import fiuba.algo3.algocraft.comandos.AccionAtacar;
-import fiuba.algo3.algocraft.comandos.AccionRegenerarEnergia;
-import fiuba.algo3.algocraft.unidades.*;
+import jugabilidad.auxiliares.Costo;
 import interfaces.Actuable;
+import manejoDeUnidades.*;
+import manejoDeUnidades.comandos.AccionAtacar;
+import manejoDeUnidades.comandos.AccionRegenerarEnergia;
+
 import org.junit.Assert;
 import org.junit.Test;
 

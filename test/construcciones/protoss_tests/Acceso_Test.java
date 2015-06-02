@@ -3,8 +3,8 @@ package construcciones.protoss_tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import construcciones.protoss.Acceso;
-import construcciones.protoss.ConstruccionProtoss;
+import razas.protoss.construcciones.Acceso;
+import razas.protoss.construcciones.ConstruccionProtoss;
 
 public class Acceso_Test {
 

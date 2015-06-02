@@ -5,8 +5,8 @@ import jugabilidad.Jugador;
 import org.junit.Assert;
 import org.junit.Test;
 
-import construcciones.protoss.ConstruccionProtoss;
-import construcciones.protoss.Pilon;
+import razas.protoss.construcciones.ConstruccionProtoss;
+import razas.protoss.construcciones.Pilon;
 
 public class Pilon_Test {
 	@Test

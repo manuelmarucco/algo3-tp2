@@ -1,10 +1,12 @@
 package fiuba.algo3.algocraft.unidades_tests.unidadesTerranTest;
 
-import fiuba.algo3.algocraft.unidades.Parametros;
-import fiuba.algo3.algocraft.unidades.Unidad;
-import fiuba.algo3.algocraft.unidades.terran.*;
+import manejoDeUnidades.Parametros;
+import manejoDeUnidades.Unidad;
+
 import org.junit.Assert;
 import org.junit.Test;
+
+import razas.terran.unidades.*;
 
 public class UnidadTerranTest {
     @Test

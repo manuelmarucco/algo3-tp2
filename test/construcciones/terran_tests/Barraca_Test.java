@@ -3,7 +3,7 @@ package construcciones.terran_tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import construcciones.terran.*;
+import razas.terran.construcciones.*;
 
 public class Barraca_Test {
 	

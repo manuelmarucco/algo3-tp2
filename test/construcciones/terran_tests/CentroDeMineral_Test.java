@@ -1,11 +1,12 @@
 package construcciones.terran_tests;
 
+import jugabilidad.auxiliares.Recursos;
+
 import org.junit.Assert;
 import org.junit.Test;
 
-import auxiliares.Recursos;
-import construcciones.terran.CentroDeMineral;
-import construcciones.terran.ConstruccionTerran;
+import razas.terran.construcciones.CentroDeMineral;
+import razas.terran.construcciones.ConstruccionTerran;
 
 public class CentroDeMineral_Test {
 
