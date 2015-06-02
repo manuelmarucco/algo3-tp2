@@ -13,7 +13,7 @@ public class RecolectarRecursosJugadorTests {
 	
 	@Test
 	public void RecolectarRecursos(){
-		Jugador jugador = new Jugador(new Terran(),new Recursos(200,0));
+		Jugador jugador = new Jugador(new Terran(),new Recursos(150,0));
 		
 		jugador.construir(ConstruccionesDisponibles.CENTRODEMINERAL);
 		jugador.construir(ConstruccionesDisponibles.REFINERIA);
