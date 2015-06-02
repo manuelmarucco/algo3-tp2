@@ -7,8 +7,8 @@ import java.util.HashMap;
 
 public class Mapa {
 	
-	private HashMap<Coordenadas, ColocableEnMapa> tierra = new HashMap<>();
-	private HashMap<Coordenadas, ColocableEnMapa> aire = new HashMap<>();
+	private HashMap<Coordenadas, ColocableEnMapa> tierra = new HashMap<Coordenadas, ColocableEnMapa>();
+	private HashMap<Coordenadas, ColocableEnMapa> aire = new HashMap<Coordenadas, ColocableEnMapa>();
 	
 	public Mapa(){
 	
