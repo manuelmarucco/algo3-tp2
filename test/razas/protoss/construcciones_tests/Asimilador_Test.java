@@ -1,4 +1,4 @@
-package construcciones.protoss_tests;
+package razas.protoss.construcciones_tests;
 
 import jugabilidad.auxiliares.Recursos;
 

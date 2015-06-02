@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.interfaces_tests;
+package interfaces_tests;
 
 
 import jugabilidad.auxiliares.Costo;

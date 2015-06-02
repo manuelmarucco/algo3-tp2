@@ -1,4 +1,4 @@
-package construcciones.terran_tests;
+package razas.terran.construcciones_tests;
 
 
 import org.junit.Assert;

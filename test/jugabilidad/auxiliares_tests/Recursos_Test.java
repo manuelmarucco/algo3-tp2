@@ -1,4 +1,4 @@
-package auxiliares;
+package jugabilidad.auxiliares_tests;
 
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;

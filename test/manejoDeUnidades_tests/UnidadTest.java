@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.unidades_tests;
+package manejoDeUnidades_tests;
 
 import jugabilidad.auxiliares.Costo;
 import manejoDeUnidades.*;

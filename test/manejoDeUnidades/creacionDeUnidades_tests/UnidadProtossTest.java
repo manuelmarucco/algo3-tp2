@@ -1,4 +1,4 @@
-package fiuba.algo3.algocraft.unidades_tests.unidadesTerranTest;
+package manejoDeUnidades.creacionDeUnidades_tests;
 
 import manejoDeUnidades.Parametros;
 import manejoDeUnidades.Unidad;
