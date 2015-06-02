@@ -2,15 +2,15 @@ package jugabilidad;
 
 import java.util.ArrayList;
 
+import construcciones.Construccion;
+import construcciones.ProxyConstrucciones;
+import construcciones.comandos.ConstruccionesDisponibles;
 import jugabilidad.auxiliares.Recursos;
-import manejoDeConstrucciones.Construccion;
-import manejoDeConstrucciones.ProxyConstrucciones;
-import manejoDeConstrucciones.comandos.ConstruccionesDisponibles;
-import manejoDeUnidades.Unidad;
 import excepciones.ExcepcionNecesitaCrearOtraConstruccionPrevia;
 import excepciones.ExcepcionSuministrosInsuficientes;
 import excepciones.ExcepcionRecursosInsuficientes;
 import razas.Raza;
+import unidades.Unidad;
 
 public class Jugador {
 	

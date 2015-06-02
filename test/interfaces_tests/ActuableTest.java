@@ -3,12 +3,13 @@ package interfaces_tests;
 
 import jugabilidad.auxiliares.Costo;
 import interfaces.Actuable;
-import manejoDeUnidades.*;
-import manejoDeUnidades.comandos.AccionAtacar;
-import manejoDeUnidades.comandos.AccionRegenerarEnergia;
 
 import org.junit.Assert;
 import org.junit.Test;
+
+import unidades.*;
+import unidades.comandos.AccionAtacar;
+import unidades.comandos.AccionRegenerarEnergia;
 
 public class ActuableTest {
 

@@ -1,6 +1,6 @@
 package interfaces;
 
-import manejoDeConstrucciones.Construccion;
+import construcciones.Construccion;
 import jugabilidad.Jugador;
 
 public interface AccionConstruir {

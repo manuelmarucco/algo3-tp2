@@ -1,7 +1,5 @@
 package tests_de_integracion;
 
-import manejoDeConstrucciones.comandos.ConstruccionesDisponibles;
-
 import org.junit.Assert;
 
 import jugabilidad.Jugador;
@@ -9,6 +7,7 @@ import jugabilidad.auxiliares.Recursos;
 
 import org.junit.Test;
 
+import construcciones.comandos.ConstruccionesDisponibles;
 import razas.Protoss;
 import razas.Terran;
 public class validacionEnLaCreacionDeContruccionesTest {

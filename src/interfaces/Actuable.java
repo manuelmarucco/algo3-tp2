@@ -1,6 +1,6 @@
 package interfaces;
 
-import manejoDeUnidades.Unidad;
+import unidades.Unidad;
 
 public interface Actuable {
     void actuar(Unidad objetivo);

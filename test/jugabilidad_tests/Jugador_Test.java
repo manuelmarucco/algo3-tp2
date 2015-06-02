@@ -1,11 +1,10 @@
 package jugabilidad_tests;
 
-import manejoDeConstrucciones.comandos.AccionesDisponibles;
-import manejoDeConstrucciones.comandos.ConstruccionesDisponibles;
-
 import org.junit.Assert;
 import org.junit.Test;
 
+import construcciones.comandos.AccionesDisponibles;
+import construcciones.comandos.ConstruccionesDisponibles;
 import razas.Protoss;
 import razas.Terran;
 import jugabilidad.Jugador;

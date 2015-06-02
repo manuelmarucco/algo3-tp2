@@ -4,7 +4,7 @@ import interfaces.AccionConstruir;
 
 import java.util.HashMap;
 
-import manejoDeConstrucciones.comandos.ConstruccionesDisponibles;
+import construcciones.comandos.ConstruccionesDisponibles;
 
 public class Raza {
 	

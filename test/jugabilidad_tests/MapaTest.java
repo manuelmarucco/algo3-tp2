@@ -7,7 +7,7 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 
 import org.junit.Test;
 
-import razas.terran.construcciones.Barraca;
+import construcciones.terran.Barraca;
 
 
 public class MapaTest {
