@@ -31,4 +31,10 @@ public class Asimilador extends ConstruccionProtoss{
 		
 	}
 
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

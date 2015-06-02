@@ -79,4 +79,9 @@ public class Unidad implements Regenerable, ColocableEnMapa {
 	public String getNombre() {
 		return nombre;
 	}
+
+	public int getSuministro() {
+		
+		return suministro;
+	}
 }

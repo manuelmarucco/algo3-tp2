@@ -14,13 +14,15 @@ public class CentroDeMineral_tests {
 		
 		Assert.assertEquals(500, r.getVida());
 	}
-	
+	/* TIENE QUE SER UN TEST DE INTEGRACION. SINO TENGO QUYE HACER UN METODO PARA OBTENER LOS RECURSOS Y ESO ESTARIA MAL
 	@Test
-	public void recoletaGasVespeno() {
-		CentroDeMineral r = new CentroDeMineral();
+	public void RecolectaMinerales(){
+		CentroDeMineral centroDeMineral = new CentroDeMineral(new Recursos(0,0));
 		
-		Assert.assertTrue(0 != r.getMineralRecolectado());
+		centroDeMineral.update();
+		
+		Assert.assertEquals(10, actual);
 	}
-
+*/
 
 }

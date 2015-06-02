@@ -1,4 +1,4 @@
-package construcciones.protoss;
+	package construcciones.protoss;
 
 import construcciones.Construccion;
 import fiuba.algo3.algocraft.unidades.VidaEscudo;

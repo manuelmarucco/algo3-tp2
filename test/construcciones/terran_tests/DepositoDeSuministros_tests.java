@@ -19,9 +19,10 @@ public class DepositoDeSuministros_tests {
 	
 	
 	@Test
-	public void capacidadExtraInicializada() {
-		DepositoDeSuministros d = new DepositoDeSuministros();
+	public void aumentaPoblacionMaxima() {
+		int poblacionMaxima = 10;
+		DepositoDeSuministros d = new DepositoDeSuministros(poblacionMaxima);
 		
-		Assert.assertEquals(5,d.getCapacidadExtra());
+		Assert.assertEquals(15,poblacionMaxima);
 	}
 }

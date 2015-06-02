@@ -32,4 +32,10 @@ public class NexoMineral extends ConstruccionProtoss{
 		
 	}
 
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

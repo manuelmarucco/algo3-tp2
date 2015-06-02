@@ -5,11 +5,12 @@ import java.util.HashMap;
 import jugabilidad.Jugador;
 import construcciones.comandos.AccionesDisponibles;
 import interfaces.AccionDeEdificio;
+import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
 import auxiliares.Costo;
 
 
-public abstract class Construccion implements ColocableEnMapa{
+public abstract class Construccion implements ColocableEnMapa,Actualizable{
 	
 	//protected Regeneracion regenerar;
 

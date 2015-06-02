@@ -14,13 +14,5 @@ public class Refineria_tests {
 		
 		Assert.assertEquals(750, r.getVida());
 	}
-	
-	@Test
-	public void recoletaGasVespeno() {
-		Refineria r = new Refineria();
-		
-		Assert.assertTrue(0 != r.getGasRecolectado());
-	}
-
 
 }

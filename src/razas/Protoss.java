@@ -5,12 +5,12 @@ import interfaces.AccionConstruir;
 import java.util.HashMap;
 
 import construcciones.comandos.ConstruccionesDisponibles;
-import construcciones.comandos.protoss.accionesConstruir.AccionConstruirAcceso;
-import construcciones.comandos.protoss.accionesConstruir.AccionConstruirArchivosTemplarios;
-import construcciones.comandos.protoss.accionesConstruir.AccionConstruirAsimilador;
-import construcciones.comandos.protoss.accionesConstruir.AccionConstruirNexoMineral;
-import construcciones.comandos.protoss.accionesConstruir.AccionConstruirPilon;
-import construcciones.comandos.protoss.accionesConstruir.AccionConstruirPortalEstelar;
+import construcciones.comandos.protoss.AccionConstruirAcceso;
+import construcciones.comandos.protoss.AccionConstruirArchivosTemplarios;
+import construcciones.comandos.protoss.AccionConstruirAsimilador;
+import construcciones.comandos.protoss.AccionConstruirNexoMineral;
+import construcciones.comandos.protoss.AccionConstruirPilon;
+import construcciones.comandos.protoss.AccionConstruirPortalEstelar;
 
 public class Protoss extends Raza {
 	

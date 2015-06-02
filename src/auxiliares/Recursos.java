@@ -38,5 +38,10 @@ public class Recursos {
 	public int getGasVespeno() {
 		return this.gasVespeno;
 	}
+
+	public void agregarRecursos(int i, int j) {
+		this.minerales += i;
+		this.gasVespeno += j;
+	}
 	
 }
