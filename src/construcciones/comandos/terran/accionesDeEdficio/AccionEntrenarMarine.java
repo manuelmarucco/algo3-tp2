@@ -18,7 +18,7 @@ public class AccionEntrenarMarine implements AccionDeEdificio{
 	@Override
 	public void accionDeEdificio(Jugador jugador) {
 		Ubicacion terreno = new Terrestre();
-		ClaseDeUnidad clase = new UnidadGuerrera(new Danio(6,6, 4));
+		ClaseDeUnidad clase = new UnidadGuerrera(new Danio(6,6, 4,4));
 		Unidad marine = new Unidad("marine",new Vida(40), 7, terreno, clase,new Costo(50,0));
 		//falta Transporte,TiempoDeCosntruccion,Suministro,RangoDeAtaque
 		

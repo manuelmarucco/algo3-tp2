@@ -80,8 +80,8 @@ public class Unidad implements Regenerable, ColocableEnMapa {
 		return nombre;
 	}
 
-	public int getSuministro() {
+	//public int getSuministro() {
 		
-		return suministro;
-	}
+	//	return suministro;
+	//}
 }

@@ -21,7 +21,8 @@ public class UnidadGuerrera extends ClaseDeUnidad {
         HashMap<Parametros, Integer> parametros = new HashMap<Parametros, Integer>();
         parametros.put(Parametros.AEREO,danio.getAire());
         parametros.put(Parametros.TERRESTRE, danio.getTierra());
-        parametros.put(Parametros.RANGO, danio.getRango());
+        parametros.put(Parametros.RANGOAEREO, danio.getRangoAereo());
+        parametros.put(Parametros.RANGOTERRESTRE, danio.getRangoTerrestre());
         return parametros;
     }
 
