@@ -2,7 +2,7 @@ package fiuba.algo3.algocraft.unidades_tests;
 
 import auxiliares.Costo;
 import fiuba.algo3.algocraft.comandos.Accion;
-import fiuba.algo3.algocraft.comandos.Regenerar;
+import fiuba.algo3.algocraft.comandos.RegenerarVida;
 import fiuba.algo3.algocraft.unidades.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -20,7 +20,7 @@ public class UnidadTest {
         int vidaUnidad = 200;
         int escudoUnidad = 50;
         Unidad proto = new Unidad("marine",new VidaEscudo(vidaUnidad, escudoUnidad), 7, new Terrestre(), new UnidadGuerrera(new Danio(6, 5, 4,4)),new Costo(10,10),1);
-        proto.agregarAccion(Accion.REGENERAR,new Regenerar());
+        proto.agregarAccion(Accion.REGENERAR,new RegenerarVida());
         // TODO: lo de abajo sirve más para hacer un test de VidaEscudo
         VidaEscudo vidaEscudo = (VidaEscudo)proto.getVida();
         Assert.assertEquals(escudoUnidad, vidaEscudo.getEscudoActual());
@@ -93,9 +93,9 @@ public class UnidadTest {
     @Test
     public void testRegeneracionDeEscudo(){
         Unidad proto1 =  new Unidad("marine",new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGuerrera(new Danio(20, 30, 4,4)),new Costo(10,10),1);
-        proto1.agregarAccion(Accion.REGENERAR,new Regenerar());
+        proto1.agregarAccion(Accion.REGENERAR,new RegenerarVida());
         Unidad proto2 =  new Unidad("marine",new VidaEscudo(200, 10), 7, new Aereo(), new UnidadGuerrera(new Danio(6, 5, 4,4)),new Costo(10,10),1);
-        proto2.agregarAccion(Accion.REGENERAR,new Regenerar());
+        proto2.agregarAccion(Accion.REGENERAR,new RegenerarVida());
         proto1.actuar(Accion.ATACAR, proto2);
         proto2.update();
         Assert.assertEquals(1,((VidaEscudo) proto2.getVida()).getEscudoActual());

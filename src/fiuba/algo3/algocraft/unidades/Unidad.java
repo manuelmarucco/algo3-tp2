@@ -3,13 +3,14 @@ package fiuba.algo3.algocraft.unidades;
 import auxiliares.Costo;
 import fiuba.algo3.algocraft.comandos.Accion;
 import interfaces.Actuable;
+import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 import java.util.HashMap;
 
-public class Unidad implements Regenerable, ColocableEnMapa {
+public class Unidad implements Actualizable, ColocableEnMapa {
     private String nombre;
 	private ClaseDeUnidad clase;
     private Vida vida;

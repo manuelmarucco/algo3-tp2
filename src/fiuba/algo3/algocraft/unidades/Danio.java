@@ -2,23 +2,23 @@ package fiuba.algo3.algocraft.unidades;
 
 public class Danio {
     private int rangoAereo;
-    private int tierra;
-    private int aire;
+    private int danioTierra;
+    private int danioAire;
     private int rangoTerrestre;
 
-    public Danio(int tierra, int aire, int rangoTerrestre ,int rangoAereo) {
-        this.tierra = tierra;
-        this.aire = aire;
+    public Danio(int danioTierra, int aire, int rangoTerrestre ,int rangoAereo) {
+        this.danioTierra = danioTierra;
+        this.danioAire = aire;
         this.rangoTerrestre = rangoTerrestre;
         this.rangoAereo=rangoAereo;
     }
 
-    public int getTierra() {
-        return tierra;
+    public int getDanioTierra() {
+        return danioTierra;
     }
 
-    public int getAire() {
-        return aire;
+    public int getDanioAire() {
+        return danioAire;
     }
 
     public int getRangoAereo() {

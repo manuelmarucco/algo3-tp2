@@ -6,7 +6,7 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 
 public class Terrestre implements Ubicacion {
     public int danioDe(Danio danio) {
-        return danio.getTierra();
+        return danio.getDanioTierra();
     }
 
     @Override

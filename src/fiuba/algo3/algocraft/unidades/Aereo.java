@@ -6,7 +6,7 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 
 public class Aereo implements Ubicacion {
     public int danioDe(Danio danio) {
-        return danio.getAire();
+        return danio.getDanioAire();
     }
 
     @Override

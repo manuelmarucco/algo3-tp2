@@ -8,7 +8,6 @@ public class AccionRegenerarEnergia implements Actuable {
     private final Energia energia;
 
     public AccionRegenerarEnergia(Energia energia) {
-        super();
         this.energia=energia;
     }
 

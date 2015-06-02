@@ -19,8 +19,8 @@ public class UnidadGuerrera extends ClaseDeUnidad {
     @Override
     public HashMap<Parametros, Integer> getParametros() {
         HashMap<Parametros, Integer> parametros = new HashMap<Parametros, Integer>();
-        parametros.put(Parametros.AEREO,danio.getAire());
-        parametros.put(Parametros.TERRESTRE, danio.getTierra());
+        parametros.put(Parametros.AEREO,danio.getDanioAire());
+        parametros.put(Parametros.TERRESTRE, danio.getDanioTierra());
         parametros.put(Parametros.RANGOAEREO, danio.getRangoAereo());
         parametros.put(Parametros.RANGOTERRESTRE, danio.getRangoTerrestre());
         return parametros;
@@ -28,6 +28,5 @@ public class UnidadGuerrera extends ClaseDeUnidad {
 
     @Override
     public void agregarMetodosUpdate(HashMap<Accion, Actuable> poolDeAcciones) {
-        return;
     }
 }
