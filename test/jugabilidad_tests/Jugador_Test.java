@@ -12,7 +12,25 @@ import jugabilidad.Jugador;
 
 public class Jugador_Test {
 	
+	
+	
+	
+	
 	// TERRAN
+	
+	@Test
+	public void RecolectarRecursosTerran(){
+		Jugador jugador = new Jugador(new Terran(),new Recursos(150,0));
+		
+		jugador.construir(ConstruccionesDisponibles.CENTRODEMINERAL);
+		jugador.construir(ConstruccionesDisponibles.REFINERIA);
+
+		jugador.update();
+		
+		Assert.assertEquals(10,jugador.getRecursos().getMinerales());
+		Assert.assertEquals(10,jugador.getRecursos().getGasVespeno());
+		
+	}
 	
 	@Test
 	public void JugadorCreaTodasLasUnidadesTerranConEdificiosCorrespondientes(){
@@ -38,6 +56,19 @@ public class Jugador_Test {
 		Assert.assertEquals(jugador1.buscarUnidadCreada("NaveCiencia").getNombre(),"NaveCiencia");
 		
 	}
+	
+	@Test
+	public void JugadorQuiereCrearGolliatEnBarracaPeroLaBarracaNoPuede(){
+		Jugador jugador1 = new Jugador(new Terran(),new Recursos(1000,1000));
+
+		jugador1.construir(ConstruccionesDisponibles.BARRACA);
+		jugador1.construir(ConstruccionesDisponibles.FABRICA);
+
+		jugador1.buscarConstruccionCreada("Fabrica").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarMarine);
+
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Marine"),null);
+	}
+	
 	
 	@Test
 	public void CreoDepositosDeSuministrosYAumentaPoblacionMaxima(){
@@ -106,7 +137,21 @@ public class Jugador_Test {
 	// PROTOSS
 	
 	@Test
-	public void CreoPilonYAumentaPoblacionMaxima(){
+	public void RecolectarRecursosProtoss(){
+		Jugador jugador = new Jugador(new Protoss(),new Recursos(150,0));
+		
+		jugador.construir(ConstruccionesDisponibles.NEXOMINERAL);
+		jugador.construir(ConstruccionesDisponibles.ASIMILADOR);
+
+		jugador.update();
+		
+		Assert.assertEquals(10,jugador.getRecursos().getMinerales());
+		Assert.assertEquals(10,jugador.getRecursos().getGasVespeno());
+		
+	}
+	
+	@Test
+	public void CreoPilonYAumentaSuministrosMaximos(){
 		Jugador jugador1 = new Jugador(new Protoss(),new Recursos(400,0));
 		
 		jugador1.construir(ConstruccionesDisponibles.PILON);

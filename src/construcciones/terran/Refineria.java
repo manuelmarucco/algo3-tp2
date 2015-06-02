@@ -1,10 +1,5 @@
 package construcciones.terran;
 
-import interfaces.AccionDeEdificio;
-
-import java.util.HashMap;
-
-import construcciones.comandos.AccionesDisponibles;
 import auxiliares.Costo;
 import auxiliares.Recursos;
 import jugabilidad.Mapa;
@@ -24,10 +19,6 @@ public class Refineria extends ConstruccionTerran {
 		costo = new Costo(100,0);
 		tiempoDeConstruccion = 6;
 		recursosDeJugador = recursos;
-/*
-		acciones = new HashMap<AccionesDisponibles, AccionDeEdificio>();
-		acciones.put(AccionesDisponibles.Recolectar,new AccionRecolectarMineral());
-		*/
 	}
 
 
