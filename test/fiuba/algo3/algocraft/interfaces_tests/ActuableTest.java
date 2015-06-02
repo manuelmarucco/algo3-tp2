@@ -14,7 +14,7 @@ public class ActuableTest {
     @Test
     public void testAtacarAereo(){
         Actuable atacar = new AccionAtacar(new Danio(1,2,1,0));
-        Unidad objetivo = new Unidad("marine",new Vida(10),1, new Aereo(),new UnidadGuerrera(new Danio(1,1,1,0)),new Costo(10,10));
+        Unidad objetivo = new Unidad("marine",new Vida(10),1, new Aereo(),new UnidadGuerrera(new Danio(1,1,1,0)),new Costo(10,10),1);
         atacar.actuar(objetivo);
         Assert.assertEquals(8,objetivo.getVida().getVidaActual());
     }
@@ -22,7 +22,7 @@ public class ActuableTest {
     @Test
     public void testAtacarTerrestre(){
         Actuable atacar = new AccionAtacar(new Danio(1,2,1,0));
-        Unidad objetivo = new Unidad("marine",new Vida(10),1, new Terrestre(),new UnidadGuerrera(new Danio(1,1,1,0)),new Costo(10,10));
+        Unidad objetivo = new Unidad("marine",new Vida(10),1, new Terrestre(),new UnidadGuerrera(new Danio(1,1,1,0)),new Costo(10,10),1);
         atacar.actuar(objetivo);
         Assert.assertEquals(9,objetivo.getVida().getVidaActual());
     }

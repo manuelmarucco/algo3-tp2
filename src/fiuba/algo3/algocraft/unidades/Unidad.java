@@ -17,8 +17,9 @@ public class Unidad implements Regenerable, ColocableEnMapa {
     private Ubicacion ubicacion;
     private HashMap<Accion, Actuable> poolDeAcciones;
     private Costo costo;
+    private int suministro;
 
-    public Unidad(String nombre,Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase , Costo costo) {
+    public Unidad(String nombre,Vida vida, int vision, Ubicacion ubicacion, ClaseDeUnidad clase , Costo costo, int suministro) {
         this.nombre = nombre;
     	this.vida=vida;
         this.vision=vision;
@@ -27,6 +28,7 @@ public class Unidad implements Regenerable, ColocableEnMapa {
         this.costo=costo;
         this.poolDeAcciones=new HashMap<Accion, Actuable>();
         this.clase.agregarMetodosUpdate(poolDeAcciones);
+        this.suministro=suministro;
     }
 
     public Vida getVida() {
@@ -73,15 +75,15 @@ public class Unidad implements Regenerable, ColocableEnMapa {
 
     @Override
     public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-        this.ubicacion.agregarse(this,mapa,coordenadas);
+        this.ubicacion.agregarse(this, mapa, coordenadas);
     }
 
 	public String getNombre() {
 		return nombre;
 	}
 
-	//public int getSuministro() {
+	public int getSuministro() {
 		
-	//	return suministro;
-	//}
+		return suministro;
+	}
 }
