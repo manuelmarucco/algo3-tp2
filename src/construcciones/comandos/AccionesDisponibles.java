@@ -1,7 +1,9 @@
 package construcciones.comandos;
 
 public enum AccionesDisponibles {
-	EntrenarMarine,
+	EntrenarMarine, EntrenarGolliat, EntrenarEspectro, EntrenarNaveDeCiencia,
+	EntrenarZealot, EntrenarDragon, EntrenarScout, EntrenarAltoTemplario,
+	EntrenarNaveDeTransporte
 	
 	
 }

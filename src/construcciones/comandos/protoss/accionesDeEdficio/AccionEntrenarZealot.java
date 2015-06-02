@@ -12,7 +12,6 @@ public class AccionEntrenarZealot implements AccionDeEdificio{
 	@Override
 	public void accionDeEdificio(Jugador jugador) {
 		Unidad zealot = new Zealot();
-		//falta Transporte,TiempoDeCosntruccion,Suministro,RangoDeAtaque
 		
 		try {
 			jugador.getRecursos().gastarRecursos(zealot.getCosto());

@@ -7,7 +7,7 @@ import fiuba.algo3.algocraft.unidades.terran.Espectro;
 import interfaces.AccionDeEdificio;
 import jugabilidad.Jugador;
 
-public class AccionEntrenarEspecto implements AccionDeEdificio{
+public class AccionEntrenarEspectro implements AccionDeEdificio{
 
 	@Override
 	public void accionDeEdificio(Jugador jugador) {

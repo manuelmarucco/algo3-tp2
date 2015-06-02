@@ -1,5 +1,11 @@
 package construcciones.protoss;
 
+import interfaces.AccionDeEdificio;
+
+import java.util.HashMap;
+
+import construcciones.comandos.AccionesDisponibles;
+import construcciones.comandos.protoss.accionesDeEdficio.AccionEntrenarAltoTemplario;
 import auxiliares.Costo;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -13,6 +19,9 @@ public class ArchivosTemplarios extends ConstruccionProtoss{
 		vidaEscudo = new VidaEscudo(500,500);
 		costo = new Costo(150,200);
 		tiempoDeConstruccion = 9;
+
+		acciones = new HashMap<AccionesDisponibles, AccionDeEdificio>();
+		acciones.put(AccionesDisponibles.EntrenarAltoTemplario,new AccionEntrenarAltoTemplario());
 	}
 
 	@Override

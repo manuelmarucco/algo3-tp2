@@ -17,7 +17,7 @@ public class UnidadProtossTest {
         Unidad zealot = new Zealot();
         Assert.assertEquals(60, zealot.getVida().getVidaActual());
         Assert.assertEquals(100, ((VidaEscudo) zealot.getVida()).getEscudoActual());//TODO sobreescribir el metodo get vida para q devuelvo VidaEscudo
-        Assert.assertEquals(1,zealot.getSuministro());
+        Assert.assertEquals(2,zealot.getSuministro());
         Assert.assertEquals(8,zealot.getParametroDeClase().get(Parametros.TERRESTRE).intValue());
         Assert.assertEquals(0,zealot.getParametroDeClase().get(Parametros.AEREO).intValue());
         Assert.assertEquals(1,zealot.getParametroDeClase().get(Parametros.RANGOTERRESTRE).intValue());

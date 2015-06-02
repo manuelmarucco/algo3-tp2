@@ -1,5 +1,12 @@
 package construcciones.protoss;
 
+import interfaces.AccionDeEdificio;
+
+import java.util.HashMap;
+
+import construcciones.comandos.AccionesDisponibles;
+import construcciones.comandos.protoss.accionesDeEdficio.AccionEntrenarNaveTransporte;
+import construcciones.comandos.protoss.accionesDeEdficio.AccionEntrenarScout;
 import auxiliares.Costo;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -15,6 +22,10 @@ public class PortalEstelar extends ConstruccionProtoss{
 		vidaEscudo = new VidaEscudo(600,600);
 		costo = new Costo(150,150);
 		tiempoDeConstruccion = 10;
+
+		acciones = new HashMap<AccionesDisponibles, AccionDeEdificio>();
+		acciones.put(AccionesDisponibles.EntrenarScout,new AccionEntrenarScout());
+		acciones.put(AccionesDisponibles.EntrenarNaveDeTransporte,new AccionEntrenarNaveTransporte());
 	}
 
 	@Override

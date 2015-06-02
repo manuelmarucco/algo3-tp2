@@ -12,7 +12,6 @@ public class AccionEntrenarNaveTransporte implements AccionDeEdificio{
 	@Override
 	public void accionDeEdificio(Jugador jugador) {
 		Unidad naveTransporte = new NaveTransporte();
-		//falta Transporte,TiempoDeCosntruccion,Suministro,RangoDeAtaque
 		
 		try {
 			jugador.getRecursos().gastarRecursos(naveTransporte.getCosto());

@@ -1,14 +1,10 @@
 package jugabilidad_tests;
 
 import org.junit.Assert;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.ExpectedException;
 
 import construcciones.comandos.AccionesDisponibles;
 import construcciones.comandos.ConstruccionesDisponibles;
-import construcciones.comandos.terran.accionesDeEdficio.AccionEntrenarMarine;
-import excepciones.ExcepcionRecursosInsuficientes;
 import auxiliares.Recursos;
 import razas.Protoss;
 import razas.Terran;
@@ -17,6 +13,31 @@ import jugabilidad.Jugador;
 public class Jugador_Test {
 	
 	// TERRAN
+	
+	@Test
+	public void JugadorCreaTodasLasUnidadesTerranConEdificiosCorrespondientes(){
+		Jugador jugador1 = new Jugador(new Terran(),new Recursos(10000,10000));
+
+		jugador1.construir(ConstruccionesDisponibles.DEPOSITODESUMINISTROS);
+		jugador1.construir(ConstruccionesDisponibles.DEPOSITODESUMINISTROS);
+		jugador1.construir(ConstruccionesDisponibles.BARRACA);
+		jugador1.construir(ConstruccionesDisponibles.FABRICA);
+		jugador1.construir(ConstruccionesDisponibles.PUERTOESTELAR);
+
+		jugador1.buscarConstruccionCreada("Barraca").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarMarine);
+		jugador1.buscarConstruccionCreada("Fabrica").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarGolliat);
+		jugador1.buscarConstruccionCreada("PuertoEstelar").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarEspectro);
+		jugador1.buscarConstruccionCreada("PuertoEstelar").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarNaveDeTransporte);
+		jugador1.buscarConstruccionCreada("PuertoEstelar").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarNaveDeCiencia);
+		
+
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Marine").getNombre(),"Marine");
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Golliat").getNombre(),"Golliat");
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Espectro").getNombre(),"Espectro");
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Nave de transporte").getNombre(),"Nave de transporte");
+		Assert.assertEquals(jugador1.buscarUnidadCreada("NaveCiencia").getNombre(),"NaveCiencia");
+		
+	}
 	
 	@Test
 	public void CreoDepositosDeSuministrosYAumentaPoblacionMaxima(){
@@ -37,7 +58,7 @@ public class Jugador_Test {
 		jugador1.construir(ConstruccionesDisponibles.BARRACA);
 		jugador1.buscarConstruccionCreada("Barraca").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarMarine);
 		
-		Assert.assertEquals(jugador1.buscarUnidadCreada("marine").getNombre(),"marine");
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Marine").getNombre(),"Marine");
 		
 	}
 	
@@ -51,7 +72,7 @@ public class Jugador_Test {
 		jugador1.buscarConstruccionCreada("Barraca").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarMarine);
 		
 
-		Assert.assertEquals(jugador1.buscarUnidadCreada("marine"),null);
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Marine"),null);
 	}
 	@Test
 	public void NoSeCreaMarinePorqueJugadorNoTeniaSuministrosSuficientes(){
@@ -62,10 +83,10 @@ public class Jugador_Test {
 		jugador1.buscarConstruccionCreada("Barraca").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarMarine);
 		
 
-		Assert.assertEquals(jugador1.buscarUnidadCreada("marine"),null);
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Marine"),null);
 	}
 	@Test
-	public void CreaUnMarinePeroOtroNoPorqueJugadorNoTieneSuministrosSuficientes(){
+	public void Crea5MarinePeroOtroNoPorqueJugadorNoTieneSuministrosSuficientes(){
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(1000,0));
 
 		jugador1.construir(ConstruccionesDisponibles.DEPOSITODESUMINISTROS);
@@ -93,5 +114,46 @@ public class Jugador_Test {
 		jugador1.construir(ConstruccionesDisponibles.PILON);
 		
 		Assert.assertEquals(15,jugador1.getSuministrosMaximos());
+	}
+	
+	@Test
+	public void CreaDosZealotPeroOtroNoPorqueJugadorNoTieneSuministrosSuficientes(){
+		Jugador jugador1 = new Jugador(new Protoss(),new Recursos(1000,0));
+
+		jugador1.construir(ConstruccionesDisponibles.PILON);
+		jugador1.construir(ConstruccionesDisponibles.ACCESO);
+
+		jugador1.buscarConstruccionCreada("Acceso").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarZealot);
+		jugador1.buscarConstruccionCreada("Acceso").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarZealot);
+		jugador1.buscarConstruccionCreada("Acceso").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarZealot);
+		
+
+		Assert.assertEquals(4,jugador1.getSuministrosUsados());
+	}
+	
+	@Test
+	public void JugadorCreaTodasLasUnidadesProtossConEdificiosCorrespondientes(){
+		Jugador jugador1 = new Jugador(new Protoss(),new Recursos(10000,10000));
+
+		jugador1.construir(ConstruccionesDisponibles.PILON);
+		jugador1.construir(ConstruccionesDisponibles.PILON);
+		jugador1.construir(ConstruccionesDisponibles.PILON);
+		jugador1.construir(ConstruccionesDisponibles.ACCESO);
+		jugador1.construir(ConstruccionesDisponibles.PORTALESTELAR);
+		jugador1.construir(ConstruccionesDisponibles.ARCHIVOSTEMPLARIOS);
+
+		jugador1.buscarConstruccionCreada("Acceso").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarZealot);
+		jugador1.buscarConstruccionCreada("Acceso").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarDragon);
+		jugador1.buscarConstruccionCreada("PortalEstelar").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarScout);
+		jugador1.buscarConstruccionCreada("PortalEstelar").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarNaveDeTransporte);
+		jugador1.buscarConstruccionCreada("ArchivosTemplarios").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarAltoTemplario);
+		
+
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Zealot").getNombre(),"Zealot");
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Dragon").getNombre(),"Dragon");
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Scout").getNombre(),"Scout");
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Nave de Transporte").getNombre(),"Nave de Transporte");
+		Assert.assertEquals(jugador1.buscarUnidadCreada("Alto Templario").getNombre(),"Alto Templario");
+		
 	}
 }
