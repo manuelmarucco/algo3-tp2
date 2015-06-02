@@ -13,6 +13,24 @@ import construcciones.comandos.ConstruccionesDisponibles;
 public class validacionEnLaCreacionDeContruccionesTests {
 
 	@Test
+	public void ConstruyeRefineria() {
+		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,0));
+
+		jugador1.construir(ConstruccionesDisponibles.REFINERIA);
+		
+		Assert.assertEquals(jugador1.buscarConstruccionCreada("Refineria").getNombre(), "Refineria");
+	}
+	
+	@Test
+	public void ConstruyeCentroDeMineral() {
+		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,0));
+
+		jugador1.construir(ConstruccionesDisponibles.CENTRODEMINERAL);
+		
+		Assert.assertEquals(jugador1.buscarConstruccionCreada("CentroDeMineral").getNombre(), "CentroDeMineral");
+	}
+	
+	@Test
 	public void construyoBarracaYSeGuardaEnConstruccionesCreadas() {
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,400));
 		

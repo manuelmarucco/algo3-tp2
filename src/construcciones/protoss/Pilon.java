@@ -9,11 +9,13 @@ import fiuba.algo3.algocraft.unidades.VidaEscudo;
 public class Pilon extends ConstruccionProtoss{
 	
 	private final int capacidadExtra = 5;
+	private int poblacionMaxima;
 	
-	public Pilon(){
+	public Pilon(int pobMax){
 		vidaEscudo = new VidaEscudo(300,300);
 		costo = new Costo(100,0);
 		tiempoDeConstruccion = 5;
+		poblacionMaxima = pobMax;
 	}
 	
 	public int getCapacidadExtra(){

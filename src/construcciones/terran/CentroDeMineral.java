@@ -1,11 +1,5 @@
 package construcciones.terran;
 
-import interfaces.AccionDeEdificio;
-
-import java.util.HashMap;
-
-import construcciones.comandos.AccionesDisponibles;
-import construcciones.comandos.terran.accionesDeEdficio.AccionRecolectarMineral;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import fiuba.algo3.algocraft.unidades.Vida;
@@ -25,10 +19,6 @@ public class CentroDeMineral extends ConstruccionTerran {
 		costo = new Costo(50,0);
 		tiempoDeConstruccion = 4;
 		this.recursosDeJugador = recursos;
-/*
-		acciones = new HashMap<AccionesDisponibles, AccionDeEdificio>();
-		acciones.put(AccionesDisponibles.Recolectar,new AccionRecolectarMineral());
-		*/
 	}
 	
 	@Override
@@ -40,7 +30,6 @@ public class CentroDeMineral extends ConstruccionTerran {
 
 	@Override
 	public void update() {
-		//acciones.get(AccionesDisponibles.Recolectar).accionDeEdificio(jugador);
 		recursosDeJugador.agregarRecursos(mineralesRecolectados, 0);
 	}
 
