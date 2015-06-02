@@ -21,6 +21,8 @@ public class Jugador {
 	protected int poblacionMaxima;
 	protected int poblacion;
 
+
+	public Jugador() {}
 	public Jugador(Raza r,Recursos recursosIniciales){
 		this.raza = r;
 		this.recursosRecolectados = recursosIniciales;
@@ -31,6 +33,7 @@ public class Jugador {
 		//EL PROBLEMA DE ESTO ES QUE DEPENDE LA ESCRUCTURA EN CADA RAZA... HAY QUE VER COMO LO RESOLVEMOS
 	}
 	
+
 	public void construir(ConstruccionesDisponibles construccion){
 		ProxyConstrucciones proxy = new ProxyConstrucciones();
 		Construccion construccionCreada;
@@ -38,7 +41,8 @@ public class Jugador {
 		try{
 			proxy.esConstruible(construccion, construccionesCreadas);
 		}catch(ExcepcionNecesitaCrearOtraConstruccionPrevia e){
-			return; //dentro de las excepciones habria q hacer q aparezca un cartelito q le avise al usuario porque no la puede construir
+			e.printStackTrace();
+			return; 
 		}
 		
 		construccionCreada = raza.seleccionarConstruccion(construccion).accionConstruir(this);
@@ -46,7 +50,8 @@ public class Jugador {
 		try {
 			recursosRecolectados.gastarRecursos(construccionCreada.getCosto());
 		} catch (ExcepcionRecursosInsuficientes e) {
-			return; //poner cartelito en la excepcion avisando que no se construye porque no tiene recursos
+			e.printStackTrace();
+			return; 
 		}
 		
 		construccionesCreadas.add(construccionCreada);
@@ -80,6 +85,7 @@ public class Jugador {
 	
 	public void agregarUnidad(Unidad unidad){
 		unidadesCreadas.add(unidad);
+		//permite encapsular la implementacion del atributo unidadesCreadas
 	}
 
 	public void agregarMinerales(int i) {
@@ -94,15 +100,18 @@ public class Jugador {
 		
 	}
 
-	public int getPoblacionMaxima() {
-		return poblacionMaxima;
-	}
-
 	public void update() {
 		for(Construccion c: construccionesCreadas){
 			c.update();
 		}
 		
+	}
+
+	public void aumentarPoblacionMaxima(int suministro){
+		poblacionMaxima  += suministro;
+	}
+	public int getPoblacionMaxima() {
+		return poblacionMaxima;
 	}
 
 	

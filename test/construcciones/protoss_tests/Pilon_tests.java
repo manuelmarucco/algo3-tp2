@@ -1,5 +1,7 @@
 package construcciones.protoss_tests;
 
+import jugabilidad.Jugador;
+
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -7,10 +9,9 @@ import construcciones.protoss.ConstruccionProtoss;
 import construcciones.protoss.Pilon;
 
 public class Pilon_tests {
-	
 	@Test
 	public void VidaEscudoInicializado() {
-		ConstruccionProtoss a = new Pilon();
+		ConstruccionProtoss a = new Pilon(new Jugador());
 		
 
 		Assert.assertEquals(300, a.getVida());
@@ -19,7 +20,7 @@ public class Pilon_tests {
 	
 	@Test
 	public void capacidadExtraInicializada() {
-		Pilon p = new Pilon();
+		Pilon p = new Pilon(new Jugador());
 		
 		Assert.assertEquals(5,p.getCapacidadExtra());
 	}

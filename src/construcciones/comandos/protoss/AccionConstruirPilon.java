@@ -9,7 +9,7 @@ public class AccionConstruirPilon implements AccionConstruir {
 
 	@Override
 	public Construccion accionConstruir(Jugador jugador) {
-		Pilon pilon = new Pilon(jugador.getPoblacionMaxima());
+		Pilon pilon = new Pilon(jugador);
 		return pilon;
 	}
 

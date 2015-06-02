@@ -8,7 +8,7 @@ import construcciones.terran.DepositoDeSuministros;
 public class AccionConstruirDepositoDeSuministros implements AccionConstruir{
 	@Override
 	public Construccion accionConstruir(Jugador jugador){
-		DepositoDeSuministros depositoDeSuministros = new DepositoDeSuministros(jugador.getPoblacionMaxima());
+		DepositoDeSuministros depositoDeSuministros = new DepositoDeSuministros(jugador);
 		return depositoDeSuministros;
 	}
 }

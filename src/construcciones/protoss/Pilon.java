@@ -1,6 +1,7 @@
 package construcciones.protoss;
 
 import auxiliares.Costo;
+import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import fiuba.algo3.algocraft.unidades.VidaEscudo;
@@ -9,13 +10,12 @@ import fiuba.algo3.algocraft.unidades.VidaEscudo;
 public class Pilon extends ConstruccionProtoss{
 	
 	private final int capacidadExtra = 5;
-	private int poblacionMaxima;
 	
-	public Pilon(int pobMax){
+	public Pilon(Jugador jugador){
 		vidaEscudo = new VidaEscudo(300,300);
 		costo = new Costo(100,0);
 		tiempoDeConstruccion = 5;
-		poblacionMaxima = pobMax;
+		jugador.aumentarPoblacionMaxima(capacidadExtra);
 	}
 	
 	public int getCapacidadExtra(){

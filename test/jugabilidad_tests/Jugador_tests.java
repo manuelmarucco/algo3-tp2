@@ -12,28 +12,22 @@ import jugabilidad.Jugador;
 public class Jugador_tests {
 
 	@Test
-	public void JugadorRecolectaRecursos(){
+	public void CreoDepositosDeSuministrosYAumentaPoblacionMaxima(){
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,0));
 		
-		jugador1.construir(ConstruccionesDisponibles.CENTRODEMINERAL); //+10 mineral
-		jugador1.construir(ConstruccionesDisponibles.CENTRODEMINERAL);; //+10 mineral
-		jugador1.construir(ConstruccionesDisponibles.REFINERIA); //+10 gas
-
-		int mineralesAnterior = jugador1.getRecursos().getMinerales();
-		int gasAnterior = jugador1.getRecursos().getGasVespeno();
+		jugador1.construir(ConstruccionesDisponibles.DEPOSITODESUMINISTROS);
+		jugador1.construir(ConstruccionesDisponibles.DEPOSITODESUMINISTROS);
+		jugador1.construir(ConstruccionesDisponibles.DEPOSITODESUMINISTROS);
 		
-		//jugador1.recolectar();
-				
-		Assert.assertEquals(20 + mineralesAnterior,jugador1.getRecursos().getMinerales());
-		Assert.assertEquals(10 + mineralesAnterior,jugador1.getRecursos().getGasVespeno());
+		Assert.assertEquals(15,jugador1.getPoblacionMaxima());
 	}
-
+	
 	@Test
 	public void JugadorCreaUnaBarracaYUnMarine(){
 		Jugador jugador1 = new Jugador(new Terran(),new Recursos(400,0));
 		
 		jugador1.construir(ConstruccionesDisponibles.BARRACA);
-		jugador1.buscarConstruccionCreada("Barraca").accionesDeEdificio(jugador1,AccionesDisponibles.EntrenarMarine);
+		jugador1.buscarConstruccionCreada("Barraca").accionesDeEdificio(jugador1, AccionesDisponibles.EntrenarMarine);
 		
 		Assert.assertEquals(jugador1.buscarUnidadCreada("marine").getNombre(),"marine");
 		
