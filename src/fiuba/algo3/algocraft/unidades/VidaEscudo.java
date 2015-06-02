@@ -23,4 +23,8 @@ public class VidaEscudo extends Vida {
         super.quitar(Math.max(cantidad - escudoActual, 0));
         escudoActual = Math.max(escudoActual - cantidad, 0);
     }
+
+    public int getEscudoTotal() {
+        return escudoTotal;
+    }
 }
