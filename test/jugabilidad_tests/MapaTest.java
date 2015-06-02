@@ -25,5 +25,17 @@ public class MapaTest {
 		assertEquals( barraca , mapa.getTerrestre(coordenadas) );
 	
 	}
-	
+
+	@Test
+	public void siAgregoAlgoEnUnaPosicionDichaPosicionDeberaEstarOcupada() {
+
+		Mapa mapa = new Mapa();
+		Coordenadas coordenadas = new Coordenadas(1,2);
+		ColocableEnMapa barraca = new Barraca();
+
+		mapa.agregar( barraca, coordenadas);
+
+		assertTrue( mapa.posicionTerrestreOcupada(coordenadas) );
+
+	}
 }

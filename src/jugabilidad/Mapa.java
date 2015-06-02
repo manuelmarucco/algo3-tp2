@@ -7,8 +7,8 @@ import java.util.HashMap;
 
 public class Mapa {
 	
-	private HashMap<Coordenadas, ColocableEnMapa> tierra = new HashMap<Coordenadas, ColocableEnMapa>();
-	private HashMap<Coordenadas, ColocableEnMapa> aire = new HashMap<Coordenadas, ColocableEnMapa>();
+	private HashMap<Coordenadas, ColocableEnMapa> tierra = new HashMap<>();
+	private HashMap<Coordenadas, ColocableEnMapa> aire = new HashMap<>();
 	
 	public Mapa(){
 	
@@ -38,5 +38,9 @@ public class Mapa {
 		return ( tierra.get(coordenadas) ) ;
 	
 	}
-	
+
+	public boolean posicionTerrestreOcupada( Coordenadas coordenadas ) {
+
+		return ( this.tierra.containsKey(coordenadas) );
+	}
 }
