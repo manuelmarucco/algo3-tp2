@@ -1,5 +1,7 @@
 package jugabilidad.auxiliares;
 
+import excepciones.ExcepcionGasInsuficiente;
+import excepciones.ExcepcionMineralesInsuficientes;
 import excepciones.ExcepcionRecursosInsuficientes;
 
 public class Recursos {
@@ -15,10 +17,10 @@ public class Recursos {
 	public void validacionRecursosSuficientes(Costo costoDeEntidad) throws ExcepcionRecursosInsuficientes{
 
 		if (minerales< costoDeEntidad.getCostoMineral())
-			throw new ExcepcionRecursosInsuficientes();
+			throw new ExcepcionMineralesInsuficientes();
 		
 		if (gasVespeno< costoDeEntidad.getCostoGas())
-			throw new ExcepcionRecursosInsuficientes(); 
+			throw new ExcepcionGasInsuficiente(); 
 		
 		//despues se puede hacer una excepcion para minerales y otra para gas
 	}
