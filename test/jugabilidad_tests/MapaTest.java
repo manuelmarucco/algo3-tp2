@@ -8,33 +8,74 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Test;
 
 import construcciones.terran.Barraca;
+import unidades.terrran.Marine;
+import unidades.terrran.NaveCiencia;
 
 
 public class MapaTest {
 	
 	@Test
-	public void deberiaAgregarUnMarineEnLasCoordenadasEspecificadas() {
+	public void deberiaAgregarUnaBarraEnLasCoordenadasEspecificadas() {
 		
 		Mapa mapa = new Mapa();
 		Coordenadas coordenadas = new Coordenadas(1,2);
 		ColocableEnMapa barraca = new Barraca();
 		
-		mapa.agregar( barraca, coordenadas);
+		mapa.agregarEnTierra( barraca, coordenadas);
 		
 		assertEquals( barraca , mapa.getTerrestre(coordenadas) );
 	
 	}
 
 	@Test
-	public void siAgregoAlgoEnUnaPosicionDichaPosicionDeberaEstarOcupada() {
+	public void deberiaAgregarUnaUnidadTerrestreEnLaColeccionDeUnidadesTerrestres(){
 
 		Mapa mapa = new Mapa();
 		Coordenadas coordenadas = new Coordenadas(1,2);
-		ColocableEnMapa barraca = new Barraca();
+		ColocableEnMapa marine = new Marine();
 
-		mapa.agregar( barraca, coordenadas);
+		mapa.agregar( marine, coordenadas);
+
+		assertEquals( marine , mapa.getTerrestre(coordenadas) );
+	}
+
+	@Test
+	public void deberiaAgregarUnaUnidadAereaEnLaColeccionDeUnidadesAereas(){
+
+		Mapa mapa = new Mapa();
+		Coordenadas coordenadas = new Coordenadas(1,2);
+		ColocableEnMapa nave = new NaveCiencia();
+
+		mapa.agregar( nave, coordenadas);
+
+		assertEquals( nave , mapa.getAerea(coordenadas) );
+	}
+
+
+	@Test
+	public void siAgregoUnaUnidadTerrestreEnUnaPosicionDichaPosicionTerrestreDeberiaEstarOcupada() {
+
+		Mapa mapa = new Mapa();
+		Coordenadas coordenadas = new Coordenadas(1,2);
+		ColocableEnMapa marine = new Marine();
+
+		mapa.agregarEnTierra( marine, coordenadas);
 
 		assertTrue( mapa.posicionTerrestreOcupada(coordenadas) );
 
 	}
+
+	@Test
+	public void siAgregoUnaUnidadAereaEnUnaPosicionDichaPosicionAereaDeberiaEstarOcupada() {
+
+		Mapa mapa = new Mapa();
+		Coordenadas coordenadas = new Coordenadas(1,2);
+		ColocableEnMapa nave = new NaveCiencia();
+
+		mapa.agregarEnAire( nave, coordenadas);
+
+		assertTrue( mapa.posicionAereaOcupada(coordenadas) );
+
+	}
+
 }

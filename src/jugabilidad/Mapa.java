@@ -34,13 +34,24 @@ public class Mapa {
 
 
 	public ColocableEnMapa getTerrestre(Coordenadas coordenadas) {
-		
+
 		return ( tierra.get(coordenadas) ) ;
-	
+
+	}
+
+	public ColocableEnMapa getAerea(Coordenadas coordenadas) {
+
+		return ( aire.get(coordenadas) ) ;
+
 	}
 
 	public boolean posicionTerrestreOcupada( Coordenadas coordenadas ) {
 
 		return ( this.tierra.containsKey(coordenadas) );
+	}
+
+	public boolean posicionAereaOcupada( Coordenadas coordenadas ) {
+
+		return ( this.aire.containsKey(coordenadas) );
 	}
 }
