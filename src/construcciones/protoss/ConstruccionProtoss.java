@@ -19,5 +19,9 @@ public abstract class ConstruccionProtoss extends Construccion{
 	public void recibirDanio(int danioParcial){
 		 vidaEscudo.quitar(danioParcial);
 	}
+
+	public void update(){
+		this.vidaEscudo.regenerar();
+	}
 	
 }

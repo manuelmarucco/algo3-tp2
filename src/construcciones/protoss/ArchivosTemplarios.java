@@ -1,15 +1,14 @@
 package construcciones.protoss;
 
-import interfaces.AccionDeEdificio;
-
-import java.util.HashMap;
-
 import construcciones.comandos.AccionesDisponibles;
 import construcciones.protoss.accionesDeEdificio.AccionEntrenarAltoTemplario;
-import unidades.VidaEscudo;
+import interfaces.AccionDeEdificio;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import unidades.VidaEscudo;
+
+import java.util.HashMap;
 
 
 public class ArchivosTemplarios extends ConstruccionProtoss{
@@ -33,7 +32,7 @@ public class ArchivosTemplarios extends ConstruccionProtoss{
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
+		super.update();
 		
 	}
 

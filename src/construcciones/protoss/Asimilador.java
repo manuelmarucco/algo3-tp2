@@ -30,7 +30,7 @@ public class Asimilador extends ConstruccionProtoss{
 	@Override
 	public void update() {
 		recursosDeJugador.agregarRecursos(0, gasRecolectado);
-		
+		super.update();
 	}
 
 }

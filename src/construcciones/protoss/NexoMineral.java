@@ -31,7 +31,7 @@ public class NexoMineral extends ConstruccionProtoss{
 	@Override
 	public void update() {
 		recursosDeJugador.agregarRecursos(mineralesRecolectados, 0);
-		
+		super.update();
 	}
 	
 
