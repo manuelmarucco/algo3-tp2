@@ -156,6 +156,40 @@ public class ConstruccionesTerranTests {
 		Assert.assertFalse(j.buscarConstruccion(p));
 	}
 	
-	//// RecursosInsuficientes para cOsntruir
+	//// RecursosInsuficientes para Construir
+	
+	@Test
+	public void JugadorNoPuedeConstruirCentroDeMineralPorFaltaDeRecursos(){
+		Jugador j = new Jugador(new Terran(),new Recursos(0,0));
+		CentroDeMineral p = new CentroDeMineral(j.getRecursos());
+		
+		j.construir(p);
+
+		Assert.assertFalse(j.buscarConstruccion(p));
+	}
+	
+	@Test
+	public void JugadorNoPuedeConstruirBarracaPorFaltaDeRecursos(){
+		Jugador j = new Jugador(new Terran(),new Recursos(0,0));
+		Barraca p = new Barraca();
+		
+		j.construir(p);
+
+		Assert.assertFalse(j.buscarConstruccion(p));
+	}
+	
+	@Test
+	public void JugadorNoPuedeConstruirFabricaPorFaltaDeRecursos(){
+		Jugador j = new Jugador(new Terran(),new Recursos(150,0));
+		Barraca b = new Barraca();
+		Fabrica f = new Fabrica();
+		
+		j.construir(b);
+		j.construir(f);
+
+		Assert.assertFalse(j.buscarConstruccion(f));
+	}
+	
+	////VALIDAR EL RESTO DE LAS CONSTRUCCIONES Y DESPUES LAS PROTOSS
 	
 }

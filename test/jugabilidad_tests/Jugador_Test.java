@@ -10,9 +10,6 @@ import jugabilidad.auxiliares.Recursos;
 public class Jugador_Test {
 	
 	
-	
-	
-	
 	// TERRAN
 	
 	@Test
