@@ -1,11 +1,11 @@
 package construcciones.terran;
 
-import interfaces.AccionDeEdificio;
+import interfaces.Construible;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-import construcciones.comandos.AccionesDisponibles;
-import construcciones.terran.accionesDeEdificio.AccionEntrenarGolliat;
+import excepciones.ExcepcionNecesitaConstruirBarraca;
 import unidades.Vida;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
@@ -22,8 +22,6 @@ public class Fabrica extends ConstruccionTerran{
 		costo = new Costo(200,100);
 		tiempoDeConstruccion = 12;
 
-		acciones = new HashMap<AccionesDisponibles, AccionDeEdificio>();
-		acciones.put(AccionesDisponibles.EntrenarGolliat,new AccionEntrenarGolliat());
 	}
 	
 	@Override
@@ -36,6 +34,25 @@ public class Fabrica extends ConstruccionTerran{
 	@Override
 	public void update() {
 		
+	}
+
+	@Override
+	public <T extends Construible> void verificaConstruccionPrevia(ArrayList<T> cs) throws ExcepcionNecesitaConstruirBarraca {
+		boolean construible = false;
+		
+		for (Iterator<T> iterator = cs.iterator(); iterator.hasNext();) {
+			T c = iterator.next();
+			if(((ConstruccionTerran)c).habilitaAConstruir(this))
+				construible = true;
+		}
+		
+		if(!construible)
+				throw new ExcepcionNecesitaConstruirBarraca();
+		
+	}
+	
+	public boolean habilitaAConstruir(PuertoEstelar t) {
+		return true;
 	}
 
 }

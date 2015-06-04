@@ -1,12 +1,10 @@
 package construcciones.terran;
-import interfaces.AccionDeEdificio;
+import java.util.ArrayList;
+import java.util.Iterator;
 
-import java.util.HashMap;
 
-import construcciones.comandos.AccionesDisponibles;
-import construcciones.terran.accionesDeEdificio.AccionEntrenarEspectro;
-import construcciones.terran.accionesDeEdificio.AccionEntrenarNaveCiencia;
-import construcciones.terran.accionesDeEdificio.AccionEntrenarNaveTransporte;
+import excepciones.ExcepcionNecesitaConstruirFabrica;
+import interfaces.Construible;
 import unidades.Vida;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
@@ -23,10 +21,6 @@ public class PuertoEstelar extends ConstruccionTerran{
 		costo = new Costo(150,100);
 		tiempoDeConstruccion = 10;
 
-		acciones = new HashMap<AccionesDisponibles, AccionDeEdificio>();
-		acciones.put(AccionesDisponibles.EntrenarEspectro,new AccionEntrenarEspectro());
-		acciones.put(AccionesDisponibles.EntrenarNaveDeTransporte,new AccionEntrenarNaveTransporte());
-		acciones.put(AccionesDisponibles.EntrenarNaveDeCiencia,new AccionEntrenarNaveCiencia());
 	}
 
 	@Override
@@ -42,4 +36,18 @@ public class PuertoEstelar extends ConstruccionTerran{
 		
 	}
 
+	@Override
+	public <T extends Construible> void verificaConstruccionPrevia(ArrayList<T> cs) throws ExcepcionNecesitaConstruirFabrica {
+		boolean construible = false;
+		
+		for (Iterator<T> iterator = cs.iterator(); iterator.hasNext();) {
+			T c = iterator.next();
+			if(((ConstruccionTerran)c).habilitaAConstruir(this))
+				construible = true;
+		}
+		
+		if(!construible)
+				throw new ExcepcionNecesitaConstruirFabrica();
+	}
 }
+

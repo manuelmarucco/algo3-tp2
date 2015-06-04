@@ -1,14 +1,13 @@
 package jugabilidad;
 
-import java.util.ArrayList;
+import interfaces.Construible;
 
-import construcciones.Construccion;
-import construcciones.ProxyConstrucciones;
-import construcciones.comandos.ConstruccionesDisponibles;
+import java.util.ArrayList;
+import java.util.Iterator;
+
 import jugabilidad.auxiliares.Recursos;
-import excepciones.ExcepcionNecesitaCrearOtraConstruccionPrevia;
+import excepciones.ExcepcionNecesitaConstruirOtroEdificio;
 import excepciones.ExcepcionSuministrosInsuficientes;
-import excepciones.ExcepcionRecursosInsuficientes;
 import razas.Raza;
 import unidades.Unidad;
 
@@ -16,7 +15,7 @@ public class Jugador {
 	
 	private Raza raza;
 	private Recursos recursosRecolectados;
-	private ArrayList<Construccion> construccionesCreadas = new ArrayList<Construccion>();
+	private ArrayList<Construible> construccionesCreadas = new ArrayList<Construible>();
 	private ArrayList<Unidad> unidadesCreadas = new ArrayList<Unidad>();
 	protected int suministrosMaximos;
 	protected int suministrosUsados;
@@ -34,37 +33,26 @@ public class Jugador {
 	}
 	
 
-	public void construir(ConstruccionesDisponibles construccion){
-		ProxyConstrucciones proxy = new ProxyConstrucciones();
-		Construccion construccionCreada;
+	public void construir(Construible construccionCreada){
 		
-		try{
-			proxy.esConstruible(construccion, construccionesCreadas);
-		}catch(ExcepcionNecesitaCrearOtraConstruccionPrevia e){
+		try {
+			construccionCreada.verificaConstruccionPrevia(construccionesCreadas);
+		} catch (ExcepcionNecesitaConstruirOtroEdificio e) {
 			e.printStackTrace();
-			return; 
+			return;
 		}
 		
-		construccionCreada = raza.seleccionarConstruccion(construccion).accionConstruir(this);
-		
+		/*
 		try {
 			recursosRecolectados.gastarRecursos(construccionCreada.getCosto());
 		} catch (ExcepcionRecursosInsuficientes e) {
 			e.printStackTrace();
 			return; 
 		}
-		
+		*/
 		construccionesCreadas.add(construccionCreada);
 	}
 	
-	public Construccion buscarConstruccionCreada(String nombre){
-		for(Construccion c : construccionesCreadas){
-			if(c.getNombre() == nombre){
-					return c;
-			}
-		}
-		return null;
-	}
 	
 	public Raza getRaza(){
 		return raza;
@@ -102,10 +90,22 @@ public class Jugador {
 	}
 
 	public void update() {
-		for(Construccion c: construccionesCreadas){
+		for (Iterator<Construible> iterator = construccionesCreadas.iterator(); iterator
+				.hasNext();) {
+			Construible c = iterator.next();
 			c.update();
+			
 		}
 		
+	}
+	
+	public boolean buscarConstruccion(Construible c1){
+		for(Construible c2: construccionesCreadas){
+			if(c1.equals(c2)){
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public void aumentarSuministrosMaximos(int suministro){

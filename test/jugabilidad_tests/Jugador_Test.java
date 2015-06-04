@@ -3,9 +3,6 @@ package jugabilidad_tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import construcciones.comandos.AccionesDisponibles;
-import construcciones.comandos.ConstruccionesDisponibles;
-import razas.Protoss;
 import razas.Terran;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Recursos;

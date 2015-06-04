@@ -1,5 +1,10 @@
 package construcciones.terran;
 
+import interfaces.Construible;
+
+import java.util.ArrayList;
+
+import excepciones.ExcepcionNecesitaConstruirOtroEdificio;
 import unidades.Vida;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
@@ -33,6 +38,12 @@ public class Refineria extends ConstruccionTerran {
 	@Override
 	public void update() {
 		recursosDeJugador.agregarRecursos(0, gasRecolectados);
+		
+	}
+	@Override
+	public <T extends Construible> void verificaConstruccionPrevia(
+			ArrayList<T> cs) throws ExcepcionNecesitaConstruirOtroEdificio {
+		// TODO Auto-generated method stub
 		
 	}
 

@@ -17,6 +17,17 @@ public abstract class ConstruccionTerran extends Construccion{
 		vida.quitar(danioParcial);
 	        	
 	}
+	
+	public boolean habilitaAConstruir(Fabrica p) {
+		return false;
+	}
+	public boolean habilitaAConstruir(PuertoEstelar p) {
+		return false;
+	}
+	public boolean habilitaAConstruir(Barraca c) {
+		return true;
+	}
+	
 
 		
 }

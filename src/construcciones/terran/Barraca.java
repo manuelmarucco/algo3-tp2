@@ -1,12 +1,11 @@
 package construcciones.terran;
 
 
-import interfaces.AccionDeEdificio;
+import interfaces.Construible;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 
-import construcciones.comandos.AccionesDisponibles;
-import construcciones.terran.accionesDeEdificio.AccionEntrenarMarine;
+import excepciones.ExcepcionNecesitaConstruirOtroEdificio;
 import unidades.*;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
@@ -22,9 +21,6 @@ public class Barraca extends ConstruccionTerran {
 		costo = new Costo(150,0);
 		tiempoDeConstruccion = 12;
 		
-		acciones = new HashMap<AccionesDisponibles, AccionDeEdificio>();
-		acciones.put(AccionesDisponibles.EntrenarMarine,new AccionEntrenarMarine());
-		
 	}
 	
 	@Override
@@ -33,12 +29,23 @@ public class Barraca extends ConstruccionTerran {
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-
+	
+	
 	@Override
 	public void update() {
 		 
 		//this.regenerar.regenerar(this);
 		
+	}
+
+	@Override
+	public <T extends Construible> void verificaConstruccionPrevia(ArrayList<T> cs) throws ExcepcionNecesitaConstruirOtroEdificio {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public boolean habilitaAConstruir(Fabrica t) {
+		return true;
 	}
 }
 

@@ -1,6 +1,6 @@
 package excepciones;
 
 @SuppressWarnings("serial")
-public class ExcepcionNecesitaConstruirPortalEstelar extends ExcepcionNecesitaCrearOtraConstruccionPrevia{
+public class ExcepcionNecesitaConstruirPortalEstelar extends ExcepcionNecesitaConstruirOtroEdificio{
 
 }
