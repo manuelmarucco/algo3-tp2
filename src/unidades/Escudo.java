@@ -1,11 +1,10 @@
 package unidades;
 
-public class VidaEscudo extends Vida {
+public class Escudo{
     private final int escudoTotal;
     private int escudoActual;
 
-    public VidaEscudo(int vida, int escudo) {
-        super(vida);
+    public Escudo( int escudo) {
         this.escudoActual = this.escudoTotal = escudo;
     }
 
@@ -13,15 +12,13 @@ public class VidaEscudo extends Vida {
         return escudoActual;
     }
 
-    @Override
     public void regenerar() {
         this.escudoActual = Math.min(escudoTotal, this.escudoActual + this.escudoTotal / 10);
     }
 
-    @Override
-    public void quitar(int cantidad) {
-        super.quitar(Math.max(cantidad - escudoActual, 0));
+    public int quitar(int cantidad) {
         escudoActual = Math.max(escudoActual - cantidad, 0);
+        return Math.max(cantidad - escudoActual, 0);
     }
 
     public int getEscudoTotal() {

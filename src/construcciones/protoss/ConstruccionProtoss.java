@@ -1,27 +1,33 @@
 	package construcciones.protoss;
 
-import unidades.VidaEscudo;
+import unidades.Escudo;
 import construcciones.Construccion;
+import unidades.Vida;
 
-public abstract class ConstruccionProtoss extends Construccion{
+	public abstract class ConstruccionProtoss extends Construccion{
 	
-	protected  VidaEscudo vidaEscudo;
+	protected Escudo escudo;
+
+	public ConstruccionProtoss(int vida,int escudo){
+		this.escudo= new Escudo(escudo);
+		this.vida = new Vida(vida);
+	}
 	
 	public int getVida() {
-		return vidaEscudo.getVidaActual();
+		return vida.getVidaActual();
 	}
 	
 	public int getEscudo() {
-		return vidaEscudo.getEscudoActual();
+		return escudo.getEscudoActual();
 	}
 	
 	@Override
 	public void recibirDanio(int danioParcial){
-		 vidaEscudo.quitar(danioParcial);
+		 vida.quitar(escudo.quitar(danioParcial));
 	}
 
 	public void update(){
-		this.vidaEscudo.regenerar();
+		this.escudo.regenerar();
 	}
 	
 }

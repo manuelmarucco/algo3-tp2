@@ -174,6 +174,8 @@ public class Jugador_Test {
 		
 
 		Assert.assertEquals(4,jugador1.getSuministrosUsados());
+
+
 	}
 	
 	@Test

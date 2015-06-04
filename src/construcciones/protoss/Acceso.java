@@ -7,7 +7,6 @@ import interfaces.AccionDeEdificio;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.VidaEscudo;
 
 import java.util.HashMap;
 
@@ -15,8 +14,8 @@ import java.util.HashMap;
 public class Acceso extends ConstruccionProtoss{
 
 	public Acceso(){
+		super(500,500);
 		nombre = "Acceso";
-		vidaEscudo = new VidaEscudo(500,500);
 		costo = new Costo(150,0);
 		tiempoDeConstruccion = 8;
 		
@@ -35,7 +34,6 @@ public class Acceso extends ConstruccionProtoss{
 	@Override
 	public void update() {
 		super.update();
-		
 	}
 
 }

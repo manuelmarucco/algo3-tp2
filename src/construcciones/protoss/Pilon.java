@@ -1,6 +1,5 @@
 package construcciones.protoss;
 
-import unidades.VidaEscudo;
 import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
@@ -12,7 +11,7 @@ public class Pilon extends ConstruccionProtoss{
 	private final int capacidadExtra = 5;
 	
 	public Pilon(Jugador jugador){
-		vidaEscudo = new VidaEscudo(300,300);
+		super(300,300);
 		costo = new Costo(100,0);
 		tiempoDeConstruccion = 5;
 		jugador.aumentarSuministrosMaximos(capacidadExtra);

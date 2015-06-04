@@ -1,6 +1,5 @@
 package construcciones.protoss;
 
-import unidades.VidaEscudo;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
@@ -11,11 +10,10 @@ public class NexoMineral extends ConstruccionProtoss{
 
 	private final int mineralesRecolectados = 10; //por turno
 	private Recursos recursosDeJugador;
-	
-	public NexoMineral(){}
+
 	public NexoMineral(Recursos recursos){
+		super(250,250);
 		nombre = "NexoMineral";
-		vidaEscudo = new VidaEscudo(250,250);
 		costo = new Costo(50,0);
 		tiempoDeConstruccion = 4;
 		recursosDeJugador = recursos;

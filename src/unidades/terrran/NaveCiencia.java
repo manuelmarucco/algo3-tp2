@@ -1,10 +1,47 @@
 package unidades.terrran;
 
-import unidades.*;
-import jugabilidad.auxiliares.Costo;
+import excepciones.EnergiaInsuficiente;
+import jugabilidad.utilidadesMapa.Coordenadas;
+import unidades.Aereo;
+import unidades.Danio;
+import unidades.Energia;
 
-public class NaveCiencia extends Unidad{
+public class NaveCiencia extends UnidadTerran{
+
+    private static Energia energia= new Energia(200,50,10);//por si agregan las mejoras a los atributos
+
     public NaveCiencia(){
-        super("NaveCiencia",new Vida(200),10,new Aereo(),new UnidadMagica(new Energia(200,50,10)),new Costo(50,100),2);
+        super(200);
+        this.vision = 10;
+        this.ubicacion = new Aereo();
+        this.suministro = 2;
+    }
+
+    @Override
+    public void update() {
+        this.energia.regenerar();
+    }
+
+    @Override
+    public void recibirDanio(Danio danio) {
+        this.vida.quitar(danio.getDanioAire());
+    }
+
+    public void EMP(Coordenadas coordenadas){
+        try {
+            this.energia.gastar(100);
+        } catch (EnergiaInsuficiente energiaInsuficiente) {
+            energiaInsuficiente.printStackTrace();
+        }
+        //TODO: implementar
+    }
+
+    public void Radiacion(Coordenadas coordenadas){
+        try {
+            this.energia.gastar(75);
+        } catch (EnergiaInsuficiente energiaInsuficiente) {
+            energiaInsuficiente.printStackTrace();
+        }
+        //TODO: implementar
     }
 }

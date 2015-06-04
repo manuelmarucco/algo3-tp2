@@ -6,7 +6,6 @@ import interfaces.AccionDeEdificio;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.VidaEscudo;
 
 import java.util.HashMap;
 
@@ -14,8 +13,8 @@ import java.util.HashMap;
 public class ArchivosTemplarios extends ConstruccionProtoss{
 	
 	public ArchivosTemplarios(){
+		super(500,500);
 		nombre = "ArchivosTemplarios";
-		vidaEscudo = new VidaEscudo(500,500);
 		costo = new Costo(150,200);
 		tiempoDeConstruccion = 9;
 

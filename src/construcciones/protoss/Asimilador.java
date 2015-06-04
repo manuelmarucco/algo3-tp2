@@ -1,6 +1,5 @@
 package construcciones.protoss;
 
-import unidades.VidaEscudo;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
@@ -13,7 +12,7 @@ public class Asimilador extends ConstruccionProtoss{
 	private Recursos recursosDeJugador;
 	
 	public Asimilador(Recursos recursos){
-		vidaEscudo = new VidaEscudo(450,450);
+		super(450,450);
 		costo = new Costo(100,0);
 		tiempoDeConstruccion = 6;
 		recursosDeJugador = recursos;

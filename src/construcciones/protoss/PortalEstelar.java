@@ -7,7 +7,6 @@ import interfaces.AccionDeEdificio;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.VidaEscudo;
 
 import java.util.HashMap;
 
@@ -17,8 +16,8 @@ public class PortalEstelar extends ConstruccionProtoss{
 	//necesita que el Acceso haya sido construida para poder crearse
 	
 	public PortalEstelar(){
+		super(600,600);
 		nombre = "PortalEstelar";
-		vidaEscudo = new VidaEscudo(600,600);
 		costo = new Costo(150,150);
 		tiempoDeConstruccion = 10;
 

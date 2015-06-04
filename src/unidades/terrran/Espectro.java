@@ -1,11 +1,32 @@
 package unidades.terrran;
 
-import unidades.*;
-import jugabilidad.auxiliares.Costo;
+import interfaces.Daniable;
+import unidades.Aereo;
+import unidades.Danio;
 
-public class Espectro extends Unidad {
+public class Espectro extends UnidadTerran {
+
+    private static Danio Danio= new Danio(8,20,5,5);//por si agregan las mejoras a los atributos
 
     public Espectro(){
-        super("Espectro",new Vida(120),7,new Aereo(),new UnidadGuerrera(new Danio(8,20,5,5)),new Costo(150,100),2);
+        super(120);
+        this.vision = 7;
+        this.ubicacion = new Aereo();
+        this.suministro = 2;
     }
+
+    @Override
+    public void update() {
+        //TODO ver si hace algo entre turnos;
+    }
+
+    @Override
+    public void recibirDanio(Danio danio) {
+        this.vida.quitar(danio.getDanioAire());
+    }
+
+    public void atacar(Daniable objetivo){
+        objetivo.recibirDanio(this.Danio);
+    }
+
 }

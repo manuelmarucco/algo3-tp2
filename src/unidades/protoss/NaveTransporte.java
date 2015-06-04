@@ -1,10 +1,33 @@
 package unidades.protoss;
 
-import unidades.*;
-import jugabilidad.auxiliares.Costo;
+import unidades.Aereo;
+import unidades.Danio;
 
-public class NaveTransporte extends Unidad {
-    public NaveTransporte() {
-        super("Nave de Transporte", new VidaEscudo(60,80), 8, new Aereo(), new UnidadTransporte(8), new Costo(200, 0), 2);
+public class NaveTransporte extends UnidadProtoss {
+    private static int TranporteMax = 8;
+
+    public NaveTransporte(){
+        super(60,80);
+        this.vision = 8;
+        this.ubicacion = new Aereo();
+        this.suministro=2;
+    }
+
+    @Override
+    public void update() {
+        this.escudo.regenerar();
+    }
+
+    @Override
+    public void recibirDanio(Danio danio) {
+        this.vida.quitar(danio.getDanioAire());
+    }
+
+    public void cargar(){
+        //TODO: implementar
+    }
+
+    public void descargar(){
+        //TODO: implementar
     }
 }
