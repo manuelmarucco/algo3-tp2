@@ -1,5 +1,10 @@
 package construcciones.protoss;
 
+import interfaces.Construible;
+
+import java.util.ArrayList;
+
+import excepciones.ExcepcionNecesitaConstruirOtroEdificio;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
@@ -30,6 +35,13 @@ public class NexoMineral extends ConstruccionProtoss{
 	public void update() {
 		recursosDeJugador.agregarRecursos(mineralesRecolectados, 0);
 		super.update();
+	}
+
+	@Override
+	public <T extends Construible> void verificaConstruccionPrevia(
+			ArrayList<T> cs) throws ExcepcionNecesitaConstruirOtroEdificio {
+		// TODO Auto-generated method stub
+		
 	}
 	
 

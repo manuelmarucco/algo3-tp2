@@ -1,14 +1,14 @@
 package construcciones.protoss;
 
-import construcciones.comandos.AccionesDisponibles;
-import construcciones.protoss.accionesDeEdificio.AccionEntrenarNaveTransporte;
-import construcciones.protoss.accionesDeEdificio.AccionEntrenarScout;
-import interfaces.AccionDeEdificio;
+import interfaces.Construible;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import excepciones.ExcepcionNecesitaConstruirAcceso;
 
 
 public class PortalEstelar extends ConstruccionProtoss{
@@ -20,10 +20,6 @@ public class PortalEstelar extends ConstruccionProtoss{
 		nombre = "PortalEstelar";
 		costo = new Costo(150,150);
 		tiempoDeConstruccion = 10;
-
-		acciones = new HashMap<AccionesDisponibles, AccionDeEdificio>();
-		acciones.put(AccionesDisponibles.EntrenarScout,new AccionEntrenarScout());
-		acciones.put(AccionesDisponibles.EntrenarNaveDeTransporte,new AccionEntrenarNaveTransporte());
 	}
 
 	@Override
@@ -38,4 +34,25 @@ public class PortalEstelar extends ConstruccionProtoss{
 		super.update();
 	}
 
+	@Override
+	public <T extends Construible> void verificaConstruccionPrevia(
+			ArrayList<T> cs) throws ExcepcionNecesitaConstruirAcceso {
+		boolean construible = false;
+		
+		for (Iterator<T> iterator = cs.iterator(); iterator.hasNext();) {
+			T c = iterator.next();
+			if(((ConstruccionProtoss)c).habilitaAConstruir(this))
+				construible = true;
+		}
+		
+		if(!construible)
+				throw new ExcepcionNecesitaConstruirAcceso();
+		
+		
+	}
+	
+	public boolean habilitaAConstruir(ArchivosTemplarios t) {
+		return true;
+	}
+	
 }

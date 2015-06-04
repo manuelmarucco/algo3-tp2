@@ -29,5 +29,16 @@ import unidades.Vida;
 	public void update(){
 		this.escudo.regenerar();
 	}
+
+	public boolean habilitaAConstruir(ArchivosTemplarios a) {
+		return false;
+	}
+	
+	public boolean habilitaAConstruir(PortalEstelar p) {
+		return false;
+	}
+	public boolean habilitaAConstruir(Acceso c) {
+		return true;
+	}
 	
 }

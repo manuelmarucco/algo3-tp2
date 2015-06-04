@@ -1,14 +1,13 @@
 package construcciones.protoss;
 
-import construcciones.comandos.AccionesDisponibles;
-import construcciones.protoss.accionesDeEdificio.AccionEntrenarDragon;
-import construcciones.protoss.accionesDeEdificio.AccionEntrenarZealot;
-import interfaces.AccionDeEdificio;
+import interfaces.Construible;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
-import java.util.HashMap;
+import java.util.ArrayList;
+
+import excepciones.ExcepcionNecesitaConstruirOtroEdificio;
 
 
 public class Acceso extends ConstruccionProtoss{
@@ -18,10 +17,6 @@ public class Acceso extends ConstruccionProtoss{
 		nombre = "Acceso";
 		costo = new Costo(150,0);
 		tiempoDeConstruccion = 8;
-		
-		acciones = new HashMap<AccionesDisponibles, AccionDeEdificio>();
-		acciones.put(AccionesDisponibles.EntrenarZealot,new AccionEntrenarZealot());
-		acciones.put(AccionesDisponibles.EntrenarDragon,new AccionEntrenarDragon());
 	}
 
 	@Override
@@ -34,6 +29,18 @@ public class Acceso extends ConstruccionProtoss{
 	@Override
 	public void update() {
 		super.update();
+	}
+
+	@Override
+	public <T extends Construible> void verificaConstruccionPrevia(
+			ArrayList<T> cs) throws ExcepcionNecesitaConstruirOtroEdificio {
+		// TODO Auto-generated method stub
+		
+	}
+	
+
+	public boolean habilitaAConstruir(PortalEstelar t) {
+		return true;
 	}
 
 }

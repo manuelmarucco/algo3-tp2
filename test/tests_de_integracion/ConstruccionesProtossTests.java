@@ -13,17 +13,18 @@ import jugabilidad.auxiliares.Recursos;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
-import construcciones.terran.Barraca;
-import construcciones.terran.CentroDeMineral;
-import construcciones.terran.DepositoDeSuministros;
-import construcciones.terran.Fabrica;
-import construcciones.terran.PuertoEstelar;
-import construcciones.terran.Refineria;
-import excepciones.ExcepcionNecesitaConstruirBarraca;
-import excepciones.ExcepcionNecesitaConstruirFabrica;
+import construcciones.protoss.Acceso;
+import construcciones.protoss.ArchivosTemplarios;
+import construcciones.protoss.Asimilador;
+import construcciones.protoss.NexoMineral;
+import construcciones.protoss.Pilon;
+import construcciones.protoss.PortalEstelar;
+import excepciones.ExcepcionNecesitaConstruirAcceso;
+import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
 
 
-public class ConstruccionesTerranTests {
+
+public class ConstruccionesProtossTests {
 	
 	//////////////////////// Verificacion de construccion de cada edificio ////////
 
@@ -31,7 +32,7 @@ public class ConstruccionesTerranTests {
 	public void SeConstruyeUnaBarraca() {
 
 		Jugador j = new Jugador();
-		Barraca b = new Barraca();
+		Acceso b = new Acceso();
 		
 		j.construir(b);
 		
@@ -42,7 +43,7 @@ public class ConstruccionesTerranTests {
 	public void SeConstruyeUnaCentroDeMineral() {
 
 		Jugador j = new Jugador();
-		CentroDeMineral b = new CentroDeMineral(j.getRecursos());
+		NexoMineral b = new NexoMineral(j.getRecursos());
 		
 		j.construir(b);
 		
@@ -53,7 +54,7 @@ public class ConstruccionesTerranTests {
 	public void SeConstruyeUnaRefineria() {
 
 		Jugador j = new Jugador();
-		Refineria b = new Refineria();
+		Asimilador b = new Asimilador(j.getRecursos());
 		
 		j.construir(b);
 		
@@ -61,10 +62,10 @@ public class ConstruccionesTerranTests {
 	}
 	
 	@Test
-	public void SeConstruyeUnDepositoDeSuministros() {
+	public void SeConstruyeUnPilon() {
 
 		Jugador j = new Jugador();
-		DepositoDeSuministros b = new DepositoDeSuministros(j);
+		Pilon b = new Pilon(j);
 		
 		j.construir(b);
 		
@@ -74,18 +75,17 @@ public class ConstruccionesTerranTests {
 	/////////////////////// Construccion habilita a otra ////////////////////
 	
 	
-	
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 	@Test
-	public void SeQuiereCrearFabricaPeroNoEncuentraBarracaYExcepcion() throws ExcepcionNecesitaConstruirBarraca {
+	public void SeQuiereCrearPortalEstelarPeroNoEncuentraAccesoYExcepcion() throws ExcepcionNecesitaConstruirAcceso {
 		ArrayList<Construible> cs =  new ArrayList<Construible>();
 
-		cs.add(new CentroDeMineral(new Recursos(100,100)));
+		cs.add(new NexoMineral(new Recursos(100,100)));
 		
-		Fabrica f = new Fabrica();
+		PortalEstelar f = new PortalEstelar();
 
-	    exception.expect(ExcepcionNecesitaConstruirBarraca.class);
+	    exception.expect(ExcepcionNecesitaConstruirAcceso.class);
 		f.verificaConstruccionPrevia(cs);
 		
 	}
@@ -94,23 +94,23 @@ public class ConstruccionesTerranTests {
 	@Rule
 	public ExpectedException exception2 = ExpectedException.none();
 	@Test
-	public void SeQuiereCrearPuertoEstelarPeroNoEncuentraFabricaYExcepcion() throws ExcepcionNecesitaConstruirFabrica {
+	public void SeQuiereCrearArchivosTemplariosrPeroNoEncuentraPortalEstelarYExcepcion() throws ExcepcionNecesitaConstruirPortalEstelar {
 		ArrayList<Construible> cs =  new ArrayList<Construible>();
 
-		cs.add(new Barraca());
+		cs.add(new Acceso());
 		
-		PuertoEstelar p = new PuertoEstelar();
+		ArchivosTemplarios p = new ArchivosTemplarios();
 
-	    exception2.expect(ExcepcionNecesitaConstruirFabrica.class);
+	    exception2.expect(ExcepcionNecesitaConstruirPortalEstelar.class);
 		p.verificaConstruccionPrevia(cs);
 		
 	}
 	
 	@Test
-	public void JugadorCreaFabricaConBarracaPrevia(){
+	public void JugadorCreaPortalEstelarConAccesoPrevia(){
 		Jugador j = new Jugador();
-		Barraca b = new Barraca();
-		Fabrica f = new Fabrica();
+		Acceso b = new Acceso();
+		PortalEstelar f = new PortalEstelar();
 		
 		j.construir(b);
 		
@@ -122,9 +122,9 @@ public class ConstruccionesTerranTests {
 	}
 	
 	@Test
-	public void JugadorQuiereCrearFabricaPeroNecesitaBarraca(){
+	public void JugadorQuiereCrearPortalEstelarPeroNecesitaAcceso(){
 		Jugador j = new Jugador();
-		Fabrica f = new Fabrica();
+		PortalEstelar f = new PortalEstelar();
 		
 		j.construir(f);
 
@@ -132,11 +132,11 @@ public class ConstruccionesTerranTests {
 	}
 	
 	@Test
-	public void JugadorCreaPuertoEstelarConFabricaPrevia(){
+	public void JugadorCreaArchivosTemplariosConPortalEstelarPrevia(){
 		Jugador j = new Jugador();
-		Barraca b = new Barraca();
-		Fabrica f = new Fabrica();
-		PuertoEstelar p = new PuertoEstelar();
+		Acceso b = new Acceso();
+		PortalEstelar f = new PortalEstelar();
+		ArchivosTemplarios p = new ArchivosTemplarios();
 
 		j.construir(b);
 		j.construir(f);
@@ -146,9 +146,9 @@ public class ConstruccionesTerranTests {
 	}
 	
 	@Test
-	public void JugadorQuiereCrearPuertoEstelarPeroNecesitaFabrica(){
+	public void JugadorQuiereCrearArchivosTemplariosPeroNecesitaPortalEstelar(){
 		Jugador j = new Jugador();
-		PuertoEstelar p = new PuertoEstelar();
+		ArchivosTemplarios p = new ArchivosTemplarios();
 		
 		j.construir(p);
 

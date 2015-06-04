@@ -1,5 +1,10 @@
 package construcciones.protoss;
 
+import interfaces.Construible;
+
+import java.util.ArrayList;
+
+import excepciones.ExcepcionNecesitaConstruirOtroEdificio;
 import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
@@ -31,6 +36,13 @@ public class Pilon extends ConstruccionProtoss{
 	@Override
 	public void update() {
 		super.update();
+	}
+
+	@Override
+	public <T extends Construible> void verificaConstruccionPrevia(
+			ArrayList<T> cs) throws ExcepcionNecesitaConstruirOtroEdificio {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -25,7 +25,7 @@ public abstract class ConstruccionTerran extends Construccion{
 		return false;
 	}
 	public boolean habilitaAConstruir(Barraca c) {
-		return true;
+		return false;
 	}
 	
 

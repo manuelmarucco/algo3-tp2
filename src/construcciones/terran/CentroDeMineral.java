@@ -17,7 +17,6 @@ public class CentroDeMineral extends ConstruccionTerran {
 	private Recursos recursosDeJugador;
 	private final int mineralesRecolectados = 10;
 	
-	public CentroDeMineral() {}
 	public CentroDeMineral(Recursos recursos){
 		nombre = "CentroDeMineral";
 		vida = new Vida(500);
