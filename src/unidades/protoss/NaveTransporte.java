@@ -1,5 +1,7 @@
 package unidades.protoss;
 
+import interfaces.ColocableEnMapa;
+import jugabilidad.auxiliares.Costo;
 import unidades.Aereo;
 import unidades.Danio;
 
@@ -11,6 +13,7 @@ public class NaveTransporte extends UnidadProtoss {
         this.vision = 8;
         this.ubicacion = new Aereo();
         this.suministro=2;
+        this.costo=new Costo(200,0);
     }
 
     @Override
@@ -29,5 +32,10 @@ public class NaveTransporte extends UnidadProtoss {
 
     public void descargar(){
         //TODO: implementar
+    }
+
+    @Override
+    public ColocableEnMapa getClone() {
+        return null;// TODO:implementar
     }
 }

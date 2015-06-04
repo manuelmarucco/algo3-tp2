@@ -1,10 +1,12 @@
 package unidades.terrran;
 
+import interfaces.Atacante;
 import interfaces.Daniable;
+import jugabilidad.auxiliares.Costo;
 import unidades.Aereo;
 import unidades.Danio;
 
-public class Espectro extends UnidadTerran {
+public class Espectro extends UnidadTerran implements Atacante {
 
     private static Danio Danio= new Danio(8,20,5,5);//por si agregan las mejoras a los atributos
 
@@ -13,6 +15,7 @@ public class Espectro extends UnidadTerran {
         this.vision = 7;
         this.ubicacion = new Aereo();
         this.suministro = 2;
+        this.costo=new Costo(150,100);
     }
 
     @Override
@@ -26,7 +29,7 @@ public class Espectro extends UnidadTerran {
     }
 
     public void atacar(Daniable objetivo){
-        objetivo.recibirDanio(this.Danio);
+        objetivo.recibirDanio(Danio);
     }
 
 }

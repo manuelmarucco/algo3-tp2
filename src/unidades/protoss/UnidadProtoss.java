@@ -1,5 +1,6 @@
 package unidades.protoss;
 
+import interfaces.ColocableEnMapa;
 import unidades.Escudo;
 import unidades.Unidad;
 import unidades.Vida;
@@ -16,4 +17,6 @@ public abstract class UnidadProtoss extends Unidad {
     public Escudo getEscudo() {
         return escudo;
     }
+
+    public abstract ColocableEnMapa getClone();
 }

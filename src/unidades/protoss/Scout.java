@@ -1,10 +1,13 @@
 package unidades.protoss;
 
+import interfaces.Atacante;
+import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
+import jugabilidad.auxiliares.Costo;
 import unidades.Aereo;
 import unidades.Danio;
 
-public class Scout extends UnidadProtoss {
+public class Scout extends UnidadProtoss implements Atacante {
 
     private static Danio Danio= new Danio(8,14,4,4);//por si agregan las mejoras a los atributos
 
@@ -13,6 +16,7 @@ public class Scout extends UnidadProtoss {
         this.vision=7;
         this.ubicacion= new Aereo();
         this.suministro = 3;
+        this.costo=new Costo(300,150);
     }
 
     @Override
@@ -26,6 +30,11 @@ public class Scout extends UnidadProtoss {
     }
 
     public void atacar(Daniable objetivo){
-        objetivo.recibirDanio(this.Danio);
+        objetivo.recibirDanio(Danio);
+    }
+
+    @Override
+    public ColocableEnMapa getClone() {
+        return null;// TODO:implementar
     }
 }
