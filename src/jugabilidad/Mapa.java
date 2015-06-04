@@ -54,5 +54,9 @@ public class Mapa {
 
 		return ( this.aire.containsKey(coordenadas) );
 	}
+
+	public Coordenadas getCoordenada(ColocableEnMapa daniable) {
+		return null;//TODO implementar
+	}
 }
 

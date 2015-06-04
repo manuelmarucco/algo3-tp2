@@ -7,14 +7,18 @@ import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
-public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable {
+public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable  {
     protected String nombre;
     protected Vida vida;
     protected int vision;
     protected Ubicacion ubicacion;
     protected Costo costo;
     protected int suministro;
+    protected Estado estado;
 
+    protected Unidad(){
+        this.estado=new EstadoNormal();
+    }
 
     public Vida getVida() {
         return vida;
@@ -45,4 +49,21 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
 
 		return suministro;
 	}
+
+    public void Matar() {
+        if(this.vida.estaMuerto()){
+            //Mapa mapa =SingletonMapa.getInstance();
+            //mapa.Quitar(this);
+        }
+    }
+    public void update(){
+        this.estado.update(this);
+    }
+    public void irradiar(){
+        this.estado= new EstadoIrradiado();
+    }
+    public  void recibirEMP(){
+
+    };
+
 }

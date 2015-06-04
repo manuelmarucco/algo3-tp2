@@ -34,11 +34,19 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
         this.vida.quitar(danio.getDanioTierra());
     }
 
-    public void tormentaPsionica(Coordenadas destino){
+    public void tormentaPsionica(Coordenadas c){
         try {
             this.energia.gastar(75);
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
+        }
+        Mapa mapa =SingletonMapa.getInstance();
+        for(int i =-1;i<2;i++){
+            for(int j =-1;j<2;j++){
+                Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);
+                mapa.getTerrestre(coordenadas);//aplicar tormenta
+                mapa.getAerea(coordenadas);//aplicar tormenta
+            }
         }
         //TODO: implementar
     }
@@ -48,11 +56,10 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
             this.energia.gastar(100);
             Mapa mapa =SingletonMapa.getInstance();
             mapa.agregar(objetivo.getClone(),destino1);
-            mapa.agregar(objetivo.getClone(),destino2);
+            mapa.agregar(objetivo.getClone(), destino2);
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
-        //TODO: implementar
     }
 
     @Override
@@ -68,5 +75,12 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
     @Override
     public void quitarse() {
 
+    }
+
+    public  void recibirEMP(){
+        super.recibirEMP();
+        try {
+            this.energia.gastar(this.energia.getEnergiaActual());
+        } catch (EnergiaInsuficiente energiaInsuficiente) {}
     }
 }

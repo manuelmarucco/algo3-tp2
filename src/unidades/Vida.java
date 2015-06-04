@@ -23,4 +23,9 @@ public class Vida {
     public void quitar(int cantidad) {
         this.vidaActual = Math.max(this.vidaActual - cantidad, 0);
     }
+
+    public boolean estaMuerto() {
+        if(vidaActual==0) return true;
+        return false;
+    }
 }

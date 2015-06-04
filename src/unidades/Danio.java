@@ -6,9 +6,9 @@ public class Danio {
     private int danioAire;
     private int rangoTerrestre;
 
-    public Danio(int danioTierra, int aire, int rangoTerrestre ,int rangoAereo) {
+    public Danio(int danioTierra, int danioAire, int rangoTerrestre ,int rangoAereo) {
         this.danioTierra = danioTierra;
-        this.danioAire = aire;
+        this.danioAire = danioAire;
         this.rangoTerrestre = rangoTerrestre;
         this.rangoAereo=rangoAereo;
     }

@@ -1,11 +1,15 @@
 package unidades.terrran;
 
 import excepciones.EnergiaInsuficiente;
+import interfaces.Daniable;
+import jugabilidad.Mapa;
+import jugabilidad.SingletonMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Aereo;
 import unidades.Danio;
 import unidades.Energia;
+import unidades.Unidad;
 
 public class NaveCiencia extends UnidadTerran{
 
@@ -27,23 +31,41 @@ public class NaveCiencia extends UnidadTerran{
     @Override
     public void recibirDanio(Danio danio) {
         this.vida.quitar(danio.getDanioAire());
+        this.Matar();
     }
 
-    public void EMP(Coordenadas coordenadas){
+    public void EMP(Coordenadas c){
         try {
             this.energia.gastar(100);
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
-        //TODO: implementar
+        Mapa mapa =SingletonMapa.getInstance();
+        for(int i =-1;i<2;i++){
+            for(int j =-1;j<2;j++){
+                Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);
+                //TODO: sacar estos casteos
+                this.EMP((Unidad)mapa.getTerrestre(coordenadas));//aplicar emp
+                this.EMP((Unidad)mapa.getAerea(coordenadas));//aplicar emp
+            }
+        }
     }
 
-    public void Radiacion(Coordenadas coordenadas){
+    private void EMP(Unidad d){
+        d.recibirEMP();
+    }
+
+    public void Radiacion(Daniable objetivo){
         try {
             this.energia.gastar(75);
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
-        //TODO: implementar
+        objetivo.irradiar();
+    }
+    public  void recibirEMP(){
+        try {
+            this.energia.gastar(this.energia.getEnergiaActual());
+        } catch (EnergiaInsuficiente energiaInsuficiente) {}
     }
 }
