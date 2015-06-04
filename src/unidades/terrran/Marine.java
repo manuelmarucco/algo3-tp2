@@ -1,10 +1,13 @@
 package unidades.terrran;
 
+import interfaces.Atacante;
+import interfaces.Cargable;
 import interfaces.Daniable;
+import jugabilidad.auxiliares.Costo;
 import unidades.Danio;
 import unidades.Terrestre;
 
-public class Marine extends UnidadTerran {
+public class Marine extends UnidadTerran implements Atacante, Cargable {
 
     private static Danio Danio= new Danio(6,6,4,4);//por si agregan las mejoras a los atributos
 
@@ -13,6 +16,7 @@ public class Marine extends UnidadTerran {
         this.vision = 7;
         this.ubicacion = new Terrestre();
         this.suministro = 1;
+        this.costo=new Costo(50,0);
     }
 
     @Override
@@ -26,6 +30,16 @@ public class Marine extends UnidadTerran {
     }
 
     public void atacar(Daniable objetivo){
-        objetivo.recibirDanio(this.Danio);
+        objetivo.recibirDanio(Danio);
+    }
+
+    @Override
+    public int getTransporte() {
+        return 0;
+    }
+
+    @Override
+    public void quitarse() {
+
     }
 }

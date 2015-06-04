@@ -1,6 +1,7 @@
 package unidades.terrran;
 
 import excepciones.EnergiaInsuficiente;
+import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Aereo;
 import unidades.Danio;
@@ -8,13 +9,14 @@ import unidades.Energia;
 
 public class NaveCiencia extends UnidadTerran{
 
-    private static Energia energia= new Energia(200,50,10);//por si agregan las mejoras a los atributos
+    private  Energia energia= new Energia(200,50,10);//por si agregan las mejoras a los atributos
 
     public NaveCiencia(){
         super(200);
         this.vision = 10;
         this.ubicacion = new Aereo();
         this.suministro = 2;
+        this.costo=new Costo(100,225);
     }
 
     @Override
