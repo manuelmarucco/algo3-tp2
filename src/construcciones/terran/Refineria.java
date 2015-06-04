@@ -17,7 +17,6 @@ public class Refineria extends ConstruccionTerran {
 	private Recursos recursosDeJugador;
 	private final int gasRecolectados = 10;
 	
-	public Refineria(){};
 	public Refineria(Recursos recursos){
 		nombre = "Refineria";
 		vida = new Vida(750);

@@ -1,8 +1,10 @@
 package construcciones;
 
+import excepciones.ExcepcionRecursosInsuficientes;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import jugabilidad.auxiliares.Costo;
+import jugabilidad.auxiliares.Recursos;
 import unidades.Vida;
 
 
@@ -18,14 +20,17 @@ public abstract class Construccion implements ColocableEnMapa,Construible{
 	protected Vida vida;
 
 	public abstract void recibirDanio(int danioParcial);
-
+	/*
 	public String getNombre() {
 		return nombre;
 	}
-
+	
 	public Costo getCosto() {
 		return costo;
 	}
-
+	*/
+	public void esConstruibleAPartirDeRecursos(Recursos r) throws ExcepcionRecursosInsuficientes{
+		r.gastarRecursos(costo);
+	}
 	
 }

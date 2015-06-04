@@ -13,6 +13,7 @@ import jugabilidad.auxiliares.Recursos;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import razas.Terran;
 import construcciones.terran.Barraca;
 import construcciones.terran.CentroDeMineral;
 import construcciones.terran.DepositoDeSuministros;
@@ -30,7 +31,7 @@ public class ConstruccionesTerranTests {
 	@Test
 	public void SeConstruyeUnaBarraca() {
 
-		Jugador j = new Jugador();
+		Jugador j = new Jugador(new Terran(),new Recursos(150,0));
 		Barraca b = new Barraca();
 		
 		j.construir(b);
@@ -41,7 +42,7 @@ public class ConstruccionesTerranTests {
 	@Test
 	public void SeConstruyeUnaCentroDeMineral() {
 
-		Jugador j = new Jugador();
+		Jugador j = new Jugador(new Terran(),new Recursos(150,0));
 		CentroDeMineral b = new CentroDeMineral(j.getRecursos());
 		
 		j.construir(b);
@@ -52,8 +53,8 @@ public class ConstruccionesTerranTests {
 	@Test
 	public void SeConstruyeUnaRefineria() {
 
-		Jugador j = new Jugador();
-		Refineria b = new Refineria();
+		Jugador j = new Jugador(new Terran(),new Recursos(150,150));
+		Refineria b = new Refineria(j.getRecursos());
 		
 		j.construir(b);
 		
@@ -63,7 +64,7 @@ public class ConstruccionesTerranTests {
 	@Test
 	public void SeConstruyeUnDepositoDeSuministros() {
 
-		Jugador j = new Jugador();
+		Jugador j = new Jugador(new Terran(),new Recursos(150,150));
 		DepositoDeSuministros b = new DepositoDeSuministros(j);
 		
 		j.construir(b);
@@ -108,7 +109,7 @@ public class ConstruccionesTerranTests {
 	
 	@Test
 	public void JugadorCreaFabricaConBarracaPrevia(){
-		Jugador j = new Jugador();
+		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
 		Barraca b = new Barraca();
 		Fabrica f = new Fabrica();
 		
@@ -123,7 +124,7 @@ public class ConstruccionesTerranTests {
 	
 	@Test
 	public void JugadorQuiereCrearFabricaPeroNecesitaBarraca(){
-		Jugador j = new Jugador();
+		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
 		Fabrica f = new Fabrica();
 		
 		j.construir(f);
@@ -133,7 +134,7 @@ public class ConstruccionesTerranTests {
 	
 	@Test
 	public void JugadorCreaPuertoEstelarConFabricaPrevia(){
-		Jugador j = new Jugador();
+		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
 		Barraca b = new Barraca();
 		Fabrica f = new Fabrica();
 		PuertoEstelar p = new PuertoEstelar();
@@ -147,12 +148,14 @@ public class ConstruccionesTerranTests {
 	
 	@Test
 	public void JugadorQuiereCrearPuertoEstelarPeroNecesitaFabrica(){
-		Jugador j = new Jugador();
+		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
 		PuertoEstelar p = new PuertoEstelar();
 		
 		j.construir(p);
 
 		Assert.assertFalse(j.buscarConstruccion(p));
 	}
+	
+	//// RecursosInsuficientes para cOsntruir
 	
 }

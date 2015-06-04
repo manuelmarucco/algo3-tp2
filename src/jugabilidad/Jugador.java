@@ -7,6 +7,7 @@ import java.util.Iterator;
 
 import jugabilidad.auxiliares.Recursos;
 import excepciones.ExcepcionNecesitaConstruirOtroEdificio;
+import excepciones.ExcepcionRecursosInsuficientes;
 import excepciones.ExcepcionSuministrosInsuficientes;
 import razas.Raza;
 import unidades.Unidad;
@@ -42,14 +43,14 @@ public class Jugador {
 			return;
 		}
 		
-		/*
+		
 		try {
-			recursosRecolectados.gastarRecursos(construccionCreada.getCosto());
+			construccionCreada.esConstruibleAPartirDeRecursos(recursosRecolectados);
 		} catch (ExcepcionRecursosInsuficientes e) {
 			e.printStackTrace();
 			return; 
 		}
-		*/
+		
 		construccionesCreadas.add(construccionCreada);
 	}
 	
