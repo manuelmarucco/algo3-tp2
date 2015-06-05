@@ -4,6 +4,8 @@ import interfaces.ColocableEnMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 import java.util.HashMap;
+import java.util.Map;
+import java.util.Objects;
 
 public class Mapa {
 	
@@ -54,8 +56,18 @@ public class Mapa {
 		return ( this.aire.containsKey(coordenadas) );
 	}
 
-	public Coordenadas getCoordenada(ColocableEnMapa daniable) {
-		return null;//TODO implementar
+	public Coordenadas getCoordenada(final ColocableEnMapa daniable) {
+		for (Map.Entry<Coordenadas, ColocableEnMapa> entry : tierra.entrySet()) {
+			if (Objects.equals(daniable, entry.getValue())) {
+				return entry.getKey();
+			}
+		}
+		for (Map.Entry<Coordenadas, ColocableEnMapa> entry : aire.entrySet()) {
+			if (Objects.equals(daniable, entry.getValue())) {
+				return entry.getKey();
+			}
+		}
+		return null;
 	}
 
 	public void borrarTerrestre(Coordenadas coordenadas){

@@ -66,7 +66,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
 		return suministro;
 	}
 
-    public void Matar() {
+    protected void matar() {
         if(this.vida.estaMuerto()){
             //Mapa mapa =SingletonMapa.getInstance();
             //mapa.Quitar(this);

@@ -7,7 +7,6 @@ import jugabilidad.Mapa;
 import jugabilidad.SingletonMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.Danio;
 import unidades.Energia;
 import unidades.Terrestre;
 
@@ -25,13 +24,9 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
 
     @Override
     public void update() {
+        super.update();
         this.energia.regenerar();
         this.escudo.regenerar();
-    }
-
-    @Override
-    public void recibirDanio(Danio danio) {
-        this.vida.quitar(danio.getDanioTierra());
     }
 
     public void tormentaPsionica(Coordenadas c){
@@ -82,5 +77,9 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
         try {
             this.energia.gastar(this.energia.getEnergiaActual());
         } catch (EnergiaInsuficiente energiaInsuficiente) {}
+    }
+
+    public Energia getEnergia() {
+        return energia;
     }
 }

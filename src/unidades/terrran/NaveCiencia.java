@@ -31,7 +31,7 @@ public class NaveCiencia extends UnidadTerran{
     @Override
     public void recibirDanio(Danio danio) {
         this.vida.quitar(danio.getDanioAire());
-        this.Matar();
+        this.matar();
     }
 
     public void EMP(Coordenadas c){
@@ -52,6 +52,7 @@ public class NaveCiencia extends UnidadTerran{
     }
 
     private void EMP(Unidad d){
+        if(d!=null)//TODO: sacar esto
         d.recibirEMP();
     }
 

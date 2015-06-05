@@ -23,10 +23,10 @@ public class Clon extends UnidadProtoss implements ColocableEnMapa {
 
     @Override
     public void recibirDanio(Danio danio) {
-        this.Matar();
+        this.matar();
     }
     @Override
-    public void Matar(){
+    public void matar(){
         if(this.escudo.getEscudoActual()==0){
             //Mapa mapa =SingletonMapa.getInstance();
             //mapa.Quitar(this);
@@ -35,6 +35,6 @@ public class Clon extends UnidadProtoss implements ColocableEnMapa {
 
     public  void recibirEMP(){
         this.escudo.quitar(this.escudo.getEscudoActual());
-        this.Matar();
+        this.matar();
     }
 }

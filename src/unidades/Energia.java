@@ -31,6 +31,7 @@ public class Energia {
     }
 
     public void gastar(int i) throws EnergiaInsuficiente{
-        if(i<energiaActual) throw new EnergiaInsuficiente();
+        if(i>energiaActual) throw new EnergiaInsuficiente();
+        energiaActual-=i;
     }
 }

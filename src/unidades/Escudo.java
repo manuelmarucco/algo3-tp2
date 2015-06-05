@@ -17,8 +17,9 @@ public class Escudo{
     }
 
     public int quitar(int cantidad) {
+        int delta = Math.max(cantidad - escudoActual, 0);
         escudoActual = Math.max(escudoActual - cantidad, 0);
-        return Math.max(cantidad - escudoActual, 0);
+        return delta;
     }
 
     public int getEscudoTotal() {
