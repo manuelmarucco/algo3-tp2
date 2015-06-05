@@ -2,6 +2,7 @@ package jugabilidad;
 
 import interfaces.ColocableEnMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import unidades.Unidad;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -74,6 +75,11 @@ public class Mapa {
 
 		this.tierra.remove(coordenadas);
 
+	}
+
+	public void Quitar(Unidad unidad) {//TODO:hacer un quitar aire y tierra
+		Coordenadas c =this.getCoordenada(unidad);
+			this.tierra.remove(c);
 	}
 }
 

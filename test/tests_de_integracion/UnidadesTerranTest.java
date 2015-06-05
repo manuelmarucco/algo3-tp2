@@ -7,6 +7,7 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Test;
 import unidades.protoss.AltoTemplario;
+import unidades.protoss.ClonMagico;
 import unidades.protoss.Zealot;
 import unidades.terrran.Marine;
 import unidades.terrran.NaveCiencia;
@@ -93,5 +94,35 @@ public class UnidadesTerranTest {
         Assert.assertEquals(28,at.getVida().getVidaActual());
     }
 
+    @Test
+    public void testAltoTemplarioSeClonaYUnaNaveDeCienciaMataAlosClones(){
+        NaveCiencia nc = new NaveCiencia();
+        AltoTemplario at = new AltoTemplario();
+        Coordenadas c1 = new Coordenadas(3,3);
+        Coordenadas c2 = new Coordenadas(8,8);
+        Coordenadas c3 = new Coordenadas(8,7);
+        Coordenadas c4 = new Coordenadas(7,8);
+        Mapa mapa = SingletonMapa.getInstance();
+        mapa.agregar(nc, c1);
+        mapa.agregar(at, c2);
+        nc.update();
+        nc.update();
+        nc.update();
+        nc.update();
+        nc.update();
+
+        at.update();
+        at.update();
+        at.update();
+        at.update();
+        at.update();
+        at.alucinacion(at, c3, c4);
+        Assert.assertEquals(ClonMagico.class, mapa.getTerrestre(c3).getClass());
+        Assert.assertEquals(ClonMagico.class, mapa.getTerrestre(c4).getClass());
+        nc.EMP(c2);
+
+        Assert.assertEquals(null, mapa.getTerrestre(c3));
+        Assert.assertEquals(null,mapa.getTerrestre(c4));
+    }
 
 }
