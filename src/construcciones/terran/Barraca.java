@@ -1,20 +1,19 @@
 package construcciones.terran;
 
 
-import interfaces.Entrenable;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.Queue;
-
 import excepciones.ExcepcionRecursosInsuficientes;
 import excepciones.ExcepcionSuministrosInsuficientes;
-import unidades.*;
-import unidades.terrran.Marine;
+import interfaces.Entrenable;
 import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import unidades.Vida;
+import unidades.terrran.Marine;
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class Barraca extends ConstruccionTerran {
 	
@@ -22,7 +21,12 @@ public class Barraca extends ConstruccionTerran {
 	ArrayList<Entrenable> unidadesCreadas = new ArrayList<Entrenable>();
 	Jugador jugador;
 	
-	public Barraca(){} //por ahora para los tests
+	public Barraca(){
+		this.vida = new Vida(1000);
+		nombre = "Barraca";
+		costo = new Costo(150,0);
+		tiempoDeConstruccion = 12;
+	} //por ahora para los tests
 	public Barraca(Jugador j) {
 
 		this.vida = new Vida(1000);
