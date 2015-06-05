@@ -6,9 +6,10 @@ import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Test;
-import static org.junit.Assert.*;
 import recursos.Cristal;
 import recursos.Volcan;
+
+import static org.junit.Assert.assertEquals;
 
 public class RecoleccionDeRecursosTest {
 
@@ -44,5 +45,7 @@ public class RecoleccionDeRecursosTest {
 
         assertEquals( 10,refineria.obtenerMinerales() );
     }
+
+    //HAY QUE AGREGAR TESTS DONDE SE VERIFIQUE QUE AL JUGADOR SE LE AUMENTAN LOS RECURSOS
 
 }
