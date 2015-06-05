@@ -1,7 +1,12 @@
 package unidades.protoss;
 
 import interfaces.ColocableEnMapa;
-import unidades.*;
+import jugabilidad.Mapa;
+import jugabilidad.SingletonMapa;
+import unidades.Danio;
+import unidades.Escudo;
+import unidades.Ubicacion;
+import unidades.Vida;
 
 /**
  * Created by coco on 05/06/15.
@@ -23,13 +28,14 @@ public class Clon extends UnidadProtoss implements ColocableEnMapa {
 
     @Override
     public void recibirDanio(Danio danio) {
+        //this.escudo.quitar(this.ubicacion.);ver el tipo de danio q recibe
         this.matar();
     }
     @Override
     public void matar(){
         if(this.escudo.getEscudoActual()==0){
-            //Mapa mapa =SingletonMapa.getInstance();
-            //mapa.Quitar(this);
+            Mapa mapa = SingletonMapa.getInstance();
+            mapa.Quitar(this);
         }
     }
 
