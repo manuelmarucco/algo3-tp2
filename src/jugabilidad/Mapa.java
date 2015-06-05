@@ -10,8 +10,8 @@ import java.util.Objects;
 
 public class Mapa {
 	
-	private HashMap<Coordenadas, ColocableEnMapa> tierra = new HashMap<Coordenadas, ColocableEnMapa>();
-	private HashMap<Coordenadas, ColocableEnMapa> aire = new HashMap<Coordenadas, ColocableEnMapa>();
+	private HashMap<Coordenadas, ColocableEnMapa> tierra = new HashMap<>();
+	private HashMap<Coordenadas, ColocableEnMapa> aire = new HashMap<>();
 	
 	public Mapa(){
 	
@@ -71,13 +71,13 @@ public class Mapa {
 		return null;
 	}
 
-	public void borrarTerrestre(Coordenadas coordenadas){
+	public void borrarTerrestre(Coordenadas coordenadas){ //para el movimiento de las unidades
 
 		this.tierra.remove(coordenadas);
 
 	}
 
-	public void Quitar(Unidad unidad) {//TODO:hacer un quitar aire y tierra
+	public void quitar(Unidad unidad) {//TODO:hacer un quitar aire y tierra
 		Coordenadas c =this.getCoordenada(unidad);
 			this.tierra.remove(c);
 	}

@@ -8,9 +8,6 @@ import unidades.Escudo;
 import unidades.Ubicacion;
 import unidades.Vida;
 
-/**
- * Created by coco on 05/06/15.
- */
 public class Clon extends UnidadProtoss implements ColocableEnMapa {
 
     public Clon(Vida vida, Escudo escudo, int vision, Ubicacion ubicacion) {
@@ -35,7 +32,7 @@ public class Clon extends UnidadProtoss implements ColocableEnMapa {
     public void matar(){
         if(this.escudo.getEscudoActual()==0){
             Mapa mapa = SingletonMapa.getInstance();
-            mapa.Quitar(this);
+            mapa.quitar(this);
         }
     }
 

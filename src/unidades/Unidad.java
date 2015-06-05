@@ -70,7 +70,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
     protected void matar() {
         if(this.vida.estaMuerto()){
             Mapa mapa = SingletonMapa.getInstance();
-            mapa.Quitar(this);
+            mapa.quitar(this);
         }
     }
     public void update(){
@@ -79,8 +79,6 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
     public void irradiar(){
         this.estado= new EstadoIrradiado();
     }
-    public  void recibirEMP(){
-
-    };
+    public  void recibirEMP(){}
 
 }
