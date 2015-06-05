@@ -17,6 +17,7 @@ public class Golliat extends UnidadTerran implements Atacante, Cargable {
         this.ubicacion = new Terrestre();
         this.suministro = 2;
         this.costo=new Costo(100,50);
+        this.tiempoDeEntrenamiento = 6;
     }
 
     @Override

@@ -1,20 +1,31 @@
 package construcciones.terran;
-import java.util.ArrayList;
-import java.util.Iterator;
 
 import excepciones.ExcepcionNecesitaConstruirFabrica;
 import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.ExcepcionRecursosInsuficientes;
+import excepciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Construible;
-import unidades.Vida;
+import interfaces.Entrenable;
+import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import unidades.Vida;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.Queue;
 
 
 public class PuertoEstelar extends ConstruccionTerran{
 
 	//necesita que la Fabrica haya sido construida para poder crearse
+
+	Queue<Entrenable> colaDeEntrenamiento = new LinkedList<Entrenable>();
+	ArrayList<Entrenable> unidadesCreadas = new ArrayList<Entrenable>();
+	Jugador jugador;
 	
 	public PuertoEstelar(){
 		nombre = "PuertoEstelar";
@@ -35,6 +46,27 @@ public class PuertoEstelar extends ConstruccionTerran{
 	public void update() {
 		super.update();
 		
+	}
+
+	private void crearUnidad(Entrenable unidad) {
+
+		try {
+			jugador.getRecursos().gastarRecursos(unidad.getCosto());
+		} catch (ExcepcionRecursosInsuficientes e) {
+			e.printStackTrace();
+			return;
+		}
+
+		try {
+			jugador.usarSuministrosDisponibles(unidad.getSuministro());
+		} catch (ExcepcionSuministrosInsuficientes e) {
+			e.printStackTrace();
+		}
+
+		jugador.agregarUnidad(unidad);
+		colaDeEntrenamiento.remove();
+		//FALTA AGREGARSE AL MAPA
+
 	}
 
 	@Override
