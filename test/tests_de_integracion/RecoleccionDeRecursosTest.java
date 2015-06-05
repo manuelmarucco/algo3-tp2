@@ -1,12 +1,14 @@
 package tests_de_integracion;
 
 import construcciones.terran.CentroDeMineral;
+import construcciones.terran.Refineria;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import recursos.Cristal;
+import recursos.Volcan;
 
 public class RecoleccionDeRecursosTest {
 
