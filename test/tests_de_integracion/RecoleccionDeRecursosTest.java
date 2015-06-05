@@ -26,7 +26,7 @@ public class RecoleccionDeRecursosTest {
         mapa.agregar(cristal,coordenadas);
         mapa.agregar(centroDeMineral,coordenadas);
 
-        assertEquals( 10,centroDeMineral.obtenerMinerales() );
+        assertEquals( 10,centroDeMineral.obtenerRecurso() );
 
     }
     
@@ -43,7 +43,7 @@ public class RecoleccionDeRecursosTest {
         mapa.agregar(volcan,coordenadas);
         mapa.agregar(refineria,coordenadas);
 
-        assertEquals( 10,refineria.obtenerMinerales() );
+        assertEquals( 10,refineria.obtenerRecurso() );
     }
 
     //HAY QUE AGREGAR TESTS DONDE SE VERIFIQUE QUE AL JUGADOR SE LE AUMENTAN LOS RECURSOS

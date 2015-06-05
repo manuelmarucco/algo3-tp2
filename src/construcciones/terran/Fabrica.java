@@ -1,9 +1,9 @@
 package construcciones.terran;
 
+import construcciones.CentroDeEntrenamiento;
+import construcciones.Construccion;
 import excepciones.ExcepcionNecesitaConstruirBarraca;
 import excepciones.ExcepcionNoSePuedeConstruir;
-import excepciones.ExcepcionRecursosInsuficientes;
-import excepciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Construible;
 import interfaces.Entrenable;
 import jugabilidad.Jugador;
@@ -20,7 +20,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 
-public class Fabrica extends ConstruccionTerran{
+public class Fabrica extends CentroDeEntrenamiento{
 	
 	//necesita que la Barraca haya sido construida para poder crearse
 
@@ -66,28 +66,15 @@ public class Fabrica extends ConstruccionTerran{
 		}
 	}
 
-	private void crearUnidad(Entrenable unidad) {
-
-		try {
-			jugador.getRecursos().gastarRecursos(unidad.getCosto());
-		} catch (ExcepcionRecursosInsuficientes e) {
-			e.printStackTrace();
-			return;
-		}
-
-		try {
-			jugador.usarSuministrosDisponibles(unidad.getSuministro());
-		} catch (ExcepcionSuministrosInsuficientes e) {
-			e.printStackTrace();
-		}
-
-		jugador.agregarUnidad(unidad);
-		colaDeEntrenamiento.remove();
-		//FALTA AGREGARSE AL MAPA
-
-	}
 	public void entrenarGolliat(Golliat g){
 		colaDeEntrenamiento.add(g);
+	}
+
+	@Override
+	public void recibirDanio(int danioParcial){
+
+		vida.quitar(danioParcial);
+
 	}
 
 	@Override
@@ -96,7 +83,7 @@ public class Fabrica extends ConstruccionTerran{
 		
 		for (Iterator<T> iterator = cs.iterator(); iterator.hasNext();) {
 			T c = iterator.next();
-			if(((ConstruccionTerran)c).habilitaAConstruir(this))
+			if(((Construccion)c).habilitaAConstruir(this))
 				construible = true;
 		}
 		

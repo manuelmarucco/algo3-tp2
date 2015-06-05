@@ -1,12 +1,10 @@
 package construcciones.terran;
 
+import construcciones.CentroDeEntrenamiento;
+import construcciones.Construccion;
 import excepciones.ExcepcionNecesitaConstruirFabrica;
 import excepciones.ExcepcionNoSePuedeConstruir;
-import excepciones.ExcepcionRecursosInsuficientes;
-import excepciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Construible;
-import interfaces.Entrenable;
-import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
@@ -15,17 +13,12 @@ import unidades.Vida;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
 
 
-public class PuertoEstelar extends ConstruccionTerran{
+public class PuertoEstelar extends CentroDeEntrenamiento{
 
 	//necesita que la Fabrica haya sido construida para poder crearse
 
-	Queue<Entrenable> colaDeEntrenamiento = new LinkedList<Entrenable>();
-	ArrayList<Entrenable> unidadesCreadas = new ArrayList<Entrenable>();
-	Jugador jugador;
 	
 	public PuertoEstelar(){
 		nombre = "PuertoEstelar";
@@ -42,32 +35,7 @@ public class PuertoEstelar extends ConstruccionTerran{
 		
 	}
 
-	@Override
-	public void update() {
-		super.update();
-		
-	}
 
-	private void crearUnidad(Entrenable unidad) {
-
-		try {
-			jugador.getRecursos().gastarRecursos(unidad.getCosto());
-		} catch (ExcepcionRecursosInsuficientes e) {
-			e.printStackTrace();
-			return;
-		}
-
-		try {
-			jugador.usarSuministrosDisponibles(unidad.getSuministro());
-		} catch (ExcepcionSuministrosInsuficientes e) {
-			e.printStackTrace();
-		}
-
-		jugador.agregarUnidad(unidad);
-		colaDeEntrenamiento.remove();
-		//FALTA AGREGARSE AL MAPA
-
-	}
 
 	@Override
 	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados) throws ExcepcionNoSePuedeConstruir{
@@ -75,7 +43,7 @@ public class PuertoEstelar extends ConstruccionTerran{
 		
 		for (Iterator<T> iterator = cs.iterator(); iterator.hasNext();) {
 			T c = iterator.next();
-			if(((ConstruccionTerran)c).habilitaAConstruir(this))
+			if(((Construccion)c).habilitaAConstruir(this))
 				construible = true;
 		}
 		
@@ -85,5 +53,14 @@ public class PuertoEstelar extends ConstruccionTerran{
 		super.verificarRecursosDisponibles(recursosRecolectados);
 		
 	}
+
+	@Override
+	public void recibirDanio(int danioParcial){
+
+		vida.quitar(danioParcial);
+
+	}
+
+
 }
 

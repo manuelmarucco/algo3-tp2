@@ -48,12 +48,12 @@ public class ConstruccionesTerranTest {
 	public void SeConstruyeUnaRefineria() {
 
 		Jugador j = new Jugador(new Terran(),new Recursos(150,150));
-		Refineria b = new Refineria(j.getRecursos());
+		Refineria r = new Refineria(j.getRecursos());
 		
-		j.construir(b);
-		for (int i = 0; i < 12; i ++) j.update();
+		j.construir(r);
+		for (int i = 0; i < r.getTiempoDeConstruccion(); i ++) j.update();
 		
-		Assert.assertTrue(j.buscarConstruccion(b));
+		Assert.assertTrue(j.buscarConstruccion(r));
 	}
 	
 	@Test

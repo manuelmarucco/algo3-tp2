@@ -1,7 +1,7 @@
 package construcciones.terran;
 
-import unidades.Vida;
 import construcciones.Construccion;
+import unidades.Vida;
 
 public abstract class ConstruccionTerran extends Construccion{
 
@@ -24,9 +24,6 @@ public abstract class ConstruccionTerran extends Construccion{
 	public boolean habilitaAConstruir(PuertoEstelar p) {
 		return false;
 	}
-	
-	public void update(){
-		tiempoDeConstruccion--;
-	}
+
 		
 }
