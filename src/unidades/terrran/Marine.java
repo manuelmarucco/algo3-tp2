@@ -17,6 +17,7 @@ public class Marine extends UnidadTerran implements Atacante, Cargable {
         this.ubicacion = new Terrestre();
         this.suministro = 1;
         this.costo=new Costo(50,0);
+        this.tiempoDeEntrenamiento = 3;
     }
 
     @Override

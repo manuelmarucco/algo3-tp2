@@ -16,7 +16,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
     protected Costo costo;
     protected int suministro;
     protected Estado estado;
-    private int tiempoDeConstruccion;
+    protected int tiempoDeEntrenamiento;
 
     protected Unidad(){
         this.estado=new EstadoNormal();
@@ -25,7 +25,8 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
     public Vida getVida() {
         return vida;
     }
-
+    
+    @Override
     public Costo getCosto(){
         return costo;
     }
@@ -40,12 +41,12 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
     
     @Override
     public int getTiempoDeEntrenamiento(){
-    	return tiempoDeConstruccion;
+    	return tiempoDeEntrenamiento;
     }
     
     @Override
     public void disminuirTiempoDeEntrenamiento(){
-    	tiempoDeConstruccion--;
+    	tiempoDeEntrenamiento--;
     }
     
     @Override
@@ -59,6 +60,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
 		return nombre;
 	}
 */
+    @Override
 	public int getSuministro() {
 
 		return suministro;

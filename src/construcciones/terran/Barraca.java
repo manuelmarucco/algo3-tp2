@@ -5,9 +5,10 @@ import interfaces.Entrenable;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
+import java.util.Queue;
 
 import excepciones.ExcepcionRecursosInsuficientes;
+import excepciones.ExcepcionSuministrosInsuficientes;
 import unidades.*;
 import unidades.terrran.Marine;
 import jugabilidad.Jugador;
@@ -17,7 +18,7 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 
 public class Barraca extends ConstruccionTerran {
 	
-	ArrayList<Entrenable> colaDeEntrenamiento = new ArrayList<Entrenable>();
+	Queue<Entrenable>  colaDeEntrenamiento = new LinkedList<Entrenable>();
 	ArrayList<Entrenable> unidadesCreadas = new ArrayList<Entrenable>();
 	Jugador jugador;
 	
@@ -44,16 +45,21 @@ public class Barraca extends ConstruccionTerran {
 	public void update() {
 		
 		super.update();
-		Entrenable unidad = colaDeEntrenamiento.get(colaDeEntrenamiento.size()-1);
-		unidad.disminuirTiempoDeEntrenamiento();
-		if(unidad.getTiempoDeEntrenamiento() == 0){
-			this.crearUnidad(unidad);
+		
+		if(!colaDeEntrenamiento.isEmpty()){
+			Entrenable unidad= colaDeEntrenamiento.peek();
+			
+			unidad.disminuirTiempoDeEntrenamiento();
+			
+			if(unidad.getTiempoDeEntrenamiento() == 0){
+				this.crearUnidad(unidad);
+			}
 		}
 			//this.regenerar.regenerar(this);
 }
 		
 
-	private <T extends Entrenable >void crearUnidad(T unidad) {
+	private void crearUnidad(Entrenable unidad) {
 		
 		try {
 			jugador.getRecursos().gastarRecursos(unidad.getCosto());
@@ -61,13 +67,19 @@ public class Barraca extends ConstruccionTerran {
 			e.printStackTrace();
 			return;
 		}
-			jugador.usarSuministrosDisponibles(unidad);
-		//jugador.agregarUnidad(unidad);
+		
+		try {
+			jugador.usarSuministrosDisponibles(unidad.getSuministro());
+		} catch (ExcepcionSuministrosInsuficientes e) {
+			e.printStackTrace();
+		}
+		
+		jugador.agregarUnidad(unidad);
+		colaDeEntrenamiento.remove();
 		//FALTA AGREGARSE AL MAPA
 		
 	}
-	public void entrenarMarine(){
-		Marine m = new Marine();
+	public void entrenarMarine(Marine m){
 		colaDeEntrenamiento.add(m);
 	}
 	
