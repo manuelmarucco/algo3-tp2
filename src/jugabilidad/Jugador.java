@@ -11,7 +11,6 @@ import jugabilidad.auxiliares.Suministros;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import excepciones.ExcepcionSuministrosInsuficientes;
 import razas.Raza;
-import unidades.Unidad;
 
 public class Jugador {
 	
@@ -90,8 +89,8 @@ public class Jugador {
 	}
 
 
-	public void usarSuministrosDisponibles(Unidad unidad) throws ExcepcionSuministrosInsuficientes {
-		suministros.usarSuministros(unidad.getSuministro());
+	public void usarSuministrosDisponibles(int i) throws ExcepcionSuministrosInsuficientes {
+		suministros.usarSuministros(i);
 		
 	}
 
@@ -99,6 +98,16 @@ public class Jugador {
 	public void aumentarSuministros(int capacidadExtra) {
 		suministros.aumentarSuministrosDisponibles(capacidadExtra);
 		
+	}
+
+
+	public boolean buscarUnidad(Entrenable m) {
+		for(Entrenable e: unidadesCreadas){
+			if(m.equals(e)){
+				return true;
+			}
+		}
+		return false;
 	}
 	
 }
