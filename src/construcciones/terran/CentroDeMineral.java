@@ -1,13 +1,11 @@
 package construcciones.terran;
 
-import unidades.Vida;
+import interfaces.Recolectable;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
-import jugabilidad.utilidadesMapa.Coordenadas;
-
 import jugabilidad.auxiliares.Recursos;
-import recursos.Cristal;
-import interfaces.Recolectable;
+import jugabilidad.utilidadesMapa.Coordenadas;
+import unidades.Vida;
 
 public class CentroDeMineral extends ConstruccionTerran {
 	
