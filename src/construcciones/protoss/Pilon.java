@@ -14,7 +14,7 @@ public class Pilon extends ConstruccionProtoss{
 		super(300,300);
 		costo = new Costo(100,0);
 		tiempoDeConstruccion = 5;
-		jugador.aumentarSuministrosMaximos(capacidadExtra);
+		jugador.aumentarSuministros(capacidadExtra);
 	}
 	
 	public int getCapacidadExtra(){
