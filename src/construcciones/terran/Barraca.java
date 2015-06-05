@@ -1,11 +1,6 @@
 package construcciones.terran;
 
 
-import interfaces.Construible;
-
-import java.util.ArrayList;
-
-import excepciones.ExcepcionNecesitaConstruirOtroEdificio;
 import unidades.*;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
@@ -38,11 +33,6 @@ public class Barraca extends ConstruccionTerran {
 		
 	}
 
-	@Override
-	public <T extends Construible> void verificaConstruccionPrevia(ArrayList<T> cs) throws ExcepcionNecesitaConstruirOtroEdificio {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public boolean habilitaAConstruir(Fabrica t) {
 		return true;

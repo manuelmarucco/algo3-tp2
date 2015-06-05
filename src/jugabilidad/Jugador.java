@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import jugabilidad.auxiliares.Recursos;
-import excepciones.ExcepcionNecesitaConstruirOtroEdificio;
-import excepciones.ExcepcionRecursosInsuficientes;
+import excepciones.ExcepcionNoSePuedeConstruir;
 import excepciones.ExcepcionSuministrosInsuficientes;
 import razas.Raza;
 import unidades.Unidad;
@@ -37,20 +36,20 @@ public class Jugador {
 	public void construir(Construible construccionCreada){
 		
 		try {
-			construccionCreada.verificaConstruccionPrevia(construccionesCreadas);
-		} catch (ExcepcionNecesitaConstruirOtroEdificio e) {
+			construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados);
+		} catch (ExcepcionNoSePuedeConstruir e) {
 			e.printStackTrace();
 			return;
 		}
 		
-		
+		/*
 		try {
 			construccionCreada.esConstruibleAPartirDeRecursos(recursosRecolectados);
 		} catch (ExcepcionRecursosInsuficientes e) {
 			e.printStackTrace();
 			return; 
 		}
-		
+		*/
 		construccionesCreadas.add(construccionCreada);
 	}
 	

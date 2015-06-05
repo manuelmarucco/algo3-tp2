@@ -6,20 +6,20 @@ import excepciones.ExcepcionRecursosInsuficientes;
 
 public class Recursos {
 
-	private int minerales;
-	private int gasVespeno;
+	private int mineralesDisponibles;
+	private int gasVespenoDisponible;
 	
 	public Recursos(int m, int g){
-		this.minerales = m;
-		this.gasVespeno = g;
+		this.mineralesDisponibles = m;
+		this.gasVespenoDisponible = g;
 	}
 	
 	public void validacionRecursosSuficientes(Costo costoDeEntidad) throws ExcepcionRecursosInsuficientes{
 
-		if (minerales< costoDeEntidad.getCostoMineral())
+		if (mineralesDisponibles< costoDeEntidad.getCostoMineral())
 			throw new ExcepcionMineralesInsuficientes();
 		
-		if (gasVespeno< costoDeEntidad.getCostoGas())
+		if (gasVespenoDisponible< costoDeEntidad.getCostoGas())
 			throw new ExcepcionGasInsuficiente(); 
 		
 		//despues se puede hacer una excepcion para minerales y otra para gas
@@ -29,21 +29,21 @@ public class Recursos {
 		
 		this.validacionRecursosSuficientes(costoDeEntidad);
 		
-		minerales -= costoDeEntidad.getCostoMineral();
-		gasVespeno -= costoDeEntidad.getCostoGas();
+		mineralesDisponibles -= costoDeEntidad.getCostoMineral();
+		gasVespenoDisponible -= costoDeEntidad.getCostoGas();
 	}
 
 	public int getMinerales() {
-		return this.minerales;
+		return this.mineralesDisponibles;
 	}
 	
 	public int getGasVespeno() {
-		return this.gasVespeno;
+		return this.gasVespenoDisponible;
 	}
 
 	public void agregarRecursos(int i, int j) {
-		this.minerales += i;
-		this.gasVespeno += j;
+		this.mineralesDisponibles += i;
+		this.gasVespenoDisponible += j;
 	}
 	
 }

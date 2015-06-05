@@ -1,6 +1,6 @@
 package excepciones;
 
 @SuppressWarnings("serial")
-public class ExcepcionRecursosInsuficientes extends Exception{
+public class ExcepcionRecursosInsuficientes extends ExcepcionNoSePuedeConstruir{
 
 }

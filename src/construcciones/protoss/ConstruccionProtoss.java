@@ -37,8 +37,5 @@ import unidades.Vida;
 	public boolean habilitaAConstruir(PortalEstelar p) {
 		return false;
 	}
-	public boolean habilitaAConstruir(Acceso c) {
-		return true;
-	}
 	
 }

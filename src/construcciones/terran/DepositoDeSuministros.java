@@ -1,10 +1,5 @@
 package construcciones.terran;
 
-import interfaces.Construible;
-
-import java.util.ArrayList;
-
-import excepciones.ExcepcionNecesitaConstruirOtroEdificio;
 import unidades.Vida;
 import jugabilidad.Jugador;
 import jugabilidad.Mapa;
@@ -42,12 +37,6 @@ public class DepositoDeSuministros extends ConstruccionTerran{
 		
 	}
 
-	@Override
-	public <T extends Construible> void verificaConstruccionPrevia(
-			ArrayList<T> cs) throws ExcepcionNecesitaConstruirOtroEdificio {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 }

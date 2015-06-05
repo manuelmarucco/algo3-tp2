@@ -1,6 +1,6 @@
 package razas;
 
-class Protoss extends Raza {
+public class Protoss extends Raza {
 	
 	public Protoss(){
 	}

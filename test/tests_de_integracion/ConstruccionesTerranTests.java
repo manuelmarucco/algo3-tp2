@@ -13,6 +13,7 @@ import jugabilidad.auxiliares.Recursos;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
+import razas.Protoss;
 import razas.Terran;
 import construcciones.terran.Barraca;
 import construcciones.terran.CentroDeMineral;
@@ -20,8 +21,7 @@ import construcciones.terran.DepositoDeSuministros;
 import construcciones.terran.Fabrica;
 import construcciones.terran.PuertoEstelar;
 import construcciones.terran.Refineria;
-import excepciones.ExcepcionNecesitaConstruirBarraca;
-import excepciones.ExcepcionNecesitaConstruirFabrica;
+import excepciones.ExcepcionNoSePuedeConstruir;
 
 
 public class ConstruccionesTerranTests {
@@ -79,15 +79,15 @@ public class ConstruccionesTerranTests {
 	@Rule
 	public ExpectedException exception = ExpectedException.none();
 	@Test
-	public void SeQuiereCrearFabricaPeroNoEncuentraBarracaYExcepcion() throws ExcepcionNecesitaConstruirBarraca {
+	public void SeQuiereCrearFabricaPeroNoEncuentraBarracaYExcepcion() throws ExcepcionNoSePuedeConstruir {
 		ArrayList<Construible> cs =  new ArrayList<Construible>();
-
-		cs.add(new CentroDeMineral(new Recursos(100,100)));
+		Recursos r = new Recursos(1000,1000);
+		cs.add(new CentroDeMineral(r));
 		
 		Fabrica f = new Fabrica();
 
-	    exception.expect(ExcepcionNecesitaConstruirBarraca.class);
-		f.verificaConstruccionPrevia(cs);
+	    exception.expect(ExcepcionNoSePuedeConstruir.class);
+		f.esConstruible(cs,r);
 		
 	}
 	
@@ -95,15 +95,16 @@ public class ConstruccionesTerranTests {
 	@Rule
 	public ExpectedException exception2 = ExpectedException.none();
 	@Test
-	public void SeQuiereCrearPuertoEstelarPeroNoEncuentraFabricaYExcepcion() throws ExcepcionNecesitaConstruirFabrica {
+	public void SeQuiereCrearPuertoEstelarPeroNoEncuentraFabricaYExcepcion() throws ExcepcionNoSePuedeConstruir{
 		ArrayList<Construible> cs =  new ArrayList<Construible>();
-
+		Recursos recursosRecolectados =  new Recursos(1000,1000);
+		
 		cs.add(new Barraca());
 		
 		PuertoEstelar p = new PuertoEstelar();
 
-	    exception2.expect(ExcepcionNecesitaConstruirFabrica.class);
-		p.verificaConstruccionPrevia(cs);
+	    exception2.expect(ExcepcionNoSePuedeConstruir.class);
+		p.esConstruible(cs,recursosRecolectados);
 		
 	}
 	
@@ -190,6 +191,38 @@ public class ConstruccionesTerranTests {
 		Assert.assertFalse(j.buscarConstruccion(f));
 	}
 	
-	////VALIDAR EL RESTO DE LAS CONSTRUCCIONES Y DESPUES LAS PROTOSS
+	@Test
+	public void JugadorNoPuedeConstruirPuertoEstelarPorFaltaDeRecursos(){
+		Jugador j = new Jugador(new Terran(),new Recursos(1000,100));
+		Barraca b = new Barraca(); //costo 150
+		Fabrica f = new Fabrica(); //costo 200,100
+		PuertoEstelar p = new PuertoEstelar(); //costo 150,100
+		
+		j.construir(b);
+		j.construir(f);
+		j.construir(p);
+
+		Assert.assertFalse(j.buscarConstruccion(p));
+	}
 	
+	@Test
+	public void JugadorNoPuedeConstruirDepositoDeSuministrosPorFaltaDeRecursos(){
+		Jugador j = new Jugador(new Terran(),new Recursos(0,0));
+		DepositoDeSuministros p = new DepositoDeSuministros(j);
+		
+		j.construir(p);
+
+		Assert.assertFalse(j.buscarConstruccion(p));
+	}
+	
+	@Test
+	public void JugadorNoPuedeConstruirRefineriaPorFaltaDeRecursos(){
+		Recursos r = new Recursos(0,0);
+		Jugador j = new Jugador(new Protoss(),r);
+		Refineria p = new Refineria(r);
+		
+		j.construir(p);
+
+		Assert.assertFalse(j.buscarConstruccion(p));
+	}
 }

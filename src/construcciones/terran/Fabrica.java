@@ -6,9 +6,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import excepciones.ExcepcionNecesitaConstruirBarraca;
+import excepciones.ExcepcionNoSePuedeConstruir;
 import unidades.Vida;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
+import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 
@@ -37,7 +39,7 @@ public class Fabrica extends ConstruccionTerran{
 	}
 
 	@Override
-	public <T extends Construible> void verificaConstruccionPrevia(ArrayList<T> cs) throws ExcepcionNecesitaConstruirBarraca {
+	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados) throws ExcepcionNoSePuedeConstruir{
 		boolean construible = false;
 		
 		for (Iterator<T> iterator = cs.iterator(); iterator.hasNext();) {
@@ -48,6 +50,8 @@ public class Fabrica extends ConstruccionTerran{
 		
 		if(!construible)
 				throw new ExcepcionNecesitaConstruirBarraca();
+		
+		super.verificarRecursosDisponibles(recursosRecolectados);
 		
 	}
 	

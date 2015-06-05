@@ -24,9 +24,6 @@ public abstract class ConstruccionTerran extends Construccion{
 	public boolean habilitaAConstruir(PuertoEstelar p) {
 		return false;
 	}
-	public boolean habilitaAConstruir(Barraca c) {
-		return false;
-	}
 	
 
 		

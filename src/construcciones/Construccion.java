@@ -1,5 +1,8 @@
 package construcciones;
 
+import java.util.ArrayList;
+
+import excepciones.ExcepcionNoSePuedeConstruir;
 import excepciones.ExcepcionRecursosInsuficientes;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
@@ -29,8 +32,14 @@ public abstract class Construccion implements ColocableEnMapa,Construible{
 		return costo;
 	}
 	*/
-	public void esConstruibleAPartirDeRecursos(Recursos r) throws ExcepcionRecursosInsuficientes{
+	
+	protected void verificarRecursosDisponibles(Recursos r) throws ExcepcionRecursosInsuficientes{
 		r.gastarRecursos(costo);
+	}
+	
+	@Override
+	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados) throws ExcepcionNoSePuedeConstruir{
+		this.verificarRecursosDisponibles(recursosRecolectados);
 	}
 	
 }

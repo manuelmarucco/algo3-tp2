@@ -1,13 +1,8 @@
 package construcciones.protoss;
 
-import interfaces.Construible;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
-
-import java.util.ArrayList;
-
-import excepciones.ExcepcionNecesitaConstruirOtroEdificio;
 
 
 public class Acceso extends ConstruccionProtoss{
@@ -29,13 +24,6 @@ public class Acceso extends ConstruccionProtoss{
 	@Override
 	public void update() {
 		super.update();
-	}
-
-	@Override
-	public <T extends Construible> void verificaConstruccionPrevia(
-			ArrayList<T> cs) throws ExcepcionNecesitaConstruirOtroEdificio {
-		// TODO Auto-generated method stub
-		
 	}
 	
 
