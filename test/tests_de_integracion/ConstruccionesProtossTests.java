@@ -20,7 +20,6 @@ import construcciones.protoss.Asimilador;
 import construcciones.protoss.NexoMineral;
 import construcciones.protoss.Pilon;
 import construcciones.protoss.PortalEstelar;
-import construcciones.terran.Refineria;
 import excepciones.ExcepcionNecesitaConstruirAcceso;
 import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
 import excepciones.ExcepcionNoSePuedeConstruir;
@@ -36,8 +35,10 @@ public class ConstruccionesProtossTests {
 
 		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
 		Acceso b = new Acceso();
+		int i1 = b.getTiempoDeConstruccion();
 		
 		j.construir(b);
+		for(int i=0; i<i1; i++)	j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(b));
 	}
@@ -47,8 +48,10 @@ public class ConstruccionesProtossTests {
 
 		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
 		NexoMineral b = new NexoMineral(j.getRecursos());
+		int i1 = b.getTiempoDeConstruccion();
 		
 		j.construir(b);
+		for(int i=0; i<i1; i++)	j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(b));
 	}
@@ -58,8 +61,10 @@ public class ConstruccionesProtossTests {
 
 		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
 		Asimilador b = new Asimilador(j.getRecursos());
+		int i1 = b.getTiempoDeConstruccion();
 		
 		j.construir(b);
+		for(int i=0; i<i1; i++)	j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(b));
 	}
@@ -68,11 +73,13 @@ public class ConstruccionesProtossTests {
 	public void SeConstruyeUnPilon() {
 
 		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
-		Pilon b = new Pilon(j);
+		Pilon p = new Pilon(j);
+		int t = p.getTiempoDeConstruccion();
 		
-		j.construir(b);
+		j.construir(p);
+		for(int i=0; i<t; i++)	j.update();
 		
-		Assert.assertTrue(j.buscarConstruccion(b));
+		Assert.assertTrue(j.buscarConstruccion(p));
 	}
 	
 	/////////////////////// Construccion habilita a otra ////////////////////
@@ -116,12 +123,16 @@ public class ConstruccionesProtossTests {
 		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
 		Acceso b = new Acceso();
 		PortalEstelar f = new PortalEstelar();
+		int i1 = b.getTiempoDeConstruccion(),
+			i2 = f.getTiempoDeConstruccion();
 		
 		j.construir(b);
+		for(int i=0; i<i1; i++)	j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(b));
 		
 		j.construir(f);
+		for(int i=0; i<i2; i++)	j.update();
 
 		Assert.assertTrue(j.buscarConstruccion(f));
 	}
@@ -142,10 +153,18 @@ public class ConstruccionesProtossTests {
 		Acceso b = new Acceso();
 		PortalEstelar f = new PortalEstelar();
 		ArchivosTemplarios p = new ArchivosTemplarios();
-
+		int i1 = b.getTiempoDeConstruccion(),
+			i2 = f.getTiempoDeConstruccion(),
+			i3 = f.getTiempoDeConstruccion();
+		
+		
+		
 		j.construir(b);
+		for(int i=0; i<i1; i++)	j.update();
 		j.construir(f);
+		for(int i=0; i<i2; i++)	j.update();
 		j.construir(p);
+		for(int i=0; i<i3; i++)	j.update();
 
 		Assert.assertTrue(j.buscarConstruccion(p));
 	}

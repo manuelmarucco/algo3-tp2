@@ -30,13 +30,5 @@ public class DepositoDeSuministros extends ConstruccionTerran{
 		mapa.agregarEnTierra(this, coordenadas);
 		
 	}
-	
-	@Override
-	public void update() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
 
 }

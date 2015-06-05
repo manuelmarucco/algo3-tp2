@@ -31,6 +31,7 @@ public class Refineria extends ConstruccionTerran {
 
 	@Override
 	public void update() {
+		super.update();
 		recursosDeJugador.agregarRecursos(0, gasRecolectados);
 		
 	}

@@ -28,7 +28,7 @@ public class Barraca extends ConstruccionTerran {
 	
 	@Override
 	public void update() {
-		 
+		super.update();
 		//this.regenerar.regenerar(this);
 		
 	}
@@ -37,5 +37,6 @@ public class Barraca extends ConstruccionTerran {
 	public boolean habilitaAConstruir(Fabrica t) {
 		return true;
 	}
+
 }
 

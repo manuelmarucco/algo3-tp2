@@ -23,15 +23,6 @@ public abstract class Construccion implements ColocableEnMapa,Construible{
 	protected Vida vida;
 
 	public abstract void recibirDanio(int danioParcial);
-	/*
-	public String getNombre() {
-		return nombre;
-	}
-	
-	public Costo getCosto() {
-		return costo;
-	}
-	*/
 	
 	protected void verificarRecursosDisponibles(Recursos r) throws ExcepcionRecursosInsuficientes{
 		r.gastarRecursos(costo);
@@ -41,5 +32,12 @@ public abstract class Construccion implements ColocableEnMapa,Construible{
 	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados) throws ExcepcionNoSePuedeConstruir{
 		this.verificarRecursosDisponibles(recursosRecolectados);
 	}
+	
+	@Override
+	public int getTiempoDeConstruccion() {
+		return tiempoDeConstruccion;
+	}
+	
+	public abstract void update();
 	
 }

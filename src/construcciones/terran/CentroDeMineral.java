@@ -29,6 +29,7 @@ public class CentroDeMineral extends ConstruccionTerran {
 
 	@Override
 	public void update() {
+		super.update();
 		recursosDeJugador.agregarRecursos(mineralesRecolectados, 0);
 	}
 

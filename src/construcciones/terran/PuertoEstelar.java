@@ -33,7 +33,7 @@ public class PuertoEstelar extends ConstruccionTerran{
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
+		super.update();
 		
 	}
 

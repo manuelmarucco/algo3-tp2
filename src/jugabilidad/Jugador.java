@@ -17,11 +17,11 @@ public class Jugador {
 	private Recursos recursosRecolectados;
 	private ArrayList<Construible> construccionesCreadas = new ArrayList<Construible>();
 	private ArrayList<Unidad> unidadesCreadas = new ArrayList<Unidad>();
-	protected int suministrosMaximos;
-	protected int suministrosUsados;
+	protected int suministrosMaximos; //corregir implementacion Quary
+	protected int suministrosUsados;  //
+	private ArrayList<Construible> colaDeConstruccion = new ArrayList<Construible>();
 
 
-	public Jugador() {}
 	public Jugador(Raza r,Recursos recursosIniciales){
 		this.raza = r;
 		this.recursosRecolectados = recursosIniciales;
@@ -42,15 +42,9 @@ public class Jugador {
 			return;
 		}
 		
-		/*
-		try {
-			construccionCreada.esConstruibleAPartirDeRecursos(recursosRecolectados);
-		} catch (ExcepcionRecursosInsuficientes e) {
-			e.printStackTrace();
-			return; 
-		}
-		*/
-		construccionesCreadas.add(construccionCreada);
+		colaDeConstruccion.add(construccionCreada);
+		
+		//construccionesCreadas.add(construccionCreada);
 	}
 	
 	
@@ -73,7 +67,6 @@ public class Jugador {
 	
 	public void agregarUnidad(Unidad unidad){
 		unidadesCreadas.add(unidad);
-		//permite encapsular la implementacion del atributo unidadesCreadas
 	}
 
 	public void agregarMinerales(int i) {
@@ -90,10 +83,16 @@ public class Jugador {
 	}
 
 	public void update() {
-		for (Iterator<Construible> iterator = construccionesCreadas.iterator(); iterator
+		for (Iterator<Construible> iterator = colaDeConstruccion.iterator(); iterator
 				.hasNext();) {
 			Construible c = iterator.next();
+			
 			c.update();
+			
+			if(c.getTiempoDeConstruccion() == 0)
+				construccionesCreadas.add(c);
+			//AGREGAR LA CONSTRUCCION AL MAPA	
+			//c.agregarse(mapa????,coordenadas???);
 			
 		}
 		
@@ -107,6 +106,7 @@ public class Jugador {
 		}
 		return false;
 	}
+	
 
 	public void aumentarSuministrosMaximos(int suministro){
 		suministrosMaximos  += suministro;

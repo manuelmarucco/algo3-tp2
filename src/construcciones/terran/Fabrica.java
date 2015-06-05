@@ -35,7 +35,7 @@ public class Fabrica extends ConstruccionTerran{
 
 	@Override
 	public void update() {
-		
+		super.update();
 	}
 
 	@Override

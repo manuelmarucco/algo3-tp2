@@ -4,7 +4,7 @@ import unidades.Escudo;
 import construcciones.Construccion;
 import unidades.Vida;
 
-	public abstract class ConstruccionProtoss extends Construccion{
+public abstract class ConstruccionProtoss extends Construccion{
 	
 	protected Escudo escudo;
 
@@ -27,6 +27,7 @@ import unidades.Vida;
 	}
 
 	public void update(){
+		tiempoDeConstruccion--;
 		this.escudo.regenerar();
 	}
 

@@ -34,7 +34,9 @@ public class ConstruccionesTerranTests {
 		Jugador j = new Jugador(new Terran(),new Recursos(150,0));
 		Barraca b = new Barraca();
 		
+		
 		j.construir(b);
+		 for (int i = 0; i < 12; i ++) j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(b));
 	}
@@ -46,6 +48,7 @@ public class ConstruccionesTerranTests {
 		CentroDeMineral b = new CentroDeMineral(j.getRecursos());
 		
 		j.construir(b);
+		 for (int i = 0; i < 6; i ++) j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(b));
 	}
@@ -57,6 +60,7 @@ public class ConstruccionesTerranTests {
 		Refineria b = new Refineria(j.getRecursos());
 		
 		j.construir(b);
+		for (int i = 0; i < 12; i ++) j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(b));
 	}
@@ -68,6 +72,7 @@ public class ConstruccionesTerranTests {
 		DepositoDeSuministros b = new DepositoDeSuministros(j);
 		
 		j.construir(b);
+		for (int i = 0; i < 12; i ++) j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(b));
 	}
@@ -113,12 +118,16 @@ public class ConstruccionesTerranTests {
 		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
 		Barraca b = new Barraca();
 		Fabrica f = new Fabrica();
+		int i1 = b.getTiempoDeConstruccion(),
+			i2 = f.getTiempoDeConstruccion();
 		
 		j.construir(b);
+		for (int i = 0; i < i1; i ++) j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(b));
 		
 		j.construir(f);
+		for (int i = 0; i < i2; i ++) j.update();
 
 		Assert.assertTrue(j.buscarConstruccion(f));
 	}
@@ -139,10 +148,17 @@ public class ConstruccionesTerranTests {
 		Barraca b = new Barraca();
 		Fabrica f = new Fabrica();
 		PuertoEstelar p = new PuertoEstelar();
+		int i1 = b.getTiempoDeConstruccion(),
+			i2 = f.getTiempoDeConstruccion(),
+			i3 = p.getTiempoDeConstruccion();
 
-		j.construir(b);
-		j.construir(f);
+		j.construir(b); 
+		for (int i = 0; i < i1; i ++) j.update();
+		j.construir(f);	
+		for (int i = 0; i < i2; i ++) j.update();
 		j.construir(p);
+
+		for (int i = 0; i < i3; i ++) j.update();
 
 		Assert.assertTrue(j.buscarConstruccion(p));
 	}

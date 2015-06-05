@@ -9,5 +9,7 @@ public interface Construible extends Actualizable{
 
 	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos r) throws ExcepcionNoSePuedeConstruir;
 	//public void esConstruibleAPartirDeRecursos(Recursos r) throws ExcepcionRecursosInsuficientes;
+
+	public int getTiempoDeConstruccion();
 	
 }

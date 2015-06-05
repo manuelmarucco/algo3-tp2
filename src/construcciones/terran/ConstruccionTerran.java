@@ -25,6 +25,8 @@ public abstract class ConstruccionTerran extends Construccion{
 		return false;
 	}
 	
-
+	public void update(){
+		tiempoDeConstruccion--;
+	}
 		
 }
