@@ -26,6 +26,21 @@ public class RecoleccionDeRecursosTest {
         assertEquals( 10,centroDeMineral.obtenerMinerales() );
 
     }
+    
+        @Test
+    public void cuandoUbicoUnaRefineriaSobreUnVolcanMeDeveriaDevolverDiezMinerales(){
 
+        Recursos recursos = new Recursos(0,0);
+
+        Mapa mapa = new Mapa();
+        Coordenadas coordenadas = new Coordenadas(1,1);
+        Volcan volcan = new Volcan();
+        Refineria refineria = new Refineria(recursos);
+
+        mapa.agregar(volcan,coordenadas);
+        mapa.agregar(refineria,coordenadas);
+
+        assertEquals( 10,refineria.obtenerMinerales() );
+    }
 
 }
