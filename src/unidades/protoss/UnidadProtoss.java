@@ -19,7 +19,9 @@ public abstract class UnidadProtoss extends Unidad {
         return escudo;
     }
 
-    public abstract ColocableEnMapa getClone();
+    public ColocableEnMapa getClone(){
+        return new Clon(this.vida,this.escudo,this.vision,this.ubicacion);
+    };
 
     public  void recibirEMP(){
         this.escudo.quitar(this.escudo.getEscudoActual());

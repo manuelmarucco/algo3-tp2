@@ -1,17 +1,16 @@
 package jugabilidad;
 
+import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Construible;
 import interfaces.Entrenable;
+import jugabilidad.auxiliares.Recursos;
+import jugabilidad.auxiliares.Suministros;
+import razas.Raza;
+import unidades.Unidad;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.auxiliares.Suministros;
-import excepciones.ExcepcionNoSePuedeConstruir;
-import excepciones.ExcepcionSuministrosInsuficientes;
-import razas.Raza;
-import unidades.Unidad;
 
 public class Jugador {
 	
@@ -27,7 +26,7 @@ public class Jugador {
 		this.raza = r;
 		this.recursosRecolectados = recursosIniciales;
 		this.suministros =  new Suministros(0,20);
-		
+
 		//HAY QUE HACER QUE EL JUGADOR EMPIECE CON 5 RECOLECTARES....
 		//EL PROBLEMA DE ESTO ES QUE DEPENDE LA ESTRUCTURA EN CADA RAZA... HAY QUE VER COMO LO RESOLVEMOS
 	}
@@ -100,5 +99,5 @@ public class Jugador {
 		suministros.aumentarSuministrosDisponibles(capacidadExtra);
 		
 	}
-	
+
 }

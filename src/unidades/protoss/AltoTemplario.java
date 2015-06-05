@@ -64,7 +64,7 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
 
     @Override
     public ColocableEnMapa getClone() {
-        return null;// TODO:implementar
+        return new ClonMagico(this.vida,this.energia,this.escudo,this.vision,this.ubicacion);
     }
 
     @Override
