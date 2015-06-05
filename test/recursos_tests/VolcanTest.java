@@ -11,7 +11,7 @@ public class VolcanTest {
 
         Volcan volcan = new Volcan();
 
-        assertEquals( 10 , volcan.obtenerRecursos() );
+        assertEquals( 10 , volcan.recolectarRecursos() );
 
     }
 

@@ -11,7 +11,7 @@ public class CristalTest {
 		
 		Cristal cristal = new Cristal();
 		
-		assertEquals( 10 , cristal.obtenerRecursos() );
+		assertEquals( 10 , cristal.recolectarRecursos() );
 		
 	}
 

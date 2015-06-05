@@ -1,9 +1,11 @@
 package recursos;
 
+import interfaces.ColocableEnMapa;
+import interfaces.Recolectable;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
-public class Volcan extends Recurso {
+public class Volcan implements ColocableEnMapa, Recolectable {
 
     public void agregarse(Mapa mapa,Coordenadas coordenadas){
 
@@ -12,9 +14,7 @@ public class Volcan extends Recurso {
     }
 
     @Override
-    public int obtenerRecursos() {
-
-        return ( cantidadDeRecursoExplotable);
-
+    public int recolectarRecursos() {
+        return 10;
     }
 }

@@ -32,7 +32,6 @@ public class Mapa {
 		
 	}
 
-
 	public ColocableEnMapa getTerrestre(Coordenadas coordenadas) {
 
 		return ( tierra.get(coordenadas) ) ;
@@ -57,6 +56,12 @@ public class Mapa {
 
 	public Coordenadas getCoordenada(ColocableEnMapa daniable) {
 		return null;//TODO implementar
+	}
+
+	public void borrarTerrestre(Coordenadas coordenadas){
+
+		this.tierra.remove(coordenadas);
+
 	}
 }
 
