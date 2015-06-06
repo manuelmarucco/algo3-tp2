@@ -26,10 +26,10 @@ public abstract class CentroDeRecoleccion extends Construccion {
     @Override
     public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 
-        this.estructuraRecolectable = (Recolectable) mapa.getTerrestre(coordenadas);
+        this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaTerrestre(coordenadas);
         mapa.borrarTerrestre(coordenadas);
 
-        mapa.agregarEnTierra(this, coordenadas);
+        mapa.agregarEnCapaTerrestre(this, coordenadas);
 
     }
 

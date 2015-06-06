@@ -49,14 +49,14 @@ public class Marine extends UnidadTerran implements Atacante, Cargable {
 
     public void atacarTierra(Coordenadas origen, Coordenadas destino) throws ExcepcionObjetivoFueraDeRango {
         if(origen.distacina(destino) < Marine.Danio.getRangoTerrestre()){
-            this.atacar((Daniable)SingletonMapa.getInstance().getTerrestre(destino));
+            this.atacar((Daniable)SingletonMapa.getInstance().obtenerDeCapaTerrestre(destino));
         }
         else throw new ExcepcionObjetivoFueraDeRango();
     }
 
     public void atacarAire(Coordenadas origen, Coordenadas destino) throws ExcepcionObjetivoFueraDeRango {
         if(origen.distacina(destino)<Danio.getRangoAereo()){
-            this.atacar((Daniable)SingletonMapa.getInstance().getAerea(destino));
+            this.atacar((Daniable)SingletonMapa.getInstance().obtenerDeCapaAerea(destino));
         }
         else throw new ExcepcionObjetivoFueraDeRango();
     }

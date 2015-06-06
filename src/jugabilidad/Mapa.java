@@ -10,60 +10,88 @@ import java.util.Objects;
 
 public class Mapa {
 	
-	private HashMap<Coordenadas, ColocableEnMapa> tierra = new HashMap<>();
-	private HashMap<Coordenadas, ColocableEnMapa> aire = new HashMap<>();
+	private HashMap<Coordenadas, ColocableEnMapa> capaTerrestre = new HashMap<>();
+	private HashMap<Coordenadas, ColocableEnMapa> capaAerea = new HashMap<>();
+	private HashMap<Coordenadas, ColocableEnMapa> capaDeRecursos = new HashMap<>();
 	
 	public Mapa(){
 	
 	}
-	
+	// Agregar -----
+
 	public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas){
 		
 		colocable.agregarse(this, coordenadas);
 		
 	}
 	
-	public void agregarEnAire(ColocableEnMapa colocable, Coordenadas coordenadas){
-		
-		this.aire.put(coordenadas, colocable);
+	public void agregarEnCapaAerea(ColocableEnMapa colocable, Coordenadas coordenadas){
+
+		this.capaAerea.put(coordenadas, colocable);
 		
 	}
 	
-	public void agregarEnTierra(ColocableEnMapa colocable, Coordenadas coordenadas){
+	public void agregarEnCapaTerrestre(ColocableEnMapa colocable, Coordenadas coordenadas){
 		
-			this.tierra.put(coordenadas, colocable);
+			this.capaTerrestre.put(coordenadas, colocable);
 		
 	}
 
-	public ColocableEnMapa getTerrestre(Coordenadas coordenadas) {
+	public void agregarEnCapaDeRecursos(ColocableEnMapa colocable, Coordenadas coordenadas){
 
-		return ( tierra.get(coordenadas) ) ;
-
-	}
-
-	public ColocableEnMapa getAerea(Coordenadas coordenadas) {
-
-		return ( aire.get(coordenadas) ) ;
+		this.capaDeRecursos.put(coordenadas, colocable);
 
 	}
 
-	public boolean posicionTerrestreOcupada( Coordenadas coordenadas ) {
+	// Obtener -----
 
-		return ( this.tierra.containsKey(coordenadas) );
+	public ColocableEnMapa obtenerDeCapaTerrestre(Coordenadas coordenadas) {
+
+		return ( capaTerrestre.get(coordenadas) ) ;
+
 	}
 
-	public boolean posicionAereaOcupada( Coordenadas coordenadas ) {
+	public ColocableEnMapa obtenerDeCapaAerea(Coordenadas coordenadas) {
 
-		return ( this.aire.containsKey(coordenadas) );
+		return ( capaAerea.get(coordenadas) ) ;
+
+	}
+
+	// Remover -----
+
+	public void borrarTerrestre(Coordenadas coordenadas){ //para el movimiento de las unidades
+
+		this.capaTerrestre.remove(coordenadas);
+
+	}
+
+	public void borrarEnCapaAerea(Coordenadas coordenadas) {
+
+		this.capaAerea.remove(coordenadas);
+
+	}
+
+	// -------------
+
+	public boolean posicionAereaOcupada(Coordenadas coordenadas) {
+
+		return (this.capaAerea.containsValue(coordenadas));
+
+	}
+
+	public boolean posicionTerrestreOcupada(Coordenadas coordenadas) {
+
+		return (this.capaTerrestre.containsValue(coordenadas));
+
 	}
 
 	public Coordenadas getCoordenada(final ColocableEnMapa daniable) {
-		for (Map.Entry<Coordenadas, ColocableEnMapa> entry : tierra.entrySet()) {
+		for (Map.Entry<Coordenadas, ColocableEnMapa> entry : capaTerrestre.entrySet()) {
 			if (Objects.equals(daniable, entry.getValue())) {
 				return entry.getKey();
 			}
 		}
-		for (Map.Entry<Coordenadas, ColocableEnMapa> entry : aire.entrySet()) {
+		for (Map.Entry<Coordenadas, ColocableEnMapa> entry : capaAerea.entrySet()) {
 			if (Objects.equals(daniable, entry.getValue())) {
 				return entry.getKey();
 			}
@@ -71,15 +99,10 @@ public class Mapa {
 		return null;
 	}
 
-	public void borrarTerrestre(Coordenadas coordenadas){ //para el movimiento de las unidades
-
-		this.tierra.remove(coordenadas);
-
-	}
-
-	public void quitar(Unidad unidad) {//TODO:hacer un quitar aire y tierra
+	public void quitar(Unidad unidad) {//TODO:hacer un quitar capaAerea y capaTerrestre
 		Coordenadas c =this.getCoordenada(unidad);
-			this.tierra.remove(c);
+			this.capaTerrestre.remove(c);
 	}
+
 }
 

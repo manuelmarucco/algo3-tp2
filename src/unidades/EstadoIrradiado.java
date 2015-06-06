@@ -16,9 +16,9 @@ public class EstadoIrradiado implements Estado {
             for (int j=-1;j<2;j++){
                 Coordenadas c1 = new Coordenadas(c.getX() + i, c.getY() + j);
                 if(mapa.posicionAereaOcupada(c1))
-                    ((Daniable)mapa.getAerea(c1)).recibirDanio(d);
+                    ((Daniable)mapa.obtenerDeCapaAerea(c1)).recibirDanio(d);
                 if(mapa.posicionTerrestreOcupada(c1))
-                    ((Daniable)mapa.getTerrestre(c1)).recibirDanio(d);
+                    ((Daniable)mapa.obtenerDeCapaTerrestre(c1)).recibirDanio(d);
             }
         }
     }

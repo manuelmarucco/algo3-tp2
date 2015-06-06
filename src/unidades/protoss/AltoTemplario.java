@@ -39,8 +39,8 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
         for(int i =-1;i<2;i++){
             for(int j =-1;j<2;j++){
                 Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);
-                mapa.getTerrestre(coordenadas);//aplicar tormenta
-                mapa.getAerea(coordenadas);//aplicar tormenta
+                mapa.obtenerDeCapaTerrestre(coordenadas);//aplicar tormenta
+                mapa.obtenerDeCapaAerea(coordenadas);//aplicar tormenta
             }
         }
         //TODO: implementar

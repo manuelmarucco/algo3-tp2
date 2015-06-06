@@ -45,8 +45,8 @@ public class NaveCiencia extends UnidadTerran{
             for(int j =-1;j<2;j++){
                 Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);
                 //TODO: sacar estos casteos
-                this.EMP((Unidad)mapa.getTerrestre(coordenadas));//aplicar emp
-                this.EMP((Unidad)mapa.getAerea(coordenadas));//aplicar emp
+                this.EMP((Unidad)mapa.obtenerDeCapaTerrestre(coordenadas));//aplicar emp
+                this.EMP((Unidad)mapa.obtenerDeCapaAerea(coordenadas));//aplicar emp
             }
         }
     }
