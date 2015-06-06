@@ -3,10 +3,10 @@ package tests_de_integracion;
 import construcciones.terran.Barraca;
 import construcciones.terran.Fabrica;
 import jugabilidad.Jugador;
+import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import org.junit.Assert;
 import org.junit.Test;
-import razas.Terran;
 import unidades.terrran.Golliat;
 import unidades.terrran.Marine;
 
@@ -14,14 +14,14 @@ public class EntrenamientoUnidadesTerranTest {
 
 	@Test
 	public void entrenoMarineYSeAgregaAlJugador() {
-		Jugador j = new Jugador(new Terran(),new Recursos(1000,0));
-		Barraca b = new Barraca(j);
-		Marine m = new Marine();
+		JugadorTerran j = new JugadorTerran(new Recursos(1000,0));
+		Barraca b;
+		Marine m;
 		
-		j.construir(b);
+		b = j.construirBarraca();
 		for(int i = 0; i<12; i++) j.update();
 		
-		b.entrenarMarine(m);
+		m = b.entrenarMarine();
 		for(int i = 0; i<3; i++) j.update();
 		
 		Assert.assertTrue(j.buscarUnidad(m));
@@ -29,15 +29,16 @@ public class EntrenamientoUnidadesTerranTest {
 
 	@Test
 	public void entrenoMarineYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() {
-		Jugador j = new Jugador(new Terran(),new Recursos(1000,0));
-		Barraca b = new Barraca(j);
-		Marine m = new Marine();
-		int tem = m.getTiempoDeEntrenamiento();
+		JugadorTerran j = new JugadorTerran(new Recursos(1000,0));
+		Barraca b;
+		Marine m;
+		int tem;
 
-		j.construir(b);
+		b = j.construirBarraca();
 		for(int i = 0; i<12; i++) j.update();
 
-		b.entrenarMarine(m);
+		m = b.entrenarMarine();
+		tem = m.getTiempoDeEntrenamiento();
 		for(int i = 0; i<tem-1; i++) j.update();
 
 		Assert.assertFalse(j.buscarUnidad(m));
@@ -45,21 +46,23 @@ public class EntrenamientoUnidadesTerranTest {
 
 	@Test
 	public void entrenoGolliatYSeAgregaAlJugador() {
-		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
-		Barraca b = new Barraca(j);
-		Fabrica f = new Fabrica(j);
-		Golliat g = new Golliat();
-		int	 i1 = b.getTiempoDeConstruccion(),
-				i2 = f.getTiempoDeConstruccion(),
-				i3 = g.getTiempoDeEntrenamiento();
+		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
+		Barraca b;
+		Fabrica f;
+		Golliat g;
+		int	 i1,i2,i3;
 
 
-		j.construir(b);
+		b = j.construirBarraca();
+		i1 =  b.getTiempoDeConstruccion();
 		for(int i = 0; i<i1; i++) j.update();
-		j.construir(f);
+
+		f = j.construirFabrica();
+		i2 = f.getTiempoDeConstruccion();
 		for(int i = 0; i<i2; i++) j.update();
 
-		f.entrenarGolliat(g);
+		g = f.entrenarGolliat();
+		i3 = g.getTiempoDeEntrenamiento();
 		for(int i = 0; i<i3; i++) j.update();
 
 		Assert.assertTrue(j.buscarUnidad(g));
@@ -67,21 +70,23 @@ public class EntrenamientoUnidadesTerranTest {
 
 	@Test
 	public void entrenoGolliatYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() {
-		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
-		Barraca b = new Barraca(j);
-		Fabrica f = new Fabrica(j);
-		Golliat g = new Golliat();
-		int	 i1 = b.getTiempoDeConstruccion(),
-				i2 = f.getTiempoDeConstruccion(),
-				i3 = g.getTiempoDeEntrenamiento();
+		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
+		Barraca b;
+		Fabrica f;
+		Golliat g;
+		int	 i1,i2,i3;
 
 
-		j.construir(b);
+		b = j.construirBarraca();
+		i1 = b.getTiempoDeConstruccion();
 		for(int i = 0; i<i1; i++) j.update();
-		j.construir(f);
+
+		f = j.construirFabrica();
+		i2 = f.getTiempoDeConstruccion();
 		for(int i = 0; i<i2; i++) j.update();
 
-		f.entrenarGolliat(g);
+		g = f.entrenarGolliat();
+		i3 = g.getTiempoDeEntrenamiento();
 		for(int i = 0; i<i3-1; i++) j.update();
 
 		Assert.assertFalse(j.buscarUnidad(g));

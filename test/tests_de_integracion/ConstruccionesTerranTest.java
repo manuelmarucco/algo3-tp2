@@ -3,14 +3,12 @@ package tests_de_integracion;
 import construcciones.terran.*;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
-import jugabilidad.Jugador;
+import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import razas.Protoss;
-import razas.Terran;
 
 import java.util.ArrayList;
 
@@ -22,23 +20,22 @@ public class ConstruccionesTerranTest {
 	@Test
 	public void SeConstruyeUnaBarraca() {
 
-		Jugador j = new Jugador(new Terran(),new Recursos(150,0));
-		Barraca b = new Barraca();
-		
-		
-		j.construir(b);
-		 for (int i = 0; i < 12; i ++) j.update();
-		
-		Assert.assertTrue(j.buscarConstruccion(b));
+		JugadorTerran jugador = new JugadorTerran(new Recursos(150,0));
+		Barraca b;
+		int i1;
+
+		b = jugador.construirBarraca();
+		i1 = b.getTiempoDeConstruccion();
+		for (int i = 0; i < i1; i++) jugador.update();
 	}
 	
 	@Test
 	public void SeConstruyeUnaCentroDeMineral() {
 
-		Jugador j = new Jugador(new Terran(),new Recursos(150,0));
+		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
 		CentroDeMineral b = new CentroDeMineral(j.getRecursos());
 		
-		j.construir(b);
+		j.construirCentroDeMineral();
 		 for (int i = 0; i < 6; i ++) j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(b));
@@ -47,11 +44,13 @@ public class ConstruccionesTerranTest {
 	@Test
 	public void SeConstruyeUnaRefineria() {
 
-		Jugador j = new Jugador(new Terran(),new Recursos(150,150));
-		Refineria r = new Refineria(j.getRecursos());
+		JugadorTerran j = new JugadorTerran(new Recursos(150,150));
+		Refineria r;
+		int tdc;
 		
-		j.construir(r);
-		for (int i = 0; i < r.getTiempoDeConstruccion(); i ++) j.update();
+		r = j.construirRefineria();
+		tdc = r.getTiempoDeConstruccion();
+		for (int i = 0; i < tdc; i ++) j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(r));
 	}
@@ -59,13 +58,15 @@ public class ConstruccionesTerranTest {
 	@Test
 	public void SeConstruyeUnDepositoDeSuministros() {
 
-		Jugador j = new Jugador(new Terran(),new Recursos(150,150));
-		DepositoDeSuministros b = new DepositoDeSuministros(j);
+		JugadorTerran j = new JugadorTerran(new Recursos(150,150));
+		DepositoDeSuministros d ;
+		int tdc;
 		
-		j.construir(b);
-		for (int i = 0; i < 12; i ++) j.update();
+		d = j.construirDepositoDeSuministros();
+		tdc = d.getTiempoDeConstruccion();
+		for (int i = 0; i < tdc; i ++) j.update();
 		
-		Assert.assertTrue(j.buscarConstruccion(b));
+		Assert.assertTrue(j.buscarConstruccion(d));
 	}
 	
 	/////////////////////// Construccion habilita a otra ////////////////////
@@ -106,49 +107,53 @@ public class ConstruccionesTerranTest {
 	
 	@Test
 	public void JugadorCreaFabricaConBarracaPrevia(){
-		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
-		Barraca b = new Barraca(j);
-		Fabrica f = new Fabrica(j);
-		int i1 = b.getTiempoDeConstruccion(),
-			i2 = f.getTiempoDeConstruccion();
-		
-		j.construir(b);
-		for (int i = 0; i < i1; i ++) j.update();
-		
-		Assert.assertTrue(j.buscarConstruccion(b));
-		
-		j.construir(f);
-		for (int i = 0; i < i2; i ++) j.update();
+		JugadorTerran jugador = new JugadorTerran(new Recursos(1000,1000));
+		Barraca b;
+		Fabrica f;
 
-		Assert.assertTrue(j.buscarConstruccion(f));
+		int i1,i2;
+		
+		b = jugador.construirBarraca();
+		i1 = b.getTiempoDeConstruccion();
+		for (int i = 0; i < i1; i ++) jugador.update();
+		
+		Assert.assertTrue(jugador.buscarConstruccion(b));
+		
+		f = jugador.construirFabrica();
+		i2 = f.getTiempoDeConstruccion();
+		for (int i = 0; i < i2; i ++) jugador.update();
+
+		Assert.assertTrue(jugador.buscarConstruccion(f));
 	}
 	
 	@Test
 	public void JugadorQuiereCrearFabricaPeroNecesitaBarraca(){
-		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
-		Fabrica f = new Fabrica();
+		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
+		Fabrica f;
 		
-		j.construir(f);
+		f = j.construirFabrica();
 
 		Assert.assertFalse(j.buscarConstruccion(f));
 	}
 	
 	@Test
 	public void JugadorCreaPuertoEstelarConFabricaPrevia(){
-		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
-		Barraca b = new Barraca();
-		Fabrica f = new Fabrica();
-		PuertoEstelar p = new PuertoEstelar();
-		int i1 = b.getTiempoDeConstruccion(),
-			i2 = f.getTiempoDeConstruccion(),
-			i3 = p.getTiempoDeConstruccion();
+		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
+		Barraca b;
+		Fabrica f;
+		PuertoEstelar p;
+		int i1,i2,i3;
 
-		j.construir(b); 
+		b = j.construirBarraca();
+		i1 = b.getTiempoDeConstruccion();
 		for (int i = 0; i < i1; i ++) j.update();
-		j.construir(f);	
-		for (int i = 0; i < i2; i ++) j.update();
-		j.construir(p);
 
+		f = j.construirFabrica();
+		i2 = f.getTiempoDeConstruccion();
+		for (int i = 0; i < i2; i ++) j.update();
+
+		p = j.construirPuertoEstelar();
+		i3 = p.getTiempoDeConstruccion();
 		for (int i = 0; i < i3; i ++) j.update();
 
 		Assert.assertTrue(j.buscarConstruccion(p));
@@ -156,10 +161,10 @@ public class ConstruccionesTerranTest {
 	
 	@Test
 	public void JugadorQuiereCrearPuertoEstelarPeroNecesitaFabrica(){
-		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
-		PuertoEstelar p = new PuertoEstelar();
+		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
+		PuertoEstelar p;
 		
-		j.construir(p);
+		p = j.construirPuertoEstelar();
 
 		Assert.assertFalse(j.buscarConstruccion(p));
 	}
@@ -168,68 +173,65 @@ public class ConstruccionesTerranTest {
 	
 	@Test
 	public void JugadorNoPuedeConstruirCentroDeMineralPorFaltaDeRecursos(){
-		Jugador j = new Jugador(new Terran(),new Recursos(0,0));
-		CentroDeMineral p = new CentroDeMineral(j.getRecursos());
+		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
+		CentroDeMineral c;
 		
-		j.construir(p);
+		c = j.construirCentroDeMineral();
 
-		Assert.assertFalse(j.buscarConstruccion(p));
+		Assert.assertFalse(j.buscarConstruccion(c));
 	}
 	
 	@Test
 	public void JugadorNoPuedeConstruirBarracaPorFaltaDeRecursos(){
-		Jugador j = new Jugador(new Terran(),new Recursos(0,0));
-		Barraca p = new Barraca();
+		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
+		Barraca b;
 		
-		j.construir(p);
+		b = j.construirBarraca();
 
-		Assert.assertFalse(j.buscarConstruccion(p));
+		Assert.assertFalse(j.buscarConstruccion(b));
 	}
 	
 	@Test
 	public void JugadorNoPuedeConstruirFabricaPorFaltaDeRecursos(){
-		Jugador j = new Jugador(new Terran(),new Recursos(150,0));
-		Barraca b = new Barraca();
-		Fabrica f = new Fabrica();
+		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
+		Barraca b;
+		Fabrica f;
 		
-		j.construir(b);
-		j.construir(f);
+		j.construirBarraca();
+		f = j.construirFabrica();
 
 		Assert.assertFalse(j.buscarConstruccion(f));
 	}
 	
 	@Test
 	public void JugadorNoPuedeConstruirPuertoEstelarPorFaltaDeRecursos(){
-		Jugador j = new Jugador(new Terran(),new Recursos(1000,100));
-		Barraca b = new Barraca(); //costo 150
-		Fabrica f = new Fabrica(); //costo 200,100
-		PuertoEstelar p = new PuertoEstelar(); //costo 150,100
-		
-		j.construir(b);
-		j.construir(f);
-		j.construir(p);
+		JugadorTerran j = new JugadorTerran(new Recursos(1000,100));
+		PuertoEstelar p;
+
+		j.construirBarraca(); //costo 150
+		j.construirFabrica(); //costo 200,100
+		p = j.construirPuertoEstelar(); //costo 150,100
 
 		Assert.assertFalse(j.buscarConstruccion(p));
 	}
 	
 	@Test
 	public void JugadorNoPuedeConstruirDepositoDeSuministrosPorFaltaDeRecursos(){
-		Jugador j = new Jugador(new Terran(),new Recursos(0,0));
-		DepositoDeSuministros p = new DepositoDeSuministros(j);
+		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
+		DepositoDeSuministros d;
 		
-		j.construir(p);
+		d = j.construirDepositoDeSuministros();
 
-		Assert.assertFalse(j.buscarConstruccion(p));
+		Assert.assertFalse(j.buscarConstruccion(d));
 	}
 	
 	@Test
 	public void JugadorNoPuedeConstruirRefineriaPorFaltaDeRecursos(){
-		Recursos r = new Recursos(0,0);
-		Jugador j = new Jugador(new Protoss(),r);
-		Refineria p = new Refineria(r);
+		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
+		Refineria r;
 		
-		j.construir(p);
+		r = j.construirRefineria();
 
-		Assert.assertFalse(j.buscarConstruccion(p));
+		Assert.assertFalse(j.buscarConstruccion(r));
 	}
 }

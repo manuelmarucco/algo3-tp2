@@ -6,68 +6,72 @@ import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
 import jugabilidad.Jugador;
+import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Recursos;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import razas.Protoss;
 
 import java.util.ArrayList;
 
 
 
 public class ConstruccionesProtossTest {
-	
+
 	//////////////////////// Verificacion de construccion de cada edificio ////////
 
 	@Test
 	public void SeConstruyeUnAcceso() {
 
-		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
-		Acceso b = new Acceso();
-		int i1 = b.getTiempoDeConstruccion();
+		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		Acceso a;
+		int i1;
 		
-		j.construir(b);
+		a = j.construirAcceso();
+		i1 = a.getTiempoDeConstruccion();
 		for(int i=0; i<i1; i++)	j.update();
 		
-		Assert.assertTrue(j.buscarConstruccion(b));
+		Assert.assertTrue(j.buscarConstruccion(a));
 	}
 	
 	@Test
 	public void SeConstruyeUnaNexoMineral() {
 
-		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
-		NexoMineral b = new NexoMineral(j.getRecursos());
-		int i1 = b.getTiempoDeConstruccion();
+		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		NexoMineral n;
+		int i1;
 		
-		j.construir(b);
+		n = j.construirNexoMineral();
+		i1 = n.getTiempoDeConstruccion();
 		for(int i=0; i<i1; i++)	j.update();
 		
-		Assert.assertTrue(j.buscarConstruccion(b));
+		Assert.assertTrue(j.buscarConstruccion(n));
 	}
 	
 	@Test
 public void SeConstruyeUnaAsimilador() {
 
-		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
-		Asimilador b = new Asimilador(j.getRecursos());
-		int i1 = b.getTiempoDeConstruccion();
+		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		Asimilador a;
+		int i1;
 		
-		j.construir(b);
+		a = j.construirAsimilador();
+		i1 = a.getTiempoDeConstruccion();
 		for(int i=0; i<i1; i++)	j.update();
 		
-		Assert.assertTrue(j.buscarConstruccion(b));
+		Assert.assertTrue(j.buscarConstruccion(a));
 	}
 	
 	@Test
 	public void SeConstruyeUnPilon() {
 
-		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
-		Pilon p = new Pilon(j);
-		int t = p.getTiempoDeConstruccion();
+		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		Pilon p;
+		int t;
 		
-		j.construir(p);
+		p = j.construirPilon();
+		t = p.getTiempoDeConstruccion();
 		for(int i=0; i<t; i++)	j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(p));
@@ -111,50 +115,52 @@ public void SeConstruyeUnaAsimilador() {
 	
 	@Test
 	public void JugadorCreaPortalEstelarConAccesoPrevia(){
-		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
-		Acceso b = new Acceso();
-		PortalEstelar f = new PortalEstelar();
-		int i1 = b.getTiempoDeConstruccion(),
-			i2 = f.getTiempoDeConstruccion();
+		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		Acceso a;
+		PortalEstelar p;
+		int i1,i2;
 		
-		j.construir(b);
+		a = j.construirAcceso();
+		i1 = a.getTiempoDeConstruccion();
 		for(int i=0; i<i1; i++)	j.update();
 		
-		Assert.assertTrue(j.buscarConstruccion(b));
+		Assert.assertTrue(j.buscarConstruccion(a));
 		
-		j.construir(f);
+		p = j.construirPortalEstelar();
+		i2 = p.getTiempoDeConstruccion();
 		for(int i=0; i<i2; i++)	j.update();
 
-		Assert.assertTrue(j.buscarConstruccion(f));
+		Assert.assertTrue(j.buscarConstruccion(p));
 	}
 	
 	@Test
 	public void JugadorQuiereCrearPortalEstelarPeroNecesitaAcceso(){
-		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
-		PortalEstelar f = new PortalEstelar();
-		
-		j.construir(f);
+		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		PortalEstelar p;
 
-		Assert.assertFalse(j.buscarConstruccion(f));
+		p =j.construirPortalEstelar();
+
+		Assert.assertFalse(j.buscarConstruccion(p));
 	}
 	
 	@Test
 	public void JugadorCreaArchivosTemplariosConPortalEstelarPrevia(){
-		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
-		Acceso b = new Acceso();
-		PortalEstelar f = new PortalEstelar();
-		ArchivosTemplarios p = new ArchivosTemplarios();
-		int i1 = b.getTiempoDeConstruccion(),
-			i2 = f.getTiempoDeConstruccion(),
-			i3 = f.getTiempoDeConstruccion();
-		
-		
-		
-		j.construir(b);
+		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		Acceso a;
+		PortalEstelar p;
+		ArchivosTemplarios at;
+		int i1, i2,i3;
+
+		a = j.construirAcceso();
+		i1 = a.getTiempoDeConstruccion();
 		for(int i=0; i<i1; i++)	j.update();
-		j.construir(f);
+
+		p = j.construirPortalEstelar();
+		i2 = p.getTiempoDeConstruccion();
 		for(int i=0; i<i2; i++)	j.update();
-		j.construir(p);
+
+		at = j.construirArchivosTemplarios();
+		i3 = at.getTiempoDeConstruccion();
 		for(int i=0; i<i3; i++)	j.update();
 
 		Assert.assertTrue(j.buscarConstruccion(p));
@@ -162,81 +168,80 @@ public void SeConstruyeUnaAsimilador() {
 	
 	@Test
 	public void JugadorQuiereCrearArchivosTemplariosPeroNecesitaPortalEstelar(){
-		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
-		ArchivosTemplarios p = new ArchivosTemplarios();
+		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		ArchivosTemplarios at;
 		
-		j.construir(p);
+		at = j.construirArchivosTemplarios();
 
-		Assert.assertFalse(j.buscarConstruccion(p));
+		Assert.assertFalse(j.buscarConstruccion(at));
 	}
 	
 	// Construccion con Recursos Insuficientes
 	
 	@Test
 	public void JugadorNoPuedeConstruirNexoMineralPorFaltaDeRecursos(){
-		Jugador j = new Jugador(new Protoss(),new Recursos(0,0));
-		NexoMineral p = new NexoMineral(j.getRecursos());
+		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
+		NexoMineral n;
 		
-		j.construir(p);
+		n = j.construirNexoMineral();
 
-		Assert.assertFalse(j.buscarConstruccion(p));
+		Assert.assertFalse(j.buscarConstruccion(n));
 	}
 	
 	@Test
 	public void JugadorNoPuedeConstruirAccesoPorFaltaDeRecursos(){
-		Jugador j = new Jugador(new Protoss(),new Recursos(0,0));
-		Acceso p = new Acceso();
+		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
+		Acceso a;
 		
-		j.construir(p);
+		a = j.construirAcceso();
+
+		Assert.assertFalse(j.buscarConstruccion(a));
+	}
+	
+	@Test
+	public void JugadorNoPuedeConstruirPortalEstelarPorFaltaDeRecursos(){
+		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
+		Acceso a;
+		PortalEstelar p;
+		
+		a = j.construirAcceso();
+		p = j.construirPortalEstelar();
 
 		Assert.assertFalse(j.buscarConstruccion(p));
 	}
 	
 	@Test
-	public void JugadorNoPuedeConstruirPortalEstelarPorFaltaDeRecursos(){
-		Jugador j = new Jugador(new Protoss(),new Recursos(150,0));
-		Acceso b = new Acceso();
-		PortalEstelar f = new PortalEstelar();
-		
-		j.construir(b);
-		j.construir(f);
-
-		Assert.assertFalse(j.buscarConstruccion(f));
-	}
-	
-	@Test
 	public void JugadorNoPuedeConstruirArchivosTemplariosPorFaltaDeRecursos(){
-		Jugador j = new Jugador(new Protoss(),new Recursos(1000,100));
-		Acceso b = new Acceso(); //costo 150
-		PortalEstelar f = new PortalEstelar(); //costo 200,100
-		ArchivosTemplarios p = new ArchivosTemplarios(); //costo 150,100
+		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,100));
+		Acceso a;
+		PortalEstelar p;
+		ArchivosTemplarios at;
 		
-		j.construir(b);
-		j.construir(f);
-		j.construir(p);
+		a = j.construirAcceso(); //costo 150
+		p = j.construirPortalEstelar(); //costo 200,100
+		at = j.construirArchivosTemplarios(); //costo 150,100
 
 		Assert.assertFalse(j.buscarConstruccion(p));
 	}
 	
 	@Test
 	public void JugadorNoPuedeConstruirPilonPorFaltaDeRecursos(){
-		Jugador j = new Jugador(new Protoss(),new Recursos(0,0));
-		Pilon p = new Pilon(j);
+		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
+		Pilon p;
 		
-		j.construir(p);
+		p = j.construirPilon();
 
 		Assert.assertFalse(j.buscarConstruccion(p));
 	}
 	
 	@Test
 	public void JugadorNoPuedeConstruirAsimiladorPorFaltaDeRecursos(){
-		Recursos r = new Recursos(0,0);
-		Jugador j = new Jugador(new Protoss(),r);
-		Asimilador p = new Asimilador(r);
+		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
+		Asimilador a;
 		
-		j.construir(p);
+		a = j.construirAsimilador();
 
-		Assert.assertFalse(j.buscarConstruccion(p));
+		Assert.assertFalse(j.buscarConstruccion(a));
 	}
-	
+
 }

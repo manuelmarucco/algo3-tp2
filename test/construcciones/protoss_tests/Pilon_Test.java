@@ -1,18 +1,18 @@
 package construcciones.protoss_tests;
 
 import jugabilidad.Jugador;
+import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Recursos;
 
+import jugabilidad.auxiliares.Suministros;
 import org.junit.Assert;
 import org.junit.Test;
-
-import razas.Protoss;
 import construcciones.protoss.Pilon;
 
 public class Pilon_Test {
 	@Test
 	public void VidaEscudoInicializado() {
-		Pilon a = new Pilon(new Jugador(new Protoss(),new Recursos(100,100)));
+		Pilon a = new Pilon(new Suministros());
 		
 
 		Assert.assertEquals(300, a.getVida());
@@ -21,7 +21,7 @@ public class Pilon_Test {
 	
 	@Test
 	public void capacidadExtraInicializada() {
-		Pilon p = new Pilon(new Jugador(new Protoss(),new Recursos(100,100)));
+		Pilon p = new Pilon(new Suministros());
 		
 		Assert.assertEquals(5,p.getCapacidadExtra());
 	}

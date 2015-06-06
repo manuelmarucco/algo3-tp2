@@ -6,32 +6,19 @@ import interfaces.Construible;
 import interfaces.Entrenable;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
-import razas.Raza;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class Jugador {
-	
-	private Raza raza;
-	private Recursos recursosRecolectados;
-	private Suministros suministros;
-	private ArrayList<Construible> construccionesCreadas = new ArrayList<Construible>();
-	private ArrayList<Entrenable> unidadesCreadas = new ArrayList<Entrenable>();
-	private ArrayList<Construible> colaDeConstruccion = new ArrayList<Construible>();
+public abstract class Jugador {
 
+	protected Recursos recursosRecolectados;
+	protected Suministros suministros;
+	protected ArrayList<Construible> construccionesCreadas = new ArrayList<Construible>();
+	protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<Entrenable>();
+	protected ArrayList<Construible> colaDeConstruccion = new ArrayList<Construible>();
 
-	public Jugador(Raza r,Recursos recursosIniciales){
-		this.raza = r;
-		this.recursosRecolectados = recursosIniciales;
-		this.suministros =  new Suministros(0,20);
-
-		//HAY QUE HACER QUE EL JUGADOR EMPIECE CON 5 RECOLECTARES....
-		//EL PROBLEMA DE ESTO ES QUE DEPENDE LA ESTRUCTURA EN CADA RAZA... HAY QUE VER COMO LO RESOLVEMOS
-	}
-	
-
-	public void construir(Construible construccionCreada){
+	protected void construir(Construible construccionCreada){
 		
 		try {
 			construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados);
@@ -41,13 +28,7 @@ public class Jugador {
 		}
 		
 		colaDeConstruccion.add(construccionCreada);
-		
-		//construccionesCreadas.add(construccionCreada);
-	}
-	
-	
-	public Raza getRaza(){
-		return raza;
+
 	}
 
 	public Recursos getRecursos() {
@@ -93,11 +74,12 @@ public class Jugador {
 		
 	}
 
-
+	/*
 	public void aumentarSuministros(int capacidadExtra) {
 		suministros.aumentarSuministrosDisponibles(capacidadExtra);
 		
 	}
+	*/
 
 	public boolean buscarUnidad(Entrenable m) {
 		for(Entrenable e: unidadesCreadas){

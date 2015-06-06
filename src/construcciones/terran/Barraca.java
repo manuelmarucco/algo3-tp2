@@ -27,8 +27,10 @@ public class Barraca extends CentroDeEntrenamiento {
 	}
 
 
-	public void entrenarMarine(Marine m){
+	public Marine entrenarMarine(){
+		Marine m = new Marine();
 		this.colaDeEntrenamiento.add(m);
+		return m;
 	}
 
 	@Override

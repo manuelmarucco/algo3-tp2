@@ -36,8 +36,10 @@ public class Fabrica extends CentroDeEntrenamiento{
 	}
 
 
-	public void entrenarGolliat(Golliat g){
+	public Golliat entrenarGolliat(){
+		Golliat g = new Golliat();
 		colaDeEntrenamiento.add(g);
+		return g;
 	}
 
 	@Override
