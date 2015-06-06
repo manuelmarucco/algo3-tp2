@@ -4,6 +4,7 @@ import construcciones.terran.*;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
+import jugabilidad.utilidadesMapa.Coordenadas;
 
 public class JugadorTerran extends Jugador {
 
@@ -47,7 +48,7 @@ public class JugadorTerran extends Jugador {
         return depositoDeSuministros;
     }
 
-    public CentroDeMineral construirCentroDeMineral(){
+    public CentroDeMineral construirCentroDeMineral(Coordenadas coordenadas){
         CentroDeMineral centroDeMineral = new CentroDeMineral(this.recursosRecolectados);
 
         this.construir(centroDeMineral);

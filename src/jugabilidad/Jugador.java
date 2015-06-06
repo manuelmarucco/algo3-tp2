@@ -26,8 +26,10 @@ public abstract class Jugador {
 			e.printStackTrace();
 			return;
 		}
-		
+		//EdificioEnConstruccion edificioEnConstruccion = new EdificioEnConstruccion(coordenadas,construccionCreadas);
+		//colaDeConstruccion.add(edificioEnConstruccion);
 		colaDeConstruccion.add(construccionCreada);
+
 
 	}
 
@@ -45,18 +47,20 @@ public abstract class Jugador {
 	}
 
 	public void update() {
-		for (Iterator<Construible> iterator = colaDeConstruccion.iterator(); iterator.hasNext();) {
-			Construible c = iterator.next();
-			
-			c.update();
-			
-			if(c.getTiempoDeConstruccion() == 0)
-				construccionesCreadas.add(c);
-			//AGREGAR LA CONSTRUCCION AL MAPA	
-			//c.agregarse(mapa????,coordenadas???);
-			
-		}
-		
+		for (Construible c : colaDeConstruccion) {
+		// for (EdificioEnConstruccion e : colaDeConstruccion) {
+
+				c.update(); //baja el tiempo de construccion del edificioEnConstruccion
+
+				if (c.getTiempoDeConstruccion() == 0) {
+					construccionesCreadas.add(c);
+
+					//Construible t = e.finalizarConstruccion();
+					//construccionesCreadas.add(t);
+					//t.agregarseEnMapa(mapa,e.getCoordenadas());
+					//colaDeConstruccion.remove(e);
+				}
+			}
 	}
 	
 	public boolean buscarConstruccion(Construible c1){

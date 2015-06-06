@@ -23,8 +23,6 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 	
 	//protected Regeneracion regenerar;
 
-
-	protected String nombre;
 	protected Costo costo;
 	protected int tiempoDeConstruccion;
 	protected Vida vida;

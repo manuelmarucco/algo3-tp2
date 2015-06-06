@@ -3,12 +3,15 @@ package tests_de_integracion;
 import construcciones.terran.*;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
+import jugabilidad.Mapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import recursos.Cristal;
 
 import java.util.ArrayList;
 
@@ -30,15 +33,21 @@ public class ConstruccionesTerranTest {
 	}
 	
 	@Test
-	public void SeConstruyeUnaCentroDeMineral() {
-
+	public void SeConstruyeUnaCentroDeMineralSobreUnCristal() {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
-		CentroDeMineral b = new CentroDeMineral(j.getRecursos());
-		
-		j.construirCentroDeMineral();
+		Mapa mapa = new Mapa();
+		Coordenadas coordenadas = new Coordenadas(1,1);
+		Cristal cristal = new Cristal();
+		CentroDeMineral centroDeMineral;
+
+		mapa.agregar(cristal,coordenadas);
+
+		centroDeMineral = j.construirCentroDeMineral(coordenadas);
 		 for (int i = 0; i < 6; i ++) j.update();
+
+		mapa.agregar(centroDeMineral,coordenadas);
 		
-		Assert.assertTrue(j.buscarConstruccion(b));
+		Assert.assertTrue(j.buscarConstruccion(centroDeMineral));
 	}
 	
 	@Test
@@ -176,7 +185,7 @@ public class ConstruccionesTerranTest {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		CentroDeMineral c;
 		
-		c = j.construirCentroDeMineral();
+		c = j.construirCentroDeMineral(coordenadas);
 
 		Assert.assertFalse(j.buscarConstruccion(c));
 	}

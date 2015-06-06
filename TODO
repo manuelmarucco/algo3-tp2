@@ -1,0 +1,10 @@
+TODO:
+
+Tengo que borrar el metodo update en Construccion y sobrecargarlo en cada Centro (entrneamiento,etc)
+de manera distinta.
+
+Para el caso del CentroDeSuministros por ahora no hace nada pero en el futuro lo q hara es q si deja de existir
+le reduzca al jugador los suministros.
+
+Todas las construcciones van a tener qe ser construidas pasandole una coordenada
+
