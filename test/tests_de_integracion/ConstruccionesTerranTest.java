@@ -76,7 +76,7 @@ public class ConstruccionesTerranTest {
 	public ExpectedException exception = ExpectedException.none();
 	@Test
 	public void SeQuiereCrearFabricaPeroNoEncuentraBarracaYExcepcion() throws ExcepcionNoSePuedeConstruir {
-		ArrayList<Construible> cs =  new ArrayList<Construible>();
+		ArrayList<Construible> cs =  new ArrayList<>();
 		Recursos r = new Recursos(1000,1000);
 		cs.add(new CentroDeMineral(r));
 		
@@ -92,7 +92,7 @@ public class ConstruccionesTerranTest {
 	public ExpectedException exception2 = ExpectedException.none();
 	@Test
 	public void SeQuiereCrearPuertoEstelarPeroNoEncuentraFabricaYExcepcion() throws ExcepcionNoSePuedeConstruir{
-		ArrayList<Construible> cs =  new ArrayList<Construible>();
+		ArrayList<Construible> cs =  new ArrayList<>();
 		Recursos recursosRecolectados =  new Recursos(1000,1000);
 		
 		cs.add(new Barraca());
@@ -107,8 +107,8 @@ public class ConstruccionesTerranTest {
 	@Test
 	public void JugadorCreaFabricaConBarracaPrevia(){
 		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
-		Barraca b = new Barraca();
-		Fabrica f = new Fabrica();
+		Barraca b = new Barraca(j);
+		Fabrica f = new Fabrica(j);
 		int i1 = b.getTiempoDeConstruccion(),
 			i2 = f.getTiempoDeConstruccion();
 		

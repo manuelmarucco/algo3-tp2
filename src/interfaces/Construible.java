@@ -2,6 +2,7 @@ package interfaces;
 
 import java.util.ArrayList;
 
+import construcciones.Construccion;
 import jugabilidad.auxiliares.Recursos;
 import excepciones.ExcepcionNoSePuedeConstruir;
 

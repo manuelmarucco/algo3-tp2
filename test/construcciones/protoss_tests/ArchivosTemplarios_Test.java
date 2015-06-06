@@ -4,13 +4,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import construcciones.protoss.ArchivosTemplarios;
-import construcciones.protoss.ConstruccionProtoss;
 
 public class ArchivosTemplarios_Test {
 
 	@Test
 	public void VidaInicializada() {
-		ConstruccionProtoss a = new ArchivosTemplarios();
+		ArchivosTemplarios a = new ArchivosTemplarios();
 		
 		Assert.assertEquals(500, a.getVida());
 		Assert.assertEquals(500, a.getEscudo());

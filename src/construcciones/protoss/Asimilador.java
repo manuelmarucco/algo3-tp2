@@ -1,6 +1,7 @@
 package construcciones.protoss;
 
 import construcciones.CentroDeEntrenamiento;
+import construcciones.CentroDeRecoleccion;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
@@ -9,10 +10,8 @@ import unidades.Escudo;
 import unidades.Vida;
 
 
-public class Asimilador extends CentroDeEntrenamiento {
-	
-	private final int gasRecolectado = 10; //por turno
-	private Recursos recursosDeJugador;
+public class Asimilador extends CentroDeRecoleccion {
+
 	private Escudo escudo;
 	
 	public Asimilador(Recursos recursos){
@@ -24,27 +23,15 @@ public class Asimilador extends CentroDeEntrenamiento {
 		recursosDeJugador = recursos;
 	}
 
+
+	public int getEscudo() {
+		return escudo.getEscudoActual();
+	}
+
 	@Override
 	public void recibirDanio(int danioParcial){
 		vida.quitar(escudo.quitar(danioParcial));
 	}
-	
-
-	@Override
-	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-		
-		mapa.agregarEnTierra(this, coordenadas);
-		
-	}
-
-	@Override
-	public void update() {
-		recursosDeJugador.agregarRecursos(0, gasRecolectado);
-		super.update();
-	}
-
-
-
 
 
 }

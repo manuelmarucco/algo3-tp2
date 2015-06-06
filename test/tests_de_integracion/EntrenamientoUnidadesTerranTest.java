@@ -32,12 +32,13 @@ public class EntrenamientoUnidadesTerranTest {
 		Jugador j = new Jugador(new Terran(),new Recursos(1000,0));
 		Barraca b = new Barraca(j);
 		Marine m = new Marine();
+		int tem = m.getTiempoDeEntrenamiento();
 
 		j.construir(b);
 		for(int i = 0; i<12; i++) j.update();
 
 		b.entrenarMarine(m);
-		for(int i = 0; i<m.getTiempoDeEntrenamiento(); i++) j.update();
+		for(int i = 0; i<tem-1; i++) j.update();
 
 		Assert.assertFalse(j.buscarUnidad(m));
 	}
@@ -48,16 +49,42 @@ public class EntrenamientoUnidadesTerranTest {
 		Barraca b = new Barraca(j);
 		Fabrica f = new Fabrica(j);
 		Golliat g = new Golliat();
+		int	 i1 = b.getTiempoDeConstruccion(),
+				i2 = f.getTiempoDeConstruccion(),
+				i3 = g.getTiempoDeEntrenamiento();
+
 
 		j.construir(b);
-		for(int i = 0; i<12; i++) j.update();
+		for(int i = 0; i<i1; i++) j.update();
 		j.construir(f);
-		for(int i = 0; i<12; i++) j.update();
+		for(int i = 0; i<i2; i++) j.update();
 
 		f.entrenarGolliat(g);
-		for(int i = 0; i<g.getTiempoDeEntrenamiento(); i++) j.update();
+		for(int i = 0; i<i3; i++) j.update();
 
 		Assert.assertTrue(j.buscarUnidad(g));
+	}
+
+	@Test
+	public void entrenoGolliatYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() {
+		Jugador j = new Jugador(new Terran(),new Recursos(1000,1000));
+		Barraca b = new Barraca(j);
+		Fabrica f = new Fabrica(j);
+		Golliat g = new Golliat();
+		int	 i1 = b.getTiempoDeConstruccion(),
+				i2 = f.getTiempoDeConstruccion(),
+				i3 = g.getTiempoDeEntrenamiento();
+
+
+		j.construir(b);
+		for(int i = 0; i<i1; i++) j.update();
+		j.construir(f);
+		for(int i = 0; i<i2; i++) j.update();
+
+		f.entrenarGolliat(g);
+		for(int i = 0; i<i3-1; i++) j.update();
+
+		Assert.assertFalse(j.buscarUnidad(g));
 	}
 /*
 	@Test

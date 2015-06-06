@@ -20,23 +20,15 @@ public class Acceso extends CentroDeEntrenamiento {
 	}
 
 
+	public int getEscudo() {
+		return escudo.getEscudoActual();
+	}
+
 	@Override
 	public void recibirDanio(int danioParcial){
 		vida.quitar(escudo.quitar(danioParcial));
 	}
 
-	@Override
-	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-		
-		mapa.agregarEnTierra(this, coordenadas);
-		
-	}
-
-	@Override
-	public void update() {
-		super.update();
-	}
-	
 
 	public boolean habilitaAConstruir(PortalEstelar t) {
 		return true;

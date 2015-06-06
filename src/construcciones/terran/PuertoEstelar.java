@@ -28,22 +28,13 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 
 	}
 
-	@Override
-	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-		
-		mapa.agregarEnTierra(this, coordenadas);
-		
-	}
-
-
 
 	@Override
 	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados) throws ExcepcionNoSePuedeConstruir{
 		boolean construible = false;
-		
-		for (Iterator<T> iterator = cs.iterator(); iterator.hasNext();) {
-			T c = iterator.next();
-			if(((Construccion)c).habilitaAConstruir(this))
+
+		for (T c : cs) {
+			if (((Construccion) c).habilitaAConstruir(this))
 				construible = true;
 		}
 		

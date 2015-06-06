@@ -20,14 +20,6 @@ public class DepositoDeSuministros extends CentroDeSuministros{
 		jugador.aumentarSuministros(capacidadExtra);
 	}
 
-	
-	@Override
-	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-		
-		mapa.agregarEnTierra(this, coordenadas);
-		
-	}
-
 
 	@Override
 	public void recibirDanio(int danioParcial){

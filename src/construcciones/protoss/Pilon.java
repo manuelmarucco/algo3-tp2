@@ -10,8 +10,7 @@ import unidades.Vida;
 
 
 public class Pilon extends CentroDeSuministros {
-	
-	private final int capacidadExtra = 5;
+
 	private Escudo escudo;
 	
 	public Pilon(Jugador jugador){
@@ -20,24 +19,15 @@ public class Pilon extends CentroDeSuministros {
 		escudo = new Escudo(300);
 		this.costo = new Costo(100,0);
 		this.tiempoDeConstruccion = 5;
+		this.capacidadExtra = 5;
 		jugador.aumentarSuministros(capacidadExtra);
 	}
-	
-	public int getCapacidadExtra(){
-		return capacidadExtra;
-	}
 
+	public int getEscudo() {return escudo.getEscudoActual();}
 
 	@Override
 	public void recibirDanio(int danioParcial){
 		vida.quitar(escudo.quitar(danioParcial));
-	}
-
-	@Override
-	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-		
-		mapa.agregarEnTierra(this, coordenadas);
-		
 	}
 
 }

@@ -4,13 +4,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import construcciones.protoss.Acceso;
-import construcciones.protoss.ConstruccionProtoss;
 
 public class ConstruccionProtoss_Test {
 
 	@Test
 	public void DanioAlEscudoPeroNoLlegaALaVida() {
-		ConstruccionProtoss construccion = new Acceso();
+		Acceso construccion = new Acceso();
 		
 		int escudo = construccion.getEscudo();
 		
@@ -21,7 +20,7 @@ public class ConstruccionProtoss_Test {
 	
 	@Test
 	public void DanioMuchoEscudoYLlegaADaniarVida() {
-		ConstruccionProtoss construccion = new Acceso();
+		Acceso construccion = new Acceso();
 		
 		int escudo = construccion.getEscudo();
 		int vida = construccion.getVida();

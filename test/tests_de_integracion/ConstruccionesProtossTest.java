@@ -48,7 +48,7 @@ public class ConstruccionesProtossTest {
 	}
 	
 	@Test
-	public void SeConstruyeUnaRefineria() {
+public void SeConstruyeUnaAsimilador() {
 
 		Jugador j = new Jugador(new Protoss(),new Recursos(1000,1000));
 		Asimilador b = new Asimilador(j.getRecursos());
@@ -80,7 +80,7 @@ public class ConstruccionesProtossTest {
 	public ExpectedException exception = ExpectedException.none();
 	@Test
 	public void SeQuiereCrearPortalEstelarPeroNoEncuentraAccesoYExcepcion() throws ExcepcionNoSePuedeConstruir {
-		ArrayList<Construible> cs =  new ArrayList<Construible>();
+		ArrayList<Construible> cs =  new ArrayList<>();
 		Recursos recursosRecolectados = new Recursos(1000,1000);
 		
 		cs.add(new NexoMineral(recursosRecolectados));
@@ -97,7 +97,7 @@ public class ConstruccionesProtossTest {
 	public ExpectedException exception2 = ExpectedException.none();
 	@Test
 	public void SeQuiereCrearArchivosTemplariosrPeroNoEncuentraPortalEstelarYExcepcion() throws ExcepcionNoSePuedeConstruir {
-		ArrayList<Construible> cs =  new ArrayList<Construible>();
+		ArrayList<Construible> cs =  new ArrayList<>();
 		Recursos recursosRecolectados = new Recursos(1000,1000);
 
 		cs.add(new Acceso());

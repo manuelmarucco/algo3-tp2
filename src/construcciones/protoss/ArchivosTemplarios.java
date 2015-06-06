@@ -29,17 +29,10 @@ public class ArchivosTemplarios extends CentroDeEntrenamiento {
 		tiempoDeConstruccion = 9;
 	}
 
-	@Override
-	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-		
-		mapa.agregarEnTierra(this, coordenadas);
-		
-	}
 
-	@Override
-	public void update() {
-		super.update();
-		
+
+	public int getEscudo() {
+		return escudo.getEscudoActual();
 	}
 
 	@Override
@@ -52,7 +45,7 @@ public class ArchivosTemplarios extends CentroDeEntrenamiento {
 		boolean construible = false;
 
 		for (T c : cs) {
-			if (((Construccion) c).habilitaAConstruir(this))
+			if ( ((Construccion)c).habilitaAConstruir(this))
 				construible = true;
 		}
 		
@@ -64,3 +57,4 @@ public class ArchivosTemplarios extends CentroDeEntrenamiento {
 	}
 
 }
+

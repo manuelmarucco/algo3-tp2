@@ -2,6 +2,7 @@ package construcciones.protoss;
 
 
 import construcciones.CentroDeEntrenamiento;
+import construcciones.CentroDeRecoleccion;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
@@ -10,10 +11,8 @@ import unidades.Escudo;
 import unidades.Vida;
 
 
-public class NexoMineral extends CentroDeEntrenamiento {
+public class NexoMineral extends CentroDeRecoleccion {
 
-	private final int mineralesRecolectados = 10; //por turno
-	private Recursos recursosDeJugador;
 	private Escudo escudo;
 
 	public NexoMineral(Recursos recursos){
@@ -25,22 +24,14 @@ public class NexoMineral extends CentroDeEntrenamiento {
 		recursosDeJugador = recursos;
 	}
 
+	public int getEscudo() {
+		return escudo.getEscudoActual();
+	}
+
 	@Override
 	public void recibirDanio(int danioParcial){
 		vida.quitar(escudo.quitar(danioParcial));
 	}
 
-	@Override
-	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-		
-		mapa.agregarEnTierra(this, coordenadas);
-		
-	}
-
-	@Override
-	public void update() {
-		recursosDeJugador.agregarRecursos(mineralesRecolectados, 0);
-		super.update();
-	}
 
 }

@@ -25,13 +25,7 @@ public class Barraca extends CentroDeEntrenamiento {
 		this.jugador = j;
 		
 	}
-	
-	@Override
-	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-		
-		mapa.agregarEnTierra(this, coordenadas);
-		
-	}
+
 
 	public void entrenarMarine(Marine m){
 		this.colaDeEntrenamiento.add(m);

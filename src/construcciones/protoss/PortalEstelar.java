@@ -1,5 +1,7 @@
 package construcciones.protoss;
 
+import construcciones.CentroDeEntrenamiento;
+import construcciones.Construccion;
 import interfaces.Construible;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
@@ -11,38 +13,36 @@ import java.util.Iterator;
 
 import excepciones.ExcepcionNecesitaConstruirAcceso;
 import excepciones.ExcepcionNoSePuedeConstruir;
+import unidades.Escudo;
+import unidades.Vida;
 
 
-public class PortalEstelar extends ConstruccionProtoss{
-	
-	//necesita que el Acceso haya sido construida para poder crearse
-	
+public class PortalEstelar extends CentroDeEntrenamiento{
+
+	private Escudo escudo;
+
 	public PortalEstelar(){
-		super(600,600);
-		nombre = "PortalEstelar";
+		vida = new Vida(600);
+		escudo = new Escudo(600);
 		costo = new Costo(150,150);
 		tiempoDeConstruccion = 10;
 	}
 
-	@Override
-	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-		
-		mapa.agregarEnTierra(this, coordenadas);
-		
+	public int getEscudo() {
+		return escudo.getEscudoActual();
 	}
 
 	@Override
-	public void update() {
-		super.update();
+	public void recibirDanio(int danioParcial){
+		vida.quitar(escudo.quitar(danioParcial));
 	}
 
 	@Override
 	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados) throws ExcepcionNoSePuedeConstruir{
 		boolean construible = false;
-		
-		for (Iterator<T> iterator = cs.iterator(); iterator.hasNext();) {
-			T c = iterator.next();
-			if(((ConstruccionProtoss)c).habilitaAConstruir(this))
+
+		for (T c : cs) {
+			if (((Construccion) c).habilitaAConstruir(this))
 				construible = true;
 		}
 		

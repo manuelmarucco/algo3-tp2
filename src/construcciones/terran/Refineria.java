@@ -19,19 +19,6 @@ public class Refineria extends CentroDeRecoleccion {
 		this.recursosDeJugador = recursos;
 	}
 
-
-	@Override
-	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-
-		this.estructuraRecolectable = (Recolectable) mapa.getTerrestre(coordenadas);
-		mapa.borrarTerrestre(coordenadas);
-
-		mapa.agregarEnTierra(this, coordenadas);
-		
-	}
-
-
-
 	@Override
 	public void recibirDanio(int danioParcial){
 
