@@ -117,12 +117,12 @@ public class UnidadesTerranTest {
         at.update();
         at.update();
         at.alucinacion(at, c3, c4);
-        Assert.assertEquals(ClonMagico.class, mapa.getTerrestre(c3).getClass());
-        Assert.assertEquals(ClonMagico.class, mapa.getTerrestre(c4).getClass());
+        Assert.assertEquals(ClonMagico.class, mapa.obtenerDeCapaTerrestre(c3).getClass());
+        Assert.assertEquals(ClonMagico.class, mapa.obtenerDeCapaTerrestre(c4).getClass());
         nc.EMP(c2);
 
-        Assert.assertEquals(null, mapa.getTerrestre(c3));
-        Assert.assertEquals(null,mapa.getTerrestre(c4));
+        Assert.assertEquals(null, mapa.obtenerDeCapaTerrestre(c3));
+        Assert.assertEquals(null,mapa.obtenerDeCapaTerrestre(c4));
     }
 
 }

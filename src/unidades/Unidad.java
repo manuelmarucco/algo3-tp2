@@ -10,13 +10,12 @@ import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable,Entrenable  {
-    protected String nombre;
     protected Vida vida;
     protected int vision;
     protected Ubicacion ubicacion;
     protected Costo costo;
     protected int suministro;
-    protected Estado estado;
+    protected EstadoUnidad estado;
     protected int tiempoDeEntrenamiento;
 
     protected Unidad(){
@@ -51,16 +50,16 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
     }
     
     @Override
-    public void agregarse(Mapa mapa, Coordenadas coordenadas) {
+    public void agregarse(Coordenadas coordenadas) {
+        Mapa mapa = SingletonMapa.getInstance();
+       this.agregarse(mapa,coordenadas);
+    }
+
+    @Override
+    public void agregarse(Mapa mapa,Coordenadas coordenadas) {
         this.ubicacion.agregarse(this, mapa, coordenadas);
     }
-    
-    
-    /*
-	public String getNombre() {
-		return nombre;
-	}
-*/
+
     @Override
 	public int getSuministro() {
 

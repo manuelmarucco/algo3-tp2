@@ -10,6 +10,7 @@ import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import jugabilidad.Mapa;
+import jugabilidad.SingletonMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -51,10 +52,15 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 
 
 	@Override
+	public void agregarse( Coordenadas coordenadas) {
+		Mapa mapa = SingletonMapa.getInstance();
+		this.agregarse(mapa,coordenadas);
+
+	}
+
+	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-
 		mapa.agregarEnCapaTerrestre(this, coordenadas);
-
 	}
 
 

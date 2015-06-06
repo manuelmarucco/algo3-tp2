@@ -10,13 +10,13 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Aereo;
 import unidades.Danio;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 
 public class NaveTransporte extends UnidadTerran {
 
     private static int tranporteMax = 8;
-    private List<Cargable> unidades;
+    private Queue<Cargable> unidades;
 
     public NaveTransporte(){
         super(150);
@@ -24,7 +24,7 @@ public class NaveTransporte extends UnidadTerran {
         this.ubicacion = new Aereo();
         this.suministro = 2;
         this.costo=new Costo(100,100);
-        this.unidades= new ArrayList<Cargable>();
+        this.unidades= new LinkedList<>();
     }
 
     @Override
@@ -50,6 +50,6 @@ public class NaveTransporte extends UnidadTerran {
 
     public void descargar(Coordenadas coordenadas){
         Mapa mapa=SingletonMapa.getInstance();
-        mapa.agregar((ColocableEnMapa)unidades.remove(0),coordenadas);
+        mapa.agregar((ColocableEnMapa)unidades.remove(),coordenadas);
     }
 }

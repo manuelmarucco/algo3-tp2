@@ -2,6 +2,7 @@ package construcciones;
 
 import interfaces.Recolectable;
 import jugabilidad.Mapa;
+import jugabilidad.SingletonMapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
@@ -24,8 +25,8 @@ public abstract class CentroDeRecoleccion extends Construccion {
 
 
     @Override
-    public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-
+    public void agregarse(Coordenadas coordenadas) {
+        Mapa mapa= SingletonMapa.getInstance();
         this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaTerrestre(coordenadas);
         mapa.borrarTerrestre(coordenadas);
 

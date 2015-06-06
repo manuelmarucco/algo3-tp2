@@ -60,7 +60,7 @@ public abstract class Jugador {
 			if (e.getTiempoDeConstruccion() == 0) {
 				Construible t = e.finalizarConstruccion();
 				construccionesCreadas.add(t);
-				((Construccion) t).agregarse(mapa, e.getCoordenada());
+				((Construccion) t).agregarse(e.getCoordenada());
 				//para evitar casteo hacer que Construible herede de Actualizable
 				edificiosEnConstruccion.remove(e);
 			}

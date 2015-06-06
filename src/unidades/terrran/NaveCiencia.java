@@ -69,4 +69,9 @@ public class NaveCiencia extends UnidadTerran{
             this.energia.gastar(this.energia.getEnergiaActual());
         } catch (EnergiaInsuficiente energiaInsuficiente) {}
     }
+
+    @Override
+    public void agregarse(Mapa mapa, Coordenadas coordenadas) {
+        mapa.agregarEnCapaAerea(this,coordenadas);
+    }
 }

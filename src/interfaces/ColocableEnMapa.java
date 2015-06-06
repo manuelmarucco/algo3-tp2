@@ -5,6 +5,7 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 
 public interface ColocableEnMapa{
 
-	void agregarse(Mapa mapa, Coordenadas coordenadas);
+	void agregarse(Coordenadas coordenadas);
+	void agregarse(Mapa mapa,Coordenadas coordenadas);
 	
 }

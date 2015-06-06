@@ -6,7 +6,7 @@ import jugabilidad.Mapa;
 import jugabilidad.SingletonMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
-public class EstadoIrradiado implements Estado {
+public class EstadoIrradiado implements EstadoUnidad {
     @Override
     public void update(ColocableEnMapa daniable) {
         Danio d=new Danio(10, 10, 1, 1);

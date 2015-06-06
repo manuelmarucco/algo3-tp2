@@ -21,7 +21,7 @@ public class Mapa {
 
 	public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas){
 		
-		colocable.agregarse(this, coordenadas);
+		colocable.agregarse(this,coordenadas);
 		
 	}
 	
@@ -75,13 +75,13 @@ public class Mapa {
 
 	public boolean posicionAereaOcupada(Coordenadas coordenadas) {
 
-		return (this.capaAerea.containsValue(coordenadas));
+		return (this.capaAerea.containsKey(coordenadas));
 
 	}
 
 	public boolean posicionTerrestreOcupada(Coordenadas coordenadas) {
 
-		return (this.capaTerrestre.containsValue(coordenadas));
+		return (this.capaTerrestre.containsKey(coordenadas));
 
 	}
 

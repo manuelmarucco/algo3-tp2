@@ -1,11 +1,10 @@
 package construcciones.protoss;
 
 import construcciones.CentroDeEntrenamiento;
-import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
-import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Escudo;
 import unidades.Vida;
+
 
 
 public class Acceso extends CentroDeEntrenamiento {

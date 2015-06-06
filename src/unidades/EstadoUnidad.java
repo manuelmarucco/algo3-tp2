@@ -2,6 +2,6 @@ package unidades;
 
 import interfaces.ColocableEnMapa;
 
-public interface Estado {
+public interface EstadoUnidad {
     void update(ColocableEnMapa daniable);
 }
