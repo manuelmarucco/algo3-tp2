@@ -16,34 +16,34 @@ public class JugadorTerran extends Jugador {
         //EL PROBLEMA DE ESTO ES QUE DEPENDE LA ESTRUCTURA EN CADA RAZA... HAY QUE VER COMO LO RESOLVEMOS
     }
 
-    public Barraca construirBarraca(){
+    public Barraca construirBarraca(Coordenadas coordenadas){
         Barraca barraca = new Barraca(this);
 
-        this.construir(barraca);
+        this.construir(barraca,coordenadas);
 
         return barraca;
     }
 
-    public Fabrica construirFabrica(){
+    public Fabrica construirFabrica(Coordenadas coordenadas){
         Fabrica fabrica = new Fabrica(this);
 
-        this.construir(fabrica);
+        this.construir(fabrica,coordenadas);
 
         return fabrica;
     }
 
-    public PuertoEstelar construirPuertoEstelar(){
+    public PuertoEstelar construirPuertoEstelar(Coordenadas coordenadas){
         PuertoEstelar puertoEstelar = new PuertoEstelar();
 
-        this.construir(puertoEstelar);
+        this.construir(puertoEstelar,coordenadas);
 
         return puertoEstelar;
     }
 
-    public DepositoDeSuministros construirDepositoDeSuministros(){
+    public DepositoDeSuministros construirDepositoDeSuministros(Coordenadas coordenadas){
         DepositoDeSuministros depositoDeSuministros = new DepositoDeSuministros(this.suministros);
 
-        this.construir(depositoDeSuministros);
+        this.construir(depositoDeSuministros,coordenadas);
 
         return depositoDeSuministros;
     }
@@ -51,15 +51,15 @@ public class JugadorTerran extends Jugador {
     public CentroDeMineral construirCentroDeMineral(Coordenadas coordenadas){
         CentroDeMineral centroDeMineral = new CentroDeMineral(this.recursosRecolectados);
 
-        this.construir(centroDeMineral);
+        this.construir(centroDeMineral,coordenadas);
 
         return centroDeMineral ;
     }
 
-    public Refineria construirRefineria(){
+    public Refineria construirRefineria(Coordenadas coordenadas){
         Refineria refineria = new Refineria(this.recursosRecolectados);
 
-        this.construir(refineria);
+        this.construir(refineria,coordenadas);
 
         return refineria ;
     }

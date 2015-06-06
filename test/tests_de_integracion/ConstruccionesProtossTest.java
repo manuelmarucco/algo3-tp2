@@ -5,7 +5,7 @@ import excepciones.ExcepcionNecesitaConstruirAcceso;
 import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
-import jugabilidad.razaDeJugador.JugadorProtoss;
+import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
@@ -50,7 +50,7 @@ public class ConstruccionesProtossTest {
 		
 		Assert.assertTrue(j.buscarConstruccion(n));
 	}
-	
+
 	@Test
 public void SeConstruyeUnaAsimilador() {
 
@@ -65,7 +65,7 @@ public void SeConstruyeUnaAsimilador() {
 		
 		Assert.assertTrue(j.buscarConstruccion(a));
 	}
-	
+
 	@Test
 	public void SeConstruyeUnPilon() {
 

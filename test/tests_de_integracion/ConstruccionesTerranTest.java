@@ -3,16 +3,13 @@ package tests_de_integracion;
 import construcciones.terran.*;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
-import jugabilidad.Mapa;
-import jugabilidad.SingletonMapa;
-import jugabilidad.razaDeJugador.JugadorTerran;
+import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import recursos.Cristal;
 
 import java.util.ArrayList;
 

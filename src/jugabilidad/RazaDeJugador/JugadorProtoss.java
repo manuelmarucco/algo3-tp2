@@ -4,6 +4,7 @@ import construcciones.protoss.*;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
+import jugabilidad.utilidadesMapa.Coordenadas;
 
 public class JugadorProtoss extends Jugador {
 
@@ -15,51 +16,52 @@ public class JugadorProtoss extends Jugador {
         //EL PROBLEMA DE ESTO ES QUE DEPENDE LA ESTRUCTURA EN CADA RAZA... HAY QUE VER COMO LO RESOLVEMOS
     }
 
-    public Acceso construirAcceso(){
+    public Acceso construirAcceso(Coordenadas coordenadas){
         Acceso acceso = new Acceso();
 
-        this.construir(acceso);
+        this.construir(acceso,coordenadas);
 
         return acceso;
     }
 
-    public PortalEstelar construirPortalEstelar(){
+    public PortalEstelar construirPortalEstelar(Coordenadas coordenadas){
         PortalEstelar portalEstelar = new PortalEstelar();
 
-        this.construir(portalEstelar);
+        this.construir(portalEstelar,coordenadas);
 
         return portalEstelar;
     }
 
-    public ArchivosTemplarios construirArchivosTemplarios(){
+    public ArchivosTemplarios construirArchivosTemplarios(Coordenadas coordenadas){
         ArchivosTemplarios archivosTemplarios = new ArchivosTemplarios();
 
-        this.construir(archivosTemplarios);
+        this.construir(archivosTemplarios,coordenadas);
 
         return archivosTemplarios ;
     }
 
-    public Asimilador construirAsimilador() {
+    public Asimilador construirAsimilador(Coordenadas coordenadas) {
        Asimilador asimilador = new Asimilador(this.recursosRecolectados);
 
-        this.construir(asimilador);
+        this.construir(asimilador,coordenadas);
 
         return asimilador;
     }
 
-    public Pilon construirPilon() {
+    public Pilon construirPilon(Coordenadas coordenadas) {
         Pilon pilon = new Pilon(this.suministros);
 
-        this.construir(pilon);
+        this.construir(pilon,coordenadas);
 
         return pilon;
     }
 
-    public NexoMineral construirNexoMineral() {
+    public NexoMineral construirNexoMineral(Coordenadas coordenadas) {
         NexoMineral nexoMineral = new NexoMineral(recursosRecolectados);
 
-        this.construir(nexoMineral);
+        this.construir(nexoMineral,coordenadas);
 
         return nexoMineral;
     }
+
 }

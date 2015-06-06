@@ -1,14 +1,5 @@
 package tests_de_integracion;
 
-import construcciones.terran.Barraca;
-import construcciones.terran.Fabrica;
-import jugabilidad.razaDeJugador.JugadorTerran;
-import jugabilidad.auxiliares.Recursos;
-import org.junit.Assert;
-import org.junit.Test;
-import unidades.terrran.Golliat;
-import unidades.terrran.Marine;
-
 public class EntrenamientoUnidadesTerranTest {
 /*
 	@Test
