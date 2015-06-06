@@ -24,7 +24,7 @@ public class MapaTest {
 		
 		mapa.agregar( barraca, coordenadas);
 		
-		assertEquals( barraca , mapa.getTerrestre(coordenadas) );
+		assertEquals( barraca , mapa.obtenerDeCapaTerrestre(coordenadas) );
 	
 	}
 	

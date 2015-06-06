@@ -13,7 +13,7 @@ public class BaseTerran extends ConstruccionTerran{
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
-		mapa.agregarEnTierra(this, coordenadas);
+		mapa.agregarEnCapaTerrestre(this, coordenadas);
 		
 	}
 	

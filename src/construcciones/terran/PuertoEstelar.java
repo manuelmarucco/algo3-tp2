@@ -18,7 +18,7 @@ public class PuertoEstelar extends ConstruccionTerran{
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 		
-		mapa.agregarEnTierra(this, coordenadas);
+		mapa.agregarEnCapaTerrestre(this, coordenadas);
 		
 	}
 

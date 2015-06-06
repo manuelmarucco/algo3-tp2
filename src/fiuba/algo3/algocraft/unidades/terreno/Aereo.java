@@ -12,6 +12,6 @@ public class Aereo implements Ubicacion {
 
     @Override
     public void agregarse(ColocableEnMapa unidad,Mapa mapa, Coordenadas coordenadas) {
-        mapa.agregarEnAire(unidad,coordenadas);
+        mapa.agregarCapaAerea(unidad, coordenadas);
     }
 }

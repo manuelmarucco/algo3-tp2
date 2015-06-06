@@ -28,7 +28,7 @@ public class Barraca_tests {
 		Jugador jugador = new Jugador(new Terran(),new Recursos(50,0));
 		Barraca barraca = new Barraca(jugador,mapa);
 		barraca.actuar(Accion.ConstruirMarine,new Coordenadas(1,1));
-		Assert.assertEquals(mapa.getTerrestre(new Coordenadas(1,1)).getClass(), Unidad.class);//cambiar esto y agregar get nombre
+		Assert.assertEquals(mapa.obtenerDeCapaTerrestre(new Coordenadas(1, 1)).getClass(), Unidad.class);//cambiar esto y agregar get nombre
 	}
 
 }
