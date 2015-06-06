@@ -39,7 +39,7 @@ public abstract class CentroDeEntrenamiento extends Construccion{
     @Override
     public void update() {
 
-        super.update();
+       // super.update();
 
         if(!this.colaDeEntrenamiento.isEmpty()){
             Entrenable unidad= this.colaDeEntrenamiento.peek();

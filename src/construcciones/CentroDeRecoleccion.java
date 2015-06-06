@@ -17,7 +17,7 @@ public abstract class CentroDeRecoleccion extends Construccion {
 
     @Override
     public void update() {
-        super.update();
+       // super.update();
         recursosDeJugador.agregarRecursos(0, this.obtenerRecurso());
 
     }

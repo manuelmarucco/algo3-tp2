@@ -8,7 +8,7 @@ public class EdificioEnConstruccion {
     private Construible construccionAConvertirse;
     private int tiempoDeConstruccion;
 
-    public EdificioEnConstruccion(Coordenadas coordenadas, Construccion construccion){
+    public EdificioEnConstruccion(Coordenadas coordenadas, Construible construccion){
         this.coordenadasDeConstruccion = coordenadas;
         this.construccionAConvertirse = construccion;
         this.tiempoDeConstruccion = construccion.getTiempoDeConstruccion();
@@ -18,4 +18,19 @@ public class EdificioEnConstruccion {
         return this.coordenadasDeConstruccion;
     }
 
+    public void disminuirTiempoDeConstruccion() {
+        this.tiempoDeConstruccion--;
+    }
+
+    public int getTiempoDeConstruccion() {
+        return tiempoDeConstruccion;
+    }
+
+    public Construible finalizarConstruccion() {
+        return construccionAConvertirse;
+    }
+
+    public Coordenadas getCoordenada() {
+        return coordenadasDeConstruccion;
+    }
 }

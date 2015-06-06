@@ -1,24 +1,27 @@
 package jugabilidad;
 
+import construcciones.Construccion;
+import construcciones.EdificioEnConstruccion;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import excepciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Construible;
 import interfaces.Entrenable;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
+import jugabilidad.utilidadesMapa.Coordenadas;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public abstract class Jugador {
 
 	protected Recursos recursosRecolectados;
 	protected Suministros suministros;
-	protected ArrayList<Construible> construccionesCreadas = new ArrayList<Construible>();
-	protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<Entrenable>();
-	protected ArrayList<Construible> colaDeConstruccion = new ArrayList<Construible>();
+	protected ArrayList<Construible> construccionesCreadas = new ArrayList<>();
+	protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<>();
+	//protected ArrayList<Construible> colaDeConstruccion = new ArrayList<>();
+	protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion = new ArrayList<>();
 
-	protected void construir(Construible construccionCreada){
+	protected void construir(Construible construccionCreada,Coordenadas coordenadas){
 		
 		try {
 			construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados);
@@ -26,9 +29,10 @@ public abstract class Jugador {
 			e.printStackTrace();
 			return;
 		}
-		//EdificioEnConstruccion edificioEnConstruccion = new EdificioEnConstruccion(coordenadas,construccionCreadas);
-		//colaDeConstruccion.add(edificioEnConstruccion);
-		colaDeConstruccion.add(construccionCreada);
+
+		EdificioEnConstruccion edificioEnConstruccion = new EdificioEnConstruccion(coordenadas,construccionCreada);
+		edificiosEnConstruccion.add(edificioEnConstruccion);
+		//colaDeConstruccion.add(construccionCreada);
 
 
 	}
@@ -47,20 +51,20 @@ public abstract class Jugador {
 	}
 
 	public void update() {
-		for (Construible c : colaDeConstruccion) {
-		// for (EdificioEnConstruccion e : colaDeConstruccion) {
+		Mapa mapa = SingletonMapa.getInstance();
 
-				c.update(); //baja el tiempo de construccion del edificioEnConstruccion
+		for (int i = 0; i < edificiosEnConstruccion.size(); i++) {
+			EdificioEnConstruccion e = edificiosEnConstruccion.get(i);
+			e.disminuirTiempoDeConstruccion();
 
-				if (c.getTiempoDeConstruccion() == 0) {
-					construccionesCreadas.add(c);
-
-					//Construible t = e.finalizarConstruccion();
-					//construccionesCreadas.add(t);
-					//t.agregarseEnMapa(mapa,e.getCoordenadas());
-					//colaDeConstruccion.remove(e);
-				}
+			if (e.getTiempoDeConstruccion() == 0) {
+				Construible t = e.finalizarConstruccion();
+				construccionesCreadas.add(t);
+				((Construccion) t).agregarse(mapa, e.getCoordenada());
+				//para evitar casteo hacer que Construible herede de Actualizable
+				edificiosEnConstruccion.remove(e);
 			}
+		}
 	}
 	
 	public boolean buscarConstruccion(Construible c1){

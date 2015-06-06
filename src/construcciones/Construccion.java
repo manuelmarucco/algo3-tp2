@@ -49,9 +49,6 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 		return tiempoDeConstruccion;
 	}
 
-	public void update() {
-		tiempoDeConstruccion--;
-	}
 
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {

@@ -1,9 +1,5 @@
 package construcciones.protoss_tests;
 
-import jugabilidad.Jugador;
-import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.auxiliares.Recursos;
-
 import jugabilidad.auxiliares.Suministros;
 import org.junit.Assert;
 import org.junit.Test;

@@ -21,7 +21,6 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 
 	
 	public PuertoEstelar(){
-		nombre = "PuertoEstelar";
 		vida = new Vida(1300);
 		costo = new Costo(150,100);
 		tiempoDeConstruccion = 10;
