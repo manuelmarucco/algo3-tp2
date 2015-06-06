@@ -187,17 +187,18 @@ public class ConstruccionesTerranTest {
 	}
 	
 	//// RecursosInsuficientes para Construir
-	/*
+
 	@Test
 	public void JugadorNoPuedeConstruirCentroDeMineralPorFaltaDeRecursos(){
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		CentroDeMineral c;
+		Coordenadas coordenadas = new Coordenadas(1,1);
 		
 		c = j.construirCentroDeMineral(coordenadas);
 
 		Assert.assertFalse(j.buscarConstruccion(c));
 	}
-	*/
+
 	@Test
 	public void JugadorNoPuedeConstruirBarracaPorFaltaDeRecursos(){
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
@@ -245,15 +246,16 @@ public class ConstruccionesTerranTest {
 
 		Assert.assertFalse(j.buscarConstruccion(d));
 	}
-	/*
+
 	@Test
 	public void JugadorNoPuedeConstruirRefineriaPorFaltaDeRecursos(){
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		Refineria r;
+		Coordenadas coordenadas = new Coordenadas(1,1);
 		
-		r = j.construirRefineria();
+		r = j.construirRefineria(coordenadas);
 
 		Assert.assertFalse(j.buscarConstruccion(r));
 	}
-	*/
+
 }
