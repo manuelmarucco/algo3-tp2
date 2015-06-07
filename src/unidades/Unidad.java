@@ -1,11 +1,10 @@
 package unidades;
 
-import excepciones.ExcepcionPosicionOcupada;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
 import interfaces.Entrenable;
-import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -52,10 +51,10 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
 
     // TODO: No se como arreglar este.
     @Override
-    public void agregarse(Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
+    public void agregarse(Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa{
 
-       //ProxyMapa proxyMapa = ProxyMapa.getInstance();
-       //proxyMapa.agregarse(coordenadas);
+       ProxyMapa proxyMapa = ProxyMapa.getInstance();
+       proxyMapa.agregar(this, coordenadas);
 
     }
 

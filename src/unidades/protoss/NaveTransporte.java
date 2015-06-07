@@ -1,11 +1,9 @@
 package unidades.protoss;
 
 import excepciones.ExcepcionCargaSuperada;
-import excepciones.ExcepcionCoordenadaXIngresadaFueraDelMapa;
-import excepciones.ExcepcionCoordenadaYIngresadaFueraDelMapa;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
-import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -55,7 +53,7 @@ public class NaveTransporte extends UnidadProtoss {
         // Por el proxy agrego que tiran excepciones
         try {
             mapa.agregar((ColocableEnMapa)unidades.remove(0),coordenadas);
-        } catch (ExcepcionCoordenadaXIngresadaFueraDelMapa | ExcepcionCoordenadaYIngresadaFueraDelMapa e) {
+        } catch (ExcepcionNoSePudoAgregarAlMapa e) {
             e.printStackTrace();
         }
     }

@@ -4,6 +4,7 @@ import excepciones.ExcepcionObjetivoFueraDeRango;
 import interfaces.Atacante;
 import interfaces.Cargable;
 import interfaces.Daniable;
+import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Danio;
@@ -48,14 +49,14 @@ public class Marine extends UnidadTerran implements Atacante, Cargable {
 
     public void atacarTierra(Coordenadas origen, Coordenadas destino) throws ExcepcionObjetivoFueraDeRango {
         if(origen.distacina(destino) < Marine.Danio.getRangoTerrestre()){
-            this.atacar((Daniable)SingletonMapa.getInstance().obtenerDeCapaTerrestre(destino));
+            this.atacar((Daniable) ProxyMapa.getInstance().obtenerDeCapaTerrestre(destino));
         }
         else throw new ExcepcionObjetivoFueraDeRango();
     }
 
     public void atacarAire(Coordenadas origen, Coordenadas destino) throws ExcepcionObjetivoFueraDeRango {
         if(origen.distacina(destino)<Danio.getRangoAereo()){
-            this.atacar((Daniable)SingletonMapa.getInstance().obtenerDeCapaAerea(destino));
+            this.atacar((Daniable)ProxyMapa.getInstance().obtenerDeCapaAerea(destino));
         }
         else throw new ExcepcionObjetivoFueraDeRango();
     }

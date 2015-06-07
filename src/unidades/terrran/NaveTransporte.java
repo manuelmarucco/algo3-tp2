@@ -1,9 +1,10 @@
 package unidades.terrran;
 
 import excepciones.ExcepcionCargaSuperada;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
-import jugabilidad.Mapa;
+import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Aereo;
@@ -49,7 +50,13 @@ public class NaveTransporte extends UnidadTerran {
     }
 
     public void descargar(Coordenadas coordenadas){
-        Mapa mapa=SingletonMapa.getInstance();
-        mapa.agregar((ColocableEnMapa)unidades.remove(),coordenadas);
+        //Mapa mapa=SingletonMapa.getInstance();
+        ProxyMapa proxy = ProxyMapa.getInstance();
+        //TODO: ver esto
+        try {
+            proxy.agregar((ColocableEnMapa)unidades.remove(),coordenadas);
+        } catch (ExcepcionNoSePudoAgregarAlMapa e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -2,6 +2,7 @@ package jugabilidad;
 
 import excepciones.ExcepcionCoordenadaXIngresadaFueraDelMapa;
 import excepciones.ExcepcionCoordenadaYIngresadaFueraDelMapa;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -37,7 +38,7 @@ public class ProxyMapa {
     }
 
     public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas)
-            throws ExcepcionCoordenadaXIngresadaFueraDelMapa, ExcepcionCoordenadaYIngresadaFueraDelMapa{
+            throws ExcepcionNoSePudoAgregarAlMapa{
 
         validarCoordenadas(coordenadas);
 

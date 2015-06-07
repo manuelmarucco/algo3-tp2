@@ -1,11 +1,9 @@
 package unidades.protoss;
 
 import excepciones.EnergiaInsuficiente;
-import excepciones.ExcepcionCoordenadaXIngresadaFueraDelMapa;
-import excepciones.ExcepcionCoordenadaYIngresadaFueraDelMapa;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
-import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -56,12 +54,12 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
             // Por el proxy agrego que tiran excepciones
             try {
                 mapa.agregar(objetivo.getClone(), destino1);
-            } catch (ExcepcionCoordenadaXIngresadaFueraDelMapa | ExcepcionCoordenadaYIngresadaFueraDelMapa e) {
+            } catch (ExcepcionNoSePudoAgregarAlMapa e) {
                 e.printStackTrace();
             }
             try {
                 mapa.agregar(objetivo.getClone(), destino2);
-            } catch (ExcepcionCoordenadaXIngresadaFueraDelMapa | ExcepcionCoordenadaYIngresadaFueraDelMapa e) {
+            } catch (ExcepcionNoSePudoAgregarAlMapa e) {
                 e.printStackTrace();
             }
         } catch (EnergiaInsuficiente energiaInsuficiente) {
