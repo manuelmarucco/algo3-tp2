@@ -1,7 +1,7 @@
 package tests_de_integracion;
 
 import excepciones.ExcepcionObjetivoFueraDeRango;
-import jugabilidad.Mapa;
+import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,7 +19,7 @@ public class UnidadesTerranTest {
         Zealot zealot = new Zealot();
         Coordenadas c1 = new Coordenadas(5,5);
         Coordenadas c2 = new Coordenadas(6,6);
-        Mapa mapa = SingletonMapa.getInstance();
+        ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(marine,c1);
         mapa.agregar(zealot, c2);
         marine.atacarTierra(c1, c2);
@@ -32,7 +32,7 @@ public class UnidadesTerranTest {
         Zealot zealot = new Zealot();
         Coordenadas c1 = new Coordenadas(3,3);
         Coordenadas c2 = new Coordenadas(8,8);
-        Mapa mapa = SingletonMapa.getInstance();
+        ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(marine,c1);
         mapa.agregar(zealot, c2);
         marine.atacarTierra(c1, c2);
@@ -44,7 +44,7 @@ public class UnidadesTerranTest {
         AltoTemplario at = new AltoTemplario();
         Coordenadas c1 = new Coordenadas(3,3);
         Coordenadas c2 = new Coordenadas(8,8);
-        Mapa mapa = SingletonMapa.getInstance();
+        ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(nc,c1);
         mapa.agregar(at, c2);
         nc.update();
@@ -63,7 +63,7 @@ public class UnidadesTerranTest {
         AltoTemplario at = new AltoTemplario();
         Coordenadas c1 = new Coordenadas(3,3);
         Coordenadas c2 = new Coordenadas(8,8);
-        Mapa mapa = SingletonMapa.getInstance();
+        ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(nc,c1);
         mapa.agregar(at, c2);
         nc.update();
@@ -101,7 +101,7 @@ public class UnidadesTerranTest {
         Coordenadas c2 = new Coordenadas(8,8);
         Coordenadas c3 = new Coordenadas(8,7);
         Coordenadas c4 = new Coordenadas(7,8);
-        Mapa mapa = SingletonMapa.getInstance();
+        ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(nc, c1);
         mapa.agregar(at, c2);
         nc.update();

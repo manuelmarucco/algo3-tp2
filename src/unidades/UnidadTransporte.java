@@ -1,7 +1,6 @@
 package unidades;
 
 import excepciones.ExcepcionCargaSuperada;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
@@ -36,10 +35,6 @@ public abstract class UnidadTransporte extends Unidad {
         //Mapa mapa=SingletonMapa.getInstance();
         ProxyMapa proxy = ProxyMapa.getInstance();
         //TODO: ver esto
-        try {
-            proxy.agregar((ColocableEnMapa)unidades.remove(),coordenadas);
-        } catch (ExcepcionNoSePudoAgregarAlMapa e) {
-            e.printStackTrace();
-        }
+        proxy.agregar((ColocableEnMapa)unidades.remove(),coordenadas);
     }
 }

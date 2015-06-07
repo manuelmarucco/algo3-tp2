@@ -1,10 +1,6 @@
 package jugabilidad_tests;
 
-import jugabilidad.CreadorDeMapa;
 import jugabilidad.Mapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
-import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class CreadorDeMapaTest {
 
@@ -13,7 +9,7 @@ public class CreadorDeMapaTest {
         // TODO: Hacer esto.
         return true;
     }
-
+    /*
     @Test
     public void test(){
 
@@ -23,5 +19,5 @@ public class CreadorDeMapaTest {
         assertTrue( this.comprobarMinerales( mapa ) );
 
     }
-
+    */
 }
