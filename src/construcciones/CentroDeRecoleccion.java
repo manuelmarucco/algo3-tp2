@@ -1,9 +1,9 @@
 package construcciones;
 
+import excepciones.ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso;
 import excepciones.ExcepcionPosicionOcupada;
 import interfaces.Recolectable;
-import jugabilidad.Mapa;
-import jugabilidad.SingletonMapa;
+import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
@@ -24,13 +24,19 @@ public abstract class CentroDeRecoleccion extends Construccion {
 
     }
 
-
     @Override
     public void agregarse(Coordenadas coordenadas) {
-        Mapa mapa= SingletonMapa.getInstance();
-        
-        this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaRecursos(coordenadas);
-        mapa.borrarTerrestre(coordenadas);
+
+        ProxyMapa mapa= ProxyMapa.getInstance();
+
+        try {
+            this.estructuraRecolectable = this.asignarRecurso(coordenadas);
+        }catch(ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso e){
+            e.printStackTrace();
+        }
+
+        // Borra el NULL OBJECT
+        mapa.borrarEnCapaTerrestre(coordenadas);
 
         try {
             mapa.agregarEnCapaTerrestre(this, coordenadas);
@@ -41,7 +47,17 @@ public abstract class CentroDeRecoleccion extends Construccion {
     }
 
     public int obtenerRecurso(){
+
         return ( this.estructuraRecolectable.recolectarRecursos() );
+
+    }
+
+    private Recolectable asignarRecurso(Coordenadas coordenadas)
+            throws ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso {
+
+        ProxyMapa mapa= ProxyMapa.getInstance();
+
+        return ( (Recolectable) mapa.obtenerDeCapaDeRecursos(coordenadas) );
     }
 
 }
