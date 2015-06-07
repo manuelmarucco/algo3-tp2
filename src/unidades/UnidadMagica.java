@@ -24,6 +24,6 @@ public abstract class UnidadMagica extends Unidad{
     }
 
     public int getEnergia(){
-        return this.energia.getEnergiaActual()
+        return this.energia.getEnergiaActual();
     }
 }
