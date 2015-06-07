@@ -20,4 +20,8 @@ public class NaveTransporteProtoss extends UnidadTransporte {
     public ColocableEnMapa getClone() {
         return null;// TODO:implementar
     }
+
+    public int getEscudo() {
+        return ((ResistenciaProtoss)resistencia).getEscudoActual();
+    }
 }

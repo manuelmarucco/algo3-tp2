@@ -42,10 +42,10 @@ public class UnidadProtossTest {
     }
 
     @Test
-    public void testNuevaNaveTransporteTerran(){
-        UnidadProtoss naveTransporte = new NaveTransporteProtoss();
-        Assert.assertEquals(80, naveTransporte.getVida().getVidaActual());
-        Assert.assertEquals(60,naveTransporte.getEscudo().getEscudoActual());
+    public void testNuevaNaveTransporteProtoss(){
+        NaveTransporteProtoss naveTransporte = new NaveTransporteProtoss();
+        Assert.assertEquals(80, naveTransporte.getVida());
+        Assert.assertEquals(60,naveTransporte.getEscudo());
         Assert.assertEquals(2,naveTransporte.getSuministro());
         Assert.assertEquals(8,naveTransporte.getVision());
     }

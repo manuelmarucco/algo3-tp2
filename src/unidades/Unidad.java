@@ -87,4 +87,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
 
     public  void recibirEMP(){}
 
+    public ColocableEnMapa getClone() {
+        return null;
+    }
 }

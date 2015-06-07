@@ -7,17 +7,14 @@ import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.Danio;
-import unidades.Energia;
-import unidades.Terrestre;
-import unidades.UnidadMagica;
+import unidades.*;
 
 public class AltoTemplario extends UnidadMagica implements Cargable {
 
     private Energia energia= new Energia(200,50,10);//por si agregan las mejoras a los atributos
 
     public AltoTemplario(){
-        super(new ResistenciaProtoss(40,40),new Energia(200,50,10),7,new Terrestre(),2,new Costo(50,150),7);
+        super(new ResistenciaProtoss(40, 40), new Energia(200, 50, 10), 7, new Terrestre(), 2, new Costo(50, 150), 7);
     }
 
     public void tormentaPsionica(Coordenadas c){
@@ -37,7 +34,7 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
         //TODO: implementar
     }
 
-    public void alucinacion(UnidadProtoss objetivo,Coordenadas destino1,Coordenadas destino2){
+    public void alucinacion(Unidad objetivo,Coordenadas destino1,Coordenadas destino2){
         try {
             this.energia.gastar(100);
             ProxyMapa mapa = ProxyMapa.getInstance();
