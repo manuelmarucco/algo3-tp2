@@ -4,6 +4,7 @@ import construcciones.CentroDeEntrenamiento;
 import construcciones.Construccion;
 import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
 import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
 import interfaces.Construible;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;
@@ -64,6 +65,12 @@ public class ArchivosTemplarios extends CentroDeEntrenamiento {
 
 	public AltoTemplario entrenarAltoTemplario() {
 		AltoTemplario a = new AltoTemplario();
+		try {
+			this.validarCreacionUnidad(a);
+		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
+			e.printStackTrace();
+			return a;
+		}
 		this.colaDeEntrenamiento.add(a);
 		return a;
 	}

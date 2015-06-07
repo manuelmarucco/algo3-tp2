@@ -1,6 +1,7 @@
 package unidades.terrran;
 
 import excepciones.EnergiaInsuficiente;
+import excepciones.ExcepcionPosicionOcupada;
 import interfaces.Daniable;
 import jugabilidad.Mapa;
 import jugabilidad.SingletonMapa;
@@ -73,6 +74,10 @@ public class NaveCiencia extends UnidadTerran{
 
     @Override
     public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-        mapa.agregarEnCapaAerea(this,coordenadas);
+        try {
+            mapa.agregarEnCapaAerea(this,coordenadas);
+        } catch (ExcepcionPosicionOcupada e) {
+            e.printStackTrace();
+        }
     }
 }

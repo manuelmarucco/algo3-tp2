@@ -1,6 +1,7 @@
 package construcciones.protoss;
 
 import construcciones.CentroDeEntrenamiento;
+import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;
 import unidades.Escudo;
@@ -46,12 +47,24 @@ public class Acceso extends CentroDeEntrenamiento {
 
 	public Zealot entrenarZealot(){
 		Zealot z = new Zealot();
+		try {
+			this.validarCreacionUnidad(z);
+		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
+			e.printStackTrace();
+			return z;
+		}
 		this.colaDeEntrenamiento.add(z);
 		return z;
 	}
 
 	public Dragon entrenarDragon(){
 		Dragon d = new Dragon();
+		try {
+			this.validarCreacionUnidad(d);
+		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
+			e.printStackTrace();
+			return d;
+		}
 		this.colaDeEntrenamiento.add(d);
 		return d;
 	}

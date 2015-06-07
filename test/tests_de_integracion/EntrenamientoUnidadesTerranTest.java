@@ -29,7 +29,7 @@ public class EntrenamientoUnidadesTerranTest {
 
 	@Test
 	public void entrenoMarineYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() {
-		JugadorTerran j = new JugadorTerran(new Recursos(1000,0));
+		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
 		Barraca b;
 		Marine m;
 		int tem;

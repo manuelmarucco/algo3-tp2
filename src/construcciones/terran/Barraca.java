@@ -2,10 +2,9 @@ package construcciones.terran;
 
 
 import construcciones.CentroDeEntrenamiento;
+import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.Jugador;
-import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
-import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Vida;
 import unidades.terrran.Marine;
 
@@ -29,6 +28,12 @@ public class Barraca extends CentroDeEntrenamiento {
 
 	public Marine entrenarMarine(){
 		Marine m = new Marine();
+		try {
+			this.validarCreacionUnidad(m);
+		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
+			e.printStackTrace();
+			return m;
+		}
 		this.colaDeEntrenamiento.add(m);
 		return m;
 	}

@@ -1,5 +1,6 @@
 package construcciones;
 
+import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
 import excepciones.ExcepcionRecursosInsuficientes;
 import excepciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Entrenable;
@@ -16,23 +17,26 @@ public abstract class CentroDeEntrenamiento extends Construccion{
 
     protected void crearUnidad(Entrenable unidad) {
 
+        jugador.agregarUnidad(unidad);
+        colaDeEntrenamiento.remove();
+        //FALTA AGREGARSE AL MAPA
+
+    }
+
+    protected void validarCreacionUnidad(Entrenable unidad) throws ExcepcionNoSePuedeEntrenarUnidad {
         try {
             jugador.getRecursos().gastarRecursos(unidad.getCosto());
         } catch (ExcepcionRecursosInsuficientes e) {
             e.printStackTrace();
-            return;
+            throw new ExcepcionNoSePuedeEntrenarUnidad();
         }
 
         try {
             jugador.usarSuministrosDisponibles(unidad.getSuministro());
         } catch (ExcepcionSuministrosInsuficientes e) {
             e.printStackTrace();
+            throw new ExcepcionNoSePuedeEntrenarUnidad();
         }
-
-        jugador.agregarUnidad(unidad);
-        colaDeEntrenamiento.remove();
-        //FALTA AGREGARSE AL MAPA
-
     }
 
     @Override

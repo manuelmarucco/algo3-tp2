@@ -16,12 +16,14 @@ public class EntrenamientoUnidadesProtossTest {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,0));
         Acceso a;
         Zealot z;
+        int tiempo;
 
         a = j.construirAcceso(new Coordenadas(1, 1));
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
 
         z = a.entrenarZealot();
-        for(int i = 0; i<3; i++) j.update();
+        tiempo = z.getTiempoDeEntrenamiento();
+        for(int i = 0; i<tiempo; i++) j.update();
 
         Assert.assertTrue(j.buscarUnidad(z));
     }
@@ -45,15 +47,17 @@ public class EntrenamientoUnidadesProtossTest {
 
     @Test
     public void entrenoDragonYSeAgregaAlJugador() {
-        JugadorProtoss j = new JugadorProtoss(new Recursos(1000,0));
+        JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         Dragon d;
+        int tiempo;
 
         a = j.construirAcceso(new Coordenadas(1, 1));
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
 
         d = a.entrenarDragon();
-        for(int i = 0; i<3; i++) j.update();
+        tiempo = d.getTiempoDeEntrenamiento();
+        for(int i = 0; i<tiempo; i++) j.update();
 
         Assert.assertTrue(j.buscarUnidad(d));
     }
