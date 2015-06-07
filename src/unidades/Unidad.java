@@ -6,7 +6,6 @@ import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
 import interfaces.Entrenable;
 import jugabilidad.Mapa;
-import jugabilidad.SingletonMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 

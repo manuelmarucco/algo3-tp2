@@ -4,7 +4,6 @@ import excepciones.EnergiaInsuficiente;
 import excepciones.ExcepcionPosicionOcupada;
 import interfaces.Daniable;
 import jugabilidad.Mapa;
-import jugabilidad.SingletonMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Aereo;

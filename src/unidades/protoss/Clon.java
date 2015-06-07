@@ -2,7 +2,6 @@ package unidades.protoss;
 
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
-import jugabilidad.SingletonMapa;
 import unidades.Danio;
 import unidades.Escudo;
 import unidades.Ubicacion;

@@ -4,7 +4,6 @@ import excepciones.ExcepcionObjetivoFueraDeRango;
 import interfaces.Atacante;
 import interfaces.Cargable;
 import interfaces.Daniable;
-import jugabilidad.SingletonMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Danio;

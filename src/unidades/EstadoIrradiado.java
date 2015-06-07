@@ -3,7 +3,6 @@ package unidades;
 import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
 import jugabilidad.Mapa;
-import jugabilidad.SingletonMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 public class EstadoIrradiado implements EstadoUnidad {
