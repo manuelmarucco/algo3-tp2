@@ -23,7 +23,7 @@ public abstract class Jugador {
 	protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion = new ArrayList<>();
 
 	protected void construir(Construible construccionCreada,Coordenadas coordenadas){
-		Mapa mapa = SingletonMapa.getInstance();
+		ProxyMapa mapa = ProxyMapa.getInstance();
 
 		try {
 			construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados);

@@ -2,6 +2,8 @@ package unidades.terrran;
 
 import interfaces.Atacante;
 import interfaces.Cargable;
+import interfaces.Daniable;
+import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import unidades.Danio;
 import unidades.Terrestre;

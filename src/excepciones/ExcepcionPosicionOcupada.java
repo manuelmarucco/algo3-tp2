@@ -1,5 +1,5 @@
 package excepciones;
 
-public class ExcepcionPosicionOcupada extends Throwable {
+public class ExcepcionPosicionOcupada extends ExcepcionNoSePudoAgregarAlMapa {
 
 }

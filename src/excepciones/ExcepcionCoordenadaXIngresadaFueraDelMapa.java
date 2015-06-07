@@ -1,4 +1,4 @@
 package excepciones;
 
-public class ExcepcionCoordenadaXIngresadaFueraDelMapa extends Throwable {
+public class ExcepcionCoordenadaXIngresadaFueraDelMapa extends ExcepcionNoSePudoAgregarAlMapa {
 }

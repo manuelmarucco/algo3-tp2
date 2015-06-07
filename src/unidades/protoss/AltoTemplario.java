@@ -1,9 +1,10 @@
 package unidades.protoss;
 
 import excepciones.EnergiaInsuficiente;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
-import jugabilidad.Mapa;
+import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Danio;
@@ -25,7 +26,7 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
-        Mapa mapa =SingletonMapa.getInstance();
+        ProxyMapa mapa = ProxyMapa.getInstance();
         for(int i =-1;i<2;i++){
             for(int j =-1;j<2;j++){
                 Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);
@@ -39,9 +40,18 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
     public void alucinacion(UnidadProtoss objetivo,Coordenadas destino1,Coordenadas destino2){
         try {
             this.energia.gastar(100);
-            Mapa mapa =SingletonMapa.getInstance();
-            mapa.agregar(objetivo.getClone(),destino1);
-            mapa.agregar(objetivo.getClone(), destino2);
+            ProxyMapa mapa = ProxyMapa.getInstance();
+            // Por el proxy agrego que tiran excepciones
+            try {
+                mapa.agregar(objetivo.getClone(), destino1);
+            } catch (ExcepcionNoSePudoAgregarAlMapa e) {
+                e.printStackTrace();
+            }
+            try {
+                mapa.agregar(objetivo.getClone(), destino2);
+            } catch (ExcepcionNoSePudoAgregarAlMapa e) {
+                e.printStackTrace();
+            }
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }

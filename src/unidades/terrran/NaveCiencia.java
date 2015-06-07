@@ -4,6 +4,7 @@ import excepciones.EnergiaInsuficiente;
 import excepciones.ExcepcionPosicionOcupada;
 import interfaces.Daniable;
 import jugabilidad.Mapa;
+import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.*;
@@ -26,7 +27,7 @@ public class NaveCiencia extends UnidadMagica {
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
-        Mapa mapa =SingletonMapa.getInstance();
+        ProxyMapa mapa = ProxyMapa.getInstance();
         for(int i =-1;i<2;i++){
             for(int j =-1;j<2;j++){
                 Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);
@@ -43,7 +44,7 @@ public class NaveCiencia extends UnidadMagica {
     }
 
 
-    @Override
+    //TODO: ---->> me dice que no puedo hacer @Override
     public void agregarse(Mapa mapa, Coordenadas coordenadas) {
         try {
             mapa.agregarEnCapaAerea(this,coordenadas);

@@ -2,6 +2,7 @@ package jugabilidad;
 
 import excepciones.ExcepcionCoordenadaXIngresadaFueraDelMapa;
 import excepciones.ExcepcionCoordenadaYIngresadaFueraDelMapa;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -37,10 +38,15 @@ public class ProxyMapa {
     }
 
     public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas)
-            throws ExcepcionCoordenadaXIngresadaFueraDelMapa, ExcepcionCoordenadaYIngresadaFueraDelMapa{
+            throws ExcepcionNoSePudoAgregarAlMapa{
 
         validarCoordenadas(coordenadas);
-        colocable.agregarse(coordenadas);
+
+        try {
+            colocable.agregarse(coordenadas);
+        } catch (ExcepcionPosicionOcupada excepcionPosicionOcupada) {
+            excepcionPosicionOcupada.printStackTrace();
+        }
 
     }
 
@@ -91,17 +97,13 @@ public class ProxyMapa {
 
     // ---
 
-    public boolean posicionAereaOcupada(Coordenadas coordenadas)
-            throws ExcepcionCoordenadaXIngresadaFueraDelMapa, ExcepcionCoordenadaYIngresadaFueraDelMapa {
+    public boolean posicionAereaOcupada(Coordenadas coordenadas) {
 
-        validarCoordenadas(coordenadas);
         return (this.mapa.posicionAereaOcupada(coordenadas));
     }
 
-    public boolean posicionTerrestreOcupada(Coordenadas coordenadas)
-            throws ExcepcionCoordenadaXIngresadaFueraDelMapa, ExcepcionCoordenadaYIngresadaFueraDelMapa {
+    public boolean posicionTerrestreOcupada(Coordenadas coordenadas) {
 
-        validarCoordenadas(coordenadas);
         return (this.mapa.posicionTerrestreOcupada(coordenadas));
 
     }
