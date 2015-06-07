@@ -3,7 +3,6 @@ package jugabilidad_tests;
 import excepciones.ExcepcionCoordenadaXIngresadaFueraDelMapa;
 import excepciones.ExcepcionCoordenadaYIngresadaFueraDelMapa;
 import jugabilidad.ProxyMapa;
-import jugabilidad.SingletonMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Test;
 import unidades.terrran.Marine;

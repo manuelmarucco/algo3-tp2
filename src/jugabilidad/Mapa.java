@@ -18,17 +18,8 @@ public class Mapa {
 	public Mapa(){
 	
 	}
+
 	// Agregar -----
-
-	public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas) {
-
-		try {
-			colocable.agregarse(this,coordenadas);
-		} catch (ExcepcionPosicionOcupada e) {
-			e.printStackTrace();
-		}
-
-	}
 	
 	public void agregarEnCapaAerea(ColocableEnMapa colocable, Coordenadas coordenadas)
 			throws ExcepcionPosicionOcupada{
@@ -66,21 +57,21 @@ public class Mapa {
 
 	}
 
-	public ColocableEnMapa obtenerDeCapaRecursos(Coordenadas coordenadas) {
-
-		return ( capaDeRecursos.get(coordenadas) ) ;
-
-	}
-
 	public ColocableEnMapa obtenerDeCapaAerea(Coordenadas coordenadas) {
 
 		return ( capaAerea.get(coordenadas) ) ;
 
 	}
 
+	public ColocableEnMapa obtenerDeCapaDeRecursos(Coordenadas coordenadas){
+
+		return ( this.capaDeRecursos.get(coordenadas) );
+
+	}
+
 	// Remover -----
 
-	public void borrarTerrestre(Coordenadas coordenadas){ //para el movimiento de las unidades
+	public void borrarEnCapaTerrestre(Coordenadas coordenadas){ //para el movimiento de las unidades
 
 		this.capaTerrestre.remove(coordenadas);
 
