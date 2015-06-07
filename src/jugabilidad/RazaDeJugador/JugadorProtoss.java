@@ -17,7 +17,7 @@ public class JugadorProtoss extends Jugador {
     }
 
     public Acceso construirAcceso(Coordenadas coordenadas){
-        Acceso acceso = new Acceso();
+        Acceso acceso = new Acceso(this);
 
         this.construir(acceso,coordenadas);
 
@@ -25,7 +25,7 @@ public class JugadorProtoss extends Jugador {
     }
 
     public PortalEstelar construirPortalEstelar(Coordenadas coordenadas){
-        PortalEstelar portalEstelar = new PortalEstelar();
+        PortalEstelar portalEstelar = new PortalEstelar(this);
 
         this.construir(portalEstelar,coordenadas);
 
@@ -33,7 +33,7 @@ public class JugadorProtoss extends Jugador {
     }
 
     public ArchivosTemplarios construirArchivosTemplarios(Coordenadas coordenadas){
-        ArchivosTemplarios archivosTemplarios = new ArchivosTemplarios();
+        ArchivosTemplarios archivosTemplarios = new ArchivosTemplarios(this);
 
         this.construir(archivosTemplarios,coordenadas);
 

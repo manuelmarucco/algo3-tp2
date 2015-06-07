@@ -5,14 +5,13 @@ import excepciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Entrenable;
 import jugabilidad.Jugador;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public abstract class CentroDeEntrenamiento extends Construccion{
 
-    protected Queue<Entrenable> colaDeEntrenamiento = new LinkedList<Entrenable>();
-    protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<Entrenable>();
+    protected Queue<Entrenable> colaDeEntrenamiento = new LinkedList<>();
+   // protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<>();
     protected Jugador jugador;
 
     protected void crearUnidad(Entrenable unidad) {

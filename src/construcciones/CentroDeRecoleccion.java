@@ -27,6 +27,7 @@ public abstract class CentroDeRecoleccion extends Construccion {
     @Override
     public void agregarse(Coordenadas coordenadas) {
         Mapa mapa= SingletonMapa.getInstance();
+        
         this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaTerrestre(coordenadas);
         mapa.borrarTerrestre(coordenadas);
 

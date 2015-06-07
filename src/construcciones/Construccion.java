@@ -60,6 +60,7 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
+
 		mapa.agregarEnCapaTerrestre(this, coordenadas);
 	}
 

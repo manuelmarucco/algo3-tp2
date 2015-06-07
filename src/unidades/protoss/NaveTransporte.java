@@ -24,6 +24,7 @@ public class NaveTransporte extends UnidadProtoss {
         this.suministro=2;
         this.costo=new Costo(200,0);
         this.unidades= new ArrayList<Cargable>();
+        this.tiempoDeEntrenamiento = 8;
     }
 
     @Override

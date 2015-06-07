@@ -18,6 +18,7 @@ public class Dragon extends UnidadProtoss implements Atacante , Cargable {
         this.ubicacion= new Terrestre();
         this.suministro=2;
         this.costo=new Costo(125,50);
+        this.tiempoDeEntrenamiento = 6;
     }
 
     @Override

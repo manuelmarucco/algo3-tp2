@@ -2,19 +2,17 @@ package construcciones.protoss;
 
 import construcciones.CentroDeEntrenamiento;
 import construcciones.Construccion;
-import interfaces.Construible;
-import jugabilidad.Mapa;
-import jugabilidad.auxiliares.Costo;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.utilidadesMapa.Coordenadas;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
 import excepciones.ExcepcionNoSePuedeConstruir;
+import interfaces.Construible;
+import jugabilidad.Jugador;
+import jugabilidad.auxiliares.Costo;
+import jugabilidad.auxiliares.Recursos;
 import unidades.Escudo;
 import unidades.Vida;
+import unidades.protoss.AltoTemplario;
+
+import java.util.ArrayList;
 
 
 public class ArchivosTemplarios extends CentroDeEntrenamiento {
@@ -29,6 +27,14 @@ public class ArchivosTemplarios extends CentroDeEntrenamiento {
 		tiempoDeConstruccion = 9;
 	}
 
+	public ArchivosTemplarios(Jugador j){
+
+		vida = new Vida(500);
+		escudo = new Escudo(500);
+		costo = new Costo(150,200);
+		tiempoDeConstruccion = 9;
+		this. jugador = j;
+	}
 
 
 	public int getEscudo() {
@@ -56,5 +62,10 @@ public class ArchivosTemplarios extends CentroDeEntrenamiento {
 		
 	}
 
+	public AltoTemplario entrenarAltoTemplario() {
+		AltoTemplario a = new AltoTemplario();
+		this.colaDeEntrenamiento.add(a);
+		return a;
+	}
 }
 

@@ -19,6 +19,7 @@ public class Zealot extends UnidadProtoss implements Atacante , Cargable {
         this.ubicacion= new Terrestre();
         this.suministro = 2;
         this.costo=new Costo(100,0);
+        this.tiempoDeEntrenamiento = 4;
     }
 
     @Override

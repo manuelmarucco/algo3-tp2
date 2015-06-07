@@ -21,6 +21,7 @@ public class NaveCiencia extends UnidadTerran{
         this.ubicacion = new Aereo();
         this.suministro = 2;
         this.costo=new Costo(100,225);
+        this.tiempoDeEntrenamiento = 10;
     }
 
     @Override

@@ -33,7 +33,7 @@ public class JugadorTerran extends Jugador {
     }
 
     public PuertoEstelar construirPuertoEstelar(Coordenadas coordenadas){
-        PuertoEstelar puertoEstelar = new PuertoEstelar();
+        PuertoEstelar puertoEstelar = new PuertoEstelar(this);
 
         this.construir(puertoEstelar,coordenadas);
 
@@ -50,7 +50,16 @@ public class JugadorTerran extends Jugador {
 
     public CentroDeMineral construirCentroDeMineral(Coordenadas coordenadas){
         CentroDeMineral centroDeMineral = new CentroDeMineral(this.recursosRecolectados);
+       /*
+        Mapa mapa = SingletonMapa.getInstance();
 
+        try{
+            mapa.obtenerDeCapaTerrestre(coordenadas);
+        }catch(ExcepcionNecesitaSerConstruidoSobreUnCristal e){
+            e.printStackTrace();
+            return null;
+        }
+        */
         this.construir(centroDeMineral,coordenadas);
 
         return centroDeMineral ;
