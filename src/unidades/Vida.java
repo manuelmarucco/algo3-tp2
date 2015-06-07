@@ -25,7 +25,6 @@ public class Vida {
     }
 
     public boolean estaMuerto() {
-        if(vidaActual==0) return true;
-        return false;
+        return vidaActual == 0;
     }
 }

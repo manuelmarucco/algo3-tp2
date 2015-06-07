@@ -2,7 +2,6 @@ package tests_de_integracion;
 
 import excepciones.ExcepcionObjetivoFueraDeRango;
 import jugabilidad.Mapa;
-import jugabilidad.SingletonMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Test;

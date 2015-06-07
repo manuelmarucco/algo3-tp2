@@ -2,6 +2,7 @@ package jugabilidad;
 
 import excepciones.ExcepcionCoordenadaXIngresadaFueraDelMapa;
 import excepciones.ExcepcionCoordenadaYIngresadaFueraDelMapa;
+import excepciones.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Unidad;
@@ -35,15 +36,60 @@ public class ProxyMapa {
 
     }
 
-    // Metodos de mapa ----
-
     public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas)
-            throws ExcepcionCoordenadaXIngresadaFueraDelMapa, ExcepcionCoordenadaYIngresadaFueraDelMapa {
+            throws ExcepcionCoordenadaXIngresadaFueraDelMapa, ExcepcionCoordenadaYIngresadaFueraDelMapa{
 
         validarCoordenadas(coordenadas);
-        mapa.agregar(colocable, coordenadas);
+        colocable.agregarse(coordenadas);
 
     }
+
+    // Metodos de Mapa ----
+
+    public void agregarEnCapaTerrestre(ColocableEnMapa colocable, Coordenadas coordenadas)
+            throws ExcepcionPosicionOcupada{
+        this.mapa.agregarEnCapaTerrestre(colocable, coordenadas);
+    }
+
+    public void agregarEnCapaAerea(ColocableEnMapa colocable, Coordenadas coordenadas)
+            throws ExcepcionPosicionOcupada{
+        this.mapa.agregarEnCapaAerea(colocable,coordenadas);
+    }
+
+    public void agregarEnCapaDeRecursos(ColocableEnMapa colocable, Coordenadas coordenadas){
+        this.mapa.agregarEnCapaDeRecursos(colocable, coordenadas);
+    }
+
+    // Obtener ---
+
+    public ColocableEnMapa obtenerDeCapaTerrestre(Coordenadas coordenadas){
+        return ( this.mapa.obtenerDeCapaTerrestre(coordenadas) );
+    }
+
+    public ColocableEnMapa obtenerDeCapaAerea(Coordenadas coordenadas){
+        return ( this.mapa.obtenerDeCapaAerea(coordenadas) );
+    }
+
+    public ColocableEnMapa obtenerDeCapaDeRecursos(Coordenadas coordenadas){
+
+        return ( this.mapa.obtenerDeCapaDeRecursos(coordenadas) );
+    }
+
+    // Remover ---
+
+    public void borrarEnCapaTerrestre(Coordenadas coordenadas){
+
+        this.mapa.borrarEnCapaTerrestre(coordenadas);
+
+    }
+
+    public void borrarEnCapaAerea(Coordenadas coordenadas){
+
+        this.mapa.borrarEnCapaAerea(coordenadas);
+
+    }
+
+    // ---
 
     public boolean posicionAereaOcupada(Coordenadas coordenadas)
             throws ExcepcionCoordenadaXIngresadaFueraDelMapa, ExcepcionCoordenadaYIngresadaFueraDelMapa {

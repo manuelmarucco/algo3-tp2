@@ -15,7 +15,7 @@ public abstract class CentroDeEntrenamiento extends Construccion{
    // protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<>();
     protected Jugador jugador;
 
-    protected void crearUnidad(Entrenable unidad) {
+    private void crearUnidad(Entrenable unidad) {
 
         jugador.agregarUnidad(unidad);
         colaDeEntrenamiento.remove();

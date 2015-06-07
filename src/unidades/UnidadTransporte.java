@@ -4,7 +4,6 @@ import excepciones.ExcepcionCargaSuperada;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
-import jugabilidad.SingletonMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 

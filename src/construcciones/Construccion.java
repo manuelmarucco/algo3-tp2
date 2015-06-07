@@ -11,7 +11,7 @@ import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import jugabilidad.Mapa;
-import jugabilidad.SingletonMapa;
+import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -51,21 +51,15 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 		return tiempoDeConstruccion;
 	}
 
-
 	@Override
-	public void agregarse( Coordenadas coordenadas) {
-		Mapa mapa = SingletonMapa.getInstance();
-		this.agregarse(mapa,coordenadas);
+	public void agregarse(Coordenadas coordenadas) {
 
-	}
-
-	@Override
-	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
+		ProxyMapa mapa = ProxyMapa.getInstance();
 
 		try {
 			mapa.agregarEnCapaTerrestre(this, coordenadas);
 		} catch (ExcepcionPosicionOcupada e){
-			System.out.printf( "Posicion ocupada." );
+			e.printStackTrace();
 		}
 	}
 

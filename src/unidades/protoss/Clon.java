@@ -2,9 +2,10 @@ package unidades.protoss;
 
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
-import jugabilidad.SingletonMapa;
-import jugabilidad.auxiliares.Costo;
-import unidades.*;
+import unidades.Danio;
+import unidades.Escudo;
+import unidades.Ubicacion;
+import unidades.Vida;
 
 public class Clon extends Unidad implements ColocableEnMapa {
 
