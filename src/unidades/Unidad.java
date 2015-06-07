@@ -1,5 +1,6 @@
 package unidades;
 
+import excepciones.ExcepcionPosicionOcupada;
 import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
@@ -10,7 +11,7 @@ import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable,Entrenable  {
-    protected Vida vida;
+    protected Resistencia resistencia;
     protected int vision;
     protected Ubicacion ubicacion;
     protected Costo costo;
@@ -18,12 +19,18 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
     protected EstadoUnidad estado;
     protected int tiempoDeEntrenamiento;
 
-    protected Unidad(){
+    protected Unidad(Resistencia resistencia,int vision,Ubicacion ubicacion,int suministro,Costo costo,int tiempoDeEntrenamiento){
+        this.resistencia= resistencia;
         this.estado=new EstadoNormal();
+        this.vision=vision;
+        this.ubicacion=ubicacion;
+        this.suministro=suministro;
+        this.costo=costo;
+        this.tiempoDeEntrenamiento=tiempoDeEntrenamiento;
     }
 
-    public Vida getVida() {
-        return vida;
+    public Resistencia getVida() {
+        return resistencia;
     }
     
     @Override
@@ -50,13 +57,13 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
     }
     
     @Override
-    public void agregarse(Coordenadas coordenadas) {
+    public void agregarse(Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
         Mapa mapa = SingletonMapa.getInstance();
-       this.agregarse(mapa,coordenadas);
+        this.agregarse(mapa,coordenadas);
     }
 
     @Override
-    public void agregarse(Mapa mapa,Coordenadas coordenadas) {
+    public void agregarse(Mapa mapa,Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
         this.ubicacion.agregarse(this, mapa, coordenadas);
     }
 
@@ -67,7 +74,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
 	}
 
     protected void matar() {
-        if(this.vida.estaMuerto()){
+        if(this.resistencia.estaMuerto()){
             Mapa mapa = SingletonMapa.getInstance();
             mapa.quitar(this);
         }

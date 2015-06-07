@@ -1,16 +1,13 @@
 package unidades.protoss;
 
 import interfaces.ColocableEnMapa;
-import unidades.Energia;
-import unidades.Escudo;
-import unidades.Ubicacion;
-import unidades.Vida;
+import unidades.*;
 
 public class ClonMagico extends Clon implements ColocableEnMapa {
-    private final Energia energia;
+    private Energia energia;
 
-    public ClonMagico(Vida vida, Energia energia, Escudo escudo, int vision, Ubicacion ubicacion) {
-        super(vida,escudo,vision,ubicacion);
+    public ClonMagico(ResistenciaProtoss resistencia,Energia energia, int vision, Ubicacion ubicacion) {
+        super(resistencia,vision,ubicacion);
         this.energia=energia;
     }
 }

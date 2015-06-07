@@ -10,7 +10,7 @@ import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import unidades.Escudo;
 import unidades.Vida;
-import unidades.protoss.NaveTransporte;
+import unidades.protoss.NaveTransporteProtoss;
 import unidades.protoss.Scout;
 
 import java.util.ArrayList;
@@ -69,8 +69,8 @@ public class PortalEstelar extends CentroDeEntrenamiento{
 		return s;
 	}
 
-	public NaveTransporte entrenarNaveTransporte(){
-		NaveTransporte n = new NaveTransporte();
+	public NaveTransporteProtoss entrenarNaveTransporte(){
+		NaveTransporteProtoss n = new NaveTransporteProtoss();
 		this.colaDeEntrenamiento.add(n);
 		return n;
 	}

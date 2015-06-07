@@ -1,43 +1,21 @@
 package unidades.terrran;
 
-import excepciones.ExcepcionAtacarAUnidadAliada;
-import excepciones.ExcepcionObjetivoFueraDeRango;
 import interfaces.Atacante;
 import interfaces.Cargable;
-import interfaces.Daniable;
-import interfaces.Entrenable;
-import jugabilidad.Jugador;
-import jugabilidad.SingletonMapa;
 import jugabilidad.auxiliares.Costo;
-import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Danio;
 import unidades.Terrestre;
+import unidades.UnidadGuerrera;
 
-public class Marine extends UnidadTerran implements Atacante, Cargable {
-
-    private static Danio Danio= new Danio(6,6,4,4);//por si agregan las mejoras a los atributos
+public class Marine extends UnidadGuerrera implements Atacante, Cargable {
 
     public Marine(){
-        super(40);
-        this.vision = 7;
-        this.ubicacion = new Terrestre();
-        this.suministro = 1;
-        this.costo=new Costo(50,0);
-        this.tiempoDeEntrenamiento = 3;
-    }
-
-    @Override
-    public void update() {
-        //TODO ver si hace algo entre turnos;
+        super(new ResistenciaTerran(40),new Danio(6,6,4,4),7,new Terrestre(),1,new Costo(50,0),3);
     }
 
     @Override
     public void recibirDanio(Danio danio) {
-        this.vida.quitar(danio.getDanioTierra());
-    }
-
-    public void atacar(Daniable objetivo){
-        objetivo.recibirDanio(Danio);
+        this.resistencia.quitar(danio.getDanioTierra());
     }
 
     @Override
@@ -50,35 +28,4 @@ public class Marine extends UnidadTerran implements Atacante, Cargable {
 
     }
 
-    public void atacarTierra(Coordenadas origen, Coordenadas destino) throws ExcepcionObjetivoFueraDeRango {
-        if(origen.distacina(destino) < Marine.Danio.getRangoTerrestre()){
-            this.atacar((Daniable)SingletonMapa.getInstance().obtenerDeCapaTerrestre(destino));
-        }
-        else throw new ExcepcionObjetivoFueraDeRango();
-    }
-
-    public void atacarAire(Coordenadas origen, Coordenadas destino) throws ExcepcionObjetivoFueraDeRango {
-        if(origen.distacina(destino)<Danio.getRangoAereo()){
-            this.atacar((Daniable)SingletonMapa.getInstance().obtenerDeCapaAerea(destino));
-        }
-        else throw new ExcepcionObjetivoFueraDeRango();
-    }
-
-    public void atacarAire(Coordenadas origen, Coordenadas destino, Jugador duenio) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
-        if(duenio.buscarUnidad((Entrenable)SingletonMapa.getInstance().obtenerDeCapaAerea(destino))){
-            throw new ExcepcionAtacarAUnidadAliada();
-        }
-        else{
-            atacarAire(origen,destino);
-        }
-    }
-
-    public void atacarTierra(Coordenadas origen, Coordenadas destino, Jugador duenio) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
-        if(duenio.buscarUnidad((Entrenable)SingletonMapa.getInstance().obtenerDeCapaTerrestre(destino))){
-            throw new ExcepcionAtacarAUnidadAliada();
-        }
-        else{
-            atacarTierra(origen,destino);
-        }
-    }
 }

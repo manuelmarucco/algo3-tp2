@@ -177,7 +177,7 @@ public class EntrenamientoUnidadesProtossTest {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         PortalEstelar pe;
-        NaveTransporte n;
+        NaveTransporteProtoss n;
         int tiempo;
 
         a = j.construirAcceso(new Coordenadas(1, 1));
@@ -197,7 +197,7 @@ public class EntrenamientoUnidadesProtossTest {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         PortalEstelar pe;
-        NaveTransporte n;
+        NaveTransporteProtoss n;
         int tiempo;
 
         a = j.construirAcceso(new Coordenadas(1, 1));

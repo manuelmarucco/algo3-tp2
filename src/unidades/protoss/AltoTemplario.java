@@ -7,27 +7,17 @@ import jugabilidad.Mapa;
 import jugabilidad.SingletonMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import unidades.Danio;
 import unidades.Energia;
 import unidades.Terrestre;
+import unidades.UnidadMagica;
 
-public class AltoTemplario extends UnidadProtoss implements Cargable {
+public class AltoTemplario extends UnidadMagica implements Cargable {
 
     private Energia energia= new Energia(200,50,10);//por si agregan las mejoras a los atributos
 
     public AltoTemplario(){
-        super(40,40);
-        this.vision = 7;
-        this.ubicacion = new Terrestre();
-        this.suministro = 2;
-        this.costo=new Costo(50,150);
-        this.tiempoDeEntrenamiento = 7;
-    }
-
-    @Override
-    public void update() {
-        super.update();
-        this.energia.regenerar();
-        this.escudo.regenerar();
+        super(new ResistenciaProtoss(40,40),new Energia(200,50,10),7,new Terrestre(),2,new Costo(50,150),7);
     }
 
     public void tormentaPsionica(Coordenadas c){
@@ -58,9 +48,8 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
         }
     }
 
-    @Override
     public ColocableEnMapa getClone() {
-        return new ClonMagico(this.vida,this.energia,this.escudo,this.vision,this.ubicacion);
+        return new ClonMagico((ResistenciaProtoss)this.resistencia,this.energia,this.vision,this.ubicacion);
     }
 
     @Override
@@ -73,14 +62,12 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
 
     }
 
-    public  void recibirEMP(){
-        super.recibirEMP();
-        try {
-            this.energia.gastar(this.energia.getEnergiaActual());
-        } catch (EnergiaInsuficiente energiaInsuficiente) {}
+    @Override
+    public void recibirDanio(Danio danio) {
+
     }
 
-    public Energia getEnergia() {
-        return energia;
+    public int getEscudo() {
+        return ((ResistenciaProtoss) resistencia).getEscudoActual();
     }
 }

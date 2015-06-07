@@ -191,7 +191,7 @@ public class EntrenamientoUnidadesTerranTest {
 		Barraca b;
 		Fabrica f;
 		PuertoEstelar p;
-		NaveTransporte n;
+		NaveTransporteTerran n;
 		int tiempo;
 
 		b = j.construirBarraca(new Coordenadas(1,1));
@@ -214,7 +214,7 @@ public class EntrenamientoUnidadesTerranTest {
 		Barraca b;
 		Fabrica f;
 		PuertoEstelar p;
-		NaveTransporte n;
+		NaveTransporteTerran n;
 		int tiempo;
 
 		b = j.construirBarraca(new Coordenadas(1,1));

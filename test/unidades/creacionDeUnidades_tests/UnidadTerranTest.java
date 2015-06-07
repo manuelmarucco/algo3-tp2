@@ -40,7 +40,7 @@ public class UnidadTerranTest {
 
     @Test
     public void testNuevaNaveTransporteTerran(){
-        Unidad naveTransporte = new NaveTransporte();
+        Unidad naveTransporte = new NaveTransporteTerran();
         Assert.assertEquals(150, naveTransporte.getVida().getVidaActual());
         Assert.assertEquals(2,naveTransporte.getSuministro());
         Assert.assertEquals(8,naveTransporte.getVision());

@@ -12,7 +12,7 @@ import jugabilidad.auxiliares.Recursos;
 import unidades.Vida;
 import unidades.terrran.Espectro;
 import unidades.terrran.NaveCiencia;
-import unidades.terrran.NaveTransporte;
+import unidades.terrran.NaveTransporteTerran;
 
 import java.util.ArrayList;
 
@@ -84,8 +84,8 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 		return naveCiencia;
 	}
 
-	public NaveTransporte entrenarNaveTransporte() {
-		NaveTransporte naveTransporte = new NaveTransporte();
+	public NaveTransporteTerran entrenarNaveTransporte() {
+		NaveTransporteTerran naveTransporte = new NaveTransporteTerran();
 		try {
 			this.validarCreacionUnidad(naveTransporte);
 		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {

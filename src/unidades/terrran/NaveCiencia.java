@@ -7,32 +7,17 @@ import jugabilidad.Mapa;
 import jugabilidad.SingletonMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.Aereo;
-import unidades.Danio;
-import unidades.Energia;
-import unidades.Unidad;
+import unidades.*;
 
-public class NaveCiencia extends UnidadTerran{
-
-    private  Energia energia= new Energia(200,50,10);//por si agregan las mejoras a los atributos
+public class NaveCiencia extends UnidadMagica {
 
     public NaveCiencia(){
-        super(200);
-        this.vision = 10;
-        this.ubicacion = new Aereo();
-        this.suministro = 2;
-        this.costo=new Costo(100,225);
-        this.tiempoDeEntrenamiento = 10;
-    }
-
-    @Override
-    public void update() {
-        this.energia.regenerar();
+        super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10);
     }
 
     @Override
     public void recibirDanio(Danio danio) {
-        this.vida.quitar(danio.getDanioAire());
+        this.resistencia.quitar(danio.getDanioAire());
         this.matar();
     }
 
@@ -58,19 +43,6 @@ public class NaveCiencia extends UnidadTerran{
         d.recibirEMP();
     }
 
-    public void Radiacion(Daniable objetivo){
-        try {
-            this.energia.gastar(75);
-        } catch (EnergiaInsuficiente energiaInsuficiente) {
-            energiaInsuficiente.printStackTrace();
-        }
-        objetivo.irradiar();
-    }
-    public  void recibirEMP(){
-        try {
-            this.energia.gastar(this.energia.getEnergiaActual());
-        } catch (EnergiaInsuficiente energiaInsuficiente) {}
-    }
 
     @Override
     public void agregarse(Mapa mapa, Coordenadas coordenadas) {
@@ -79,5 +51,14 @@ public class NaveCiencia extends UnidadTerran{
         } catch (ExcepcionPosicionOcupada e) {
             e.printStackTrace();
         }
+    }
+
+    public void Radiacion(Daniable objetivo){
+        try {
+            this.energia.gastar(75);
+        } catch (EnergiaInsuficiente energiaInsuficiente) {
+            energiaInsuficiente.printStackTrace();
+        }
+        objetivo.irradiar();
     }
 }

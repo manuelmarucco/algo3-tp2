@@ -2,36 +2,20 @@ package unidades.terrran;
 
 import interfaces.Atacante;
 import interfaces.Cargable;
-import interfaces.Daniable;
 import jugabilidad.auxiliares.Costo;
 import unidades.Danio;
 import unidades.Terrestre;
+import unidades.UnidadGuerrera;
 
-public class Golliat extends UnidadTerran implements Atacante, Cargable {
-
-    private static Danio Danio= new Danio(12,10,6,5);//por si agregan las mejoras a los atributos
+public class Golliat extends UnidadGuerrera implements Atacante, Cargable {
 
     public Golliat(){
-        super(125);
-        this.vision = 8;
-        this.ubicacion = new Terrestre();
-        this.suministro = 2;
-        this.costo = new Costo(100,50);
-        this.tiempoDeEntrenamiento = 6;
-    }
-
-    @Override
-    public void update() {
-        //TODO ver si hace algo entre turnos;
+        super(new ResistenciaTerran(125),new Danio(12,10,6,5),8,new Terrestre(),2, new Costo(100,50),6);
     }
 
     @Override
     public void recibirDanio(Danio danio) {
-        this.vida.quitar(danio.getDanioTierra());
-    }
-
-    public void atacar(Daniable objetivo){
-        objetivo.recibirDanio(Danio);
+        this.resistencia.quitar(danio.getDanioTierra());
     }
 
     @Override

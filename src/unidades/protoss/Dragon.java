@@ -3,39 +3,27 @@ package unidades.protoss;
 import interfaces.Atacante;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
-import interfaces.Daniable;
 import jugabilidad.auxiliares.Costo;
 import unidades.Danio;
 import unidades.Terrestre;
+import unidades.UnidadGuerrera;
 
-public class Dragon extends UnidadProtoss implements Atacante , Cargable {
-
-    private static Danio Danio= new Danio(20,20,4,4);//por si agregan las mejoras a los atributos
+public class Dragon extends UnidadGuerrera implements Atacante , Cargable {
 
     public Dragon(){
-        super(80,100);
-        this.vision=8;
-        this.ubicacion= new Terrestre();
-        this.suministro=2;
-        this.costo=new Costo(125,50);
-        this.tiempoDeEntrenamiento = 6;
+        super(new ResistenciaProtoss(100, 80), new Danio(20, 20, 4, 4), 8, new Terrestre(), 3, new Costo(125, 50), 6);
     }
 
     @Override
     public void update() {
-        this.escudo.regenerar();
+        this.resistencia.regenerar();
     }
 
     @Override
     public void recibirDanio(Danio danio) {
-        this.vida.quitar(this.escudo.quitar(danio.getDanioTierra()));
+        this.resistencia.quitar(danio.getDanioTierra());
     }
 
-    public void atacar(Daniable objetivo){
-        objetivo.recibirDanio(Danio);
-    }
-
-    @Override
     public ColocableEnMapa getClone() {
         return null;// TODO:implementar
     }
@@ -48,5 +36,9 @@ public class Dragon extends UnidadProtoss implements Atacante , Cargable {
     @Override
     public void quitarse() {
 
+    }
+
+    public int getEscudo() {
+        return ((ResistenciaProtoss)resistencia).getEscudoActual();
     }
 }

@@ -1,4 +1,4 @@
-package unidades.terrran;
+package unidades;
 
 import excepciones.ExcepcionCargaSuperada;
 import interfaces.Cargable;
@@ -7,35 +7,18 @@ import jugabilidad.Mapa;
 import jugabilidad.SingletonMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.Aereo;
-import unidades.Danio;
 
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class NaveTransporte extends UnidadTerran {
+public abstract class UnidadTransporte extends Unidad {
 
     private static int tranporteMax = 8;
     private Queue<Cargable> unidades;
 
-    public NaveTransporte(){
-        super(150);
-        this.vision = 8;
-        this.ubicacion = new Aereo();
-        this.suministro = 2;
-        this.costo=new Costo(100,100);
+    public UnidadTransporte(Resistencia resistencia,int vision, Aereo aereo, int suministros, Costo costo, int tiempoDeEntrenamiento) {
+        super(resistencia,vision, aereo, suministros, costo, tiempoDeEntrenamiento);
         this.unidades= new LinkedList<>();
-        this.tiempoDeEntrenamiento = 7;
-    }
-
-    @Override
-    public void update() {
-       //TODO:ver si hace algo
-    }
-
-    @Override
-    public void recibirDanio(Danio danio) {
-        this.vida.quitar(danio.getDanioAire());
     }
 
     public void cargar(Cargable unidad) throws ExcepcionCargaSuperada {
@@ -50,7 +33,7 @@ public class NaveTransporte extends UnidadTerran {
     }
 
     public void descargar(Coordenadas coordenadas){
-        Mapa mapa=SingletonMapa.getInstance();
+        Mapa mapa= SingletonMapa.getInstance();
         mapa.agregar((ColocableEnMapa)unidades.remove(),coordenadas);
     }
 }
