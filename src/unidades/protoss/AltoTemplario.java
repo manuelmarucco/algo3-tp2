@@ -1,7 +1,6 @@
 package unidades.protoss;
 
 import excepciones.EnergiaInsuficiente;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
@@ -39,16 +38,9 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
             this.energia.gastar(100);
             ProxyMapa mapa = ProxyMapa.getInstance();
             // Por el proxy agrego que tiran excepciones
-            try {
-                mapa.agregar(objetivo.getClone(), destino1);
-            } catch (ExcepcionNoSePudoAgregarAlMapa e) {
-                e.printStackTrace();
-            }
-            try {
-                mapa.agregar(objetivo.getClone(), destino2);
-            } catch (ExcepcionNoSePudoAgregarAlMapa e) {
-                e.printStackTrace();
-            }
+            mapa.agregar(objetivo.getClone(), destino1);
+            mapa.agregar(objetivo.getClone(), destino2);
+
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }

@@ -1,12 +1,13 @@
 package jugabilidad;
 
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import recursos.Cristal;
 import recursos.Volcan;
 
 public class CreadorDeMapa {
 
-    private void agregarMinerales( Mapa mapa ){
+    private void agregarMinerales( ProxyMapa mapa ) throws ExcepcionNoSePudoAgregarAlMapa {
 
         // Recursos en la esquina superior izquierda del mapa.
         Coordenadas coordenadas = new Coordenadas(2,9);
@@ -27,7 +28,8 @@ public class CreadorDeMapa {
         mapa.agregar(volcan,coordenadas);
 
     }
-
+    //TODO: arreglar esto
+    /*
     public Mapa crearMapa(){
 
         Mapa mapa = new Mapa();
@@ -36,5 +38,5 @@ public class CreadorDeMapa {
         return mapa;
 
     }
-
+*/
 }

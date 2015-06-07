@@ -13,7 +13,7 @@ import static org.junit.Assert.assertEquals;
 
 
 public class MapaTest {
-	
+
 	@Test
 	public void deberiaAgregarUnaBarracaEnLasCoordenadasEspecificadas() throws ExcepcionPosicionOcupada {
 		
