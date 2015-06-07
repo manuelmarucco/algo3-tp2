@@ -3,7 +3,6 @@ package construcciones;
 import excepciones.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
-import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
@@ -43,8 +42,8 @@ public class EdificioEnConstruccion implements ColocableEnMapa{
     // TODO: No se como arreglar este.
     @Override
     public void agregarse( Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
-        //ProxyMapa mapa = ProxyMapa.getInstance();
-        //this.agregarse(coordenadas);
+        ProxyMapa mapa = ProxyMapa.getInstance();
+        mapa.agregarEnCapaTerrestre(this, coordenadas);
 
     }
 }

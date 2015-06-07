@@ -2,7 +2,7 @@ package tests_de_integracion;
 
 import construcciones.terran.CentroDeMineral;
 import construcciones.terran.Refineria;
-import jugabilidad.Mapa;
+import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Test;
@@ -18,7 +18,7 @@ public class RecoleccionDeRecursosTest {
 
         Recursos recursos = new Recursos(0,0);
 
-        Mapa mapa = new Mapa();
+        ProxyMapa mapa = ProxyMapa.getInstance();
         Coordenadas coordenadas = new Coordenadas(1,1);
         Cristal cristal = new Cristal();
         CentroDeMineral centroDeMineral = new CentroDeMineral(recursos);
@@ -35,7 +35,7 @@ public class RecoleccionDeRecursosTest {
 
         Recursos recursos = new Recursos(0,0);
 
-        Mapa mapa = new Mapa();
+            ProxyMapa mapa = ProxyMapa.getInstance();
         Coordenadas coordenadas = new Coordenadas(1,1);
         Volcan volcan = new Volcan();
         Refineria refineria = new Refineria(recursos);

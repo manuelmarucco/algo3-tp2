@@ -3,7 +3,7 @@ package jugabilidad_tests;
 import construcciones.terran.Barraca;
 import excepciones.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
-import jugabilidad.Mapa;
+import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Test;
 import unidades.terrran.Marine;
@@ -16,8 +16,7 @@ public class MapaTest {
 
 	@Test
 	public void deberiaAgregarUnaBarracaEnLasCoordenadasEspecificadas() throws ExcepcionPosicionOcupada {
-		
-		Mapa mapa = new Mapa();
+		ProxyMapa mapa = ProxyMapa.getInstance();
 		Coordenadas coordenadas = new Coordenadas(1,2);
 		ColocableEnMapa barraca = new Barraca();
 		
@@ -29,8 +28,7 @@ public class MapaTest {
 
 	@Test
 	public void deberiaAgregarUnaUnidadTerrestreEnLaColeccionDeUnidadesTerrestres(){
-
-		Mapa mapa = new Mapa();
+		ProxyMapa mapa = ProxyMapa.getInstance();
 		Coordenadas coordenadas = new Coordenadas(1,2);
 		ColocableEnMapa marine = new Marine();
 
@@ -41,8 +39,7 @@ public class MapaTest {
 
 	@Test
 	public void deberiaAgregarUnaUnidadAereaEnLaColeccionDeUnidadesAereas(){
-
-		Mapa mapa = new Mapa();
+		ProxyMapa mapa = ProxyMapa.getInstance();
 		Coordenadas coordenadas = new Coordenadas(1,2);
 		ColocableEnMapa nave = new NaveCiencia();
 

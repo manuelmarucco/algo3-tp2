@@ -60,7 +60,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
     public void agregarse(Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa{
 
        ProxyMapa proxyMapa = ProxyMapa.getInstance();
-       proxyMapa.agregar(this, coordenadas);
+       proxyMapa.agregarEnCapaTerrestre(this, coordenadas);
 
     }
 
