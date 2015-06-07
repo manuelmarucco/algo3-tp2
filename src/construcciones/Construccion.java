@@ -5,6 +5,7 @@ import construcciones.protoss.PortalEstelar;
 import construcciones.terran.Fabrica;
 import construcciones.terran.PuertoEstelar;
 import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.ExcepcionPosicionOcupada;
 import excepciones.ExcepcionRecursosInsuficientes;
 import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
@@ -61,7 +62,11 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 	@Override
 	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 
-		mapa.agregarEnCapaTerrestre(this, coordenadas);
+		try {
+			mapa.agregarEnCapaTerrestre(this, coordenadas);
+		} catch (ExcepcionPosicionOcupada e){
+			System.out.printf( "Posicion ocupada." );
+		}
 	}
 
 

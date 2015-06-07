@@ -1,5 +1,6 @@
 package jugabilidad;
 
+import excepciones.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Unidad;
@@ -25,15 +26,25 @@ public class Mapa {
 		
 	}
 	
-	public void agregarEnCapaAerea(ColocableEnMapa colocable, Coordenadas coordenadas){
+	public void agregarEnCapaAerea(ColocableEnMapa colocable, Coordenadas coordenadas)
+			throws ExcepcionPosicionOcupada{
+
+		if (this.posicionAereaOcupada(coordenadas)){
+			throw new ExcepcionPosicionOcupada();
+		}
 
 		this.capaAerea.put(coordenadas, colocable);
-		
+
 	}
 	
-	public void agregarEnCapaTerrestre(ColocableEnMapa colocable, Coordenadas coordenadas){
+	public void agregarEnCapaTerrestre(ColocableEnMapa colocable, Coordenadas coordenadas)
+			throws ExcepcionPosicionOcupada {
+
+		if (this.posicionTerrestreOcupada(coordenadas)){
+			throw new ExcepcionPosicionOcupada();
+		}
 		
-			this.capaTerrestre.put(coordenadas, colocable);
+		this.capaTerrestre.put(coordenadas, colocable);
 		
 	}
 
