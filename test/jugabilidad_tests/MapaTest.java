@@ -1,11 +1,11 @@
 package jugabilidad_tests;
 
+import org.junit.Test;
 import static org.junit.Assert.*;
+
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-
-import org.junit.Test;
 
 import construcciones.terran.Barraca;
 import unidades.terrran.Marine;
