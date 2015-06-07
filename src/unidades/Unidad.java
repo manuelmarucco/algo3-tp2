@@ -1,5 +1,6 @@
 package unidades;
 
+import excepciones.ExcepcionPosicionOcupada;
 import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
@@ -50,13 +51,13 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
     }
     
     @Override
-    public void agregarse(Coordenadas coordenadas) {
+    public void agregarse(Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
         Mapa mapa = SingletonMapa.getInstance();
        this.agregarse(mapa,coordenadas);
     }
 
     @Override
-    public void agregarse(Mapa mapa,Coordenadas coordenadas) {
+    public void agregarse(Mapa mapa,Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
         this.ubicacion.agregarse(this, mapa, coordenadas);
     }
 

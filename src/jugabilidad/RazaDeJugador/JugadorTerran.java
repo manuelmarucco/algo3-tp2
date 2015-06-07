@@ -57,7 +57,7 @@ public class JugadorTerran extends Jugador {
             mapa.obtenerDeCapaTerrestre(coordenadas);
         }catch(ExcepcionNecesitaSerConstruidoSobreUnCristal e){
             e.printStackTrace();
-            return null;
+            return centroDeMineral;
         }
         */
         this.construir(centroDeMineral,coordenadas);

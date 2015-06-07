@@ -12,7 +12,11 @@ public class Cristal implements ColocableEnMapa, Recolectable{
     @Override
     public void agregarse(Coordenadas coordenadas) {
         Mapa mapa =SingletonMapa.getInstance();
-        this.agregarse(mapa,coordenadas);
+        try {
+            this.agregarse(mapa,coordenadas);
+        } catch (ExcepcionPosicionOcupada e) {
+            e.printStackTrace();
+        }
     }
 
     public void agregarse(Mapa mapa,Coordenadas coordenadas) throws ExcepcionPosicionOcupada {

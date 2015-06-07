@@ -1,21 +1,21 @@
 package jugabilidad_tests;
 
-import org.junit.Test;
-import static org.junit.Assert.*;
-
+import construcciones.terran.Barraca;
+import excepciones.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-
-import construcciones.terran.Barraca;
+import org.junit.Test;
 import unidades.terrran.Marine;
 import unidades.terrran.NaveCiencia;
+
+import static org.junit.Assert.assertEquals;
 
 
 public class MapaTest {
 	
 	@Test
-	public void deberiaAgregarUnaBarraEnLasCoordenadasEspecificadas() {
+	public void deberiaAgregarUnaBarracaEnLasCoordenadasEspecificadas() throws ExcepcionPosicionOcupada {
 		
 		Mapa mapa = new Mapa();
 		Coordenadas coordenadas = new Coordenadas(1,2);

@@ -29,7 +29,7 @@ public abstract class CentroDeRecoleccion extends Construccion {
     public void agregarse(Coordenadas coordenadas) {
         Mapa mapa= SingletonMapa.getInstance();
         
-        this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaTerrestre(coordenadas);
+        this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaRecursos(coordenadas);
         mapa.borrarTerrestre(coordenadas);
 
         try {

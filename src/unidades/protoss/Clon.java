@@ -29,7 +29,7 @@ public class Clon extends UnidadProtoss implements ColocableEnMapa {
         this.matar();
     }
     @Override
-    public void matar(){
+    protected void matar(){
         if(this.escudo.getEscudoActual()==0){
             Mapa mapa = SingletonMapa.getInstance();
             mapa.quitar(this);

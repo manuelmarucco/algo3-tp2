@@ -38,7 +38,7 @@ public class ProxyMapa {
     // Metodos de mapa ----
 
     public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas)
-            throws ExcepcionCoordenadaXIngresadaFueraDelMapa, ExcepcionCoordenadaYIngresadaFueraDelMapa {
+            throws ExcepcionCoordenadaXIngresadaFueraDelMapa, ExcepcionCoordenadaYIngresadaFueraDelMapa{
 
         validarCoordenadas(coordenadas);
         mapa.agregar(colocable, coordenadas);

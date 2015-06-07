@@ -3,6 +3,7 @@ package jugabilidad;
 import construcciones.Construccion;
 import construcciones.EdificioEnConstruccion;
 import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.ExcepcionPosicionOcupada;
 import excepciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Construible;
 import interfaces.Entrenable;
@@ -22,7 +23,8 @@ public abstract class Jugador {
 	protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion = new ArrayList<>();
 
 	protected void construir(Construible construccionCreada,Coordenadas coordenadas){
-		
+		Mapa mapa = SingletonMapa.getInstance();
+
 		try {
 			construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados);
 		} catch (ExcepcionNoSePuedeConstruir e) {
@@ -31,6 +33,14 @@ public abstract class Jugador {
 		}
 
 		EdificioEnConstruccion edificioEnConstruccion = new EdificioEnConstruccion(coordenadas,construccionCreada);
+
+		try {
+			edificioEnConstruccion.agregarse(coordenadas);
+		} catch (ExcepcionPosicionOcupada e) {
+			e.printStackTrace();
+			return;
+		}
+
 		edificiosEnConstruccion.add(edificioEnConstruccion);
 		//colaDeConstruccion.add(construccionCreada);
 

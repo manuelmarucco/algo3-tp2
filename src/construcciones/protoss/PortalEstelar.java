@@ -4,6 +4,7 @@ import construcciones.CentroDeEntrenamiento;
 import construcciones.Construccion;
 import excepciones.ExcepcionNecesitaConstruirAcceso;
 import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
 import interfaces.Construible;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;
@@ -65,12 +66,24 @@ public class PortalEstelar extends CentroDeEntrenamiento{
 
 	public Scout entrenarScout(){
 		Scout s = new Scout();
+		try {
+			this.validarCreacionUnidad(s);
+		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
+			e.printStackTrace();
+			return s;
+		}
 		this.colaDeEntrenamiento.add(s);
 		return s;
 	}
 
 	public NaveTransporte entrenarNaveTransporte(){
 		NaveTransporte n = new NaveTransporte();
+		try {
+			this.validarCreacionUnidad(n);
+		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
+			e.printStackTrace();
+			return n;
+		}
 		this.colaDeEntrenamiento.add(n);
 		return n;
 	}

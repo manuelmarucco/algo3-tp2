@@ -65,7 +65,7 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 		try {
 			mapa.agregarEnCapaTerrestre(this, coordenadas);
 		} catch (ExcepcionPosicionOcupada e){
-			System.out.printf( "Posicion ocupada." );
+			e.printStackTrace();
 		}
 	}
 

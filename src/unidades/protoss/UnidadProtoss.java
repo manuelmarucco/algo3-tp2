@@ -22,7 +22,7 @@ public abstract class UnidadProtoss extends Unidad {
 
     public ColocableEnMapa getClone(){
         return new Clon(this.vida,this.escudo,this.vision,this.ubicacion);
-    };
+    }
 
     public  void recibirEMP(){
         this.escudo.quitar(this.escudo.getEscudoActual());

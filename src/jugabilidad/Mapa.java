@@ -20,10 +20,14 @@ public class Mapa {
 	}
 	// Agregar -----
 
-	public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas){
-		
-		colocable.agregarse(this,coordenadas);
-		
+	public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas) {
+
+		try {
+			colocable.agregarse(this,coordenadas);
+		} catch (ExcepcionPosicionOcupada e) {
+			e.printStackTrace();
+		}
+
 	}
 	
 	public void agregarEnCapaAerea(ColocableEnMapa colocable, Coordenadas coordenadas)
@@ -59,6 +63,12 @@ public class Mapa {
 	public ColocableEnMapa obtenerDeCapaTerrestre(Coordenadas coordenadas) {
 
 		return ( capaTerrestre.get(coordenadas) ) ;
+
+	}
+
+	public ColocableEnMapa obtenerDeCapaRecursos(Coordenadas coordenadas) {
+
+		return ( capaDeRecursos.get(coordenadas) ) ;
 
 	}
 
