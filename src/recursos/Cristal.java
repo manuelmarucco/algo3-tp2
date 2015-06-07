@@ -1,10 +1,11 @@
 package recursos;
 
+import excepciones.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import interfaces.Recolectable;
+import jugabilidad.Mapa;
 import jugabilidad.SingletonMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import jugabilidad.Mapa;
 
 public class Cristal implements ColocableEnMapa, Recolectable{
 
@@ -14,7 +15,7 @@ public class Cristal implements ColocableEnMapa, Recolectable{
         this.agregarse(mapa,coordenadas);
     }
 
-    public void agregarse(Mapa mapa,Coordenadas coordenadas){
+    public void agregarse(Mapa mapa,Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
 
         mapa.agregarEnCapaTerrestre(this, coordenadas);
 

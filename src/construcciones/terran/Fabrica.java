@@ -4,20 +4,15 @@ import construcciones.CentroDeEntrenamiento;
 import construcciones.Construccion;
 import excepciones.ExcepcionNecesitaConstruirBarraca;
 import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
 import interfaces.Construible;
-import interfaces.Entrenable;
 import jugabilidad.Jugador;
-import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
-import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Vida;
 import unidades.terrran.Golliat;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Queue;
 
 
 public class Fabrica extends CentroDeEntrenamiento{
@@ -38,6 +33,12 @@ public class Fabrica extends CentroDeEntrenamiento{
 
 	public Golliat entrenarGolliat(){
 		Golliat g = new Golliat();
+		try {
+			this.validarCreacionUnidad(g);
+		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
+			e.printStackTrace();
+			return g;
+		}
 		colaDeEntrenamiento.add(g);
 		return g;
 	}

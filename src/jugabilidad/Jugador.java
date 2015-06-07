@@ -51,7 +51,6 @@ public abstract class Jugador {
 	}
 
 	public void update() {
-		Mapa mapa = SingletonMapa.getInstance();
 
 		for (int i = 0; i < edificiosEnConstruccion.size(); i++) {
 			EdificioEnConstruccion e = edificiosEnConstruccion.get(i);
@@ -64,6 +63,10 @@ public abstract class Jugador {
 				//para evitar casteo hacer que Construible herede de Actualizable
 				edificiosEnConstruccion.remove(e);
 			}
+		}
+
+		for(Construible c: construccionesCreadas){
+			c.update();
 		}
 	}
 	

@@ -17,6 +17,7 @@ public class Scout extends UnidadProtoss implements Atacante {
         this.ubicacion= new Aereo();
         this.suministro = 3;
         this.costo=new Costo(300,150);
+        this.tiempoDeEntrenamiento = 9;
     }
 
     @Override

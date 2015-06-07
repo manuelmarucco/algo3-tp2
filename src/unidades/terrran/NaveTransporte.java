@@ -25,6 +25,7 @@ public class NaveTransporte extends UnidadTerran {
         this.suministro = 2;
         this.costo=new Costo(100,100);
         this.unidades= new LinkedList<>();
+        this.tiempoDeEntrenamiento = 7;
     }
 
     @Override

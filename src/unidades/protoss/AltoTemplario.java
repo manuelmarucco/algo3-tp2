@@ -20,6 +20,7 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
         this.ubicacion = new Terrestre();
         this.suministro = 2;
         this.costo=new Costo(50,150);
+        this.tiempoDeEntrenamiento = 7;
     }
 
     @Override

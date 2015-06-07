@@ -2,19 +2,18 @@ package construcciones.protoss;
 
 import construcciones.CentroDeEntrenamiento;
 import construcciones.Construccion;
-import interfaces.Construible;
-import jugabilidad.Mapa;
-import jugabilidad.auxiliares.Costo;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.utilidadesMapa.Coordenadas;
-
-import java.util.ArrayList;
-import java.util.Iterator;
-
 import excepciones.ExcepcionNecesitaConstruirAcceso;
 import excepciones.ExcepcionNoSePuedeConstruir;
+import interfaces.Construible;
+import jugabilidad.Jugador;
+import jugabilidad.auxiliares.Costo;
+import jugabilidad.auxiliares.Recursos;
 import unidades.Escudo;
 import unidades.Vida;
+import unidades.protoss.NaveTransporte;
+import unidades.protoss.Scout;
+
+import java.util.ArrayList;
 
 
 public class PortalEstelar extends CentroDeEntrenamiento{
@@ -26,6 +25,13 @@ public class PortalEstelar extends CentroDeEntrenamiento{
 		escudo = new Escudo(600);
 		costo = new Costo(150,150);
 		tiempoDeConstruccion = 10;
+	}
+	public PortalEstelar(Jugador j){
+		vida = new Vida(600);
+		escudo = new Escudo(600);
+		costo = new Costo(150,150);
+		tiempoDeConstruccion = 10;
+		this.jugador = j;
 	}
 
 	public int getEscudo() {
@@ -55,6 +61,18 @@ public class PortalEstelar extends CentroDeEntrenamiento{
 	
 	public boolean habilitaAConstruir(ArchivosTemplarios t) {
 		return true;
+	}
+
+	public Scout entrenarScout(){
+		Scout s = new Scout();
+		this.colaDeEntrenamiento.add(s);
+		return s;
+	}
+
+	public NaveTransporte entrenarNaveTransporte(){
+		NaveTransporte n = new NaveTransporte();
+		this.colaDeEntrenamiento.add(n);
+		return n;
 	}
 	
 }

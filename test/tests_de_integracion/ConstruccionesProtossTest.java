@@ -50,9 +50,9 @@ public class ConstruccionesProtossTest {
 		
 		Assert.assertTrue(j.buscarConstruccion(n));
 	}
-
+	/*
 	@Test
-public void SeConstruyeUnaAsimilador() {
+	public void SeConstruyeUnaAsimilador() {
 
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		Asimilador a;
@@ -80,7 +80,7 @@ public void SeConstruyeUnaAsimilador() {
 		
 		Assert.assertTrue(j.buscarConstruccion(p));
 	}
-	
+	*/
 	/////////////////////// Construccion habilita a otra ////////////////////
 	
 	

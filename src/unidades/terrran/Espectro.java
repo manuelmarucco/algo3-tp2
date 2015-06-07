@@ -16,6 +16,7 @@ public class Espectro extends UnidadTerran implements Atacante {
         this.ubicacion = new Aereo();
         this.suministro = 2;
         this.costo=new Costo(150,100);
+        this.tiempoDeEntrenamiento = 8;
     }
 
     @Override

@@ -1,5 +1,6 @@
 package construcciones;
 
+import excepciones.ExcepcionPosicionOcupada;
 import interfaces.Recolectable;
 import jugabilidad.Mapa;
 import jugabilidad.SingletonMapa;
@@ -27,10 +28,15 @@ public abstract class CentroDeRecoleccion extends Construccion {
     @Override
     public void agregarse(Coordenadas coordenadas) {
         Mapa mapa= SingletonMapa.getInstance();
+        
         this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaTerrestre(coordenadas);
         mapa.borrarTerrestre(coordenadas);
 
-        mapa.agregarEnCapaTerrestre(this, coordenadas);
+        try {
+            mapa.agregarEnCapaTerrestre(this, coordenadas);
+        } catch (ExcepcionPosicionOcupada e) {
+            e.printStackTrace();
+        }
 
     }
 
