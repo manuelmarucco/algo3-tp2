@@ -23,7 +23,7 @@ public class UnidadesTerranTest {
         mapa.agregar(marine,c1);
         mapa.agregar(zealot, c2);
         marine.atacarTierra(c1, c2);
-        Assert.assertEquals(54,zealot.getEscudo().getEscudoActual());
+        Assert.assertEquals(54,zealot.getEscudo());
     }
 
     @Test(expected = ExcepcionObjetivoFueraDeRango.class)
@@ -53,8 +53,8 @@ public class UnidadesTerranTest {
         nc.update();
         nc.update();
         nc.EMP(c2);
-        Assert.assertEquals(0, at.getEscudo().getEscudoActual());
-        Assert.assertEquals(0, at.getEnergia().getEnergiaActual());
+        Assert.assertEquals(0, at.getEscudo());
+        Assert.assertEquals(0, at.getEnergia());
     }
 
     @Test
@@ -72,25 +72,25 @@ public class UnidadesTerranTest {
         nc.update();
         nc.update();
         nc.Radiacion(at);
-        Assert.assertEquals(40, at.getEscudo().getEscudoActual());
+        Assert.assertEquals(40, at.getEscudo());
         at.update();
-        Assert.assertEquals(34, at.getEscudo().getEscudoActual());
+        Assert.assertEquals(34, at.getEscudo());
         at.update();
-        Assert.assertEquals(28, at.getEscudo().getEscudoActual());
+        Assert.assertEquals(28, at.getEscudo());
         at.update();
-        Assert.assertEquals(22, at.getEscudo().getEscudoActual());
+        Assert.assertEquals(22, at.getEscudo());
         at.update();
-        Assert.assertEquals(16, at.getEscudo().getEscudoActual());
+        Assert.assertEquals(16, at.getEscudo());
         at.update();
-        Assert.assertEquals(10, at.getEscudo().getEscudoActual());
+        Assert.assertEquals(10, at.getEscudo());
         at.update();
-        Assert.assertEquals(4, at.getEscudo().getEscudoActual());
+        Assert.assertEquals(4, at.getEscudo());
         at.update();
-        Assert.assertEquals(4, at.getEscudo().getEscudoActual());
-        Assert.assertEquals(34, at.getVida().getVidaActual());
+        Assert.assertEquals(4, at.getEscudo());
+        Assert.assertEquals(34, at.getVida());
         at.update();
-        Assert.assertEquals(4, at.getEscudo().getEscudoActual());
-        Assert.assertEquals(28,at.getVida().getVidaActual());
+        Assert.assertEquals(4, at.getEscudo());
+        Assert.assertEquals(28,at.getVida());
     }
 
     @Test
