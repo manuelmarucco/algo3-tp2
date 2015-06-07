@@ -15,7 +15,7 @@ public class AtacanteTest {
         Atacante golliat = new Golliat();
         NaveCiencia objetivo = new NaveCiencia();
         golliat.atacar(objetivo);
-        Assert.assertEquals(190,objetivo.getVida().getVidaActual());
+        Assert.assertEquals(190,objetivo.getVida());
     }
 
     @Test
@@ -23,6 +23,6 @@ public class AtacanteTest {
         Atacante golliat = new Golliat();
         Marine marine = new Marine();
         golliat.atacar(marine);
-        Assert.assertEquals(28,marine.getVida().getVidaActual());
+        Assert.assertEquals(28,marine.getVida());
     }
 }
