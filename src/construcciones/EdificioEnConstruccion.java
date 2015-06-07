@@ -4,7 +4,7 @@ import excepciones.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import jugabilidad.Mapa;
-import jugabilidad.SingletonMapa;
+import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 public class EdificioEnConstruccion implements ColocableEnMapa{
@@ -31,8 +31,8 @@ public class EdificioEnConstruccion implements ColocableEnMapa{
     }
 
     public Construible finalizarConstruccion() {
-        Mapa mapa = SingletonMapa.getInstance();
-        mapa.borrarTerrestre(coordenadasDeConstruccion);
+        ProxyMapa mapa = ProxyMapa.getInstance();
+        mapa.borrarEnCapaTerrestre(coordenadasDeConstruccion);
         return construccionAConvertirse;
     }
 
@@ -40,16 +40,11 @@ public class EdificioEnConstruccion implements ColocableEnMapa{
         return coordenadasDeConstruccion;
     }
 
+    // TODO: No se como arreglar este.
     @Override
     public void agregarse( Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
-        Mapa mapa = SingletonMapa.getInstance();
-        this.agregarse(mapa,coordenadas);
+        //ProxyMapa mapa = ProxyMapa.getInstance();
+        //this.agregarse(coordenadas);
 
-    }
-
-    @Override
-    public void agregarse(Mapa mapa, Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
-
-            mapa.agregarEnCapaTerrestre(this, coordenadas);
     }
 }

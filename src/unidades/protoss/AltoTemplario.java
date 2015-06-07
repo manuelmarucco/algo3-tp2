@@ -1,9 +1,12 @@
 package unidades.protoss;
 
 import excepciones.EnergiaInsuficiente;
+import excepciones.ExcepcionCoordenadaXIngresadaFueraDelMapa;
+import excepciones.ExcepcionCoordenadaYIngresadaFueraDelMapa;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
+import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Energia;
@@ -35,7 +38,7 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
-        Mapa mapa =SingletonMapa.getInstance();
+        ProxyMapa mapa = ProxyMapa.getInstance();
         for(int i =-1;i<2;i++){
             for(int j =-1;j<2;j++){
                 Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);
@@ -49,9 +52,18 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
     public void alucinacion(UnidadProtoss objetivo,Coordenadas destino1,Coordenadas destino2){
         try {
             this.energia.gastar(100);
-            Mapa mapa =SingletonMapa.getInstance();
-            mapa.agregar(objetivo.getClone(),destino1);
-            mapa.agregar(objetivo.getClone(), destino2);
+            ProxyMapa mapa = ProxyMapa.getInstance();
+            // Por el proxy agrego que tiran excepciones
+            try {
+                mapa.agregar(objetivo.getClone(), destino1);
+            } catch (ExcepcionCoordenadaXIngresadaFueraDelMapa | ExcepcionCoordenadaYIngresadaFueraDelMapa e) {
+                e.printStackTrace();
+            }
+            try {
+                mapa.agregar(objetivo.getClone(), destino2);
+            } catch (ExcepcionCoordenadaXIngresadaFueraDelMapa | ExcepcionCoordenadaYIngresadaFueraDelMapa e) {
+                e.printStackTrace();
+            }
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
@@ -76,7 +88,9 @@ public class AltoTemplario extends UnidadProtoss implements Cargable {
         super.recibirEMP();
         try {
             this.energia.gastar(this.energia.getEnergiaActual());
-        } catch (EnergiaInsuficiente energiaInsuficiente) {}
+        } catch (EnergiaInsuficiente e) {
+            e.printStackTrace();
+        }
     }
 
     public Energia getEnergia() {

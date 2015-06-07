@@ -2,6 +2,7 @@ package unidades.protoss;
 
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
+import jugabilidad.ProxyMapa;
 import unidades.Danio;
 import unidades.Escudo;
 import unidades.Ubicacion;
@@ -30,7 +31,7 @@ public class Clon extends UnidadProtoss implements ColocableEnMapa {
     @Override
     protected void matar(){
         if(this.escudo.getEscudoActual()==0){
-            Mapa mapa = SingletonMapa.getInstance();
+            ProxyMapa mapa = ProxyMapa.getInstance();
             mapa.quitar(this);
         }
     }
