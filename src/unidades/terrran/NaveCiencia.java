@@ -42,7 +42,6 @@ public class NaveCiencia extends UnidadMagica {
     }
 
 
-
     public void Radiacion(Daniable objetivo){
         try {
             this.energia.gastar(75);

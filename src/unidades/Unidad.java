@@ -28,8 +28,8 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
         this.tiempoDeEntrenamiento=tiempoDeEntrenamiento;
     }
 
-    public Resistencia getVida() {
-        return resistencia;
+    public int getVida() {
+        return resistencia.getVidaActual();
     }
     
     @Override
@@ -77,6 +77,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
 
     public void update(){
         this.estado.update(this);
+        this.resistencia.regenerar();
     }
 
     public void irradiar(){
@@ -88,4 +89,5 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
     public ColocableEnMapa getClone() {
         return null;
     }
+
 }

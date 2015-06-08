@@ -14,6 +14,7 @@ public abstract class UnidadMagica extends Unidad{
 
     @Override
     public void update() {
+        super.update();
         this.energia.regenerar();
     }
 

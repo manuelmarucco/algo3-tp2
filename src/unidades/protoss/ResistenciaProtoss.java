@@ -22,6 +22,6 @@ public class ResistenciaProtoss extends Resistencia {
 
     @Override
     public void regenerar() {
-        this.escudoActual=Math.max(escudoMaximo,escudoActual+(escudoMaximo/20));
+        this.escudoActual=Math.min(escudoMaximo,escudoActual+(escudoMaximo/20));
     }
 }

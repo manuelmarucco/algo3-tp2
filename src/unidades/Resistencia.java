@@ -16,4 +16,8 @@ public abstract class Resistencia {
     public abstract void quitar(int danio);
 
     public abstract void regenerar();
+
+    public int getVidaActual(){
+        return this.vidaActual;
+    }
 }

@@ -9,11 +9,8 @@ import unidades.UnidadGuerrera;
 
 public class Scout extends UnidadGuerrera implements Atacante {
 
-
-    private ResistenciaProtoss escudo;
-
     public Scout(){
-        super(new ResistenciaProtoss(100,150),new Danio(8,14,4,4),7,new Aereo(),3,new Costo(300,150),9);
+        super(new ResistenciaProtoss(150,100),new Danio(8,14,4,4),7,new Aereo(),3,new Costo(300,150),9);
     }
 
     @Override
@@ -25,8 +22,8 @@ public class Scout extends UnidadGuerrera implements Atacante {
         return null;// TODO:implementar
     }
 
-    public ResistenciaProtoss getEscudo() {
-        return escudo;
+    public int getEscudo() {
+        return ((ResistenciaProtoss)resistencia).getEscudoActual();
     }
 
 }

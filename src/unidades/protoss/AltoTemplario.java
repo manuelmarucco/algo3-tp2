@@ -10,8 +10,6 @@ import unidades.*;
 
 public class AltoTemplario extends UnidadMagica implements Cargable {
 
-    private Energia energia= new Energia(200,50,10);//por si agregan las mejoras a los atributos
-
     public AltoTemplario(){
         super(new ResistenciaProtoss(40, 40), new Energia(200, 50, 10), 7, new Terrestre(), 2, new Costo(50, 150), 7);
     }
@@ -62,9 +60,13 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
 
     @Override
     public void recibirDanio(Danio danio) {
-
+        this.resistencia.quitar(danio.getDanioTierra());
     }
 
+    public void recibirEMP(){
+        super.recibirEMP();
+        this.resistencia.quitar(((ResistenciaProtoss)resistencia).getEscudoActual());
+    }
     public int getEscudo() {
         return ((ResistenciaProtoss) resistencia).getEscudoActual();
     }

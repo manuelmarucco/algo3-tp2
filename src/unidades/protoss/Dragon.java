@@ -11,7 +11,7 @@ import unidades.UnidadGuerrera;
 public class Dragon extends UnidadGuerrera implements Atacante , Cargable {
 
     public Dragon(){
-        super(new ResistenciaProtoss(100, 80), new Danio(20, 20, 4, 4), 8, new Terrestre(), 3, new Costo(125, 50), 6);
+        super(new ResistenciaProtoss(100, 80), new Danio(20, 20, 4, 4), 8, new Terrestre(), 2, new Costo(125, 50), 6);
     }
 
     @Override

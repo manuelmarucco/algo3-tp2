@@ -20,10 +20,8 @@ public class Clon extends Unidad implements ColocableEnMapa {
     }
     @Override
     public void matar(){
-        if(((ResistenciaProtoss)resistencia).getEscudoActual()==0){
             ProxyMapa mapa = ProxyMapa.getInstance();
             mapa.quitar(this);
-        }
     }
 
     public  void recibirEMP(){

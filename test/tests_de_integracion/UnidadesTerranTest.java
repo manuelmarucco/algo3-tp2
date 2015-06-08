@@ -35,7 +35,7 @@ public class UnidadesTerranTest {
         Coordenadas c2 = new Coordenadas(8,8);
         ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
         ProxyMapa mapa = ProxyMapa.getInstance();
-        mapa.agregar(marine,c1);
+        mapa.agregar(marine, c1);
         mapa.agregar(zealot, c2);
         marine.atacarTierra(c1, c2);
     }
@@ -78,23 +78,27 @@ public class UnidadesTerranTest {
         nc.Radiacion(at);
         Assert.assertEquals(40, at.getEscudo());
         at.update();
-        Assert.assertEquals(34, at.getEscudo());
+        Assert.assertEquals(32, at.getEscudo());
         at.update();
-        Assert.assertEquals(28, at.getEscudo());
-        at.update();
-        Assert.assertEquals(22, at.getEscudo());
+        Assert.assertEquals(24, at.getEscudo());
         at.update();
         Assert.assertEquals(16, at.getEscudo());
         at.update();
-        Assert.assertEquals(10, at.getEscudo());
+        Assert.assertEquals(8, at.getEscudo());
         at.update();
-        Assert.assertEquals(4, at.getEscudo());
+        Assert.assertEquals(2, at.getEscudo());
+        Assert.assertEquals(38, at.getVida());
+
         at.update();
-        Assert.assertEquals(4, at.getEscudo());
-        Assert.assertEquals(34, at.getVida());
+        Assert.assertEquals(2, at.getEscudo());
+        Assert.assertEquals(30, at.getVida());
+
         at.update();
-        Assert.assertEquals(4, at.getEscudo());
-        Assert.assertEquals(28,at.getVida());
+        Assert.assertEquals(2, at.getEscudo());
+        Assert.assertEquals(22, at.getVida());
+        at.update();
+        Assert.assertEquals(2, at.getEscudo());
+        Assert.assertEquals(14,at.getVida());
     }
     //TODO: arreglar este test
     @Test
@@ -102,7 +106,7 @@ public class UnidadesTerranTest {
         NaveCiencia nc = new NaveCiencia();
         AltoTemplario at = new AltoTemplario();
         Coordenadas c1 = new Coordenadas(3,2);
-        Coordenadas c2 = new Coordenadas(8,6);
+        Coordenadas c2 = new Coordenadas(8,8);
         Coordenadas c3 = new Coordenadas(9,8);
         Coordenadas c4 = new Coordenadas(8,9);
         ProxyMapa mapa = ProxyMapa.getInstance();
