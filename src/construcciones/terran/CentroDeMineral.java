@@ -27,15 +27,17 @@ public class CentroDeMineral extends CentroDeRecoleccion {
 	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados, Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir {
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		Recurso recurso = (Recurso) mapa.obtenerDeCapaDeRecursos(coordenadas);
-		/* TODO: Ver esto.
+
 		if ( recurso == null ){
 			throw new ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso();
 		}
-		*/
+
 
 		if (recurso.noPuedeSerRecolectadoPor(this)){
 			throw new ExcepcionConstruccionNoRecolectaVolcan();
 		}
+
+		mapa.borrarEnCapaTerrestre(coordenadas);
 
 		super.verificarRecursosDisponibles(recursosRecolectados);
 

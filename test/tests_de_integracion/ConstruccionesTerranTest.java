@@ -70,24 +70,8 @@ public class ConstruccionesTerranTest {
 		Assert.assertFalse(j.buscarConstruccion(centroDeMineral));
 	}
 
-	/*
 	@Test
-	public void seQuiereConstruirUnCentroDeMineralesPeroNoSobreUnCristalElMismoNoSeConstruye() {
-		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
-		Coordenadas coordenadas = new Coordenadas(0,1);
-		CentroDeMineral centroDeMineral;
-		ProxyMapa mapa = ProxyMapa.getInstance();
-
-		centroDeMineral = j.construirCentroDeMineral(coordenadas);
-		for (int i = 0; i < centroDeMineral.getTiempoDeConstruccion(); i ++) j.update();
-
-		Assert.assertTrue(j.buscarConstruccion(centroDeMineral));
-	}
-	*/
-
-
-	@Test
-	public void SeConstruyeUnaRefineria() {
+	public void SeConstruyeUnaRefineriaSobreUnVolcan() {
 
 		JugadorTerran j = new JugadorTerran(new Recursos(150,150));
 		Refineria r;
@@ -305,11 +289,50 @@ public class ConstruccionesTerranTest {
 	public void JugadorNoPuedeConstruirRefineriaPorFaltaDeRecursos(){
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		Refineria r;
-		Coordenadas coordenadas = new Coordenadas(0,1);
-		
+		Volcan volcan = new Volcan();
+		Coordenadas coordenadas = new Coordenadas(1,7);
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+
+		mapa.agregar(volcan,coordenadas);
+
 		r = j.construirRefineria(coordenadas);
 
 		Assert.assertFalse(j.buscarConstruccion(r));
+	}
+
+	////////////CentrosDeRecoleccion sobre lugares donde no hay un recursos
+
+	@Test
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnVolcan(){
+		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
+		Barraca b;
+		Coordenadas coordenadas = new Coordenadas(8,1);
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+		Volcan volcan = new Volcan();
+
+		mapa.agregar(volcan,coordenadas);
+
+		b = j.construirBarraca(coordenadas);
+
+		Assert.assertFalse(j.buscarConstruccion(b));
+	}
+
+	@Test
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal(){
+		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
+		Barraca b;
+		Coordenadas coordenadas = new Coordenadas(8,1);
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+		Cristal cristal = new Cristal();
+
+		mapa.agregar(cristal,coordenadas);
+
+		b = j.construirBarraca(coordenadas);
+
+		Assert.assertFalse(j.buscarConstruccion(b));
 	}
 
 }
