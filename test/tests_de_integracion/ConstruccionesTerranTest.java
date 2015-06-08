@@ -6,6 +6,7 @@ import interfaces.Construible;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
+import jugabilidad.auxiliares.Suministros;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Rule;
@@ -106,17 +107,16 @@ public class ConstruccionesTerranTest {
 	}
 
 	@Test
-	public void SeConstruyeUnDepositoDeSuministros() {
-
-		JugadorTerran j = new JugadorTerran(new Recursos(150,150));
+	public void SeConstruyeUnDepositoDeSuministrosYAumentanLosSuministrosLimitesActuales() {
+		Suministros suministros = new Suministros(0,0);
+		JugadorTerran j = new JugadorTerran(new Recursos(150,150),suministros);
 		DepositoDeSuministros d ;
-		int tdc;
 		Coordenadas coordenadas = new Coordenadas(2,2);
 		
 		d = j.construirDepositoDeSuministros(coordenadas);
-		tdc = d.getTiempoDeConstruccion();
-		for (int i = 0; i < tdc; i ++) j.update();
-		
+		for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
+
+		Assert.assertEquals(5,suministros.getSuministrosLimiteActuales());
 		Assert.assertTrue(j.buscarConstruccion(d));
 	}
 	
@@ -304,7 +304,7 @@ public class ConstruccionesTerranTest {
 	////////////CentrosDeRecoleccion sobre lugares donde no hay un recursos
 
 	@Test
-	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnVolcan(){
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan(){
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		Barraca b;
 		Coordenadas coordenadas = new Coordenadas(8,1);

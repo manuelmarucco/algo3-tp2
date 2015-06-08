@@ -1,11 +1,22 @@
 package construcciones;
 
+import jugabilidad.auxiliares.Suministros;
+
 public abstract class CentroDeSuministros extends Construccion {
 
     protected int capacidadExtra;
+    protected Suministros suministrosDelJugador;
+    protected boolean capacidadAumentada;
 
+    @Override
     public void update() {
-        //cuando se destruye, le desciende los suministros al jugador
+        if(!capacidadAumentada){
+            suministrosDelJugador.aumentarSuministrosLimiteActuales(capacidadExtra);
+            capacidadAumentada = true;
+        }
+        if(vida.getVidaActual() == 0){
+            suministrosDelJugador.disminuirSuministrosLimiteActuales(capacidadExtra);
+        }
     }
 
     public int getCapacidadExtra(){

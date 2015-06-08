@@ -26,12 +26,17 @@ public class Suministros {
 			
 		}
 	
-	public void aumentarSuministrosDisponibles(int aumento){
+	public void aumentarSuministrosLimiteActuales(int aumento){
 		suministrosLimiteActuales = Math.min(suministrosLimiteActuales + aumento, suministrosMaximos);
 	}
 
 	public int getSuministrosLimiteActuales() {
 		return suministrosLimiteActuales;
+	}
+
+	public void disminuirSuministrosLimiteActuales(int disminucion) {
+		suministrosLimiteActuales = Math.max(suministrosLimiteActuales - disminucion, 0);
+
 	}
 }
 

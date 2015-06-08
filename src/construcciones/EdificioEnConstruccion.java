@@ -16,11 +16,11 @@ public class EdificioEnConstruccion implements ColocableEnMapa{
         this.construccionAConvertirse = construccion;
         this.tiempoDeConstruccion = construccion.getTiempoDeConstruccion();
     }
-
+/*
     public Coordenadas getCoordenadasDeConstruccion(){
         return this.coordenadasDeConstruccion;
     }
-
+*/
     public void disminuirTiempoDeConstruccion() {
         this.tiempoDeConstruccion--;
     }
