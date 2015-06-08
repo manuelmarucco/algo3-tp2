@@ -2,6 +2,7 @@ package construcciones.terran;
 
 import construcciones.CentroDeRecoleccion;
 import excepciones.ExcepcionConstruccionNoRecolectaCristal;
+import excepciones.ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
 import jugabilidad.ProxyMapa;
@@ -36,9 +37,15 @@ public class Refineria extends CentroDeRecoleccion {
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		Recurso recurso = (Recurso) mapa.obtenerDeCapaDeRecursos(coordenadas);
 
+		if ( recurso == null ){
+			throw new ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso();
+		}
+
 		if (recurso.noPuedeSerRecolectadoPor(this)){
 			throw new ExcepcionConstruccionNoRecolectaCristal();
 		}
+
+		mapa.borrarEnCapaTerrestre(coordenadas);
 
 		super.verificarRecursosDisponibles(recursosRecolectados);
 

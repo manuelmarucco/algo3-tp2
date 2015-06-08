@@ -32,7 +32,6 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 		return vida.getVidaActual();
 	}
 
-
 	public abstract void recibirDanio(int danioParcial);
 	
 	protected void verificarRecursosDisponibles(Recursos r) throws ExcepcionRecursosInsuficientes{
@@ -60,6 +59,16 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 		} catch (ExcepcionPosicionOcupada e){
 			e.printStackTrace();
 		}
+	}
+
+	@Override
+	public void update() {
+		ProxyMapa mapa = ProxyMapa.getInstance();
+
+		if(vida.getVidaActual() == 0){
+			mapa.borrarEnCapaTerrestre(mapa.getCoordenada(this));
+		}
+
 	}
 
 

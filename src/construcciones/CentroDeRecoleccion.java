@@ -11,13 +11,14 @@ public abstract class CentroDeRecoleccion extends Construccion {
     protected Recursos recursosDeJugador;
     protected Recolectable estructuraRecolectable;
 
-    @Override
+    //@Override
     public void recibirDanio(int danioParcial) {
 
     }
 
     @Override
     public void update() {
+        super.update();
         recursosDeJugador.agregarRecursos(0, this.obtenerRecurso());
 
     }
@@ -27,13 +28,6 @@ public abstract class CentroDeRecoleccion extends Construccion {
 
         ProxyMapa mapa= ProxyMapa.getInstance();
 
-       // try {
-           // this.estructuraRecolectable = this.asignarRecurso(coordenadas);
-       /* }catch(ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso e){
-            e.printStackTrace();
-            return;
-        }
-        */
         this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaDeRecursos(coordenadas);
 
         // Borra el NULL OBJECT
@@ -52,13 +46,4 @@ public abstract class CentroDeRecoleccion extends Construccion {
         return ( this.estructuraRecolectable.recolectarRecursos() );
 
     }
-/*
-    protected Recolectable asignarRecurso(Coordenadas coordenadas)
-            throws ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso {
-
-        ProxyMapa mapa= ProxyMapa.getInstance();
-
-        return ( (Recolectable) mapa.obtenerDeCapaDeRecursos(coordenadas) );
-    }
-*/
 }

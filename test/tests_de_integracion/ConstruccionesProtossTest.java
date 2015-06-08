@@ -8,6 +8,7 @@ import interfaces.Construible;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Recursos;
+import jugabilidad.auxiliares.Suministros;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Rule;
@@ -112,9 +113,9 @@ public class ConstruccionesProtossTest {
 
 
 	@Test
-	public void SeConstruyeUnPilon() {
-
-		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+	public void SeConstruyeUnPilonYAumentanLosSuministrosLimitesActuales() {
+		Suministros suministros = new Suministros(0,0);
+		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),suministros);
 		Pilon p;
 		int t;
 		Coordenadas coordenadas = new Coordenadas(9,7);
@@ -122,7 +123,8 @@ public class ConstruccionesProtossTest {
 		p = j.construirPilon(coordenadas);
 		t = p.getTiempoDeConstruccion();
 		for(int i=0; i<t; i++)	j.update();
-		
+
+		Assert.assertEquals(5,suministros.getSuministrosLimiteActuales());
 		Assert.assertTrue(j.buscarConstruccion(p));
 	}
 
@@ -258,6 +260,7 @@ public class ConstruccionesProtossTest {
 		PortalEstelar p;
 		
 		a = j.construirAcceso(new Coordenadas(1,2));
+		for(int i=0; i<a.getTiempoDeConstruccion(); i++)	j.update();
 		p = j.construirPortalEstelar(new Coordenadas(1,3));
 
 		Assert.assertFalse(j.buscarConstruccion(p));
@@ -271,7 +274,9 @@ public class ConstruccionesProtossTest {
 		ArchivosTemplarios at;
 		
 		a = j.construirAcceso(new Coordenadas(1,4)); //costo 150
+		for(int i=0; i<a.getTiempoDeConstruccion(); i++)	j.update();
 		p = j.construirPortalEstelar(new Coordenadas(1,5)); //costo 200,100
+		for(int i=0; i<p.getTiempoDeConstruccion(); i++)	j.update();
 		at = j.construirArchivosTemplarios(new Coordenadas(1,6)); //costo 150,100
 
 		Assert.assertFalse(j.buscarConstruccion(p));
@@ -289,7 +294,7 @@ public class ConstruccionesProtossTest {
 
 
 	@Test
-	public void JugadorNoPuedeConstruirRefineriaPorFaltaDeRecursos(){
+	public void JugadorNoPuedeConstruirAsimiladorPorFaltaDeRecursos(){
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
 		Asimilador a;
 		Volcan volcan = new Volcan();
@@ -302,6 +307,40 @@ public class ConstruccionesProtossTest {
 		a = j.construirAsimilador(coordenadas);
 
 		Assert.assertFalse(j.buscarConstruccion(a));
+	}
+
+	////////////CentrosDeRecoleccion sobre lugares donde no hay un recursos
+
+	@Test
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan(){
+		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		Acceso b;
+		Coordenadas coordenadas = new Coordenadas(8,1);
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+		Volcan volcan = new Volcan();
+
+		mapa.agregar(volcan,coordenadas);
+
+		b = j.construirAcceso(coordenadas);
+
+		Assert.assertFalse(j.buscarConstruccion(b));
+	}
+
+	@Test
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal(){
+		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		Acceso b;
+		Coordenadas coordenadas = new Coordenadas(8,1);
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+		Cristal cristal = new Cristal();
+
+		mapa.agregar(cristal,coordenadas);
+
+		b = j.construirAcceso(coordenadas);
+
+		Assert.assertFalse(j.buscarConstruccion(b));
 	}
 
 }

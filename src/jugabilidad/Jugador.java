@@ -19,7 +19,6 @@ public abstract class Jugador {
 	protected Suministros suministros;
 	protected ArrayList<Construible> construccionesCreadas = new ArrayList<>();
 	protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<>();
-	//protected ArrayList<Construible> colaDeConstruccion = new ArrayList<>();
 	protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion = new ArrayList<>();
 
 	protected void construir(Construible construccionCreada,Coordenadas coordenadas){
