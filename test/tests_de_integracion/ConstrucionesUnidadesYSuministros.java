@@ -5,7 +5,6 @@ import construcciones.protoss.Pilon;
 import construcciones.terran.DepositoDeSuministros;
 import excepciones.ExcepcionAtacarAUnidadAliada;
 import excepciones.ExcepcionObjetivoFueraDeRango;
-import interfaces.Daniable;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
@@ -102,7 +101,7 @@ public class ConstrucionesUnidadesYSuministros {
         Assert.assertEquals( 25,s.getSuministrosLimiteActuales());
 
          //TODO: corregir el codigo para quie pase
-        while(d.getVida()== 0) m.atacarTierra((Daniable)d);
+        while(d.getVida()!= 0) m.atacarTierra(d);
 
         Assert.assertEquals( 20,s.getSuministrosLimiteActuales());
     }

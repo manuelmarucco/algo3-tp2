@@ -3,13 +3,13 @@ package unidades;
 import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
-import interfaces.Daniable;
 import interfaces.Entrenable;
+import interfaces.Hechizable;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
-public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable,Entrenable  {
+public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizable,Entrenable  {
     protected Resistencia resistencia;
     protected int vision;
     protected Ubicacion ubicacion;

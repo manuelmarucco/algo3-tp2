@@ -10,6 +10,7 @@ import excepciones.ExcepcionRecursosInsuficientes;
 import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
+import interfaces.Daniable;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
@@ -20,7 +21,7 @@ import java.util.ArrayList;
 
 
 
-public abstract class Construccion implements ColocableEnMapa,Construible, Actualizable {
+public abstract class Construccion implements ColocableEnMapa,Construible, Actualizable, Daniable {
 	
 	//protected Regeneracion regenerar;
 
@@ -32,10 +33,9 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 		return resistencia.getVidaActual();
 	}
 
-	public void recibirDanio(int danioParcial){
-
-		resistencia.quitar(danioParcial);
-
+	@Override
+	public void recibirDanio(int danio){
+		resistencia.quitar(danio);
 	}
 	
 	protected void verificarRecursosDisponibles(Recursos r) throws ExcepcionRecursosInsuficientes{
