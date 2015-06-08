@@ -43,18 +43,4 @@ public class Refineria extends CentroDeRecoleccion {
 		super.verificarRecursosDisponibles(recursosRecolectados);
 
 	}
-/*
-	protected Recolectable asignarRecurso(Coordenadas coordenadas)
-			throws ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso {
-
-		ProxyMapa mapa = ProxyMapa.getInstance();
-		Recurso recurso = (Recurso) mapa.obtenerDeCapaDeRecursos(coordenadas);
-
-		if (recurso.noPuedeSerRecolectadoPor(this)){
-			throw new ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso();
-		}
-
-		return recurso;
-	}
-	*/
 }
