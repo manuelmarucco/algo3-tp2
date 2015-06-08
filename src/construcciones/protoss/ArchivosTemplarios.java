@@ -10,29 +10,24 @@ import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.Escudo;
-import unidades.Vida;
 import unidades.protoss.AltoTemplario;
+import unidades.protoss.ResistenciaProtoss;
 
 import java.util.ArrayList;
 
 
 public class ArchivosTemplarios extends CentroDeEntrenamiento {
 
-	private Escudo escudo;
-
 	public ArchivosTemplarios(){
 
-		vida = new Vida(500);
-		escudo = new Escudo(500);
+		resistencia = new ResistenciaProtoss(500,500);
 		costo = new Costo(150,200);
 		tiempoDeConstruccion = 9;
 	}
 
 	public ArchivosTemplarios(Jugador j){
 
-		vida = new Vida(500);
-		escudo = new Escudo(500);
+		resistencia = new ResistenciaProtoss(500,500);
 		costo = new Costo(150,200);
 		tiempoDeConstruccion = 9;
 		this. jugador = j;
@@ -40,12 +35,7 @@ public class ArchivosTemplarios extends CentroDeEntrenamiento {
 
 
 	public int getEscudo() {
-		return escudo.getEscudoActual();
-	}
-
-	@Override
-	public void recibirDanio(int danioParcial){
-		vida.quitar(escudo.quitar(danioParcial));
+		return ((ResistenciaProtoss)resistencia).getEscudoActual();
 	}
 
 	@Override

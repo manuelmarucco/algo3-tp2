@@ -10,14 +10,14 @@ import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import recursos.Recurso;
-import unidades.Vida;
+import unidades.terrran.ResistenciaTerran;
 
 import java.util.ArrayList;
 
 public class CentroDeMineral extends CentroDeRecoleccion {
 
 	public CentroDeMineral(Recursos recursos){
-		vida = new Vida(500);
+		resistencia = new ResistenciaTerran(500);
 		costo = new Costo(50,0);
 		tiempoDeConstruccion = 4;
 		this.recursosDeJugador = recursos;
@@ -42,9 +42,5 @@ public class CentroDeMineral extends CentroDeRecoleccion {
 		super.verificarRecursosDisponibles(recursosRecolectados);
 
 	}
-
-	@Override
-	public void recibirDanio(int danioParcial){ vida.quitar(danioParcial);}
-
 
 }

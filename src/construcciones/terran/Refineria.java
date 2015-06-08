@@ -10,7 +10,7 @@ import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import recursos.Recurso;
-import unidades.Vida;
+import unidades.terrran.ResistenciaTerran;
 
 import java.util.ArrayList;
 
@@ -19,17 +19,10 @@ public class Refineria extends CentroDeRecoleccion {
 
 	
 	public Refineria(Recursos recursos){
-		this.vida = new Vida(750);
+		this.resistencia = new ResistenciaTerran(750);
 		this.costo = new Costo(100,0);
 		this.tiempoDeConstruccion = 6;
 		this.recursosDeJugador = recursos;
-	}
-
-	@Override
-	public void recibirDanio(int danioParcial){
-
-		vida.quitar(danioParcial);
-
 	}
 
 	@Override

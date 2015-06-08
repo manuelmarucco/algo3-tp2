@@ -2,6 +2,9 @@ package unidades;
 
 import excepciones.ExcepcionAtacarAUnidadAliada;
 import excepciones.ExcepcionObjetivoFueraDeRango;
+import interfaces.ColocableEnMapa;
+import interfaces.Daniable;
+import interfaces.Entrenable;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -15,28 +18,28 @@ public class ProxiDeAtaque {
         jugador2=j2;
     }
 
-    public static void atacarTierra(UnidadGuerrera atacante,Unidad defensor) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
+    public static void atacarTierra(UnidadGuerrera atacante, Daniable defensor) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
         ProxiDeAtaque.comprobarRango(atacante, defensor);
         ProxiDeAtaque.comprobarDuenioDeUnidad(atacante,defensor);
         atacante.atacar(defensor);
     }
 
-    public static void atacarAire(UnidadGuerrera atacante,Unidad defensor) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
+    public static void atacarAire(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
         ProxiDeAtaque.comprobarRango(atacante, defensor);
         ProxiDeAtaque.comprobarDuenioDeUnidad(atacante,defensor);
         atacante.atacar(defensor);
     }
 
-    public static void comprobarRango(UnidadGuerrera atacante,Unidad defensor) throws ExcepcionObjetivoFueraDeRango {
+    public static void comprobarRango(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango {
         ProxyMapa mapa = ProxyMapa.getInstance();
         Coordenadas c1=mapa.getCoordenada(atacante);
-        Coordenadas c2=mapa.getCoordenada(defensor);
+        Coordenadas c2=mapa.getCoordenada((ColocableEnMapa)defensor);
         if(c1.distacina(c2)> atacante.getRangoAereo()) throw new ExcepcionObjetivoFueraDeRango();
 
     }
-    public static void comprobarDuenioDeUnidad(UnidadGuerrera atacante,Unidad defensor) throws ExcepcionAtacarAUnidadAliada {
-        if(jugador1.buscarUnidad(atacante)&& jugador1.buscarUnidad(defensor)) throw new ExcepcionAtacarAUnidadAliada();
-        if(jugador2.buscarUnidad(atacante)&& jugador2.buscarUnidad(defensor)) throw new ExcepcionAtacarAUnidadAliada();
+    public static void comprobarDuenioDeUnidad(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionAtacarAUnidadAliada {
+        if(jugador1.buscarUnidad(atacante)&& jugador1.buscarUnidad((Entrenable)defensor)) throw new ExcepcionAtacarAUnidadAliada();
+        if(jugador2.buscarUnidad(atacante)&& jugador2.buscarUnidad((Entrenable)defensor)) throw new ExcepcionAtacarAUnidadAliada();
     }
 
 }

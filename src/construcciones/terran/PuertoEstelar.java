@@ -10,10 +10,10 @@ import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.Vida;
 import unidades.terrran.Espectro;
 import unidades.terrran.NaveCiencia;
 import unidades.terrran.NaveTransporteTerran;
+import unidades.terrran.ResistenciaTerran;
 
 import java.util.ArrayList;
 
@@ -24,13 +24,13 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 
 	
 	public PuertoEstelar(){
-		vida = new Vida(1300);
+		resistencia = new ResistenciaTerran(1300);
 		costo = new Costo(150,100);
 		tiempoDeConstruccion = 10;
 
 	}
 	public PuertoEstelar(Jugador j){
-		vida = new Vida(1300);
+		resistencia = new ResistenciaTerran(1300);
 		costo = new Costo(150,100);
 		tiempoDeConstruccion = 10;
 		this.jugador = j;
@@ -52,14 +52,6 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 		super.verificarRecursosDisponibles(recursosRecolectados);
 		
 	}
-
-	@Override
-	public void recibirDanio(int danioParcial){
-
-		vida.quitar(danioParcial);
-
-	}
-
 
 	public Espectro entrenarEspectro() {
 		Espectro espectro = new Espectro();

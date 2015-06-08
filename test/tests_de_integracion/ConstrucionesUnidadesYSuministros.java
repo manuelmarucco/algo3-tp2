@@ -3,6 +3,9 @@ package tests_de_integracion;
 import construcciones.protoss.Acceso;
 import construcciones.protoss.Pilon;
 import construcciones.terran.DepositoDeSuministros;
+import excepciones.ExcepcionAtacarAUnidadAliada;
+import excepciones.ExcepcionObjetivoFueraDeRango;
+import interfaces.Daniable;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
@@ -87,7 +90,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador(){
+    public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango {
         Suministros s = new Suministros(0,20);
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),s);
         DepositoDeSuministros d;
@@ -99,7 +102,7 @@ public class ConstrucionesUnidadesYSuministros {
         Assert.assertEquals( 25,s.getSuministrosLimiteActuales());
 
          //TODO: corregir el codigo para quie pase
-        while(d.getVida()== 0) m.atacar(d);
+        while(d.getVida()== 0) m.atacarTierra((Daniable)d);
 
         Assert.assertEquals( 20,s.getSuministrosLimiteActuales());
     }

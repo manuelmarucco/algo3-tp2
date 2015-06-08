@@ -11,10 +11,6 @@ public abstract class CentroDeRecoleccion extends Construccion {
     protected Recursos recursosDeJugador;
     protected Recolectable estructuraRecolectable;
 
-    //@Override
-    public void recibirDanio(int danioParcial) {
-
-    }
 
     @Override
     public void update() {

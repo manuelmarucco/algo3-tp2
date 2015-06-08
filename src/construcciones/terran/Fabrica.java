@@ -10,8 +10,8 @@ import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.Vida;
 import unidades.terrran.Golliat;
+import unidades.terrran.ResistenciaTerran;
 
 import java.util.ArrayList;
 
@@ -19,13 +19,13 @@ import java.util.ArrayList;
 public class Fabrica extends CentroDeEntrenamiento{
 
 	public Fabrica(){
-		vida = new Vida(1250);
+		resistencia = new ResistenciaTerran(1250);
 		costo = new Costo(200,100);
 		tiempoDeConstruccion = 12;
 
 	}
 	public Fabrica(Jugador j){
-		vida = new Vida(1250);
+		resistencia = new ResistenciaTerran(1250);
 		costo = new Costo(200,100);
 		tiempoDeConstruccion = 12;
 		this.jugador = j;
@@ -42,13 +42,6 @@ public class Fabrica extends CentroDeEntrenamiento{
 		}
 		colaDeEntrenamiento.add(g);
 		return g;
-	}
-
-	@Override
-	public void recibirDanio(int danioParcial){
-
-		vida.quitar(danioParcial);
-
 	}
 
 	@Override

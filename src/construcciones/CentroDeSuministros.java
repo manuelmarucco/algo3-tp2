@@ -14,7 +14,7 @@ public abstract class CentroDeSuministros extends Construccion {
             suministrosDelJugador.aumentarSuministrosLimiteActuales(capacidadExtra);
             capacidadAumentada = true;
         }
-        if(vida.getVidaActual() == 0){
+        if(resistencia.getVidaActual() == 0){
             suministrosDelJugador.disminuirSuministrosLimiteActuales(capacidadExtra);
         }
     }

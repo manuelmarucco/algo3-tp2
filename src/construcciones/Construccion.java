@@ -14,7 +14,7 @@ import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.Vida;
+import unidades.Resistencia;
 
 import java.util.ArrayList;
 
@@ -26,13 +26,17 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 
 	protected Costo costo;
 	protected int tiempoDeConstruccion;
-	protected Vida vida;
+	protected Resistencia resistencia;
 
 	public int getVida(){
-		return vida.getVidaActual();
+		return resistencia.getVidaActual();
 	}
 
-	public abstract void recibirDanio(int danioParcial);
+	public void recibirDanio(int danioParcial){
+
+		resistencia.quitar(danioParcial);
+
+	}
 	
 	protected void verificarRecursosDisponibles(Recursos r) throws ExcepcionRecursosInsuficientes{
 		r.gastarRecursos(costo);
@@ -65,7 +69,7 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 	public void update() {
 		ProxyMapa mapa = ProxyMapa.getInstance();
 
-		if(vida.getVidaActual() == 0){
+		if(resistencia.getVidaActual() == 0){
 			mapa.borrarEnCapaTerrestre(mapa.getCoordenada(this));
 		}
 

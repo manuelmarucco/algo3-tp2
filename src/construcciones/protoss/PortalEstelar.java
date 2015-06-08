@@ -10,9 +10,8 @@ import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.Escudo;
-import unidades.Vida;
 import unidades.protoss.NaveTransporteProtoss;
+import unidades.protoss.ResistenciaProtoss;
 import unidades.protoss.Scout;
 
 import java.util.ArrayList;
@@ -20,29 +19,21 @@ import java.util.ArrayList;
 
 public class PortalEstelar extends CentroDeEntrenamiento{
 
-	private Escudo escudo;
 
 	public PortalEstelar(){
-		vida = new Vida(600);
-		escudo = new Escudo(600);
+		resistencia = new ResistenciaProtoss(600,600);
 		costo = new Costo(150,150);
 		tiempoDeConstruccion = 10;
 	}
 	public PortalEstelar(Jugador j){
-		vida = new Vida(600);
-		escudo = new Escudo(600);
+		resistencia = new ResistenciaProtoss(600,600);
 		costo = new Costo(150,150);
 		tiempoDeConstruccion = 10;
 		this.jugador = j;
 	}
 
 	public int getEscudo() {
-		return escudo.getEscudoActual();
-	}
-
-	@Override
-	public void recibirDanio(int danioParcial){
-		vida.quitar(escudo.quitar(danioParcial));
+		return ((ResistenciaProtoss)resistencia).getEscudoActual();
 	}
 
 	@Override

@@ -18,11 +18,11 @@ public abstract class UnidadGuerrera extends Unidad {
         objetivo.recibirDanio(danio);
     }
 
-    public void atacarTierra(Unidad objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
+    public void atacarTierra(Daniable objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
         ProxiDeAtaque.atacarTierra(this, objetivo);
     }
 
-    public void atacarAire(Unidad objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
+    public void atacarAire(Daniable objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
         ProxiDeAtaque.atacarAire(this, objetivo);
     }
 
