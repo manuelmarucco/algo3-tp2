@@ -5,6 +5,7 @@ import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Test;
+import unidades.ProxiDeAtaque;
 import unidades.protoss.AltoTemplario;
 import unidades.protoss.ClonMagico;
 import unidades.protoss.Zealot;
@@ -21,9 +22,10 @@ public class UnidadesTerranTest {
         Coordenadas c2 = new Coordenadas(6,6);
         ProxyMapa mapa = ProxyMapa.getInstance();
         ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
-        mapa.agregar(marine,c1);
+        mapa.agregar(marine, c1);
         mapa.agregar(zealot, c2);
-        marine.atacarTierra(c1, c2);
+        ProxiDeAtaque.comprobarRango(marine, zealot);
+        marine.atacar(zealot);
         Assert.assertEquals(54,zealot.getEscudo());
     }
 
@@ -37,7 +39,7 @@ public class UnidadesTerranTest {
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(marine, c1);
         mapa.agregar(zealot, c2);
-        marine.atacarTierra(c1, c2);
+        ProxiDeAtaque.comprobarRango(marine, zealot);
     }
 
     @Test

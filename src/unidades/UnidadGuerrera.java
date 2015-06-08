@@ -3,11 +3,7 @@ package unidades;
 import excepciones.ExcepcionAtacarAUnidadAliada;
 import excepciones.ExcepcionObjetivoFueraDeRango;
 import interfaces.Daniable;
-import interfaces.Entrenable;
-import jugabilidad.Jugador;
-import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
-import jugabilidad.utilidadesMapa.Coordenadas;
 
 public abstract class UnidadGuerrera extends Unidad {
 
@@ -22,35 +18,19 @@ public abstract class UnidadGuerrera extends Unidad {
         objetivo.recibirDanio(danio);
     }
 
-    public void atacarTierra(Coordenadas origen, Coordenadas destino) throws ExcepcionObjetivoFueraDeRango {
-        if(origen.distacina(destino) < this.danio.getRangoTerrestre()){
-            this.atacar((Daniable) ProxyMapa.getInstance().obtenerDeCapaTerrestre(destino));
-        }
-        else throw new ExcepcionObjetivoFueraDeRango();
+    public void atacarTierra(Unidad objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
+        ProxiDeAtaque.atacarTierra(this, objetivo);
     }
 
-    public void atacarAire(Coordenadas origen, Coordenadas destino) throws ExcepcionObjetivoFueraDeRango {
-        if(origen.distacina(destino)<danio.getRangoAereo()){
-            this.atacar((Daniable)ProxyMapa.getInstance().obtenerDeCapaAerea(destino));
-        }
-        else throw new ExcepcionObjetivoFueraDeRango();
+    public void atacarAire(Unidad objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
+        ProxiDeAtaque.atacarAire(this, objetivo);
     }
 
-    public void atacarAire(Coordenadas origen, Coordenadas destino, Jugador duenio) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
-        if(duenio.buscarUnidad((Entrenable)ProxyMapa.getInstance().obtenerDeCapaAerea(destino))){
-            throw new ExcepcionAtacarAUnidadAliada();
-        }
-        else{
-            atacarAire(origen,destino);
-        }
+    public int getRangoAereo(){
+        return this.danio.getRangoAereo();
     }
 
-    public void atacarTierra(Coordenadas origen, Coordenadas destino, Jugador duenio) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
-        if(duenio.buscarUnidad((Entrenable)ProxyMapa.getInstance().obtenerDeCapaTerrestre(destino))){
-            throw new ExcepcionAtacarAUnidadAliada();
-        }
-        else{
-            atacarTierra(origen,destino);
-        }
+    public int getRangoTerrestre(){
+        return this.danio.getRangoTerrestre();
     }
 }
