@@ -1,23 +1,42 @@
 package jugabilidad_tests;
 
-import jugabilidad.Mapa;
+import construcciones.terran.CentroDeMineral;
+import jugabilidad.ProxyMapa;
+import jugabilidad.CreadorDeMapa;
+
+import jugabilidad.auxiliares.Recursos;
+import jugabilidad.utilidadesMapa.Coordenadas;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public class CreadorDeMapaTest {
 
-    private Boolean comprobarMinerales(Mapa mapa){
+    private Boolean comprobarMinerales(){
 
-        // TODO: Hacer esto.
+        // Coloco un CentroDeMineral sobre los cristales, para verificar que ahí hay cristales.
+
+
+        ProxyMapa proxyMapa = ProxyMapa.getInstance();
+        CentroDeMineral centro = new CentroDeMineral(new Recursos(50,0));
+
+        proxyMapa.agregar(centro, new Coordenadas(2,19));
+        proxyMapa.agregar(new CentroDeMineral(new Recursos(50,0)), new Coordenadas(19,2));
+
+        // De no haber cristales saltan Excepciones.
+        //centro.update();
+
         return true;
+
     }
-    /*
+
     @Test
     public void test(){
 
         CreadorDeMapa creador = new CreadorDeMapa();
-        Mapa mapa = creador.crearMapa();
+        ProxyMapa mapa = creador.crearMapa();
 
-        assertTrue( this.comprobarMinerales( mapa ) );
+        assertTrue( this.comprobarMinerales() );
 
     }
-    */
+
 }

@@ -70,6 +70,21 @@ public class ConstruccionesTerranTest {
 		Assert.assertFalse(j.buscarConstruccion(centroDeMineral));
 	}
 
+	/*
+	@Test
+	public void seQuiereConstruirUnCentroDeMineralesPeroNoSobreUnCristalElMismoNoSeConstruye() {
+		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
+		Coordenadas coordenadas = new Coordenadas(0,1);
+		CentroDeMineral centroDeMineral;
+		ProxyMapa mapa = ProxyMapa.getInstance();
+
+		centroDeMineral = j.construirCentroDeMineral(coordenadas);
+		for (int i = 0; i < centroDeMineral.getTiempoDeConstruccion(); i ++) j.update();
+
+		Assert.assertTrue(j.buscarConstruccion(centroDeMineral));
+	}
+	*/
+
 
 	@Test
 	public void SeConstruyeUnaRefineria() {
