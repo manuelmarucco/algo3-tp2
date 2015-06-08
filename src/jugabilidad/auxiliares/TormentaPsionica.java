@@ -22,9 +22,9 @@ public class TormentaPsionica {
             for(int j=-1;j<2;j++){
                 Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);
                 if(mapa.posicionAereaOcupada(coordenadas))
-                    ((Daniable)mapa.obtenerDeCapaAerea(coordenadas)).recibirDanio(danio);
+                    ((Daniable)mapa.obtenerDeCapaAerea(coordenadas)).recibirDanio(danio.getDanioAire());
                 if(mapa.posicionTerrestreOcupada(coordenadas))
-                    ((Daniable)mapa.obtenerDeCapaTerrestre(coordenadas)).recibirDanio(danio);
+                    ((Daniable)mapa.obtenerDeCapaTerrestre(coordenadas)).recibirDanio(danio.getDanioTierra());
             }
         }
         this.turnos--;

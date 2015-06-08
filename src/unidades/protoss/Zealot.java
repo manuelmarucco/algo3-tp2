@@ -1,6 +1,5 @@
 package unidades.protoss;
 
-import interfaces.Atacante;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.auxiliares.Costo;
@@ -8,7 +7,7 @@ import unidades.Danio;
 import unidades.Terrestre;
 import unidades.UnidadGuerrera;
 
-public class Zealot extends UnidadGuerrera implements Atacante , Cargable {
+public class Zealot extends UnidadGuerrera implements Cargable {
 
     public Zealot(){
         super(new ResistenciaProtoss(100,60),new Danio(8,0,1,0),7,new Terrestre(),2,new Costo(100,0),4);
@@ -17,11 +16,6 @@ public class Zealot extends UnidadGuerrera implements Atacante , Cargable {
     @Override
     public void update() {
         this.resistencia.regenerar();
-    }
-
-    @Override
-    public void recibirDanio(Danio danio) {
-        this.resistencia.quitar(danio.getDanioTierra());
     }
 
     public int getEscudo() {

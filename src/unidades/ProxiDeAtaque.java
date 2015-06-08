@@ -20,14 +20,14 @@ public class ProxiDeAtaque {
 
     public static void atacarTierra(UnidadGuerrera atacante, Daniable defensor) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
         ProxiDeAtaque.comprobarRango(atacante, defensor);
-        ProxiDeAtaque.comprobarDuenioDeUnidad(atacante,defensor);
-        atacante.atacar(defensor);
+        ProxiDeAtaque.comprobarDuenioDeUnidad(atacante, defensor);
+        defensor.recibirDanio(atacante.getDanioTerrestre());
     }
 
     public static void atacarAire(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
         ProxiDeAtaque.comprobarRango(atacante, defensor);
         ProxiDeAtaque.comprobarDuenioDeUnidad(atacante,defensor);
-        atacante.atacar(defensor);
+        defensor.recibirDanio(atacante.getDanioAereo());
     }
 
     public static void comprobarRango(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango {
@@ -37,7 +37,7 @@ public class ProxiDeAtaque {
         if(c1.distacina(c2)> atacante.getRangoAereo()) throw new ExcepcionObjetivoFueraDeRango();
 
     }
-    public static void comprobarDuenioDeUnidad(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionAtacarAUnidadAliada {
+    public static void comprobarDuenioDeUnidad(Object atacante,Object defensor) throws ExcepcionAtacarAUnidadAliada {
         if(jugador1.buscarUnidad(atacante)&& jugador1.buscarUnidad((Entrenable)defensor)) throw new ExcepcionAtacarAUnidadAliada();
         if(jugador2.buscarUnidad(atacante)&& jugador2.buscarUnidad((Entrenable)defensor)) throw new ExcepcionAtacarAUnidadAliada();
     }

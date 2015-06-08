@@ -3,7 +3,6 @@ package unidades.protoss;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
-import unidades.Danio;
 import unidades.Ubicacion;
 import unidades.Unidad;
 
@@ -14,8 +13,8 @@ public class Clon extends Unidad implements ColocableEnMapa {
     }
 
     @Override
-    public void recibirDanio(Danio danio) {
-        this.resistencia.quitar(danio.getDanioAire());
+    public void recibirDanio(int danio) {
+        this.resistencia.quitar(danio);
         this.matar();
     }
     @Override

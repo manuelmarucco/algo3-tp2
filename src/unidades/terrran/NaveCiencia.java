@@ -1,8 +1,6 @@
 package unidades.terrran;
 
 import excepciones.EnergiaInsuficiente;
-import interfaces.Daniable;
-import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.*;
@@ -13,41 +11,30 @@ public class NaveCiencia extends UnidadMagica {
         super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10);
     }
 
-    @Override
-    public void recibirDanio(Danio danio) {
-        this.resistencia.quitar(danio.getDanioAire());
-        this.matar();
-    }
-
     public void EMP(Coordenadas c){
         try {
             this.energia.gastar(100);
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
-        ProxyMapa mapa = ProxyMapa.getInstance();
-        for(int i =-1;i<2;i++){
-            for(int j =-1;j<2;j++){
-                Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);
-                //TODO: sacar estos casteos
-                this.EMP((Unidad)mapa.obtenerDeCapaTerrestre(coordenadas));//aplicar emp
-                this.EMP((Unidad)mapa.obtenerDeCapaAerea(coordenadas));//aplicar emp
-            }
-        }
+        ProxyDeHechizos.EMP(this,c);
+
     }
 
-    private void EMP(Unidad d){
+    public void EMP(Unidad d){
         if(d!=null)//TODO: sacar esto
         d.recibirEMP();
     }
 
 
-    public void Radiacion(Daniable objetivo){
+    public void Radiacion(Unidad objetivo){
         try {
             this.energia.gastar(75);
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
+        if(ProxyDeHechizos.esUnidad(objetivo))
         objetivo.irradiar();
     }
+
 }

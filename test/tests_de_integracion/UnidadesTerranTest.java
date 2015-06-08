@@ -1,6 +1,8 @@
 package tests_de_integracion;
 
+import excepciones.ExcepcionAtacarAUnidadAliada;
 import excepciones.ExcepcionObjetivoFueraDeRango;
+import interfaces.Daniable;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
@@ -15,7 +17,7 @@ import unidades.terrran.NaveCiencia;
 public class UnidadesTerranTest {
 
     @Test
-    public void MarineAtacaAZealotDentroDeSuRango() throws ExcepcionObjetivoFueraDeRango {
+    public void MarineAtacaAZealotDentroDeSuRango() throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
         Marine marine = new Marine();
         Zealot zealot = new Zealot();
         Coordenadas c1 = new Coordenadas(5,5);
@@ -25,7 +27,7 @@ public class UnidadesTerranTest {
         mapa.agregar(marine, c1);
         mapa.agregar(zealot, c2);
         ProxiDeAtaque.comprobarRango(marine, zealot);
-        marine.atacar(zealot);
+        marine.atacarTierra((Daniable)zealot);
         Assert.assertEquals(54,zealot.getEscudo());
     }
 

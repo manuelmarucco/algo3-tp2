@@ -90,4 +90,8 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
         return null;
     }
 
+    public void recibirDanio(int danio) {
+        this.resistencia.quitar(danio);
+    }
+
 }

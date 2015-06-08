@@ -52,11 +52,6 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
 
     }
 
-    @Override
-    public void recibirDanio(Danio danio) {
-        this.resistencia.quitar(danio.getDanioTierra());
-    }
-
     public void recibirEMP(){
         super.recibirEMP();
         this.resistencia.quitar(((ResistenciaProtoss)resistencia).getEscudoActual());

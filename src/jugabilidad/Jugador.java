@@ -90,7 +90,7 @@ public abstract class Jugador {
 		
 	}
 
-	public boolean buscarUnidad(Entrenable m) {
+	public boolean buscarUnidad(Object m) {
 		for(Entrenable e: unidadesCreadas){
 			if(m.equals(e)){
 				return true;

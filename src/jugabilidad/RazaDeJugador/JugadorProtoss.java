@@ -24,6 +24,7 @@ public class JugadorProtoss extends Jugador {
     public JugadorProtoss(Recursos recursosIniciales, Suministros s){
         this.recursosRecolectados = recursosIniciales;
         this.suministros =  s;
+        this.tormentasPsionica= new ArrayList<>();
 
     }
 
@@ -70,7 +71,7 @@ public class JugadorProtoss extends Jugador {
     public NexoMineral construirNexoMineral(Coordenadas coordenadas) {
         NexoMineral nexoMineral = new NexoMineral(recursosRecolectados);
 
-        this.construir(nexoMineral,coordenadas);
+        this.construir(nexoMineral, coordenadas);
 
         return nexoMineral;
     }

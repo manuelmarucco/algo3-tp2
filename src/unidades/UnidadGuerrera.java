@@ -14,10 +14,6 @@ public abstract class UnidadGuerrera extends Unidad {
         this.danio=danio;
     }
 
-    public void atacar(Daniable objetivo){
-        objetivo.recibirDanio(danio);
-    }
-
     public void atacarTierra(Daniable objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
         ProxiDeAtaque.atacarTierra(this, objetivo);
     }
@@ -32,5 +28,13 @@ public abstract class UnidadGuerrera extends Unidad {
 
     public int getRangoTerrestre(){
         return this.danio.getRangoTerrestre();
+    }
+
+    public int getDanioTerrestre() {
+        return danio.getDanioTierra();
+    }
+
+    public int getDanioAereo() {
+        return danio.getDanioAire();
     }
 }
