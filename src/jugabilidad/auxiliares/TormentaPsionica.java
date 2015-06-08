@@ -7,12 +7,14 @@ import unidades.Danio;
 
 public class TormentaPsionica {
 
+    private int turnos;
     private Danio danio;
     private Coordenadas c;
 
     public TormentaPsionica(Coordenadas c){
         this.c = c;
         this.danio = new Danio(100,100,1,1);
+        this.turnos=2;
     }
     public void update() {
         ProxyMapa mapa = ProxyMapa.getInstance();
@@ -25,5 +27,10 @@ public class TormentaPsionica {
                     ((Daniable)mapa.obtenerDeCapaTerrestre(coordenadas)).recibirDanio(danio);
             }
         }
+        this.turnos--;
+    }
+
+    public int getTurnos() {
+        return turnos;
     }
 }

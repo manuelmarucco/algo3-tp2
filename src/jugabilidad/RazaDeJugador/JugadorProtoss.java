@@ -79,6 +79,9 @@ public class JugadorProtoss extends Jugador {
         super.update();
         for(TormentaPsionica a:tormentasPsionica){
             a.update();
+            if(a.getTurnos()==0){
+                tormentasPsionica.remove(a);
+            }
         }
     }
 
