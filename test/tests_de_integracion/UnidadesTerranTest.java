@@ -42,8 +42,8 @@ public class UnidadesTerranTest {
     public void NaveCienciaLanzaEMPDejaSinEscudoYEnergiaAUnAltoTemplario(){
         NaveCiencia nc = new NaveCiencia();
         AltoTemplario at = new AltoTemplario();
-        Coordenadas c1 = new Coordenadas(3,3);
-        Coordenadas c2 = new Coordenadas(8,8);
+        Coordenadas c1 = new Coordenadas(4,4);
+        Coordenadas c2 = new Coordenadas(9,9);
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(nc,c1);
         mapa.agregar(at, c2);
@@ -61,8 +61,8 @@ public class UnidadesTerranTest {
     public void NaveCienciaLanzaRadiacionYBajaLaVidaAlTemplario(){//baja de a 6 por q recupera 10% de escudo por turno (4)
         NaveCiencia nc = new NaveCiencia();
         AltoTemplario at = new AltoTemplario();
-        Coordenadas c1 = new Coordenadas(3,3);
-        Coordenadas c2 = new Coordenadas(8,8);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(6,5);
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(nc,c1);
         mapa.agregar(at, c2);
@@ -92,16 +92,18 @@ public class UnidadesTerranTest {
         Assert.assertEquals(4, at.getEscudo());
         Assert.assertEquals(28,at.getVida());
     }
-
+    //TODO: arreglar este test
     @Test
     public void testAltoTemplarioSeClonaYUnaNaveDeCienciaMataAlosClones(){
         NaveCiencia nc = new NaveCiencia();
         AltoTemplario at = new AltoTemplario();
-        Coordenadas c1 = new Coordenadas(3,3);
-        Coordenadas c2 = new Coordenadas(8,8);
-        Coordenadas c3 = new Coordenadas(8,7);
-        Coordenadas c4 = new Coordenadas(7,8);
+        Coordenadas c1 = new Coordenadas(3,2);
+        Coordenadas c2 = new Coordenadas(8,6);
+        Coordenadas c3 = new Coordenadas(9,8);
+        Coordenadas c4 = new Coordenadas(8,9);
         ProxyMapa mapa = ProxyMapa.getInstance();
+        ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+
         mapa.agregar(nc, c1);
         mapa.agregar(at, c2);
         nc.update();
