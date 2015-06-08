@@ -1,6 +1,5 @@
 package construcciones;
 
-import excepciones.ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso;
 import excepciones.ExcepcionPosicionOcupada;
 import interfaces.Recolectable;
 import jugabilidad.ProxyMapa;
@@ -19,7 +18,6 @@ public abstract class CentroDeRecoleccion extends Construccion {
 
     @Override
     public void update() {
-       // super.update();
         recursosDeJugador.agregarRecursos(0, this.obtenerRecurso());
 
     }
@@ -29,11 +27,14 @@ public abstract class CentroDeRecoleccion extends Construccion {
 
         ProxyMapa mapa= ProxyMapa.getInstance();
 
-        try {
-            this.estructuraRecolectable = this.asignarRecurso(coordenadas);
-        }catch(ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso e){
+       // try {
+           // this.estructuraRecolectable = this.asignarRecurso(coordenadas);
+       /* }catch(ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso e){
             e.printStackTrace();
+            return;
         }
+        */
+        this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaDeRecursos(coordenadas);
 
         // Borra el NULL OBJECT
         mapa.borrarEnCapaTerrestre(coordenadas);
@@ -51,13 +52,13 @@ public abstract class CentroDeRecoleccion extends Construccion {
         return ( this.estructuraRecolectable.recolectarRecursos() );
 
     }
-
-    private Recolectable asignarRecurso(Coordenadas coordenadas)
+/*
+    protected Recolectable asignarRecurso(Coordenadas coordenadas)
             throws ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso {
 
         ProxyMapa mapa= ProxyMapa.getInstance();
 
         return ( (Recolectable) mapa.obtenerDeCapaDeRecursos(coordenadas) );
     }
-
+*/
 }

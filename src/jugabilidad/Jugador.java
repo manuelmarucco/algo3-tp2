@@ -23,10 +23,9 @@ public abstract class Jugador {
 	protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion = new ArrayList<>();
 
 	protected void construir(Construible construccionCreada,Coordenadas coordenadas){
-		ProxyMapa mapa = ProxyMapa.getInstance();
 
 		try {
-			construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados);
+			construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados,coordenadas);
 		} catch (ExcepcionNoSePuedeConstruir e) {
 			e.printStackTrace();
 			return;
@@ -42,9 +41,6 @@ public abstract class Jugador {
 		}
 
 		edificiosEnConstruccion.add(edificioEnConstruccion);
-		//colaDeConstruccion.add(construccionCreada);
-
-
 	}
 
 	public Recursos getRecursos() {
@@ -94,13 +90,6 @@ public abstract class Jugador {
 		suministros.usarSuministros(i);
 		
 	}
-
-	/*
-	public void aumentarSuministros(int capacidadExtra) {
-		suministros.aumentarSuministrosDisponibles(capacidadExtra);
-		
-	}
-	*/
 
 	public boolean buscarUnidad(Entrenable m) {
 		for(Entrenable e: unidadesCreadas){

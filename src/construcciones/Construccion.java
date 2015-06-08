@@ -10,7 +10,6 @@ import excepciones.ExcepcionRecursosInsuficientes;
 import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
-import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
@@ -41,7 +40,7 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Actua
 	}
 	
 	@Override
-	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados) throws ExcepcionNoSePuedeConstruir{
+	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados, Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir{
 		this.verificarRecursosDisponibles(recursosRecolectados);
 	}
 	

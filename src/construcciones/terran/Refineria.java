@@ -1,15 +1,17 @@
 package construcciones.terran;
 
 import construcciones.CentroDeRecoleccion;
-import excepciones.ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso;
-import interfaces.Recolectable;
-import jugabilidad.Mapa;
+import excepciones.ExcepcionConstruccionNoRecolectaCristal;
+import excepciones.ExcepcionNoSePuedeConstruir;
+import interfaces.Construible;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import recursos.Recurso;
 import unidades.Vida;
+
+import java.util.ArrayList;
 
 
 public class Refineria extends CentroDeRecoleccion {
@@ -29,18 +31,30 @@ public class Refineria extends CentroDeRecoleccion {
 
 	}
 
-	private Recolectable asignarRecurso(Coordenadas coordenadas)
+	@Override
+	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados, Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir {
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		Recurso recurso = (Recurso) mapa.obtenerDeCapaDeRecursos(coordenadas);
+
+		if (recurso.noPuedeSerRecolectadoPor(this)){
+			throw new ExcepcionConstruccionNoRecolectaCristal();
+		}
+
+		super.verificarRecursosDisponibles(recursosRecolectados);
+
+	}
+/*
+	protected Recolectable asignarRecurso(Coordenadas coordenadas)
 			throws ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso {
 
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		Recurso recurso = (Recurso) mapa.obtenerDeCapaDeRecursos(coordenadas);
 
 		if (recurso.noPuedeSerRecolectadoPor(this)){
-
 			throw new ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso();
-
 		}
 
-		return ( recurso );
+		return recurso;
 	}
+	*/
 }

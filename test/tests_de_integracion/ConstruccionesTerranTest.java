@@ -52,9 +52,9 @@ public class ConstruccionesTerranTest {
 
 		Assert.assertTrue(j.buscarConstruccion(centroDeMineral));
 	}
-	//TODO: ---> este test deberia fallar, hacer que no se pueda construir el centro de mineral sobre un volcan
+
 	@Test
-	public void SeConstruyeUnaCentroDeMineralSobreUnVolcanYNoSePuede() {
+	public void SeQuiereConstruirUnaCentroDeMineralSobreUnVolcanYNoSePuede() {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(0,1);
 		Volcan volcan = new Volcan();
@@ -67,7 +67,7 @@ public class ConstruccionesTerranTest {
 		centroDeMineral = j.construirCentroDeMineral(coordenadas);
 		for (int i = 0; i < centroDeMineral.getTiempoDeConstruccion(); i ++) j.update();
 
-		Assert.assertTrue(j.buscarConstruccion(centroDeMineral));
+		Assert.assertFalse(j.buscarConstruccion(centroDeMineral));
 	}
 
 
@@ -87,6 +87,23 @@ public class ConstruccionesTerranTest {
 		for (int i = 0; i < r.getTiempoDeConstruccion(); i ++) j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(r));
+	}
+
+	@Test
+	public void SeQuiereConstruirUnaRefineriaSobreUnVolcanYNoSePuede() {
+		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
+		Coordenadas coordenadas = new Coordenadas(0,1);
+		Cristal cristal = new Cristal();
+		Refineria refineria;
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+
+		mapa.agregar(cristal,coordenadas);
+
+		refineria = j.construirRefineria(coordenadas);
+		for (int i = 0; i < refineria.getTiempoDeConstruccion(); i ++) j.update();
+
+		Assert.assertFalse(j.buscarConstruccion(refineria));
 	}
 
 	@Test
@@ -119,7 +136,7 @@ public class ConstruccionesTerranTest {
 		Fabrica f = new Fabrica();
 
 	    exception.expect(ExcepcionNoSePuedeConstruir.class);
-		f.esConstruible(cs,r);
+		f.esConstruible(cs,r,new Coordenadas(9,9));
 		
 	}
 	
@@ -136,7 +153,7 @@ public class ConstruccionesTerranTest {
 		PuertoEstelar p = new PuertoEstelar();
 
 	    exception2.expect(ExcepcionNoSePuedeConstruir.class);
-		p.esConstruible(cs,recursosRecolectados);
+		p.esConstruible(cs,recursosRecolectados, new Coordenadas(5,6));
 		
 	}
 	
@@ -178,19 +195,15 @@ public class ConstruccionesTerranTest {
 		Fabrica f;
 		PuertoEstelar p;
 		new Coordenadas(1,1);
-		int i1,i2,i3;
 
 		b = j.construirBarraca(new Coordenadas(5,5));
-		i1 = b.getTiempoDeConstruccion();
-		for (int i = 0; i < i1; i ++) j.update();
+		for (int i = 0; i < b.getTiempoDeConstruccion(); i ++) j.update();
 
 		f = j.construirFabrica(new Coordenadas(5,7));
-		i2 = f.getTiempoDeConstruccion();
-		for (int i = 0; i < i2; i ++) j.update();
+		for (int i = 0; i < f.getTiempoDeConstruccion(); i ++) j.update();
 
 		p = j.construirPuertoEstelar(new Coordenadas(7,7));
-		i3 = p.getTiempoDeConstruccion();
-		for (int i = 0; i < i3; i ++) j.update();
+		for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
 
 		Assert.assertTrue(j.buscarConstruccion(p));
 	}
@@ -212,8 +225,13 @@ public class ConstruccionesTerranTest {
 	public void JugadorNoPuedeConstruirCentroDeMineralPorFaltaDeRecursos(){
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		CentroDeMineral c;
+		Cristal cristal = new Cristal();
 		Coordenadas coordenadas = new Coordenadas(1,7);
-		
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+
+		mapa.agregar(cristal,coordenadas);
+
 		c = j.construirCentroDeMineral(coordenadas);
 
 		Assert.assertFalse(j.buscarConstruccion(c));
@@ -232,12 +250,13 @@ public class ConstruccionesTerranTest {
 	
 	@Test
 	public void JugadorNoPuedeConstruirFabricaPorFaltaDeRecursos(){
-		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
+		JugadorTerran j = new JugadorTerran(new Recursos(1000,0));
 		Barraca b;
 		Fabrica f;
 		Coordenadas coordenadas = new Coordenadas(1,9);
 		
-		j.construirBarraca(coordenadas);
+		b = j.construirBarraca(coordenadas);
+		for (int i = 0; i < b.getTiempoDeConstruccion(); i ++) j.update();
 		f = j.construirFabrica(coordenadas);
 
 		Assert.assertFalse(j.buscarConstruccion(f));

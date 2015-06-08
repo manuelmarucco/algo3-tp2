@@ -1,4 +1,4 @@
 package excepciones;
 
-public class ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso extends Throwable {
+public class ExcepcionLaConstruccionNoPuedeRecolectarEsteRecurso extends ExcepcionNoSePuedeConstruir {
 }

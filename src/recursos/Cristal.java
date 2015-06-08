@@ -1,6 +1,6 @@
 package recursos;
 
-import construcciones.CentroDeRecoleccion;
+import construcciones.protoss.Asimilador;
 import construcciones.terran.Refineria;
 
 public class Cristal extends Recurso{
@@ -10,11 +10,10 @@ public class Cristal extends Recurso{
         return 10;
     }
 
-    public boolean noPuedeSerRecolectadoPor(CentroDeRecoleccion centroDeRecoleccion){
-        return false;
-    }
-
     public boolean noPuedeSerRecolectadoPor(Refineria refinera){
+        return true;
+    }
+    public boolean noPuedeSerRecolectadoPor(Asimilador asimilador){
         return true;
     }
 

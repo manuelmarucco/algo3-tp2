@@ -39,7 +39,6 @@ public class EdificioEnConstruccion implements ColocableEnMapa{
         return coordenadasDeConstruccion;
     }
 
-    // TODO: No se como arreglar este.
     @Override
     public void agregarse( Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
         ProxyMapa mapa = ProxyMapa.getInstance();

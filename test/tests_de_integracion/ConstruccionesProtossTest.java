@@ -5,6 +5,7 @@ import excepciones.ExcepcionNecesitaConstruirAcceso;
 import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
+import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -12,6 +13,8 @@ import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import recursos.Cristal;
+import recursos.Volcan;
 
 import java.util.ArrayList;
 
@@ -35,36 +38,78 @@ public class ConstruccionesProtossTest {
 		
 		Assert.assertTrue(j.buscarConstruccion(a));
 	}
-	/*
-	@Test
-	public void SeConstruyeUnaNexoMineral() {
 
-		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
-		NexoMineral n;
-		int i1;
-		
-		n = j.construirNexoMineral(new Coordenadas(5,4));
-		i1 = n.getTiempoDeConstruccion();
-		for(int i=0; i<i1; i++)	j.update();
-		
-		Assert.assertTrue(j.buscarConstruccion(n));
+
+	@Test
+	public void SeConstruyeUnaNexoMineralSobreUnCristal() {
+		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
+		Coordenadas coordenadas = new Coordenadas(1,1);
+		Cristal cristal = new Cristal();
+		NexoMineral NexoMineral;
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+
+		mapa.agregar(cristal,coordenadas);
+
+		NexoMineral = j.construirNexoMineral(coordenadas);
+		for (int i = 0; i < NexoMineral.getTiempoDeConstruccion(); i ++) j.update();
+
+		Assert.assertTrue(j.buscarConstruccion(NexoMineral));
 	}
-	*/
-	/*
+
+	@Test
+	public void SeQuiereConstruirUnaNexoMineralSobreUnVolcanYNoSePuede() {
+		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
+		Coordenadas coordenadas = new Coordenadas(0,1);
+		Volcan volcan = new Volcan();
+		NexoMineral NexoMineral;
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+
+		mapa.agregar(volcan,coordenadas);
+
+		NexoMineral = j.construirNexoMineral(coordenadas);
+		for (int i = 0; i < NexoMineral.getTiempoDeConstruccion(); i ++) j.update();
+
+		Assert.assertFalse(j.buscarConstruccion(NexoMineral));
+	}
+
+
 	@Test
 	public void SeConstruyeUnaAsimilador() {
 
-		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
-		Asimilador a;
-		int i1;
-		Coordenadas coordenadas = new Coordenadas(1,1);
-		
-		a = j.construirAsimilador(coordenadas);
-		i1 = a.getTiempoDeConstruccion();
-		for(int i=0; i<i1; i++)	j.update();
-		
-		Assert.assertTrue(j.buscarConstruccion(a));
+		JugadorProtoss j = new JugadorProtoss(new Recursos(150,150));
+		Asimilador r;
+		Coordenadas coordenadas = new Coordenadas(1,4);
+		Volcan volcan = new Volcan();
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+
+		mapa.agregar(volcan,coordenadas);
+
+		r = j.construirAsimilador(coordenadas);
+		for (int i = 0; i < r.getTiempoDeConstruccion(); i ++) j.update();
+
+		Assert.assertTrue(j.buscarConstruccion(r));
 	}
+
+	@Test
+	public void SeQuiereConstruirUnaAsimiladorSobreUnVolcanYNoSePuede() {
+		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
+		Coordenadas coordenadas = new Coordenadas(0,1);
+		Cristal cristal = new Cristal();
+		Asimilador Asimilador;
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+
+		mapa.agregar(cristal,coordenadas);
+
+		Asimilador = j.construirAsimilador(coordenadas);
+		for (int i = 0; i < Asimilador.getTiempoDeConstruccion(); i ++) j.update();
+
+		Assert.assertFalse(j.buscarConstruccion(Asimilador));
+	}
+
 
 	@Test
 	public void SeConstruyeUnPilon() {
@@ -80,7 +125,7 @@ public class ConstruccionesProtossTest {
 		
 		Assert.assertTrue(j.buscarConstruccion(p));
 	}
-	*/
+
 	/////////////////////// Construccion habilita a otra ////////////////////
 	
 	
@@ -96,7 +141,7 @@ public class ConstruccionesProtossTest {
 		PortalEstelar f = new PortalEstelar();
 
 	    exception.expect(ExcepcionNecesitaConstruirAcceso.class);
-		f.esConstruible(cs,recursosRecolectados);
+		f.esConstruible(cs,recursosRecolectados,new Coordenadas(4,5));
 		
 	}
 	
@@ -113,7 +158,7 @@ public class ConstruccionesProtossTest {
 		ArchivosTemplarios p = new ArchivosTemplarios();
 
 	    exception2.expect(ExcepcionNecesitaConstruirPortalEstelar.class);
-		p.esConstruible(cs,recursosRecolectados);
+		p.esConstruible(cs,recursosRecolectados,new Coordenadas(4,6));
 		
 	}
 	
@@ -157,16 +202,13 @@ public class ConstruccionesProtossTest {
 		int i1, i2,i3;
 
 		a = j.construirAcceso(new Coordenadas(0,6));
-		i1 = a.getTiempoDeConstruccion();
-		for(int i=0; i<i1; i++)	j.update();
+		for(int i=0; i<a.getTiempoDeConstruccion(); i++)	j.update();
 
 		p = j.construirPortalEstelar(new Coordenadas(0,7));
-		i2 = p.getTiempoDeConstruccion();
-		for(int i=0; i<i2; i++)	j.update();
+		for(int i=0; i<p.getTiempoDeConstruccion(); i++)	j.update();
 
 		at = j.construirArchivosTemplarios(new Coordenadas(0,8));
-		i3 = at.getTiempoDeConstruccion();
-		for(int i=0; i<i3; i++)	j.update();
+		for(int i=0; i<at.getTiempoDeConstruccion(); i++)	j.update();
 
 		Assert.assertTrue(j.buscarConstruccion(p));
 	}
@@ -182,17 +224,23 @@ public class ConstruccionesProtossTest {
 	}
 	
 	// Construccion con Recursos Insuficientes
-	/*
+
 	@Test
 	public void JugadorNoPuedeConstruirNexoMineralPorFaltaDeRecursos(){
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
-		NexoMineral n;
-		
-		n = j.construirNexoMineral();
+		NexoMineral c;
+		Cristal cristal = new Cristal();
+		Coordenadas coordenadas = new Coordenadas(1,7);
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 
-		Assert.assertFalse(j.buscarConstruccion(n));
+		mapa.agregar(cristal,coordenadas);
+
+		c = j.construirNexoMineral(coordenadas);
+
+		Assert.assertFalse(j.buscarConstruccion(c));
 	}
-	*/
+	
 	@Test
 	public void JugadorNoPuedeConstruirAccesoPorFaltaDeRecursos(){
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
@@ -238,15 +286,17 @@ public class ConstruccionesProtossTest {
 
 		Assert.assertFalse(j.buscarConstruccion(p));
 	}
-	/*
+
+
 	@Test
 	public void JugadorNoPuedeConstruirAsimiladorPorFaltaDeRecursos(){
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
-		Asimilador a;
-		
-		a = j.construirAsimilador();
+		Asimilador r;
+		Coordenadas coordenadas = new Coordenadas(0,1);
 
-		Assert.assertFalse(j.buscarConstruccion(a));
+		r = j.construirAsimilador(coordenadas);
+
+		Assert.assertFalse(j.buscarConstruccion(r));
 	}
-*/
+
 }

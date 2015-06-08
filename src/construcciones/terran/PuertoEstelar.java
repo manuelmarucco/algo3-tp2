@@ -9,6 +9,7 @@ import interfaces.Construible;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Vida;
 import unidades.terrran.Espectro;
 import unidades.terrran.NaveCiencia;
@@ -37,7 +38,7 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 
 
 	@Override
-	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados) throws ExcepcionNoSePuedeConstruir{
+	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados,Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir{
 		boolean construible = false;
 
 		for (T c : cs) {

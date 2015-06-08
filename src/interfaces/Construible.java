@@ -1,15 +1,14 @@
 package interfaces;
 
-import java.util.ArrayList;
-
-import construcciones.Construccion;
-import jugabilidad.auxiliares.Recursos;
 import excepciones.ExcepcionNoSePuedeConstruir;
+import jugabilidad.auxiliares.Recursos;
+import jugabilidad.utilidadesMapa.Coordenadas;
+
+import java.util.ArrayList;
 
 public interface Construible extends Actualizable{
 
-	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos r) throws ExcepcionNoSePuedeConstruir;
-	//public void esConstruibleAPartirDeRecursos(Recursos r) throws ExcepcionRecursosInsuficientes;
+	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos r, Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir;
 
 	public int getTiempoDeConstruccion();
 	
