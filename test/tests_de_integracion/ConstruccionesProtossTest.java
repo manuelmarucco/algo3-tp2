@@ -96,7 +96,7 @@ public class ConstruccionesProtossTest {
 	@Test
 	public void SeQuiereConstruirUnaAsimiladorSobreUnVolcanYNoSePuede() {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
-		Coordenadas coordenadas = new Coordenadas(0,1);
+		Coordenadas coordenadas = new Coordenadas(9,6);
 		Cristal cristal = new Cristal();
 		Asimilador Asimilador;
 		ProxyMapa mapa = ProxyMapa.getInstance();
@@ -117,7 +117,7 @@ public class ConstruccionesProtossTest {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		Pilon p;
 		int t;
-		Coordenadas coordenadas = new Coordenadas(1,1);
+		Coordenadas coordenadas = new Coordenadas(9,7);
 		
 		p = j.construirPilon(coordenadas);
 		t = p.getTiempoDeConstruccion();
@@ -289,14 +289,19 @@ public class ConstruccionesProtossTest {
 
 
 	@Test
-	public void JugadorNoPuedeConstruirAsimiladorPorFaltaDeRecursos(){
+	public void JugadorNoPuedeConstruirRefineriaPorFaltaDeRecursos(){
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
-		Asimilador r;
-		Coordenadas coordenadas = new Coordenadas(0,1);
+		Asimilador a;
+		Volcan volcan = new Volcan();
+		Coordenadas coordenadas = new Coordenadas(9,3);
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 
-		r = j.construirAsimilador(coordenadas);
+		mapa.agregar(volcan,coordenadas);
 
-		Assert.assertFalse(j.buscarConstruccion(r));
+		a = j.construirAsimilador(coordenadas);
+
+		Assert.assertFalse(j.buscarConstruccion(a));
 	}
 
 }
