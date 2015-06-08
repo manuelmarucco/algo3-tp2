@@ -42,8 +42,32 @@ public class ConstrucionesUnidadesYSuministros {
 
         j.construirDepositoDeSuministros(new Coordenadas(0, 0));
         j.construirDepositoDeSuministros(new Coordenadas(0, 1));
-        j.construirDepositoDeSuministros(new Coordenadas(0,2));
+        j.construirDepositoDeSuministros(new Coordenadas(0, 2));
 
         Assert.assertEquals(s.getSuministrosLimiteActuales(), 15);
+    }
+
+    @Test
+    public void CreoPilonesPeroNoPuedoSuperarLos200SuministrosMaximos(){
+        Suministros s = new Suministros(0,191);
+        JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),s);
+
+        j.construirPilon(new Coordenadas(3,0));
+        j.construirPilon(new Coordenadas(3,1));
+        j.construirPilon(new Coordenadas(3,2));
+
+        Assert.assertEquals(s.getSuministrosLimiteActuales(), 200);
+    }
+
+    @Test
+    public void CreoDepositosDeSuministrosPeroNoPuedoSuperarLos200SuministrosMaximos(){
+        Suministros s = new Suministros(0,191);
+        JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),s);
+
+        j.construirDepositoDeSuministros(new Coordenadas(1, 0));
+        j.construirDepositoDeSuministros(new Coordenadas(1, 1));
+        j.construirDepositoDeSuministros(new Coordenadas(1, 2));
+
+        Assert.assertEquals(s.getSuministrosLimiteActuales(), 200);
     }
 }
