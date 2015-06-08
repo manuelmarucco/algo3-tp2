@@ -3,6 +3,7 @@ package tests_de_integracion;
 import construcciones.terran.*;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
+import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -10,12 +11,14 @@ import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
+import recursos.Cristal;
+import recursos.Volcan;
 
 import java.util.ArrayList;
 
 
 public class ConstruccionesTerranTest {
-	
+
 	//////////////////////// Verificacion de construccion de cada edificio ////////
 
 	@Test
@@ -24,7 +27,7 @@ public class ConstruccionesTerranTest {
 		JugadorTerran jugador = new JugadorTerran(new Recursos(150,0));
 		Barraca b;
 		int i1;
-		Coordenadas coordenadas = new Coordenadas(1,1);
+		Coordenadas coordenadas = new Coordenadas(0,0);
 
 		b = jugador.construirBarraca(coordenadas);
 		i1 = b.getTiempoDeConstruccion();
@@ -32,42 +35,60 @@ public class ConstruccionesTerranTest {
 
 		Assert.assertTrue(jugador.buscarConstruccion(b));
 	}
-/*
-	@Test
+
+		@Test
 	public void SeConstruyeUnaCentroDeMineralSobreUnCristal() {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
-		Mapa mapa = new Mapa();
 		Coordenadas coordenadas = new Coordenadas(1,1);
 		Cristal cristal = new Cristal();
 		CentroDeMineral centroDeMineral;
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 
 		mapa.agregar(cristal,coordenadas);
 
 		centroDeMineral = j.construirCentroDeMineral(coordenadas);
-		 for (int i = 0; i < centroDeMineral.getTiempoDeConstruccion(); i ++) j.update();
+		for (int i = 0; i < centroDeMineral.getTiempoDeConstruccion(); i ++) j.update();
 
-		//mapa.agregar(centroDeMineral,coordenadas);
-		
 		Assert.assertTrue(j.buscarConstruccion(centroDeMineral));
 	}
-	*/
-/*
+	//TODO: ---> este test deberia fallar, hacer que no se pueda construir el centro de mineral sobre un volcan
+	@Test
+	public void SeConstruyeUnaCentroDeMineralSobreUnVolcanYNoSePuede() {
+		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
+		Coordenadas coordenadas = new Coordenadas(0,1);
+		Volcan volcan = new Volcan();
+		CentroDeMineral centroDeMineral;
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+
+		mapa.agregar(volcan,coordenadas);
+
+		centroDeMineral = j.construirCentroDeMineral(coordenadas);
+		for (int i = 0; i < centroDeMineral.getTiempoDeConstruccion(); i ++) j.update();
+
+		Assert.assertTrue(j.buscarConstruccion(centroDeMineral));
+	}
+
+
 	@Test
 	public void SeConstruyeUnaRefineria() {
 
 		JugadorTerran j = new JugadorTerran(new Recursos(150,150));
 		Refineria r;
-		Coordenadas coordenadas = new Coordenadas(1,1);
+		Coordenadas coordenadas = new Coordenadas(1,4);
 		Volcan volcan = new Volcan();
-		int tdc;
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+
+		mapa.agregar(volcan,coordenadas);
 		
 		r = j.construirRefineria(coordenadas);
-		tdc = r.getTiempoDeConstruccion();
-		for (int i = 0; i < tdc; i ++) j.update();
+		for (int i = 0; i < r.getTiempoDeConstruccion(); i ++) j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(r));
 	}
-*/
+
 	@Test
 	public void SeConstruyeUnDepositoDeSuministros() {
 

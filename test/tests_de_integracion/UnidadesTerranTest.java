@@ -20,6 +20,7 @@ public class UnidadesTerranTest {
         Coordenadas c1 = new Coordenadas(5,5);
         Coordenadas c2 = new Coordenadas(6,6);
         ProxyMapa mapa = ProxyMapa.getInstance();
+        ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
         mapa.agregar(marine,c1);
         mapa.agregar(zealot, c2);
         marine.atacarTierra(c1, c2);
@@ -32,6 +33,7 @@ public class UnidadesTerranTest {
         Zealot zealot = new Zealot();
         Coordenadas c1 = new Coordenadas(3,3);
         Coordenadas c2 = new Coordenadas(8,8);
+        ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(marine,c1);
         mapa.agregar(zealot, c2);
@@ -44,6 +46,7 @@ public class UnidadesTerranTest {
         AltoTemplario at = new AltoTemplario();
         Coordenadas c1 = new Coordenadas(4,4);
         Coordenadas c2 = new Coordenadas(9,9);
+        ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(nc,c1);
         mapa.agregar(at, c2);
@@ -63,6 +66,7 @@ public class UnidadesTerranTest {
         AltoTemplario at = new AltoTemplario();
         Coordenadas c1 = new Coordenadas(1,1);
         Coordenadas c2 = new Coordenadas(6,5);
+        ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(nc,c1);
         mapa.agregar(at, c2);
