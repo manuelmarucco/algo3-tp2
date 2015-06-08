@@ -1,9 +1,7 @@
 package unidades.terrran;
 
 import excepciones.EnergiaInsuficiente;
-import excepciones.ExcepcionPosicionOcupada;
 import interfaces.Daniable;
-import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -44,14 +42,6 @@ public class NaveCiencia extends UnidadMagica {
     }
 
 
-    //TODO: ---->> me dice que no puedo hacer @Override
-    public void agregarse(Mapa mapa, Coordenadas coordenadas) {
-        try {
-            mapa.agregarEnCapaAerea(this,coordenadas);
-        } catch (ExcepcionPosicionOcupada e) {
-            e.printStackTrace();
-        }
-    }
 
     public void Radiacion(Daniable objetivo){
         try {

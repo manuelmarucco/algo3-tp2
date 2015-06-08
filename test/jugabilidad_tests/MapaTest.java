@@ -6,8 +6,10 @@ import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Test;
+import unidades.protoss.NaveTransporteProtoss;
 import unidades.terrran.Marine;
 import unidades.terrran.NaveCiencia;
+import unidades.terrran.NaveTransporteTerran;
 
 import static org.junit.Assert.assertEquals;
 
@@ -17,6 +19,7 @@ public class MapaTest {
 	@Test
 	public void deberiaAgregarUnaBarracaEnLasCoordenadasEspecificadas() throws ExcepcionPosicionOcupada {
 		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 		Coordenadas coordenadas = new Coordenadas(1,2);
 		ColocableEnMapa barraca = new Barraca();
 		
@@ -27,9 +30,10 @@ public class MapaTest {
 	}
 
 	@Test
-	public void deberiaAgregarUnaUnidadTerrestreEnLaColeccionDeUnidadesTerrestres(){
+	public void deberiaAgregarUnaUnidadTerrestreEnLaCapaTerrestre(){
 		ProxyMapa mapa = ProxyMapa.getInstance();
-		Coordenadas coordenadas = new Coordenadas(1,2);
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+		Coordenadas coordenadas = new Coordenadas(2,2);
 		ColocableEnMapa marine = new Marine();
 
 		mapa.agregar( marine, coordenadas);
@@ -38,9 +42,10 @@ public class MapaTest {
 	}
 
 	@Test
-	public void deberiaAgregarUnaUnidadAereaEnLaColeccionDeUnidadesAereas(){
+	public void deberiaAgregarUnaNaveCienciaEnLaCapaAerea(){
 		ProxyMapa mapa = ProxyMapa.getInstance();
-		Coordenadas coordenadas = new Coordenadas(1,2);
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+		Coordenadas coordenadas = new Coordenadas(2,6);
 		ColocableEnMapa nave = new NaveCiencia();
 
 		mapa.agregar( nave, coordenadas);
@@ -48,6 +53,30 @@ public class MapaTest {
 		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenadas) );
 	}
 
-	// TODO: Mas Tests.
+	@Test
+	public void deberiaAgregarUnaNaveTransporteProtossEnLaCapaAerea(){
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+		Coordenadas coordenadas = new Coordenadas(2,4);
+		ColocableEnMapa nave = new NaveTransporteProtoss();
+
+		mapa.agregar( nave, coordenadas);
+
+		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenadas) );
+	}
+
+	@Test
+	public void deberiaAgregarUnaNaveTransporteTerranEnLaCapaAerea(){
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+		Coordenadas coordenadas = new Coordenadas(2,3);
+		ColocableEnMapa nave = new NaveTransporteTerran();
+
+		mapa.agregar( nave, coordenadas);
+
+		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenadas) );
+	}
+
+	// TODO: Mas Tests para las unidades terrestres protoss terran y un par de aereas
 
 }

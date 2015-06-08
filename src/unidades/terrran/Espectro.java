@@ -19,5 +19,4 @@ public class Espectro extends UnidadGuerrera implements Atacante {
     }
 
 
-
 }

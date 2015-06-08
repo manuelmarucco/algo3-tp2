@@ -54,13 +54,11 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Daniable
     public void disminuirTiempoDeEntrenamiento(){
     	tiempoDeEntrenamiento--;
     }
-    
-    // TODO: No se como arreglar este.
+
     @Override
     public void agregarse(Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa{
 
-       ProxyMapa proxyMapa = ProxyMapa.getInstance();
-       proxyMapa.agregarEnCapaTerrestre(this, coordenadas);
+        this.ubicacion.agregarse(this,coordenadas);
 
     }
 

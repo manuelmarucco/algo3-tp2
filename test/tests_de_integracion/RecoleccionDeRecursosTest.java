@@ -19,6 +19,7 @@ public class RecoleccionDeRecursosTest {
         Recursos recursos = new Recursos(0,0);
 
         ProxyMapa mapa = ProxyMapa.getInstance();
+        ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
         Coordenadas coordenadas = new Coordenadas(1,1);
         Cristal cristal = new Cristal();
         CentroDeMineral centroDeMineral = new CentroDeMineral(recursos);

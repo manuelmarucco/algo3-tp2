@@ -28,4 +28,5 @@ public class Scout extends UnidadGuerrera implements Atacante {
     public ResistenciaProtoss getEscudo() {
         return escudo;
     }
+
 }
