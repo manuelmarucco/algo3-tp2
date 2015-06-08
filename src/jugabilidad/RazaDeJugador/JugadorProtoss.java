@@ -16,6 +16,12 @@ public class JugadorProtoss extends Jugador {
         //EL PROBLEMA DE ESTO ES QUE DEPENDE LA ESTRUCTURA EN CADA RAZA... HAY QUE VER COMO LO RESOLVEMOS
     }
 
+    public JugadorProtoss(Recursos recursosIniciales, Suministros s){
+        this.recursosRecolectados = recursosIniciales;
+        this.suministros =  s;
+
+    }
+
     public Acceso construirAcceso(Coordenadas coordenadas){
         Acceso acceso = new Acceso(this);
 

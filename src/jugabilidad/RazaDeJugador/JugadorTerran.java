@@ -15,6 +15,10 @@ public class JugadorTerran extends Jugador {
         //HAY QUE HACER QUE EL JUGADOR EMPIECE CON 5 RECOLECTARES....
         //EL PROBLEMA DE ESTO ES QUE DEPENDE LA ESTRUCTURA EN CADA RAZA... HAY QUE VER COMO LO RESOLVEMOS
     }
+    public JugadorTerran(Recursos recursosIniciales,Suministros s){
+        this.recursosRecolectados = recursosIniciales;
+        this.suministros =  s;
+    }
 
     public Barraca construirBarraca(Coordenadas coordenadas){
         Barraca barraca = new Barraca(this);
