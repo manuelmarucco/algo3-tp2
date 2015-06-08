@@ -4,7 +4,9 @@ import excepciones.EnergiaInsuficiente;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
+import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Costo;
+import jugabilidad.auxiliares.TormentaPsionica;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.*;
 
@@ -14,21 +16,13 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
         super(new ResistenciaProtoss(40, 40), new Energia(200, 50, 10), 7, new Terrestre(), 2, new Costo(50, 150), 7);
     }
 
-    public void tormentaPsionica(Coordenadas c){
+    public void tormentaPsionica(Coordenadas c, JugadorProtoss duenio){
         try {
             this.energia.gastar(75);
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
-        ProxyMapa mapa = ProxyMapa.getInstance();
-        for(int i =-1;i<2;i++){
-            for(int j =-1;j<2;j++){
-                Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);
-                mapa.obtenerDeCapaTerrestre(coordenadas);//aplicar tormenta
-                mapa.obtenerDeCapaAerea(coordenadas);//aplicar tormenta
-            }
-        }
-        //TODO: implementar
+        duenio.agregarTormenta(new TormentaPsionica(c));
     }
 
     public void alucinacion(Unidad objetivo,Coordenadas destino1,Coordenadas destino2){

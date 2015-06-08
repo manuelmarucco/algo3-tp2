@@ -4,14 +4,19 @@ import construcciones.protoss.*;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
+import jugabilidad.auxiliares.TormentaPsionica;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
+import java.util.ArrayList;
+
 public class JugadorProtoss extends Jugador {
+
+    private ArrayList<TormentaPsionica> tormentasPsionica;
 
     public JugadorProtoss(Recursos recursosIniciales){
         this.recursosRecolectados = recursosIniciales;
         this.suministros =  new Suministros(0,20); //suministros iniciales
-
+        this.tormentasPsionica= new ArrayList<>();
         //HAY QUE HACER QUE EL JUGADOR EMPIECE CON 5 RECOLECTARES....
         //EL PROBLEMA DE ESTO ES QUE DEPENDE LA ESTRUCTURA EN CADA RAZA... HAY QUE VER COMO LO RESOLVEMOS
     }
@@ -68,6 +73,17 @@ public class JugadorProtoss extends Jugador {
         this.construir(nexoMineral,coordenadas);
 
         return nexoMineral;
+    }
+
+    public void update(){
+        super.update();
+        for(TormentaPsionica a:tormentasPsionica){
+            a.update();
+        }
+    }
+
+    public void agregarTormenta(TormentaPsionica tormentaPsionica){
+        this.tormentasPsionica.add(tormentaPsionica);
     }
 
 }
