@@ -1,6 +1,7 @@
 package tests_de_integracion;
 
 import construcciones.terran.*;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
 import jugabilidad.ProxyMapa;
@@ -38,7 +39,7 @@ public class ConstruccionesTerranTest {
 	}
 
 		@Test
-	public void SeConstruyeUnaCentroDeMineralSobreUnCristal() {
+	public void SeConstruyeUnaCentroDeMineralSobreUnCristal() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(1,1);
 		Cristal cristal = new Cristal();
@@ -55,7 +56,7 @@ public class ConstruccionesTerranTest {
 	}
 
 	@Test
-	public void SeQuiereConstruirUnaCentroDeMineralSobreUnVolcanYNoSePuede() {
+	public void SeQuiereConstruirUnaCentroDeMineralSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(0,1);
 		Volcan volcan = new Volcan();
@@ -72,7 +73,7 @@ public class ConstruccionesTerranTest {
 	}
 
 	@Test
-	public void SeConstruyeUnaRefineriaSobreUnVolcan() {
+	public void SeConstruyeUnaRefineriaSobreUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa {
 
 		JugadorTerran j = new JugadorTerran(new Recursos(150,150));
 		Refineria r;
@@ -90,7 +91,7 @@ public class ConstruccionesTerranTest {
 	}
 
 	@Test
-	public void SeQuiereConstruirUnaRefineriaSobreUnVolcanYNoSePuede() {
+	public void SeQuiereConstruirUnaRefineriaSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(0,1);
 		Cristal cristal = new Cristal();
@@ -221,7 +222,7 @@ public class ConstruccionesTerranTest {
 	//// RecursosInsuficientes para Construir
 
 	@Test
-	public void JugadorNoPuedeConstruirCentroDeMineralPorFaltaDeRecursos(){
+	public void JugadorNoPuedeConstruirCentroDeMineralPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		CentroDeMineral c;
 		Cristal cristal = new Cristal();
@@ -286,7 +287,7 @@ public class ConstruccionesTerranTest {
 	}
 
 	@Test
-	public void JugadorNoPuedeConstruirRefineriaPorFaltaDeRecursos(){
+	public void JugadorNoPuedeConstruirRefineriaPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		Refineria r;
 		Volcan volcan = new Volcan();
@@ -304,7 +305,7 @@ public class ConstruccionesTerranTest {
 	////////////CentrosDeRecoleccion sobre lugares donde no hay un recursos
 
 	@Test
-	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan(){
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		Barraca b;
 		Coordenadas coordenadas = new Coordenadas(8,1);
@@ -320,7 +321,7 @@ public class ConstruccionesTerranTest {
 	}
 
 	@Test
-	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal(){
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		Barraca b;
 		Coordenadas coordenadas = new Coordenadas(8,1);

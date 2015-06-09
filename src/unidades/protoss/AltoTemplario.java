@@ -1,6 +1,7 @@
 package unidades.protoss;
 
 import excepciones.EnergiaInsuficiente;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
@@ -34,6 +35,8 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
             mapa.agregar(objetivo.getClone(), destino2);
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
+        } catch (ExcepcionNoSePudoAgregarAlMapa excepcionNoSePudoAgregarAlMapa) {
+            excepcionNoSePudoAgregarAlMapa.printStackTrace();
         }
     }
 

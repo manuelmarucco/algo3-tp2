@@ -2,6 +2,7 @@ package jugabilidad_tests;
 
 import excepciones.ExcepcionCoordenadaXIngresadaFueraDelMapa;
 import excepciones.ExcepcionCoordenadaYIngresadaFueraDelMapa;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Before;
@@ -29,7 +30,7 @@ public class ProxyMapaTest {
 
     @Test(expected=ExcepcionCoordenadaXIngresadaFueraDelMapa.class)
     public void siIntentoAgregarUnMarineConCoordenadaXFueraDelMapaDeberiaLanzarUnaExcepcion()
-            throws ExcepcionCoordenadaXIngresadaFueraDelMapa, ExcepcionCoordenadaYIngresadaFueraDelMapa {
+            throws ExcepcionNoSePudoAgregarAlMapa {
 
         ProxyMapa proxy = ProxyMapa.getInstance();
         proxy.setCoordenadasMaximas(10,10);
@@ -42,7 +43,7 @@ public class ProxyMapaTest {
 
     @Test(expected= ExcepcionCoordenadaYIngresadaFueraDelMapa.class)
     public void siIntentoAgregarUnMarineConCoordenadaYFueraDelMapaDeberiaLanzarUnaExcepcion()
-            throws ExcepcionCoordenadaYIngresadaFueraDelMapa, ExcepcionCoordenadaXIngresadaFueraDelMapa {
+            throws ExcepcionNoSePudoAgregarAlMapa {
 
         ProxyMapa proxy = ProxyMapa.getInstance();
         proxy.setCoordenadasMaximas(10,10);

@@ -5,6 +5,9 @@ import construcciones.protoss.Pilon;
 import construcciones.terran.DepositoDeSuministros;
 import excepciones.ExcepcionAtacarAUnidadAliada;
 import excepciones.ExcepcionObjetivoFueraDeRango;
+import excepciones.ExcepcionPosicionOcupada;
+import jugabilidad.Jugador;
+import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
@@ -12,6 +15,7 @@ import jugabilidad.auxiliares.Suministros;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Test;
+import unidades.ProxiDeAtaque;
 import unidades.protoss.Dragon;
 import unidades.terrran.Marine;
 
@@ -89,13 +93,18 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango {
+    public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada {
         Suministros s = new Suministros(0,20);
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),s);
+        Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
+        ProxiDeAtaque.inicializar(j, j1);
+        ProxyMapa mapa=ProxyMapa.getInstance();
         DepositoDeSuministros d;
         Marine m = new Marine();
-
+        mapa.agregarEnCapaTerrestre(m,new Coordenadas(5,5));
+        j1.agregarUnidad(m);
         d = j.construirDepositoDeSuministros(new Coordenadas(1, 3));
+        mapa.agregarEnCapaTerrestre(d,new Coordenadas(5,6));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
 
         Assert.assertEquals( 25,s.getSuministrosLimiteActuales());

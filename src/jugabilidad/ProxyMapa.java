@@ -41,21 +41,10 @@ public class ProxyMapa {
 
     }
 
-    public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas) {
+    public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa {
 
-        try {
             validarCoordenadas(coordenadas);
-        } catch (ExcepcionCoordenadaXIngresadaFueraDelMapa e1) {
-            e1.printStackTrace();
-        } catch (ExcepcionCoordenadaYIngresadaFueraDelMapa e2) {
-            e2.printStackTrace();
-        }
-
-        try {
             colocable.agregarse(coordenadas);
-        } catch (ExcepcionNoSePudoAgregarAlMapa e) {
-            e.printStackTrace();
-        }
 
     }
 

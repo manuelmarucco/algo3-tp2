@@ -1,6 +1,7 @@
 package tests_de_integracion;
 
 import excepciones.ExcepcionAtacarAUnidadAliada;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.ExcepcionObjetivoFueraDeRango;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
@@ -27,7 +28,7 @@ public class UnidadesTerranTest {
         ProxyMapa.resetear();
     }
     @Test
-    public void MarineAtacaAZealotDentroDeSuRango() throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
+    public void MarineAtacaAZealotDentroDeSuRango() throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada, ExcepcionNoSePudoAgregarAlMapa {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorProtoss(new Recursos(200,200),new Suministros(100,200));
         ProxiDeAtaque.inicializar(j1, j2);
@@ -47,7 +48,7 @@ public class UnidadesTerranTest {
     }
 
     @Test(expected = ExcepcionObjetivoFueraDeRango.class)
-    public void MarineAtacaAZealotFueraDeSuRango() throws ExcepcionObjetivoFueraDeRango {
+    public void MarineAtacaAZealotFueraDeSuRango() throws ExcepcionObjetivoFueraDeRango, ExcepcionNoSePudoAgregarAlMapa {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorProtoss(new Recursos(200,200),new Suministros(100,200));
         ProxiDeAtaque.inicializar(j1, j2);
@@ -65,7 +66,7 @@ public class UnidadesTerranTest {
     }
 
     @Test
-    public void NaveCienciaLanzaEMPDejaSinEscudoYEnergiaAUnAltoTemplario(){
+    public void NaveCienciaLanzaEMPDejaSinEscudoYEnergiaAUnAltoTemplario() throws ExcepcionNoSePudoAgregarAlMapa {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         ProxyDeHechizos.inicializar(j1, j2);
@@ -90,7 +91,7 @@ public class UnidadesTerranTest {
     }
 
     @Test
-    public void NaveCienciaLanzaRadiacionYBajaLaVidaAlTemplario(){//baja de a 6 por q recupera 10% de escudo por turno (4)
+    public void NaveCienciaLanzaRadiacionYBajaLaVidaAlTemplario() throws ExcepcionNoSePudoAgregarAlMapa {//baja de a 6 por q recupera 10% de escudo por turno (4)
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         ProxyDeHechizos.inicializar(j1, j2);
@@ -136,7 +137,7 @@ public class UnidadesTerranTest {
     }
     //TODO: arreglar este test
     @Test
-    public void testAltoTemplarioSeClonaYUnaNaveDeCienciaMataAlosClones(){
+    public void testAltoTemplarioSeClonaYUnaNaveDeCienciaMataAlosClones() throws ExcepcionNoSePudoAgregarAlMapa {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         ProxyDeHechizos.inicializar(j1, j2);

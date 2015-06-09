@@ -2,6 +2,7 @@ package tests_de_integracion;
 
 import construcciones.terran.CentroDeMineral;
 import construcciones.terran.Refineria;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -14,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class RecoleccionDeRecursosTest {
 
     @Test
-    public void integracionDelCentroDeMineralConElCristalEnUnMapa(){
+    public void integracionDelCentroDeMineralConElCristalEnUnMapa() throws ExcepcionNoSePudoAgregarAlMapa {
 
         Recursos recursos = new Recursos(0,0);
 
@@ -32,7 +33,7 @@ public class RecoleccionDeRecursosTest {
     }
     
         @Test
-    public void cuandoUbicoUnaRefineriaSobreUnVolcanMeDeveriaDevolverDiezMinerales(){
+    public void cuandoUbicoUnaRefineriaSobreUnVolcanMeDeveriaDevolverDiezMinerales() throws ExcepcionNoSePudoAgregarAlMapa {
 
         Recursos recursos = new Recursos(0,0);
 

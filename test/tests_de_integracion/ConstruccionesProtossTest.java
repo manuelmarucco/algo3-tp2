@@ -1,9 +1,7 @@
 package tests_de_integracion;
 
 import construcciones.protoss.*;
-import excepciones.ExcepcionNecesitaConstruirAcceso;
-import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
-import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.*;
 import interfaces.Construible;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
@@ -48,7 +46,7 @@ public class ConstruccionesProtossTest {
 
 
 	@Test
-	public void SeConstruyeUnaNexoMineralSobreUnCristal() {
+	public void SeConstruyeUnaNexoMineralSobreUnCristal() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(1,1);
 		Cristal cristal = new Cristal();
@@ -65,7 +63,7 @@ public class ConstruccionesProtossTest {
 	}
 
 	@Test
-	public void SeQuiereConstruirUnaNexoMineralSobreUnVolcanYNoSePuede() {
+	public void SeQuiereConstruirUnaNexoMineralSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(0,1);
 		Volcan volcan = new Volcan();
@@ -83,7 +81,7 @@ public class ConstruccionesProtossTest {
 
 
 	@Test
-	public void SeConstruyeUnaAsimilador() {
+	public void SeConstruyeUnaAsimilador() throws ExcepcionNoSePudoAgregarAlMapa {
 
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,150));
 		Asimilador r;
@@ -101,7 +99,7 @@ public class ConstruccionesProtossTest {
 	}
 
 	@Test
-	public void SeQuiereConstruirUnaAsimiladorSobreUnVolcanYNoSePuede() {
+	public void SeQuiereConstruirUnaAsimiladorSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(9,6);
 		Cristal cristal = new Cristal();
@@ -234,7 +232,7 @@ public class ConstruccionesProtossTest {
 	// Construccion con Recursos Insuficientes
 
 	@Test
-	public void JugadorNoPuedeConstruirNexoMineralPorFaltaDeRecursos(){
+	public void JugadorNoPuedeConstruirNexoMineralPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
 		NexoMineral c;
 		Cristal cristal = new Cristal();
@@ -300,7 +298,7 @@ public class ConstruccionesProtossTest {
 
 
 	@Test
-	public void JugadorNoPuedeConstruirAsimiladorPorFaltaDeRecursos(){
+	public void JugadorNoPuedeConstruirAsimiladorPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
 		Asimilador a;
 		Volcan volcan = new Volcan();
@@ -318,7 +316,7 @@ public class ConstruccionesProtossTest {
 	////////////CentrosDeRecoleccion sobre lugares donde no hay un recursos
 
 	@Test
-	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan(){
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		Acceso b;
 		Coordenadas coordenadas = new Coordenadas(8,1);
@@ -334,7 +332,7 @@ public class ConstruccionesProtossTest {
 	}
 
 	@Test
-	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal(){
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal() throws ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		Acceso b;
 		Coordenadas coordenadas = new Coordenadas(8,1);
