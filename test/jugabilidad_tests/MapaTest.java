@@ -4,6 +4,7 @@ import construcciones.terran.Barraca;
 import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Test;
@@ -21,8 +22,8 @@ public class MapaTest {
 
 	@Test
 	public void deberiaAgregarUnaBarracaEnLasCoordenadasEspecificadas() throws ExcepcionPosicionOcupada {
-		ProxyMapa mapa = ProxyMapa.getInstance();
-		mapa.setCoordenadasMaximas(10, 10);
+		Mapa mapa = new Mapa();
+
 		Coordenadas coordenadas = new Coordenadas(1,2);
 		ColocableEnMapa barraca = new Barraca();
 		
@@ -34,48 +35,49 @@ public class MapaTest {
 
 	@Test
 	public void deberiaAgregarUnaUnidadTerrestreEnLaCapaTerrestre() throws ExcepcionNoSePudoAgregarAlMapa {
-		ProxyMapa mapa = ProxyMapa.getInstance();
-		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+		Mapa mapa = new Mapa();
+
 		Coordenadas coordenadas = new Coordenadas(2,2);
 		ColocableEnMapa marine = new Marine();
 
-		mapa.agregar( marine, coordenadas);
+		mapa.agregarEnCapaTerrestre(marine, coordenadas);
 
 		assertEquals( marine , mapa.obtenerDeCapaTerrestre(coordenadas) );
 	}
 
 	@Test
 	public void deberiaAgregarUnaNaveCienciaEnLaCapaAerea() throws ExcepcionNoSePudoAgregarAlMapa {
-		ProxyMapa mapa = ProxyMapa.getInstance();
-		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+
+		Mapa mapa = new Mapa();
+
 		Coordenadas coordenadas = new Coordenadas(2,6);
 		ColocableEnMapa nave = new NaveCiencia();
 
-		mapa.agregar( nave, coordenadas);
+		mapa.agregarEnCapaAerea(nave, coordenadas);
 
 		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenadas) );
 	}
 
 	@Test
 	public void deberiaAgregarUnaNaveTransporteProtossEnLaCapaAerea() throws ExcepcionNoSePudoAgregarAlMapa {
-		ProxyMapa mapa = ProxyMapa.getInstance();
-		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+		Mapa mapa = new Mapa();
+
 		Coordenadas coordenadas = new Coordenadas(2,4);
 		ColocableEnMapa nave = new NaveTransporteProtoss();
 
-		mapa.agregar( nave, coordenadas);
+		mapa.agregarEnCapaAerea(nave, coordenadas);
 
 		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenadas) );
 	}
 
 	@Test
 	public void deberiaAgregarUnaNaveTransporteTerranEnLaCapaAerea() throws ExcepcionNoSePudoAgregarAlMapa {
-		ProxyMapa mapa = ProxyMapa.getInstance();
-		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+		Mapa mapa = new Mapa();
+
 		Coordenadas coordenadas = new Coordenadas(2,3);
 		ColocableEnMapa nave = new NaveTransporteTerran();
 
-		mapa.agregar( nave, coordenadas);
+		mapa.agregarEnCapaAerea(nave, coordenadas);
 
 		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenadas) );
 	}
@@ -83,8 +85,7 @@ public class MapaTest {
 	@Test
 	public void deberiaAgregarUnRecursoEnLaCapaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa{
 
-		ProxyMapa mapa = ProxyMapa.getInstance();
-		mapa.setCoordenadasMaximas(10,10);
+		Mapa mapa = new Mapa();
 
 		Coordenadas coordenadas = new Coordenadas(1,2);
 		Cristal cristal = new Cristal();
@@ -99,8 +100,7 @@ public class MapaTest {
 	public void siEliminoUnaUnidadTerrestreLasCoordenadasDeEsaUnidadDeberianEstarVacias()
 			throws ExcepcionNoSePudoAgregarAlMapa{
 
-		ProxyMapa mapa = ProxyMapa.getInstance();
-		mapa.setCoordenadasMaximas(10, 10);
+		Mapa mapa = new Mapa();
 
 		Coordenadas coordenadas = new Coordenadas(1,2);
 		ColocableEnMapa barraca = new Barraca();
@@ -116,8 +116,7 @@ public class MapaTest {
 	public void siEliminoUnaUnidadAereaLasCoordenadasDeEsaUnidadDeberianEstarVacias()
 			throws ExcepcionNoSePudoAgregarAlMapa{
 
-		ProxyMapa mapa = ProxyMapa.getInstance();
-		mapa.setCoordenadasMaximas(10, 10);
+		Mapa mapa = new Mapa();
 
 		Coordenadas coordenadas = new Coordenadas(1,2);
 		NaveCiencia nave = new NaveCiencia();
