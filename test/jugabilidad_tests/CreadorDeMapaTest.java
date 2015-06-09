@@ -14,7 +14,7 @@ public class CreadorDeMapaTest {
 
     private Boolean comprobarMinerales(){
 
-        // Coloco un CentroDeMineral sobre los cristales, para verificar que ahí hay cristales.
+        // Coloco un CentroDeMineral sobre los cristales, para verificar que ahi hay cristales.
 
 
         ProxyMapa proxyMapa = ProxyMapa.getInstance();
