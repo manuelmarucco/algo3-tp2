@@ -35,7 +35,7 @@ public class Acceso extends CentroDeEntrenamiento {
 	}
 
 	public Zealot entrenarZealot(){
-		Zealot z = new Zealot();
+		Zealot z = new Zealot(this.jugador.getVisibilidad());
 		try {
 			this.validarCreacionUnidad(z);
 		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
@@ -47,7 +47,7 @@ public class Acceso extends CentroDeEntrenamiento {
 	}
 
 	public Dragon entrenarDragon(){
-		Dragon d = new Dragon();
+		Dragon d = new Dragon(this.jugador.getVisibilidad());
 		try {
 			this.validarCreacionUnidad(d);
 		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {

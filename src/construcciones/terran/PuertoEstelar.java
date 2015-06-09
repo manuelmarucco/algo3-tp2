@@ -54,7 +54,7 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 	}
 
 	public Espectro entrenarEspectro() {
-		Espectro espectro = new Espectro();
+		Espectro espectro = new Espectro(this.jugador.getVisibilidad());
 		try {
 			this.validarCreacionUnidad(espectro);
 		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
@@ -66,7 +66,7 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 	}
 
 	public NaveCiencia entrenarNaveCiencia() {
-		NaveCiencia naveCiencia = new NaveCiencia();
+		NaveCiencia naveCiencia = new NaveCiencia(this.jugador.getVisibilidad());
 		try {
 			this.validarCreacionUnidad(naveCiencia);
 		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
@@ -78,7 +78,7 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 	}
 
 	public NaveTransporteTerran entrenarNaveTransporte() {
-		NaveTransporteTerran naveTransporte = new NaveTransporteTerran();
+		NaveTransporteTerran naveTransporte = new NaveTransporteTerran(this.jugador.getVisibilidad());
 		try {
 			this.validarCreacionUnidad(naveTransporte);
 		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {

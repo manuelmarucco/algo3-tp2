@@ -57,7 +57,7 @@ public class PortalEstelar extends CentroDeEntrenamiento{
 	}
 
 	public Scout entrenarScout(){
-		Scout s = new Scout();
+		Scout s = new Scout(this.jugador.getVisibilidad());
 		try {
 			this.validarCreacionUnidad(s);
 		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
@@ -69,7 +69,7 @@ public class PortalEstelar extends CentroDeEntrenamiento{
 	}
 
 	public NaveTransporteProtoss entrenarNaveTransporte(){
-		NaveTransporteProtoss n = new NaveTransporteProtoss();
+		NaveTransporteProtoss n = new NaveTransporteProtoss(this.jugador.getVisibilidad());
 		this.colaDeEntrenamiento.add(n);
 		return n;
 	}

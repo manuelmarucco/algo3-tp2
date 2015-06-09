@@ -55,7 +55,7 @@ public class ArchivosTemplarios extends CentroDeEntrenamiento {
 	}
 
 	public AltoTemplario entrenarAltoTemplario() {
-		AltoTemplario a = new AltoTemplario();
+		AltoTemplario a = new AltoTemplario(this.jugador.getVisibilidad());
 		try {
 			this.validarCreacionUnidad(a);
 		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
