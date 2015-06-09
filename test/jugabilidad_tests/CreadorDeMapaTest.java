@@ -1,7 +1,16 @@
 package jugabilidad_tests;
 
+import construcciones.terran.CentroDeMineral;
+import jugabilidad.ProxyMapa;
+import jugabilidad.extrasJuego.CreadorDeMapa;
+
+import jugabilidad.auxiliares.Recursos;
+import jugabilidad.utilidadesMapa.Coordenadas;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 public class CreadorDeMapaTest {
-/*
+
     private Boolean comprobarMinerales(){
 
         // Coloco un CentroDeMineral sobre los cristales, para verificar que ahí hay cristales.
@@ -29,5 +38,5 @@ public class CreadorDeMapaTest {
         assertTrue( this.comprobarMinerales() );
 
     }
-*/
+
 }
