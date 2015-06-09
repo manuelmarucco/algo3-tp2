@@ -1,10 +1,13 @@
 package construcciones;
 
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
 import excepciones.ExcepcionRecursosInsuficientes;
 import excepciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Entrenable;
 import jugabilidad.Jugador;
+import jugabilidad.ProxyMapa;
+import jugabilidad.utilidadesMapa.Coordenadas;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -16,10 +19,28 @@ public abstract class CentroDeEntrenamiento extends Construccion{
     protected Jugador jugador;
 
     private void crearUnidad(Entrenable unidad) {
+        boolean agregadoAlMapa = false;
+        int x = -1,y = -1;
+        ProxyMapa mapa = ProxyMapa.getInstance();
 
+        Coordenadas c = mapa.getCoordenada(this);
+        while(!agregadoAlMapa) {
+            try {
+                unidad.agregarse(new Coordenadas(c.getX()+x,c.getY()+y));
+                agregadoAlMapa = true;
+            } catch (ExcepcionNoSePudoAgregarAlMapa e) {
+
+                if(y<2) y++;
+                else {
+                    y = -1;
+                    if (x<2) x++;
+                    else e.printStackTrace();
+                }
+                //Si no pudo agregarlo alrededor no lo agrega
+            }
+        }
         jugador.agregarUnidad(unidad);
         colaDeEntrenamiento.remove();
-        //FALTA AGREGARSE AL MAPA
 
     }
 

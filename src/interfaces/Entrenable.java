@@ -2,7 +2,7 @@ package interfaces;
 
 import jugabilidad.auxiliares.Costo;
 
-public interface Entrenable {
+public interface Entrenable extends ColocableEnMapa {
 	public void disminuirTiempoDeEntrenamiento();
 	int getTiempoDeEntrenamiento();
 	public Costo getCosto();

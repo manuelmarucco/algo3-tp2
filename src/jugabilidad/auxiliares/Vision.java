@@ -8,11 +8,11 @@ public class Vision {
     private HashSet<Coordenadas> visibilidad = new HashSet<>();
 
     //TODO: que la unidad le pase el rango y la coordenada donde esta y que este metodo agregue toda la cirfunferencia
-/*
+
     public void agregarSectorVisible(Coordenadas coordenadaDeUnidad, int visionDeUnidad){
-        x = sen();
-        Coordenada c = new Coordenadas(x,y);
-        visibilidad.add();
+
+        //Coordenada c = new Coordenadas(x,y);
+        //visibilidad.add();
     }
-*/
+
 }

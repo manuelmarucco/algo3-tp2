@@ -103,11 +103,11 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
         this.resistencia.regenerar();
         this.accion=new NoActuo();
         //TODO: asi deberia ser como una unidad le agrega la visibilidad al jugador
-        /*
+/*
         ProxyMapa mapa = ProxyMapa.getInstance();
 
         visionJugador.agregarSectorVisible( mapa.getCoordenada(this),vision);
-         */
+*/
     }
 
     public void irradiar(){
@@ -127,7 +127,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
     public void mover(Coordenadas destino) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaSeMovioLaUnidad, ExcepcionMoverfueraDeRango {
         if(!this.accion.puedeMover()) throw new ExcepcionYaSeMovioLaUnidad();
         ProxyMapa mapa = ProxyMapa.getInstance();
-        if(mapa.getCoordenada(this).distacina(destino)>this.movilidad) throw new ExcepcionMoverfueraDeRango();
+        if(mapa.getCoordenada(this).distancia(destino)>this.movilidad) throw new ExcepcionMoverfueraDeRango();
         mapa.agregar(this, destino);
         mapa.quitar(this);
         this.accion= this.accion.movio();

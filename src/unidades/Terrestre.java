@@ -8,13 +8,13 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 public class Terrestre implements Ubicacion {
 
     @Override
-    public void agregarse(ColocableEnMapa unidad,Coordenadas coordenadas) {
+    public void agregarse(ColocableEnMapa unidad,Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
         ProxyMapa mapa = ProxyMapa.getInstance();
-        try {
+        //try {
             mapa.agregarEnCapaTerrestre(unidad, coordenadas);
-        } catch (ExcepcionPosicionOcupada e) {
-            e.printStackTrace();
-        }
+        //} catch (ExcepcionPosicionOcupada e) {
+         //   e.printStackTrace();
+       // }
 
     }
 }

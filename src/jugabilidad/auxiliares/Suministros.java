@@ -7,10 +7,10 @@ public class Suministros {
 	private int suministrosLimiteActuales;
 	private int suministrosUsados;
 	
-	public Suministros(int u, int d){
+	public Suministros(int usados, int limiteActuales){
 		this.suministrosMaximos = 200;
-		this.suministrosLimiteActuales = d;
-		this.suministrosUsados = u;
+		this.suministrosLimiteActuales = limiteActuales;
+		this.suministrosUsados = usados;
 	}
 	public Suministros(){
 		this.suministrosMaximos = 200;

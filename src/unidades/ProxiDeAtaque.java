@@ -34,7 +34,7 @@ public class ProxiDeAtaque {
         ProxyMapa mapa = ProxyMapa.getInstance();
         Coordenadas c1=mapa.getCoordenada(atacante);
         Coordenadas c2=mapa.getCoordenada((ColocableEnMapa)defensor);
-        if(c1.distacina(c2)> atacante.getRangoAereo()) throw new ExcepcionObjetivoFueraDeRango();
+        if(c1.distancia(c2)> atacante.getRangoAereo()) throw new ExcepcionObjetivoFueraDeRango();
 
     }
     public static void comprobarDuenioDeUnidad(Object atacante,Object defensor) throws ExcepcionAtacarAUnidadAliada {

@@ -40,7 +40,7 @@ public class Coordenadas {
        
    }
 
-	public int distacina(Coordenadas destino) { //redondea para arriba
+	public int distancia(Coordenadas destino) { //redondea para arriba
 		return (int)Math.ceil( Math.hypot((double)destino.getX()-(double)this.getX(), (double)destino.getY()-(double)this.getY()));
 	}
 }
