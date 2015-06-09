@@ -9,6 +9,7 @@ import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
+import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Before;
@@ -107,7 +108,7 @@ public class ConstrucionesUnidadesYSuministros {
         ProxiDeAtaque.inicializar(j2, j1);
         ProxyMapa mapa=ProxyMapa.getInstance();
         DepositoDeSuministros d;
-        Marine m = new Marine();
+        Marine m = new Marine(Vision.VisionCompleta(10,10));
         Coordenadas coordDeDepot = new Coordenadas(5, 6);
 
         mapa.agregarEnCapaTerrestre(m,new Coordenadas(5,5));
@@ -139,7 +140,7 @@ public class ConstrucionesUnidadesYSuministros {
         ProxiDeAtaque.inicializar(j2, j1);
         ProxyMapa mapa=ProxyMapa.getInstance();
         Pilon p;
-        Marine m = new Marine();
+        Marine m = new Marine(Vision.VisionCompleta(10,10));
         Coordenadas coordDePilon = new Coordenadas(7, 6);
 
         mapa.agregarEnCapaTerrestre(m,new Coordenadas(7,5));
