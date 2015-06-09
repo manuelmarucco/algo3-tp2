@@ -33,12 +33,12 @@ public class RecoleccionDeRecursosTest {
     }
     
         @Test
-    public void cuandoUbicoUnaRefineriaSobreUnVolcanMeDeveriaDevolverDiezMinerales() throws ExcepcionNoSePudoAgregarAlMapa {
+    public void cuandoUbicoUnaRefineriaSobreUnVolcanMeDeberiaDevolverDiezMinerales() throws ExcepcionNoSePudoAgregarAlMapa {
 
         Recursos recursos = new Recursos(0,0);
 
             ProxyMapa mapa = ProxyMapa.getInstance();
-        Coordenadas coordenadas = new Coordenadas(1,1);
+        Coordenadas coordenadas = new Coordenadas(1,2);
         Volcan volcan = new Volcan();
         Refineria refineria = new Refineria(recursos);
 
