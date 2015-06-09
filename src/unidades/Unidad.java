@@ -102,6 +102,12 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
         this.estado.update(this);
         this.resistencia.regenerar();
         this.accion=new NoActuo();
+        //TODO: asi deberia ser como una unidad le agrega la visibilidad al jugador
+        /*
+        ProxyMapa mapa = ProxyMapa.getInstance();
+
+        visionJugador.agregarSectorVisible( mapa.getCoordenada(this),vision);
+         */
     }
 
     public void irradiar(){

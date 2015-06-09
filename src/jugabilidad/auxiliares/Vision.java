@@ -9,6 +9,10 @@ public class Vision {
 
     //TODO: que la unidad le pase el rango y la coordenada donde esta y que este metodo agregue toda la cirfunferencia
 /*
-    public agregarSectorVisible(Coordenadas coordenadaDeUnidad, --rango de vision--)
+    public void agregarSectorVisible(Coordenadas coordenadaDeUnidad, int visionDeUnidad){
+        x = sen();
+        Coordenada c = new Coordenadas(x,y);
+        visibilidad.add();
+    }
 */
 }
