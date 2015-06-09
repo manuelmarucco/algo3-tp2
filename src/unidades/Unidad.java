@@ -124,11 +124,15 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
     }
 
     public void mover(Coordenadas destino) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaSeMovioLaUnidad, ExcepcionMoverfueraDeRango {
+
         if(!this.accion.puedeMover()) throw new ExcepcionYaSeMovioLaUnidad();
+
         ProxyMapa mapa = ProxyMapa.getInstance();
+
         if(mapa.getCoordenada(this).distancia(destino)>this.movilidad) throw new ExcepcionMoverfueraDeRango();
-        mapa.agregar(this, destino);
-        mapa.quitar(this);
+
+        mapa.mover(destino, this);
+
         this.accion= this.accion.movio();
     }
 }
