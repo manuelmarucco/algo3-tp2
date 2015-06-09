@@ -1,6 +1,6 @@
 package jugabilidad_tests;
 
-import jugabilidad.AsignadorDeTurnos;
+import jugabilidad.extrasJuego.AsignadorDeTurnos;
 import jugabilidad.Jugador;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
