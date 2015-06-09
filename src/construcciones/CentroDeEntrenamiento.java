@@ -30,10 +30,10 @@ public abstract class CentroDeEntrenamiento extends Construccion{
                 agregadoAlMapa = true;
             } catch (ExcepcionNoSePudoAgregarAlMapa e) {
 
-                if(y<2) y++;
+                if(y<1) y++;
                 else {
                     y = -1;
-                    if (x<2) x++;
+                    if (x<1) x++;
                     else e.printStackTrace();
                 }
                 //Si no pudo agregarlo alrededor no lo agrega

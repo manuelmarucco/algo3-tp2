@@ -1,6 +1,7 @@
 package tests_de_integracion;
 
 import construcciones.terran.Barraca;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import excepciones.ExcepcionPosicionOcupada;
 import jugabilidad.ProxyMapa;
@@ -25,6 +26,7 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
     public void LosMarinesSeCreanAlrededorArribaDeLaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),new Suministros(0,200));
         ProxyMapa mapa = ProxyMapa.getInstance();
+        mapa.setCoordenadasMaximas(10,10);
         Barraca b;
         Marine m1,m2,m3;
         int tiempoDeEntrenamiento;
@@ -51,28 +53,29 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
 
     }
     @Test
-    public void BarracaRodeadaDeVolcanExceptoUnLugarYMarineSeAgregaEnEseLugar() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void BarracaRodeadaDeVolcanExceptoUnLugarYMarineSeAgregaEnEseLugar() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),new Suministros(0,200));
         ProxyMapa mapa = ProxyMapa.getInstance();
+        mapa.setCoordenadasMaximas(10,10);
         Barraca b;
         Marine m;
         int tiempoDeEntrenamiento;
         Coordenadas cb = new Coordenadas(1,1);
 
-        mapa.agregarEnCapaTerrestre(new Volcan(),new Coordenadas(0,0));
-        mapa.agregarEnCapaTerrestre(new Volcan(),new Coordenadas(0,1));
-        mapa.agregarEnCapaTerrestre(new Volcan(),new Coordenadas(0,2));
-        mapa.agregarEnCapaTerrestre(new Volcan(),new Coordenadas(1,0));
-        mapa.agregarEnCapaTerrestre(new Volcan(),new Coordenadas(1,2));
-        mapa.agregarEnCapaTerrestre(new Volcan(),new Coordenadas(2,0));
-        mapa.agregarEnCapaTerrestre(new Volcan(),new Coordenadas(2,1));
+        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(0, 0));
+        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(0, 1));
+        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(0, 2));
+        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(1, 0));
+        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(1, 2));
+        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(2, 0));
+        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(2, 1));
 
         b = j.construirBarraca(cb);
         for(int i=0; i<b.getTiempoDeConstruccion(); i++)  j.update();
 
         m = b.entrenarMarine();
         tiempoDeEntrenamiento = m.getTiempoDeEntrenamiento();
-        for(int i=0; i<(tiempoDeEntrenamiento*3); i++)  j.update();
+        for(int i=0; i<(tiempoDeEntrenamiento); i++)  j.update();
 
         Assert.assertTrue(j.buscarUnidad(m));
         Assert.assertTrue(mapa.getCoordenada(m).equals(new Coordenadas(cb.getX()+1,cb.getY()+1)));
