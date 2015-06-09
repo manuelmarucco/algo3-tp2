@@ -72,6 +72,7 @@ public abstract class Jugador {
 			c.update();
 			if(c.getVida() == 0)
 				unidadesCreadas.remove(c);
+				suministros.disminuirSuministrosLimiteActuales(c.getSuministro());
 		}
 	}
 	
