@@ -17,6 +17,7 @@ import org.junit.Test;
 import unidades.ProxiDeAtaque;
 import unidades.Unidad;
 import unidades.UnidadGuerrera;
+import unidades.protoss.ExcepcionNoPuedeAtacarAire;
 import unidades.terrran.Golliat;
 import unidades.terrran.Marine;
 import unidades.terrran.NaveCiencia;
@@ -28,7 +29,7 @@ public class AtacanteTest {
     }
 
     @Test
-    public void testAtacarAereo() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionYaActuo {
+    public void testAtacarAereo() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionYaActuo, ExcepcionNoPuedeAtacarAire {
         ProxyMapa mapa =ProxyMapa.getInstance();
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));

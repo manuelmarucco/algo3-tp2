@@ -1,9 +1,6 @@
 package tests_de_integracion;
 
-import excepciones.ExcepcionAtacarAUnidadAliada;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.ExcepcionObjetivoFueraDeRango;
-import excepciones.ExcepcionYaActuo;
+import excepciones.*;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
@@ -59,7 +56,7 @@ public class UnidadesTerranTest {
         j2.agregarUnidad(zealot);
         Coordenadas c1 = new Coordenadas(3,3);
         Coordenadas c2 = new Coordenadas(8,8);
-        ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+        ProxyMapa.getInstance().setCoordenadasMaximas(10, 10);
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(marine, c1);
         mapa.agregar(zealot, c2);
@@ -151,7 +148,7 @@ public class UnidadesTerranTest {
         Coordenadas c3 = new Coordenadas(9,8);
         Coordenadas c4 = new Coordenadas(8,9);
         ProxyMapa mapa = ProxyMapa.getInstance();
-        ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+        ProxyMapa.getInstance().setCoordenadasMaximas(10, 10);
 
         mapa.agregar(nc, c1);
         mapa.agregar(at, c2);
@@ -173,6 +170,36 @@ public class UnidadesTerranTest {
 
         Assert.assertEquals(null, mapa.obtenerDeCapaTerrestre(c3));
         Assert.assertEquals(null,mapa.obtenerDeCapaTerrestre(c4));
+    }
+
+    @Test(expected = ExcepcionYaSeMovioLaUnidad.class)
+    public void testLaUnidadSoloSePuedeMoverUnaVezPorTurno() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
+        Marine marine = new Marine();
+        ProxyMapa mapa = ProxyMapa.getInstance();
+        mapa.setCoordenadasMaximas(100,100);
+        mapa.agregar(marine,new Coordenadas(1,1));
+        marine.mover(new Coordenadas(1, 2));
+        marine.mover(new Coordenadas(1,3));
+    }
+
+    @Test(expected = ExcepcionYaActuo.class)
+    public void MarineNoPuedeAtacar2VecesPorTurno() throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada, ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
+        Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
+        Jugador j2 = new JugadorProtoss(new Recursos(200,200),new Suministros(100,200));
+        ProxiDeAtaque.inicializar(j1, j2);
+        Marine marine = new Marine();
+        j1.agregarUnidad(marine);
+        Zealot zealot = new Zealot();
+        j2.agregarUnidad(zealot);
+        Coordenadas c1 = new Coordenadas(5,5);
+        Coordenadas c2 = new Coordenadas(6,6);
+        ProxyMapa mapa = ProxyMapa.getInstance();
+        ProxyMapa.getInstance().setCoordenadasMaximas(10, 10);
+        mapa.agregar(marine, c1);
+        mapa.agregar(zealot, c2);
+        ProxiDeAtaque.comprobarRango(marine, zealot);
+        marine.atacarTierra(zealot);
+        marine.atacarTierra(zealot);
     }
 
 }

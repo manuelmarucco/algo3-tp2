@@ -37,4 +37,14 @@ public class Vision {
         return ( new Coordenadas(x,y) );
 
     }
+
+    public static Vision VisionCompleta(int x,int y){
+        Vision v = new Vision();
+        for(int i=0;i<x;i++){
+            for(int j=0;j<y;j++){
+                v.visibilidad.add(new Coordenadas(i,j));
+            }
+        }
+        return v;
+    }
 }

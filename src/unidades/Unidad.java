@@ -135,4 +135,5 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
 
         this.accion= this.accion.movio();
     }
+
 }

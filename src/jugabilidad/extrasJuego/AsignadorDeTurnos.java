@@ -22,6 +22,7 @@ public class AsignadorDeTurnos {
         this.jugadorUno = this.jugadorDos;
         this.jugadorDos =  jugadorADevolver;
 
+        jugadorADevolver.update();
         return ( jugadorADevolver );
     }
 }

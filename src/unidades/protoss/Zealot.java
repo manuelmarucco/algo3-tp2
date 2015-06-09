@@ -1,7 +1,11 @@
 package unidades.protoss;
 
+import excepciones.ExcepcionAtacarAUnidadAliada;
+import excepciones.ExcepcionObjetivoFueraDeRango;
+import excepciones.ExcepcionYaActuo;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
+import interfaces.Daniable;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
 import unidades.Danio;
@@ -28,7 +32,7 @@ public class Zealot extends UnidadGuerrera implements Cargable {
     }
 
     public ColocableEnMapa getClone() {
-        return null; // TODO:implementar
+        return new ClonGuerrero((ResistenciaProtoss)this.resistencia,this.vision,this.ubicacion,this.movilidad); // TODO:implementar
     }
 
     @Override
@@ -39,5 +43,9 @@ public class Zealot extends UnidadGuerrera implements Cargable {
     @Override
     public void quitarse() {
 
+    }
+
+    public void atacarAire(Daniable objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada, ExcepcionYaActuo, ExcepcionNoPuedeAtacarAire {
+        throw new ExcepcionNoPuedeAtacarAire();
     }
 }

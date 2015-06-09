@@ -6,6 +6,7 @@ import excepciones.ExcepcionYaActuo;
 import interfaces.Daniable;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
+import unidades.protoss.ExcepcionNoPuedeAtacarAire;
 
 public abstract class UnidadGuerrera extends Unidad {
 
@@ -27,7 +28,7 @@ public abstract class UnidadGuerrera extends Unidad {
         this.accion=this.accion.actuo();
     }
 
-    public void atacarAire(Daniable objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada, ExcepcionYaActuo {
+    public void atacarAire(Daniable objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada, ExcepcionYaActuo, ExcepcionNoPuedeAtacarAire {
         if(!this.accion.puedoActuar())throw new ExcepcionYaActuo();
         ProxiDeAtaque.atacarAire(this, objetivo);
         this.accion=this.accion.actuo();
