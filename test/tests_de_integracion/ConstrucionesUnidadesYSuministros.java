@@ -6,7 +6,6 @@ import construcciones.terran.DepositoDeSuministros;
 import excepciones.ExcepcionAtacarAUnidadAliada;
 import excepciones.ExcepcionObjetivoFueraDeRango;
 import excepciones.ExcepcionPosicionOcupada;
-import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -84,10 +83,14 @@ public class ConstrucionesUnidadesYSuministros {
     public void CreoDepositosDeSuministrosPeroNoPuedoSuperarLos200SuministrosMaximos(){
         Suministros s = new Suministros(0,191);
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),s);
+        DepositoDeSuministros d;
 
-        j.construirDepositoDeSuministros(new Coordenadas(1, 0));
+        d = j.construirDepositoDeSuministros(new Coordenadas(1, 0));
+        for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
         j.construirDepositoDeSuministros(new Coordenadas(1, 1));
+        for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
         j.construirDepositoDeSuministros(new Coordenadas(1, 2));
+        for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
 
         Assert.assertEquals( 200,s.getSuministrosLimiteActuales());
     }
@@ -95,22 +98,26 @@ public class ConstrucionesUnidadesYSuministros {
     @Test
     public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada {
         Suministros s = new Suministros(0,20);
-        JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),s);
-        Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
-        ProxiDeAtaque.inicializar(j, j1);
+        JugadorTerran j1 = new JugadorTerran(new Recursos(1000,1000),s);
+        JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(0,20));
+        ProxiDeAtaque.inicializar(j2, j1);
         ProxyMapa mapa=ProxyMapa.getInstance();
         DepositoDeSuministros d;
         Marine m = new Marine();
+
         mapa.agregarEnCapaTerrestre(m,new Coordenadas(5,5));
-        j1.agregarUnidad(m);
-        d = j.construirDepositoDeSuministros(new Coordenadas(1, 3));
-        mapa.agregarEnCapaTerrestre(d,new Coordenadas(5,6));
-        for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
+        j2.agregarUnidad(m);
+
+        d = j1.construirDepositoDeSuministros(new Coordenadas(5, 6));
+        //mapa.agregarEnCapaTerrestre(d,new Coordenadas(5,6));
+        for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j1.update();
 
         Assert.assertEquals( 25,s.getSuministrosLimiteActuales());
 
          //TODO: corregir el codigo para quie pase
         while(d.getVida()!= 0) m.atacarTierra(d);
+
+        j1.update();
 
         Assert.assertEquals( 20,s.getSuministrosLimiteActuales());
     }
