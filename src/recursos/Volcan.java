@@ -1,7 +1,7 @@
 package recursos;
 
-import construcciones.CentroDeRecoleccion;
 import construcciones.protoss.NexoMineral;
+import construcciones.terran.CentroDeMineral;
 
 public class Volcan extends Recurso {
 
@@ -10,7 +10,7 @@ public class Volcan extends Recurso {
         return 10;
     }
 
-    public boolean noPuedeSerRecolectadoPor(CentroDeRecoleccion centroDeRecoleccion){return true;}
+    public boolean noPuedeSerRecolectadoPor(CentroDeMineral centroDeMineral){return true;}
 
     public boolean noPuedeSerRecolectadoPor(NexoMineral nexoMineral){
         return true;

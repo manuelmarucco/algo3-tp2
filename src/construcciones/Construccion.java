@@ -7,7 +7,6 @@ import construcciones.terran.PuertoEstelar;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import excepciones.ExcepcionPosicionOcupada;
 import excepciones.ExcepcionRecursosInsuficientes;
-import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import interfaces.Daniable;
@@ -21,7 +20,7 @@ import java.util.ArrayList;
 
 
 
-public abstract class Construccion implements ColocableEnMapa,Construible, Actualizable, Daniable {
+public abstract class Construccion implements ColocableEnMapa,Construible, Daniable {
 	
 	//protected Regeneracion regenerar;
 

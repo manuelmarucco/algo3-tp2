@@ -1,8 +1,8 @@
 package recursos;
 
-import construcciones.CentroDeRecoleccion;
 import construcciones.protoss.Asimilador;
 import construcciones.protoss.NexoMineral;
+import construcciones.terran.CentroDeMineral;
 import construcciones.terran.Refineria;
 import excepciones.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
@@ -28,7 +28,7 @@ public abstract class Recurso implements ColocableEnMapa, Recolectable {
 
     }
 
-    public boolean noPuedeSerRecolectadoPor(CentroDeRecoleccion centroDeRecoleccion){
+    public boolean noPuedeSerRecolectadoPor(CentroDeMineral centroDeMineral){
         return false;
     }
 
