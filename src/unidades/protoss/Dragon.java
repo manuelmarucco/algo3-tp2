@@ -29,7 +29,7 @@ public class Dragon extends UnidadGuerrera implements Cargable {
 
     @Override
     public int getTransporte() {
-        return 0;
+        return 4;
     }
 
     @Override

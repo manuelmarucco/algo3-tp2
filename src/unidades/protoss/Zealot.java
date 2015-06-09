@@ -38,7 +38,7 @@ public class Zealot extends UnidadGuerrera implements Cargable {
 
     @Override
     public int getTransporte() {
-        return 0;
+        return 2;
     }
 
     @Override

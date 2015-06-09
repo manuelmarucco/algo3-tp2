@@ -56,7 +56,7 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
 
     @Override
     public int getTransporte() {
-        return 0;
+        return 2;
     }
 
     @Override

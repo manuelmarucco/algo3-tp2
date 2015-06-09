@@ -1,10 +1,7 @@
 package consingnasTests;
 
 
-import excepciones.ExcepcionAtacarAUnidadAliada;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.ExcepcionObjetivoFueraDeRango;
-import excepciones.ExcepcionYaActuo;
+import excepciones.*;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -18,11 +15,8 @@ import org.junit.Before;
 import org.junit.Test;
 import unidades.ProxiDeAtaque;
 import unidades.ProxyDeHechizos;
-import unidades.protoss.AltoTemplario;
-import unidades.protoss.ClonGuerrero;
-import excepciones.ExcepcionNoPuedeAtacarAire;
-import unidades.protoss.Zealot;
-import unidades.terrran.NaveCiencia;
+import unidades.protoss.*;
+import unidades.terrran.*;
 
 public class unidadesTest {
 
@@ -63,7 +57,7 @@ public class unidadesTest {
         mapa.agregar(nc, c1);
         mapa.agregar(at, c2);
         for(int i = 0;i<10;i++) asignadorDeTurnos.update();//paso 5 turnos
-        Assert.assertEquals(100,nc.getEnergia());//energia antes de EMP
+        Assert.assertEquals(100, nc.getEnergia());//energia antes de EMP
         nc.EMP(c2);
         Assert.assertEquals(0, nc.getEnergia());//le bajo la energia a la nave
         Assert.assertEquals(0, at.getEscudo());
@@ -145,7 +139,7 @@ public class unidadesTest {
         mapa.agregar(at, c2);
         mapa.agregar(zl, c3);
         for(int i = 0;i<10;i++) asignadorDeTurnos.update();//paso 5 turnos
-        at.alucinacion(zl,c4,c5);
+        at.alucinacion(zl, c4, c5);
         ((ClonGuerrero)mapa.obtenerDeCapaTerrestre(c4)).atacarTierra(c1);
         Assert.assertEquals(200, nc.getVida());
         asignadorDeTurnos.update();
@@ -166,7 +160,296 @@ public class unidadesTest {
     }
 
     /*4) Se verifica unidad por unidad, que ataque en el rango correspondiente.*/
+    @Test
+    public void marineAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+        Marine m = new Marine(v);
+        j1.agregarUnidad(m);
+        Zealot zl = new Zealot(v);
+        j2.agregarUnidad(zl);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(2,2);
+        mapa.agregar(m, c1);
+        mapa.agregar(zl, c2);
+        m.atacarTierra(zl);
+        Assert.assertEquals(54, zl.getEscudo());
+    }
+
+    @Test(expected = ExcepcionObjetivoFueraDeRango.class)
+    public void marineNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+        Marine m = new Marine(v);
+        j1.agregarUnidad(m);
+        Zealot zl = new Zealot(v);
+        j2.agregarUnidad(zl);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(5,2);
+        mapa.agregar(m, c1);
+        mapa.agregar(zl, c2);
+        m.atacarTierra(zl);
+        Assert.assertEquals(54, zl.getEscudo());
+    }
+
+    @Test
+    public void golliatAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+        Golliat g = new Golliat(v);
+        j1.agregarUnidad(g);
+        Zealot zl = new Zealot(v);
+        j2.agregarUnidad(zl);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(2,2);
+        mapa.agregar(g, c1);
+        mapa.agregar(zl, c2);
+        g.atacarTierra(zl);
+        Assert.assertEquals(48, zl.getEscudo());
+    }
+
+    @Test(expected = ExcepcionObjetivoFueraDeRango.class)
+    public void golliatNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+        Golliat g = new Golliat(v);
+        j1.agregarUnidad(g);
+        Zealot zl = new Zealot(v);
+        j2.agregarUnidad(zl);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(7,3);
+        mapa.agregar(g, c1);
+        mapa.agregar(zl,c2);
+        g.atacarTierra(zl);
+        Assert.assertEquals(54,zl.getEscudo());
+    }
+
+    @Test
+    public void espectroAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+        Espectro e = new Espectro(v);
+        j1.agregarUnidad(e);
+        Zealot zl = new Zealot(v);
+        j2.agregarUnidad(zl);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(2,2);
+        mapa.agregar(e, c1);
+        mapa.agregar(zl, c2);
+        e.atacarTierra(zl);
+        Assert.assertEquals(52, zl.getEscudo());
+    }
+
+    @Test(expected = ExcepcionObjetivoFueraDeRango.class)
+    public void espectroNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+        Espectro e = new Espectro(v);
+        j1.agregarUnidad(e);
+        Zealot zl = new Zealot(v);
+        j2.agregarUnidad(zl);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(6,2);
+        mapa.agregar(e, c1);
+        mapa.agregar(zl, c2);
+        e.atacarTierra(zl);
+        Assert.assertEquals(52, zl.getEscudo());
+    }
+
+    @Test
+    public void zealotAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+        Marine m = new Marine(v);
+        j1.agregarUnidad(m);
+        Zealot zl = new Zealot(v);
+        j2.agregarUnidad(zl);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(1,2);
+        mapa.agregar(m, c1);
+        mapa.agregar(zl, c2);
+        zl.atacarTierra(m);
+        Assert.assertEquals(32, m.getVida());
+    }
+
+    @Test(expected = ExcepcionObjetivoFueraDeRango.class)
+    public void zealotNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+        Marine m = new Marine(v);
+        j1.agregarUnidad(m);
+        Zealot zl = new Zealot(v);
+        j2.agregarUnidad(zl);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(2,2);
+        mapa.agregar(m, c1);
+        mapa.agregar(zl, c2);
+        zl.atacarTierra(m);
+        Assert.assertEquals(54, m.getVida());
+    }
+
+    @Test
+    public void dragontAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+        Marine m = new Marine(v);
+        j1.agregarUnidad(m);
+        Dragon zl = new Dragon(v);
+        j2.agregarUnidad(zl);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(1,2);
+        mapa.agregar(m, c1);
+        mapa.agregar(zl, c2);
+        zl.atacarTierra(m);
+        Assert.assertEquals(20, m.getVida());
+    }
+
+    @Test(expected = ExcepcionObjetivoFueraDeRango.class)
+    public void dragonNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+        Marine m = new Marine(v);
+        j1.agregarUnidad(m);
+        Dragon zl = new Dragon(v);
+        j2.agregarUnidad(zl);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(5,2);
+        mapa.agregar(m, c1);
+        mapa.agregar(zl, c2);
+        zl.atacarTierra(m);
+        Assert.assertEquals(54, m.getVida());
+    }
+
+    @Test
+    public void scoutAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+        Marine m = new Marine(v);
+        j1.agregarUnidad(m);
+        Scout zl = new Scout(v);
+        j2.agregarUnidad(zl);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(1,2);
+        mapa.agregar(m, c1);
+        mapa.agregar(zl, c2);
+        zl.atacarTierra(m);
+        Assert.assertEquals(32, m.getVida());
+    }
+
+    @Test(expected = ExcepcionObjetivoFueraDeRango.class)
+    public void scoutNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+        Marine m = new Marine(v);
+        j1.agregarUnidad(m);
+        Scout zl = new Scout(v);
+        j2.agregarUnidad(zl);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(5,2);
+        mapa.agregar(m, c1);
+        mapa.agregar(zl, c2);
+        zl.atacarTierra(m);
+        Assert.assertEquals(54, m.getVida());
+    }
+
     /* 5) Naves de transporte soportan su capacidad. Se debe probar que se sube unidades, desde un punto A , se pasa por espacio y se bajan del otro lado tierra B.*/
+
+    @Test
+    public void naveTransporteTerranCargaUnMarineYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
+        Marine m = new Marine(v);
+        j1.agregarUnidad(m);
+        NaveTransporteTerran nt = new NaveTransporteTerran(v);
+        j1.agregarUnidad(nt);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(1,5);
+        mapa.agregar(m, c1);
+        mapa.agregar(nt, c1);
+        Assert.assertTrue(mapa.posicionTerrestreOcupada(c1));
+        nt.cargar(m);
+        Assert.assertEquals(1, nt.getTransporteOcupado());
+        Assert.assertFalse(mapa.posicionTerrestreOcupada(c1));
+        nt.mover(c2);
+        asignadorDeTurnos.update();//paso el turno
+        Assert.assertFalse(mapa.posicionTerrestreOcupada(c2));
+        nt.descargar(c2);
+        Assert.assertTrue(mapa.posicionTerrestreOcupada(c2));
+    }
+
+    @Test(expected = ExcepcionCargaSuperada.class)
+    public void naveTransporteTerranSeLLena() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
+        Golliat g1 = new Golliat(v);
+        Golliat g2 = new Golliat(v);
+        Golliat g3 = new Golliat(v);
+        Golliat g4 = new Golliat(v);
+        Golliat g5 = new Golliat(v);
+        j1.agregarUnidad(g1);
+        j1.agregarUnidad(g2);
+        j1.agregarUnidad(g3);
+        j1.agregarUnidad(g4);
+        j1.agregarUnidad(g5);
+        NaveTransporteTerran nt = new NaveTransporteTerran(v);
+        j1.agregarUnidad(nt);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(1,2);
+        Coordenadas c3 = new Coordenadas(1,3);
+        Coordenadas c4 = new Coordenadas(1,4);
+        Coordenadas c5 = new Coordenadas(1,5);
+        mapa.agregar(g1, c1);
+        mapa.agregar(g2, c2);
+        mapa.agregar(g3, c3);
+        mapa.agregar(g4, c4);
+        mapa.agregar(g5, c5);
+        mapa.agregar(nt, c1);
+        nt.cargar(g1);
+        Assert.assertEquals(2, nt.getTransporteOcupado());
+        nt.mover(c2);
+        asignadorDeTurnos.update();
+        asignadorDeTurnos.update();
+        nt.cargar(g2);
+        Assert.assertEquals(4, nt.getTransporteOcupado());
+        nt.mover(c3);
+        asignadorDeTurnos.update();
+        asignadorDeTurnos.update();
+        nt.cargar(g3);
+        Assert.assertEquals(6, nt.getTransporteOcupado());
+        nt.mover(c4);
+        asignadorDeTurnos.update();
+        asignadorDeTurnos.update();
+        nt.cargar(g4);
+        Assert.assertEquals(8, nt.getTransporteOcupado());
+        nt.mover(c5);
+        asignadorDeTurnos.update();
+        asignadorDeTurnos.update();
+        nt.cargar(g5);
+    }
+
+    @Test
+    public void naveTransporteProtossCargaUnZealtYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
+        Zealot m = new Zealot(v);
+        j2.agregarUnidad(m);
+        NaveTransporteProtoss nt = new NaveTransporteProtoss(v);
+        j2.agregarUnidad(nt);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(1,5);
+        mapa.agregar(m, c1);
+        mapa.agregar(nt, c1);
+        Assert.assertTrue(mapa.posicionTerrestreOcupada(c1));
+        nt.cargar(m);
+        Assert.assertEquals(2, nt.getTransporteOcupado());
+        Assert.assertFalse(mapa.posicionTerrestreOcupada(c1));
+        nt.mover(c2);
+        asignadorDeTurnos.update();//paso el turno
+        asignadorDeTurnos.update();//paso el turno
+        Assert.assertFalse(mapa.posicionTerrestreOcupada(c2));
+        nt.descargar(c2);
+        Assert.assertTrue(mapa.posicionTerrestreOcupada(c2));
+    }
+
+    @Test(expected = ExcepcionCargaSuperada.class)
+    public void naveTransporteProtossSeLLena() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
+        Dragon g1 = new Dragon(v);
+        AltoTemplario g2 = new AltoTemplario(v);
+        Dragon g3 = new Dragon(v);
+        j1.agregarUnidad(g1);
+        j1.agregarUnidad(g2);
+        j1.agregarUnidad(g3);
+        NaveTransporteTerran nt = new NaveTransporteTerran(v);
+        j1.agregarUnidad(nt);
+        Coordenadas c1 = new Coordenadas(1,1);
+        Coordenadas c2 = new Coordenadas(1,2);
+        Coordenadas c3 = new Coordenadas(1,3);
+        mapa.agregar(g1, c1);
+        mapa.agregar(g2, c2);
+        mapa.agregar(g3, c3);
+        mapa.agregar(nt, c1);
+        nt.cargar(g1);
+        Assert.assertEquals(4, nt.getTransporteOcupado());
+        nt.mover(c2);
+        asignadorDeTurnos.update();
+        asignadorDeTurnos.update();
+        nt.cargar(g2);
+        Assert.assertEquals(6, nt.getTransporteOcupado());
+        nt.mover(c3);
+        asignadorDeTurnos.update();
+        asignadorDeTurnos.update();
+        nt.cargar(g3);
+    }
     /* 9) Verificar recuperación del escudo protoss con el paso de los turnos.*/
 
 

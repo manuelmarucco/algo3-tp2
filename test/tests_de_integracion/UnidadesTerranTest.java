@@ -41,7 +41,6 @@ public class UnidadesTerranTest {
         ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
         mapa.agregar(marine, c1);
         mapa.agregar(zealot, c2);
-        ProxiDeAtaque.comprobarRango(marine, zealot);
         marine.atacarTierra(zealot);
         Assert.assertEquals(54,zealot.getEscudo());
     }
@@ -61,7 +60,7 @@ public class UnidadesTerranTest {
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(marine, c1);
         mapa.agregar(zealot, c2);
-        ProxiDeAtaque.comprobarRango(marine, zealot);
+        ProxiDeAtaque.comprobarRangoTerrestre(marine, zealot);
     }
 
     @Test
@@ -198,7 +197,6 @@ public class UnidadesTerranTest {
         ProxyMapa.getInstance().setCoordenadasMaximas(10, 10);
         mapa.agregar(marine, c1);
         mapa.agregar(zealot, c2);
-        ProxiDeAtaque.comprobarRango(marine, zealot);
         marine.atacarTierra(zealot);
         marine.atacarTierra(zealot);
     }

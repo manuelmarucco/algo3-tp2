@@ -18,23 +18,30 @@ public class ProxiDeAtaque {
     }
 
     public static void atacarTierra(UnidadGuerrera atacante, Daniable defensor) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
-        ProxiDeAtaque.comprobarRango(atacante, defensor);
+        ProxiDeAtaque.comprobarRangoTerrestre(atacante, defensor);
         ProxiDeAtaque.comprobarDuenioDeUnidad(atacante, defensor);
         ProxiDeAtaque.comprobarDuenioDeEdificio(atacante, defensor);
         defensor.recibirDanio(atacante.getDanioTerrestre());
     }
 
     public static void atacarAire(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
-        ProxiDeAtaque.comprobarRango(atacante, defensor);
-        ProxiDeAtaque.comprobarDuenioDeUnidad(atacante,defensor);
+        ProxiDeAtaque.comprobarRangoAereo(atacante, defensor);
+        ProxiDeAtaque.comprobarDuenioDeUnidad(atacante, defensor);
         defensor.recibirDanio(atacante.getDanioAereo());
     }
 
-    public static void comprobarRango(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango {
+    public static void comprobarRangoAereo(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango {
         ProxyMapa mapa = ProxyMapa.getInstance();
         Coordenadas c1=mapa.getCoordenada(atacante);
         Coordenadas c2=mapa.getCoordenada((ColocableEnMapa)defensor);
         if(c1.distancia(c2)> atacante.getRangoAereo()) throw new ExcepcionObjetivoFueraDeRango();
+
+    }
+    public static void comprobarRangoTerrestre(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango {
+        ProxyMapa mapa = ProxyMapa.getInstance();
+        Coordenadas c1=mapa.getCoordenada(atacante);
+        Coordenadas c2=mapa.getCoordenada((ColocableEnMapa)defensor);
+        if(c1.distancia(c2)> atacante.getRangoTerrestre()) throw new ExcepcionObjetivoFueraDeRango();
 
     }
     public static void comprobarDuenioDeUnidad(Object atacante,Object defensor) throws ExcepcionAtacarAUnidadAliada {

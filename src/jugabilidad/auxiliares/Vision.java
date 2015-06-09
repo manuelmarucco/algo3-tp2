@@ -9,7 +9,7 @@ public class Vision {
     private HashSet<Coordenadas> visibilidad = new HashSet<>();
 
     public void agregarSectorVisible(Coordenadas coordenadaDeUnidad, int visionDeUnidad){
-
+        if(coordenadaDeUnidad==null) return;
         for (int i = 0; i < 2 * visionDeUnidad; i++){
 
             for (int j = 0; j < 2 * visionDeUnidad; j ++){
@@ -30,12 +30,13 @@ public class Vision {
     }
 
     private Coordenadas armarPuntoDeInicio(Coordenadas punto, int vision){
+        if(punto!=null) {
+            int x = punto.getX() - vision;
+            int y = punto.getY() - vision;
 
-        int x = punto.getX() - vision;
-        int y = punto.getY() - vision;
-
-        return ( new Coordenadas(x,y) );
-
+            return (new Coordenadas(x, y));
+        }
+        return null;
     }
 
     public static Vision VisionCompleta(int x,int y){

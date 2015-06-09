@@ -37,7 +37,7 @@ public abstract class UnidadTransporte extends Unidad {
         cargaTotal+=unidad.getTransporte();
         if(cargaTotal>tranporteMax) throw new ExcepcionCargaSuperada();
         unidades.add(unidad);
-        unidad.quitarse();
+        ProxyMapa.getInstance().quitar((Unidad) unidad);
         this.accion.actuo();
     }
 
@@ -45,7 +45,15 @@ public abstract class UnidadTransporte extends Unidad {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         ProxyMapa proxy = ProxyMapa.getInstance();
         //TODO: ver esto
-        proxy.agregar((ColocableEnMapa)unidades.remove(),coordenadas);
+        proxy.agregar((ColocableEnMapa) unidades.remove(), coordenadas);
         this.accion.actuo();
+    }
+
+    public int getTransporteOcupado() {
+        int cargaTotal=0;
+        for(Cargable a:unidades){
+            cargaTotal+=a.getTransporte();
+        }
+        return cargaTotal;
     }
 }

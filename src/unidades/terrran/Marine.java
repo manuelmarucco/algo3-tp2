@@ -19,7 +19,7 @@ public class Marine extends UnidadGuerrera implements Cargable {
 
     @Override
     public int getTransporte() {
-        return 0;
+        return 1;
     }
 
     @Override
