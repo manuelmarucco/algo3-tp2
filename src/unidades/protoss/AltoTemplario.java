@@ -32,7 +32,6 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
             // Por el proxy agrego que tiran excepciones
             mapa.agregar(objetivo.getClone(), destino1);
             mapa.agregar(objetivo.getClone(), destino2);
-
         } catch (EnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }

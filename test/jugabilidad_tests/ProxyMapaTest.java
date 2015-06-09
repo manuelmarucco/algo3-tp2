@@ -4,12 +4,18 @@ import excepciones.ExcepcionCoordenadaXIngresadaFueraDelMapa;
 import excepciones.ExcepcionCoordenadaYIngresadaFueraDelMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import org.junit.Before;
 import org.junit.Test;
 import unidades.terrran.Marine;
 
 import static org.junit.Assert.*;
 
 public class ProxyMapaTest {
+
+    @Before
+    public void resetearProxy(){
+        ProxyMapa.resetear();
+    }
 
     @Test
     public void comoEsUnSingletonAlCrearDosInstanciasDeberianSerElMismoObjeto(){

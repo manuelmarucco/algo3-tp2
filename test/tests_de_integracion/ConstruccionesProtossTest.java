@@ -11,6 +11,7 @@ import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -24,6 +25,11 @@ import java.util.ArrayList;
 public class ConstruccionesProtossTest {
 
 	//////////////////////// Verificacion de construccion de cada edificio ////////
+
+	@Before
+	public void resetearProxy(){
+		ProxyMapa.resetear();
+	}
 
 	@Test
 	public void SeConstruyeUnAcceso() {

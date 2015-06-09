@@ -29,6 +29,7 @@ public class ProxyDeHechizos {
     }
 
     public static boolean esUnidad(Object objetivo){
-        return(jugador1.buscarUnidad(objetivo)||jugador2.buscarUnidad(objetivo));
+        if(objetivo==null) return false;
+        return(!jugador1.buscarConstruccion(objetivo)||!jugador2.buscarConstruccion(objetivo));
     }
 }

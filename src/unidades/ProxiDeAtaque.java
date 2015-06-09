@@ -4,7 +4,6 @@ import excepciones.ExcepcionAtacarAUnidadAliada;
 import excepciones.ExcepcionObjetivoFueraDeRango;
 import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
-import interfaces.Entrenable;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -21,6 +20,7 @@ public class ProxiDeAtaque {
     public static void atacarTierra(UnidadGuerrera atacante, Daniable defensor) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
         ProxiDeAtaque.comprobarRango(atacante, defensor);
         ProxiDeAtaque.comprobarDuenioDeUnidad(atacante, defensor);
+        ProxiDeAtaque.comprobarDuenioDeEdificio(atacante, defensor);
         defensor.recibirDanio(atacante.getDanioTerrestre());
     }
 
@@ -38,8 +38,13 @@ public class ProxiDeAtaque {
 
     }
     public static void comprobarDuenioDeUnidad(Object atacante,Object defensor) throws ExcepcionAtacarAUnidadAliada {
-        if(jugador1.buscarUnidad(atacante)&& jugador1.buscarUnidad((Entrenable)defensor)) throw new ExcepcionAtacarAUnidadAliada();
-        if(jugador2.buscarUnidad(atacante)&& jugador2.buscarUnidad((Entrenable)defensor)) throw new ExcepcionAtacarAUnidadAliada();
+        if(jugador1.buscarUnidad(atacante)&& jugador1.buscarUnidad(defensor)) throw new ExcepcionAtacarAUnidadAliada();
+        if(jugador2.buscarUnidad(atacante)&& jugador2.buscarUnidad(defensor)) throw new ExcepcionAtacarAUnidadAliada();
+    }
+
+    public static void comprobarDuenioDeEdificio(Object atacante,Object defensor) throws ExcepcionAtacarAUnidadAliada {
+        if(jugador1.buscarUnidad(atacante)&& jugador1.buscarConstruccion(defensor)) throw new ExcepcionAtacarAUnidadAliada();
+        if(jugador2.buscarUnidad(atacante)&& jugador2.buscarConstruccion(defensor)) throw new ExcepcionAtacarAUnidadAliada();
     }
 
 }

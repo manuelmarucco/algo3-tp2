@@ -30,6 +30,10 @@ public class ProxyMapa {
 
     }
 
+    public static void resetear(){
+        proxy=null;
+    }
+
     public void setCoordenadasMaximas(int coordenadaXMaxima, int coordenadaYMaxima){
 
         this.coordenadaXMaxima = coordenadaXMaxima;

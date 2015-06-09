@@ -75,7 +75,7 @@ public abstract class Jugador {
 		}
 	}
 	
-	public boolean buscarConstruccion(Construible c1){
+	public boolean buscarConstruccion(Object c1){
 		for(Construible c2: construccionesCreadas){
 			if(c1.equals(c2)){
 				return true;
