@@ -9,6 +9,7 @@ import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -21,6 +22,11 @@ import java.util.ArrayList;
 public class ConstruccionesTerranTest {
 
 	//////////////////////// Verificacion de construccion de cada edificio ////////
+
+	@Before
+	public void resetearProxy(){
+		ProxyMapa.resetear();
+	}
 
 	@Test
 	public void SeConstruyeUnaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
@@ -37,7 +43,7 @@ public class ConstruccionesTerranTest {
 		Assert.assertTrue(jugador.buscarConstruccion(b));
 	}
 
-		@Test
+	@Test
 	public void SeConstruyeUnaCentroDeMineralSobreUnCristal() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(1,1);
