@@ -2,6 +2,8 @@ package tests_de_integracion;
 
 import construcciones.terran.Barraca;
 import construcciones.terran.Fabrica;
+import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.ExcepcionPosicionOcupada;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -10,8 +12,8 @@ import org.junit.Test;
 
 public class ConstruccionesEnElMapaTest {
 
-    @Test
-    public void QuieroCrearUnaConstruccionSobreOtraPeroNoSeCrea(){
+    @Test(expected = ExcepcionPosicionOcupada.class)
+    public void QuieroCrearUnaConstruccionSobreOtraPeroNoSeCrea() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
         Fabrica f;
         Barraca b;

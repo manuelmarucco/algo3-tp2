@@ -1,6 +1,8 @@
 package jugabilidad.RazaDeJugador;
 
 import construcciones.protoss.*;
+import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.ExcepcionPosicionOcupada;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
@@ -28,7 +30,7 @@ public class JugadorProtoss extends Jugador {
 
     }
 
-    public Acceso construirAcceso(Coordenadas coordenadas){
+    public Acceso construirAcceso(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         Acceso acceso = new Acceso(this);
 
         this.construir(acceso,coordenadas);
@@ -36,7 +38,7 @@ public class JugadorProtoss extends Jugador {
         return acceso;
     }
 
-    public PortalEstelar construirPortalEstelar(Coordenadas coordenadas){
+    public PortalEstelar construirPortalEstelar(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         PortalEstelar portalEstelar = new PortalEstelar(this);
 
         this.construir(portalEstelar,coordenadas);
@@ -44,7 +46,7 @@ public class JugadorProtoss extends Jugador {
         return portalEstelar;
     }
 
-    public ArchivosTemplarios construirArchivosTemplarios(Coordenadas coordenadas){
+    public ArchivosTemplarios construirArchivosTemplarios(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         ArchivosTemplarios archivosTemplarios = new ArchivosTemplarios(this);
 
         this.construir(archivosTemplarios,coordenadas);
@@ -52,7 +54,7 @@ public class JugadorProtoss extends Jugador {
         return archivosTemplarios ;
     }
 
-    public Asimilador construirAsimilador(Coordenadas coordenadas) {
+    public Asimilador construirAsimilador(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
        Asimilador asimilador = new Asimilador(this.recursosRecolectados);
 
         this.construir(asimilador,coordenadas);
@@ -60,7 +62,7 @@ public class JugadorProtoss extends Jugador {
         return asimilador;
     }
 
-    public Pilon construirPilon(Coordenadas coordenadas) {
+    public Pilon construirPilon(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         Pilon pilon = new Pilon(this.suministros);
 
         this.construir(pilon,coordenadas);
@@ -68,7 +70,7 @@ public class JugadorProtoss extends Jugador {
         return pilon;
     }
 
-    public NexoMineral construirNexoMineral(Coordenadas coordenadas) {
+    public NexoMineral construirNexoMineral(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         NexoMineral nexoMineral = new NexoMineral(recursosRecolectados);
 
         this.construir(nexoMineral, coordenadas);

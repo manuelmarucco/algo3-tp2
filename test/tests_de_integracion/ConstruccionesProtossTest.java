@@ -30,7 +30,7 @@ public class ConstruccionesProtossTest {
 	}
 
 	@Test
-	public void SeConstruyeUnAcceso() {
+	public void SeConstruyeUnAcceso() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		Acceso a;
@@ -46,24 +46,24 @@ public class ConstruccionesProtossTest {
 
 
 	@Test
-	public void SeConstruyeUnaNexoMineralSobreUnCristal() throws ExcepcionNoSePudoAgregarAlMapa {
+	public void SeConstruyeUnaNexoMineralSobreUnCristal() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(1,1);
 		Cristal cristal = new Cristal();
-		NexoMineral NexoMineral;
+		NexoMineral nexoMineral;
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 
 		mapa.agregar(cristal,coordenadas);
 
-		NexoMineral = j.construirNexoMineral(coordenadas);
-		for (int i = 0; i < NexoMineral.getTiempoDeConstruccion(); i ++) j.update();
+		nexoMineral = j.construirNexoMineral(coordenadas);
+		for (int i = 0; i < nexoMineral.getTiempoDeConstruccion(); i ++) j.update();
 
-		Assert.assertTrue(j.buscarConstruccion(NexoMineral));
+		Assert.assertTrue(j.buscarConstruccion(nexoMineral));
 	}
 
-	@Test
-	public void SeQuiereConstruirUnaNexoMineralSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa {
+	@Test(expected = ExcepcionConstruccionNoRecolectaVolcan.class)
+	public void SeQuiereConstruirUnaNexoMineralSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(0,1);
 		Volcan volcan = new Volcan();
@@ -81,7 +81,7 @@ public class ConstruccionesProtossTest {
 
 
 	@Test
-	public void SeConstruyeUnaAsimilador() throws ExcepcionNoSePudoAgregarAlMapa {
+	public void SeConstruyeUnaAsimilador() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,150));
 		Asimilador r;
@@ -98,8 +98,8 @@ public class ConstruccionesProtossTest {
 		Assert.assertTrue(j.buscarConstruccion(r));
 	}
 
-	@Test
-	public void SeQuiereConstruirUnaAsimiladorSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa {
+	@Test(expected = ExcepcionConstruccionNoRecolectaCristal.class)
+	public void SeQuiereConstruirUnaAsimiladorSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(9,6);
 		Cristal cristal = new Cristal();
@@ -117,7 +117,7 @@ public class ConstruccionesProtossTest {
 
 
 	@Test
-	public void SeConstruyeUnPilonYAumentanLosSuministrosLimitesActuales() {
+	public void SeConstruyeUnPilonYAumentanLosSuministrosLimitesActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		Suministros suministros = new Suministros(0,0);
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),suministros);
 		Pilon p;
@@ -169,7 +169,7 @@ public class ConstruccionesProtossTest {
 	}
 	
 	@Test
-	public void JugadorCreaPortalEstelarConAccesoPrevia(){
+	public void JugadorCreaPortalEstelarConAccesoPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		Acceso a;
 		PortalEstelar p;
@@ -188,8 +188,8 @@ public class ConstruccionesProtossTest {
 		Assert.assertTrue(j.buscarConstruccion(p));
 	}
 	
-	@Test
-	public void JugadorQuiereCrearPortalEstelarPeroNecesitaAcceso(){
+	@Test(expected = ExcepcionNecesitaConstruirAcceso.class)
+	public void JugadorQuiereCrearPortalEstelarPeroNecesitaAcceso() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		PortalEstelar p;
 		Coordenadas coordenadas = new Coordenadas(0,5);
@@ -200,7 +200,7 @@ public class ConstruccionesProtossTest {
 	}
 	
 	@Test
-	public void JugadorCreaArchivosTemplariosConPortalEstelarPrevia(){
+	public void JugadorCreaArchivosTemplariosConPortalEstelarPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		Acceso a;
 		PortalEstelar p;
@@ -219,8 +219,8 @@ public class ConstruccionesProtossTest {
 		Assert.assertTrue(j.buscarConstruccion(p));
 	}
 	
-	@Test
-	public void JugadorQuiereCrearArchivosTemplariosPeroNecesitaPortalEstelar(){
+	@Test(expected = ExcepcionNecesitaConstruirPortalEstelar.class)
+	public void JugadorQuiereCrearArchivosTemplariosPeroNecesitaPortalEstelar() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		ArchivosTemplarios at;
 		
@@ -231,8 +231,8 @@ public class ConstruccionesProtossTest {
 	
 	// Construccion con Recursos Insuficientes
 
-	@Test
-	public void JugadorNoPuedeConstruirNexoMineralPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa {
+	@Test(expected = ExcepcionMineralesInsuficientes.class)
+	public void JugadorNoPuedeConstruirNexoMineralPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
 		NexoMineral c;
 		Cristal cristal = new Cristal();
@@ -247,8 +247,8 @@ public class ConstruccionesProtossTest {
 		Assert.assertFalse(j.buscarConstruccion(c));
 	}
 	
-	@Test
-	public void JugadorNoPuedeConstruirAccesoPorFaltaDeRecursos(){
+	@Test(expected = ExcepcionMineralesInsuficientes.class)
+	public void JugadorNoPuedeConstruirAccesoPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
 		Acceso a;
 		
@@ -257,8 +257,8 @@ public class ConstruccionesProtossTest {
 		Assert.assertFalse(j.buscarConstruccion(a));
 	}
 	
-	@Test
-	public void JugadorNoPuedeConstruirPortalEstelarPorFaltaDeRecursos(){
+	@Test(expected = ExcepcionMineralesInsuficientes.class)
+	public void JugadorNoPuedeConstruirPortalEstelarPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
 		Acceso a;
 		PortalEstelar p;
@@ -270,8 +270,8 @@ public class ConstruccionesProtossTest {
 		Assert.assertFalse(j.buscarConstruccion(p));
 	}
 	
-	@Test
-	public void JugadorNoPuedeConstruirArchivosTemplariosPorFaltaDeRecursos(){
+	@Test(expected = ExcepcionGasInsuficiente.class)
+	public void JugadorNoPuedeConstruirArchivosTemplariosPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,100));
 		Acceso a;
 		PortalEstelar p;
@@ -286,8 +286,8 @@ public class ConstruccionesProtossTest {
 		Assert.assertFalse(j.buscarConstruccion(p));
 	}
 	
-	@Test
-	public void JugadorNoPuedeConstruirPilonPorFaltaDeRecursos(){
+	@Test(expected = ExcepcionMineralesInsuficientes.class)
+	public void JugadorNoPuedeConstruirPilonPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
 		Pilon p;
 		
@@ -297,8 +297,8 @@ public class ConstruccionesProtossTest {
 	}
 
 
-	@Test
-	public void JugadorNoPuedeConstruirAsimiladorPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa {
+	@Test(expected = ExcepcionMineralesInsuficientes.class)
+	public void JugadorNoPuedeConstruirAsimiladorPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
 		Asimilador a;
 		Volcan volcan = new Volcan();
@@ -315,8 +315,8 @@ public class ConstruccionesProtossTest {
 
 	////////////CentrosDeRecoleccion sobre lugares donde no hay un recursos
 
-	@Test
-	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa {
+	@Test(expected = ExcepcionPosicionOcupada.class)
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		Acceso b;
 		Coordenadas coordenadas = new Coordenadas(8,1);
@@ -331,8 +331,8 @@ public class ConstruccionesProtossTest {
 		Assert.assertFalse(j.buscarConstruccion(b));
 	}
 
-	@Test
-	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal() throws ExcepcionNoSePudoAgregarAlMapa {
+	@Test(expected = ExcepcionPosicionOcupada.class)
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		Acceso b;
 		Coordenadas coordenadas = new Coordenadas(8,1);

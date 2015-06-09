@@ -4,6 +4,7 @@ import construcciones.protoss.Acceso;
 import construcciones.protoss.Pilon;
 import construcciones.terran.DepositoDeSuministros;
 import excepciones.ExcepcionAtacarAUnidadAliada;
+import excepciones.ExcepcionNoSePuedeConstruir;
 import excepciones.ExcepcionObjetivoFueraDeRango;
 import excepciones.ExcepcionPosicionOcupada;
 import jugabilidad.Jugador;
@@ -14,12 +15,17 @@ import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import unidades.ProxiDeAtaque;
 import unidades.protoss.Dragon;
 import unidades.terrran.Marine;
 
 public class ConstrucionesUnidadesYSuministros {
+    @Before
+    public void resetearProxy(){
+        ProxyMapa.resetear();
+    }
     @Test
     public void NoPuedoEntrenarMasUnidadesPorLlegarALLimiteDeSuministros(){
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),new Suministros(4,5));// 4 usados, 5 limite
@@ -33,7 +39,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-     public void CreoVariosPilonesYAumentanLosSuministrosLimiteActuales(){
+     public void CreoVariosPilonesYAumentanLosSuministrosLimiteActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         Suministros s = new Suministros(0,0);
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),s);
         Pilon p;
@@ -49,7 +55,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void CreoVariosDepositosDeSuministrosYAumentanLosSuministrosLimiteActuales(){
+    public void CreoVariosDepositosDeSuministrosYAumentanLosSuministrosLimiteActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         Suministros s = new Suministros(0,0);
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),s);
         DepositoDeSuministros d;
@@ -65,7 +71,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void CreoPilonesPeroNoPuedoSuperarLos200SuministrosMaximos(){
+    public void CreoPilonesPeroNoPuedoSuperarLos200SuministrosMaximos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         Suministros s = new Suministros(0,191);
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),s);
         Pilon p;
@@ -81,7 +87,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void CreoDepositosDeSuministrosPeroNoPuedoSuperarLos200SuministrosMaximos(){
+    public void CreoDepositosDeSuministrosPeroNoPuedoSuperarLos200SuministrosMaximos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         Suministros s = new Suministros(0,191);
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),s);
 
@@ -89,11 +95,18 @@ public class ConstrucionesUnidadesYSuministros {
         j.construirDepositoDeSuministros(new Coordenadas(1, 1));
         j.construirDepositoDeSuministros(new Coordenadas(1, 2));
 
+        j.update();
+        j.update();
+        j.update();
+        j.update();
+        j.update();
+        j.update();
+        j.update();
         Assert.assertEquals( 200,s.getSuministrosLimiteActuales());
     }
 
     @Test
-    public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada {
+    public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionNoSePuedeConstruir {
         Suministros s = new Suministros(0,20);
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),s);
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));

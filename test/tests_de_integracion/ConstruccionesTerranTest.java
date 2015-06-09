@@ -1,8 +1,7 @@
 package tests_de_integracion;
 
 import construcciones.terran.*;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.*;
 import interfaces.Construible;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -24,7 +23,7 @@ public class ConstruccionesTerranTest {
 	//////////////////////// Verificacion de construccion de cada edificio ////////
 
 	@Test
-	public void SeConstruyeUnaBarraca() {
+	public void SeConstruyeUnaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 
 		JugadorTerran jugador = new JugadorTerran(new Recursos(150,0));
 		Barraca b;
@@ -39,7 +38,7 @@ public class ConstruccionesTerranTest {
 	}
 
 		@Test
-	public void SeConstruyeUnaCentroDeMineralSobreUnCristal() throws ExcepcionNoSePudoAgregarAlMapa {
+	public void SeConstruyeUnaCentroDeMineralSobreUnCristal() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(1,1);
 		Cristal cristal = new Cristal();
@@ -55,8 +54,8 @@ public class ConstruccionesTerranTest {
 		Assert.assertTrue(j.buscarConstruccion(centroDeMineral));
 	}
 
-	@Test
-	public void SeQuiereConstruirUnaCentroDeMineralSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa {
+	@Test(expected = ExcepcionConstruccionNoRecolectaVolcan.class)
+	public void SeQuiereConstruirUnaCentroDeMineralSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(0,1);
 		Volcan volcan = new Volcan();
@@ -73,7 +72,7 @@ public class ConstruccionesTerranTest {
 	}
 
 	@Test
-	public void SeConstruyeUnaRefineriaSobreUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa {
+	public void SeConstruyeUnaRefineriaSobreUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 
 		JugadorTerran j = new JugadorTerran(new Recursos(150,150));
 		Refineria r;
@@ -90,8 +89,8 @@ public class ConstruccionesTerranTest {
 		Assert.assertTrue(j.buscarConstruccion(r));
 	}
 
-	@Test
-	public void SeQuiereConstruirUnaRefineriaSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa {
+	@Test(expected = ExcepcionConstruccionNoRecolectaCristal.class)
+	public void SeQuiereConstruirUnaRefineriaSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
 		Coordenadas coordenadas = new Coordenadas(0,1);
 		Cristal cristal = new Cristal();
@@ -108,7 +107,7 @@ public class ConstruccionesTerranTest {
 	}
 
 	@Test
-	public void SeConstruyeUnDepositoDeSuministrosYAumentanLosSuministrosLimitesActuales() {
+	public void SeConstruyeUnDepositoDeSuministrosYAumentanLosSuministrosLimitesActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		Suministros suministros = new Suministros(0,0);
 		JugadorTerran j = new JugadorTerran(new Recursos(150,150),suministros);
 		DepositoDeSuministros d ;
@@ -158,7 +157,7 @@ public class ConstruccionesTerranTest {
 	}
 	
 	@Test
-	public void JugadorCreaFabricaConBarracaPrevia(){
+	public void JugadorCreaFabricaConBarracaPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorTerran jugador = new JugadorTerran(new Recursos(1000,1000));
 		Barraca b;
 		Fabrica f;
@@ -177,8 +176,8 @@ public class ConstruccionesTerranTest {
 		Assert.assertTrue(jugador.buscarConstruccion(f));
 	}
 	
-	@Test
-	public void JugadorQuiereCrearFabricaPeroNecesitaBarraca(){
+	@Test(expected = ExcepcionNecesitaConstruirBarraca.class)
+	public void JugadorQuiereCrearFabricaPeroNecesitaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
 		Fabrica f;
 		Coordenadas coordenadas = new Coordenadas(5,6);
@@ -189,7 +188,7 @@ public class ConstruccionesTerranTest {
 	}
 	
 	@Test
-	public void JugadorCreaPuertoEstelarConFabricaPrevia(){
+	public void JugadorCreaPuertoEstelarConFabricaPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
 		Barraca b;
 		Fabrica f;
@@ -208,8 +207,8 @@ public class ConstruccionesTerranTest {
 		Assert.assertTrue(j.buscarConstruccion(p));
 	}
 	
-	@Test
-	public void JugadorQuiereCrearPuertoEstelarPeroNecesitaFabrica(){
+	@Test(expected = ExcepcionNecesitaConstruirFabrica.class)
+	public void JugadorQuiereCrearPuertoEstelarPeroNecesitaFabrica() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
 		PuertoEstelar p;
 		Coordenadas coordenadas = new Coordenadas(8,8);
@@ -221,8 +220,8 @@ public class ConstruccionesTerranTest {
 	
 	//// RecursosInsuficientes para Construir
 
-	@Test
-	public void JugadorNoPuedeConstruirCentroDeMineralPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa {
+	@Test(expected = ExcepcionRecursosInsuficientes.class)
+	public void JugadorNoPuedeConstruirCentroDeMineralPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		CentroDeMineral c;
 		Cristal cristal = new Cristal();
@@ -237,8 +236,8 @@ public class ConstruccionesTerranTest {
 		Assert.assertFalse(j.buscarConstruccion(c));
 	}
 
-	@Test
-	public void JugadorNoPuedeConstruirBarracaPorFaltaDeRecursos(){
+	@Test(expected = ExcepcionMineralesInsuficientes.class)
+	public void JugadorNoPuedeConstruirBarracaPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		Barraca b;
 		Coordenadas coordenadas = new Coordenadas(1,8);
@@ -248,8 +247,8 @@ public class ConstruccionesTerranTest {
 		Assert.assertFalse(j.buscarConstruccion(b));
 	}
 	
-	@Test
-	public void JugadorNoPuedeConstruirFabricaPorFaltaDeRecursos(){
+	@Test(expected = ExcepcionGasInsuficiente.class)
+	public void JugadorNoPuedeConstruirFabricaPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,0));
 		Barraca b;
 		Fabrica f;
@@ -262,21 +261,35 @@ public class ConstruccionesTerranTest {
 		Assert.assertFalse(j.buscarConstruccion(f));
 	}
 	
-	@Test
-	public void JugadorNoPuedeConstruirPuertoEstelarPorFaltaDeRecursos(){
-		JugadorTerran j = new JugadorTerran(new Recursos(1000,100));
+	@Test(expected = ExcepcionMineralesInsuficientes.class)
+	public void JugadorNoPuedeConstruirPuertoEstelarPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+		JugadorTerran j = new JugadorTerran(new Recursos(150,100));
 		PuertoEstelar p;
 		Coordenadas coordenadas = new Coordenadas(2,9);
+		Coordenadas coordenadas2 = new Coordenadas(2,8);
+		Coordenadas coordenadas3 = new Coordenadas(2,7);
 
 		j.construirBarraca(coordenadas); //costo 150
-		j.construirFabrica(coordenadas); //costo 200,100
-		p = j.construirPuertoEstelar(coordenadas); //costo 150,100
+		j.update();
+		j.update();
+		j.update();
+		j.update();
+		j.update();
+		j.update();
+		j.update();
+		j.update();
+		j.update();
+		j.update();
+		j.update();
+		j.update();//despues de 12 turnos...
+		j.construirFabrica(coordenadas2); //costo 200,100
+		p = j.construirPuertoEstelar(coordenadas3); //costo 150,100
 
 		Assert.assertFalse(j.buscarConstruccion(p));
 	}
 	
-	@Test
-	public void JugadorNoPuedeConstruirDepositoDeSuministrosPorFaltaDeRecursos(){
+	@Test(expected = ExcepcionMineralesInsuficientes.class)
+	public void JugadorNoPuedeConstruirDepositoDeSuministrosPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		DepositoDeSuministros d;
 		Coordenadas coordenadas = new Coordenadas(0,0);
@@ -286,8 +299,8 @@ public class ConstruccionesTerranTest {
 		Assert.assertFalse(j.buscarConstruccion(d));
 	}
 
-	@Test
-	public void JugadorNoPuedeConstruirRefineriaPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa {
+	@Test(expected = ExcepcionMineralesInsuficientes.class)
+	public void JugadorNoPuedeConstruirRefineriaPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		Refineria r;
 		Volcan volcan = new Volcan();
@@ -304,8 +317,8 @@ public class ConstruccionesTerranTest {
 
 	////////////CentrosDeRecoleccion sobre lugares donde no hay un recursos
 
-	@Test
-	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa {
+	@Test(expected = ExcepcionPosicionOcupada.class)
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		Barraca b;
 		Coordenadas coordenadas = new Coordenadas(8,1);
@@ -320,8 +333,8 @@ public class ConstruccionesTerranTest {
 		Assert.assertFalse(j.buscarConstruccion(b));
 	}
 
-	@Test
-	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal() throws ExcepcionNoSePudoAgregarAlMapa {
+	@Test(expected = ExcepcionPosicionOcupada.class)
+	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		Barraca b;
 		Coordenadas coordenadas = new Coordenadas(8,1);

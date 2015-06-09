@@ -37,6 +37,8 @@ public class NexoMineral extends CentroDeRecoleccion {
 			throw new ExcepcionConstruccionNoRecolectaVolcan();
 		}
 
+		mapa.borrarEnCapaTerrestre(coordenadas);
+
 		super.verificarRecursosDisponibles(recursosRecolectados);
 
 	}

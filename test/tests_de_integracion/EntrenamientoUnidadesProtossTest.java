@@ -3,16 +3,25 @@ package tests_de_integracion;
 import construcciones.protoss.Acceso;
 import construcciones.protoss.ArchivosTemplarios;
 import construcciones.protoss.PortalEstelar;
+import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.ExcepcionPosicionOcupada;
+import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import unidades.protoss.*;
 
 public class EntrenamientoUnidadesProtossTest {
+    @Before
+    public void resetearProxy(){
+        ProxyMapa.resetear();
+    }
+
     @Test
-    public void entrenoZealotYSeAgregaAlJugador() {
+    public void entrenoZealotYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         Zealot z;
@@ -29,7 +38,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoZealotYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() {
+    public void entrenoZealotYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         Zealot z;
@@ -46,7 +55,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoDragonYSeAgregaAlJugador() {
+    public void entrenoDragonYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         Dragon d;
@@ -63,7 +72,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoDragonYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() {
+    public void entrenoDragonYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         Dragon d;
@@ -81,7 +90,7 @@ public class EntrenamientoUnidadesProtossTest {
 
 
     @Test
-    public void entrenoScoutYSeAgregaAlJugador() {
+    public void entrenoScoutYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         PortalEstelar pe;
@@ -103,7 +112,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoScoutYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() {
+    public void entrenoScoutYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         PortalEstelar pe;
@@ -127,7 +136,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoNaveCienciaYSeAgregaAlJugador() {
+    public void entrenoNaveCienciaYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         PortalEstelar pe;
@@ -150,7 +159,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoAltoTemplarioYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() {
+    public void entrenoAltoTemplarioYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         PortalEstelar pe;
@@ -173,7 +182,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoNaveTransporteYSeAgregaAlJugador() {
+    public void entrenoNaveTransporteYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         PortalEstelar pe;
@@ -193,7 +202,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoNaveTransporteYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() {
+    public void entrenoNaveTransporteYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         Acceso a;
         PortalEstelar pe;

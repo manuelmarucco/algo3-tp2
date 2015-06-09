@@ -38,6 +38,8 @@ public class Asimilador extends CentroDeRecoleccion {
 			throw new ExcepcionConstruccionNoRecolectaCristal();
 		}
 
+		mapa.borrarEnCapaTerrestre(coordenadas);
+
 		super.verificarRecursosDisponibles(recursosRecolectados);
 
 	}

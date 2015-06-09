@@ -21,24 +21,12 @@ public abstract class Jugador {
 	protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<>();
 	protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion = new ArrayList<>();
 
-	protected void construir(Construible construccionCreada,Coordenadas coordenadas){
+	protected void construir(Construible construccionCreada,Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 
-		try {
-			construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados,coordenadas);
-		} catch (ExcepcionNoSePuedeConstruir e) {
-			e.printStackTrace();
-			return;
-		}
+		construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados,coordenadas);
 
 		EdificioEnConstruccion edificioEnConstruccion = new EdificioEnConstruccion(coordenadas,construccionCreada);
-
-		try {
-			edificioEnConstruccion.agregarse(coordenadas);
-		} catch (ExcepcionPosicionOcupada e) {
-			e.printStackTrace();
-			return;
-		}
-
+		edificioEnConstruccion.agregarse(coordenadas);
 		edificiosEnConstruccion.add(edificioEnConstruccion);
 	}
 
