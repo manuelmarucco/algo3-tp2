@@ -7,6 +7,7 @@ import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.TormentaPsionica;
+import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 import java.util.ArrayList;
@@ -15,25 +16,24 @@ public class JugadorProtoss extends Jugador {
 
     private ArrayList<TormentaPsionica> tormentasPsionica;
 
-    public JugadorProtoss(String nombre, String color){       //Constructor para el Juego
-        this.nombre = nombre;
-        this.color = color;
+    public JugadorProtoss(){       //Constructor para el Juego
         this.suministros = new Suministros(0,0);
         this.recursosRecolectados = new Recursos(200,0);
+        this.visibilidad = new Vision();
     }
 
     public JugadorProtoss(Recursos recursosIniciales){
         this.recursosRecolectados = recursosIniciales;
         this.suministros =  new Suministros(0,20); //suministros iniciales
         this.tormentasPsionica= new ArrayList<>();
-        //HAY QUE HACER QUE EL JUGADOR EMPIECE CON 5 RECOLECTARES....
-        //EL PROBLEMA DE ESTO ES QUE DEPENDE LA ESTRUCTURA EN CADA RAZA... HAY QUE VER COMO LO RESOLVEMOS
+        this.visibilidad = new Vision();
     }
 
     public JugadorProtoss(Recursos recursosIniciales, Suministros s){
         this.recursosRecolectados = recursosIniciales;
         this.suministros =  s;
         this.tormentasPsionica= new ArrayList<>();
+        this.visibilidad = new Vision();
 
     }
 

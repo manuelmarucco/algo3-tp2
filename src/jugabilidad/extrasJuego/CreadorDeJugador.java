@@ -6,11 +6,8 @@ import excepciones.ExcepcionNoSePudoCrearElJugador;
 import excepciones.ExcepcionNombreDeJugadorMenorACuatroCaracteres;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.auxiliares.Recursos;
-import recursos.Recurso;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 
 public class CreadorDeJugador {
 
@@ -21,8 +18,7 @@ public class CreadorDeJugador {
 
     public JugadorTerran crearNuevoJugadorTerran(String nombre, String color) throws ExcepcionNoSePudoCrearElJugador {
 
-        Recursos recursos = new Recursos(0,0);
-        JugadorTerran jugador = new JugadorTerran(recursos);
+        JugadorTerran jugador = new JugadorTerran();
 
         this.verificarNombre(nombre);
         this.nombres.add(nombre);
@@ -35,8 +31,7 @@ public class CreadorDeJugador {
 
     public JugadorProtoss crearNuevoJugadorProtos(String nombre, String color) throws ExcepcionNoSePudoCrearElJugador {
 
-        Recursos recursos = new Recursos(0,0);
-        JugadorProtoss jugador = new JugadorProtoss(recursos);
+        JugadorProtoss jugador = new JugadorProtoss();
 
         this.verificarNombre(nombre);
         this.verificarColor(color);

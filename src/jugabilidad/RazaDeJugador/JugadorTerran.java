@@ -6,20 +6,26 @@ import excepciones.ExcepcionPosicionOcupada;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
+import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 public class JugadorTerran extends Jugador {
 
+    public JugadorTerran(){       //Constructor para el Juego
+        this.suministros = new Suministros(0,0);
+        this.recursosRecolectados = new Recursos(200,0);
+        this.visibilidad = new Vision();
+    }
+
     public JugadorTerran(Recursos recursosIniciales){
         this.recursosRecolectados = recursosIniciales;
         this.suministros =  new Suministros(0,20);
-
-        //HAY QUE HACER QUE EL JUGADOR EMPIECE CON 5 RECOLECTARES....
-        //EL PROBLEMA DE ESTO ES QUE DEPENDE LA ESTRUCTURA EN CADA RAZA... HAY QUE VER COMO LO RESOLVEMOS
+        this.visibilidad = new Vision();
     }
     public JugadorTerran(Recursos recursosIniciales,Suministros s){
         this.recursosRecolectados = recursosIniciales;
         this.suministros =  s;
+        this.visibilidad = new Vision();
     }
 
     public Barraca construirBarraca(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
