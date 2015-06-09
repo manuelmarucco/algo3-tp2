@@ -1,2 +1,4 @@
 TODO:
 
+las unidades ahora se crean alrededor de un edificio de entrenamiento. y si no entran mas tira una excepcion avisando
+que no se pudo agregar. la excepcion es agarrada e imprime el rastro.
