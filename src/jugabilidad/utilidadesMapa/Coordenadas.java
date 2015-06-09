@@ -43,4 +43,16 @@ public class Coordenadas {
 	public int distancia(Coordenadas destino) { //redondea para arriba
 		return (int)Math.ceil( Math.hypot((double)destino.getX()-(double)this.getX(), (double)destino.getY()-(double)this.getY()));
 	}
+
+	public void aumentarX( int cantidad ){
+
+		this.x += cantidad;
+
+	}
+
+	public void aumentarY( int cantidad ){
+
+		this.y += cantidad;
+
+	}
 }
