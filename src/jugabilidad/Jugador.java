@@ -15,6 +15,9 @@ import java.util.ArrayList;
 
 public abstract class Jugador {
 
+	protected String nombre;
+	protected String color;
+
 	protected Recursos recursosRecolectados;
 	protected Suministros suministros;
 	protected ArrayList<Construible> construccionesCreadas = new ArrayList<>();
@@ -58,8 +61,12 @@ public abstract class Jugador {
 			}
 		}
 
-		for(Construible c: construccionesCreadas){
+		for (int i = 0; i < construccionesCreadas.size(); i++) {
+			Construccion c = (Construccion) construccionesCreadas.get(i);
 			c.update();
+			if(c.getVida() == 0)
+				construccionesCreadas.remove(c);
+
 		}
 	}
 	
@@ -85,6 +92,32 @@ public abstract class Jugador {
 			}
 		}
 		return false;
+	}
+
+	// ---
+
+	public void setNombre(String nombre){
+
+		this.nombre = nombre;
+
+	}
+
+	public String getNombre(){
+
+		return ( this.nombre );
+
+	}
+
+	public void setColor(String color){
+
+		this.color = color;
+
+	}
+
+	public String getColor (){
+
+		return ( this.color );
+
 	}
 
 }
