@@ -2,7 +2,7 @@ package jugabilidad_tests;
 
 import construcciones.terran.CentroDeMineral;
 import jugabilidad.ProxyMapa;
-import jugabilidad.CreadorDeMapa;
+import jugabilidad.extrasJuego.CreadorDeMapa;
 
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
