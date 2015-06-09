@@ -3,10 +3,7 @@ package tests_de_integracion;
 import construcciones.protoss.Acceso;
 import construcciones.protoss.Pilon;
 import construcciones.terran.DepositoDeSuministros;
-import excepciones.ExcepcionAtacarAUnidadAliada;
-import excepciones.ExcepcionNoSePuedeConstruir;
-import excepciones.ExcepcionObjetivoFueraDeRango;
-import excepciones.ExcepcionPosicionOcupada;
+import excepciones.*;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -103,7 +100,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionNoSePuedeConstruir {
+    public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionNoSePuedeConstruir, ExcepcionYaActuo {
         Suministros s = new Suministros(0,20);
         JugadorTerran j1 = new JugadorTerran(new Recursos(1000,1000),s);
         JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(0,20));
@@ -122,7 +119,10 @@ public class ConstrucionesUnidadesYSuministros {
 
         Assert.assertEquals( 25,s.getSuministrosLimiteActuales());
 
-        while(d.getVida()!= 0) m.atacarTierra(d);
+        while(d.getVida()!= 0){
+            m.atacarTierra(d);
+            j2.update();
+        }
 
         j1.update();
 
@@ -131,7 +131,7 @@ public class ConstrucionesUnidadesYSuministros {
         Assert.assertTrue(mapa.posicionTerrestreOcupada(coordDeDepot));
     }
     @Test
-    public void SeDestruyeUnPilonYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionNoSePuedeConstruir {
+    public void SeDestruyeUnPilonYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionNoSePuedeConstruir, ExcepcionYaActuo {
         Suministros s = new Suministros(0,20);
         JugadorProtoss j1 = new JugadorProtoss(new Recursos(1000,1000),s);
         JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(0,20));
@@ -150,7 +150,10 @@ public class ConstrucionesUnidadesYSuministros {
 
         Assert.assertEquals(25, s.getSuministrosLimiteActuales());
 
-        while(p.getVida()!= 0) m.atacarTierra(p);
+        while(p.getVida()!= 0){
+            m.atacarTierra(p);
+            j2.update();
+        }
 
         j1.update();
 

@@ -24,7 +24,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
     protected EstadoUnidad estado;
     protected int tiempoDeEntrenamiento;
     protected EstadoDeAccion accion;
-    private int movilidad;
+    protected int movilidad;
 
     protected Unidad(Resistencia resistencia,int vision,Ubicacion ubicacion,int suministro,Costo costo,int tiempoDeEntrenamiento,int movilidad,Vision visionJugador){
         this.resistencia= resistencia;

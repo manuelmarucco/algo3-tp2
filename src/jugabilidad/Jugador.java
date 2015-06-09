@@ -10,6 +10,7 @@ import interfaces.Entrenable;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import unidades.Unidad;
 
 import java.util.ArrayList;
 
@@ -66,7 +67,13 @@ public abstract class Jugador {
 			c.update();
 			if(c.getVida() == 0)
 				construccionesCreadas.remove(c);
+		}
 
+		for (int i = 0; i < unidadesCreadas.size(); i++) {
+			Unidad c = (Unidad) unidadesCreadas.get(i);
+			c.update();
+			if(c.getVida() == 0)
+				unidadesCreadas.remove(c);
 		}
 	}
 	

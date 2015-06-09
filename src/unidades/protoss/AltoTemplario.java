@@ -51,7 +51,7 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
     }
 
     public ColocableEnMapa getClone() {
-        return new ClonMagico((ResistenciaProtoss)this.resistencia,this.energia,this.vision,this.ubicacion);
+        return new ClonMagico((ResistenciaProtoss)this.resistencia,this.energia,this.vision,this.ubicacion,this.movilidad);
     }
 
     @Override
