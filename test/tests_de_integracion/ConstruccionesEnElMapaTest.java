@@ -4,13 +4,19 @@ import construcciones.terran.Barraca;
 import construcciones.terran.Fabrica;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import excepciones.ExcepcionPosicionOcupada;
+import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class ConstruccionesEnElMapaTest {
+    @Before
+    public void resetearProxy(){
+        ProxyMapa.resetear();
+    }
 
     @Test(expected = ExcepcionPosicionOcupada.class)
     public void QuieroCrearUnaConstruccionSobreOtraPeroNoSeCrea() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {

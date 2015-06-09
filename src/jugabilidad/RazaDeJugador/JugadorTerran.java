@@ -56,16 +56,7 @@ public class JugadorTerran extends Jugador {
 
     public CentroDeMineral construirCentroDeMineral(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         CentroDeMineral centroDeMineral = new CentroDeMineral(this.recursosRecolectados);
-       /*
-        Mapa mapa = SingletonMapa.getInstance();
 
-        try{
-            mapa.obtenerDeCapaTerrestre(coordenadas);
-        }catch(ExcepcionNecesitaSerConstruidoSobreUnCristal e){
-            e.printStackTrace();
-            return centroDeMineral;
-        }
-        */
         this.construir(centroDeMineral,coordenadas);
 
         return centroDeMineral ;

@@ -50,7 +50,7 @@ public class ConstrucionesUnidadesYSuministros {
         j.construirPilon(new Coordenadas(0,2));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
 
-        Assert.assertEquals(15, s.getSuministrosLimiteActuales());
+        Assert.assertEquals(15,s.getSuministrosLimiteActuales());
     }
 
     @Test
@@ -75,11 +75,12 @@ public class ConstrucionesUnidadesYSuministros {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),s);
         Pilon p;
 
-        p = j.construirPilon(new Coordenadas(3, 0));
+
+        p = j.construirPilon(new Coordenadas(3,0));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirPilon(new Coordenadas(3, 1));
+        j.construirPilon(new Coordenadas(3,1));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirPilon(new Coordenadas(3, 2));
+        j.construirPilon(new Coordenadas(3,2));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
 
         Assert.assertEquals(200,s.getSuministrosLimiteActuales());
@@ -98,13 +99,6 @@ public class ConstrucionesUnidadesYSuministros {
         j.construirDepositoDeSuministros(new Coordenadas(1, 2));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
 
-        j.update();
-        j.update();
-        j.update();
-        j.update();
-        j.update();
-        j.update();
-        j.update();
         Assert.assertEquals( 200,s.getSuministrosLimiteActuales());
     }
 
@@ -119,20 +113,20 @@ public class ConstrucionesUnidadesYSuministros {
         Marine m = new Marine();
         Coordenadas coordDeDepot = new Coordenadas(5, 6);
 
-        mapa.agregarEnCapaTerrestre(m, new Coordenadas(5, 5));
+        mapa.agregarEnCapaTerrestre(m,new Coordenadas(5,5));
         j2.agregarUnidad(m);
 
         d = j1.construirDepositoDeSuministros(coordDeDepot);
 
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j1.update();
 
-        Assert.assertEquals(25, s.getSuministrosLimiteActuales());
+        Assert.assertEquals( 25,s.getSuministrosLimiteActuales());
 
         while(d.getVida()!= 0) m.atacarTierra(d);
 
         j1.update();
 
-        Assert.assertEquals(20, s.getSuministrosLimiteActuales());
+        Assert.assertEquals( 20,s.getSuministrosLimiteActuales());
         Assert.assertFalse(j1.buscarConstruccion(d));
         Assert.assertTrue(mapa.posicionTerrestreOcupada(coordDeDepot));
     }
@@ -147,7 +141,7 @@ public class ConstrucionesUnidadesYSuministros {
         Marine m = new Marine();
         Coordenadas coordDePilon = new Coordenadas(7, 6);
 
-        mapa.agregarEnCapaTerrestre(m, new Coordenadas(7, 5));
+        mapa.agregarEnCapaTerrestre(m,new Coordenadas(7,5));
         j2.agregarUnidad(m);
 
         p = j1.construirPilon(coordDePilon);
