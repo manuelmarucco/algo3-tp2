@@ -6,7 +6,7 @@ import excepciones.ExcepcionYaActuo;
 import interfaces.Daniable;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
-import unidades.protoss.ExcepcionNoPuedeAtacarAire;
+import excepciones.ExcepcionNoPuedeAtacarAire;
 
 public abstract class UnidadGuerrera extends Unidad {
 

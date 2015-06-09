@@ -17,7 +17,7 @@ import org.junit.Test;
 import unidades.ProxiDeAtaque;
 import unidades.Unidad;
 import unidades.UnidadGuerrera;
-import unidades.protoss.ExcepcionNoPuedeAtacarAire;
+import excepciones.ExcepcionNoPuedeAtacarAire;
 import unidades.terrran.Golliat;
 import unidades.terrran.Marine;
 import unidades.terrran.NaveCiencia;

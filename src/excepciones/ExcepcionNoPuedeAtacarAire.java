@@ -1,4 +1,4 @@
-package unidades.protoss;
+package excepciones;
 
 public class ExcepcionNoPuedeAtacarAire extends Throwable {
 }

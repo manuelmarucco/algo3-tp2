@@ -11,16 +11,16 @@ import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.extrasJuego.AsignadorDeTurnos;
+import jugabilidad.extrasJuego.AdministradorDeTurnos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import unidades.protoss.ClonGuerrero;
 import unidades.ProxiDeAtaque;
 import unidades.ProxyDeHechizos;
 import unidades.protoss.AltoTemplario;
-import unidades.protoss.ExcepcionNoPuedeAtacarAire;
+import unidades.protoss.ClonGuerrero;
+import excepciones.ExcepcionNoPuedeAtacarAire;
 import unidades.protoss.Zealot;
 import unidades.terrran.NaveCiencia;
 
@@ -28,14 +28,16 @@ public class unidadesTest {
 
     private JugadorTerran j1;
     private JugadorProtoss j2;
-    private AsignadorDeTurnos asignadorDeTurnos;
+    private AdministradorDeTurnos asignadorDeTurnos;
     private ProxyMapa mapa;
     private Vision v;
     @Before
     public void init(){
         j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         j2 = new JugadorProtoss(new Recursos(200,200),new Suministros(100,200));
-        asignadorDeTurnos = new AsignadorDeTurnos(j1,j2);
+        asignadorDeTurnos = new AdministradorDeTurnos();
+        asignadorDeTurnos.agregarJugador(j1);
+        asignadorDeTurnos.agregarJugador(j2);
         ProxyMapa.resetear();
         mapa =ProxyMapa.getInstance();
         mapa.setCoordenadasMaximas(10, 10);
@@ -60,7 +62,7 @@ public class unidadesTest {
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(nc, c1);
         mapa.agregar(at, c2);
-        for(int i = 0;i<10;i++) asignadorDeTurnos.jugadorSiguiente();//paso 5 turnos
+        for(int i = 0;i<10;i++) asignadorDeTurnos.update();//paso 5 turnos
         Assert.assertEquals(100,nc.getEnergia());//energia antes de EMP
         nc.EMP(c2);
         Assert.assertEquals(0, nc.getEnergia());//le bajo la energia a la nave
@@ -85,7 +87,7 @@ public class unidadesTest {
         mapa.agregar(nc, c1);
         mapa.agregar(at, c2);
         mapa.agregar(nc2, c3);
-        for(int i = 0;i<10;i++) asignadorDeTurnos.jugadorSiguiente();//paso 5 turnos
+        for(int i = 0;i<10;i++) asignadorDeTurnos.update();//paso 5 turnos
         Assert.assertEquals(100,nc.getEnergia());//energia antes de EMP
         nc.EMP(c2);
         Assert.assertEquals(0, nc.getEnergia());//le bajo la energia a la nave
@@ -111,7 +113,7 @@ public class unidadesTest {
         mapa.agregar(nc, c1);
         mapa.agregar(at, c2);
         mapa.agregar(zl,c3);
-        for(int i = 0;i<10;i++) asignadorDeTurnos.jugadorSiguiente();//paso 5 turnos
+        for(int i = 0;i<10;i++) asignadorDeTurnos.update();//paso 5 turnos
         Assert.assertEquals(100,nc.getEnergia());//energia antes de EMP
         nc.EMP(new Coordenadas(3, 3));
         Assert.assertEquals(0, nc.getEnergia());//le bajo la energia a la nave
@@ -142,11 +144,11 @@ public class unidadesTest {
         mapa.agregar(nc, c1);
         mapa.agregar(at, c2);
         mapa.agregar(zl, c3);
-        for(int i = 0;i<10;i++) asignadorDeTurnos.jugadorSiguiente();//paso 5 turnos
+        for(int i = 0;i<10;i++) asignadorDeTurnos.update();//paso 5 turnos
         at.alucinacion(zl,c4,c5);
         ((ClonGuerrero)mapa.obtenerDeCapaTerrestre(c4)).atacarTierra(c1);
         Assert.assertEquals(200, nc.getVida());
-        asignadorDeTurnos.jugadorSiguiente();
+        asignadorDeTurnos.update();
         nc.EMP(c3);
         Assert.assertFalse(mapa.posicionTerrestreOcupada(c4));
         Assert.assertFalse(mapa.posicionTerrestreOcupada(c5));

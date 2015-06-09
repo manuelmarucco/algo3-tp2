@@ -7,6 +7,7 @@ import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
+import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Before;
@@ -20,7 +21,7 @@ import unidades.terrran.Marine;
 import unidades.terrran.NaveCiencia;
 
 public class UnidadesTerranTest {
-
+    Vision v = Vision.VisionCompleta(10,10);
     @Before
     public void resetearProxy(){
         ProxyMapa.resetear();
@@ -30,9 +31,9 @@ public class UnidadesTerranTest {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorProtoss(new Recursos(200,200),new Suministros(100,200));
         ProxiDeAtaque.inicializar(j1, j2);
-        Marine marine = new Marine();
+        Marine marine = new Marine(v);
         j1.agregarUnidad(marine);
-        Zealot zealot = new Zealot();
+        Zealot zealot = new Zealot(v);
         j2.agregarUnidad(zealot);
         Coordenadas c1 = new Coordenadas(5,5);
         Coordenadas c2 = new Coordenadas(6,6);
@@ -50,9 +51,9 @@ public class UnidadesTerranTest {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorProtoss(new Recursos(200,200),new Suministros(100,200));
         ProxiDeAtaque.inicializar(j1, j2);
-        Marine marine = new Marine();
+        Marine marine = new Marine(v);
         j1.agregarUnidad(marine);
-        Zealot zealot = new Zealot();
+        Zealot zealot = new Zealot(v);
         j2.agregarUnidad(zealot);
         Coordenadas c1 = new Coordenadas(3,3);
         Coordenadas c2 = new Coordenadas(8,8);
@@ -68,9 +69,9 @@ public class UnidadesTerranTest {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         ProxyDeHechizos.inicializar(j1, j2);
-        NaveCiencia nc = new NaveCiencia();
+        NaveCiencia nc = new NaveCiencia(v);
         j1.agregarUnidad(nc);
-        AltoTemplario at = new AltoTemplario();
+        AltoTemplario at = new AltoTemplario(v);
         j2.agregarUnidad(at);
         Coordenadas c1 = new Coordenadas(4,4);
         Coordenadas c2 = new Coordenadas(9,9);
@@ -93,9 +94,9 @@ public class UnidadesTerranTest {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         ProxyDeHechizos.inicializar(j1, j2);
-        NaveCiencia nc = new NaveCiencia();
+        NaveCiencia nc = new NaveCiencia(Vision.VisionCompleta(10,10));
         j1.agregarUnidad(nc);
-        AltoTemplario at = new AltoTemplario();
+        AltoTemplario at = new AltoTemplario(v);
         j2.agregarUnidad(at);
         Coordenadas c1 = new Coordenadas(1,1);
         Coordenadas c2 = new Coordenadas(6,5);
@@ -139,9 +140,9 @@ public class UnidadesTerranTest {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         ProxyDeHechizos.inicializar(j1, j2);
-        NaveCiencia nc = new NaveCiencia();
+        NaveCiencia nc = new NaveCiencia(v);
         j1.agregarUnidad(nc);
-        AltoTemplario at = new AltoTemplario();
+        AltoTemplario at = new AltoTemplario(v);
         j2.agregarUnidad(at);
         Coordenadas c1 = new Coordenadas(3,2);
         Coordenadas c2 = new Coordenadas(8,8);
@@ -174,7 +175,7 @@ public class UnidadesTerranTest {
 
     @Test(expected = ExcepcionYaSeMovioLaUnidad.class)
     public void testLaUnidadSoloSePuedeMoverUnaVezPorTurno() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
-        Marine marine = new Marine();
+        Marine marine = new Marine(v);
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.setCoordenadasMaximas(100,100);
         mapa.agregar(marine,new Coordenadas(1,1));
@@ -187,9 +188,9 @@ public class UnidadesTerranTest {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorProtoss(new Recursos(200,200),new Suministros(100,200));
         ProxiDeAtaque.inicializar(j1, j2);
-        Marine marine = new Marine();
+        Marine marine = new Marine(v);
         j1.agregarUnidad(marine);
-        Zealot zealot = new Zealot();
+        Zealot zealot = new Zealot(v);
         j2.agregarUnidad(zealot);
         Coordenadas c1 = new Coordenadas(5,5);
         Coordenadas c2 = new Coordenadas(6,6);

@@ -1,31 +1,32 @@
 package jugabilidad.extrasJuego;
 
 import interfaces.Actualizable;
+import jugabilidad.Jugador;
 
 import java.util.ArrayList;
 
 public class AdministradorDeTurnos implements Actualizable{
-    private Actualizable jugadorDelTurnoActual;
-    private ArrayList<Actualizable> jugadores = new ArrayList<>();
+    private Jugador jugadorDelTurnoActual;
+    private ArrayList<Jugador> jugadores = new ArrayList<>();
     private int iterador;
 
     public AdministradorDeTurnos(){
         iterador = 0;
     }
+
     @Override
     public void update() {
+        if(iterador == jugadores.size()) iterador=0;
         jugadorDelTurnoActual = jugadores.get(iterador);
         jugadorDelTurnoActual.update();
-
-        if(iterador == jugadores.size()) iterador=0;
-        else iterador++;
+        iterador++;
     }
 
-    public Actualizable getJugadorDelTurnoActual(){
+    public Jugador getJugadorDelTurnoActual(){
         return jugadorDelTurnoActual;
     }
 
-    public void agregarJugador(Actualizable j) {
+    public void agregarJugador(Jugador j) {
         jugadores.add(j);
     }
 }
