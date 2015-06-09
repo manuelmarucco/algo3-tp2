@@ -123,5 +123,33 @@ public class ConstrucionesUnidadesYSuministros {
         Assert.assertFalse(j1.buscarConstruccion(d));
         Assert.assertTrue(mapa.posicionTerrestreOcupada(coordDeDepot));
     }
+    @Test
+    public void SeDestruyeUnPilonYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada {
+        Suministros s = new Suministros(0,20);
+        JugadorProtoss j1 = new JugadorProtoss(new Recursos(1000,1000),s);
+        JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(0,20));
+        ProxiDeAtaque.inicializar(j2, j1);
+        ProxyMapa mapa=ProxyMapa.getInstance();
+        Pilon p;
+        Marine m = new Marine();
+        Coordenadas coordDePilon = new Coordenadas(7, 6);
+
+        mapa.agregarEnCapaTerrestre(m,new Coordenadas(7,5));
+        j2.agregarUnidad(m);
+
+        p = j1.construirPilon(coordDePilon);
+
+        for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j1.update();
+
+        Assert.assertEquals(25, s.getSuministrosLimiteActuales());
+
+        while(p.getVida()!= 0) m.atacarTierra(p);
+
+        j1.update();
+
+        Assert.assertEquals( 20,s.getSuministrosLimiteActuales());
+        Assert.assertFalse(j1.buscarConstruccion(p));
+        Assert.assertTrue(mapa.posicionTerrestreOcupada(coordDePilon));
+    }
 
 }
