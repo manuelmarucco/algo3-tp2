@@ -70,8 +70,12 @@ public abstract class Jugador {
 			}
 		}
 
-		for(Construible c: construccionesCreadas){
+		for (int i = 0; i < construccionesCreadas.size(); i++) {
+			Construccion c = (Construccion) construccionesCreadas.get(i);
 			c.update();
+			if(c.getVida() == 0)
+				construccionesCreadas.remove(c);
+
 		}
 	}
 	

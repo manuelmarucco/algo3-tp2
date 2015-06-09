@@ -104,22 +104,24 @@ public class ConstrucionesUnidadesYSuministros {
         ProxyMapa mapa=ProxyMapa.getInstance();
         DepositoDeSuministros d;
         Marine m = new Marine();
+        Coordenadas coordDeDepot = new Coordenadas(5, 6);
 
         mapa.agregarEnCapaTerrestre(m,new Coordenadas(5,5));
         j2.agregarUnidad(m);
 
-        d = j1.construirDepositoDeSuministros(new Coordenadas(5, 6));
-        //mapa.agregarEnCapaTerrestre(d,new Coordenadas(5,6));
+        d = j1.construirDepositoDeSuministros(coordDeDepot);
+
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j1.update();
 
         Assert.assertEquals( 25,s.getSuministrosLimiteActuales());
 
-         //TODO: corregir el codigo para quie pase
         while(d.getVida()!= 0) m.atacarTierra(d);
 
         j1.update();
 
         Assert.assertEquals( 20,s.getSuministrosLimiteActuales());
+        Assert.assertFalse(j1.buscarConstruccion(d));
+        Assert.assertTrue(mapa.posicionTerrestreOcupada(coordDeDepot));
     }
 
 }
