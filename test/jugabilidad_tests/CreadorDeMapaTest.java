@@ -1,6 +1,7 @@
 package jugabilidad_tests;
 
 import construcciones.terran.CentroDeMineral;
+import excepciones.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.extrasJuego.CreadorDeMapa;
 
@@ -19,8 +20,16 @@ public class CreadorDeMapaTest {
         ProxyMapa proxyMapa = ProxyMapa.getInstance();
         CentroDeMineral centro = new CentroDeMineral(new Recursos(50,0));
 
-        proxyMapa.agregar(centro, new Coordenadas(2,19));
-        proxyMapa.agregar(new CentroDeMineral(new Recursos(50,0)), new Coordenadas(19,2));
+        try {
+            proxyMapa.agregar(centro, new Coordenadas(2,19));
+        } catch (ExcepcionNoSePudoAgregarAlMapa e) {
+            e.printStackTrace();
+        }
+        try {
+            proxyMapa.agregar(new CentroDeMineral(new Recursos(50,0)), new Coordenadas(19,2));
+        } catch (ExcepcionNoSePudoAgregarAlMapa e) {
+            e.printStackTrace();
+        }
 
         // De no haber cristales saltan Excepciones.
         //centro.update();
