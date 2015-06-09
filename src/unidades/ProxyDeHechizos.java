@@ -1,5 +1,6 @@
 package unidades;
 
+import interfaces.Cargable;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -33,4 +34,9 @@ public class ProxyDeHechizos {
         return(!jugador1.buscarConstruccion(objetivo)||!jugador2.buscarConstruccion(objetivo));
     }
 
+    public static boolean esEnemigo(UnidadTransporte unidadTransporte, Cargable unidad) {
+        if(jugador2.buscarUnidad(unidadTransporte)&&jugador2.buscarUnidad(unidad)) return false;
+        if(jugador1.buscarUnidad(unidadTransporte)&&jugador1.buscarUnidad(unidad)) return false;
+        return true;
+    }
 }

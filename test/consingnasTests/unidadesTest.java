@@ -13,6 +13,7 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import unidades.ExcepcionCargarUnidadEnemiga;
 import unidades.ProxiDeAtaque;
 import unidades.ProxyDeHechizos;
 import unidades.protoss.*;
@@ -331,7 +332,7 @@ public class unidadesTest {
     /* 5) Naves de transporte soportan su capacidad. Se debe probar que se sube unidades, desde un punto A , se pasa por espacio y se bajan del otro lado tierra B.*/
 
     @Test
-    public void naveTransporteTerranCargaUnMarineYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
+    public void naveTransporteTerranCargaUnMarineYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga {
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
         NaveTransporteTerran nt = new NaveTransporteTerran(v);
@@ -352,7 +353,7 @@ public class unidadesTest {
     }
 
     @Test(expected = ExcepcionCargaSuperada.class)
-    public void naveTransporteTerranSeLLena() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
+    public void naveTransporteTerranSeLLena() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga {
         Golliat g1 = new Golliat(v);
         Golliat g2 = new Golliat(v);
         Golliat g3 = new Golliat(v);
@@ -400,7 +401,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void naveTransporteProtossCargaUnZealtYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
+    public void naveTransporteProtossCargaUnZealtYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga {
         Zealot m = new Zealot(v);
         j2.agregarUnidad(m);
         NaveTransporteProtoss nt = new NaveTransporteProtoss(v);
@@ -422,7 +423,7 @@ public class unidadesTest {
     }
 
     @Test(expected = ExcepcionCargaSuperada.class)
-    public void naveTransporteProtossSeLLena() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
+    public void naveTransporteProtossSeLLena() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga {
         Dragon g1 = new Dragon(v);
         AltoTemplario g2 = new AltoTemplario(v);
         Dragon g3 = new Dragon(v);

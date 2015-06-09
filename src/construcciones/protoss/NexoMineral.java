@@ -43,4 +43,11 @@ public class NexoMineral extends CentroDeRecoleccion {
 
 	}
 
+	@Override
+	public void update() {
+		super.update();
+		recursosDeJugador.agregarRecursos(this.obtenerRecurso(),0);
+	}
+
+
 }

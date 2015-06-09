@@ -28,8 +28,9 @@ public abstract class UnidadTransporte extends Unidad {
         this.unidades= new LinkedList<>();
     }
 
-    public void cargar(Cargable unidad) throws ExcepcionCargaSuperada, ExcepcionYaActuo {
+    public void cargar(Cargable unidad) throws ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionCargarUnidadEnemiga {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
+        if(ProxyDeHechizos.esEnemigo(this,unidad)) throw new ExcepcionCargarUnidadEnemiga();
         int cargaTotal=0;
         for(Cargable a:unidades){
             cargaTotal+=a.getTransporte();

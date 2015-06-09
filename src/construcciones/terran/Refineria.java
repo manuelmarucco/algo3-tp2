@@ -43,4 +43,10 @@ public class Refineria extends CentroDeRecoleccion {
 		super.verificarRecursosDisponibles(recursosRecolectados);
 
 	}
+
+	@Override
+	public void update() {
+		super.update();
+		recursosDeJugador.agregarRecursos(0,this.obtenerRecurso());
+	}
 }

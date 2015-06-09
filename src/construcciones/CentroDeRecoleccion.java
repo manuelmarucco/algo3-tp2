@@ -11,14 +11,6 @@ public abstract class CentroDeRecoleccion extends Construccion {
     protected Recursos recursosDeJugador;
     protected Recolectable estructuraRecolectable;
 
-
-    @Override
-    public void update() {
-        super.update();
-        recursosDeJugador.agregarRecursos(0, this.obtenerRecurso());
-
-    }
-
     @Override
     public void agregarse(Coordenadas coordenadas) {
 
