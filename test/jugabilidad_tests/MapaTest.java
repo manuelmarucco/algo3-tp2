@@ -7,12 +7,14 @@ import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Test;
+import recursos.Cristal;
 import unidades.protoss.NaveTransporteProtoss;
 import unidades.terrran.Marine;
 import unidades.terrran.NaveCiencia;
 import unidades.terrran.NaveTransporteTerran;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 
 
 public class MapaTest {
@@ -20,7 +22,7 @@ public class MapaTest {
 	@Test
 	public void deberiaAgregarUnaBarracaEnLasCoordenadasEspecificadas() throws ExcepcionPosicionOcupada {
 		ProxyMapa mapa = ProxyMapa.getInstance();
-		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+		mapa.setCoordenadasMaximas(10, 10);
 		Coordenadas coordenadas = new Coordenadas(1,2);
 		ColocableEnMapa barraca = new Barraca();
 		
@@ -78,6 +80,53 @@ public class MapaTest {
 		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenadas) );
 	}
 
-	// TODO: Mas Tests para las unidades terrestres protoss terran y un par de aereas
+	@Test
+	public void deberiaAgregarUnRecursoEnLaCapaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa{
+
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		mapa.setCoordenadasMaximas(10,10);
+
+		Coordenadas coordenadas = new Coordenadas(1,2);
+		Cristal cristal = new Cristal();
+
+		mapa.agregarEnCapaDeRecursos(cristal, coordenadas);
+
+		assertEquals( cristal , mapa.obtenerDeCapaDeRecursos(coordenadas) );
+
+	}
+
+	@Test
+	public void siEliminoUnaUnidadTerrestreLasCoordenadasDeEsaUnidadDeberianEstarVacias()
+			throws ExcepcionNoSePudoAgregarAlMapa{
+
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		mapa.setCoordenadasMaximas(10, 10);
+
+		Coordenadas coordenadas = new Coordenadas(1,2);
+		ColocableEnMapa barraca = new Barraca();
+
+		mapa.agregarEnCapaTerrestre(barraca, coordenadas);
+		mapa.borrarEnCapaTerrestre(coordenadas);
+
+		assertFalse(mapa.posicionTerrestreOcupada(coordenadas));
+
+	}
+
+	@Test
+	public void siEliminoUnaUnidadAereaLasCoordenadasDeEsaUnidadDeberianEstarVacias()
+			throws ExcepcionNoSePudoAgregarAlMapa{
+
+		ProxyMapa mapa = ProxyMapa.getInstance();
+		mapa.setCoordenadasMaximas(10, 10);
+
+		Coordenadas coordenadas = new Coordenadas(1,2);
+		NaveCiencia nave = new NaveCiencia();
+
+		mapa.agregarEnCapaAerea(nave, coordenadas);
+		mapa.borrarEnCapaAerea(coordenadas);
+
+		assertFalse(mapa.posicionAereaOcupada(coordenadas));
+
+	}
 
 }
