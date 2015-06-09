@@ -19,15 +19,20 @@ public class Coordenadas {
 	}
 	
 
-	@Override 
+	@Override
     public boolean equals(Object obj) {
-	// Yo se que siempre voy a comparar dos coordenadas por eso no necesito preguntar el tipo de lo
-	// que entra por parametro como indica la fuente de abajo.
-		
-		Coordenadas coordenadaALaDerechaDelIgual = (Coordenadas) obj;
-		
-		return (this.getX() == coordenadaALaDerechaDelIgual.getX() && 
-					this.getY() == coordenadaALaDerechaDelIgual.getY());
+
+		boolean resultado = false;
+
+		if (obj instanceof Coordenadas) {
+			Coordenadas coordenadaALaDerechaDelIgual = (Coordenadas) obj;
+
+			resultado = (this.getX() == coordenadaALaDerechaDelIgual.getX()
+					&& this.getY() == coordenadaALaDerechaDelIgual.getY());
+
+		}
+
+		return resultado;
        
 	}
 	
