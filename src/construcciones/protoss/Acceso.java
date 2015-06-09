@@ -4,15 +4,12 @@ import construcciones.CentroDeEntrenamiento;
 import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;
-import unidades.Escudo;
 import unidades.protoss.Dragon;
 import unidades.protoss.ResistenciaProtoss;
 import unidades.protoss.Zealot;
 
 
 public class Acceso extends CentroDeEntrenamiento {
-
-	private Escudo escudo;
 
 	public Acceso(){
 		resistencia = new ResistenciaProtoss(500,500);

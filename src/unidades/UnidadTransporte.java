@@ -2,10 +2,12 @@ package unidades;
 
 import excepciones.ExcepcionCargaSuperada;
 import excepciones.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.ExcepcionYaActuo;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
+import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 import java.util.LinkedList;
@@ -16,12 +18,18 @@ public abstract class UnidadTransporte extends Unidad {
     private static int tranporteMax = 8;
     private Queue<Cargable> unidades;
 
-    public UnidadTransporte(Resistencia resistencia,int vision, Aereo aereo, int suministros, Costo costo, int tiempoDeEntrenamiento) {
-        super(resistencia,vision, aereo, suministros, costo, tiempoDeEntrenamiento);
+    public UnidadTransporte(Resistencia resistencia,int vision, Ubicacion ubicacion, int suministros, Costo costo, int tiempoDeEntrenamiento,int movilidad, Vision visionJugador) {
+        super(resistencia,vision, ubicacion, suministros, costo, tiempoDeEntrenamiento,movilidad,visionJugador);
         this.unidades= new LinkedList<>();
     }
 
-    public void cargar(Cargable unidad) throws ExcepcionCargaSuperada {
+    public UnidadTransporte(Resistencia resistencia, int vision, Ubicacion ubicacion, int suministros, Costo costo, int tiempoDeEntrenamiento, int movilidad) {
+        super(resistencia,vision, ubicacion, suministros, costo, tiempoDeEntrenamiento,movilidad);
+        this.unidades= new LinkedList<>();
+    }
+
+    public void cargar(Cargable unidad) throws ExcepcionCargaSuperada, ExcepcionYaActuo {
+        if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         int cargaTotal=0;
         for(Cargable a:unidades){
             cargaTotal+=a.getTransporte();
@@ -30,12 +38,14 @@ public abstract class UnidadTransporte extends Unidad {
         if(cargaTotal>tranporteMax) throw new ExcepcionCargaSuperada();
         unidades.add(unidad);
         unidad.quitarse();
+        this.accion.actuo();
     }
 
-    public void descargar(Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa {
-        //Mapa mapa=SingletonMapa.getInstance();
+    public void descargar(Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
+        if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         ProxyMapa proxy = ProxyMapa.getInstance();
         //TODO: ver esto
         proxy.agregar((ColocableEnMapa)unidades.remove(),coordenadas);
+        this.accion.actuo();
     }
 }

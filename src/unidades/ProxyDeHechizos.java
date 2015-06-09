@@ -32,4 +32,5 @@ public class ProxyDeHechizos {
         if(objetivo==null) return false;
         return(!jugador1.buscarConstruccion(objetivo)||!jugador2.buscarConstruccion(objetivo));
     }
+
 }

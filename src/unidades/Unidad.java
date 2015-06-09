@@ -1,15 +1,21 @@
 package unidades;
 
+import excepciones.ExcepcionMoverfueraDeRango;
 import excepciones.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.ExcepcionYaSeMovioLaUnidad;
 import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
 import interfaces.Entrenable;
 import interfaces.Hechizable;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
+import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import unidades.Estado.EstadoDeAccion;
+import unidades.Estado.NoActuo;
 
 public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizable,Entrenable  {
+    private Vision visionJugador;
     protected Resistencia resistencia;
     protected int vision;
     protected Ubicacion ubicacion;
@@ -17,8 +23,10 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
     protected int suministro;
     protected EstadoUnidad estado;
     protected int tiempoDeEntrenamiento;
+    protected EstadoDeAccion accion;
+    private int movilidad;
 
-    protected Unidad(Resistencia resistencia,int vision,Ubicacion ubicacion,int suministro,Costo costo,int tiempoDeEntrenamiento){
+    protected Unidad(Resistencia resistencia,int vision,Ubicacion ubicacion,int suministro,Costo costo,int tiempoDeEntrenamiento,int movilidad,Vision visionJugador){
         this.resistencia= resistencia;
         this.estado=new EstadoNormal();
         this.vision=vision;
@@ -26,6 +34,21 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
         this.suministro=suministro;
         this.costo=costo;
         this.tiempoDeEntrenamiento=tiempoDeEntrenamiento;
+        this.accion=new NoActuo();
+        this.movilidad=movilidad;
+        this.visionJugador=visionJugador;
+    }
+
+    public Unidad(Resistencia resistencia, int vision, Ubicacion ubicacion, int suministro, Costo costo, int tiempoDeEntrenamiento, int movilidad) {
+        this.resistencia= resistencia;
+        this.estado=new EstadoNormal();
+        this.vision=vision;
+        this.ubicacion=ubicacion;
+        this.suministro=suministro;
+        this.costo=costo;
+        this.tiempoDeEntrenamiento=tiempoDeEntrenamiento;
+        this.accion=new NoActuo();
+        this.movilidad=movilidad;
     }
 
     public int getVida() {
@@ -78,6 +101,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
     public void update(){
         this.estado.update(this);
         this.resistencia.regenerar();
+        this.accion=new NoActuo();
     }
 
     public void irradiar(){
@@ -94,4 +118,12 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
         this.resistencia.quitar(danio);
     }
 
+    public void mover(Coordenadas destino) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaSeMovioLaUnidad, ExcepcionMoverfueraDeRango {
+        if(!this.accion.puedeMover()) throw new ExcepcionYaSeMovioLaUnidad();
+        ProxyMapa mapa = ProxyMapa.getInstance();
+        if(mapa.getCoordenada(this).distacina(destino)>this.movilidad) throw new ExcepcionMoverfueraDeRango();
+        mapa.agregar(this, destino);
+        mapa.quitar(this);
+        this.accion= this.accion.movio();
+    }
 }

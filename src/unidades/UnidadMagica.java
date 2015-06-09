@@ -2,13 +2,18 @@ package unidades;
 
 import excepciones.EnergiaInsuficiente;
 import jugabilidad.auxiliares.Costo;
+import jugabilidad.auxiliares.Vision;
 
 public abstract class UnidadMagica extends Unidad{
 
     protected Energia energia;
 
-    public UnidadMagica(Resistencia resistencia, Energia energia, int vision, Ubicacion aereo, int suministros, Costo costo, int tiempoDeEntrenamiento) {
-        super(resistencia,vision,aereo,suministros,costo,tiempoDeEntrenamiento);
+    public UnidadMagica(Resistencia resistencia, Energia energia, int vision, Ubicacion aereo, int suministros, Costo costo, int tiempoDeEntrenamiento,int movilidad, Vision visionJugador) {
+        super(resistencia,vision,aereo,suministros,costo,tiempoDeEntrenamiento,movilidad,visionJugador);
+        this.energia=energia;
+    }
+    public UnidadMagica(Resistencia resistencia, Energia energia, int vision, Ubicacion aereo, int suministros, Costo costo, int tiempoDeEntrenamiento,int movilidad) {
+        super(resistencia,vision,aereo,suministros,costo,tiempoDeEntrenamiento,movilidad);
         this.energia=energia;
     }
 
