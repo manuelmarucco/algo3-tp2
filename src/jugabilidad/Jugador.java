@@ -42,11 +42,6 @@ public abstract class Jugador {
 		unidadesCreadas.add(unidad);
 	}
 
-	public void agregarMinerales(int i) {
-		recursosRecolectados.agregarRecursos(i,0);
-		
-	}
-
 	public void update() {
 
 		for (int i = 0; i < edificiosEnConstruccion.size(); i++) {
