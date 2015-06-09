@@ -81,7 +81,6 @@ public abstract class Jugador {
 		return false;
 	}
 
-
 	public void usarSuministrosDisponibles(int i) throws ExcepcionSuministrosInsuficientes {
 		suministros.usarSuministros(i);
 		

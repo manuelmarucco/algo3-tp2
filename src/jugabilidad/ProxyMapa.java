@@ -93,6 +93,17 @@ public class ProxyMapa {
 
     }
 
+    // Mover ---
+
+    public void mover(Coordenadas hasta, ColocableEnMapa unidad)
+        throws ExcepcionNoSePudoAgregarAlMapa {
+
+        unidad.agregarse(hasta);
+
+        mapa.quitar( (Unidad) unidad );
+
+    }
+
     // ---
 
     public boolean posicionAereaOcupada(Coordenadas coordenadas) {
