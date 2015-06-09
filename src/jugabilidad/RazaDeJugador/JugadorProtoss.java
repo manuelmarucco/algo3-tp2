@@ -15,6 +15,13 @@ public class JugadorProtoss extends Jugador {
 
     private ArrayList<TormentaPsionica> tormentasPsionica;
 
+    public JugadorProtoss(String nombre, String color){       //Constructor para el Juego
+        this.nombre = nombre;
+        this.color = color;
+        this.suministros = new Suministros(0,0);
+        this.recursosRecolectados = new Recursos(200,0);
+    }
+
     public JugadorProtoss(Recursos recursosIniciales){
         this.recursosRecolectados = recursosIniciales;
         this.suministros =  new Suministros(0,20); //suministros iniciales

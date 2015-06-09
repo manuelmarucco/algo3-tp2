@@ -15,6 +15,7 @@ public class AdministradorDeTurnos implements Actualizable{
     @Override
     public void update() {
         jugadorDelTurnoActual = jugadores.get(iterador);
+        jugadorDelTurnoActual.update();
 
         if(iterador == jugadores.size()) iterador=0;
         else iterador++;
@@ -22,5 +23,9 @@ public class AdministradorDeTurnos implements Actualizable{
 
     public Actualizable getJugadorDelTurnoActual(){
         return jugadorDelTurnoActual;
+    }
+
+    public void agregarJugador(Actualizable j) {
+        jugadores.add(j);
     }
 }
