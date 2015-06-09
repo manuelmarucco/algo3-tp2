@@ -9,6 +9,7 @@ import interfaces.Construible;
 import interfaces.Entrenable;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
+import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Unidad;
 
@@ -19,11 +20,13 @@ public abstract class Jugador {
 	protected String nombre;
 	protected String color;
 
+	protected Vision visibilidad;
 	protected Recursos recursosRecolectados;
 	protected Suministros suministros;
 	protected ArrayList<Construible> construccionesCreadas = new ArrayList<>();
 	protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<>();
 	protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion = new ArrayList<>();
+
 
 	protected void construir(Construible construccionCreada,Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 
@@ -121,4 +124,7 @@ public abstract class Jugador {
 
 	}
 
+	public Vision getVisibilidad() {
+		return visibilidad;
+	}
 }

@@ -27,7 +27,7 @@ public class Barraca extends CentroDeEntrenamiento {
 
 
 	public Marine entrenarMarine(){
-		Marine m = new Marine();
+		Marine m = new Marine(this.jugador.getVisibilidad());
 		try {
 			this.validarCreacionUnidad(m);
 		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {

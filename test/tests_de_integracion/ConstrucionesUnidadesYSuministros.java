@@ -130,6 +130,7 @@ public class ConstrucionesUnidadesYSuministros {
         Assert.assertFalse(j1.buscarConstruccion(d));
         Assert.assertTrue(mapa.posicionTerrestreOcupada(coordDeDepot));
     }
+
     @Test
     public void SeDestruyeUnPilonYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionNoSePuedeConstruir, ExcepcionYaActuo {
         Suministros s = new Suministros(0,20);
