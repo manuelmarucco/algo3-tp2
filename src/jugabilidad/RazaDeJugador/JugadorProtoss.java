@@ -19,6 +19,7 @@ public class JugadorProtoss extends Jugador {
     public JugadorProtoss(){       //Constructor para el Juego
         this.suministros = new Suministros(0,0);
         this.recursosRecolectados = new Recursos(200,0);
+        this.tormentasPsionica= new ArrayList<>();
         this.visibilidad = new Vision();
     }
 

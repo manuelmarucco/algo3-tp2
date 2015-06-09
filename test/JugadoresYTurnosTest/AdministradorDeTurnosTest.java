@@ -22,5 +22,8 @@ public class AdministradorDeTurnosTest {
 
         juego.update();
         Assert.assertEquals(j3, juego.getJugador());
+
+        juego.update();
+        Assert.assertEquals(j1, juego.getJugador());
     }
 }

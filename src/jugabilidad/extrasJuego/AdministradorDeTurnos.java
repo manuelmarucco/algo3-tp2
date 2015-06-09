@@ -11,6 +11,7 @@ public class AdministradorDeTurnos implements Actualizable{
     private int iterador;
 
     public AdministradorDeTurnos(){
+
         iterador = 0;
     }
 
@@ -23,6 +24,9 @@ public class AdministradorDeTurnos implements Actualizable{
     }
 
     public Jugador getJugadorDelTurnoActual(){
+        if(jugadorDelTurnoActual == null) {
+            this.update();
+        }
         return jugadorDelTurnoActual;
     }
 
