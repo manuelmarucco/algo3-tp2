@@ -51,4 +51,51 @@ public class CoordenadaTest {
 		assertThat(coordenadaUno, not(equalTo(coordenadaDos)));
 		//assertNotEquals(coordenadaUno, coordenadaDos);  <- ant no compila
 	}
+
+	@Test
+	public void paraLasDosCoordenadasDadasLaDistanciaDeberiaSerCuatro(){
+
+		Coordenadas coordenadaUno = new Coordenadas(1,7);
+		Coordenadas coordenadaDos = new Coordenadas(3,5);
+
+		assertEquals(3,coordenadaDos.distancia(coordenadaUno));
+
+	}
+
+	@Test
+	public void paraLasDosCoordenadasDeberiaSerIgualCalcularLaDistanciaDeUnoADosYDeDosAUno(){
+
+		Coordenadas coordenadaUno = new Coordenadas(1,7);
+		Coordenadas coordenadaDos = new Coordenadas(3,5);
+
+		assertEquals(coordenadaUno.distancia(coordenadaDos),coordenadaDos.distancia(coordenadaUno));
+
+	}
+
+	@Test
+		 public void seDeveriaComprobarQueSiAumentoUnaCoordenadaXSoloXCambie(){
+
+		Coordenadas coordenada = new Coordenadas(1,1);
+		coordenada.aumentarX(1);
+
+		//Sigue igual.
+		assertEquals(1,coordenada.getY());
+		//Cambia.
+		assertEquals(2,coordenada.getX());
+
+	}
+
+	@Test
+	public void seDeveriaComprobarQueSiAumentoUnaCoordenadaYSoloYCambie(){
+
+		Coordenadas coordenada = new Coordenadas(1,1);
+		coordenada.aumentarY(1);
+
+		//Sigue igual.
+		assertEquals(1,coordenada.getX());
+		//Cambia.
+		assertEquals(2,coordenada.getY());
+
+	}
+
 }
