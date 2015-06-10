@@ -5,6 +5,7 @@ import construcciones.EdificioEnConstruccion;
 import excepciones.ExcepcionNoSePuedeConstruir;
 import excepciones.ExcepcionPosicionOcupada;
 import excepciones.ExcepcionSuministrosInsuficientes;
+import interfaces.Actualizable;
 import interfaces.Construible;
 import interfaces.Entrenable;
 import jugabilidad.auxiliares.Recursos;
@@ -15,7 +16,7 @@ import unidades.Unidad;
 
 import java.util.ArrayList;
 
-public abstract class Jugador {
+public abstract class Jugador implements Actualizable{
 
 	protected String nombre;
 	protected String color;
@@ -45,6 +46,7 @@ public abstract class Jugador {
 		unidadesCreadas.add(unidad);
 	}
 
+	@Override
 	public void update() {
 
 		for (int i = 0; i < edificiosEnConstruccion.size(); i++) {

@@ -86,6 +86,7 @@ public class JugadorProtoss extends Jugador {
         return nexoMineral;
     }
 
+    @Override
     public void update(){
         super.update();
         for(TormentaPsionica a:tormentasPsionica){
