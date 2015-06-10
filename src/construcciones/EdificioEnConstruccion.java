@@ -3,10 +3,11 @@ package construcciones;
 import excepciones.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
+import interfaces.Daniable;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
-public class EdificioEnConstruccion implements ColocableEnMapa{
+public class EdificioEnConstruccion implements ColocableEnMapa, Daniable {
     private Coordenadas coordenadasDeConstruccion;
     private Construible construccionAConvertirse;
     private int tiempoDeConstruccion;
@@ -40,5 +41,19 @@ public class EdificioEnConstruccion implements ColocableEnMapa{
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregarEnCapaTerrestre(this, coordenadas);
 
+    }
+
+    @Override
+    public void recibirDanio(int danio) {
+        ProxyMapa mapa = ProxyMapa.getInstance();
+
+        ((Daniable) construccionAConvertirse).recibirDanio(danio);
+        if(this.getVida()==0){
+            mapa.borrarEnCapaTerrestre(coordenadasDeConstruccion);
+        }
+    }
+
+    public int getVida() {
+        return ((Construccion)construccionAConvertirse).getVida();
     }
 }

@@ -60,6 +60,9 @@ public abstract class Jugador implements Actualizable{
 				//para evitar casteo hacer que Construible herede de Actualizable
 				edificiosEnConstruccion.remove(e);
 			}
+			if(e.getVida()==0){
+				edificiosEnConstruccion.remove(e);
+			}
 		}
 
 		for (int i = 0; i < construccionesCreadas.size(); i++) {
