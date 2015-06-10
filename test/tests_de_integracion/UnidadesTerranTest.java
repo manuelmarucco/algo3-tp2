@@ -1,9 +1,7 @@
 package tests_de_integracion;
 
-import excepciones.*;
-import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
-import excepciones.Unidades.ExcepcionYaActuo;
-import excepciones.Unidades.ExcepcionYaSeMovioLaUnidad;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Unidades.*;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;

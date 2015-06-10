@@ -1,6 +1,6 @@
 package jugabilidad.auxiliares;
 
-import excepciones.ExcepcionSuministrosInsuficientes;
+import excepciones.construicciones.ExcepcionSuministrosInsuficientes;
 
 public class Suministros {
 	private final int suministrosMaximos;

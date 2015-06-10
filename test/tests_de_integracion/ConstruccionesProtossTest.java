@@ -1,7 +1,9 @@
 package tests_de_integracion;
 
 import construcciones.protoss.*;
-import excepciones.*;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Mapa.ExcepcionPosicionOcupada;
+import excepciones.construicciones.*;
 import interfaces.Construible;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;

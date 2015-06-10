@@ -1,0 +1,4 @@
+package excepciones.jugador;
+
+public class ExcepcionElNombreIngresadoRepiteAlDeOtroJugador extends ExcepcionNoSePudoCrearElJugador{
+}

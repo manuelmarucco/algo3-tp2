@@ -1,8 +1,8 @@
 package construcciones.protoss;
 
 import construcciones.CentroDeRecoleccion;
-import excepciones.ExcepcionConstruccionNoRecolectaCristal;
-import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construicciones.ExcepcionConstruccionNoRecolectaCristal;
+import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;

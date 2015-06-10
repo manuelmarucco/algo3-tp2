@@ -1,4 +1,0 @@
-package excepciones;
-
-public class ExcepcionNecesitaSerConstruidoSobreUnCristal extends ExcepcionNoSePuedeConstruir{
-}

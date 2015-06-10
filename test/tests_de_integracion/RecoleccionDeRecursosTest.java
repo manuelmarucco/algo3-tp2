@@ -2,7 +2,7 @@ package tests_de_integracion;
 
 import construcciones.terran.CentroDeMineral;
 import construcciones.terran.Refineria;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;

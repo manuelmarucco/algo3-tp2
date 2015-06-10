@@ -1,11 +1,10 @@
 package jugabilidad_tests;
 
 import construcciones.terran.Barraca;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.ExcepcionPosicionOcupada;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
-import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Test;
 import recursos.Cristal;

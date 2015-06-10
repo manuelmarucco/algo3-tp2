@@ -1,8 +1,8 @@
 package construcciones.protoss;
 
 import construcciones.CentroDeRecoleccion;
-import excepciones.ExcepcionConstruccionNoRecolectaVolcan;
-import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construicciones.ExcepcionConstruccionNoRecolectaVolcan;
+import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
@@ -46,7 +46,7 @@ public class NexoMineral extends CentroDeRecoleccion {
 	@Override
 	public void update() {
 		super.update();
-		recursosDeJugador.agregarRecursos(this.obtenerRecurso(),0);
+		recursosDeJugador.agregarRecursos(this.obtenerRecurso(), 0);
 	}
 
 

@@ -1,8 +1,8 @@
 package jugabilidad.RazaDeJugador;
 
 import construcciones.terran.*;
-import excepciones.ExcepcionNoSePuedeConstruir;
-import excepciones.ExcepcionPosicionOcupada;
+import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.Mapa.ExcepcionPosicionOcupada;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;

@@ -1,6 +1,6 @@
 package unidades;
 
-import excepciones.ExcepcionPosicionOcupada;
+import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;

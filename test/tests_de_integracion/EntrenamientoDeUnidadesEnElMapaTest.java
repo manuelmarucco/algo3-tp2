@@ -1,9 +1,9 @@
 package tests_de_integracion;
 
 import construcciones.terran.Barraca;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.ExcepcionNoSePuedeConstruir;
-import excepciones.ExcepcionPosicionOcupada;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.Mapa.ExcepcionPosicionOcupada;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;

@@ -4,7 +4,7 @@ import construcciones.protoss.Asimilador;
 import construcciones.protoss.NexoMineral;
 import construcciones.terran.CentroDeMineral;
 import construcciones.terran.Refineria;
-import excepciones.ExcepcionPosicionOcupada;
+import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import interfaces.Recolectable;
 import jugabilidad.ProxyMapa;

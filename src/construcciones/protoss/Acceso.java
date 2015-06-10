@@ -1,7 +1,7 @@
 package construcciones.protoss;
 
 import construcciones.CentroDeEntrenamiento;
-import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;
 import unidades.protoss.Dragon;

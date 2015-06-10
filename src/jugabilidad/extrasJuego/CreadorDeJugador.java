@@ -1,9 +1,9 @@
 package jugabilidad.extrasJuego;
 
-import excepciones.ExcepcionElColorIngresadoRepiteAlDeOtroJugador;
-import excepciones.ExcepcionElNombreIngresadoRepiteAlDeOtroJugador;
-import excepciones.ExcepcionNoSePudoCrearElJugador;
-import excepciones.ExcepcionNombreDeJugadorMenorACuatroCaracteres;
+import excepciones.jugador.ExcepcionElColorIngresadoRepiteAlDeOtroJugador;
+import excepciones.jugador.ExcepcionElNombreIngresadoRepiteAlDeOtroJugador;
+import excepciones.jugador.ExcepcionNoSePudoCrearElJugador;
+import excepciones.jugador.ExcepcionNombreDeJugadorMenorACuatroCaracteres;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 

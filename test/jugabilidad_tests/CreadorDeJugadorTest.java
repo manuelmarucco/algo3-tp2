@@ -1,9 +1,9 @@
 package jugabilidad_tests;
 
-import excepciones.ExcepcionNoSePudoCrearElJugador;
-import excepciones.ExcepcionElColorIngresadoRepiteAlDeOtroJugador;
-import excepciones.ExcepcionElNombreIngresadoRepiteAlDeOtroJugador;
-import excepciones.ExcepcionNombreDeJugadorMenorACuatroCaracteres;
+import excepciones.jugador.ExcepcionNoSePudoCrearElJugador;
+import excepciones.jugador.ExcepcionElColorIngresadoRepiteAlDeOtroJugador;
+import excepciones.jugador.ExcepcionElNombreIngresadoRepiteAlDeOtroJugador;
+import excepciones.jugador.ExcepcionNombreDeJugadorMenorACuatroCaracteres;
 
 import jugabilidad.Jugador;
 import jugabilidad.extrasJuego.CreadorDeJugador;

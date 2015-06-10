@@ -1,9 +1,9 @@
 package construcciones;
 
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
-import excepciones.ExcepcionRecursosInsuficientes;
-import excepciones.ExcepcionSuministrosInsuficientes;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
+import excepciones.construicciones.ExcepcionRecursosInsuficientes;
+import excepciones.construicciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Entrenable;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;

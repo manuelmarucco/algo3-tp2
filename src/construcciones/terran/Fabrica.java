@@ -2,9 +2,9 @@ package construcciones.terran;
 
 import construcciones.CentroDeEntrenamiento;
 import construcciones.Construccion;
-import excepciones.ExcepcionNecesitaConstruirBarraca;
-import excepciones.ExcepcionNoSePuedeConstruir;
-import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
+import excepciones.construicciones.ExcepcionNecesitaConstruirBarraca;
+import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import interfaces.Construible;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;

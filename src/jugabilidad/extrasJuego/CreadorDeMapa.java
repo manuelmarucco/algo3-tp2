@@ -1,6 +1,6 @@
 package jugabilidad.extrasJuego;
 
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import jugabilidad.utilidadesMapa.NullPosicionTerrestre;

@@ -1,7 +1,7 @@
 package jugabilidad_tests;
 
 import construcciones.terran.CentroDeMineral;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.extrasJuego.CreadorDeMapa;

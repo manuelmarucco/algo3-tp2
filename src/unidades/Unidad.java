@@ -1,7 +1,7 @@
 package unidades;
 
-import excepciones.ExcepcionMoverfueraDeRango;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Unidades.ExcepcionMoverfueraDeRango;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionYaSeMovioLaUnidad;
 import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;

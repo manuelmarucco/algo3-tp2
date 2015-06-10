@@ -2,7 +2,7 @@ package construcciones.terran;
 
 
 import construcciones.CentroDeEntrenamiento;
-import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;
 import unidades.terrran.Marine;

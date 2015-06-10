@@ -1,8 +1,8 @@
 package unidades.protoss;
 
 import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.ExcepcionObjetivoFueraDeRango;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;

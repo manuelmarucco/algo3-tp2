@@ -6,7 +6,7 @@ import jugabilidad.auxiliares.Recursos;
 import org.junit.Assert;
 import org.junit.Test;
 
-import excepciones.ExcepcionRecursosInsuficientes;
+import excepciones.construicciones.ExcepcionRecursosInsuficientes;
 
 public class Recursos_Test {
 	
