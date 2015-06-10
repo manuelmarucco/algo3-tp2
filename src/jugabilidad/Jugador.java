@@ -2,8 +2,8 @@ package jugabilidad;
 
 import construcciones.Construccion;
 import construcciones.EdificioEnConstruccion;
-import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
+import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.construicciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Actualizable;
 import interfaces.Construible;
@@ -29,7 +29,7 @@ public abstract class Jugador implements Actualizable{
 	protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion = new ArrayList<>();
 
 
-	protected void construir(Construible construccionCreada,Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	protected void 	construir(Construible construccionCreada,Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 
 		construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados,coordenadas);
 
@@ -81,7 +81,7 @@ public abstract class Jugador implements Actualizable{
 			c.update();
 			if(c.getVida() == 0) {
 				unidadesCreadas.remove(c);
-				suministros.disminuirSuministrosLimiteActuales(c.getSuministro());
+				suministros.disminuirSuministrosUsados(c.getSuministro());
 				i--;//por q al borrar baja en 1 el size
 			}
 		}

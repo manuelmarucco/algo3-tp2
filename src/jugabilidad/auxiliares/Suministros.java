@@ -42,5 +42,10 @@ public class Suministros {
 		suministrosLimiteActuales = Math.max(suministrosLimiteActuales - disminucion, 0);
 
 	}
+
+	public void disminuirSuministrosUsados(int disminucion) {
+		suministrosUsados = Math.max(suministrosUsados - disminucion, 0);
+
+	}
 }
 
