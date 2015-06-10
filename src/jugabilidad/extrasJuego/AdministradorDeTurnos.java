@@ -33,4 +33,22 @@ public class AdministradorDeTurnos implements Actualizable{
     public void agregarJugador(Jugador j) {
         jugadores.add(j);
     }
+
+    public boolean hayGanador() {
+        this.removerJugadoresQuePerdieron();
+        if(jugadores.size()==1){
+            return true;
+        }else
+            return false;
+    }
+
+    private void removerJugadoresQuePerdieron() {
+        Jugador j;
+        for(int i = 0; i < jugadores.size(); i++){
+            j = jugadores.get(i);
+            if(j.noTieneMasConstruccionesYUnidades()){
+                jugadores.remove(j);
+            }
+        }
+    }
 }

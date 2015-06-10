@@ -3,7 +3,6 @@ package jugabilidad.extrasJuego;
 import excepciones.ExcepcionNoSePudoCrearElJugador;
 import interfaces.Actualizable;
 import jugabilidad.Jugador;
-import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -54,7 +53,7 @@ public class Juego implements Actualizable{
         administradorDeTurnos.agregarJugador(jugador);
         return jugador;
     }
-
+/*
     // No terminado.
     public ProxyMapa crearMapa(){
 
@@ -65,10 +64,18 @@ public class Juego implements Actualizable{
         return (proxyMapa);
 
     }
-
+*/
     @Override
     public void update() {
         administradorDeTurnos.update();
+
+    }
+
+    public Jugador ganador(){
+        if(administradorDeTurnos.hayGanador()){
+            return administradorDeTurnos.getJugadorDelTurnoActual();
+        }else
+            return null;
     }
 
 }

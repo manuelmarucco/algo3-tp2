@@ -133,4 +133,11 @@ public abstract class Jugador implements Actualizable{
 	public Vision getVisibilidad() {
 		return visibilidad;
 	}
+
+	public boolean noTieneMasConstruccionesYUnidades() {
+		if(construccionesCreadas.size() == 0 || unidadesCreadas.size()==0|| edificiosEnConstruccion.size()==0){
+			return true;
+		}else
+			return false;
+	}
 }

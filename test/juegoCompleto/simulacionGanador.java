@@ -13,6 +13,7 @@ import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.extrasJuego.Juego;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import org.junit.Assert;
 import org.junit.Test;
 import unidades.ProxiDeAtaque;
 import unidades.protoss.Zealot;
@@ -40,7 +41,7 @@ public class simulacionGanador {
         for(int i = 0; i<22; i++ ) {
             juego.update();
         }
-        c2 = j1.construirAcceso(new Coordenadas(0,1));
+        c2 = j1.construirAcceso(new Coordenadas(0, 1));
         for(int i = 0; i<(+c2.getTiempoDeConstruccion())*2; i++ ) juego.update();
 
         Pilon c4 = j1.construirPilon(new Coordenadas(0, 2));
@@ -61,7 +62,7 @@ public class simulacionGanador {
             juego.update();
 
         }
-        //Assert.assertEquals();
+        Assert.assertEquals(j1, juego.ganador());
 
     }
 }
