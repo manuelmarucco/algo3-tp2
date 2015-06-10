@@ -7,6 +7,7 @@ import excepciones.Mapa.ExcepcionPosicionOcupada;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
+import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Before;
@@ -21,6 +22,7 @@ public class ConstruccionesEnElMapaTest {
     @Test(expected = ExcepcionPosicionOcupada.class)
     public void QuieroCrearUnaConstruccionSobreOtraPeroNoSeCrea() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
+        j.setVisibilidad(Vision.VisionCompleta(5,5));
         Fabrica f;
         Barraca b;
 

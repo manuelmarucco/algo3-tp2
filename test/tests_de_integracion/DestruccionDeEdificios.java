@@ -23,6 +23,8 @@ public class DestruccionDeEdificios {
     public void SeDestruyeUnEdificioEnConstruccion() throws ExcepcionPosicionOcupada, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionNoSePuedeConstruir {
         JugadorProtoss j1 = new JugadorProtoss(new Recursos(1000,1000),new Suministros(0,20));
         JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(0,20));
+        j1.setVisibilidad(Vision.VisionCompleta(20, 20));
+        j2.setVisibilidad(Vision.VisionCompleta(20, 20));
         ProxiDeAtaque.inicializar(j2, j1);
         ProxyMapa mapa=ProxyMapa.getInstance();
         Marine m = new Marine(Vision.VisionCompleta(10, 10));

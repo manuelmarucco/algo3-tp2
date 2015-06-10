@@ -9,6 +9,7 @@ import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
+import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Before;
@@ -35,9 +36,10 @@ public class ConstruccionesProtossTest {
 	public void SeConstruyeUnAcceso() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Acceso a;
 		int i1;
-		Coordenadas coordenadas = new Coordenadas(0,0);
+		Coordenadas coordenadas = new Coordenadas(1,1);
 
 		a = j.construirAcceso(coordenadas);
 		i1 = a.getTiempoDeConstruccion();
@@ -50,6 +52,7 @@ public class ConstruccionesProtossTest {
 	@Test
 	public void SeConstruyeUnaNexoMineralSobreUnCristal() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Coordenadas coordenadas = new Coordenadas(1,1);
 		Cristal cristal = new Cristal();
 		NexoMineral nexoMineral;
@@ -86,6 +89,7 @@ public class ConstruccionesProtossTest {
 	public void SeConstruyeUnaAsimilador() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,150));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Asimilador r;
 		Coordenadas coordenadas = new Coordenadas(1,4);
 		Volcan volcan = new Volcan();
@@ -122,6 +126,7 @@ public class ConstruccionesProtossTest {
 	public void SeConstruyeUnPilonYAumentanLosSuministrosLimitesActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		Suministros suministros = new Suministros(0,0);
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),suministros);
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Pilon p;
 		int t;
 		Coordenadas coordenadas = new Coordenadas(9,7);
@@ -173,11 +178,12 @@ public class ConstruccionesProtossTest {
 	@Test
 	public void JugadorCreaPortalEstelarConAccesoPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Acceso a;
 		PortalEstelar p;
 		int i1,i2;
 		
-		a = j.construirAcceso(new Coordenadas(0,4));
+		a = j.construirAcceso(new Coordenadas(1,4));
 		i1 = a.getTiempoDeConstruccion();
 		for(int i=0; i<i1; i++)	j.update();
 		
@@ -204,18 +210,19 @@ public class ConstruccionesProtossTest {
 	@Test
 	public void JugadorCreaArchivosTemplariosConPortalEstelarPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Acceso a;
 		PortalEstelar p;
 		ArchivosTemplarios at;
 		int i1, i2,i3;
 
-		a = j.construirAcceso(new Coordenadas(0,6));
+		a = j.construirAcceso(new Coordenadas(1,6));
 		for(int i=0; i<a.getTiempoDeConstruccion(); i++)	j.update();
 
-		p = j.construirPortalEstelar(new Coordenadas(0,7));
+		p = j.construirPortalEstelar(new Coordenadas(1,7));
 		for(int i=0; i<p.getTiempoDeConstruccion(); i++)	j.update();
 
-		at = j.construirArchivosTemplarios(new Coordenadas(0,8));
+		at = j.construirArchivosTemplarios(new Coordenadas(1,8));
 		for(int i=0; i<at.getTiempoDeConstruccion(); i++)	j.update();
 
 		Assert.assertTrue(j.buscarConstruccion(p));
@@ -262,6 +269,7 @@ public class ConstruccionesProtossTest {
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
 	public void JugadorNoPuedeConstruirPortalEstelarPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Acceso a;
 		PortalEstelar p;
 		
@@ -275,6 +283,7 @@ public class ConstruccionesProtossTest {
 	@Test(expected = ExcepcionGasInsuficiente.class)
 	public void JugadorNoPuedeConstruirArchivosTemplariosPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,100));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Acceso a;
 		PortalEstelar p;
 		ArchivosTemplarios at;
@@ -291,6 +300,7 @@ public class ConstruccionesProtossTest {
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
 	public void JugadorNoPuedeConstruirPilonPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Pilon p;
 		
 		p = j.construirPilon(new Coordenadas(1,7));
@@ -302,6 +312,7 @@ public class ConstruccionesProtossTest {
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
 	public void JugadorNoPuedeConstruirAsimiladorPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Asimilador a;
 		Volcan volcan = new Volcan();
 		Coordenadas coordenadas = new Coordenadas(9,3);
@@ -320,6 +331,7 @@ public class ConstruccionesProtossTest {
 	@Test(expected = ExcepcionPosicionOcupada.class)
 	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Acceso b;
 		Coordenadas coordenadas = new Coordenadas(8,1);
 		ProxyMapa mapa = ProxyMapa.getInstance();
@@ -336,6 +348,7 @@ public class ConstruccionesProtossTest {
 	@Test(expected = ExcepcionPosicionOcupada.class)
 	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Acceso b;
 		Coordenadas coordenadas = new Coordenadas(8,1);
 		ProxyMapa mapa = ProxyMapa.getInstance();

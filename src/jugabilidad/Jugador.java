@@ -33,6 +33,7 @@ public abstract class Jugador implements Actualizable{
 
 		construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados,coordenadas);
 
+		if(! this.visibilidad.esVisible(coordenadas))throw new ExcepcionNoSePuedeConstruir();
 		EdificioEnConstruccion edificioEnConstruccion = new EdificioEnConstruccion(coordenadas,construccionCreada);
 		edificioEnConstruccion.agregarse(coordenadas);
 		edificiosEnConstruccion.add(edificioEnConstruccion);

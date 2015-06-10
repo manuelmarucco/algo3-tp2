@@ -9,6 +9,7 @@ import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
+import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Before;
@@ -34,9 +35,10 @@ public class ConstruccionesTerranTest {
 	public void SeConstruyeUnaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 
 		JugadorTerran jugador = new JugadorTerran(new Recursos(150,0));
+		jugador.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
 		int i1;
-		Coordenadas coordenadas = new Coordenadas(0,0);
+		Coordenadas coordenadas = new Coordenadas(1,1);
 
 		b = jugador.construirBarraca(coordenadas);
 		i1 = b.getTiempoDeConstruccion();
@@ -48,6 +50,7 @@ public class ConstruccionesTerranTest {
 	@Test
 	public void SeConstruyeUnaCentroDeMineralSobreUnCristal() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Coordenadas coordenadas = new Coordenadas(1,1);
 		Cristal cristal = new Cristal();
 		CentroDeMineral centroDeMineral;
@@ -65,6 +68,7 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionConstruccionNoRecolectaVolcan.class)
 	public void SeQuiereConstruirUnaCentroDeMineralSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Coordenadas coordenadas = new Coordenadas(0,1);
 		Volcan volcan = new Volcan();
 		CentroDeMineral centroDeMineral;
@@ -83,6 +87,7 @@ public class ConstruccionesTerranTest {
 	public void SeConstruyeUnaRefineriaSobreUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 
 		JugadorTerran j = new JugadorTerran(new Recursos(150,150));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Refineria r;
 		Coordenadas coordenadas = new Coordenadas(1,4);
 		Volcan volcan = new Volcan();
@@ -100,6 +105,7 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionConstruccionNoRecolectaCristal.class)
 	public void SeQuiereConstruirUnaRefineriaSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Coordenadas coordenadas = new Coordenadas(0,1);
 		Cristal cristal = new Cristal();
 		Refineria refineria;
@@ -118,6 +124,7 @@ public class ConstruccionesTerranTest {
 	public void SeConstruyeUnDepositoDeSuministrosYAumentanLosSuministrosLimitesActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		Suministros suministros = new Suministros(0,0);
 		JugadorTerran j = new JugadorTerran(new Recursos(150,150),suministros);
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		DepositoDeSuministros d ;
 		Coordenadas coordenadas = new Coordenadas(2,2);
 		
@@ -167,6 +174,7 @@ public class ConstruccionesTerranTest {
 	@Test
 	public void JugadorCreaFabricaConBarracaPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorTerran jugador = new JugadorTerran(new Recursos(1000,1000));
+		jugador.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
 		Fabrica f;
 		int i1,i2;
@@ -198,6 +206,7 @@ public class ConstruccionesTerranTest {
 	@Test
 	public void JugadorCreaPuertoEstelarConFabricaPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
 		Fabrica f;
 		PuertoEstelar p;
@@ -258,6 +267,7 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionGasInsuficiente.class)
 	public void JugadorNoPuedeConstruirFabricaPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,0));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
 		Fabrica f;
 		Coordenadas coordenadas = new Coordenadas(1,9);
@@ -272,6 +282,7 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
 	public void JugadorNoPuedeConstruirPuertoEstelarPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,100));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		PuertoEstelar p;
 		Coordenadas coordenadas = new Coordenadas(2,9);
 		Coordenadas coordenadas2 = new Coordenadas(2,8);
@@ -328,6 +339,7 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionPosicionOcupada.class)
 	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
 		Coordenadas coordenadas = new Coordenadas(8,1);
 		ProxyMapa mapa = ProxyMapa.getInstance();
@@ -344,6 +356,7 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionPosicionOcupada.class)
 	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
 		Coordenadas coordenadas = new Coordenadas(8,1);
 		ProxyMapa mapa = ProxyMapa.getInstance();

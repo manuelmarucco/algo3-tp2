@@ -43,13 +43,14 @@ public class ConstrucionesUnidadesYSuministros {
      public void CreoVariosPilonesYAumentanLosSuministrosLimiteActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         Suministros s = new Suministros(0,0);
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),s);
+        j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Pilon p;
 
-        p = j.construirPilon(new Coordenadas(0,0));
+        p = j.construirPilon(new Coordenadas(1,2));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirPilon(new Coordenadas(0,1));
+        j.construirPilon(new Coordenadas(1,1));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirPilon(new Coordenadas(0,2));
+        j.construirPilon(new Coordenadas(5,2));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
 
         Assert.assertEquals(15,s.getSuministrosLimiteActuales());
@@ -59,9 +60,10 @@ public class ConstrucionesUnidadesYSuministros {
     public void CreoVariosDepositosDeSuministrosYAumentanLosSuministrosLimiteActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         Suministros s = new Suministros(0,0);
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),s);
+        j.setVisibilidad(Vision.VisionCompleta(20, 20));
         DepositoDeSuministros d;
 
-        d = j.construirDepositoDeSuministros(new Coordenadas(4, 0));
+        d = j.construirDepositoDeSuministros(new Coordenadas(4, 6));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
         j.construirDepositoDeSuministros(new Coordenadas(4, 1));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
@@ -75,10 +77,11 @@ public class ConstrucionesUnidadesYSuministros {
     public void CreoPilonesPeroNoPuedoSuperarLos200SuministrosMaximos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         Suministros s = new Suministros(0,191);
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),s);
+        j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Pilon p;
 
 
-        p = j.construirPilon(new Coordenadas(3,0));
+        p = j.construirPilon(new Coordenadas(3,5));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
         j.construirPilon(new Coordenadas(3,1));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
@@ -92,13 +95,14 @@ public class ConstrucionesUnidadesYSuministros {
     public void CreoDepositosDeSuministrosPeroNoPuedoSuperarLos200SuministrosMaximos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
         Suministros s = new Suministros(0,191);
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),s);
+        j.setVisibilidad(Vision.VisionCompleta(20, 20));
         DepositoDeSuministros d;
 
-        d = j.construirDepositoDeSuministros(new Coordenadas(1, 0));
+        d = j.construirDepositoDeSuministros(new Coordenadas(1, 1));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirDepositoDeSuministros(new Coordenadas(1, 1));
+        j.construirDepositoDeSuministros(new Coordenadas(1, 3));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirDepositoDeSuministros(new Coordenadas(1, 2));
+        j.construirDepositoDeSuministros(new Coordenadas(1, 5));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
 
         Assert.assertEquals( 200,s.getSuministrosLimiteActuales());
@@ -108,7 +112,9 @@ public class ConstrucionesUnidadesYSuministros {
     public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionNoSePuedeConstruir, ExcepcionYaActuo {
         Suministros s = new Suministros(0,20);
         JugadorTerran j1 = new JugadorTerran(new Recursos(1000,1000),s);
+        j1.setVisibilidad(Vision.VisionCompleta(20, 20));
         JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(0,20));
+        j2.setVisibilidad(Vision.VisionCompleta(20, 20));
         ProxiDeAtaque.inicializar(j2, j1);
         ProxyMapa mapa=ProxyMapa.getInstance();
         DepositoDeSuministros d;
@@ -140,7 +146,9 @@ public class ConstrucionesUnidadesYSuministros {
     public void SeDestruyeUnPilonYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionNoSePuedeConstruir, ExcepcionYaActuo {
         Suministros s = new Suministros(0,20);
         JugadorProtoss j1 = new JugadorProtoss(new Recursos(1000,1000),s);
-        JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(0,20));
+        j1.setVisibilidad(Vision.VisionCompleta(20, 20));
+        JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(1,20));
+        j2.setVisibilidad(Vision.VisionCompleta(20, 20));
         ProxiDeAtaque.inicializar(j2, j1);
         ProxyMapa mapa=ProxyMapa.getInstance();
         Pilon p;

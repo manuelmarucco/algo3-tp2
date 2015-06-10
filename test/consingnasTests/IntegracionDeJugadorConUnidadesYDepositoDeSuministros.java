@@ -42,7 +42,7 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
         ProxyMapa proxyMapa = creadorDeMapa.crearMapa();
-        Vision vision  = new Vision();
+        Vision vision  = Vision.VisionCompleta(25,25);
 
         Suministros suministros = new Suministros(0,0);
         JugadorTerran jugadorTerran = new JugadorTerran(new Recursos(1000,1000),suministros);
@@ -84,7 +84,7 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
         ProxyMapa proxyMapa = creadorDeMapa.crearMapa();
-        Vision vision  = new Vision();
+        Vision vision  = Vision.VisionCompleta(25,25);
 
         Suministros suministros = new Suministros(0,0);
         JugadorTerran jugadorTerran = new JugadorTerran(new Recursos(1000,1000),suministros);
@@ -132,7 +132,7 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
         ProxyMapa proxyMapa = creadorDeMapa.crearMapa();
-        Vision vision  = new Vision();
+        Vision vision  = Vision.VisionCompleta(25,25);
 
         Suministros suministros = new Suministros(0,0);
         JugadorTerran jugadorTerran = new JugadorTerran(new Recursos(1000,1000),suministros);
@@ -183,7 +183,7 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
         ProxyMapa proxyMapa = creadorDeMapa.crearMapa();
-        Vision vision  = new Vision();
+        Vision vision  = Vision.VisionCompleta(25,25);
 
         Suministros suministros = new Suministros(0,0);
         JugadorTerran jugadorTerran = new JugadorTerran(new Recursos(1000,1000),suministros);
@@ -229,6 +229,20 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
         assertTrue(jugadorTerran.buscarUnidad(marineUno));
         assertTrue(jugadorTerran.buscarUnidad(marineDos));
         assertTrue(jugadorTerran.buscarUnidad(marineTres));
+
+    }
+
+    @Test (expected = ExcepcionNoSePuedeConstruir.class)
+    public void seIntentaCrearUnaBarracaFueraDelRangoDeVisionEsperoUnaExcepcio() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+        JugadorTerran jugador = new JugadorTerran(new Recursos(1000,100));
+        Vision vision = new Vision();
+        vision.agregarSectorVisible(new Coordenadas(4,4),3);
+        jugador.setVisibilidad(vision);
+        ProxyMapa proxy = ProxyMapa.getInstance();
+
+        Coordenadas coordenadas = new Coordenadas(10,10);
+
+        jugador.construirBarraca(coordenadas);
 
     }
 
