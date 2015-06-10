@@ -33,7 +33,7 @@ public class simulacionGanador {
         j1 = (JugadorProtoss) juego.crearJugadorProtoss("manuel","rojo");
         j2 = (JugadorTerran) juego.crearJugadorTerran("jorge", "azul");
         ProxiDeAtaque.inicializar(j1,j2);
-        c1 =j1.construirNexoMineral(new Coordenadas(2, 19));
+        c1 =j1.construirNexoMineral(new Coordenadas(3, 23));
         for(int i = 0; i<c1.getTiempoDeConstruccion()*2; i++ ) {
             juego.update();
         }
