@@ -48,4 +48,38 @@ public class VisibilidadTest {
 
     }
 
+    @Test
+    public void paraUnMapaDeCincoPorCincoSeDeberianAgregarLosVenticincoPuntos(){
+
+        Vision vision = Vision.VisionCompleta(5,5);
+
+        assertTrue(vision.esVisible(new Coordenadas(1,1)));
+        assertTrue(vision.esVisible(new Coordenadas(2,1)));
+        assertTrue(vision.esVisible(new Coordenadas(3,1)));
+        assertTrue(vision.esVisible(new Coordenadas(4,1)));
+        assertTrue(vision.esVisible(new Coordenadas(5,1)));
+        assertTrue(vision.esVisible(new Coordenadas(1,2)));
+        assertTrue(vision.esVisible(new Coordenadas(2,2)));
+        assertTrue(vision.esVisible(new Coordenadas(3,2)));
+        assertTrue(vision.esVisible(new Coordenadas(4,2)));
+        assertTrue(vision.esVisible(new Coordenadas(5,2)));
+        assertTrue(vision.esVisible(new Coordenadas(1,3)));
+        assertTrue(vision.esVisible(new Coordenadas(2,3)));
+        assertTrue(vision.esVisible(new Coordenadas(3,3)));
+        assertTrue(vision.esVisible(new Coordenadas(4,3)));
+        assertTrue(vision.esVisible(new Coordenadas(5,3)));
+        assertTrue(vision.esVisible(new Coordenadas(1,4)));
+        assertTrue(vision.esVisible(new Coordenadas(2,4)));
+        assertTrue(vision.esVisible(new Coordenadas(3,4)));
+        assertTrue(vision.esVisible(new Coordenadas(4,4)));
+        assertTrue(vision.esVisible(new Coordenadas(5,4)));
+        assertTrue(vision.esVisible(new Coordenadas(1,5)));
+        assertTrue(vision.esVisible(new Coordenadas(2,5)));
+        assertTrue(vision.esVisible(new Coordenadas(3,5)));
+        assertTrue(vision.esVisible(new Coordenadas(4,5)));
+        assertTrue(vision.esVisible(new Coordenadas(5,5)));
+
+
+    }
+
 }
