@@ -2,6 +2,7 @@ package consingnasTests;
 
 
 import excepciones.*;
+import excepciones.Unidades.*;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -13,7 +14,6 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import unidades.ExcepcionCargarUnidadEnemiga;
 import unidades.ProxiDeAtaque;
 import unidades.ProxyDeHechizos;
 import unidades.protoss.*;
@@ -46,7 +46,7 @@ public class unidadesTest {
     La nave de ciencia tenga menos energía
     El protoss no tenga más escudo*/
     @Test
-    public void primerTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
+    public void primerTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         NaveCiencia nc = new NaveCiencia(v);
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
@@ -67,7 +67,7 @@ public class unidadesTest {
     La nave de ciencia tenga menos energía
     El alto templario y la otra nave de ciencia no tengan más energía*/
     @Test
-    public void segundoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
+    public void segundoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         NaveCiencia nc = new NaveCiencia(v);
         NaveCiencia nc2 = new NaveCiencia(v);
         j1.agregarUnidad(nc);
@@ -93,11 +93,11 @@ public class unidadesTest {
     La nave de ciencia tenga menos energía
     El alto templario y la unidad protoss no han sufrido modificaciones.*/
     @Test
-    public void tercerTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
+    public void tercerTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         NaveCiencia nc = new NaveCiencia(v);
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
-        Zealot zl = new Zealot();
+        Zealot zl = new Zealot(v);
         j2.agregarUnidad(at);
         j2.agregarUnidad(zl);
         Coordenadas c1 = new Coordenadas(1,1);
@@ -124,11 +124,11 @@ public class unidadesTest {
     Al recibir un EMP, mueren instantáneamente.*/
 
     @Test
-    public void cuartoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
+    public void cuartoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         NaveCiencia nc = new NaveCiencia(v);
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
-        Zealot zl = new Zealot();
+        Zealot zl = new Zealot(v);
         j2.agregarUnidad(at);
         j2.agregarUnidad(zl);
         Coordenadas c1 = new Coordenadas(7,7);

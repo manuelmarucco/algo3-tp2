@@ -1,8 +1,9 @@
 package unidades.protoss;
 
-import excepciones.EnergiaInsuficiente;
+import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
 import excepciones.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.ExcepcionYaActuo;
+import excepciones.ExcepcionObjetivoFueraDeRango;
+import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
@@ -23,26 +24,35 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
         super(new ResistenciaProtoss(40, 40), new Energia(200, 50, 10), 7, new Terrestre(), 2, new Costo(50, 150), 7,5,visionJugador);
     }
 
-    public void tormentaPsionica(Coordenadas c, JugadorProtoss duenio) throws ExcepcionYaActuo {
+    public void tormentaPsionica(Coordenadas c, JugadorProtoss duenio) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+        Coordenadas at= ProxyMapa.getInstance().getCoordenada(this);
+        ProxyMapa mapa = ProxyMapa.getInstance();
+        if(at.distancia(c)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         try {
             this.energia.gastar(75);
-        } catch (EnergiaInsuficiente energiaInsuficiente) {
+        } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
         duenio.agregarTormenta(new TormentaPsionica(c));
         this.accion.actuo();
     }
 
-    public void alucinacion(Unidad objetivo,Coordenadas destino1,Coordenadas destino2) throws ExcepcionYaActuo {
+    public void alucinacion(Unidad objetivo,Coordenadas destino1,Coordenadas destino2) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
+        Coordenadas obj=ProxyMapa.getInstance().getCoordenada(objetivo);
+        Coordenadas at= ProxyMapa.getInstance().getCoordenada(this);
+        ProxyMapa mapa = ProxyMapa.getInstance();
+        if(obj.distancia(at)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
+        if(obj.distancia(destino1)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
+        if(obj.distancia(destino2)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
         try {
             this.energia.gastar(100);
-            ProxyMapa mapa = ProxyMapa.getInstance();
+
             // Por el proxy agrego que tiran excepciones
             mapa.agregar(objetivo.getClone(), destino1);
             mapa.agregar(objetivo.getClone(), destino2);
-        } catch (EnergiaInsuficiente energiaInsuficiente) {
+        } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         } catch (ExcepcionNoSePudoAgregarAlMapa excepcionNoSePudoAgregarAlMapa) {
             excepcionNoSePudoAgregarAlMapa.printStackTrace();

@@ -1,8 +1,9 @@
 package unidades;
 
-import excepciones.ExcepcionCargaSuperada;
+import excepciones.Unidades.ExcepcionCargaSuperada;
+import excepciones.Unidades.ExcepcionCargarUnidadEnemiga;
 import excepciones.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.ExcepcionYaActuo;
+import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
@@ -56,5 +57,17 @@ public abstract class UnidadTransporte extends Unidad {
             cargaTotal+=a.getTransporte();
         }
         return cargaTotal;
+    }
+
+    @Override
+    protected void matar() {
+        if(this.resistencia.estaMuerto()){
+            ProxyMapa mapa = ProxyMapa.getInstance();
+            mapa.quitar(this);
+            for (Cargable u:unidades){//mata a todas la unidades q carga
+                int d=((Unidad)u).getVida();
+                ((Unidad)u).recibirDanio(d);
+            }
+        }
     }
 }

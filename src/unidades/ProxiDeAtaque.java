@@ -1,6 +1,6 @@
 package unidades;
 
-import excepciones.ExcepcionAtacarAUnidadAliada;
+import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.ExcepcionObjetivoFueraDeRango;
 import interfaces.ColocableEnMapa;
 import interfaces.Daniable;

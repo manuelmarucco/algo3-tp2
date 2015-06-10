@@ -4,6 +4,8 @@ import construcciones.protoss.Acceso;
 import construcciones.protoss.Pilon;
 import construcciones.terran.DepositoDeSuministros;
 import excepciones.*;
+import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
+import excepciones.Unidades.ExcepcionYaActuo;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;

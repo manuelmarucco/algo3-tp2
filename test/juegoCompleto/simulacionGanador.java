@@ -4,6 +4,9 @@ import construcciones.Construccion;
 import construcciones.protoss.Acceso;
 import construcciones.protoss.Pilon;
 import excepciones.*;
+import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
+import excepciones.Unidades.ExcepcionYaActuo;
+import excepciones.Unidades.ExcepcionYaSeMovioLaUnidad;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -52,7 +55,12 @@ public class simulacionGanador {
             juego.update();
         }
         d.mover(new Coordenadas(1,2));
-        while (c3.getVida()!=0) d.atacarTierra(c3);
+        while (c3.getVida()!=0) {
+            d.atacarTierra(c3);
+            juego.update();
+            juego.update();
+
+        }
         //Assert.assertEquals();
 
     }

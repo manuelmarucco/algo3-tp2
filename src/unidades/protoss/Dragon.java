@@ -18,11 +18,6 @@ public class Dragon extends UnidadGuerrera implements Cargable {
         super(new ResistenciaProtoss(100, 80), new Danio(20, 20, 4, 4), 8, new Terrestre(), 2, new Costo(125, 50), 6,6,visionJugador);
     }
 
-    @Override
-    public void update() {
-        this.resistencia.regenerar();
-    }
-
     public ColocableEnMapa getClone() {
         return null;// TODO:implementar
     }

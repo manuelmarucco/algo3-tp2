@@ -1,6 +1,6 @@
 package unidades;
 
-import excepciones.EnergiaInsuficiente;
+import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
 
 public class Energia {
     private final int regeneracionEnergia;
@@ -30,8 +30,8 @@ public class Energia {
         return regeneracionEnergia;
     }
 
-    public void gastar(int i) throws EnergiaInsuficiente{
-        if(i>energiaActual) throw new EnergiaInsuficiente();
+    public void gastar(int i) throws ExcepcionEnergiaInsuficiente {
+        if(i>energiaActual) throw new ExcepcionEnergiaInsuficiente();
         energiaActual-=i;
     }
 }

@@ -1,6 +1,6 @@
 package unidades;
 
-import excepciones.EnergiaInsuficiente;
+import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
 
@@ -26,7 +26,7 @@ public abstract class UnidadMagica extends Unidad{
     public  void recibirEMP(){
         try {
             this.energia.gastar(this.energia.getEnergiaActual());
-        } catch (EnergiaInsuficiente energiaInsuficiente) {}
+        } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {}
     }
 
     public int getEnergia(){

@@ -1,7 +1,9 @@
 package unidades.terrran;
 
-import excepciones.EnergiaInsuficiente;
-import excepciones.ExcepcionYaActuo;
+import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
+import excepciones.ExcepcionObjetivoFueraDeRango;
+import excepciones.Unidades.ExcepcionYaActuo;
+import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -16,11 +18,11 @@ public class NaveCiencia extends UnidadMagica {
         super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10,8,visionJugador);
     }
 
-    public void EMP(Coordenadas c) throws ExcepcionYaActuo {
+    public void EMP(Coordenadas c) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         try {
             this.energia.gastar(100);
-        } catch (EnergiaInsuficiente energiaInsuficiente) {
+        } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
         ProxyDeHechizos.EMP(this,c);
@@ -34,11 +36,14 @@ public class NaveCiencia extends UnidadMagica {
     }
 
 
-    public void Radiacion(Unidad objetivo) throws ExcepcionYaActuo {
+    public void Radiacion(Unidad objetivo) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
+        Coordenadas nc=ProxyMapa.getInstance().getCoordenada(this);
+        Coordenadas obj=ProxyMapa.getInstance().getCoordenada(objetivo);
+        if(this.getVision()<nc.distancia(obj)) throw new ExcepcionObjetivoFueraDeRango();
         try {
             this.energia.gastar(75);
-        } catch (EnergiaInsuficiente energiaInsuficiente) {
+        } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
         if(ProxyDeHechizos.esUnidad(objetivo))

@@ -1,10 +1,10 @@
 package interfaces_tests;
 
 
-import excepciones.ExcepcionAtacarAUnidadAliada;
+import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.ExcepcionObjetivoFueraDeRango;
 import excepciones.ExcepcionPosicionOcupada;
-import excepciones.ExcepcionYaActuo;
+import excepciones.Unidades.ExcepcionYaActuo;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -17,7 +17,7 @@ import org.junit.Test;
 import unidades.ProxiDeAtaque;
 import unidades.Unidad;
 import unidades.UnidadGuerrera;
-import excepciones.ExcepcionNoPuedeAtacarAire;
+import excepciones.Unidades.ExcepcionNoPuedeAtacarAire;
 import unidades.terrran.Golliat;
 import unidades.terrran.Marine;
 import unidades.terrran.NaveCiencia;

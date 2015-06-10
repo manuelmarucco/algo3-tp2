@@ -1,9 +1,9 @@
 package unidades.protoss;
 
-import excepciones.ExcepcionAtacarAUnidadAliada;
-import excepciones.ExcepcionNoPuedeAtacarAire;
+import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
+import excepciones.Unidades.ExcepcionNoPuedeAtacarAire;
 import excepciones.ExcepcionObjetivoFueraDeRango;
-import excepciones.ExcepcionYaActuo;
+import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
@@ -21,11 +21,6 @@ public class Zealot extends UnidadGuerrera implements Cargable {
 
     public Zealot(){
         super(new ResistenciaProtoss(100,60),new Danio(8,0,1,0),7,new Terrestre(),2,new Costo(100,0),4,5);
-    }
-
-    @Override
-    public void update() {
-        this.resistencia.regenerar();
     }
 
     public int getEscudo() {

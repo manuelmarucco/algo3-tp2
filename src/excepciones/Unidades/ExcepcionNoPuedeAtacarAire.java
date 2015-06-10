@@ -1,4 +1,4 @@
-package excepciones;
+package excepciones.Unidades;
 
 public class ExcepcionNoPuedeAtacarAire extends Throwable {
 }

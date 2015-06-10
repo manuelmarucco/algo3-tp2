@@ -1,12 +1,12 @@
 package unidades;
 
-import excepciones.ExcepcionAtacarAUnidadAliada;
+import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.ExcepcionObjetivoFueraDeRango;
-import excepciones.ExcepcionYaActuo;
+import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Daniable;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
-import excepciones.ExcepcionNoPuedeAtacarAire;
+import excepciones.Unidades.ExcepcionNoPuedeAtacarAire;
 
 public abstract class UnidadGuerrera extends Unidad {
 

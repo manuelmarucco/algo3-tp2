@@ -1,5 +1,6 @@
 package unidades;
 
+import excepciones.ExcepcionObjetivoFueraDeRango;
 import interfaces.Cargable;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
@@ -15,8 +16,9 @@ public class ProxyDeHechizos {
         jugador2=j2;
     }
 
-    public static void EMP(NaveCiencia nc,Coordenadas c){
+    public static void EMP(NaveCiencia nc,Coordenadas c) throws ExcepcionObjetivoFueraDeRango {
         ProxyMapa mapa = ProxyMapa.getInstance();
+        if(nc.getVision()<c.distancia(mapa.getCoordenada(nc))) throw new ExcepcionObjetivoFueraDeRango();
         for(int i =-1;i<2;i++){
             for(int j =-1;j<2;j++){
                 Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);

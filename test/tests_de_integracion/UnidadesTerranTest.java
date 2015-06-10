@@ -1,6 +1,9 @@
 package tests_de_integracion;
 
 import excepciones.*;
+import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
+import excepciones.Unidades.ExcepcionYaActuo;
+import excepciones.Unidades.ExcepcionYaSeMovioLaUnidad;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
@@ -38,7 +41,7 @@ public class UnidadesTerranTest {
         Coordenadas c1 = new Coordenadas(5,5);
         Coordenadas c2 = new Coordenadas(6,6);
         ProxyMapa mapa = ProxyMapa.getInstance();
-        ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
+        ProxyMapa.getInstance().setCoordenadasMaximas(10, 10);
         mapa.agregar(marine, c1);
         mapa.agregar(zealot, c2);
         marine.atacarTierra(zealot);
@@ -64,7 +67,7 @@ public class UnidadesTerranTest {
     }
 
     @Test
-    public void NaveCienciaLanzaEMPDejaSinEscudoYEnergiaAUnAltoTemplario() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
+    public void NaveCienciaLanzaEMPDejaSinEscudoYEnergiaAUnAltoTemplario() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         ProxyDeHechizos.inicializar(j1, j2);
@@ -89,7 +92,7 @@ public class UnidadesTerranTest {
     }
 
     @Test
-    public void NaveCienciaLanzaRadiacionYBajaLaVidaAlTemplario() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {//baja de a 6 por q recupera 10% de escudo por turno (4)
+    public void NaveCienciaLanzaRadiacionYBajaLaVidaAlTemplario() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {//baja de a 6 por q recupera 10% de escudo por turno (4)
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         ProxyDeHechizos.inicializar(j1, j2);
@@ -135,7 +138,7 @@ public class UnidadesTerranTest {
     }
     //TODO: arreglar este test
     @Test
-    public void testAltoTemplarioSeClonaYUnaNaveDeCienciaMataAlosClones() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
+    public void testAltoTemplarioSeClonaYUnaNaveDeCienciaMataAlosClones() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         ProxyDeHechizos.inicializar(j1, j2);
