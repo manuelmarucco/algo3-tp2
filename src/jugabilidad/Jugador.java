@@ -135,7 +135,7 @@ public abstract class Jugador implements Actualizable{
 	}
 
 	public boolean noTieneMasConstruccionesYUnidades() {
-		if(construccionesCreadas.size() == 0 || unidadesCreadas.size()==0|| edificiosEnConstruccion.size()==0){
+		if(construccionesCreadas.size() == 0 && unidadesCreadas.size()==0 && edificiosEnConstruccion.size()==0){
 			return true;
 		}else
 			return false;

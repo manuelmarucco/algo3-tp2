@@ -51,4 +51,8 @@ public class AdministradorDeTurnos implements Actualizable{
             }
         }
     }
+
+    public Jugador getGanador(){
+        return jugadores.get(0);
+    }
 }
