@@ -1,9 +1,9 @@
 package construcciones.terran;
 
 import construcciones.CentroDeRecoleccion;
-import excepciones.ExcepcionConstruccionNoRecolectaVolcan;
-import excepciones.ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso;
-import excepciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construicciones.ExcepcionConstruccionNoRecolectaVolcan;
+import excepciones.construicciones.ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso;
+import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;

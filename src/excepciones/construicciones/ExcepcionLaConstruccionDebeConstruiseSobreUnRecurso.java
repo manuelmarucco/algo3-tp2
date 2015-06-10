@@ -1,0 +1,4 @@
+package excepciones.construicciones;
+
+public class ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso extends ExcepcionNoSePuedeConstruir {
+}

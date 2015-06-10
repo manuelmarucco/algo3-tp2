@@ -1,8 +1,8 @@
 package jugabilidad.auxiliares;
 
-import excepciones.ExcepcionGasInsuficiente;
-import excepciones.ExcepcionMineralesInsuficientes;
-import excepciones.ExcepcionRecursosInsuficientes;
+import excepciones.construicciones.ExcepcionGasInsuficiente;
+import excepciones.construicciones.ExcepcionMineralesInsuficientes;
+import excepciones.construicciones.ExcepcionRecursosInsuficientes;
 
 public class Recursos {
 

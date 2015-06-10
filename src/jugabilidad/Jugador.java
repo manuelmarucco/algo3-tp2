@@ -2,9 +2,9 @@ package jugabilidad;
 
 import construcciones.Construccion;
 import construcciones.EdificioEnConstruccion;
-import excepciones.ExcepcionNoSePuedeConstruir;
-import excepciones.ExcepcionPosicionOcupada;
-import excepciones.ExcepcionSuministrosInsuficientes;
+import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.Mapa.ExcepcionPosicionOcupada;
+import excepciones.construicciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Actualizable;
 import interfaces.Construible;
 import interfaces.Entrenable;

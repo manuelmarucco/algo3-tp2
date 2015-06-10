@@ -1,6 +1,6 @@
 package unidades;
 
-import excepciones.ExcepcionObjetivoFueraDeRango;
+import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import interfaces.Cargable;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;

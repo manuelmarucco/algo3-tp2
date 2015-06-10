@@ -1,7 +1,7 @@
 package unidades;
 
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
-import excepciones.ExcepcionObjetivoFueraDeRango;
+import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Daniable;
 import jugabilidad.auxiliares.Costo;

@@ -1,6 +1,6 @@
 package construcciones;
 
-import excepciones.ExcepcionPosicionOcupada;
+import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import interfaces.Daniable;

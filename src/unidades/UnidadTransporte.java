@@ -2,7 +2,7 @@ package unidades;
 
 import excepciones.Unidades.ExcepcionCargaSuperada;
 import excepciones.Unidades.ExcepcionCargarUnidadEnemiga;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;

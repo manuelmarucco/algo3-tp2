@@ -1,9 +1,11 @@
 package tests_de_integracion;
 
 import construcciones.EdificioEnConstruccion;
-import excepciones.*;
+import excepciones.Mapa.ExcepcionPosicionOcupada;
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
+import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
+import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;

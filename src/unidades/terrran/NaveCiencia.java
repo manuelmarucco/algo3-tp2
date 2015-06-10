@@ -1,7 +1,7 @@
 package unidades.terrran;
 
 import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
-import excepciones.ExcepcionObjetivoFueraDeRango;
+import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;

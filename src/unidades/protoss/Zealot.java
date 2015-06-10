@@ -2,7 +2,7 @@ package unidades.protoss;
 
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionNoPuedeAtacarAire;
-import excepciones.ExcepcionObjetivoFueraDeRango;
+import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;

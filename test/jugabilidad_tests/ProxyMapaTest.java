@@ -1,9 +1,9 @@
 package jugabilidad_tests;
 
-import excepciones.ExcepcionCoordenadaXIngresadaFueraDelMapa;
-import excepciones.ExcepcionCoordenadaYIngresadaFueraDelMapa;
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.ExcepcionPosicionOcupada;
+import excepciones.Mapa.ExcepcionCoordenadaXIngresadaFueraDelMapa;
+import excepciones.Mapa.ExcepcionCoordenadaYIngresadaFueraDelMapa;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Mapa.ExcepcionPosicionOcupada;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Before;

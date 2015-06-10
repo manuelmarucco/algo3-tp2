@@ -1,6 +1,6 @@
 package construcciones;
 
-import excepciones.ExcepcionPosicionOcupada;
+import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.Recolectable;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Recursos;

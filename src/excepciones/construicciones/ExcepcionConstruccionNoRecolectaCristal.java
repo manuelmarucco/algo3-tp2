@@ -1,4 +1,4 @@
-package excepciones;
+package excepciones.construicciones;
 
 /**
  * Created by home1 on 07/06/2015.

@@ -1,6 +1,6 @@
 package jugabilidad;
 
-import excepciones.ExcepcionNoSePudoCrearElJugador;
+import excepciones.jugador.ExcepcionNoSePudoCrearElJugador;
 import interfaces.Actualizable;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;

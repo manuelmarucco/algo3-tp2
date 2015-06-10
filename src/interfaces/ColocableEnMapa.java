@@ -1,6 +1,6 @@
 package interfaces;
 
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 public interface ColocableEnMapa{

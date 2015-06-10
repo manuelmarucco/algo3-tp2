@@ -2,9 +2,9 @@ package construcciones.protoss;
 
 import construcciones.CentroDeEntrenamiento;
 import construcciones.Construccion;
-import excepciones.ExcepcionNecesitaConstruirPortalEstelar;
-import excepciones.ExcepcionNoSePuedeConstruir;
-import excepciones.ExcepcionNoSePuedeEntrenarUnidad;
+import excepciones.construicciones.ExcepcionNecesitaConstruirPortalEstelar;
+import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import interfaces.Construible;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Costo;

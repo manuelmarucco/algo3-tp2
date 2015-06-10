@@ -1,6 +1,6 @@
 package jugabilidad.utilidadesMapa;
 
-import excepciones.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
 

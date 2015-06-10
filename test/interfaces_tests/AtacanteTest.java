@@ -2,8 +2,8 @@ package interfaces_tests;
 
 
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
-import excepciones.ExcepcionObjetivoFueraDeRango;
-import excepciones.ExcepcionPosicionOcupada;
+import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
+import excepciones.Mapa.ExcepcionPosicionOcupada;
 import excepciones.Unidades.ExcepcionYaActuo;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
