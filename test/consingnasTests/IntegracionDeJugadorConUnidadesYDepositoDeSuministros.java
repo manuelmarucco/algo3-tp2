@@ -1,5 +1,7 @@
 package consingnasTests;
 
+import construcciones.terran.Barraca;
+import construcciones.terran.Fabrica;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
@@ -12,8 +14,12 @@ import jugabilidad.auxiliares.Vision;
 import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import static org.junit.Assert.*;
+
+import org.junit.Before;
 import org.junit.Test;
+import unidades.terrran.Golliat;
 import unidades.terrran.Marine;
+import unidades.terrran.NaveCiencia;
 
 public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
@@ -25,7 +31,12 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
     }
 
-    /* Al morir una unidad deberian disminuir los suministros del jugador en uno. */
+    @Before
+    public void resetProxy(){
+        ProxyMapa.resetear();
+    }
+
+    /* Al morir una unidad que usa un suministro deberian aumentar los suministros del jugador en uno. */
     @Test
     public void test1() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 
@@ -38,26 +49,24 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
         jugadorTerran.setVisibilidad(vision);
 
         Coordenadas coordenadas = new Coordenadas(8,18);
-        // Suministros 5.
+        // Suministros 5. Usados 0.
         jugadorTerran.construirDepositoDeSuministros(coordenadas);
 
         // Para que se construya el deposito.
         this.lanzarUpdates(6, jugadorTerran);
 
-        Marine marine = new Marine(vision);
-        jugadorTerran.agregarUnidad(marine);
-
         Coordenadas coordenadas2 = new Coordenadas(10,18);
-        try {
-            proxyMapa.agregar(marine, coordenadas2);
-        } catch (ExcepcionNoSePudoAgregarAlMapa e) {
-            e.printStackTrace();
-        }
+        Barraca barraca = jugadorTerran.construirBarraca(coordenadas2);
+
+        // Para que se construya la barraca.
+        this.lanzarUpdates(13, jugadorTerran);
+
+        Marine marine = barraca.entrenarMarine();
 
         // Para que se entrene el marine.
-        this.lanzarUpdates(3,jugadorTerran);
-
-        // Suministros 4.
+        this.lanzarUpdates(4,jugadorTerran);
+        // Suministros 4. Usados 1.
+        assertTrue(suministros.getSuministrosUsados() == 1);
 
         // Tiene 40 de vida se lo saco.
         marine.recibirDanio(40);
@@ -68,5 +77,105 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
         assertTrue(suministros.getSuministrosUsados() == 0);
 
     }
+
+    /* Al morir una unidad que usa dos suministros deberian aumentar los suministros del jugador en dos. */
+    @Test
+    public void test2() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+
+        CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
+        ProxyMapa proxyMapa = creadorDeMapa.crearMapa();
+        Vision vision  = new Vision();
+
+        Suministros suministros = new Suministros(0,0);
+        JugadorTerran jugadorTerran = new JugadorTerran(new Recursos(1000,1000),suministros);
+        jugadorTerran.setVisibilidad(vision);
+
+        Coordenadas coordenadas = new Coordenadas(8,18);
+        jugadorTerran.construirDepositoDeSuministros(coordenadas);
+
+        // Para que se construya el deposito.
+        this.lanzarUpdates(6, jugadorTerran);
+        // Suministros 5. Usados 0.
+
+        Coordenadas coordenadas2 = new Coordenadas(10,18);
+        Barraca barraca = jugadorTerran.construirBarraca(coordenadas2);
+
+        // Para que se construya la barraca.
+        this.lanzarUpdates(13, jugadorTerran);
+
+        Coordenadas coordenadas3 = new Coordenadas(17,17);
+        Fabrica fabrica = jugadorTerran.construirFabrica(coordenadas3);
+
+        // Para que se construya la fabrica.
+        this.lanzarUpdates(12, jugadorTerran);
+
+        Golliat goliat = fabrica.entrenarGolliat();
+
+        // Para que se entrene el goliat.
+        this.lanzarUpdates(6,jugadorTerran);
+        // Suministros 3. Usados 2.
+        assertTrue(suministros.getSuministrosUsados() == 2);
+
+        // Tiene 125 de vida se lo saco.
+        goliat.recibirDanio(125);
+
+        // Para que el jugador se de cuenta que el marine murio.
+        jugadorTerran.update();
+
+        assertTrue(suministros.getSuministrosUsados() == 0);
+
+    }
+
+    /* Al morir una unidad que usa un suministro deberian aumentar los suministros del jugador en uno. */
+    @Test
+    public void test10() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+
+        CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
+        ProxyMapa proxyMapa = creadorDeMapa.crearMapa();
+        Vision vision  = new Vision();
+
+        Suministros suministros = new Suministros(0,0);
+        JugadorTerran jugadorTerran = new JugadorTerran(new Recursos(1000,1000),suministros);
+        jugadorTerran.setVisibilidad(vision);
+
+        Coordenadas coordenadas = new Coordenadas(8,18);
+        // Suministros 5. Usados 0.
+        jugadorTerran.construirDepositoDeSuministros(coordenadas);
+
+        // Para que se construya el deposito.
+        this.lanzarUpdates(6, jugadorTerran);
+
+        Coordenadas coordenadas2 = new Coordenadas(10,18);
+        Barraca barraca = jugadorTerran.construirBarraca(coordenadas2);
+
+        // Para que se construya la barraca.
+        this.lanzarUpdates(13, jugadorTerran);
+
+        Marine marineUno =  barraca.entrenarMarine();
+
+        // Para que se entrene el marine.
+        this.lanzarUpdates(4,jugadorTerran);
+        // Suministros 5. Usados 1.
+        assertTrue(suministros.getSuministrosUsados() == 1);
+        assertTrue(jugadorTerran.buscarUnidad(marineUno));
+
+        Marine marineDos = barraca.entrenarMarine();
+
+        // Para que se entrene el marine.
+        this.lanzarUpdates(4,jugadorTerran);
+        // Suministros 5. Usados 2.
+        assertTrue(suministros.getSuministrosUsados() == 2);
+        assertTrue(jugadorTerran.buscarUnidad(marineDos));
+
+        Marine marineTres = barraca.entrenarMarine();
+
+        // Para que se entrene el marine.
+        this.lanzarUpdates(4,jugadorTerran);
+        // Suministros 5. Usados 3.
+        assertTrue(suministros.getSuministrosUsados() == 3);
+        assertTrue(jugadorTerran.buscarUnidad(marineTres));
+
+    }
+
 
 }
