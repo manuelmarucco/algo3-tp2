@@ -48,4 +48,10 @@ public class Vision {
         }
         return v;
     }
+
+    public Boolean esVisible( Coordenadas coordenada ){
+
+        return ( this.visibilidad.contains(coordenada) );
+
+    }
 }

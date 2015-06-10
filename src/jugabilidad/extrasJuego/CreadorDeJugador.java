@@ -4,8 +4,11 @@ import excepciones.jugador.ExcepcionElColorIngresadoRepiteAlDeOtroJugador;
 import excepciones.jugador.ExcepcionElNombreIngresadoRepiteAlDeOtroJugador;
 import excepciones.jugador.ExcepcionNoSePudoCrearElJugador;
 import excepciones.jugador.ExcepcionNombreDeJugadorMenorACuatroCaracteres;
+import jugabilidad.Jugador;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
+import jugabilidad.auxiliares.Vision;
+import jugabilidad.utilidadesMapa.Coordenadas;
 
 import java.util.ArrayList;
 
@@ -16,28 +19,33 @@ public class CreadorDeJugador {
 
     // Metodos ----
 
-    public JugadorTerran crearNuevoJugadorTerran(String nombre, String color) throws ExcepcionNoSePudoCrearElJugador {
-
-        JugadorTerran jugador = new JugadorTerran();
-
+    public JugadorTerran crearNuevoJugadorTerran(String nombre, String color, Coordenadas coordenadasIniciales)
+            throws ExcepcionNoSePudoCrearElJugador {
         this.verificarNombre(nombre);
         this.nombres.add(nombre);
 
+        JugadorTerran jugador = new JugadorTerran();
+
         jugador.setNombre(nombre);
         jugador.setColor(color);
+
+        this.colocarVisibilidadEn(jugador, coordenadasIniciales);
 
         return (jugador);
     }
 
-    public JugadorProtoss crearNuevoJugadorProtos(String nombre, String color) throws ExcepcionNoSePudoCrearElJugador {
-
-        JugadorProtoss jugador = new JugadorProtoss();
+    public JugadorProtoss crearNuevoJugadorProtos(String nombre, String color, Coordenadas coordenadasIniciales)
+            throws ExcepcionNoSePudoCrearElJugador {
 
         this.verificarNombre(nombre);
         this.verificarColor(color);
 
+        JugadorProtoss jugador = new JugadorProtoss();
+
         jugador.setNombre(nombre);
         jugador.setColor(color);
+
+        this.colocarVisibilidadEn(jugador, coordenadasIniciales);
 
         return (jugador);
     }
@@ -62,6 +70,16 @@ public class CreadorDeJugador {
             throw new ExcepcionElColorIngresadoRepiteAlDeOtroJugador();
 
         this.colores.add(color);
+
+    }
+
+    private void colocarVisibilidadEn(Jugador jugador, Coordenadas coordenadasIniciales){
+
+        Vision visibilidad = new Vision();
+        int radioDeVisibilidadInicial = 2;
+        visibilidad.agregarSectorVisible(coordenadasIniciales,radioDeVisibilidadInicial);
+
+        jugador.setVisibilidad(visibilidad);
 
     }
 

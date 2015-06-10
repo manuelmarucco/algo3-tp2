@@ -8,6 +8,7 @@ import excepciones.jugador.ExcepcionNombreDeJugadorMenorACuatroCaracteres;
 import jugabilidad.Jugador;
 import jugabilidad.extrasJuego.CreadorDeJugador;
 
+import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,8 +19,9 @@ public class CreadorDeJugadorTest {
             throws ExcepcionNoSePudoCrearElJugador {
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
+        Coordenadas base = new Coordenadas(5,5);
 
-        Jugador jugador = creadorDeJugador.crearNuevoJugadorTerran("Mariano", "Azul");
+        Jugador jugador = creadorDeJugador.crearNuevoJugadorTerran("Mariano", "Azul",base);
 
         assertTrue(jugador.getNombre().equals("Mariano")  && jugador.getColor().equals("Azul") );
 
@@ -30,7 +32,9 @@ public class CreadorDeJugadorTest {
             throws ExcepcionNoSePudoCrearElJugador{
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
-        Jugador jugador = creadorDeJugador.crearNuevoJugadorProtos("Mariano", "Azul");
+        Coordenadas base = new Coordenadas(5,5);
+
+        Jugador jugador = creadorDeJugador.crearNuevoJugadorProtos("Mariano", "Azul", base);
 
         assertTrue(jugador.getNombre().equals("Mariano")  && jugador.getColor().equals("Azul") );
 
@@ -41,8 +45,9 @@ public class CreadorDeJugadorTest {
             throws ExcepcionNoSePudoCrearElJugador{
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
+        Coordenadas base = new Coordenadas(5,5);
 
-        Jugador jugador = creadorDeJugador.crearNuevoJugadorProtos("Mar", "Azul");
+        Jugador jugador = creadorDeJugador.crearNuevoJugadorProtos("Mar", "Azul",base);
 
     }
 
@@ -52,9 +57,11 @@ public class CreadorDeJugadorTest {
             throws ExcepcionNoSePudoCrearElJugador{
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
+        Coordenadas baseUno = new Coordenadas(5,5);
+        Coordenadas baseDos = new Coordenadas(10,10);
 
-        Jugador jugadorUno = creadorDeJugador.crearNuevoJugadorProtos("Mariano", "Azul");
-        Jugador jugadorDos = creadorDeJugador.crearNuevoJugadorProtos("Roberto", "Rojo");
+        Jugador jugadorUno = creadorDeJugador.crearNuevoJugadorProtos("Mariano", "Azul",baseUno);
+        Jugador jugadorDos = creadorDeJugador.crearNuevoJugadorProtos("Roberto", "Rojo",baseDos);
 
         assertTrue(jugadorDos.getNombre().equals("Roberto")  && jugadorDos.getColor().equals("Rojo") );
 
@@ -66,17 +73,11 @@ public class CreadorDeJugadorTest {
             throws ExcepcionNoSePudoCrearElJugador {
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
-        Jugador jugadorUno = null;
+        Coordenadas baseUno = new Coordenadas(5,5);
+        Coordenadas baseDos = new Coordenadas(10,10);
 
-        jugadorUno = creadorDeJugador.crearNuevoJugadorProtos("Mariano", "Azul");
-
-        Jugador jugadorDos = null;
-
-        try {
-            jugadorDos = creadorDeJugador.crearNuevoJugadorProtos("Mariano", "Rojo");
-        } catch (ExcepcionNombreDeJugadorMenorACuatroCaracteres excepcionNombreDeJugadorMenorACuatroCaracteres) {
-            excepcionNombreDeJugadorMenorACuatroCaracteres.printStackTrace();
-        }
+        Jugador jugadorUno = creadorDeJugador.crearNuevoJugadorProtos("Mariano", "Azul",baseUno);
+        Jugador jugadorDos = creadorDeJugador.crearNuevoJugadorProtos("Mariano", "Rojo",baseDos);
 
     }
 
@@ -86,10 +87,26 @@ public class CreadorDeJugadorTest {
             throws ExcepcionNoSePudoCrearElJugador{
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
+        Coordenadas baseUno = new Coordenadas(5,5);
+        Coordenadas baseDos = new Coordenadas(10,10);
 
-        Jugador jugadorUno = creadorDeJugador.crearNuevoJugadorProtos("Mariano", "Azul");
-        Jugador jugadorDos = creadorDeJugador.crearNuevoJugadorProtos("Roberto", "Azul");
+        Jugador jugadorUno = creadorDeJugador.crearNuevoJugadorProtos("Mariano", "Azul", baseUno);
+        Jugador jugadorDos = creadorDeJugador.crearNuevoJugadorProtos("Roberto", "Azul", baseDos);
 
     }
+
+    @Test
+    public void alCrearUnJugadorTerranSeDeberiaVerificarLaBaseAsignada()
+            throws ExcepcionNoSePudoCrearElJugador {
+
+        CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
+        Coordenadas base = new Coordenadas(5,5);
+
+        Jugador jugador = creadorDeJugador.crearNuevoJugadorTerran("Mariano", "Azul",base);
+
+        assertTrue( jugador.getVisibilidad().esVisible(base) );
+
+    }
+
 
 }

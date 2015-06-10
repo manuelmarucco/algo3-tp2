@@ -24,13 +24,13 @@ public class Juego implements Actualizable{
        return administradorDeTurnos.getJugadorDelTurnoActual();
     }
 
-    public Jugador crearJugadorProtoss(String nombre, String color){
+    public Jugador crearJugadorProtoss(String nombre, String color, Coordenadas base){
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
         JugadorProtoss jugador;
 
         try {
-            jugador = creadorDeJugador.crearNuevoJugadorProtos(nombre,color);
+            jugador = creadorDeJugador.crearNuevoJugadorProtos(nombre,color,base);
         } catch (ExcepcionNoSePudoCrearElJugador e) {
             e.printStackTrace();
             return null;
@@ -40,13 +40,13 @@ public class Juego implements Actualizable{
         return jugador;
     }
 
-    public Jugador crearJugadorTerran(String nombre, String color){
+    public Jugador crearJugadorTerran(String nombre, String color, Coordenadas base){
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
         JugadorTerran jugador;
 
         try {
-            jugador = creadorDeJugador.crearNuevoJugadorTerran(nombre, color);
+            jugador = creadorDeJugador.crearNuevoJugadorTerran(nombre, color, base);
         } catch (ExcepcionNoSePudoCrearElJugador e) {
             e.printStackTrace();
             return null;
@@ -55,8 +55,7 @@ public class Juego implements Actualizable{
         administradorDeTurnos.agregarJugador(jugador);
         return jugador;
     }
-/*
-    // No terminado.
+
     public ProxyMapa crearMapa(){
 
         ProxyMapa proxyMapa = this.creadorDeMapa.crearMapa();
@@ -66,7 +65,7 @@ public class Juego implements Actualizable{
         return (proxyMapa);
 
     }
-*/
+
     @Override
     public void update() {
         administradorDeTurnos.update();

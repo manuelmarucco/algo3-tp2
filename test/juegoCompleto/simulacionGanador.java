@@ -17,6 +17,8 @@ import org.junit.Test;
 import unidades.ProxiDeAtaque;
 import unidades.protoss.Zealot;
 
+import java.util.ArrayList;
+
 public class simulacionGanador {
     @Test
     public void Jugador1MataTodoDeJugador2YGana() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
@@ -25,13 +27,16 @@ public class simulacionGanador {
         JugadorTerran j2;
         ProxyMapa mapa = ProxyMapa.getInstance();
 
-        new CreadorDeMapa().crearMapa();
+        CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
+        creadorDeMapa.crearMapa();
+        ArrayList<Coordenadas> bases = creadorDeMapa.obtenerCoordenadasDeLasBases();
+
         Construccion c1,c3;
         Acceso c2;
         Zealot d;
 
-        j1 = (JugadorProtoss) juego.crearJugadorProtoss("manuel","rojo");
-        j2 = (JugadorTerran) juego.crearJugadorTerran("jorge", "azul");
+        j1 = (JugadorProtoss) juego.crearJugadorProtoss("manuel","rojo", bases.get(0));
+        j2 = (JugadorTerran) juego.crearJugadorTerran("jorge", "azul",bases.get(1));
         ProxiDeAtaque.inicializar(j1,j2);
         c1 =j1.construirNexoMineral(new Coordenadas(3, 23));
         for(int i = 0; i<c1.getTiempoDeConstruccion()*2; i++ ) {
