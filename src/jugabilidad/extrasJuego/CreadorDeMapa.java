@@ -7,26 +7,28 @@ import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
 import recursos.Cristal;
 import recursos.Volcan;
 
+import java.util.ArrayList;
+
 public class CreadorDeMapa {
 
     private void agregarMineralesAlMapa() throws ExcepcionNoSePudoAgregarAlMapa {
         ProxyMapa proxyMapa = ProxyMapa.getInstance();
 
         // Recursos en la esquina superior izquierda del mapa.
-        Coordenadas coordenadas = new Coordenadas(2,19);
+        Coordenadas coordenadas = new Coordenadas(3,23);
         Cristal cristal = new Cristal();
         proxyMapa.agregar(cristal,coordenadas);
 
-        coordenadas = new Coordenadas(4,16);
+        coordenadas = new Coordenadas(5,21);
         Volcan volcan = new Volcan();
         proxyMapa.agregar(volcan,coordenadas);
 
         // Recursos en la esquina inferior derecha del mapa.
-        coordenadas = new Coordenadas(19,2);
+        coordenadas = new Coordenadas(21,5);
         cristal = new Cristal();
         proxyMapa.agregar(cristal,coordenadas);
 
-        coordenadas = new Coordenadas(16,4);
+        coordenadas = new Coordenadas(23,3);
         volcan = new Volcan();
         proxyMapa.agregar(volcan,coordenadas);
 
@@ -36,24 +38,27 @@ public class CreadorDeMapa {
 
         ProxyMapa proxyMapa = ProxyMapa.getInstance();
 
-        Coordenadas coordenadas = new Coordenadas(9,10);
+        Coordenadas coordenadas = new Coordenadas(12,12);
         NullPosicionTerrestre nulo = new NullPosicionTerrestre();
 
         proxyMapa.agregar(nulo, coordenadas);
 
-        coordenadas = new Coordenadas(10,10);
+        coordenadas = new Coordenadas(12,13);
         proxyMapa.agregar(nulo, coordenadas);
 
-        coordenadas = new Coordenadas(9,11);
+        coordenadas = new Coordenadas(13,12);
         proxyMapa.agregar(nulo, coordenadas);
 
-        coordenadas = new Coordenadas(10,11);
+        coordenadas = new Coordenadas(13,13);
         proxyMapa.agregar(nulo, coordenadas);
 
-        coordenadas = new Coordenadas(11,12);
+        coordenadas = new Coordenadas(13,14);
         proxyMapa.agregar(nulo, coordenadas);
 
-        coordenadas = new Coordenadas(10,12);
+        coordenadas = new Coordenadas(14,13);
+        proxyMapa.agregar(nulo, coordenadas);
+
+        coordenadas = new Coordenadas(14,14);
         proxyMapa.agregar(nulo, coordenadas);
 
     }
@@ -61,7 +66,7 @@ public class CreadorDeMapa {
     public ProxyMapa crearMapa(){
 
         ProxyMapa proxyMapa = ProxyMapa.getInstance();
-        proxyMapa.setCoordenadasMaximas(20,20);
+        proxyMapa.setCoordenadasMaximas(25,25);
 
         try {
             this.agregarMineralesAlMapa();
@@ -75,6 +80,20 @@ public class CreadorDeMapa {
         }
 
         return proxyMapa;
+
+    }
+
+    public ArrayList<Coordenadas> obtenerCoordenadasDeLasBases(){
+
+        ArrayList<Coordenadas> bases = new ArrayList<>();
+
+        Coordenadas baseUno = new Coordenadas(4,22);
+        bases.add(baseUno);
+
+        Coordenadas baseDos = new Coordenadas(22,4);
+        bases.add(baseDos);
+
+        return ( bases );
 
     }
 
