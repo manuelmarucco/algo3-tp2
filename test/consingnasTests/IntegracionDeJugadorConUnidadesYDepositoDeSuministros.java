@@ -126,9 +126,9 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
     }
 
-    /* Al morir una unidad que usa un suministro deberian aumentar los suministros del jugador en uno. */
+    /* Test de creacion de unidades, con chequeo de suministros. */
     @Test
-    public void test10() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void test4() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
 
         CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
         ProxyMapa proxyMapa = creadorDeMapa.crearMapa();
@@ -173,6 +173,61 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
         this.lanzarUpdates(4,jugadorTerran);
         // Suministros 5. Usados 3.
         assertTrue(suministros.getSuministrosUsados() == 3);
+        assertTrue(jugadorTerran.buscarUnidad(marineTres));
+
+    }
+
+    /* Si envio tres unidades a crearse a la vez se deben crear de a una a la vez. */
+    @Test
+    public void test5() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+
+        CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
+        ProxyMapa proxyMapa = creadorDeMapa.crearMapa();
+        Vision vision  = new Vision();
+
+        Suministros suministros = new Suministros(0,0);
+        JugadorTerran jugadorTerran = new JugadorTerran(new Recursos(1000,1000),suministros);
+        jugadorTerran.setVisibilidad(vision);
+
+        Coordenadas coordenadas = new Coordenadas(8,18);
+        // Suministros 5. Usados 0.
+        jugadorTerran.construirDepositoDeSuministros(coordenadas);
+
+        // Para que se construya el deposito.
+        this.lanzarUpdates(6, jugadorTerran);
+
+        Coordenadas coordenadas2 = new Coordenadas(10,18);
+        Barraca barraca = jugadorTerran.construirBarraca(coordenadas2);
+
+        // Para que se construya la barraca.
+        this.lanzarUpdates(13, jugadorTerran);
+
+        Marine marineUno =  barraca.entrenarMarine();
+        Marine marineDos = barraca.entrenarMarine();
+        Marine marineTres = barraca.entrenarMarine();
+
+        // Para que se entrene el marine.
+        this.lanzarUpdates(4,jugadorTerran);
+        // Suministros 5. Usados 3. Solo un marine encontrado.
+        assertTrue(suministros.getSuministrosUsados() == 3);
+        assertTrue(jugadorTerran.buscarUnidad(marineUno));
+        assertFalse(jugadorTerran.buscarUnidad(marineDos));
+        assertFalse(jugadorTerran.buscarUnidad(marineTres));
+
+        // Para que se entrene el marine.
+        this.lanzarUpdates(4,jugadorTerran);
+        // Suministros 5. Usados 3. Dos marines encontrados.
+        assertTrue(suministros.getSuministrosUsados() == 3);
+        assertTrue(jugadorTerran.buscarUnidad(marineUno));
+        assertTrue(jugadorTerran.buscarUnidad(marineDos));
+        assertFalse(jugadorTerran.buscarUnidad(marineTres));
+
+        // Para que se entrene el marine.
+        this.lanzarUpdates(4,jugadorTerran);
+        // Suministros 5. Usados 3. Tres marines encontrados.
+        assertTrue(suministros.getSuministrosUsados() == 3);
+        assertTrue(jugadorTerran.buscarUnidad(marineUno));
+        assertTrue(jugadorTerran.buscarUnidad(marineDos));
         assertTrue(jugadorTerran.buscarUnidad(marineTres));
 
     }
