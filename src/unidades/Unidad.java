@@ -121,6 +121,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
 
     public void recibirDanio(int danio) {
         this.resistencia.quitar(danio);
+        this.matar();
     }
 
     public void mover(Coordenadas destino) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaSeMovioLaUnidad, ExcepcionMoverfueraDeRango {

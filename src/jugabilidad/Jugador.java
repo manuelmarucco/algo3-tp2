@@ -59,25 +59,31 @@ public abstract class Jugador implements Actualizable{
 				((Construccion) t).agregarse(e.getCoordenada());
 				//para evitar casteo hacer que Construible herede de Actualizable
 				edificiosEnConstruccion.remove(e);
+				i--;//por q al borrar baja en 1 el size
 			}
 			if(e.getVida()==0){
 				edificiosEnConstruccion.remove(e);
+				i--;//por q al borrar baja en 1 el size
 			}
 		}
 
 		for (int i = 0; i < construccionesCreadas.size(); i++) {
 			Construccion c = (Construccion) construccionesCreadas.get(i);
 			c.update();
-			if(c.getVida() == 0)
+			if(c.getVida() == 0) {
 				construccionesCreadas.remove(c);
+				i--;//por q al borrar baja en 1 el size
+			}
 		}
 
 		for (int i = 0; i < unidadesCreadas.size(); i++) {
 			Unidad c = (Unidad) unidadesCreadas.get(i);
 			c.update();
-			if(c.getVida() == 0)
+			if(c.getVida() == 0) {
 				unidadesCreadas.remove(c);
 				suministros.disminuirSuministrosLimiteActuales(c.getSuministro());
+				i--;//por q al borrar baja en 1 el size
+			}
 		}
 	}
 	

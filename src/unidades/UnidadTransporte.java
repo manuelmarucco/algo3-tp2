@@ -65,8 +65,7 @@ public abstract class UnidadTransporte extends Unidad {
             ProxyMapa mapa = ProxyMapa.getInstance();
             mapa.quitar(this);
             for (Cargable u:unidades){//mata a todas la unidades q carga
-                int d=((Unidad)u).getVida();
-                ((Unidad)u).recibirDanio(d);
+                ((Unidad)u).recibirDanio(500);
             }
         }
     }
