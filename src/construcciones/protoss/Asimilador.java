@@ -44,4 +44,10 @@ public class Asimilador extends CentroDeRecoleccion {
 
 	}
 
+	@Override
+	public void update() {
+		super.update();
+		recursosDeJugador.agregarRecursos(0, this.obtenerRecurso());
+	}
+
 }
