@@ -10,9 +10,9 @@ public class Vision {
 
     public void agregarSectorVisible(Coordenadas coordenadaDeUnidad, int visionDeUnidad){
         if(coordenadaDeUnidad==null) return;
-        for (int i = 0; i < 2 * visionDeUnidad; i++){
+        for (int i = 0; i <= 2 * visionDeUnidad; i++){
 
-            for (int j = 0; j < 2 * visionDeUnidad; j ++){
+            for (int j = 0; j <= 2 * visionDeUnidad; j ++){
 
                 Coordenadas punto = this.armarPuntoDeInicio(coordenadaDeUnidad,visionDeUnidad);
 
