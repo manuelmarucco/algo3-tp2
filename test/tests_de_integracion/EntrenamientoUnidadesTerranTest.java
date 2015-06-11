@@ -3,6 +3,7 @@ package tests_de_integracion;
 import construcciones.terran.Barraca;
 import construcciones.terran.Fabrica;
 import construcciones.terran.PuertoEstelar;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import jugabilidad.ProxyMapa;
@@ -17,12 +18,17 @@ import unidades.terrran.*;
 
 public class EntrenamientoUnidadesTerranTest {
 
+	ProxyMapa proxyMapa;
 	@Before
 	public void resetearProxy(){
 		ProxyMapa.resetear();
+
+		proxyMapa = ProxyMapa.getInstance();
+		proxyMapa.setCoordenadasMaximas(20,20);
 	}
+
 	@Test
-	public void entrenoMarineYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void entrenoMarineYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,0));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -38,7 +44,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoMarineYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void entrenoMarineYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(200,0));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -56,7 +62,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoGolliatYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void entrenoGolliatYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -81,14 +87,13 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoGolliatYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void entrenoGolliatYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
 		Fabrica f;
 		Golliat g;
 		int	 i1,i2,i3;
-
 
 		b = j.construirBarraca(new Coordenadas(1,4));
 		i1 = b.getTiempoDeConstruccion();
@@ -107,7 +112,7 @@ public class EntrenamientoUnidadesTerranTest {
 
 
 	@Test
-	public void entrenoEspectroYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void entrenoEspectroYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -131,7 +136,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoEspectreYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void entrenoEspectreYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -155,7 +160,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoNaveCienciaYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void entrenoNaveCienciaYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -179,7 +184,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoNaveCienciaYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void entrenoNaveCienciaYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -203,7 +208,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoNaveTransporteYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void entrenoNaveTransporteYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -227,7 +232,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoNaveTransporteYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void entrenoNaveTransporteYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;

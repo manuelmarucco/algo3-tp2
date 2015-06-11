@@ -25,14 +25,17 @@ import java.util.ArrayList;
 public class ConstruccionesTerranTest {
 
 	//////////////////////// Verificacion de construccion de cada edificio ////////
-
+	ProxyMapa proxyMapa;
 	@Before
 	public void resetearProxy(){
 		ProxyMapa.resetear();
+
+		proxyMapa = ProxyMapa.getInstance();
+		proxyMapa.setCoordenadasMaximas(20,20);
 	}
 
 	@Test
-	public void SeConstruyeUnaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void SeConstruyeUnaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
 		JugadorTerran jugador = new JugadorTerran(new Recursos(150,0));
 		jugador.setVisibilidad(Vision.VisionCompleta(20, 20));
@@ -121,7 +124,7 @@ public class ConstruccionesTerranTest {
 	}
 
 	@Test
-	public void SeConstruyeUnDepositoDeSuministrosYAumentanLosSuministrosLimitesActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void SeConstruyeUnDepositoDeSuministrosYAumentanLosSuministrosLimitesActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		Suministros suministros = new Suministros(0,0);
 		JugadorTerran j = new JugadorTerran(new Recursos(150,150),suministros);
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
@@ -172,7 +175,7 @@ public class ConstruccionesTerranTest {
 	}
 	
 	@Test
-	public void JugadorCreaFabricaConBarracaPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorCreaFabricaConBarracaPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran jugador = new JugadorTerran(new Recursos(1000,1000));
 		jugador.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -193,7 +196,7 @@ public class ConstruccionesTerranTest {
 	}
 	
 	@Test(expected = ExcepcionNecesitaConstruirBarraca.class)
-	public void JugadorQuiereCrearFabricaPeroNecesitaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorQuiereCrearFabricaPeroNecesitaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
 		Fabrica f;
 		Coordenadas coordenadas = new Coordenadas(5,6);
@@ -204,7 +207,7 @@ public class ConstruccionesTerranTest {
 	}
 	
 	@Test
-	public void JugadorCreaPuertoEstelarConFabricaPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorCreaPuertoEstelarConFabricaPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -225,7 +228,7 @@ public class ConstruccionesTerranTest {
 	}
 	
 	@Test(expected = ExcepcionNecesitaConstruirFabrica.class)
-	public void JugadorQuiereCrearPuertoEstelarPeroNecesitaFabrica() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorQuiereCrearPuertoEstelarPeroNecesitaFabrica() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
 		PuertoEstelar p;
 		Coordenadas coordenadas = new Coordenadas(8,8);
@@ -254,7 +257,7 @@ public class ConstruccionesTerranTest {
 	}
 
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
-	public void JugadorNoPuedeConstruirBarracaPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorNoPuedeConstruirBarracaPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		Barraca b;
 		Coordenadas coordenadas = new Coordenadas(1,8);
@@ -265,7 +268,7 @@ public class ConstruccionesTerranTest {
 	}
 	
 	@Test(expected = ExcepcionGasInsuficiente.class)
-	public void JugadorNoPuedeConstruirFabricaPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorNoPuedeConstruirFabricaPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,0));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -280,7 +283,7 @@ public class ConstruccionesTerranTest {
 	}
 	
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
-	public void JugadorNoPuedeConstruirPuertoEstelarPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorNoPuedeConstruirPuertoEstelarPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,100));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		PuertoEstelar p;
@@ -308,7 +311,7 @@ public class ConstruccionesTerranTest {
 	}
 	
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
-	public void JugadorNoPuedeConstruirDepositoDeSuministrosPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorNoPuedeConstruirDepositoDeSuministrosPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		DepositoDeSuministros d;
 		Coordenadas coordenadas = new Coordenadas(0,0);

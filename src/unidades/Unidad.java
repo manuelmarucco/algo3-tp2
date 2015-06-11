@@ -7,6 +7,7 @@ import interfaces.Actualizable;
 import interfaces.ColocableEnMapa;
 import interfaces.Entrenable;
 import interfaces.Hechizable;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
@@ -79,9 +80,9 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
     }
 
     @Override
-    public void agregarse(Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa{
+    public void agregarse(Mapa mapa, Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa{
 
-        this.ubicacion.agregarse(this,coordenadas);
+        this.ubicacion.agregarse(mapa,this,coordenadas);
 
     }
 

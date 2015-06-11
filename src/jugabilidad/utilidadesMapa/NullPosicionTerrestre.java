@@ -2,15 +2,16 @@ package jugabilidad.utilidadesMapa;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.ColocableEnMapa;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 
 public class NullPosicionTerrestre implements ColocableEnMapa {
 
 
     @Override
-    public void agregarse(Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa {
-        ProxyMapa proxyMapa = ProxyMapa.getInstance();
+    public void agregarse(Mapa mapa, Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa {
 
-        proxyMapa.agregarEnCapaTerrestre(this, coordenadas);
+        mapa.agregarEnCapaTerrestre(this, coordenadas);
+
     }
 }

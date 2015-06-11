@@ -25,8 +25,9 @@ public abstract class CentroDeEntrenamiento extends Construccion{
 
         Coordenadas c = mapa.getCoordenada(this);
         while(!agregadoAlMapa) {
+            ProxyMapa proxyMapa = ProxyMapa.getInstance();
             try {
-                unidad.agregarse(new Coordenadas(c.getX()+x,c.getY()+y));
+                proxyMapa.agregar(unidad, new Coordenadas(c.getX()+x,c.getY()+y));
                 agregadoAlMapa = true;
             } catch (ExcepcionNoSePudoAgregarAlMapa e) {
 

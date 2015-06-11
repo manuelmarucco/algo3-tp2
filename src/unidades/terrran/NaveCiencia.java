@@ -35,7 +35,6 @@ public class NaveCiencia extends UnidadMagica {
         d.recibirEMP();
     }
 
-
     public void Radiacion(Unidad objetivo) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         Coordenadas nc=ProxyMapa.getInstance().getCoordenada(this);

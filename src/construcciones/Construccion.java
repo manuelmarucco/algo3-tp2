@@ -10,6 +10,7 @@ import excepciones.construicciones.ExcepcionRecursosInsuficientes;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import interfaces.Daniable;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
@@ -53,9 +54,7 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Dania
 	}
 
 	@Override
-	public void agregarse(Coordenadas coordenadas) {
-
-		ProxyMapa mapa = ProxyMapa.getInstance();
+	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 
 		try {
 			mapa.agregarEnCapaTerrestre(this, coordenadas);

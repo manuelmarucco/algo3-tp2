@@ -7,6 +7,7 @@ import construcciones.terran.Refineria;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import interfaces.Recolectable;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
@@ -14,9 +15,7 @@ import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
 public abstract class Recurso implements ColocableEnMapa, Recolectable {
 
     @Override
-    public void agregarse(Coordenadas coordenadas) {
-
-        ProxyMapa mapa = ProxyMapa.getInstance();
+    public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 
         mapa.agregarEnCapaDeRecursos(this,coordenadas);
         // Agrego un NULL OBJECT para que no se pueda construir/caminar sobre los recursos.

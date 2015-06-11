@@ -1,6 +1,7 @@
 package tests_de_integracion;
 
 import construcciones.EdificioEnConstruccion;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
@@ -20,22 +21,24 @@ import unidades.terrran.Marine;
 
 public class DestruccionDeEdificios {
     @Test
-    public void SeDestruyeUnEdificioEnConstruccion() throws ExcepcionPosicionOcupada, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionNoSePuedeConstruir {
+    public void SeDestruyeUnEdificioEnConstruccion() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionNoSePuedeConstruir {
+        ProxyMapa proxyMapa = ProxyMapa.getInstance();
+        proxyMapa.setCoordenadasMaximas(20,20);
+
         JugadorProtoss j1 = new JugadorProtoss(new Recursos(1000,1000),new Suministros(0,20));
         JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(0,20));
         j1.setVisibilidad(Vision.VisionCompleta(20, 20));
         j2.setVisibilidad(Vision.VisionCompleta(20, 20));
         ProxiDeAtaque.inicializar(j2, j1);
-        ProxyMapa mapa=ProxyMapa.getInstance();
         Marine m = new Marine(Vision.VisionCompleta(10, 10));
         Coordenadas coordDePilon = new Coordenadas(7, 6);
         EdificioEnConstruccion edifEnConst;
 
-        mapa.agregarEnCapaTerrestre(m,new Coordenadas(7,5));
+        proxyMapa.agregar(m, new Coordenadas(7, 5));
         j2.agregarUnidad(m);
 
         j1.construirPilon(coordDePilon);
-        edifEnConst = (EdificioEnConstruccion) mapa.obtenerDeCapaTerrestre(coordDePilon);
+        edifEnConst = (EdificioEnConstruccion) proxyMapa.obtenerDeCapaTerrestre(coordDePilon);
 
         while(edifEnConst.getVida()!= 0){
             m.atacarTierra(edifEnConst);
@@ -44,6 +47,6 @@ public class DestruccionDeEdificios {
 
         j1.update();
 
-        Assert.assertFalse(mapa.posicionTerrestreOcupada(coordDePilon));
+        Assert.assertFalse(proxyMapa.posicionTerrestreOcupada(coordDePilon));
     }
 }

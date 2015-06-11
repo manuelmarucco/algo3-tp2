@@ -3,6 +3,7 @@ package tests_de_integracion;
 import construcciones.protoss.Acceso;
 import construcciones.protoss.Pilon;
 import construcciones.terran.DepositoDeSuministros;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
@@ -23,10 +24,15 @@ import unidades.protoss.Dragon;
 import unidades.terrran.Marine;
 
 public class ConstrucionesUnidadesYSuministros {
+    ProxyMapa proxyMapa;
     @Before
     public void resetearProxy(){
         ProxyMapa.resetear();
+
+        proxyMapa = ProxyMapa.getInstance();
+        proxyMapa.setCoordenadasMaximas(20, 20);
     }
+
     @Test
     public void NoPuedoEntrenarMasUnidadesPorLlegarALLimiteDeSuministros(){
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),new Suministros(4,5));// 4 usados, 5 limite
@@ -40,7 +46,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-     public void CreoVariosPilonesYAumentanLosSuministrosLimiteActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+     public void CreoVariosPilonesYAumentanLosSuministrosLimiteActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         Suministros s = new Suministros(0,0);
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),s);
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
@@ -57,7 +63,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void CreoVariosDepositosDeSuministrosYAumentanLosSuministrosLimiteActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void CreoVariosDepositosDeSuministrosYAumentanLosSuministrosLimiteActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         Suministros s = new Suministros(0,0);
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),s);
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
@@ -74,7 +80,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void CreoPilonesPeroNoPuedoSuperarLos200SuministrosMaximos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void CreoPilonesPeroNoPuedoSuperarLos200SuministrosMaximos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         Suministros s = new Suministros(0,191);
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),s);
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
@@ -92,7 +98,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void CreoDepositosDeSuministrosPeroNoPuedoSuperarLos200SuministrosMaximos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void CreoDepositosDeSuministrosPeroNoPuedoSuperarLos200SuministrosMaximos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         Suministros s = new Suministros(0,191);
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),s);
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
@@ -109,19 +115,21 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionNoSePuedeConstruir, ExcepcionYaActuo {
+    public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir, ExcepcionYaActuo {
+        ProxyMapa proxyMapa = ProxyMapa.getInstance();
+        proxyMapa.setCoordenadasMaximas(20,20);
+
         Suministros s = new Suministros(0,20);
         JugadorTerran j1 = new JugadorTerran(new Recursos(1000,1000),s);
         j1.setVisibilidad(Vision.VisionCompleta(20, 20));
         JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(0,20));
         j2.setVisibilidad(Vision.VisionCompleta(20, 20));
         ProxiDeAtaque.inicializar(j2, j1);
-        ProxyMapa mapa=ProxyMapa.getInstance();
         DepositoDeSuministros d;
         Marine m = new Marine(Vision.VisionCompleta(10,10));
         Coordenadas coordDeDepot = new Coordenadas(5, 6);
 
-        mapa.agregarEnCapaTerrestre(m,new Coordenadas(5,5));
+        proxyMapa.agregar(m, new Coordenadas(5, 5));
         j2.agregarUnidad(m);
 
         d = j1.construirDepositoDeSuministros(coordDeDepot);
@@ -139,23 +147,25 @@ public class ConstrucionesUnidadesYSuministros {
 
         Assert.assertEquals( 20,s.getSuministrosLimiteActuales());
         Assert.assertFalse(j1.buscarConstruccion(d));
-        Assert.assertTrue(mapa.posicionTerrestreOcupada(coordDeDepot));
+        Assert.assertTrue(proxyMapa.posicionTerrestreOcupada(coordDeDepot));
     }
 
     @Test
-    public void SeDestruyeUnPilonYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionNoSePuedeConstruir, ExcepcionYaActuo {
+    public void SeDestruyeUnPilonYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir, ExcepcionYaActuo {
+        ProxyMapa proxyMapa = ProxyMapa.getInstance();
+        proxyMapa.setCoordenadasMaximas(20,20);
+
         Suministros s = new Suministros(0,20);
         JugadorProtoss j1 = new JugadorProtoss(new Recursos(1000,1000),s);
         j1.setVisibilidad(Vision.VisionCompleta(20, 20));
         JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(1,20));
         j2.setVisibilidad(Vision.VisionCompleta(20, 20));
         ProxiDeAtaque.inicializar(j2, j1);
-        ProxyMapa mapa=ProxyMapa.getInstance();
         Pilon p;
         Marine m = new Marine(Vision.VisionCompleta(10,10));
         Coordenadas coordDePilon = new Coordenadas(7, 6);
 
-        mapa.agregarEnCapaTerrestre(m,new Coordenadas(7,5));
+        proxyMapa.agregar(m, new Coordenadas(7, 5));
         j2.agregarUnidad(m);
 
         p = j1.construirPilon(coordDePilon);
@@ -173,7 +183,7 @@ public class ConstrucionesUnidadesYSuministros {
 
         Assert.assertEquals( 20,s.getSuministrosLimiteActuales());
         Assert.assertFalse(j1.buscarConstruccion(p));
-        Assert.assertTrue(mapa.posicionTerrestreOcupada(coordDePilon));
+        Assert.assertTrue(proxyMapa.posicionTerrestreOcupada(coordDePilon));
     }
 
 }

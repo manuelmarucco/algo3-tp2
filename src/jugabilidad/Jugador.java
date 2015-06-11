@@ -2,10 +2,12 @@ package jugabilidad;
 
 import construcciones.Construccion;
 import construcciones.EdificioEnConstruccion;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.construicciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Actualizable;
+import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import interfaces.Entrenable;
 import jugabilidad.auxiliares.Recursos;
@@ -29,13 +31,13 @@ public abstract class Jugador implements Actualizable{
 	protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion = new ArrayList<>();
 
 
-	protected void 	construir(Construible construccionCreada,Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
-
+	protected void 	construir(Construible construccionCreada,Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+		ProxyMapa proxyMapa = ProxyMapa.getInstance();
 		construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados,coordenadas);
 
 		if(! this.visibilidad.esVisible(coordenadas))throw new ExcepcionNoSePuedeConstruir();
 		EdificioEnConstruccion edificioEnConstruccion = new EdificioEnConstruccion(coordenadas,construccionCreada);
-		edificioEnConstruccion.agregarse(coordenadas);
+		proxyMapa.agregar(edificioEnConstruccion, coordenadas);
 		edificiosEnConstruccion.add(edificioEnConstruccion);
 	}
 
@@ -55,12 +57,23 @@ public abstract class Jugador implements Actualizable{
 			e.disminuirTiempoDeConstruccion();
 
 			if (e.getTiempoDeConstruccion() == 0) {
+
 				Construible t = e.finalizarConstruccion();
 				construccionesCreadas.add(t);
-				((Construccion) t).agregarse(e.getCoordenada());
+
+				Coordenadas coordenadas = e.getCoordenada();
+				ProxyMapa proxyMapa = ProxyMapa.getInstance();
+
+				try {
+					proxyMapa.agregar((Construccion) t,coordenadas);
+				} catch (ExcepcionNoSePudoAgregarAlMapa excepcionNoSePudoAgregarAlMapa) {
+					excepcionNoSePudoAgregarAlMapa.printStackTrace();
+				}
+
 				//para evitar casteo hacer que Construible herede de Actualizable
 				edificiosEnConstruccion.remove(e);
 				i--;//por q al borrar baja en 1 el size
+
 			}
 			if(e.getVida()==0){
 				edificiosEnConstruccion.remove(e);

@@ -1,6 +1,7 @@
 package jugabilidad.RazaDeJugador;
 
 import construcciones.terran.*;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import jugabilidad.Jugador;
@@ -28,7 +29,7 @@ public class JugadorTerran extends Jugador {
         this.visibilidad = new Vision();
     }
 
-    public Barraca construirBarraca(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public Barraca construirBarraca(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         Barraca barraca = new Barraca(this);
 
         this.construir(barraca,coordenadas);
@@ -36,7 +37,7 @@ public class JugadorTerran extends Jugador {
         return barraca;
     }
 
-    public Fabrica construirFabrica(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public Fabrica construirFabrica(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         Fabrica fabrica = new Fabrica(this);
 
         this.construir(fabrica,coordenadas);
@@ -44,7 +45,7 @@ public class JugadorTerran extends Jugador {
         return fabrica;
     }
 
-    public PuertoEstelar construirPuertoEstelar(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public PuertoEstelar construirPuertoEstelar(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         PuertoEstelar puertoEstelar = new PuertoEstelar(this);
 
         this.construir(puertoEstelar,coordenadas);
@@ -52,7 +53,7 @@ public class JugadorTerran extends Jugador {
         return puertoEstelar;
     }
 
-    public DepositoDeSuministros construirDepositoDeSuministros(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public DepositoDeSuministros construirDepositoDeSuministros(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         DepositoDeSuministros depositoDeSuministros = new DepositoDeSuministros(this.suministros);
 
         this.construir(depositoDeSuministros,coordenadas);
@@ -60,7 +61,7 @@ public class JugadorTerran extends Jugador {
         return depositoDeSuministros;
     }
 
-    public CentroDeMineral construirCentroDeMineral(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public CentroDeMineral construirCentroDeMineral(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         CentroDeMineral centroDeMineral = new CentroDeMineral(this.recursosRecolectados);
 
         this.construir(centroDeMineral,coordenadas);
@@ -68,7 +69,7 @@ public class JugadorTerran extends Jugador {
         return centroDeMineral ;
     }
 
-    public Refineria construirRefineria(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public Refineria construirRefineria(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         Refineria refineria = new Refineria(this.recursosRecolectados);
 
         this.construir(refineria,coordenadas);

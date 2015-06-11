@@ -1,6 +1,7 @@
 package interfaces_tests;
 
 
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
@@ -29,8 +30,10 @@ public class AtacanteTest {
     }
 
     @Test
-    public void testAtacarAereo() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionYaActuo, ExcepcionNoPuedeAtacarAire {
-        ProxyMapa mapa =ProxyMapa.getInstance();
+    public void testAtacarAereo() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionNoPuedeAtacarAire {
+        ProxyMapa proxyMapa =ProxyMapa.getInstance();
+        proxyMapa.setCoordenadasMaximas(20,20);
+
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         ProxiDeAtaque.inicializar(j1,j2);
@@ -38,24 +41,27 @@ public class AtacanteTest {
         j1.agregarUnidad(golliat);
         Unidad objetivo = new NaveCiencia();
         j2.agregarUnidad(objetivo);
-        mapa.agregarEnCapaAerea(objetivo,new Coordenadas(5,5));
-        mapa.agregarEnCapaTerrestre(golliat, new Coordenadas(6, 5));
+        proxyMapa.agregar(objetivo, new Coordenadas(5, 5));
+        proxyMapa.agregar(golliat, new Coordenadas(6, 5));
         golliat.atacarAire(objetivo);
         Assert.assertEquals(190, objetivo.getVida());
     }
 
     @Test
-    public void testAtacarTerrestre() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionPosicionOcupada, ExcepcionYaActuo {
-        ProxyMapa mapa =ProxyMapa.getInstance();
+    public void testAtacarTerrestre() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
+        ProxyMapa proxyMapa =ProxyMapa.getInstance();
+        proxyMapa.setCoordenadasMaximas(20,20);
+
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
+
         ProxiDeAtaque.inicializar(j1, j2);
         UnidadGuerrera golliat = new Golliat();
         j1.agregarUnidad(golliat);
-        mapa.agregarEnCapaTerrestre(golliat, new Coordenadas(5, 5));
+        proxyMapa.agregar(golliat, new Coordenadas(5, 5));
         Unidad marine = new Marine();
         j2.agregarUnidad(golliat);
-        mapa.agregarEnCapaTerrestre(marine,new Coordenadas(6,5));
+        proxyMapa.agregar(marine, new Coordenadas(6, 5));
         golliat.atacarTierra(marine);
         Assert.assertEquals(28, marine.getVida());
     }

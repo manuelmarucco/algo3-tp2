@@ -24,7 +24,7 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
     }
 
     @Test
-    public void LosMarinesSeCreanAlrededorArribaDeLaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void LosMarinesSeCreanAlrededorArribaDeLaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),new Suministros(0,200));
         ProxyMapa mapa = ProxyMapa.getInstance();
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
@@ -56,22 +56,24 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
     }
     @Test
     public void BarracaRodeadaDeVolcanExceptoUnLugarYMarineSeAgregaEnEseLugar() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+        ProxyMapa proxyMapa =ProxyMapa.getInstance();
+        proxyMapa.setCoordenadasMaximas(20,20);
+
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),new Suministros(0,200));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
-        ProxyMapa mapa = ProxyMapa.getInstance();
-        mapa.setCoordenadasMaximas(10,10);
+        proxyMapa.setCoordenadasMaximas(10,10);
         Barraca b;
         Marine m;
         int tiempoDeEntrenamiento;
         Coordenadas cb = new Coordenadas(5,5);
 
-        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(4, 4));
-        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(5, 4));
-        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(6, 4));
-        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(6, 5));
-        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(4, 5));
-        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(4, 6));
-        mapa.agregarEnCapaTerrestre(new Volcan(), new Coordenadas(6, 6));
+        proxyMapa.agregar(new Volcan(), new Coordenadas(4, 4));
+        proxyMapa.agregar(new Volcan(), new Coordenadas(5, 4));
+        proxyMapa.agregar(new Volcan(), new Coordenadas(6, 4));
+        proxyMapa.agregar(new Volcan(), new Coordenadas(6, 5));
+        proxyMapa.agregar(new Volcan(), new Coordenadas(4, 5));
+        proxyMapa.agregar(new Volcan(), new Coordenadas(4, 6));
+        proxyMapa.agregar(new Volcan(), new Coordenadas(6, 6));
 
         b = j.construirBarraca(cb);
         for(int i=0; i<b.getTiempoDeConstruccion(); i++)  j.update();
@@ -81,7 +83,7 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
         for(int i=0; i<(tiempoDeEntrenamiento); i++)  j.update();
 
         Assert.assertTrue(j.buscarUnidad(m));
-        Assert.assertTrue(mapa.getCoordenada(m).equals(new Coordenadas(cb.getX(),cb.getY()+1)));
+        Assert.assertTrue(proxyMapa.getCoordenada(m).equals(new Coordenadas(cb.getX(), cb.getY() + 1)));
 
 
 

@@ -2,6 +2,7 @@ package construcciones;
 
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.Recolectable;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -12,9 +13,7 @@ public abstract class CentroDeRecoleccion extends Construccion {
     protected Recolectable estructuraRecolectable;
 
     @Override
-    public void agregarse(Coordenadas coordenadas) {
-
-        ProxyMapa mapa= ProxyMapa.getInstance();
+    public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 
         this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaDeRecursos(coordenadas);
 

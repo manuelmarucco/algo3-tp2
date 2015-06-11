@@ -2,6 +2,7 @@ package tests_de_integracion;
 
 import construcciones.terran.Barraca;
 import construcciones.terran.Fabrica;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import jugabilidad.ProxyMapa;
@@ -20,7 +21,10 @@ public class ConstruccionesEnElMapaTest {
     }
 
     @Test(expected = ExcepcionPosicionOcupada.class)
-    public void QuieroCrearUnaConstruccionSobreOtraPeroNoSeCrea() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void QuieroCrearUnaConstruccionSobreOtraPeroNoSeCrea() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+        ProxyMapa proxyMapa = ProxyMapa.getInstance();
+        proxyMapa.setCoordenadasMaximas(5,5);
+
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(5,5));
         Fabrica f;

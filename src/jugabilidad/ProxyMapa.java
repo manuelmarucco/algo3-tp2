@@ -41,27 +41,13 @@ public class ProxyMapa {
 
     }
 
+    // Agregar ----
+
     public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa {
 
-            validarCoordenadas(coordenadas);
-            colocable.agregarse(coordenadas);
+        validarCoordenadas(coordenadas);
+        colocable.agregarse(mapa,coordenadas);
 
-    }
-
-    // Metodos de Mapa ----
-
-    public void agregarEnCapaTerrestre(ColocableEnMapa colocable, Coordenadas coordenadas)
-            throws ExcepcionPosicionOcupada{
-        this.mapa.agregarEnCapaTerrestre(colocable, coordenadas);
-    }
-
-    public void agregarEnCapaAerea(ColocableEnMapa colocable, Coordenadas coordenadas)
-            throws ExcepcionPosicionOcupada{
-        this.mapa.agregarEnCapaAerea(colocable,coordenadas);
-    }
-
-    public void agregarEnCapaDeRecursos(ColocableEnMapa colocable, Coordenadas coordenadas){
-        this.mapa.agregarEnCapaDeRecursos(colocable, coordenadas);
     }
 
     // Obtener ---
@@ -98,7 +84,7 @@ public class ProxyMapa {
     public void mover(Coordenadas hasta, ColocableEnMapa unidad)
         throws ExcepcionNoSePudoAgregarAlMapa {
 
-        unidad.agregarse(hasta);
+        unidad.agregarse(mapa,hasta);
 
         mapa.quitar( (Unidad) unidad );
 

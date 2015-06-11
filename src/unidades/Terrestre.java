@@ -1,20 +1,17 @@
 package unidades;
 
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
 public class Terrestre implements Ubicacion {
 
     @Override
-    public void agregarse(ColocableEnMapa unidad,Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
-        ProxyMapa mapa = ProxyMapa.getInstance();
-        //try {
-            mapa.agregarEnCapaTerrestre(unidad, coordenadas);
-        //} catch (ExcepcionPosicionOcupada e) {
-         //   e.printStackTrace();
-       // }
-
+    public void agregarse(Mapa mapa, ColocableEnMapa unidad, Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
+        mapa.agregarEnCapaTerrestre(unidad,coordenadas);
     }
+
 }

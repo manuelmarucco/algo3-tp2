@@ -3,6 +3,7 @@ package tests_de_integracion;
 import construcciones.protoss.Acceso;
 import construcciones.protoss.ArchivosTemplarios;
 import construcciones.protoss.PortalEstelar;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import jugabilidad.ProxyMapa;
@@ -16,13 +17,17 @@ import org.junit.Test;
 import unidades.protoss.*;
 
 public class EntrenamientoUnidadesProtossTest {
+    ProxyMapa proxyMapa;
     @Before
     public void resetearProxy(){
         ProxyMapa.resetear();
+
+        proxyMapa = ProxyMapa.getInstance();
+        proxyMapa.setCoordenadasMaximas(20, 20);
     }
 
     @Test
-    public void entrenoZealotYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void entrenoZealotYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -40,7 +45,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoZealotYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void entrenoZealotYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -58,7 +63,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoDragonYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void entrenoDragonYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -76,7 +81,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoDragonYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void entrenoDragonYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -95,7 +100,7 @@ public class EntrenamientoUnidadesProtossTest {
 
 
     @Test
-    public void entrenoScoutYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void entrenoScoutYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -118,7 +123,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoScoutYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void entrenoScoutYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -143,7 +148,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoNaveCienciaYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void entrenoNaveCienciaYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -167,7 +172,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoAltoTemplarioYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void entrenoAltoTemplarioYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -191,7 +196,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoNaveTransporteYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void entrenoNaveTransporteYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -212,7 +217,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoNaveTransporteYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+    public void entrenoNaveTransporteYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;

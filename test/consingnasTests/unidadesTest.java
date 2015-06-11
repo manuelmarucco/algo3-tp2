@@ -34,11 +34,11 @@ public class unidadesTest {
         asignadorDeTurnos.agregarJugador(j1);
         asignadorDeTurnos.agregarJugador(j2);
         ProxyMapa.resetear();
-        mapa =ProxyMapa.getInstance();
-        mapa.setCoordenadasMaximas(10, 10);
         ProxiDeAtaque.inicializar(j1, j2);
         ProxyDeHechizos.inicializar(j1,j2);
-        v = Vision.VisionCompleta(10,10);
+        v = Vision.VisionCompleta(20,20);
+        this.mapa = ProxyMapa.getInstance();
+        mapa.setCoordenadasMaximas(20,20);
     }
 
     /*   Se construye  una nave de ciencia, se pasan turnos para que acumule la suficiente energía.
@@ -103,8 +103,6 @@ public class unidadesTest {
         Coordenadas c1 = new Coordenadas(1,1);
         Coordenadas c2 = new Coordenadas(6,5);
         Coordenadas c3 = new Coordenadas(6,6);
-        ProxyMapa.getInstance().setCoordenadasMaximas(10, 10);
-        ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(nc, c1);
         mapa.agregar(at, c2);
         mapa.agregar(zl,c3);
@@ -424,6 +422,7 @@ public class unidadesTest {
 
     @Test(expected = ExcepcionCargarUnidadEnemiga.class)
     public void naveTransporteNOCargaEnemigos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga {
+
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
         NaveTransporteProtoss nt = new NaveTransporteProtoss(v);

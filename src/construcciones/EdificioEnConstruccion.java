@@ -1,9 +1,11 @@
 package construcciones;
 
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import interfaces.Daniable;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
@@ -37,8 +39,8 @@ public class EdificioEnConstruccion implements ColocableEnMapa, Daniable {
     }
 
     @Override
-    public void agregarse( Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
-        ProxyMapa mapa = ProxyMapa.getInstance();
+    public void agregarse(Mapa mapa ,Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
+
         mapa.agregarEnCapaTerrestre(this, coordenadas);
 
     }
@@ -56,4 +58,5 @@ public class EdificioEnConstruccion implements ColocableEnMapa, Daniable {
     public int getVida() {
         return ((Construccion)construccionAConvertirse).getVida();
     }
+
 }

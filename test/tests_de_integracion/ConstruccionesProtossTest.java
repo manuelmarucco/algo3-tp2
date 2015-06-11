@@ -26,14 +26,17 @@ import java.util.ArrayList;
 public class ConstruccionesProtossTest {
 
 	//////////////////////// Verificacion de construccion de cada edificio ////////
-
+	ProxyMapa proxyMapa;
 	@Before
 	public void resetearProxy(){
 		ProxyMapa.resetear();
+
+		proxyMapa = ProxyMapa.getInstance();
+		proxyMapa.setCoordenadasMaximas(20,20);
 	}
 
 	@Test
-	public void SeConstruyeUnAcceso() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void SeConstruyeUnAcceso() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
@@ -123,7 +126,7 @@ public class ConstruccionesProtossTest {
 
 
 	@Test
-	public void SeConstruyeUnPilonYAumentanLosSuministrosLimitesActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void SeConstruyeUnPilonYAumentanLosSuministrosLimitesActuales() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		Suministros suministros = new Suministros(0,0);
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),suministros);
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
@@ -176,7 +179,7 @@ public class ConstruccionesProtossTest {
 	}
 	
 	@Test
-	public void JugadorCreaPortalEstelarConAccesoPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorCreaPortalEstelarConAccesoPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Acceso a;
@@ -197,7 +200,7 @@ public class ConstruccionesProtossTest {
 	}
 	
 	@Test(expected = ExcepcionNecesitaConstruirAcceso.class)
-	public void JugadorQuiereCrearPortalEstelarPeroNecesitaAcceso() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorQuiereCrearPortalEstelarPeroNecesitaAcceso() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		PortalEstelar p;
 		Coordenadas coordenadas = new Coordenadas(0,5);
@@ -208,7 +211,7 @@ public class ConstruccionesProtossTest {
 	}
 	
 	@Test
-	public void JugadorCreaArchivosTemplariosConPortalEstelarPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorCreaArchivosTemplariosConPortalEstelarPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Acceso a;
@@ -229,11 +232,11 @@ public class ConstruccionesProtossTest {
 	}
 	
 	@Test(expected = ExcepcionNecesitaConstruirPortalEstelar.class)
-	public void JugadorQuiereCrearArchivosTemplariosPeroNecesitaPortalEstelar() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorQuiereCrearArchivosTemplariosPeroNecesitaPortalEstelar() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
 		ArchivosTemplarios at;
 		
-		at = j.construirArchivosTemplarios(new Coordenadas(0,9));
+		at = j.construirArchivosTemplarios(new Coordenadas(1,9));
 
 		Assert.assertFalse(j.buscarConstruccion(at));
 	}
@@ -257,17 +260,17 @@ public class ConstruccionesProtossTest {
 	}
 	
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
-	public void JugadorNoPuedeConstruirAccesoPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorNoPuedeConstruirAccesoPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
 		Acceso a;
 		
-		a = j.construirAcceso(new Coordenadas(1,0));
+		a = j.construirAcceso(new Coordenadas(1,1));
 
 		Assert.assertFalse(j.buscarConstruccion(a));
 	}
 	
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
-	public void JugadorNoPuedeConstruirPortalEstelarPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorNoPuedeConstruirPortalEstelarPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Acceso a;
@@ -281,7 +284,7 @@ public class ConstruccionesProtossTest {
 	}
 	
 	@Test(expected = ExcepcionGasInsuficiente.class)
-	public void JugadorNoPuedeConstruirArchivosTemplariosPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorNoPuedeConstruirArchivosTemplariosPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,100));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Acceso a;
@@ -298,7 +301,7 @@ public class ConstruccionesProtossTest {
 	}
 	
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
-	public void JugadorNoPuedeConstruirPilonPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionPosicionOcupada {
+	public void JugadorNoPuedeConstruirPilonPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Pilon p;
