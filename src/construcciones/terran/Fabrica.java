@@ -59,9 +59,21 @@ public class Fabrica extends CentroDeEntrenamiento{
 		super.verificarRecursosDisponibles(recursosRecolectados);
 		
 	}
-	
+/*
+	@Override
+	public boolean habilitaAConstruir(Construccion c) {
+		return c.NecesitaFabrica();
+	}
+
+	@Override
+	public boolean NecesitaBarraca() {
+		return true;
+	}
+	*/
+
 	public boolean habilitaAConstruir(PuertoEstelar t) {
 		return true;
 	}
+
 
 }

@@ -4,8 +4,8 @@ import construcciones.protoss.ArchivosTemplarios;
 import construcciones.protoss.PortalEstelar;
 import construcciones.terran.Fabrica;
 import construcciones.terran.PuertoEstelar;
-import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
+import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.construicciones.ExcepcionRecursosInsuficientes;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
@@ -89,5 +89,12 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Dania
 	public boolean habilitaAConstruir(ArchivosTemplarios p){
 		return false;
 	}
+/*
+	@Override
+	public  abstract boolean habilitaAConstruir(Construccion c);
 
+	//public abstract boolean NecesitaBarraca();
+
+	public abstract boolean NecesitaFabrica();
+	*/
 }

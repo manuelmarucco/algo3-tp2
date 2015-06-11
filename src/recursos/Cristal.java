@@ -10,10 +10,11 @@ public class Cristal extends Recurso{
         return 10;
     }
 
-    public boolean noPuedeSerRecolectadoPor(Refineria refinera){
+
+    public boolean noPuedeSerRecolectadoPorr(Refineria refinera){
         return true;
     }
-    public boolean noPuedeSerRecolectadoPor(Asimilador asimilador){
+    public boolean noPuedeSerRecolectadoPorr(Asimilador asimilador){
         return true;
     }
 

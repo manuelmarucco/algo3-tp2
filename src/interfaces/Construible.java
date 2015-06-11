@@ -11,5 +11,5 @@ public interface Construible extends Actualizable{
 	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos r, Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir;
 
 	public int getTiempoDeConstruccion();
-	
+
 }

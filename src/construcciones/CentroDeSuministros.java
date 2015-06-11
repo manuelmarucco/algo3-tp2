@@ -23,4 +23,5 @@ public abstract class CentroDeSuministros extends Construccion {
         return capacidadExtra;
     }
 
+
 }

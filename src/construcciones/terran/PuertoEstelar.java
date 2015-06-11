@@ -53,6 +53,7 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 		
 	}
 
+
 	public Espectro entrenarEspectro() {
 		Espectro espectro = new Espectro(this.jugador.getVisibilidad());
 		try {
@@ -88,5 +89,7 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 		this.colaDeEntrenamiento.add(naveTransporte);
 		return naveTransporte;
 	}
+
+
 }
 

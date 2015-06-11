@@ -213,7 +213,6 @@ public class ConstruccionesTerranTest {
 		Barraca b;
 		Fabrica f;
 		PuertoEstelar p;
-		new Coordenadas(1,1);
 
 		b = j.construirBarraca(new Coordenadas(5,5));
 		for (int i = 0; i < b.getTiempoDeConstruccion(); i ++) j.update();
@@ -287,24 +286,18 @@ public class ConstruccionesTerranTest {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,100));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		PuertoEstelar p;
+		Barraca b;
+		Fabrica f;
 		Coordenadas coordenadas = new Coordenadas(2,9);
 		Coordenadas coordenadas2 = new Coordenadas(2,8);
 		Coordenadas coordenadas3 = new Coordenadas(2,7);
 
-		j.construirBarraca(coordenadas); //costo 150
-		j.update();
-		j.update();
-		j.update();
-		j.update();
-		j.update();
-		j.update();
-		j.update();
-		j.update();
-		j.update();
-		j.update();
-		j.update();
-		j.update();//despues de 12 turnos...
-		j.construirFabrica(coordenadas2); //costo 200,100
+		b = j.construirBarraca(coordenadas); //costo 150
+		for (int i = 0; i < b.getTiempoDeConstruccion(); i ++) j.update();
+
+		f = j.construirFabrica(coordenadas2); //costo 200,100
+		for (int i = 0; i < f.getTiempoDeConstruccion(); i ++) j.update();
+
 		p = j.construirPuertoEstelar(coordenadas3); //costo 150,100
 
 		Assert.assertFalse(j.buscarConstruccion(p));

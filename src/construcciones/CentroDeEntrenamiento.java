@@ -78,4 +78,5 @@ public abstract class CentroDeEntrenamiento extends Construccion{
         //this.regenerar.regenerar(this);
     }
 
+
 }

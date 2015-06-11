@@ -3,7 +3,6 @@ package construcciones;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.Recolectable;
 import jugabilidad.Mapa;
-import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
 
@@ -33,4 +32,5 @@ public abstract class CentroDeRecoleccion extends Construccion {
         return ( this.estructuraRecolectable.recolectarRecursos() );
 
     }
+
 }

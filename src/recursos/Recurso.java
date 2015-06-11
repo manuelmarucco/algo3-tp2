@@ -8,7 +8,6 @@ import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import interfaces.Recolectable;
 import jugabilidad.Mapa;
-import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
 
@@ -41,5 +40,7 @@ public abstract class Recurso implements ColocableEnMapa, Recolectable {
 
     public boolean noPuedeSerRecolectadoPor(Asimilador asimilador){return false;}
 
-
+/*
+    public  boolean noPuedeSerRecolectadoPor(Construccion construccion){return false;}
+*/
 }

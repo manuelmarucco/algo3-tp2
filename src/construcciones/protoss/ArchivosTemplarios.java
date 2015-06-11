@@ -54,6 +54,7 @@ public class ArchivosTemplarios extends CentroDeEntrenamiento {
 		
 	}
 
+
 	public AltoTemplario entrenarAltoTemplario() {
 		AltoTemplario a = new AltoTemplario(this.jugador.getVisibilidad());
 		try {
@@ -65,5 +66,6 @@ public class ArchivosTemplarios extends CentroDeEntrenamiento {
 		this.colaDeEntrenamiento.add(a);
 		return a;
 	}
+
 }
 
