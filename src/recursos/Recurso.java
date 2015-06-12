@@ -27,20 +27,17 @@ public abstract class Recurso implements ColocableEnMapa, Recolectable {
     }
 
     public boolean noPuedeSerRecolectadoPor(CentroDeMineral centroDeMineral){
-        return false;
+        return true;
     }
 
     public boolean noPuedeSerRecolectadoPor(Refineria refinera){
-        return false;
+        return true;
     }
 
     public boolean noPuedeSerRecolectadoPor(NexoMineral nexoMineral){
-        return false;
+        return true;
     }
 
-    public boolean noPuedeSerRecolectadoPor(Asimilador asimilador){return false;}
+    public boolean noPuedeSerRecolectadoPor(Asimilador asimilador){return true;}
 
-/*
-    public  boolean noPuedeSerRecolectadoPor(Construccion construccion){return false;}
-*/
 }

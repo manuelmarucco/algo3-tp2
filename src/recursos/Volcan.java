@@ -1,7 +1,7 @@
 package recursos;
 
-import construcciones.protoss.NexoMineral;
-import construcciones.terran.CentroDeMineral;
+import construcciones.protoss.Asimilador;
+import construcciones.terran.Refineria;
 
 public class Volcan extends Recurso {
 
@@ -10,9 +10,11 @@ public class Volcan extends Recurso {
         return 10;
     }
 
-    public boolean noPuedeSerRecolectadoPor(CentroDeMineral centroDeMineral){return true;}
+    public boolean noPuedeSerRecolectadoPor(Refineria refinera){
+        return false;
+    }
 
-    public boolean noPuedeSerRecolectadoPor(NexoMineral nexoMineral){
-        return true;
+    public boolean noPuedeSerRecolectadoPor(Asimilador asimilador){
+        return false;
     }
 }
