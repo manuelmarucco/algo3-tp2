@@ -52,6 +52,15 @@ public abstract class Jugador implements Actualizable{
 	@Override
 	public void update() {
 
+		for (int i = 0; i < construccionesCreadas.size(); i++) {
+			Construccion c = (Construccion) construccionesCreadas.get(i);
+			c.update();
+			if(c.getVida() == 0) {
+				construccionesCreadas.remove(c);
+				i--;//por q al borrar baja en 1 el size
+			}
+		}
+
 		for (int i = 0; i < edificiosEnConstruccion.size(); i++) {
 			EdificioEnConstruccion e = edificiosEnConstruccion.get(i);
 			e.disminuirTiempoDeConstruccion();
@@ -77,15 +86,6 @@ public abstract class Jugador implements Actualizable{
 			}
 			if(e.getVida()==0){
 				edificiosEnConstruccion.remove(e);
-				i--;//por q al borrar baja en 1 el size
-			}
-		}
-
-		for (int i = 0; i < construccionesCreadas.size(); i++) {
-			Construccion c = (Construccion) construccionesCreadas.get(i);
-			c.update();
-			if(c.getVida() == 0) {
-				construccionesCreadas.remove(c);
 				i--;//por q al borrar baja en 1 el size
 			}
 		}
