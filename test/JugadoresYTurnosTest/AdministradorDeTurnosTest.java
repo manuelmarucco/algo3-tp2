@@ -9,7 +9,7 @@ import org.junit.Test;
 public class AdministradorDeTurnosTest {
 
     @Test
-    public void creo3JugadoresYLosTurnosSonRotativos() {
+    public void creo2JugadoresYLosTurnosSonRotativos() {
 
         Juego juego = new Juego();
         Jugador j1, j2;
