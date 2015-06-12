@@ -56,6 +56,10 @@ public class Juego implements Actualizable{
         return jugador;
     }
 
+    public ArrayList<Coordenadas> getBases(){
+        return (this.bases);
+    }
+
     public ProxyMapa crearMapa(){
 
         ProxyMapa proxyMapa = this.creadorDeMapa.crearMapa();
