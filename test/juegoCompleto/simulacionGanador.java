@@ -44,7 +44,7 @@ public class simulacionGanador {
         ProxiDeAtaque.inicializar(j1, j2);
 
         c1 =j1.construirNexoMineral(new Coordenadas(3, 23)); //hay un cristal en 3,23 por defecto
-        for(int i = 0; i<c1.getTiempoDeConstruccion(); i++ ) {
+        for(int i = 0; i<c1.getTiempoDeConstruccion()*2; i++ ) {
             juego.update();
         }
 
@@ -53,17 +53,17 @@ public class simulacionGanador {
         }
 
         c2 = j1.construirAcceso(new Coordenadas(10, 23));
-        for(int i = 0; i<c2.getTiempoDeConstruccion(); i++ ) juego.update();
+        for(int i = 0; i<c2.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
         Pilon c4 = j1.construirPilon(new Coordenadas(7, 24));
-        for(int i = 0; i<c4.getTiempoDeConstruccion(); i++ ) juego.update();
+        for(int i = 0; i<c4.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
         c3 = j2.construirDepositoDeSuministros(new Coordenadas(10,24));
-        for(int i = 0; i<c3.getTiempoDeConstruccion(); i++ ) juego.update();
+        for(int i = 0; i<c3.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
         d = c2.entrenarZealot();
         int tiempo = d.getTiempoDeEntrenamiento();
-        for(int i = 0; i<tiempo; i++){ //TODO: si al tiempo se lo multiplica por 2 funciona.. esto no deberia pasar
+        for(int i = 0; i<tiempo; i++){
             juego.update();
         }
         d.mover(new Coordenadas(9,24));
@@ -102,7 +102,7 @@ public class simulacionGanador {
         ProxiDeAtaque.inicializar(j1, j2);
 
         c1 =j1.construirNexoMineral(new Coordenadas(3, 23)); //hay un cristal en 3,23 por defecto
-        for(int i = 0; i<c1.getTiempoDeConstruccion(); i++ ) {
+        for(int i = 0; i<c1.getTiempoDeConstruccion()*2; i++ ) {
             juego.update();
         }
 
@@ -111,17 +111,17 @@ public class simulacionGanador {
         }
 
         c2 = j1.construirAcceso(new Coordenadas(10, 23));
-        for(int i = 0; i<c2.getTiempoDeConstruccion(); i++ ) juego.update();
+        for(int i = 0; i<c2.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
         Pilon c4 = j1.construirPilon(new Coordenadas(7, 24));
-        for(int i = 0; i<c4.getTiempoDeConstruccion(); i++ ) juego.update();
+        for(int i = 0; i<c4.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
         c3 = j2.construirDepositoDeSuministros(new Coordenadas(10,24));
-        for(int i = 0; i<c3.getTiempoDeConstruccion(); i++ ) juego.update();
+        for(int i = 0; i<c3.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
         d = c2.entrenarZealot();
         int tiempo = d.getTiempoDeEntrenamiento();
-        for(int i = 0; i<tiempo*2; i++){ //TODO: si al tiempo se lo multiplica por 2 funciona.. esto no deberia pasar
+        for(int i = 0; i<tiempo*2; i++){ //Un turno equivale a que el jugador retome el control ( 2 subturnos)
             juego.update();
         }
         d.mover(new Coordenadas(9,24));
