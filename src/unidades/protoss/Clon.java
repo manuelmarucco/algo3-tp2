@@ -15,7 +15,6 @@ public class Clon extends Unidad implements ColocableEnMapa {
     @Override
     public void recibirDanio(int danio) {
         this.resistencia.quitar(danio);
-        this.matar();
     }
     @Override
     public void matar(){

@@ -14,9 +14,10 @@ import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.assertTrue;
 
 import java.util.ArrayList;
+
+import static org.junit.Assert.assertTrue;
 
 public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
 
@@ -34,7 +35,7 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
 
     }
 
-    // Verificación de recurso apropiado en la construccion de edificio recolector. Tests positivos
+    // Verificacion de recurso apropiado en la construccion de edificio recolector. Tests positivos
 
     @Test
     public void construirCentroDeMineralSobreCristal() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
@@ -108,7 +109,7 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
 
     }
 
-    // Verificación de recurso apropiado en la construccion de edificio recolector. Tests negativos
+    // Verificacion de recurso apropiado en la construccion de edificio recolector. Tests negativos
 
     @Test(expected = ExcepcionNoSePuedeConstruir.class)
     public void siIntentoColocarUnaRefineriaSobreUnCristalEsperoUnaExcepcion() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
