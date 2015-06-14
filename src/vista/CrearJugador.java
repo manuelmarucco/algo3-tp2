@@ -18,6 +18,7 @@ public class CrearJugador extends JFrame {
     private JLabel colorLabel;
     private JLabel razaLabel;
     private JButton aceptarButton;
+    private ImagePanel retrato;
 
     private void init(){
         aceptarButton.setIcon(new ImageIcon("src/vista/resourses/botonAceptar.png"));
@@ -25,10 +26,11 @@ public class CrearJugador extends JFrame {
         aceptarButton.setBorder(null);
         aceptarButton.setVerticalTextPosition(SwingConstants.BOTTOM);
         aceptarButton.setHorizontalTextPosition(SwingConstants.CENTER);
+
         this.add(panel1);
         raza.addItem("Terran");
         raza.addItem("Protoss");
-        raza.addActionListener(new SeleccionarRaza(this));
+        raza.addActionListener(new SeleccionarRaza(this,retrato));
         Icon icon = new IconoColor(java.awt.Color.red,"rojo");
         color.addItem(icon);
         icon = new IconoColor(java.awt.Color.BLUE,"azul");
@@ -51,10 +53,10 @@ public class CrearJugador extends JFrame {
         }
         raza.setFont(font);
         razaLabel.setFont(font);
-        razaLabel.setForeground(new Color(200,207,17));
+        razaLabel.setForeground(Color.WHITE);
         color.setFont(font);
         colorLabel.setFont(font);
-        colorLabel.setForeground(new Color(200,207,17));
+        colorLabel.setForeground(Color.WHITE);
         textField1.setFont(font);
         aceptarButton.setFont(font);
     }
@@ -70,7 +72,8 @@ public class CrearJugador extends JFrame {
     }
 
     private void createUIComponents() throws IOException, FontFormatException {
-        imagePanel1= new ImagePanel("src/vista/resourses/bg-crearJugador.jpg",400,300);
+        imagePanel1= new ImagePanel("src/vista/resourses/bg-creador.jpg",400,300);
+        retrato = new ImagePanel("src/vista/resourses/retratoTerran.jpg",100,152);
     }
 
     public JButton getAceptarButton() {
