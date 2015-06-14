@@ -27,8 +27,10 @@ public class MenuPrincipal extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CrearJugador jugador1 = new CrearJugador();
-                String[] args={"10"};
+                String[] args = {"10"};
                 jugador1.main(args);
+                JButton c = (JButton) (e.getSource());
+                c.setVisible(false);
             }
         });
 
@@ -45,9 +47,5 @@ public class MenuPrincipal extends JFrame {
         imageBackground = new ImagePanel("images/menu/background.jpg",1280,720);
     }
 
-
-    public JButton getJugarButton() {
-        return jugarBoton;
-    }
 
 }
