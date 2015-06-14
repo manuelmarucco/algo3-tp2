@@ -127,5 +127,10 @@ public class CrearJugador extends JDialog {
     public JButton getAceptarButton() {
         return aceptarButton;
     }
+
+    public void Mostra() {
+        this.pack();
+        this.setVisible(true);
+    }
 }
 

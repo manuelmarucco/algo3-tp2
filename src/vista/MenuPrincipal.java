@@ -27,8 +27,7 @@ public class MenuPrincipal extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 CrearJugador jugador1 = new CrearJugador();
-                String[] args = {"10"};
-                jugador1.main(args);
+                jugador1.Mostra();
                 JButton c = (JButton) (e.getSource());
                 c.setVisible(false);
             }
