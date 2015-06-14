@@ -26,7 +26,7 @@
         <children>
           <component id="cd077" class="javax.swing.JButton" binding="crearJugadorBoton">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="791" height="32"/>
               </grid>
             </constraints>
@@ -41,25 +41,15 @@
           </vspacer>
           <vspacer id="5b6fd">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
                 <preferred-size width="-1" height="20"/>
               </grid>
             </constraints>
           </vspacer>
-          <component id="35864" class="javax.swing.JButton" binding="button1" default-binding="true">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="7" anchor="0" fill="0" indent="0" use-parent-layout="false">
-                <preferred-size width="791" height="32"/>
-              </grid>
-            </constraints>
-            <properties>
-              <text value="Button"/>
-            </properties>
-          </component>
           <hspacer id="91929">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
-                <preferred-size width="1000" height="-1"/>
+                <preferred-size width="1000" height="139"/>
               </grid>
             </constraints>
           </hspacer>
@@ -70,9 +60,14 @@
               </grid>
             </constraints>
           </hspacer>
+          <vspacer id="1d414">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
           <component id="a90ee" class="javax.swing.JButton" binding="empezarJuegoButton" default-binding="true">
             <constraints>
-              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false">
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
                 <preferred-size width="246" height="20"/>
               </grid>
             </constraints>
@@ -83,18 +78,28 @@
               <verticalAlignment value="0"/>
             </properties>
           </component>
-          <vspacer id="1d414">
+          <component id="35864" class="javax.swing.JButton" binding="button1" default-binding="true">
             <constraints>
-              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="0" indent="0" use-parent-layout="false">
+                <preferred-size width="791" height="20"/>
+              </grid>
             </constraints>
-          </vspacer>
+            <properties>
+              <text value="Button"/>
+            </properties>
+          </component>
           <vspacer id="afc2f">
             <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="0" indent="0" use-parent-layout="false">
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false">
                 <preferred-size width="20" height="20"/>
               </grid>
             </constraints>
           </vspacer>
+          <hspacer id="19753">
+            <constraints>
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </hspacer>
         </children>
       </grid>
     </children>
