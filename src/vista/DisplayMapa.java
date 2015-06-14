@@ -13,7 +13,7 @@ public class DisplayMapa extends JFrame {
         DisplayMapa mapa = new DisplayMapa();
 
         mapa.pack();
-        mapa.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mapa.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         mapa.setVisible(true);
 
     }
