@@ -70,7 +70,7 @@ public class CrearJugador extends JFrame {
     }
 
     private void createUIComponents() throws IOException, FontFormatException {
-        imagePanel1= new ImagePanel("src/vista/resourses/bg-creador.jpg",400,300);
+        imagePanel1= new ImagePanel("src/vista/resourses/bg-crearJugador.jpg",400,300);
     }
 
     public JButton getAceptarButton() {

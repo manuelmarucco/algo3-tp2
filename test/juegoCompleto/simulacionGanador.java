@@ -7,12 +7,14 @@ import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.*;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.Juego;
+import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Vision;
 import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import unidades.ProxiDeAtaque;
 import unidades.protoss.Zealot;
@@ -20,6 +22,12 @@ import unidades.protoss.Zealot;
 import java.util.ArrayList;
 
 public class simulacionGanador {
+
+    @Before
+    public void resetProxy(){
+        ProxyMapa.resetear();
+    }
+
     @Test
     public void Jugador1MataTodoDeJugador2YGana() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
         Juego juego = new Juego();
