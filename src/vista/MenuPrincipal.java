@@ -11,8 +11,8 @@ public class MenuPrincipal extends JFrame {
     private JPanel background;
     private ImagePanel imageBackground;
     private JButton button1;
-    private JButton button2;
     private JButton crearJugadorBoton;
+    private JButton empezarJuegoButton;
 
     public MenuPrincipal(){
         this.init();
