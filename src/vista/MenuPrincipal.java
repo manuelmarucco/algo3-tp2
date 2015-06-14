@@ -10,21 +10,16 @@ public class MenuPrincipal extends JFrame {
 
     private JPanel background;
     private ImagePanel imageBackground;
-    private JButton button1;
-    private JButton crearJugadorBoton;
-    private JButton empezarJuegoButton;
+    private JButton juegarButton;
 
     public MenuPrincipal(){
         this.init();
     }
 
     private void init() {
-        //configuracion del boton de Crear Jugador
-        crearJugadorBoton.setIcon(new ImageIcon("images/boton.png"));
-        crearJugadorBoton.setMargin(new Insets(0, 0, 0, 0));
-        crearJugadorBoton.setBorder(null);
-        crearJugadorBoton.setVerticalTextPosition(SwingConstants.BOTTOM);
-        crearJugadorBoton.setHorizontalTextPosition(SwingConstants.CENTER);
+        juegarButton.setIcon(new ImageIcon("images/menu/botonJugar.png"));
+        juegarButton.setMargin(new Insets(0, 0, 0, 0));
+        juegarButton.setBorder(null);
 
         //configuracion del fondo de pantalla
         this.add(background);
