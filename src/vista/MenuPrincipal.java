@@ -1,11 +1,11 @@
 package vista;
 
+import Actions.AccionJugar;
+import jugabilidad.Juego;
 import vista.auxiliares.ImagePanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class MenuPrincipal extends JFrame {
@@ -19,22 +19,18 @@ public class MenuPrincipal extends JFrame {
     }
 
     private void init() {
+        //inicializacion del juego en general
+        Juego juego = new Juego();
+
         //configuracion del boton "Jugar"
         jugarBoton.setIcon(new ImageIcon("images/menu/botonJugar.png"));
         jugarBoton.setMargin(new Insets(0, 0, 0, 0));
         jugarBoton.setBorder(null);
-        jugarBoton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                CrearJugador jugador1 = new CrearJugador();
-                jugador1.Mostra();
-                JButton c = (JButton) (e.getSource());
-                c.setVisible(false);
-            }
-        });
+        jugarBoton.addActionListener(new AccionJugar(juego));
 
         //configuracion del fondo de pantalla
         this.add(background);
+
     }
 
     public static void main(String[] args){
