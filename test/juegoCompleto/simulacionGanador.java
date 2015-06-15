@@ -71,7 +71,7 @@ public class simulacionGanador {
 
         d = c2.entrenarZealot();
         int tiempo = d.getTiempoDeEntrenamiento();
-        for(int i = 0; i<tiempo; i++){
+        for(int i = 0; i<tiempo*2; i++){
             juego.update();
         }
         d.mover(new Coordenadas(9,24));
