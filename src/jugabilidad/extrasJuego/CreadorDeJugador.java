@@ -54,7 +54,7 @@ public class CreadorDeJugador {
 
     private void verificarNombre(String nombre) throws ExcepcionNoSePudoCrearElJugador {
 
-        if ( this.longitudDeNombreIncorrecta(nombre) )
+       if ( this.longitudDeNombreIncorrecta(nombre) )
             throw new ExcepcionNombreDeJugadorMenorACuatroCaracteres();
 
         if ( this.elNombreSeRepiteEnAlgunoDeLosOtrosJugadores(nombre) )
