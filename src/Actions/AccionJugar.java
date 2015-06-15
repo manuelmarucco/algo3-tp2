@@ -17,8 +17,8 @@ public class AccionJugar implements ActionListener {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            this.crearJugador("Crear Jugador 1");
             this.crearJugador("Crear Jugador 2");
+            this.crearJugador("Crear Jugador 1");
 
             JButton c = (JButton) (e.getSource());
             c.setVisible(false);

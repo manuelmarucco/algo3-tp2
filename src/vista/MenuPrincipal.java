@@ -36,6 +36,7 @@ public class MenuPrincipal extends JFrame {
     public static void main(String[] args){
         MenuPrincipal menuPrincipal = new MenuPrincipal();
         menuPrincipal.pack();
+        menuPrincipal.setExtendedState(JFrame.MAXIMIZED_BOTH);
         menuPrincipal.setVisible(true);
     }
     private void createUIComponents() throws IOException, FontFormatException {
