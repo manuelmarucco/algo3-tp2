@@ -50,6 +50,7 @@ public abstract class CentroDeEntrenamiento extends Construccion{
             jugador.getRecursos().gastarRecursos(unidad.getCosto());
         } catch (ExcepcionRecursosInsuficientes e) {
             e.printStackTrace();
+            //TODO La Excpecion no aporta la informacion necesaria. ¿Porqué no se puede entrenar unidad?
             throw new ExcepcionNoSePuedeEntrenarUnidad();
         }
 
@@ -57,6 +58,7 @@ public abstract class CentroDeEntrenamiento extends Construccion{
             jugador.usarSuministrosDisponibles(unidad.getSuministro());
         } catch (ExcepcionSuministrosInsuficientes e) {
             e.printStackTrace();
+              //TODO La Excpecion no aporta la informacion necesaria. ¿Porqué no se puede entrenar unidad?
             throw new ExcepcionNoSePuedeEntrenarUnidad();
         }
     }
