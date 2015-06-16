@@ -1,6 +1,5 @@
 package construcciones;
 
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
@@ -59,4 +58,7 @@ public class EdificioEnConstruccion implements ColocableEnMapa, Daniable {
         return ((Construccion)construccionAConvertirse).getVida();
     }
 
+    public void recibirRadiacion(int danio){}
+
+    public  void recibirEMP(){}
 }

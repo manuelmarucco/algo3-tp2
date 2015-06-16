@@ -3,10 +3,7 @@ package unidades;
 import excepciones.Unidades.ExcepcionMoverfueraDeRango;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionYaSeMovioLaUnidad;
-import interfaces.Actualizable;
-import interfaces.ColocableEnMapa;
-import interfaces.Entrenable;
-import interfaces.Hechizable;
+import interfaces.*;
 import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
@@ -141,6 +138,10 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
     }
     public int getTransporte(){
         return this.transporte;
+    }
+
+    public void recibirRadiacion(int danio){
+        this.recibirDanio(danio);
     }
 
 }

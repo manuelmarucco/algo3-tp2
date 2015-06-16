@@ -90,7 +90,9 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Dania
 		return false;
 	}
 
-	public  void recibirEMP(){};
+	public  void recibirEMP(){}
+
+	public void recibirRadiacion(int danio){}
 /*
 	@Override
 	public  abstract boolean habilitaAConstruir(Construccion c);

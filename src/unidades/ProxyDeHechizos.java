@@ -26,7 +26,7 @@ public class ProxyDeHechizos {
                 Hechizable objetivoTerrestre = (Hechizable)mapa.obtenerDeCapaTerrestre(coordenadas);
                 if(objetivoTerrestre!=null)
                     naveCiencia.EMP(objetivoTerrestre);
-                Hechizable objetivoAereo = (Hechizable)mapa.obtenerDeCapaTerrestre(coordenadas);
+                Hechizable objetivoAereo = (Hechizable)mapa.obtenerDeCapaAerea(coordenadas);
                 if(objetivoAereo!=null)
                     naveCiencia.EMP(objetivoAereo);
             }
