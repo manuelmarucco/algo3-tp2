@@ -64,6 +64,7 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
         return new ClonMagico((ResistenciaProtoss)this.resistencia,this.energia,this.vision,this.ubicacion,this.movilidad);
     }
 
+    //TODO cambiar nombre del método: getTransporte deberia devolver una instancia de una clase Transporte y está devolviendo un int (2)
     @Override
     public int getTransporte() {
         return 2;
@@ -71,11 +72,12 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
 
     @Override
     public void quitarse() {
-
+    //TODO ¡?
     }
 
     public void recibirEMP(){
         super.recibirEMP();
+        //TODO ¿Porqué los casteos?
         this.resistencia.quitar(((ResistenciaProtoss)resistencia).getEscudoActual());
     }
     public int getEscudo() {
