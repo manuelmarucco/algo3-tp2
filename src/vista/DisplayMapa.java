@@ -37,7 +37,7 @@ public class DisplayMapa extends JFrame {
         this.cargarImagenes();
 
         this.panel = new JPanel(new GridLayout(this.altoMapa,this.anchoMapa,0,0));
-        this.agregarContenidoA(panel);
+        this.agregarContenidoAlPanel();
 
         this.add(panel);
 
@@ -54,13 +54,13 @@ public class DisplayMapa extends JFrame {
 
     }
 
-    private void agregarContenidoA(JPanel panel){
+    private void agregarContenidoAlPanel(){
 
         for (int i = 0; i < this.altoMapa * this.anchoMapa; i++ ){
 
             JLabel label = new JLabel(new ImageIcon( imagenes[0] ) );
             label.setSize(32,32);
-            panel.add(label);
+            this.panel.add(label);
 
         }
 
