@@ -9,7 +9,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 public class Background extends JLabel {
-    double scale = 2;
+    double scale = 2; // setear de manera que el jugador vea una proporcion adecuada del mapa
     BufferedImage image = null;
 
     public Background(String fileDirectory) {

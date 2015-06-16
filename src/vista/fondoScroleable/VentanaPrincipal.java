@@ -45,7 +45,7 @@ public class VentanaPrincipal extends JFrame {
         this.add(scrollpane);
         this.pack();
         this.setSize(this.getWidth() / 2, this.getHeight() / 2);
-        this.setVisible(true);
+        this.setVisible(false);
 
     }
     public static void main(String[] args){

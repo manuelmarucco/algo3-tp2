@@ -4,6 +4,7 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
 import java.io.IOException;
 
 public class DisplayMapa extends JFrame {
@@ -17,6 +18,7 @@ public class DisplayMapa extends JFrame {
         DisplayMapa mapa = new DisplayMapa();
 
         mapa.pack();
+        mapa.setExtendedState(JFrame.MAXIMIZED_BOTH);
         mapa.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         mapa.setVisible(true);
 
@@ -29,6 +31,8 @@ public class DisplayMapa extends JFrame {
         this.init();
 
     }
+
+
 
     private void init(){
 
@@ -43,11 +47,15 @@ public class DisplayMapa extends JFrame {
 
     }
 
+
     private void cargarImagenes(){
 
         try{
             this.imagenes = new BufferedImage[1];
-            this.imagenes[0] = ImageIO.read(getClass().getResource("resourses/mapa/grass.jpg"));
+            //this.imagenes[0] = ImageIO.read(getClass().getResource("resourses/mapa/grass.jpg"));
+           // this.imagenes[0] = ImageIO.read(new FileInputStream("images/pastoDifuminado2.jpg"));
+           this.imagenes[0] = ImageIO.read(new FileInputStream("images/pasto.jpg"));
+            //this.imagenes[0] = ImageIO.read(new FileInputStream("images/rocas.jpg"));
         } catch ( IOException e){
             e.printStackTrace();
         }
