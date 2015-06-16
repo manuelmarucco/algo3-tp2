@@ -1,12 +1,15 @@
 package vista;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class DisplayMapa extends JFrame {
 
-    //private BufferedImage[] imagenes;
+    private BufferedImage[] imagenes;
     private int anchoMapa, altoMapa;
     private JPanel panel;
 
@@ -32,7 +35,7 @@ public class DisplayMapa extends JFrame {
 
         this.anchoMapa = 32 ;
         this.altoMapa = 32;
-        //this.cargarImagenes();
+        this.cargarImagenes();
 
         this.panel = new JPanel(new GridLayout(this.altoMapa,this.anchoMapa,1,1));
         this.agregarContenidoA(panel);
@@ -43,12 +46,12 @@ public class DisplayMapa extends JFrame {
 
     private void cargarImagenes(){
 
-        /*try{
+        try{
             this.imagenes = new BufferedImage[1];
-            this.imagenes[0] = ImageIO.read(new ImageIcon("/src/vista/resourses/mapa/grassTiles.png"));
+            this.imagenes[0] = ImageIO.read(getClass().getResource("resourses/mapa/grass.jpg"));
         } catch ( IOException e){
             e.printStackTrace();
-        }*/
+        }
 
     }
 
@@ -56,9 +59,8 @@ public class DisplayMapa extends JFrame {
 
         for (int i = 0; i < this.altoMapa * this.anchoMapa; i++ ){
 
-            JLabel label = new JLabel();
-            label.setIcon( new ImageIcon("src/vista/resourses/mapa/grassTiles.png") );
-            label.setText("8");
+            JLabel label = new JLabel(new ImageIcon( imagenes[0] ) );
+            label.setSize(32,32);
             panel.add(label);
 
         }
