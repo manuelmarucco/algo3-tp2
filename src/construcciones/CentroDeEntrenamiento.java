@@ -1,6 +1,7 @@
 package construcciones;
 
-import construicciones.ExcepcionNoSePuedeEntrenarUnidadPorRecursosInsuficientes;
+import excepciones.ExcepcionNoSePuedeEntrenarUnidadPorRecursosInsuficientes;
+import excepciones.ExcepcionNoSePuedeEntrenarUnidadPorSuministrosInsuficientes;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import excepciones.construicciones.ExcepcionRecursosInsuficientes;

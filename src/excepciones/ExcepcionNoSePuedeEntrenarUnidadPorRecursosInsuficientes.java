@@ -1,0 +1,6 @@
+package excepciones;
+
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
+
+public class ExcepcionNoSePuedeEntrenarUnidadPorRecursosInsuficientes extends ExcepcionNoSePuedeEntrenarUnidad {
+}
