@@ -16,7 +16,7 @@ public class Acceso extends CentroDeEntrenamiento {
 		costo = new Costo(150,0);
 		tiempoDeConstruccion = 8;
 	}
-
+	//TODO modificar nombre de variable j
 	public Acceso(Jugador j){
 		resistencia = new ResistenciaProtoss(500,500);
 		costo = new Costo(150,0);
@@ -27,14 +27,16 @@ public class Acceso extends CentroDeEntrenamiento {
 
 
 	public int getEscudo() {
+		//TODO no deberían castear.
 		return ((ResistenciaProtoss)resistencia).getEscudoActual();
 	}
-
+	//TODO modificar nombre de variable t
 	public boolean habilitaAConstruir(PortalEstelar t) {
 		return true;
 	}
 
 	public Zealot entrenarZealot(){
+		//TODO modificar nombre de variable z
 		Zealot z = new Zealot(this.jugador.getVisibilidad());
 		try {
 			this.validarCreacionUnidad(z);
@@ -47,6 +49,7 @@ public class Acceso extends CentroDeEntrenamiento {
 	}
 
 	public Dragon entrenarDragon(){
+		//TODO modificar nombre de variable d
 		Dragon d = new Dragon(this.jugador.getVisibilidad());
 		try {
 			this.validarCreacionUnidad(d);
