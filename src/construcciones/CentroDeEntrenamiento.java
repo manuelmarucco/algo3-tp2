@@ -30,7 +30,7 @@ public abstract class CentroDeEntrenamiento extends Construccion{
                 proxyMapa.agregar(unidad, new Coordenadas(c.getX()+x,c.getY()+y));
                 agregadoAlMapa = true;
             } catch (ExcepcionNoSePudoAgregarAlMapa e) {
-
+                //TODO mover está lógia inentendible de acá. Debería estar encapsulada en un método
                 if(y<1) y++;
                 else {
                     y = -1;
