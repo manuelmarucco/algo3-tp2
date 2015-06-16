@@ -8,8 +8,8 @@ import unidades.Unidad;
 
 public class Clon extends Unidad implements ColocableEnMapa {
 
-    public Clon(ResistenciaProtoss resistencia, int vision, Ubicacion ubicacion,int movilidad) {
-        super(resistencia,vision,ubicacion,0,new Costo(0,0),0,movilidad);
+    public Clon(ResistenciaProtoss resistencia, int vision, Ubicacion ubicacion,int movilidad,int transporte) {
+        super(resistencia,vision,ubicacion,0,new Costo(0,0),0,movilidad,null,transporte);
     }
 
     @Override

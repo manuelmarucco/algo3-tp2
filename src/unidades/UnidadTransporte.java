@@ -19,8 +19,8 @@ public abstract class UnidadTransporte extends Unidad {
     private static int tranporteMax = 8;
     private Queue<Cargable> unidades;
 
-    public UnidadTransporte(Resistencia resistencia,int vision, Ubicacion ubicacion, int suministros, Costo costo, int tiempoDeEntrenamiento,int movilidad, Vision visionJugador) {
-        super(resistencia,vision, ubicacion, suministros, costo, tiempoDeEntrenamiento,movilidad,visionJugador);
+    public UnidadTransporte(Resistencia resistencia,int vision, Ubicacion ubicacion, int suministros, Costo costo, int tiempoDeEntrenamiento,int movilidad, Vision visionJugador,int transporte) {
+        super(resistencia,vision, ubicacion, suministros, costo, tiempoDeEntrenamiento,movilidad,visionJugador,transporte);
         this.unidades= new LinkedList<>();
     }
 
@@ -46,7 +46,6 @@ public abstract class UnidadTransporte extends Unidad {
     public void descargar(Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         ProxyMapa proxy = ProxyMapa.getInstance();
-        //TODO: ver esto
         proxy.agregar((ColocableEnMapa) unidades.remove(), coordenadas);
         this.accion.actuo();
     }

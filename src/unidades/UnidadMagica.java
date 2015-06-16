@@ -8,8 +8,8 @@ public abstract class UnidadMagica extends Unidad{
 
     protected Energia energia;
 
-    public UnidadMagica(Resistencia resistencia, Energia energia, int vision, Ubicacion aereo, int suministros, Costo costo, int tiempoDeEntrenamiento,int movilidad, Vision visionJugador) {
-        super(resistencia,vision,aereo,suministros,costo,tiempoDeEntrenamiento,movilidad,visionJugador);
+    public UnidadMagica(Resistencia resistencia, Energia energia, int vision, Ubicacion aereo, int suministros, Costo costo, int tiempoDeEntrenamiento,int movilidad, Vision visionJugador,int transporte) {
+        super(resistencia,vision,aereo,suministros,costo,tiempoDeEntrenamiento,movilidad,visionJugador,transporte);
         this.energia=energia;
     }
     public UnidadMagica(Resistencia resistencia, Energia energia, int vision, Ubicacion aereo, int suministros, Costo costo, int tiempoDeEntrenamiento,int movilidad) {

@@ -3,6 +3,7 @@ package unidades.terrran;
 import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
+import interfaces.Hechizable;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
@@ -15,7 +16,7 @@ public class NaveCiencia extends UnidadMagica {
         super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10,8);
     }
     public NaveCiencia(Vision visionJugador){
-        super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10,8,visionJugador);
+        super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10,8,visionJugador,0);
     }
 
     public void EMP(Coordenadas c) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
@@ -30,8 +31,8 @@ public class NaveCiencia extends UnidadMagica {
 
     }
 
-    public void EMP(Unidad d){
-        if(d!=null)//TODO: sacar esto
+    public void EMP(Hechizable d){
+        if(d!=null)
         d.recibirEMP();
     }
 
@@ -45,7 +46,7 @@ public class NaveCiencia extends UnidadMagica {
         } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
-        if(ProxyDeHechizos.esUnidad(objetivo))
+        if(objetivo!=null)
         objetivo.irradiar();
         this.accion.actuo();
     }

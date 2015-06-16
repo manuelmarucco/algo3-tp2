@@ -15,21 +15,11 @@ public class Dragon extends UnidadGuerrera implements Cargable {
     }
 
     public Dragon(Vision visionJugador){
-        super(new ResistenciaProtoss(100, 80), new Danio(20, 20, 4, 4), 8, new Terrestre(), 2, new Costo(125, 50), 6,6,visionJugador);
+        super(new ResistenciaProtoss(100, 80), new Danio(20, 20, 4, 4), 8, new Terrestre(), 2, new Costo(125, 50), 6,6,visionJugador,4);
     }
 
     public ColocableEnMapa getClone() {
-        return null;// TODO:implementar
-    }
-
-    @Override
-    public int getTransporte() {
-        return 4;
-    }
-
-    @Override
-    public void quitarse() {
-
+        return new ClonGuerrero((ResistenciaProtoss)this.resistencia,this.vision,this.ubicacion,this.movilidad,this.transporte);
     }
 
     public int getEscudo() {

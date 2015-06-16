@@ -12,8 +12,8 @@ public abstract class UnidadGuerrera extends Unidad {
 
     protected Danio danio;
 
-    public UnidadGuerrera(Resistencia resistencia,Danio danio,int vision,Ubicacion ubicacion,int suministros,Costo costo,int tiempoDeEntrenamiento,int movilidad,Vision visionJugador){
-        super(resistencia,vision,ubicacion,suministros,costo,tiempoDeEntrenamiento,movilidad,visionJugador);
+    public UnidadGuerrera(Resistencia resistencia,Danio danio,int vision,Ubicacion ubicacion,int suministros,Costo costo,int tiempoDeEntrenamiento,int movilidad,Vision visionJugador,int transporte){
+        super(resistencia,vision,ubicacion,suministros,costo,tiempoDeEntrenamiento,movilidad,visionJugador,transporte);
         this.danio=danio;
     }
 

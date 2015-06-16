@@ -16,7 +16,7 @@ import unidades.UnidadGuerrera;
 public class Zealot extends UnidadGuerrera implements Cargable {
 
     public Zealot(Vision visionJugador){
-        super(new ResistenciaProtoss(100,60),new Danio(8,0,1,0),7,new Terrestre(),2,new Costo(100,0),4,5,visionJugador);
+        super(new ResistenciaProtoss(100,60),new Danio(8,0,1,0),7,new Terrestre(),2,new Costo(100,0),4,5,visionJugador,2);
     }
 
     public Zealot(){
@@ -28,17 +28,7 @@ public class Zealot extends UnidadGuerrera implements Cargable {
     }
 
     public ColocableEnMapa getClone() {
-        return new ClonGuerrero((ResistenciaProtoss)this.resistencia,this.vision,this.ubicacion,this.movilidad); // TODO:implementar
-    }
-
-    @Override
-    public int getTransporte() {
-        return 2;
-    }
-
-    @Override
-    public void quitarse() {
-
+        return new ClonGuerrero((ResistenciaProtoss)this.resistencia,this.vision,this.ubicacion,this.movilidad,this.transporte);
     }
 
     public void atacarAire(Daniable objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada, ExcepcionYaActuo, ExcepcionNoPuedeAtacarAire {

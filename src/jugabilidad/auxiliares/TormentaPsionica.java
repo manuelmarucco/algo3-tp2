@@ -4,7 +4,6 @@ import interfaces.Daniable;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Danio;
-import unidades.ProxyDeHechizos;
 
 public class TormentaPsionica {
 
@@ -24,11 +23,11 @@ public class TormentaPsionica {
                 Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);
                 if(mapa.posicionAereaOcupada(coordenadas)){
                     Daniable objetivo = (Daniable)mapa.obtenerDeCapaAerea(coordenadas);
-                    if(ProxyDeHechizos.esUnidad(objetivo)) objetivo.recibirDanio(danio.getDanioAire());
+                    if(objetivo!=null) objetivo.recibirRadiacion(danio.getDanioAire());
                 }
                 if(mapa.posicionTerrestreOcupada(coordenadas)) {
                     Daniable objetivo = (Daniable) mapa.obtenerDeCapaAerea(coordenadas);
-                    if (ProxyDeHechizos.esUnidad(objetivo)) objetivo.recibirDanio(danio.getDanioTierra());
+                    if (objetivo!=null) objetivo.recibirRadiacion(danio.getDanioTierra());
                 }
             }
         }

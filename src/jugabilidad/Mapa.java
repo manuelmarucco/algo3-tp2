@@ -111,9 +111,12 @@ public class Mapa {
 		return null;
 	}
 
-	public void quitar(Unidad unidad) {//TODO:hacer un quitar capaAerea y capaTerrestre
+	public void quitar(Unidad unidad) {
 		Coordenadas c =this.getCoordenada(unidad);
+		if(this.capaTerrestre.get(c)==unidad)
 			this.capaTerrestre.remove(c);
+		if(this.capaAerea.get(c)==unidad)
+			this.capaAerea.remove(c);
 	}
 
 }
