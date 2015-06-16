@@ -92,5 +92,6 @@ public class CrearJugador extends JDialog {
     public String getColorJugador() {
         return color.getSelectedItem().toString();
     }
+
 }
 

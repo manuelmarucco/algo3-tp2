@@ -1,5 +1,6 @@
 package construcciones;
 
+import construicciones.ExcepcionNoSePuedeEntrenarUnidadPorRecursosInsuficientes;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import excepciones.construicciones.ExcepcionRecursosInsuficientes;
@@ -51,7 +52,7 @@ public abstract class CentroDeEntrenamiento extends Construccion{
         } catch (ExcepcionRecursosInsuficientes e) {
             e.printStackTrace();
             //TODO La Excpecion no aporta la informacion necesaria. ¿Porqué no se puede entrenar unidad?
-            throw new ExcepcionNoSePuedeEntrenarUnidad();
+            throw new ExcepcionNoSePuedeEntrenarUnidadPorRecursosInsuficientes();
         }
 
         try {
@@ -59,7 +60,7 @@ public abstract class CentroDeEntrenamiento extends Construccion{
         } catch (ExcepcionSuministrosInsuficientes e) {
             e.printStackTrace();
               //TODO La Excpecion no aporta la informacion necesaria. ¿Porqué no se puede entrenar unidad?
-            throw new ExcepcionNoSePuedeEntrenarUnidad();
+            throw new ExcepcionNoSePuedeEntrenarUnidadPorSuministrosInsuficientes();
         }
     }
 

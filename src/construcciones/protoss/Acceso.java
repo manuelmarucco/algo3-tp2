@@ -16,12 +16,12 @@ public class Acceso extends CentroDeEntrenamiento {
 		costo = new Costo(150,0);
 		tiempoDeConstruccion = 8;
 	}
-	//TODO modificar nombre de variable j
-	public Acceso(Jugador j){
+
+	public Acceso(Jugador jugador){
 		resistencia = new ResistenciaProtoss(500,500);
 		costo = new Costo(150,0);
 		tiempoDeConstruccion = 8;
-		this.jugador = j;
+		this.jugador = jugador;
 	}
 
 
@@ -30,35 +30,33 @@ public class Acceso extends CentroDeEntrenamiento {
 		//TODO no deberían castear.
 		return ((ResistenciaProtoss)resistencia).getEscudoActual();
 	}
-	//TODO modificar nombre de variable t
-	public boolean habilitaAConstruir(PortalEstelar t) {
+
+	public boolean habilitaAConstruir(PortalEstelar portalEstelar) {
 		return true;
 	}
 
 	public Zealot entrenarZealot(){
-		//TODO modificar nombre de variable z
-		Zealot z = new Zealot(this.jugador.getVisibilidad());
+		Zealot zealot = new Zealot(this.jugador.getVisibilidad());
 		try {
-			this.validarCreacionUnidad(z);
+			this.validarCreacionUnidad(zealot);
 		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
 			e.printStackTrace();
-			return z;
+			return zealot;
 		}
-		this.colaDeEntrenamiento.add(z);
-		return z;
+		this.colaDeEntrenamiento.add(zealot);
+		return zealot;
 	}
 
 	public Dragon entrenarDragon(){
-		//TODO modificar nombre de variable d
-		Dragon d = new Dragon(this.jugador.getVisibilidad());
+		Dragon dragon = new Dragon(this.jugador.getVisibilidad());
 		try {
-			this.validarCreacionUnidad(d);
+			this.validarCreacionUnidad(dragon);
 		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
 			e.printStackTrace();
-			return d;
+			return dragon;
 		}
-		this.colaDeEntrenamiento.add(d);
-		return d;
+		this.colaDeEntrenamiento.add(dragon);
+		return dragon;
 	}
 
 }

@@ -330,7 +330,7 @@ public class ConstruccionesTerranTest {
 		Assert.assertFalse(j.buscarConstruccion(r));
 	}
 
-	////////////CentrosDeRecoleccion sobre lugares donde no hay un recursos
+	////////////Construcciones no recolectoras sobre lugares donde hay recursos
 
 	@Test(expected = ExcepcionPosicionOcupada.class)
 	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
