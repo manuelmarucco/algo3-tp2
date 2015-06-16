@@ -15,7 +15,7 @@ public class NaveCiencia extends UnidadMagica {
         super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10,8);
     }
     public NaveCiencia(Vision visionJugador){
-        super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10,8,visionJugador);
+        super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10,8,visionJugador,0);
     }
 
     public void EMP(Coordenadas c) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
@@ -31,7 +31,7 @@ public class NaveCiencia extends UnidadMagica {
     }
 
     public void EMP(Unidad d){
-        if(d!=null)//TODO: sacar esto
+        if(d!=null)
         d.recibirEMP();
     }
 

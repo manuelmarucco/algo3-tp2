@@ -14,16 +14,7 @@ public class Golliat extends UnidadGuerrera implements Cargable {
     }
 
     public Golliat(Vision visionJugador){
-        super(new ResistenciaTerran(125),new Danio(12,10,6,5),8,new Terrestre(),2, new Costo(100,50),6,6,visionJugador);
+        super(new ResistenciaTerran(125),new Danio(12,10,6,5),8,new Terrestre(),2, new Costo(100,50),6,6,visionJugador,2);
     }
 
-    @Override
-    public int getTransporte() {
-        return 2;
-    }
-
-    @Override
-    public void quitarse() {
-
-    }
 }

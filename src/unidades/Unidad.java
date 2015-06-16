@@ -26,8 +26,9 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
     protected int tiempoDeEntrenamiento;
     protected EstadoDeAccion accion;
     protected int movilidad;
+    protected int transporte;
 
-    protected Unidad(Resistencia resistencia,int vision,Ubicacion ubicacion,int suministro,Costo costo,int tiempoDeEntrenamiento,int movilidad,Vision visionJugador){
+    protected Unidad(Resistencia resistencia,int vision,Ubicacion ubicacion,int suministro,Costo costo,int tiempoDeEntrenamiento,int movilidad,Vision visionJugador,int transporte){
         this.resistencia= resistencia;
         this.estado=new EstadoNormal();
         this.vision=vision;
@@ -38,6 +39,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
         this.accion=new NoActuo();
         this.movilidad=movilidad;
         this.visionJugador=visionJugador;
+        this.transporte=transporte;
     }
 
     public Unidad(Resistencia resistencia, int vision, Ubicacion ubicacion, int suministro, Costo costo, int tiempoDeEntrenamiento, int movilidad) {
@@ -136,6 +138,9 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
         mapa.mover(destino, this);
 
         this.accion= this.accion.movio();
+    }
+    public int getTransporte(){
+        return this.transporte;
     }
 
 }

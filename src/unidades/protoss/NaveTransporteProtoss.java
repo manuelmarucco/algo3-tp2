@@ -13,7 +13,7 @@ public class NaveTransporteProtoss extends UnidadTransporte {
     }
 
     public NaveTransporteProtoss(Vision visionJugador){
-        super(new ResistenciaProtoss(80,60),8,new Aereo(),2,new Costo(200,0),8,6,visionJugador);
+        super(new ResistenciaProtoss(80,60),8,new Aereo(),2,new Costo(200,0),8,6,visionJugador,0);
     }
 
     public ColocableEnMapa getClone() {

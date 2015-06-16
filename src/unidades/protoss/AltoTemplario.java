@@ -21,34 +21,33 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
     }
 
     public AltoTemplario(Vision visionJugador){
-        super(new ResistenciaProtoss(40, 40), new Energia(200, 50, 10), 7, new Terrestre(), 2, new Costo(50, 150), 7,5,visionJugador);
+        super(new ResistenciaProtoss(40, 40), new Energia(200, 50, 10), 7, new Terrestre(), 2, new Costo(50, 150), 7, 5, visionJugador, 2);
     }
 
-    public void tormentaPsionica(Coordenadas c, JugadorProtoss duenio) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void tormentaPsionica(Coordenadas coordenadas, JugadorProtoss duenio) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         Coordenadas at= ProxyMapa.getInstance().getCoordenada(this);
         ProxyMapa mapa = ProxyMapa.getInstance();
-        if(at.distancia(c)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
+        if(at.distancia(coordenadas)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         try {
             this.energia.gastar(75);
         } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
-        duenio.agregarTormenta(new TormentaPsionica(c));
+        duenio.agregarTormenta(new TormentaPsionica(coordenadas));
         this.accion.actuo();
     }
 
     public void alucinacion(Unidad objetivo,Coordenadas destino1,Coordenadas destino2) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
-        Coordenadas obj=ProxyMapa.getInstance().getCoordenada(objetivo);
-        Coordenadas at= ProxyMapa.getInstance().getCoordenada(this);
+        Coordenadas coordenadasObjetivo=ProxyMapa.getInstance().getCoordenada(objetivo);
+        Coordenadas coordenadasAltoTemplario= ProxyMapa.getInstance().getCoordenada(this);
         ProxyMapa mapa = ProxyMapa.getInstance();
-        if(obj.distancia(at)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
-        if(obj.distancia(destino1)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
-        if(obj.distancia(destino2)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
+        if(coordenadasObjetivo.distancia(coordenadasAltoTemplario)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
+        if(coordenadasObjetivo.distancia(destino1)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
+        if(coordenadasObjetivo.distancia(destino2)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
         try {
             this.energia.gastar(100);
-
             // Por el proxy agrego que tiran excepciones
             mapa.agregar(objetivo.getClone(), destino1);
             mapa.agregar(objetivo.getClone(), destino2);
@@ -61,18 +60,7 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
     }
 
     public ColocableEnMapa getClone() {
-        return new ClonMagico((ResistenciaProtoss)this.resistencia,this.energia,this.vision,this.ubicacion,this.movilidad);
-    }
-
-    //TODO cambiar nombre del método: getTransporte deberia devolver una instancia de una clase Transporte y está devolviendo un int (2)
-    @Override
-    public int getTransporte() {
-        return 2;
-    }
-
-    @Override
-    public void quitarse() {
-    //TODO ¡?
+        return new ClonMagico((ResistenciaProtoss)this.resistencia,this.energia,this.vision,this.ubicacion,this.movilidad,this.transporte);
     }
 
     public void recibirEMP(){

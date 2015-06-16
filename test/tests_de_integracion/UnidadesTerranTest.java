@@ -134,7 +134,7 @@ public class UnidadesTerranTest {
         Assert.assertEquals(2, at.getEscudo());
         Assert.assertEquals(14,at.getVida());
     }
-    //TODO: arreglar este test
+
     @Test
     public void testAltoTemplarioSeClonaYUnaNaveDeCienciaMataAlosClones() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
