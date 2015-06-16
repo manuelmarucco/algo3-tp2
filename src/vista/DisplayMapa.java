@@ -4,7 +4,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class DisplayMapa extends JFrame {
@@ -33,11 +32,11 @@ public class DisplayMapa extends JFrame {
 
     private void init(){
 
-        this.anchoMapa = 32 ;
-        this.altoMapa = 32;
+        this.anchoMapa = 32 ; // En cantidad de tiles.
+        this.altoMapa = 32; // En cantidad de tiles.
         this.cargarImagenes();
 
-        this.panel = new JPanel(new GridLayout(this.altoMapa,this.anchoMapa,1,1));
+        this.panel = new JPanel(new GridLayout(this.altoMapa,this.anchoMapa,0,0));
         this.agregarContenidoA(panel);
 
         this.add(panel);
