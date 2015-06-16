@@ -89,6 +89,8 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Dania
 	public boolean habilitaAConstruir(ArchivosTemplarios p){
 		return false;
 	}
+
+	public  void recibirEMP(){};
 /*
 	@Override
 	public  abstract boolean habilitaAConstruir(Construccion c);

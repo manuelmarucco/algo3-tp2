@@ -66,7 +66,7 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
     public void recibirEMP(){
         super.recibirEMP();
         //TODO ¿Porqué los casteos?
-        this.resistencia.quitar(((ResistenciaProtoss)resistencia).getEscudoActual());
+        this.resistencia.quitar(this.getEscudo());
     }
     public int getEscudo() {
         return ((ResistenciaProtoss) resistencia).getEscudoActual();

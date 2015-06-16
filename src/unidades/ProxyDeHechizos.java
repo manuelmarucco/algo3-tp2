@@ -2,6 +2,7 @@ package unidades;
 
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import interfaces.Cargable;
+import interfaces.Hechizable;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -22,22 +23,17 @@ public class ProxyDeHechizos {
         for(int i =-1;i<2;i++){
             for(int j =-1;j<2;j++){
                 Coordenadas coordenadas =new Coordenadas(coordenada.getX()+i, coordenada.getY()+j);
-                Unidad objetivoTerrestre = (Unidad)mapa.obtenerDeCapaTerrestre(coordenadas);
-                //TODO ¿Para qué preguntan si "esUnidad" ? Estos ifs no tienen que estar.
-                if(ProxyDeHechizos.esUnidad(objetivoTerrestre))naveCiencia.EMP(objetivoTerrestre);
-                Unidad objetivoAereo = (Unidad)mapa.obtenerDeCapaTerrestre(coordenadas);
-                if(ProxyDeHechizos.esUnidad(objetivoAereo))naveCiencia.EMP(objetivoAereo);
-                naveCiencia.EMP((Unidad)mapa.obtenerDeCapaAerea(coordenadas));//aplicar emp
+                Hechizable objetivoTerrestre = (Hechizable)mapa.obtenerDeCapaTerrestre(coordenadas);
+                if(objetivoTerrestre!=null)
+                    naveCiencia.EMP(objetivoTerrestre);
+                Hechizable objetivoAereo = (Hechizable)mapa.obtenerDeCapaTerrestre(coordenadas);
+                if(objetivoAereo!=null)
+                    naveCiencia.EMP(objetivoAereo);
             }
         }
     }
 
-    public static boolean esUnidad(Object objetivo){
-        if(objetivo==null) return false;
-        return(!jugador1.buscarConstruccion(objetivo)||!jugador2.buscarConstruccion(objetivo));
-    }
-
-    public static boolean esEnemigo(UnidadTransporte unidadTransporte, Cargable unidad) {
+    public static boolean esEnemigo(Unidad unidadTransporte, Cargable unidad) {
         if(jugador2.buscarUnidad(unidadTransporte)&&jugador2.buscarUnidad(unidad)) return false;
         if(jugador1.buscarUnidad(unidadTransporte)&&jugador1.buscarUnidad(unidad)) return false;
         return true;

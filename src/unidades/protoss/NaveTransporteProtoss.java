@@ -17,7 +17,7 @@ public class NaveTransporteProtoss extends UnidadTransporte {
     }
 
     public ColocableEnMapa getClone() {
-        return null;// TODO:implementar
+        return new ClonTransporte((ResistenciaProtoss)this.resistencia,this.vision,this.ubicacion,this.movilidad,this.transporte);
     }
 
     public int getEscudo() {
