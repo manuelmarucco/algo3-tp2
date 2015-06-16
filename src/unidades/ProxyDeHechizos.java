@@ -16,6 +16,7 @@ public class ProxyDeHechizos {
         jugador2=j2;
     }
 
+    //TODO cambiar nombres de las VARIABLES !!! "nc" no se entiende que es ! tampoco "c"
     public static void EMP(NaveCiencia nc,Coordenadas c) throws ExcepcionObjetivoFueraDeRango {
         ProxyMapa mapa = ProxyMapa.getInstance();
         if(nc.getVision()<c.distancia(mapa.getCoordenada(nc))) throw new ExcepcionObjetivoFueraDeRango();
@@ -23,6 +24,7 @@ public class ProxyDeHechizos {
             for(int j =-1;j<2;j++){
                 Coordenadas coordenadas =new Coordenadas(c.getX()+i, c.getY()+j);
                 Unidad objetivoTerrestre = (Unidad)mapa.obtenerDeCapaTerrestre(coordenadas);
+                //TODO ¿Para qué preguntan si "esUnidad" ? Estos ifs no tienen que estar.
                 if(ProxyDeHechizos.esUnidad(objetivoTerrestre))nc.EMP(objetivoTerrestre);
                 Unidad objetivoAereo = (Unidad)mapa.obtenerDeCapaTerrestre(coordenadas);
                 if(ProxyDeHechizos.esUnidad(objetivoAereo))nc.EMP(objetivoAereo);
