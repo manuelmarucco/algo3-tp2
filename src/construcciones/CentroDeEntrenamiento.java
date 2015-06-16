@@ -1,5 +1,6 @@
 package construcciones;
 
+import excepciones.ExcepcionNoSePudoCrearUnidadPorNoTenerEspacioAlrededorDeEdificio;
 import excepciones.ExcepcionNoSePuedeEntrenarUnidadPorRecursosInsuficientes;
 import excepciones.ExcepcionNoSePuedeEntrenarUnidadPorSuministrosInsuficientes;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
@@ -20,26 +21,23 @@ public abstract class CentroDeEntrenamiento extends Construccion{
    // protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<>();
     protected Jugador jugador;
 
-    private void crearUnidad(Entrenable unidad) {
+    private void crearUnidad(Entrenable unidad) throws ExcepcionNoSePudoCrearUnidadPorNoTenerEspacioAlrededorDeEdificio {
         boolean agregadoAlMapa = false;
-        int x = -1,y = -1;
         ProxyMapa mapa = ProxyMapa.getInstance();
+        Coordenadas coordenadaDeEdificio = mapa.getCoordenada(this);
+        Coordenadas coordenadaDeUnidad = new Coordenadas(coordenadaDeEdificio.getX()-1,coordenadaDeEdificio.getY()-1);
 
-        Coordenadas c = mapa.getCoordenada(this);
         while(!agregadoAlMapa) {
-            ProxyMapa proxyMapa = ProxyMapa.getInstance();
             try {
-                proxyMapa.agregar(unidad, new Coordenadas(c.getX()+x,c.getY()+y));
+                mapa.agregar(unidad, coordenadaDeUnidad);
                 agregadoAlMapa = true;
             } catch (ExcepcionNoSePudoAgregarAlMapa e) {
-                //TODO mover está lógia inentendible de acá. Debería estar encapsulada en un método
-                if(y<1) y++;
-                else {
-                    y = -1;
-                    if (x<1) x++;
-                    else e.printStackTrace();
+                if(!this.modicarCoordenadaAlrededorDeEdificio(coordenadaDeUnidad)){
+                   throw new ExcepcionNoSePudoCrearUnidadPorNoTenerEspacioAlrededorDeEdificio();
                 }
-                //Si no pudo agregarlo alrededor no lo agrega
+                //Se modifica la coordenada de tal manera que la unidad se ubique alrededor del edificio.
+                //Si no puede ubicarlo en ninguna de las posiciones de alrededor, entonces no lo agrega y devuelve
+                //la excepcion
             }
         }
         jugador.agregarUnidad(unidad);
@@ -47,20 +45,35 @@ public abstract class CentroDeEntrenamiento extends Construccion{
 
     }
 
+    private boolean modicarCoordenadaAlrededorDeEdificio(Coordenadas coordenadaDeUnidad) {
+        ProxyMapa mapa = ProxyMapa.getInstance();
+        Coordenadas coordenadaDeEdificio = mapa.getCoordenada(this);
+
+        if(coordenadaDeUnidad.getX()<1+coordenadaDeEdificio.getX()){
+                    coordenadaDeUnidad.aumentarX(1);
+        }
+        else {
+            coordenadaDeUnidad.aumentarX(-2);
+            if (coordenadaDeUnidad.getY() < 1 + coordenadaDeEdificio.getY()) {
+                coordenadaDeUnidad.aumentarY(1);
+            } else return false;
+        }
+
+        return true;
+
+        }
+
+
     protected void validarCreacionUnidad(Entrenable unidad) throws ExcepcionNoSePuedeEntrenarUnidad {
         try {
             jugador.getRecursos().gastarRecursos(unidad.getCosto());
         } catch (ExcepcionRecursosInsuficientes e) {
-            e.printStackTrace();
-            //TODO La Excpecion no aporta la informacion necesaria. ¿Porqué no se puede entrenar unidad?
             throw new ExcepcionNoSePuedeEntrenarUnidadPorRecursosInsuficientes();
         }
 
         try {
             jugador.usarSuministrosDisponibles(unidad.getSuministro());
         } catch (ExcepcionSuministrosInsuficientes e) {
-            e.printStackTrace();
-              //TODO La Excpecion no aporta la informacion necesaria. ¿Porqué no se puede entrenar unidad?
             throw new ExcepcionNoSePuedeEntrenarUnidadPorSuministrosInsuficientes();
         }
     }
@@ -76,7 +89,11 @@ public abstract class CentroDeEntrenamiento extends Construccion{
             unidad.disminuirTiempoDeEntrenamiento();
 
             if(unidad.getTiempoDeEntrenamiento() == 0){
-                this.crearUnidad(unidad);
+                try {
+                    this.crearUnidad(unidad);
+                } catch (ExcepcionNoSePudoCrearUnidadPorNoTenerEspacioAlrededorDeEdificio e) {
+                    e.printStackTrace();
+                }
             }
         }
         //this.regenerar.regenerar(this);
