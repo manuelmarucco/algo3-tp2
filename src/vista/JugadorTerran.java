@@ -41,7 +41,8 @@ public class JugadorTerran extends JFrame {
 
         this.crearPaneles();
 
-        this.add(this.contenedor);
+
+        this.add(new JScrollPane(this.contenedor));
 
     }
 
@@ -60,6 +61,7 @@ public class JugadorTerran extends JFrame {
     private void crearContenedor(){
 
         this.contenedor = new JPanel();
+        this.contenedor.setLayout(new BoxLayout(this.contenedor, BoxLayout.Y_AXIS));
 
     }
 
@@ -74,13 +76,14 @@ public class JugadorTerran extends JFrame {
     private void crearPanelMapa(){
 
         this.panelMapa = new JPanel();
-        this.panelMapa.add( new DisplayMapa(200,200) );
+        this.panelMapa.add(new DisplayMapa(200,200));
+        this.panelMapa.setPreferredSize(new Dimension(700,500));
 
     }
 
     private void crearPanelBotonera(){
 
-        this.panelBotonera = new JPanel( new GridLayout(2,2,0,2) );
+        this.panelBotonera = new JPanel( new GridLayout(2,2,0,0) );
 
         this.panelBotonera.add(new JLabel("Construcciones"));
         this.panelBotonera.add(new JLabel("Unidades"));
