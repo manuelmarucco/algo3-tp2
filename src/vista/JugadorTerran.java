@@ -86,8 +86,18 @@ public class JugadorTerran extends JFrame {
 
         this.panelBotonera = new JPanel( new GridLayout(2,2,0,0) );
 
-        this.panelBotonera.add(new JLabel("Construcciones"));
-        this.panelBotonera.add(new JLabel("Unidades"));
+        JLabel tituloConstrucciones = new JLabel("Construcciones");
+        tituloConstrucciones.setVerticalAlignment(JLabel.CENTER);
+        tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
+
+        this.panelBotonera.add(tituloConstrucciones);
+
+        JLabel tituloUnidades = new JLabel("Unidades");
+        tituloUnidades.setVerticalAlignment(JLabel.CENTER);
+        tituloUnidades.setHorizontalAlignment(JLabel.CENTER);
+
+        this.panelBotonera.add(tituloUnidades);
+
         this.panelBotonera.add( new BotoneraDeConstruccionesTerran() );
         this.panelBotonera.add( new BotoneraDeUnidadesTerran() );
 

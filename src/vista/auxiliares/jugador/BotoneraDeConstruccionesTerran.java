@@ -36,7 +36,7 @@ public class BotoneraDeConstruccionesTerran extends JPanel {
 
     private void init(){
 
-        this.panel = new JPanel( new GridLayout(3,2,1,1));
+        this.panel = new JPanel( new GridLayout(2,3,1,1));
 
         this.crearBotones();
         this.agregarBotonesAlPanel();
