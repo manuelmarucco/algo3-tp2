@@ -41,7 +41,6 @@ public class JugadorTerran extends JFrame {
 
         this.crearPaneles();
 
-
         this.add(new JScrollPane(this.contenedor));
 
     }
@@ -69,7 +68,8 @@ public class JugadorTerran extends JFrame {
 
         this.panelRecursos = new JPanel();
 
-        this.panelRecursos.add( new DisplayRecursos(700,30) );
+        this.panelRecursos.add( new DisplayRecursos() );
+        this.panelRecursos.setPreferredSize( new Dimension(700, 25) );
 
     }
 

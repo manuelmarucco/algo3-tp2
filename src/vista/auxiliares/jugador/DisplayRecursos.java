@@ -21,16 +21,15 @@ public class DisplayRecursos extends JPanel {
     */
     // Metodos ------------------------------
 
-    public DisplayRecursos(int ancho, int alto){
+    public DisplayRecursos(){
 
-        this.init(ancho, alto);
+        this.init();
 
     }
 
-    private void init(int ancho, int alto){
+    private void init(){
 
         this.panel = new JPanel( new GridLayout(1,3,0,3));
-        this.panel.setSize(ancho, alto);
         this.cargarImagenes();
 
         this.agregarIndicadores();
