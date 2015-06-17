@@ -23,20 +23,19 @@ public class DisplayMapa extends JPanel {
     */
     // Metodos -----
 
-    public DisplayMapa(int ancho, int alto){
+    public DisplayMapa(){
 
-        this.init(ancho, alto);
+        this.init();
 
     }
 
-    private void init(int ancho, int alto){
+    private void init(){
 
         this.cantidadTilesHorizontales = 32 ; // En cantidad de tiles.
         this.cantidadTilesVerticales = 32; // En cantidad de tiles.
         this.cargarImagenes();
 
         this.panel = new JPanel(new GridLayout(this.cantidadTilesHorizontales,this.cantidadTilesVerticales,0,0));
-        this.panel.setSize(alto, ancho);
         this.agregarContenidoAlPanel();
 
         this.add(panel);

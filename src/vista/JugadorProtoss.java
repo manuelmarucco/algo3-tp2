@@ -4,6 +4,9 @@ import vista.auxiliares.jugador.*;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
+import java.awt.event.MouseMotionListener;
 
 public class JugadorProtoss extends JFrame {
 
@@ -12,7 +15,7 @@ public class JugadorProtoss extends JFrame {
     private JPanel contenedor;
 
     private JPanel panelRecursos;
-    private JPanel panelMapa;
+    private JScrollPane panelMapa;
     private JPanel panelBotonera;
 
     // Main ---------------------------
@@ -73,8 +76,34 @@ public class JugadorProtoss extends JFrame {
 
     private void crearPanelMapa(){
 
-        this.panelMapa = new JPanel();
-        this.panelMapa.add(new DisplayMapa(200,200));
+        JPanel contenedor = new JPanel(new GridBagLayout());
+        contenedor.add(new DisplayMapa());
+
+        this.panelMapa = new JScrollPane(contenedor);
+        this.panelMapa.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        this.panelMapa.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+
+        MouseMotionListener doScrollRectToVisible = new MouseMotionAdapter() {
+            @Override
+            public void mouseMoved(MouseEvent e) {
+                //mousePosition.setLocation(e.getX(),e.getY());
+                Rectangle r = new Rectangle(e.getX()-80, e.getY()-80, 120, 120);
+
+                // while(x == e.getX() &&  y == e.getY())
+                ((JPanel) e.getSource()).scrollRectToVisible(r);
+
+            }
+
+            ///Para que se mueva mas rapido hay que setearle mas grande los limites del rectangulo
+            //---------------
+            //Se puede hacer con "mouseDragged" y la unica diferencia es que hay que hacer click,mantener apretado
+            //y pararte sobre el borde de la imagen y se mueve solo. Para que funcione bien bien va a ver que meterle
+            //unos bordes laterales.
+        };
+
+        contenedor.addMouseMotionListener(doScrollRectToVisible);
+        contenedor.setAutoscrolls(true);
+
         this.panelMapa.setPreferredSize(new Dimension(700,500));
 
     }
