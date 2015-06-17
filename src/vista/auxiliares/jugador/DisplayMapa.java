@@ -1,4 +1,4 @@
-package vista;
+package vista.auxiliares.jugador;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -50,7 +50,7 @@ public class DisplayMapa extends JPanel {
             //this.imagenes[0] = ImageIO.read(getClass().getResource("resourses/mapa/grass.jpg"));
            // this.imagenes[0] = ImageIO.read(new FileInputStream("images/pastoDifuminado2.jpg"));
            //this.imagenes[0] = ImageIO.read(new FileInputStream("images/pasto.jpg"));
-            this.imagenes[0] = ImageIO.read(getClass().getResource("pasto.jpg"));
+            this.imagenes[0] = ImageIO.read(getClass().getResource("imagenesMapa/pasto.jpg"));
             //this.imagenes[0] = ImageIO.read(new FileInputStream("images/rocas.jpg"));
         } catch ( IOException e){
             e.printStackTrace();

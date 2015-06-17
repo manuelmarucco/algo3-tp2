@@ -2,6 +2,7 @@ package vista;
 
 import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
 import vista.auxiliares.jugador.BotoneraDeUnidadesTerran;
+import vista.auxiliares.jugador.DisplayMapa;
 import vista.auxiliares.jugador.DisplayRecursos;
 
 import javax.swing.*;
