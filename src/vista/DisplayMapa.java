@@ -7,46 +7,41 @@ import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
 
-public class DisplayMapa extends JFrame {
+public class DisplayMapa extends JPanel {
 
     private BufferedImage[] imagenes;
-    private int anchoMapa, altoMapa;
+    private int cantidadTilesVerticales, cantidadTilesHorizontales;
     private JPanel panel;
-
+    /*
     public static void main(String[] args){
 
         DisplayMapa mapa = new DisplayMapa();
 
-        mapa.pack();
-        mapa.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        mapa.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         mapa.setVisible(true);
 
     }
-
+    */
     // Metodos -----
 
-    public DisplayMapa(){
+    public DisplayMapa(int ancho, int alto){
 
-        this.init();
+        this.init(ancho, alto);
 
     }
 
+    private void init(int ancho, int alto){
 
-
-    private void init(){
-
-        this.anchoMapa = 32 ; // En cantidad de tiles.
-        this.altoMapa = 32; // En cantidad de tiles.
+        this.cantidadTilesHorizontales = 32 ; // En cantidad de tiles.
+        this.cantidadTilesVerticales = 32; // En cantidad de tiles.
         this.cargarImagenes();
 
-        this.panel = new JPanel(new GridLayout(this.altoMapa,this.anchoMapa,0,0));
+        this.panel = new JPanel(new GridLayout(this.cantidadTilesHorizontales,this.cantidadTilesVerticales,0,0));
+        this.panel.setSize(alto, ancho);
         this.agregarContenidoAlPanel();
 
         this.add(panel);
 
     }
-
 
     private void cargarImagenes(){
 
@@ -54,7 +49,8 @@ public class DisplayMapa extends JFrame {
             this.imagenes = new BufferedImage[1];
             //this.imagenes[0] = ImageIO.read(getClass().getResource("resourses/mapa/grass.jpg"));
            // this.imagenes[0] = ImageIO.read(new FileInputStream("images/pastoDifuminado2.jpg"));
-           this.imagenes[0] = ImageIO.read(new FileInputStream("images/pasto.jpg"));
+           //this.imagenes[0] = ImageIO.read(new FileInputStream("images/pasto.jpg"));
+            this.imagenes[0] = ImageIO.read(getClass().getResource("pasto.jpg"));
             //this.imagenes[0] = ImageIO.read(new FileInputStream("images/rocas.jpg"));
         } catch ( IOException e){
             e.printStackTrace();
@@ -64,7 +60,7 @@ public class DisplayMapa extends JFrame {
 
     private void agregarContenidoAlPanel(){
 
-        for (int i = 0; i < this.altoMapa * this.anchoMapa; i++ ){
+        for (int i = 0; i < this.cantidadTilesHorizontales * this.cantidadTilesVerticales; i++ ){
 
             JLabel label = new JLabel(new ImageIcon( imagenes[0] ) );
             label.setSize(32,32);

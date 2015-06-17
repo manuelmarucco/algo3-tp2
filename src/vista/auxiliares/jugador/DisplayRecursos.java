@@ -6,32 +6,31 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 
-public class DisplayRecursos extends JFrame {
+public class DisplayRecursos extends JPanel {
 
     private BufferedImage[] imagenes;
     private JPanel panel;
-
+    /*
     public static void main(String[] args){
 
-        DisplayRecursos displayRecursos = new DisplayRecursos();
+        DisplayRecursos botonera = new DisplayRecursos();
 
-        displayRecursos.pack();
-        displayRecursos.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        displayRecursos.setVisible(true);
+        botonera.setVisible(true);
 
     }
-
+    */
     // Metodos ------------------------------
 
-    public DisplayRecursos(){
+    public DisplayRecursos(int ancho, int alto){
 
-        this.init();
+        this.init(ancho, alto);
 
     }
 
-    private void init(){
+    private void init(int ancho, int alto){
 
         this.panel = new JPanel( new GridLayout(1,3,0,3));
+        this.panel.setSize(ancho, alto);
         this.cargarImagenes();
 
         this.agregarIndicadores();

@@ -3,7 +3,8 @@ package vista.auxiliares.jugador;
 import javax.swing.*;
 import java.awt.*;
 
-public class BotoneraDeUnidadesTerran extends JFrame {
+public class BotoneraDeUnidadesTerran extends JPanel {
+
     // Atributos ---------------------
 
     private JPanel panel;
@@ -15,17 +16,15 @@ public class BotoneraDeUnidadesTerran extends JFrame {
     private JButton botonNaveTransporte;
 
     // Main ---------------------------
-
+    /*
     public static void main(String[] args){
 
         BotoneraDeUnidadesTerran botonera = new BotoneraDeUnidadesTerran();
 
-        botonera.pack();
-        botonera.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         botonera.setVisible(true);
 
     }
-
+    */
     // Metodos -------------------------
 
     public BotoneraDeUnidadesTerran(){

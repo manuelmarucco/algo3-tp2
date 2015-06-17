@@ -3,7 +3,7 @@ package vista.auxiliares.jugador;
 import javax.swing.*;
 import java.awt.*;
 
-public class BotoneraDeConstruccionesTerran extends JFrame {
+public class BotoneraDeConstruccionesTerran extends JPanel {
 
     // Atributos ---------------------
 
@@ -17,17 +17,15 @@ public class BotoneraDeConstruccionesTerran extends JFrame {
     private JButton botonPuertoEstelar;
 
     // Main ---------------------------
-
+    /*
     public static void main(String[] args){
 
         BotoneraDeConstruccionesTerran botonera = new BotoneraDeConstruccionesTerran();
 
-        botonera.pack();
-        botonera.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         botonera.setVisible(true);
 
     }
-
+    */
     // Metodos -------------------------
 
     public BotoneraDeConstruccionesTerran(){
