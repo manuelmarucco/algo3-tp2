@@ -25,6 +25,7 @@ public class JugadorTerran extends JFrame {
 
     public static void main(String[] args){
 
+        // todo Programar contra interfaces, por ejemplo VentanaJugador ventanaJugadorTerran = new VentanaJugadorTerran
         JugadorTerran ventanaJugador = new JugadorTerran();
 
         ventanaJugador.pack();
@@ -87,6 +88,9 @@ public class JugadorTerran extends JFrame {
         this.panelMapa.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 
         MouseMotionListener doScrollRectToVisible = new MouseMotionAdapter() {
+
+        //todo sacar clase anonima
+
             @Override
             public void mouseMoved(MouseEvent e) {
                 //mousePosition.setLocation(e.getX(),e.getY());

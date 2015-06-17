@@ -11,6 +11,9 @@ import java.util.ArrayList;
 
 public class CreadorDeMapa {
 
+    //TODO refactor de manera tal de recibir en el constructor la cantidad de jugadores Y VALIDARLA
+    // y generar el mapa en base a eso, reveer base uno y base dos
+
     private void agregarMineralesAlMapa() throws ExcepcionNoSePudoAgregarAlMapa {
         ProxyMapa proxyMapa = ProxyMapa.getInstance();
 
