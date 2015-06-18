@@ -13,8 +13,11 @@ import unidades.terrran.Marine;
 import unidades.terrran.NaveCiencia;
 import unidades.terrran.NaveTransporteTerran;
 
+import java.util.ArrayList;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 
 public class MapaTest {
@@ -124,6 +127,82 @@ public class MapaTest {
 		mapa.borrarEnCapaAerea(coordenadas);
 
 		assertFalse(mapa.posicionAereaOcupada(coordenadas));
+
+	}
+
+	@Test
+	@SuppressWarnings("null")
+	public void dadaLaCircunferenciaFormadaPorUnCentroYUnRadioDeberiaDevolverLasUnidadesPertenecientes(){
+
+		Mapa mapa = new Mapa();
+
+		Marine marine = new Marine();
+		Coordenadas coordenadasMarine = new Coordenadas(5,5);
+
+		NaveCiencia naveCiencia = new NaveCiencia();
+		Coordenadas coordenadasNaveCiencia = new Coordenadas(5,6);
+
+		try {
+
+			mapa.agregarEnCapaTerrestre(marine, coordenadasMarine);
+			mapa.agregarEnCapaAerea(naveCiencia, coordenadasNaveCiencia);
+
+		} catch (ExcepcionPosicionOcupada e) {
+			e.printStackTrace();
+		}
+
+		Coordenadas centro = new Coordenadas(6,5);
+
+		ArrayList<ColocableEnMapa> encontrados = null;
+
+		try {
+
+			encontrados = mapa.obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(centro,5);
+
+		} catch (ExcepcionNoSePudoAgregarAlMapa e) {
+			e.printStackTrace();
+		}
+
+		assertTrue(encontrados.contains(marine));
+		assertTrue(encontrados.contains(naveCiencia));
+
+	}
+
+	@Test
+	@SuppressWarnings("null")
+	public void dadaLaCircunferenciaFormadaPorUnCentroYUnRadioNoDeberiaDevolverLasUnidadesNoPertenecientes(){
+
+		Mapa mapa = new Mapa();
+
+		Marine marine = new Marine();
+		Coordenadas coordenadasMarine = new Coordenadas(5,5);
+
+		NaveCiencia naveCiencia = new NaveCiencia();
+		Coordenadas coordenadasNaveCiencia = new Coordenadas(15,16);
+
+		try {
+
+			mapa.agregarEnCapaTerrestre(marine, coordenadasMarine);
+			mapa.agregarEnCapaAerea(naveCiencia, coordenadasNaveCiencia);
+
+		} catch (ExcepcionPosicionOcupada e) {
+			e.printStackTrace();
+		}
+
+		Coordenadas centro = new Coordenadas(6,5);
+
+		ArrayList<ColocableEnMapa> encontrados = null;
+
+		try {
+
+			encontrados = mapa.obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(centro,5);
+
+		} catch (ExcepcionNoSePudoAgregarAlMapa e) {
+			e.printStackTrace();
+		}
+
+		assertTrue(encontrados.contains(marine));
+		assertTrue(! encontrados.contains(naveCiencia));
 
 	}
 

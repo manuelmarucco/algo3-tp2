@@ -1,10 +1,12 @@
 package jugabilidad;
 
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Unidad;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -50,6 +52,38 @@ public class Mapa {
 	}
 
 	// Obtener -----
+
+	public ArrayList<ColocableEnMapa> obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(Coordenadas centro, int radio)
+			throws ExcepcionNoSePudoAgregarAlMapa{
+
+		ArrayList<ColocableEnMapa> unidadesYconstruccionesPertenecientes = new ArrayList<>();
+
+		for (int i = 0; i <= 2 * radio; i++){
+
+			for (int j = 0; j <= 2 * radio; j ++){
+
+				Coordenadas punto = this.armarPuntoDeInicio(centro,radio);
+
+				punto.aumentarX(i);
+				punto.aumentarY(j);
+
+				if ( this.posicionTerrestreOcupada(punto) ){
+
+					unidadesYconstruccionesPertenecientes.add(this.obtenerDeCapaTerrestre(punto));
+
+				}
+
+				if ( this.posicionAereaOcupada(punto) ){
+
+					unidadesYconstruccionesPertenecientes.add(this.obtenerDeCapaAerea(punto));
+
+				}
+			}
+		}
+
+		return(unidadesYconstruccionesPertenecientes);
+
+	}
 
 	public ColocableEnMapa obtenerDeCapaTerrestre(Coordenadas coordenadas) {
 
@@ -117,6 +151,20 @@ public class Mapa {
 			this.capaTerrestre.remove(c);
 		if(this.capaAerea.get(c)==unidad)
 			this.capaAerea.remove(c);
+	}
+
+	// Metodos privados ----------------------------------------------------
+
+	private Coordenadas armarPuntoDeInicio(Coordenadas punto, int radio){
+
+		if(punto!=null) {
+			int x = punto.getX() - radio;
+			int y = punto.getY() - radio;
+
+			return (new Coordenadas(x, y));
+		}
+
+		return null;
 	}
 
 }

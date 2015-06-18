@@ -8,6 +8,8 @@ import interfaces.ColocableEnMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Unidad;
 
+import java.util.ArrayList;
+
 public class ProxyMapa {
 
     // Atributos ----
@@ -51,6 +53,15 @@ public class ProxyMapa {
     }
 
     // Obtener ---
+
+    public ArrayList<ColocableEnMapa> obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(Coordenadas centro, int radio)
+            throws ExcepcionNoSePudoAgregarAlMapa {
+
+        this.validarCoordenadas(centro);
+
+        return (this.mapa.obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(centro, radio));
+
+    }
 
     public ColocableEnMapa obtenerDeCapaTerrestre(Coordenadas coordenadas){
         return ( this.mapa.obtenerDeCapaTerrestre(coordenadas) );

@@ -143,4 +143,17 @@ public class ProxyMapaTest {
         assertTrue(proxy.posicionTerrestreOcupada(coordenadasDos));
     }
 
+    @Test (expected= ExcepcionNoSePudoAgregarAlMapa.class)
+    public void siPidoLasUnidadesEncerradasPorUnaCircunferenciaDeCentroNoPertenecienteAlMapaEsperoUnaExcepcion()
+    throws ExcepcionNoSePudoAgregarAlMapa {
+
+        ProxyMapa proxy = ProxyMapa.getInstance();
+        proxy.setCoordenadasMaximas(10,10);
+
+        Coordenadas centro = new Coordenadas(11,11);
+
+        proxy.obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(centro,1);
+
+    }
+
 }
