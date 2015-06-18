@@ -42,9 +42,12 @@ public class DisplayRecursos extends JPanel {
         try{
 
             this.imagenes = new BufferedImage[3];
-            this.imagenes[0] = ImageIO.read(getClass().getResource("imagenesRecursos/cristal.jpg"));
-            this.imagenes[1] = ImageIO.read(getClass().getResource("imagenesRecursos/volcan.jpg"));
+            this.imagenes[0] = ImageIO.read(getClass().getResource("imagenesRecursos/iconoMineral.png"));
+            this.imagenes[1] = ImageIO.read(getClass().getResource("imagenesRecursos/iconoGasVespeno.png"));
             this.imagenes[2] = ImageIO.read(getClass().getResource("imagenesRecursos/man.jpg"));
+
+            imagenes[0] = this.cambiarTamanio(imagenes[0],17,17); // se cambia el tamanio sin que se pixele
+            imagenes[1] = this.cambiarTamanio(imagenes[1],17,17);
 
         } catch ( IOException e){
             e.printStackTrace();
@@ -82,6 +85,17 @@ public class DisplayRecursos extends JPanel {
         suministros.setText("Suministros: <Usado>/<Disponible>");
         this.panel.add(suministros);
 
+    }
+
+    private static BufferedImage cambiarTamanio(BufferedImage img, int newW, int newH) {
+        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = dimg.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+
+        return dimg;
     }
 
 }
