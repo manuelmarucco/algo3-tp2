@@ -9,12 +9,11 @@ import java.awt.*;
 public class MenuPrueba{
 
     private JFrame ventana;
-    private JPanel panelNotif;
     private DisplayNotificaciones displayNotificaciones;
 
     public MenuPrueba(){
-        this.crearPanelNotificaciones();
         this.crearVentana();
+        this.crearPanelNotificaciones();
         this.crearContenedor();
     }
 
@@ -24,10 +23,10 @@ public class MenuPrueba{
         contenedor.setLayout(layout);
 
         //Para ubicar el panel de notificacion en el contenedor de la ventana
-        layout.putConstraint(SpringLayout.WEST, panelNotif, 50, SpringLayout.WEST, contenedor);
-        layout.putConstraint(SpringLayout.NORTH, panelNotif, 100, SpringLayout.NORTH, contenedor);
+        layout.putConstraint(SpringLayout.WEST, displayNotificaciones, 50, SpringLayout.WEST, contenedor);
+        layout.putConstraint(SpringLayout.NORTH, displayNotificaciones, 100, SpringLayout.NORTH, contenedor);
 
-        contenedor.add(panelNotif);
+        contenedor.add(displayNotificaciones);
 
     }
 
@@ -43,12 +42,10 @@ public class MenuPrueba{
     }
 
     private void crearPanelNotificaciones() {
-        this.panelNotif = new JPanel();
-        this.panelNotif.setBackground(Color.black);
 
         displayNotificaciones = new DisplayNotificaciones();
 
-        this.panelNotif.add(displayNotificaciones,BorderLayout.CENTER);
+        this.ventana.add(displayNotificaciones,BorderLayout.CENTER);
     }
 
     public static void main(String[] args){

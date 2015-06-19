@@ -4,36 +4,60 @@ import interfaces.Mostrable;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
 
 //Como es un JLabel debe estar contenido en un JPanel.
 
-public class DisplayNotificaciones extends JLabel {
+public class DisplayNotificaciones extends JPanel {
 
-    private BufferedImage background;
+    private JLayeredPane layeredPane;
+    private JTextArea notificacion;
+    private JLabel background;
 
     public DisplayNotificaciones(){
-        this.init();
+        this.initBackground();
+        this.initNotificacion();
+        this.initLayeredPane();
+
     }
 
-    private void init() {
-        this.setBackground(new Color(0,0,0));
-        this.setOpaque(true);
-        this.inicializarTipoDeLetra();
-        this.setPreferredSize(new Dimension(100,100));
+    private void initLayeredPane() {
+        this.layeredPane = new JLayeredPane();
+
+        this.layeredPane.setPreferredSize(new Dimension(background.getIcon().getIconWidth(),background.getIcon().getIconHeight()));
+        this.layeredPane.add(this.background, new Integer(50));
+        this.layeredPane.add(this.notificacion, new Integer(100));
+
+        this.add(layeredPane);
     }
+
+
+    private void initBackground() {
+        ImageIcon imageBackground = new ImageIcon("images/menu/panelNotificaciones.png");
+        this.background = new JLabel(imageBackground);
+        this.background.setBounds(0, 0, imageBackground.getIconWidth(), imageBackground.getIconHeight());
+
+    }
+
+    private void initNotificacion() {
+        this.notificacion = new JTextArea();
+        this.notificacion.setLineWrap(true);
+        this.notificacion.setOpaque(false);
+        this.inicializarTipoDeLetra();
+        this.notificacion.setBounds( 20, 50,  background.getIcon().getIconWidth()-30, background.getIcon().getIconHeight()-50);
+    }
+
+
+    private void inicializarTipoDeLetra(){
+        Font font = new Font("Verdana", Font.BOLD, 12);
+        notificacion.setFont(font);
+        notificacion.setForeground(Color.red);
+    }
+
 
     public void mostrarNotificacion(Mostrable e){
 
-        this.setText(e.mostrarMensaje());
+        notificacion.setText(e.mostrarMensaje());
     }
-
-    public void inicializarTipoDeLetra(){
-        Font font = new Font("Verdana", Font.BOLD, 12);
-        this.setFont(font);
-        this.setForeground(Color.red);
-    }
-
 
 /*
     private static BufferedImage cambiarTamanio(BufferedImage img, int newW, int newH) {
