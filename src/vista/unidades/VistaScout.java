@@ -1,17 +1,50 @@
 package vista.unidades;
 
+import unidades.protoss.Scout;
+import vista.auxiliares.ImagePanel;
+
 import javax.swing.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class VistaScout implements Dibujable{
-    private static ImageIcon imagen=new ImageIcon();//todo agregar imagen correspondiente
+public class VistaScout extends ImagePanel implements MouseListener {
 
-    @Override
-    public ImageIcon getImagen() {
-        return imagen;
+    private static final int ANCHO = 1;
+    private static final int ALTO = 2;
+    private final Scout unidad;
+
+    public VistaScout(Scout scout/*TODO aca se pasa el panel del juego*/) {
+        super(ANCHO,ALTO,new ImageIcon().getImage());
+        this.unidad=scout;
     }
 
     @Override
-    public void agregarActions() {
+    public void mouseClicked(MouseEvent e) {
+        if(e.getButton()!=MouseEvent.BUTTON1) return;
+        /*Aca va la accion de
+          - setear los botones
+            por ejemplo pantallaJuego.getPanelDeInformacion().SetVida(unidad.getVida());
+          - setear las propiedades
+         */
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
 
     }
 }

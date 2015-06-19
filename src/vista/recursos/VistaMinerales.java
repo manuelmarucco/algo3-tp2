@@ -1,21 +1,21 @@
-package vista.unidades;
+package vista.recursos;
 
-import unidades.terrran.NaveCiencia;
+import recursos.Cristal;
 import vista.auxiliares.ImagePanel;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class VistaNaveCiencia extends ImagePanel implements MouseListener {
+public class VistaMinerales extends ImagePanel implements MouseListener {
 
     private static final int ANCHO = 1;
     private static final int ALTO = 2;
-    private final NaveCiencia unidad;
+    private final Cristal recurso;
 
-    public VistaNaveCiencia(NaveCiencia naveCiencia/*TODO aca se pasa el panel del juego*/) {
+    public VistaMinerales(Cristal cristal/*TODO aca se pasa el panel del juego*/) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.unidad=naveCiencia;
+        this.recurso=cristal;
     }
 
     @Override

@@ -1,4 +1,4 @@
-package vista.unidades;
+package vista.auxiliares;
 
 
 import javax.swing.*;
