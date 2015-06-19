@@ -15,7 +15,6 @@ public class MenuPrincipal extends JFrame {
     private JButton jugarBoton;
 
     public MenuPrincipal(){
-        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.init();
     }
 

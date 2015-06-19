@@ -1,4 +1,4 @@
-package vista.fondoScroleable;
+package vista.menusDePrueba;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;

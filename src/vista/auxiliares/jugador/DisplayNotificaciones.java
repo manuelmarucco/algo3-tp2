@@ -1,10 +1,14 @@
 package vista.auxiliares.jugador;
 
+import interfaces.Mostrable;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 
-public class DisplayNotificaciones extends JPanel {
+//Como es un JLabel debe estar contenido en un JPanel.
+
+public class DisplayNotificaciones extends JLabel {
 
     private BufferedImage background;
 
@@ -13,14 +17,25 @@ public class DisplayNotificaciones extends JPanel {
     }
 
     private void init() {
-        this.setBackground(Color.BLACK);
-        this.setSize(new Dimension(200,100));
+        this.setBackground(new Color(0,0,0));
+        this.setOpaque(true);
+        this.inicializarTipoDeLetra();
+        this.setPreferredSize(new Dimension(100,100));
     }
 
-    public void mostrarNotificacion(Exception e){
+    public void mostrarNotificacion(Mostrable e){
 
+        this.setText(e.mostrarMensaje());
     }
 
+    public void inicializarTipoDeLetra(){
+        Font font = new Font("Verdana", Font.BOLD, 12);
+        this.setFont(font);
+        this.setForeground(Color.red);
+    }
+
+
+/*
     private static BufferedImage cambiarTamanio(BufferedImage img, int newW, int newH) {
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
         BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
@@ -31,4 +46,5 @@ public class DisplayNotificaciones extends JPanel {
 
         return dimg;
     }
+    */
 }
