@@ -25,6 +25,7 @@ public class MouseActionObtenerInfoAltoTemplario implements MouseListener {
         this.cargarInfoAlPanelDeEstado();
 
         ventanaJugador.mostrarPanelDeEstado(panelDeUnidad);
+        ventanaJugador.getPanelAcciones().configurarBotones(altoTemplario);
 
     }
 
