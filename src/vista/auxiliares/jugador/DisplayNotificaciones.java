@@ -40,6 +40,7 @@ public class DisplayNotificaciones extends JPanel {
 
     private void initNotificacion() {
         this.notificacion = new JTextArea();
+        this.notificacion.setEditable(false);
         this.notificacion.setLineWrap(true);
         this.notificacion.setOpaque(false);
         this.inicializarTipoDeLetra();

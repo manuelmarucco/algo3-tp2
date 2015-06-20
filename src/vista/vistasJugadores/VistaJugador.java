@@ -1,6 +1,8 @@
-package vista;
+package vista.vistasJugadores;
 
-import vista.auxiliares.jugador.*;
+import vista.auxiliares.jugador.DisplayMapa;
+import vista.auxiliares.jugador.DisplayNotificaciones;
+import vista.auxiliares.jugador.DisplayRecursos;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,39 +10,27 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
 
-public class VistaJugadorProtoss extends JFrame {
+public abstract class VistaJugador extends JFrame {
 
     // Atributos ---------------------
 
-    private JPanel contenedor;
+    protected JPanel contenedor;
 
     private JPanel panelRecursos;
     private JScrollPane panelMapa;
-    private JPanel panelBotonera;
     private JPanel panelNotificaciones;
 
-    // Main ---------------------------
 
-    public static void main(String[] args){
-
-        VistaJugadorProtoss ventanaJugador = new VistaJugadorProtoss();
-
-        ventanaJugador.pack();
-        ventanaJugador.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        ventanaJugador.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        ventanaJugador.setVisible(true);
-
-    }
 
     // Metodos -------------------------
 
-    public VistaJugadorProtoss(){
+    public VistaJugador(){
 
         this.init();
 
     }
 
-    private void init(){
+    protected void init(){
 
         this.crearPaneles();
 
@@ -54,23 +44,20 @@ public class VistaJugadorProtoss extends JFrame {
 
         this.crearPanelRecursos();
         this.crearPanelMapa();
-        this.crearPanelBotonera();
         this.crearPanelDeNotificaciones();
 
         this.agregarAlContenedor();
 
     }
-//TODO seguir con esto
     private void crearPanelDeNotificaciones() {
         this.panelNotificaciones = new JPanel();
         this.panelNotificaciones.add(new DisplayNotificaciones());
-        this.panelNotificaciones.setBackground(Color.black);
     }
 
     private void crearContenedor(){
 
         this.contenedor = new JPanel();
-        this.contenedor.setLayout(new BoxLayout(this.contenedor, BoxLayout.Y_AXIS));
+        this.contenedor.setLayout(new BorderLayout());
 
     }
 
@@ -114,35 +101,15 @@ public class VistaJugadorProtoss extends JFrame {
 
     }
 
-    private void crearPanelBotonera(){
-
-        this.panelBotonera = new JPanel( new GridLayout(2,2,0,0) );
-
-        JLabel tituloConstrucciones = new JLabel("Construcciones");
-        tituloConstrucciones.setVerticalAlignment(JLabel.CENTER);
-        tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
-
-        this.panelBotonera.add(tituloConstrucciones);
-
-        JLabel tituloUnidades = new JLabel("Unidades");
-        tituloUnidades.setVerticalAlignment(JLabel.CENTER);
-        tituloUnidades.setHorizontalAlignment(JLabel.CENTER);
-
-        this.panelBotonera.add(tituloUnidades);
-
-        this.panelBotonera.add( new BotoneraDeConstruccionesProtoss() );
-        this.panelBotonera.add( new BotoneraDeUnidadesProtoss() );
-
-    }
 
     private void agregarAlContenedor(){
 
-        this.contenedor.add( this.panelRecursos );
-        this.contenedor.add( this.panelNotificaciones ); //tiene que estar a la izquierda junto con un panel de estado(toco marine aparece estado de marine)
-        this.contenedor.add( this.panelMapa );
-        this.contenedor.add( this.panelBotonera );
-
+        this.contenedor.add( this.panelRecursos,"North" );
+        this.contenedor.add( this.panelNotificaciones,"West" ); //tiene que estar a la izquierda junto con un panel de estado(toco marine aparece estado de marine)
+        this.contenedor.add( this.panelMapa ,"Center");
+        //this.contenedor.add( this.panelBotonera ,"South");
 
     }
 
 }
+
