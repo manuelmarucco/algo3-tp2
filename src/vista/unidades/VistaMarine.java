@@ -9,12 +9,13 @@ import java.awt.event.MouseListener;
 
 public class VistaMarine extends ImagePanel implements MouseListener {
 
-    private static final int ANCHO = 1;
-    private static final int ALTO = 2;
+    private static final int ANCHO = 10;
+    private static final int ALTO = 10;
     private final Marine unidad;
+    private static String pathImagen="";
 
     public VistaMarine(Marine marine/*TODO aca se pasa el panel del juego*/) {
-        super(ANCHO,ALTO,new ImageIcon().getImage());
+        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
         this.unidad=marine;
     }
 
