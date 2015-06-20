@@ -1,9 +1,6 @@
 package vista.ventanaJugadores;
 
-import vista.auxiliares.jugador.DisplayMapa;
-import vista.auxiliares.jugador.DisplayNotificaciones;
-import vista.auxiliares.jugador.DisplayRecursos;
-import vista.auxiliares.jugador.PanelTerminarTurno;
+import vista.auxiliares.jugador.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -76,6 +73,7 @@ public abstract class VentanaJugador extends JFrame {
 
         this.panelInferior = new JPanel( new BorderLayout() );
         this.panelInferior.add(new PanelTerminarTurno(), "East");
+        this.panelInferior.add(new PanelAcciones(),"Center");
 
     }
 
