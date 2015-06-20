@@ -3,7 +3,7 @@ package vista.ventanaJugadores;
 import vista.auxiliares.jugador.DisplayMapa;
 import vista.auxiliares.jugador.DisplayNotificaciones;
 import vista.auxiliares.jugador.DisplayRecursos;
-import vista.auxiliares.jugador.PanelTerminaTurno;
+import vista.auxiliares.jugador.PanelTerminarTurno;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,7 +19,7 @@ public abstract class VentanaJugador extends JFrame {
 
     private JPanel panelRecursos;
     private JScrollPane panelMapa;
-    private JPanel panelNotificaciones;
+    private JPanel panelLateral;
     protected JPanel panelInferior;
 
 
@@ -35,8 +35,6 @@ public abstract class VentanaJugador extends JFrame {
     protected void init(){
 
         this.crearPaneles();
-
-       // this.add(new JScrollPane(this.contenedor));
         this.add(this.contenedor);
 
     }
@@ -54,8 +52,8 @@ public abstract class VentanaJugador extends JFrame {
 
     }
     private void crearPanelDeNotificaciones() {
-        this.panelNotificaciones = new JPanel();
-        this.panelNotificaciones.add(new DisplayNotificaciones());
+        this.panelLateral = new JPanel();
+        this.panelLateral.add(new DisplayNotificaciones());
         //TODO: aca hay que agregar el panel de estado por eso despues se puede renombrar a PanelLateralNotificacionesEstado o algo asi
     }
 
@@ -76,11 +74,8 @@ public abstract class VentanaJugador extends JFrame {
 
     protected void crearPanelInferior(){
 
-
-        // this.panelInferior = new JPanel( new GridLayout(2,2,0,0) );
         this.panelInferior = new JPanel( new BorderLayout() );
-
-        this.panelInferior.add(new PanelTerminaTurno(), "East");
+        this.panelInferior.add(new PanelTerminarTurno(), "East");
 
     }
 
@@ -120,10 +115,17 @@ public abstract class VentanaJugador extends JFrame {
     private void agregarAlContenedor(){
 
         this.contenedor.add( this.panelRecursos,"North" );
-        this.contenedor.add( this.panelNotificaciones,"West" );
+        this.contenedor.add( this.panelLateral,"West" );
         this.contenedor.add( this.panelMapa ,"Center");
         this.contenedor.add( this.panelInferior,"South");
 
+    }
+
+    public void mostrarPanelDeAcciones(JComponent component,String posicion){
+        this.panelInferior.add(component,posicion);
+    }
+    public void mostrarPanelDeEstado(JComponent component,String posicion){
+        this.panelLateral.add(component,posicion);
     }
 
 }

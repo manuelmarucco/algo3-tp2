@@ -3,12 +3,12 @@ package vista.auxiliares.jugador;
 import javax.swing.*;
 import java.awt.*;
 
-public class PanelTerminaTurno extends JPanel {
+public class PanelTerminarTurno extends JPanel {
 
     private JButton terminarTurnoBoton;
 
 
-    public PanelTerminaTurno(){
+    public PanelTerminarTurno(){
         this.init();
     }
 

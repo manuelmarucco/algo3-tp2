@@ -17,39 +17,20 @@ public class VentanaJugadorProtoss extends VentanaJugador {
       //  this.contenedor.add(panelInferior,"South");
 
     }
-/*
-    private void crearPanelInferior(){
 
-
-       // this.panelInferior = new JPanel( new GridLayout(2,2,0,0) );
-        this.panelInferior = new JPanel( new BorderLayout() );
-
-        JLabel tituloConstrucciones = new JLabel("Construcciones");
-        tituloConstrucciones.setVerticalAlignment(JLabel.CENTER);
-        tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
-
-        this.panelInferior.add(tituloConstrucciones,"Center");
-        this.panelInferior.add( new BotoneraDeConstruccionesProtoss() ,"Center");
-
-        this.panelInferior.add(new PanelTerminaTurno(),"East");
-
-    }
-
-
-*/
     @Override
     protected void crearPanelInferior(){
         super.crearPanelInferior();
-        JPanel botonera = new JPanel(new BorderLayout());
+        JPanel botoneraConstrucciones = new JPanel(new GridLayout(2,1));
 
         JLabel tituloConstrucciones = new JLabel("Construcciones");
         tituloConstrucciones.setVerticalAlignment(JLabel.CENTER);
         tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
 
-        botonera.add(tituloConstrucciones,"North");
-        botonera.add(new BotoneraDeConstruccionesProtoss(), "Center");
+        botoneraConstrucciones.add(tituloConstrucciones);
+        botoneraConstrucciones.add(new BotoneraDeConstruccionesProtoss());
 
-        this.panelInferior.add(botonera);
+        this.panelInferior.add(botoneraConstrucciones,"West");
     }
     // Main ---------------------------
 

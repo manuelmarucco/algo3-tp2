@@ -3,6 +3,7 @@ package vista.ventanaJugadores;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class VentanaJugadorTerran extends VentanaJugador {
 
@@ -17,14 +18,16 @@ public class VentanaJugadorTerran extends VentanaJugador {
     @Override
     protected void crearPanelInferior(){
         super.crearPanelInferior();
+        JPanel botoneraConstrucciones = new JPanel(new GridLayout(2,1));
 
         JLabel tituloConstrucciones = new JLabel("Construcciones");
         tituloConstrucciones.setVerticalAlignment(JLabel.CENTER);
         tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
 
-        this.panelInferior.add(tituloConstrucciones);
-        this.panelInferior.add( new BotoneraDeConstruccionesTerran() );
+        botoneraConstrucciones.add(tituloConstrucciones);
+        botoneraConstrucciones.add( new BotoneraDeConstruccionesTerran() );
 
+        this.panelInferior.add(botoneraConstrucciones,"West");
     }
 
     // Main ---------------------------

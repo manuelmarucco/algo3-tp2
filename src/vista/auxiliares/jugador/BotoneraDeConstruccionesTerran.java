@@ -36,7 +36,7 @@ public class BotoneraDeConstruccionesTerran extends JPanel {
 
     private void init(){
 
-        this.panel = new JPanel( new GridLayout(2,3,1,1));
+        this.panel = new JPanel( new GridLayout(2,3,10,10));
 
         this.crearBotones();
         this.agregarBotonesAlPanel();
@@ -60,7 +60,6 @@ public class BotoneraDeConstruccionesTerran extends JPanel {
 
         JButton boton = new JButton();
         boton.setText(nombre);
-        boton.setSize(90,30);
 
         return boton;
 
