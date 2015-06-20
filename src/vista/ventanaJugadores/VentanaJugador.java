@@ -1,4 +1,4 @@
-package vista.vistasJugadores;
+package vista.ventanaJugadores;
 
 import vista.auxiliares.jugador.DisplayMapa;
 import vista.auxiliares.jugador.DisplayNotificaciones;
@@ -11,7 +11,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
 import java.awt.event.MouseMotionListener;
 
-public abstract class VistaJugador extends JFrame {
+public abstract class VentanaJugador extends JFrame {
 
     // Atributos ---------------------
 
@@ -26,7 +26,7 @@ public abstract class VistaJugador extends JFrame {
 
     // Metodos -------------------------
 
-    public VistaJugador(){
+    public VentanaJugador(){
 
         this.init();
 

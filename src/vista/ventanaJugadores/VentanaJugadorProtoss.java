@@ -1,15 +1,16 @@
-package vista.vistasJugadores;
+package vista.ventanaJugadores;
 
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
 
 import javax.swing.*;
+import java.awt.*;
 
-public class VistaJugadorProtoss extends VistaJugador {
+public class VentanaJugadorProtoss extends VentanaJugador {
 
 
     // Metodos -------------------------
 
-    public VistaJugadorProtoss(){
+    public VentanaJugadorProtoss(){
 
         super.init();
       //  this.crearPanelInferior();
@@ -39,21 +40,22 @@ public class VistaJugadorProtoss extends VistaJugador {
     @Override
     protected void crearPanelInferior(){
         super.crearPanelInferior();
+        JPanel botonera = new JPanel(new BorderLayout());
 
         JLabel tituloConstrucciones = new JLabel("Construcciones");
         tituloConstrucciones.setVerticalAlignment(JLabel.CENTER);
         tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
 
-        this.panelInferior.add(tituloConstrucciones,"Center");
-        this.panelInferior.add( new BotoneraDeConstruccionesProtoss() ,"Center");
+        botonera.add(tituloConstrucciones,"North");
+        botonera.add(new BotoneraDeConstruccionesProtoss(), "Center");
 
-        //this.panelInferior.add()
+        this.panelInferior.add(botonera);
     }
     // Main ---------------------------
 
     public static void main(String[] args){
 
-        VistaJugador ventanaJugador = new VistaJugadorProtoss();
+        VentanaJugador ventanaJugador = new VentanaJugadorProtoss();
 
         ventanaJugador.pack();
         ventanaJugador.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

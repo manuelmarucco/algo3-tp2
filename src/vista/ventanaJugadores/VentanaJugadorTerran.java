@@ -1,14 +1,14 @@
-package vista.vistasJugadores;
+package vista.ventanaJugadores;
 
 import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
 
 import javax.swing.*;
 
-public class VistaJugadorTerran extends VistaJugador {
+public class VentanaJugadorTerran extends VentanaJugador {
 
     // Metodos -------------------------
 
-    public VistaJugadorTerran(){
+    public VentanaJugadorTerran(){
 
         super.init();
 
@@ -31,7 +31,7 @@ public class VistaJugadorTerran extends VistaJugador {
 
     public static void main(String[] args){
 
-        VistaJugador ventanaJugador = new VistaJugadorTerran();
+        VentanaJugador ventanaJugador = new VentanaJugadorTerran();
 
         ventanaJugador.pack();
         ventanaJugador.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
