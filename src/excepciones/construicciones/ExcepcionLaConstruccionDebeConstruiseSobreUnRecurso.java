@@ -1,4 +1,11 @@
 package excepciones.construicciones;
 
-public class ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso extends ExcepcionNoSePuedeConstruir {
+import interfaces.Mostrable;
+
+public class ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso extends ExcepcionNoSePuedeConstruir implements Mostrable {
+
+    @Override
+    public String mostrarMensaje() {
+        return "La construccion debe construirse sobre un cristal o volcan";
+    }
 }

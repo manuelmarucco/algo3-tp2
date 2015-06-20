@@ -4,7 +4,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 public class DisplayMapa extends JPanel {
@@ -46,11 +45,7 @@ public class DisplayMapa extends JPanel {
 
         try{
             this.imagenes = new BufferedImage[1];
-            //this.imagenes[0] = ImageIO.read(getClass().getResource("resourses/mapa/grass.jpg"));
-           // this.imagenes[0] = ImageIO.read(new FileInputStream("images/pastoDifuminado2.jpg"));
-           //this.imagenes[0] = ImageIO.read(new FileInputStream("images/pasto.jpg"));
-            this.imagenes[0] = ImageIO.read(getClass().getResource("imagenesMapa/pasto.jpg"));
-            //this.imagenes[0] = ImageIO.read(new FileInputStream("images/rocas.jpg"));
+            this.imagenes[0] = ImageIO.read(getClass().getResource("imagenesMapa/pasto64x64.png"));
         } catch ( IOException e){
             e.printStackTrace();
         }
@@ -62,7 +57,7 @@ public class DisplayMapa extends JPanel {
         for (int i = 0; i < this.cantidadTilesHorizontales * this.cantidadTilesVerticales; i++ ){
 
             JLabel label = new JLabel(new ImageIcon( imagenes[0] ) );
-            label.setSize(32,32);
+            label.setSize(64,64);
             this.panel.add(label);
 
         }

@@ -26,7 +26,7 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
 
     private void init(){
 
-        this.panel = new JPanel( new GridLayout(2,3,1,1));
+        this.panel = new JPanel( new GridLayout(2,3,10,10));
 
         this.crearBotones();
         this.agregarBotonesAlPanel();
@@ -38,6 +38,16 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
     private void crearBotones(){
 
         this.botonNexoMineral = this.crearBoton("Nexo Mineral" );
+        /*
+        this.botonNexoMineral.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+               panel.remove(botonAcceso);
+                panel.revalidate();
+                panel.repaint();
+            }
+        });
+        */
         this.botonAsimilador = this.crearBoton("Asimilador");
         this.botonPilon = this.crearBoton("Pilon");
         this.botonAcceso = this.crearBoton("Acceso");
@@ -50,7 +60,6 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
 
         JButton boton = new JButton();
         boton.setText(nombre);
-        boton.setSize(90,30);
 
         return boton;
 
