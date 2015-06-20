@@ -7,13 +7,13 @@ import javax.swing.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class VistaMinerales extends ImagePanel implements MouseListener {
+public class VistaCristales extends ImagePanel implements MouseListener {
 
     private static final int ANCHO = 1;
     private static final int ALTO = 2;
     private final Cristal recurso;
 
-    public VistaMinerales(Cristal cristal/*TODO aca se pasa el panel del juego*/) {
+    public VistaCristales(Cristal cristal/*TODO aca se pasa el panel del juego*/) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
         this.recurso=cristal;
     }
