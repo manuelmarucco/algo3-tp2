@@ -3,34 +3,27 @@ package vista.vistasJugadores;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class VistaJugadorTerran extends VistaJugador {
-
-    // Atributos ---------------------
-
-    private JPanel panelBotonera;
 
     // Metodos -------------------------
 
     public VistaJugadorTerran(){
 
         super.init();
-        this.crearPanelBotonera();
-        this.contenedor.add(panelBotonera, "South");
 
     }
 
-    private void crearPanelBotonera(){
-
-        this.panelBotonera = new JPanel( new GridLayout(2,2,0,0) );
+    @Override
+    protected void crearPanelInferior(){
+        super.crearPanelInferior();
 
         JLabel tituloConstrucciones = new JLabel("Construcciones");
         tituloConstrucciones.setVerticalAlignment(JLabel.CENTER);
         tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
 
-        this.panelBotonera.add(tituloConstrucciones);
-        this.panelBotonera.add( new BotoneraDeConstruccionesTerran() );
+        this.panelInferior.add(tituloConstrucciones);
+        this.panelInferior.add( new BotoneraDeConstruccionesTerran() );
 
     }
 

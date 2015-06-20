@@ -3,6 +3,7 @@ package vista.vistasJugadores;
 import vista.auxiliares.jugador.DisplayMapa;
 import vista.auxiliares.jugador.DisplayNotificaciones;
 import vista.auxiliares.jugador.DisplayRecursos;
+import vista.auxiliares.jugador.PanelTerminaTurno;
 
 import javax.swing.*;
 import java.awt.*;
@@ -19,6 +20,7 @@ public abstract class VistaJugador extends JFrame {
     private JPanel panelRecursos;
     private JScrollPane panelMapa;
     private JPanel panelNotificaciones;
+    protected JPanel panelInferior;
 
 
 
@@ -34,7 +36,8 @@ public abstract class VistaJugador extends JFrame {
 
         this.crearPaneles();
 
-        this.add(new JScrollPane(this.contenedor));
+       // this.add(new JScrollPane(this.contenedor));
+        this.add(this.contenedor);
 
     }
 
@@ -45,6 +48,7 @@ public abstract class VistaJugador extends JFrame {
         this.crearPanelRecursos();
         this.crearPanelMapa();
         this.crearPanelDeNotificaciones();
+        this.crearPanelInferior();
 
         this.agregarAlContenedor();
 
@@ -52,6 +56,7 @@ public abstract class VistaJugador extends JFrame {
     private void crearPanelDeNotificaciones() {
         this.panelNotificaciones = new JPanel();
         this.panelNotificaciones.add(new DisplayNotificaciones());
+        //TODO: aca hay que agregar el panel de estado por eso despues se puede renombrar a PanelLateralNotificacionesEstado o algo asi
     }
 
     private void crearContenedor(){
@@ -66,6 +71,16 @@ public abstract class VistaJugador extends JFrame {
         this.panelRecursos = new JPanel();
         this.panelRecursos.add( new DisplayRecursos() );
         this.panelRecursos.setPreferredSize( new Dimension(700, 35) );
+
+    }
+
+    protected void crearPanelInferior(){
+
+
+        // this.panelInferior = new JPanel( new GridLayout(2,2,0,0) );
+        this.panelInferior = new JPanel( new BorderLayout() );
+
+        this.panelInferior.add(new PanelTerminaTurno(), "East");
 
     }
 
@@ -105,9 +120,9 @@ public abstract class VistaJugador extends JFrame {
     private void agregarAlContenedor(){
 
         this.contenedor.add( this.panelRecursos,"North" );
-        this.contenedor.add( this.panelNotificaciones,"West" ); //tiene que estar a la izquierda junto con un panel de estado(toco marine aparece estado de marine)
+        this.contenedor.add( this.panelNotificaciones,"West" );
         this.contenedor.add( this.panelMapa ,"Center");
-        //this.contenedor.add( this.panelBotonera ,"South");
+        this.contenedor.add( this.panelInferior,"South");
 
     }
 

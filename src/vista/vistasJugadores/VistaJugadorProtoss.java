@@ -3,37 +3,52 @@ package vista.vistasJugadores;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class VistaJugadorProtoss extends VistaJugador {
 
-    // Atributos ---------------------
-
-    private JPanel panelBotonera;
 
     // Metodos -------------------------
 
     public VistaJugadorProtoss(){
 
         super.init();
-        this.crearPanelBotonera();
-        this.contenedor.add(panelBotonera,"South");
+      //  this.crearPanelInferior();
+      //  this.contenedor.add(panelInferior,"South");
 
     }
+/*
+    private void crearPanelInferior(){
 
-    private void crearPanelBotonera(){
 
-        this.panelBotonera = new JPanel( new GridLayout(2,2,0,0) );
+       // this.panelInferior = new JPanel( new GridLayout(2,2,0,0) );
+        this.panelInferior = new JPanel( new BorderLayout() );
 
         JLabel tituloConstrucciones = new JLabel("Construcciones");
         tituloConstrucciones.setVerticalAlignment(JLabel.CENTER);
         tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
 
-        this.panelBotonera.add(tituloConstrucciones);
-        this.panelBotonera.add( new BotoneraDeConstruccionesProtoss() );
+        this.panelInferior.add(tituloConstrucciones,"Center");
+        this.panelInferior.add( new BotoneraDeConstruccionesProtoss() ,"Center");
+
+        this.panelInferior.add(new PanelTerminaTurno(),"East");
 
     }
 
+
+*/
+    @Override
+    protected void crearPanelInferior(){
+        super.crearPanelInferior();
+
+        JLabel tituloConstrucciones = new JLabel("Construcciones");
+        tituloConstrucciones.setVerticalAlignment(JLabel.CENTER);
+        tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
+
+        this.panelInferior.add(tituloConstrucciones,"Center");
+        this.panelInferior.add( new BotoneraDeConstruccionesProtoss() ,"Center");
+
+        //this.panelInferior.add()
+    }
     // Main ---------------------------
 
     public static void main(String[] args){
