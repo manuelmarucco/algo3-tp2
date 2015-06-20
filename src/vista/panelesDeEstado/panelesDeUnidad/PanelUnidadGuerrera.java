@@ -1,6 +1,7 @@
 package vista.panelesDeEstado.panelesDeUnidad;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class PanelUnidadGuerrera extends PanelUnidad{
 
@@ -50,8 +51,11 @@ public class PanelUnidadGuerrera extends PanelUnidad{
         panelrangoAtaque.add(rangoAtaque);
 
         panel.add(paneldanioTerrestre);
+        panel.add(Box.createRigidArea(new Dimension(10,10)));
         panel.add(paneldanioAereo);
+        panel.add(Box.createRigidArea(new Dimension(10,10)));
         panel.add(panelrangoAtaque);
+        panel.add(Box.createRigidArea(new Dimension(10,10)));
 
     }
 

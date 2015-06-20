@@ -42,17 +42,16 @@ public abstract class VentanaJugador extends JFrame {
 
         this.crearPanelRecursos();
         this.crearPanelMapa();
-        this.crearPanelDeNotificaciones();
+        this.crearPanelLateral();
         this.crearPanelInferior();
 
         this.agregarAlContenedor();
 
     }
-    private void crearPanelDeNotificaciones() {
+    private void crearPanelLateral() {
         this.panelLateral = new JPanel();
         this.panelLateral.setLayout(new BoxLayout(panelLateral,BoxLayout.Y_AXIS));
         this.panelLateral.add(new DisplayNotificaciones());
-        //TODO: aca hay que agregar el panel de estado por eso despues se puede renombrar a PanelLateralNotificacionesEstado o algo asi
     }
 
     private void crearContenedor(){
@@ -123,9 +122,17 @@ public abstract class VentanaJugador extends JFrame {
     public void mostrarPanelDeAcciones(JComponent component,String posicion){
         this.panelInferior.add(component,posicion);
     }
+
     public void mostrarPanelDeEstado(JPanel panel){
         this.panelLateral.add(panel);
     }
 
+    public void borrarPanelDeEstadoAnterior() {
+       this.panelLateral.remove(1); //posicion del Panel de Estado
+
+        this.panelLateral.revalidate();
+        this.panelLateral.repaint();
+
+    }
 }
 

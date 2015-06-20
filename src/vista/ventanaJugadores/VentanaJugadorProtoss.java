@@ -44,4 +44,5 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         ventanaJugador.setVisible(true);
 
     }
+
 }
