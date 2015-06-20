@@ -1,49 +1,24 @@
 package vista.unidades;
 
 import unidades.protoss.Dragon;
+import vista.Actions.MouseActionObtenerInfoAltoTemplario;
+import vista.Actions.MouseActionObtenerInfoDragon;
 import vista.auxiliares.ImagePanel;
+import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 
-public class VistaDragon extends ImagePanel implements MouseListener {
+public class VistaDragon extends ImagePanel {
     private static final int ANCHO = 1;
     private static final int ALTO = 2;
     private final Dragon unidad;
+    private final VentanaJugador ventanaJugador;
 
-    public VistaDragon(Dragon dragon/*TODO aca se pasa el panel del juego*/) {
+    public VistaDragon(Dragon dragon,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
         this.unidad=dragon;
+        this.ventanaJugador=ventanaJugador;
+        this.addMouseListener(new MouseActionObtenerInfoDragon(unidad,ventanaJugador));
     }
 
-    @Override
-    public void mouseClicked(MouseEvent e) {
-        if(e.getButton()!=MouseEvent.BUTTON1) return;
-        /*Aca va la accion de
-          - setear los botones
-            por ejemplo pantallaJuego.getPanelDeInformacion().SetVida(unidad.getVida());
-          - setear las propiedades
-         */
-    }
-
-    @Override
-    public void mousePressed(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseReleased(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseEntered(MouseEvent e) {
-
-    }
-
-    @Override
-    public void mouseExited(MouseEvent e) {
-
-    }
 }
