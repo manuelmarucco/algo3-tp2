@@ -86,7 +86,7 @@ public class UnidadesTerranTest {
         nc.update();
         nc.EMP(c2);
         Assert.assertEquals(0, at.getEscudo());
-        Assert.assertEquals(0, at.getEnergia());
+        Assert.assertEquals(0, at.getEnergiaActual());
     }
 
     @Test

@@ -21,15 +21,22 @@ public class MouseActionObtenerInfoAltoTemplario implements MouseListener {
     public void mouseClicked(MouseEvent e) {
         if(e.getButton()!=MouseEvent.BUTTON1)return;
 
-        this.panelDeUnidad = new PanelUnidadMagica();
 
-        this.cargarInfoAlPanel();
+        this.cargarInfoAlPanelDeEstado();
 
-        ventanaJugador.mostrarPanelDeEstado(panelDeUnidad,"Center");
+        ventanaJugador.mostrarPanelDeEstado(panelDeUnidad);
 
     }
 
-    private void cargarInfoAlPanel() {
+    private void cargarInfoAlPanelDeEstado() {
+        this.panelDeUnidad = new PanelUnidadMagica();
+
+        this.panelDeUnidad.setNombre(altoTemplario.getClass().toString());
+        //this.panelDeUnidad.setVida();
+        //this.panelDeUnidad.setEscudo();
+        this.panelDeUnidad.setEnergiaTotal(String.valueOf(altoTemplario.getEnergia().getEnergiaTotal()));
+        this.panelDeUnidad.setEnergiaActual(String.valueOf(altoTemplario.getEnergiaActual()));
+        this.panelDeUnidad.setVision(String.valueOf(altoTemplario.getVision()));
 
     }
 

@@ -58,9 +58,9 @@ public class unidadesTest {
         mapa.agregar(nc, c1);
         mapa.agregar(at, c2);
         for(int i = 0;i<10;i++) asignadorDeTurnos.update();//paso 5 turnos
-        Assert.assertEquals(100, nc.getEnergia());//energia antes de EMP
+        Assert.assertEquals(100, nc.getEnergiaActual());//energia antes de EMP
         nc.EMP(c2);
-        Assert.assertEquals(0, nc.getEnergia());//le bajo la energia a la nave
+        Assert.assertEquals(0, nc.getEnergiaActual());//le bajo la energia a la nave
         Assert.assertEquals(0, at.getEscudo());
     }
     /*Se sitúa un alto templario y otra nave de ciencia (propia o no). se lanza el EMP. Se verifica que:
@@ -83,11 +83,11 @@ public class unidadesTest {
         mapa.agregar(at, c2);
         mapa.agregar(nc2, c3);
         for(int i = 0;i<10;i++) asignadorDeTurnos.update();//paso 5 turnos
-        Assert.assertEquals(100,nc.getEnergia());//energia antes de EMP
+        Assert.assertEquals(100,nc.getEnergiaActual());//energia antes de EMP
         nc.EMP(c2);
-        Assert.assertEquals(0, nc.getEnergia());//le bajo la energia a la nave
-        Assert.assertEquals(0, at.getEnergia());
-        Assert.assertEquals(0, nc2.getEnergia());
+        Assert.assertEquals(0, nc.getEnergiaActual());//le bajo la energia a la nave
+        Assert.assertEquals(0, at.getEnergiaActual());
+        Assert.assertEquals(0, nc2.getEnergiaActual());
     }
     /*Se sitúan una unidad protoss y un alto templario. Se lanza el EMP fuera del rango de alcance del mismo. Se verifica que:
     La nave de ciencia tenga menos energía
@@ -107,9 +107,9 @@ public class unidadesTest {
         mapa.agregar(at, c2);
         mapa.agregar(zl,c3);
         for(int i = 0;i<10;i++) asignadorDeTurnos.update();//paso 5 turnos
-        Assert.assertEquals(100,nc.getEnergia());//energia antes de EMP
+        Assert.assertEquals(100,nc.getEnergiaActual());//energia antes de EMP
         nc.EMP(new Coordenadas(3, 3));
-        Assert.assertEquals(0, nc.getEnergia());//le bajo la energia a la nave
+        Assert.assertEquals(0, nc.getEnergiaActual());//le bajo la energia a la nave
         Assert.assertEquals(40, at.getEscudo());//no baja el escudo
         Assert.assertEquals(60, zl.getEscudo());
     }
