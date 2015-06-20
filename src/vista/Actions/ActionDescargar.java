@@ -1,16 +1,12 @@
 package vista.Actions;
 
-import unidades.Unidad;
-import unidades.UnidadGuerrera;
+import unidades.UnidadTransporte;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-/**
- * Created by coco on 20/06/15.
- */
-public class ActionMover implements MouseListener {
-    public ActionMover(Unidad unidad) {
+public class ActionDescargar implements MouseListener {
+    public ActionDescargar(UnidadTransporte unidad) {
     }
 
     @Override
