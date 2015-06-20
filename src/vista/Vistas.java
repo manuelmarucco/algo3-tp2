@@ -5,7 +5,7 @@ import recursos.Cristal;
 import recursos.Volcan;
 import unidades.protoss.*;
 import unidades.terrran.*;
-import vista.edificios.VistaBarraca;
+import vista.edificios.terran.VistaBarraca;
 import vista.recursos.VistaCristales;
 import vista.recursos.VistaVolcan;
 import vista.unidades.*;
