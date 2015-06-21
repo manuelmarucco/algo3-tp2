@@ -1,9 +1,16 @@
 package vista.auxiliares.jugador;
 
+import jugabilidad.RazaDeJugador.JugadorProtoss;
+import vista.Actions.accionesConstruir.AccionConstruir;
+import vista.Actions.accionesConstruir.AccionConstruirNexoMineral;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class BotoneraDeConstruccionesProtoss extends JPanel {
+
+    private JugadorProtoss jugador;
+    private AccionConstruir accionConstruirEnEspera;
 
     // Atributos ---------------------
 
@@ -18,12 +25,19 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
 
     // Metodos -------------------------
 
-    public BotoneraDeConstruccionesProtoss(){
+    //TODO en la el actionListener del mapa tiene que estar esta linea
+    //TODO  if(botonera.getAccionConstruirEnEspera() !=  null){
+    //TODO          botonera.getAccionConstruirEnEspera().construirEn(mapa.getCoordenadaDeParsela());
+    //TODO          return;
+    //TODO  }
+    //TODO hacer el try and catch en la sentencia de cosntruirEn de aca arriba para exportar la excepcion
+    //TODO al panel de notificaciones
 
+    public BotoneraDeConstruccionesProtoss(JugadorProtoss j){
+        this.jugador = j;
         this.init();
 
     }
-
     private void init(){
 
         this.panel = new JPanel( new GridLayout(2,3,10,10));
@@ -38,16 +52,8 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
     private void crearBotones(){
 
         this.botonNexoMineral = this.crearBoton("Nexo Mineral" );
-        /*
-        this.botonNexoMineral.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-               panel.remove(botonAcceso);
-                panel.revalidate();
-                panel.repaint();
-            }
-        });
-        */
+        this.botonNexoMineral.addActionListener(new AccionConstruirNexoMineral(this));
+
         this.botonAsimilador = this.crearBoton("Asimilador");
         this.botonPilon = this.crearBoton("Pilon");
         this.botonAcceso = this.crearBoton("Acceso");
@@ -76,4 +82,11 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
 
     }
 
+    public void setAccionConstruirEnEspera(AccionConstruir accion) {
+        this.accionConstruirEnEspera = accion;
+    }
+
+    public JugadorProtoss getJugador() {
+        return jugador;
+    }
 }

@@ -35,7 +35,7 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
 
         botoneraConstrucciones.add(tituloConstrucciones);
-        botoneraConstrucciones.add(new BotoneraDeConstruccionesProtoss());
+        botoneraConstrucciones.add(new BotoneraDeConstruccionesProtoss(jugador));
 
         this.panelInferior.add(botoneraConstrucciones,"West");
     }
