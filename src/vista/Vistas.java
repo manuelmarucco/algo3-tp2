@@ -41,7 +41,7 @@ public class Vistas {
         temp.put(Barraca.class, VistaBarraca.class);
         temp.put(PuertoEstelar.class, VistaPuertoEstelar.class);
         temp.put(CentroDeMineral.class, VistaCentroDeMinerales.class);
-        temp.put(CentroDeSuministros.class, VistaCentroDeSuministros.class);
+        temp.put(CentroDeSuministros.class, VistaDepositoDeSuministros.class);
         temp.put(Fabrica.class, VistaFabrica.class);
         temp.put(Refineria.class, VistaRefineria.class);
         //protoss
