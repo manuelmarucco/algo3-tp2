@@ -3,13 +3,9 @@ package vista.auxiliares.jugador;
 import control.vistaMapa.ControladorDeVistaMapa;
 import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import vista.Vistas;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 
 public class DisplayMapa extends JFrame {
     // Si se saca el main va a tener que heredar de JPanel
@@ -67,7 +63,7 @@ public class DisplayMapa extends JFrame {
                 Coordenadas coordenadas = new Coordenadas( i + 1, 25 - j );
                 JPanel vista = this.controlador.getVistaTerrestreEnPosicion(coordenadas);
 
-                this.add(vista);
+                panel.add(vista);
 
             }
 

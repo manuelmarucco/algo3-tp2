@@ -159,7 +159,7 @@ public class ControladorDeVistaMapa {
     private void crearAsociadorDeClasesDeRecursosConSusVistas() {
 
         // Este hashMap devuelve un valor por defecto si se le pide una key = null.
-        asociadorDeVistasAereas = new HashMapParaMapa<Class, Class>(VistaAire.class);
+        asociadorDeVistasRecursos = new HashMapParaMapa<Class, Class>(VistaAire.class);
 
         asociadorDeVistasRecursos.put(Volcan.class, VistaVolcan.class);
         asociadorDeVistasRecursos.put(Cristal.class, VistaCristales.class);
