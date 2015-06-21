@@ -33,8 +33,8 @@ public class ControladorDeVistaMapa {
     public ControladorDeVistaMapa() {
 
         this.crearAsociadorDeClasesTerrestresConSusVistas();
-        this.crearAsociadorDeClasesAereasConSusVistas();
-        this.crearAsociadorDeClasesDeRecursosConSusVistas();
+        //this.crearAsociadorDeClasesAereasConSusVistas();
+        //this.crearAsociadorDeClasesDeRecursosConSusVistas();
 
     }
 
