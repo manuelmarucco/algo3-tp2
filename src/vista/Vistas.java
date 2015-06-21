@@ -1,11 +1,14 @@
 package vista;
 
-import construcciones.terran.Barraca;
+import construcciones.CentroDeSuministros;
+import construcciones.protoss.*;
+import construcciones.terran.*;
 import recursos.Cristal;
 import recursos.Volcan;
 import unidades.protoss.*;
 import unidades.terrran.*;
-import vista.edificios.terran.VistaBarraca;
+import vista.edificios.protoss.*;
+import vista.edificios.terran.*;
 import vista.recursos.VistaCristales;
 import vista.recursos.VistaVolcan;
 import vista.unidades.*;
@@ -36,6 +39,19 @@ public class Vistas {
                     /*edificios*/
         //terran
         temp.put(Barraca.class, VistaBarraca.class);
+        temp.put(PuertoEstelar.class, VistaPuertoEstelar.class);
+        temp.put(CentroDeMineral.class, VistaCentroDeMinerales.class);
+        temp.put(CentroDeSuministros.class, VistaCentroDeSuministros.class);
+        temp.put(Fabrica.class, VistaFabrica.class);
+        temp.put(Refineria.class, VistaRefineria.class);
+        //protoss
+        temp.put(Acceso.class, VistaAcceso.class);
+        temp.put(ArchivosTemplarios.class, VistaArchivosTemplarios.class);
+        temp.put(Asimilador.class, VistaAsimilador.class);
+        temp.put(NexoMineral.class, VistaNexoMineral.class);
+        temp.put(Pilon.class, VistaPilon.class);
+        temp.put(PortalEstelar.class, VistaPortalEstelar.class);
+
         return temp;
     }
 

@@ -4,8 +4,10 @@ import Actions.AccionJugar;
 import jugabilidad.Juego;
 import vista.auxiliares.ImagePanel;
 
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 
 public class MenuPrincipal extends JFrame {
@@ -27,7 +29,6 @@ public class MenuPrincipal extends JFrame {
         jugarBoton.setBorder(null);
         //jugarBoton.setOpaque(false);
         jugarBoton.addActionListener(new AccionJugar(juego));
-
         //configuracion del fondo de pantalla
         this.add(background);
 
@@ -42,6 +43,22 @@ public class MenuPrincipal extends JFrame {
     }
     private void createUIComponents() throws IOException, FontFormatException {
         imageBackground = new ImagePanel("images/menu/background.jpg",1280,720);
+    }
+
+    public void soundplay(String wavefile) throws Exception {
+        File soundFile = new File(wavefile);
+        AudioInputStream soundIn = AudioSystem.getAudioInputStream(soundFile);
+        AudioFormat format = soundIn.getFormat();
+        DataLine.Info info = new DataLine.Info(Clip.class, format);
+
+        Clip clip = (Clip)AudioSystem.getLine(info);
+        clip.open(soundIn);
+        clip.start();
+        while(clip.isRunning())
+        {
+            Thread.yield();
+        }
+
     }
 
 
