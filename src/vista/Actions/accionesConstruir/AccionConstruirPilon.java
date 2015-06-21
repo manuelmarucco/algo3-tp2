@@ -8,10 +8,10 @@ import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AccionConstruirNexoMineral implements AccionConstruir,ActionListener {
+public class AccionConstruirPilon implements AccionConstruir,ActionListener {
     BotoneraDeConstruccionesProtoss botonera;
 
-    public AccionConstruirNexoMineral(BotoneraDeConstruccionesProtoss botonera) {
+    public AccionConstruirPilon(BotoneraDeConstruccionesProtoss botonera) {
         this.botonera = botonera;
     }
 
@@ -22,7 +22,7 @@ public class AccionConstruirNexoMineral implements AccionConstruir,ActionListene
 
     @Override
     public void construirEn(Coordenadas coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
-        botonera.getJugador().construirNexoMineral(coordenada);
+        botonera.getJugador().construirPilon(coordenada);
         botonera.setAccionConstruirEnEspera(null);
     }
 }
