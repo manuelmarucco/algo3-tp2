@@ -18,6 +18,7 @@ public abstract class VentanaJugador extends JFrame {
     private JScrollPane panelMapa;
     private JPanel panelLateral;
     protected JPanel panelInferior;
+    private PanelAcciones panelAcciones;
 
 
 
@@ -42,15 +43,15 @@ public abstract class VentanaJugador extends JFrame {
 
         this.crearPanelRecursos();
         this.crearPanelMapa();
-        this.crearPanelDeNotificaciones();
+        this.crearPanelLateral();
         this.crearPanelInferior();
 
         this.agregarAlContenedor();
 
     }
-    private void crearPanelDeNotificaciones() {
+    private void crearPanelLateral() {
         this.panelLateral = new JPanel();
-        this.panelLateral.setLayout(new BoxLayout(panelLateral,BoxLayout.Y_AXIS));
+        this.panelLateral.setLayout(new BoxLayout(panelLateral, BoxLayout.Y_AXIS));
         this.panelLateral.add(new DisplayNotificaciones());
         //TODO: aca hay que agregar el panel de estado por eso despues se puede renombrar a PanelLateralNotificacionesEstado o algo asi
     }
@@ -66,15 +67,15 @@ public abstract class VentanaJugador extends JFrame {
 
         this.panelRecursos = new JPanel();
         this.panelRecursos.add( new DisplayRecursos() );
-        this.panelRecursos.setPreferredSize( new Dimension(700, 35) );
+        this.panelRecursos.setPreferredSize(new Dimension(700, 35));
 
     }
 
     protected void crearPanelInferior(){
-
+        this.panelAcciones=new PanelAcciones();
         this.panelInferior = new JPanel( new BorderLayout() );
         this.panelInferior.add(new PanelTerminarTurno(), "East");
-        this.panelInferior.add(new PanelAcciones(),"Center");
+        this.panelInferior.add(panelAcciones, "Center");
 
     }
 
@@ -106,17 +107,17 @@ public abstract class VentanaJugador extends JFrame {
         contenedor.addMouseMotionListener(doScrollRectToVisible);
         contenedor.setAutoscrolls(true);
 
-        this.panelMapa.setPreferredSize(new Dimension(700,650));
+        this.panelMapa.setPreferredSize(new Dimension(700, 650));
 
     }
 
 
     private void agregarAlContenedor(){
 
-        this.contenedor.add( this.panelRecursos,"North" );
-        this.contenedor.add( this.panelLateral,"West" );
-        this.contenedor.add( this.panelMapa ,"Center");
-        this.contenedor.add( this.panelInferior,"South");
+        this.contenedor.add(this.panelRecursos, "North");
+        this.contenedor.add(this.panelLateral, "West");
+        this.contenedor.add(this.panelMapa, "Center");
+        this.contenedor.add(this.panelInferior, "South");
 
     }
 
@@ -127,5 +128,15 @@ public abstract class VentanaJugador extends JFrame {
         this.panelLateral.add(panel);
     }
 
+    public PanelAcciones getPanelAcciones() {
+        return panelAcciones;
+    }
+    public void borrarPanelDeEstadoAnterior() {
+       this.panelLateral.remove(1); //posicion del Panel de Estado
+
+        this.panelLateral.revalidate();
+        this.panelLateral.repaint();
+
+    }
 }
 

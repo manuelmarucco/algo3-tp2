@@ -1,6 +1,7 @@
 package vista.panelesDeEstado.panelesDeUnidad;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class PanelUnidadMagica extends PanelUnidad {
     private JLabel energiaActual;
@@ -42,7 +43,9 @@ public class PanelUnidadMagica extends PanelUnidad {
 
 
         panel.add(panelenergiaActual);
+        panel.add(Box.createRigidArea(new Dimension(10,10)));
         panel.add(panelenergiaTotal);
+        panel.add(Box.createRigidArea(new Dimension(10,10)));
 
     }
 
