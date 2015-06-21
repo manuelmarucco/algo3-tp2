@@ -27,13 +27,6 @@ public abstract class VentanaJugador extends JFrame {
 
 
     // Metodos -------------------------
-/*
-    public VentanaJugador(){
-
-        this.init();
-
-    }
-*/
     protected void init(){
 
         this.crearPaneles();
