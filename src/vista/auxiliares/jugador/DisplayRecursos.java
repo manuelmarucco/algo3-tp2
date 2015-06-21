@@ -10,15 +10,7 @@ public class DisplayRecursos extends JPanel {
 
     private BufferedImage[] imagenes;
     private JPanel panel;
-    /*
-    public static void main(String[] args){
 
-        DisplayRecursos botonera = new DisplayRecursos();
-
-        botonera.setVisible(true);
-
-    }
-    */
     // Metodos ------------------------------
 
     public DisplayRecursos(){

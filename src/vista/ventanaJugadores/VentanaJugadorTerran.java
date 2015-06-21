@@ -1,5 +1,6 @@
 package vista.ventanaJugadores;
 
+import jugabilidad.RazaDeJugador.JugadorTerran;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
 
 import javax.swing.*;
@@ -7,11 +8,19 @@ import java.awt.*;
 
 public class VentanaJugadorTerran extends VentanaJugador {
 
+    private JugadorTerran jugador;
+
     // Metodos -------------------------
 
     public VentanaJugadorTerran(){
 
         super.init();
+
+    }
+    public VentanaJugadorTerran(JugadorTerran jugador){
+
+        super.init();
+        this.jugador = jugador;
 
     }
 

@@ -34,13 +34,13 @@ public class AdministradorDeTurnosTest {
         j1 = juego.crearJugadorProtoss("jugador1", "rojo", bases.get(0));
         j2 = juego.crearJugadorTerran("jugador2", "azul", bases.get(1));
 
-        Assert.assertEquals(j1, juego.getJugador());
+        Assert.assertEquals(j1, juego.getJugadorActual());
 
         juego.update();
-        Assert.assertEquals(j2, juego.getJugador());
+        Assert.assertEquals(j2, juego.getJugadorActual());
 
         juego.update();
-        Assert.assertEquals(j1, juego.getJugador());
+        Assert.assertEquals(j1, juego.getJugadorActual());
     }
 
     @Test
@@ -54,7 +54,7 @@ public class AdministradorDeTurnosTest {
         Jugador jugadorUno = juego.crearJugadorProtoss("jugador1", "rojo", bases.get(0));
         Jugador JugadorDos = juego.crearJugadorTerran("jugador2", "azul", bases.get(1));
 
-        Assert.assertEquals(jugadorUno, juego.getJugador());
+        Assert.assertEquals(jugadorUno, juego.getJugadorActual());
     }
 
 }

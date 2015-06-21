@@ -20,7 +20,7 @@ public class Juego implements Actualizable{
 
     // Metodos
 
-    public Jugador getJugador(){
+    public Jugador getJugadorActual(){
        return administradorDeTurnos.getJugadorDelTurnoActual();
     }
 

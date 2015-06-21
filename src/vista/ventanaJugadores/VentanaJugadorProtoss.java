@@ -1,5 +1,6 @@
 package vista.ventanaJugadores;
 
+import jugabilidad.RazaDeJugador.JugadorProtoss;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
 
 import javax.swing.*;
@@ -7,15 +8,16 @@ import java.awt.*;
 
 public class VentanaJugadorProtoss extends VentanaJugador {
 
+    private JugadorProtoss jugador;
 
     // Metodos -------------------------
 
     public VentanaJugadorProtoss(){
-
         super.init();
-      //  this.crearPanelInferior();
-      //  this.contenedor.add(panelInferior,"South");
-
+    }
+    public VentanaJugadorProtoss(JugadorProtoss jugador){
+        super.init();
+        this.jugador = jugador;
     }
 
     @Override
