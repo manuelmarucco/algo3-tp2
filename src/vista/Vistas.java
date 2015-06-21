@@ -55,7 +55,7 @@ public class Vistas {
         return temp;
     }
 
-    public Class getVista(Class clase){
+    public static Class getVista(Class clase){
         return vistaDibujables.get(clase);
     }
 }

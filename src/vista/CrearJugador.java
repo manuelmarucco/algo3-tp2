@@ -5,6 +5,7 @@ import vista.Actions.CrearTerran;
 import vista.Actions.SeleccionarRaza;
 import vista.auxiliares.IconoColor;
 import vista.auxiliares.ImagePanel;
+import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,6 +22,7 @@ public class CrearJugador extends JDialog {
     private JLabel razaLabel;
     private JButton aceptarButton;
     private ImagePanel retrato;
+    private VentanaJugador ventana;
 
     public CrearJugador(Juego j, String titulo, String nombreUsado){
         this.setModalityType(ModalityType.APPLICATION_MODAL);
@@ -93,5 +95,12 @@ public class CrearJugador extends JDialog {
         return color.getSelectedItem().toString();
     }
 
+    public void setVentana(VentanaJugador ventana) {
+        this.ventana = ventana;
+    }
+
+    public VentanaJugador getVentana() {
+        return ventana;
+    }
 }
 
