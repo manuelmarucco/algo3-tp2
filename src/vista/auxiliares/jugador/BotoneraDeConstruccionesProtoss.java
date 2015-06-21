@@ -1,7 +1,8 @@
 package vista.auxiliares.jugador;
 
 import jugabilidad.RazaDeJugador.JugadorProtoss;
-import vista.Actions.accionesConstruir.*;
+import vista.Actions.accionesConstruir.AccionConstruir;
+import vista.Actions.accionesConstruir.AccionConstruirEdificiosProtoss.*;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,17 +1,18 @@
-package vista.Actions.accionesConstruir;
+package vista.Actions.accionesConstruir.AccionConstruirEdificiosTerran;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
+import vista.Actions.accionesConstruir.AccionConstruir;
+import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AccionConstruirAsimilador implements AccionConstruir,ActionListener {
-    BotoneraDeConstruccionesProtoss botonera;
+public class AccionConstruirCentroDeMineral implements AccionConstruir,ActionListener {
+    BotoneraDeConstruccionesTerran botonera;
 
-    public AccionConstruirAsimilador(BotoneraDeConstruccionesProtoss botonera) {
+    public AccionConstruirCentroDeMineral(BotoneraDeConstruccionesTerran botonera) {
         this.botonera = botonera;
     }
 
@@ -22,7 +23,7 @@ public class AccionConstruirAsimilador implements AccionConstruir,ActionListener
 
     @Override
     public void construirEn(Coordenadas coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
-        botonera.getJugador().construirAsimilador(coordenada);
+        botonera.getJugador().construirCentroDeMineral(coordenada);
         botonera.setAccionConstruirEnEspera(null);
     }
 }

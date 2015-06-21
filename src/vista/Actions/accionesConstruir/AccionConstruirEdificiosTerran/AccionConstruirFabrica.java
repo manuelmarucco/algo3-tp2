@@ -1,17 +1,17 @@
-package vista.Actions.accionesConstruir;
+package vista.Actions.accionesConstruir.AccionConstruirEdificiosTerran;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
+import vista.Actions.accionesConstruir.AccionConstruir;
+import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+public class AccionConstruirFabrica implements AccionConstruir,ActionListener {
+    BotoneraDeConstruccionesTerran botonera;
 
-public class AccionConstruirPortalEstelar implements AccionConstruir,ActionListener {
-    BotoneraDeConstruccionesProtoss botonera;
-
-    public AccionConstruirPortalEstelar(BotoneraDeConstruccionesProtoss botonera) {
+    public AccionConstruirFabrica(BotoneraDeConstruccionesTerran botonera) {
         this.botonera = botonera;
     }
 
@@ -22,7 +22,7 @@ public class AccionConstruirPortalEstelar implements AccionConstruir,ActionListe
 
     @Override
     public void construirEn(Coordenadas coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
-        botonera.getJugador().construirPortalEstelar(coordenada);
+        botonera.getJugador().construirFabrica(coordenada);
         botonera.setAccionConstruirEnEspera(null);
     }
 }
