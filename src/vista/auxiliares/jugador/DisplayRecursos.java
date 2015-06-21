@@ -18,14 +18,11 @@ public class DisplayRecursos extends JPanel {
 
     // Metodos ------------------------------
 
-    public DisplayRecursos(){
-        this.init();
-    }
     public DisplayRecursos(Recursos recursos, Suministros suministros){
 
-        this.init();
         this.recursosDeJugador = recursos;
         this.suministrosDeJugador = suministros;
+        this.init();
 
     }
 
@@ -79,19 +76,31 @@ public class DisplayRecursos extends JPanel {
     }
 
     private void agregarIndicadorGas(){
-
+        JPanel panelGasVespeno = new JPanel();
         JLabel gasVespeno = new JLabel(new ImageIcon( imagenes[1] ) );
-        gasVespeno.setText("Gas vespeno: <Cantidad>");
-        this.panel.add(gasVespeno);
+
+        panelGasVespeno.setLayout(new BoxLayout(panelGasVespeno, BoxLayout.X_AXIS));
+        gasVespeno.setText("Gas vespeno: ");
+
+        panelGasVespeno.add(gasVespeno);
+        panelGasVespeno.add(new JLabel(String.valueOf(recursosDeJugador.getGasVespeno())));
+        this.panel.add(panelGasVespeno);
 
     }
 
     private void agregarIndicadorSuministros(){
 
+        JPanel panelSuministros = new JPanel();
         JLabel suministros = new JLabel(new ImageIcon( imagenes[2] ) );
-        suministros.setText("Suministros: <Usado>/<Disponible>");
-        this.panel.add(suministros);
 
+        panelSuministros.setLayout(new BoxLayout(panelSuministros, BoxLayout.X_AXIS));
+        suministros.setText("Suministros: ");
+
+
+        panelSuministros.add(suministros);
+        panelSuministros.add(new JLabel(String.valueOf(suministrosDeJugador.getSuministrosUsados()+"/")));
+        panelSuministros.add(new JLabel(String.valueOf(suministrosDeJugador.getSuministrosLimiteActuales())));
+        this.panel.add(panelSuministros);
     }
 
     private static BufferedImage cambiarTamanio(BufferedImage img, int newW, int newH) {

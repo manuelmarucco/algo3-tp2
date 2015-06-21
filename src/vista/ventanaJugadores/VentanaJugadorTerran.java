@@ -13,26 +13,17 @@ public class VentanaJugadorTerran extends VentanaJugador {
 
     // Metodos -------------------------
 
-    public VentanaJugadorTerran(){
-
+    public VentanaJugadorTerran(JugadorTerran j){
+        this.jugador = j;
         super.init();
 
     }
+
 
     @Override
-    protected void crearPanelRecursos() {
-
-
-        this.panelRecursos = new JPanel();
-        this.panelRecursos.add( new DisplayRecursos() );
-        this.panelRecursos.setPreferredSize(new Dimension(700, 35));
-    }
-
-    public VentanaJugadorTerran(JugadorTerran jugador){
-
-        super.init();
-        this.jugador = jugador;
-
+    protected void crearPanelRecursos(){
+        super.crearPanelRecursos();
+        this.panelRecursos.add( new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros() ));
     }
 
     @Override
@@ -54,7 +45,7 @@ public class VentanaJugadorTerran extends VentanaJugador {
 
     public static void main(String[] args){
 
-        VentanaJugador ventanaJugador = new VentanaJugadorTerran();
+        VentanaJugador ventanaJugador = new VentanaJugadorTerran(new JugadorTerran());
 
         ventanaJugador.pack();
         ventanaJugador.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

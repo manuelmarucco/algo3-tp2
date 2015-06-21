@@ -13,19 +13,15 @@ public class VentanaJugadorProtoss extends VentanaJugador {
 
     // Metodos -------------------------
 
-    public VentanaJugadorProtoss(){
-        super.init();
-    }
 
-    public VentanaJugadorProtoss(JugadorProtoss jugador){
+    public VentanaJugadorProtoss(JugadorProtoss j){
+        this.jugador = j;
         super.init();
-        this.jugador = jugador;
     }
 
     @Override
     protected void crearPanelRecursos(){
         super.crearPanelRecursos();
-//        this.panelRecursos.add( new DisplayRecursos() );
         this.panelRecursos.add( new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros() ));
     }
 
