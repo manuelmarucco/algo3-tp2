@@ -1,5 +1,13 @@
 package vista.auxiliares.jugador;
 
+import construcciones.CentroDeRecoleccion;
+import construcciones.CentroDeSuministros;
+import construcciones.protoss.Acceso;
+import construcciones.protoss.ArchivosTemplarios;
+import construcciones.protoss.PortalEstelar;
+import construcciones.terran.Barraca;
+import construcciones.terran.Fabrica;
+import construcciones.terran.PuertoEstelar;
 import unidades.UnidadGuerrera;
 import unidades.UnidadTransporte;
 import unidades.protoss.AltoTemplario;
@@ -83,4 +91,65 @@ public class PanelAcciones extends JPanel {
         button3.addMouseListener(new ActionAlucinacion(unidad));
     }
 
+    public void configurarBotones(Acceso unidad){
+        this.limpiar();
+        this.button1.setEnabled(true);
+        this.button1.setVisible(true);
+        button1.addMouseListener(new ActionEntrenarZealot(unidad));
+        this.button2.setEnabled(true);
+        this.button2.setVisible(true);
+        button2.addMouseListener(new ActionEntrenarDragon(unidad));
+    }
+
+    public void configurarBotones(ArchivosTemplarios unidad){
+        this.limpiar();
+        this.button1.setEnabled(true);
+        this.button1.setVisible(true);
+        button1.addMouseListener(new ActionEntrenarAltoTemplario(unidad));
+    }
+
+    public void configurarBotones(PortalEstelar unidad){
+        this.limpiar();
+        this.button1.setEnabled(true);
+        this.button1.setVisible(true);
+        this.button1.addMouseListener(new ActionEntrenarScout(unidad));
+        this.button2.setEnabled(true);
+        this.button2.setVisible(true);
+        this.button2.addMouseListener(new ActionEntrenarNaveTransporteProtoss(unidad));
+    }
+
+    public void configurarBotones(Barraca unidad){
+        this.limpiar();
+        this.button1.setEnabled(true);
+        this.button1.setVisible(true);
+        button1.addMouseListener(new ActionEntrenarMarine(unidad));
+    }
+
+    public void configurarBotones(Fabrica unidad){
+        this.limpiar();
+        this.button1.setEnabled(true);
+        this.button1.setVisible(true);
+        button1.addMouseListener(new ActionEntrenarGolliat(unidad));
+    }
+
+    public void configurarBotones(PuertoEstelar unidad){
+        this.limpiar();
+        this.button1.setEnabled(true);
+        this.button1.setVisible(true);
+        this.button1.addMouseListener(new ActionEntrenarNaveCiencia(unidad));
+        this.button2.setEnabled(true);
+        this.button2.setVisible(true);
+        this.button2.addMouseListener(new ActionEntrenarNaveTransporteTerran(unidad));
+        this.button2.setEnabled(true);
+        this.button2.setVisible(true);
+        this.button2.addMouseListener(new ActionEntrenarEsprectro(unidad));
+    }
+
+    public void configurarBotones(CentroDeSuministros unidad) {
+        this.limpiar();
+    }
+
+    public void configurarBotones(CentroDeRecoleccion unidad) {
+        this.limpiar();
+    }
 }

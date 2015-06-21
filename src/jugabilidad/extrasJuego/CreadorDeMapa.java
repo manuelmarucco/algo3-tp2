@@ -2,15 +2,12 @@ package jugabilidad.extrasJuego;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.ColocableEnMapa;
-import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
-import org.mockito.cglib.proxy.Proxy;
 import recursos.Cristal;
 import recursos.Volcan;
 
-import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
