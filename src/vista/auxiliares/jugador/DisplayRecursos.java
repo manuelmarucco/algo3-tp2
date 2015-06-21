@@ -73,6 +73,7 @@ public class DisplayRecursos extends JPanel {
         cristal.setText("Cristal: ");
 
         panelCristal.add(cristal);
+        panelCristal.add(new JLabel(String.valueOf(recursosDeJugador.getMinerales())));
         this.panel.add(panelCristal);
 
     }
