@@ -39,9 +39,9 @@ public class simulacionGanador {
 
         ArrayList<Coordenadas> bases = creador.obtenerCoordenadasDeLasBases();
 
-        Construccion c1,c3;
+        Construccion c1,depositoDeSuministrosDeJugador2;
         Acceso c2;
-        Zealot d;
+        Zealot zealot;
 
         j1 = (JugadorProtoss) juego.crearJugadorProtoss("manuel","rojo", bases.get(0));
         j2 = (JugadorTerran) juego.crearJugadorTerran("jorge", "azul",bases.get(1));
@@ -67,17 +67,18 @@ public class simulacionGanador {
         Pilon c4 = j1.construirPilon(new Coordenadas(7, 24));
         for(int i = 0; i<c4.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
-        c3 = j2.construirDepositoDeSuministros(new Coordenadas(10,24));
-        for(int i = 0; i<c3.getTiempoDeConstruccion()*2; i++ ) juego.update();
+        depositoDeSuministrosDeJugador2 = j2.construirDepositoDeSuministros(new Coordenadas(10,24));
+        for(int i = 0; i<depositoDeSuministrosDeJugador2.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
-        d = c2.entrenarZealot();
-        int tiempo = d.getTiempoDeEntrenamiento();
+        zealot = c2.entrenarZealot();
+        int tiempo = zealot.getTiempoDeEntrenamiento();
         for(int i = 0; i<tiempo*2; i++){
             juego.update();
         }
-        d.mover(new Coordenadas(9,24));
-        while (c3.getVida()!=0) {
-            d.atacarTierra(c3);
+
+        zealot.mover(new Coordenadas(9, 24));
+        while (depositoDeSuministrosDeJugador2.getVida()!=0) {
+            zealot.atacarTierra(depositoDeSuministrosDeJugador2);
             juego.update();
             juego.update();
 

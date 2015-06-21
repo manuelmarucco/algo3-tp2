@@ -8,7 +8,6 @@ import jugabilidad.extrasJuego.AdministradorDeTurnos;
 import jugabilidad.extrasJuego.CreadorDeJugador;
 import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import org.mockito.cglib.proxy.Proxy;
 
 import java.util.ArrayList;
 

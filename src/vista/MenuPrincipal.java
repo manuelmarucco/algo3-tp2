@@ -25,6 +25,7 @@ public class MenuPrincipal extends JFrame {
         jugarBoton.setIcon(new ImageIcon("images/menu/botonJugar.png"));
         jugarBoton.setMargin(new Insets(0, 0, 0, 0));
         jugarBoton.setBorder(null);
+        //jugarBoton.setOpaque(false);
         jugarBoton.addActionListener(new AccionJugar(juego));
 
         //configuracion del fondo de pantalla
