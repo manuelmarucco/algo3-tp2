@@ -3,11 +3,9 @@ package jugabilidad;
 import construcciones.Construccion;
 import construcciones.EdificioEnConstruccion;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.construicciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Actualizable;
-import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import interfaces.Entrenable;
 import jugabilidad.auxiliares.Recursos;
@@ -44,6 +42,7 @@ public abstract class Jugador implements Actualizable{
 	public Recursos getRecursos() {
 		return recursosRecolectados;
 	}
+	public Suministros getSuministros(){return suministros; }
 	
 	public void agregarUnidad(Entrenable unidad){
 		unidadesCreadas.add(unidad);

@@ -2,6 +2,7 @@ package vista.ventanaJugadores;
 
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
+import vista.auxiliares.jugador.DisplayRecursos;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,9 +16,17 @@ public class VentanaJugadorProtoss extends VentanaJugador {
     public VentanaJugadorProtoss(){
         super.init();
     }
+
     public VentanaJugadorProtoss(JugadorProtoss jugador){
         super.init();
         this.jugador = jugador;
+    }
+
+    @Override
+    protected void crearPanelRecursos(){
+        super.crearPanelRecursos();
+//        this.panelRecursos.add( new DisplayRecursos() );
+        this.panelRecursos.add( new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros() ));
     }
 
     @Override
@@ -37,8 +46,7 @@ public class VentanaJugadorProtoss extends VentanaJugador {
     // Main ---------------------------
 
     public static void main(String[] args){
-
-        VentanaJugador ventanaJugador = new VentanaJugadorProtoss();
+        VentanaJugador ventanaJugador = new VentanaJugadorProtoss(new JugadorProtoss());
 
         ventanaJugador.pack();
         ventanaJugador.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

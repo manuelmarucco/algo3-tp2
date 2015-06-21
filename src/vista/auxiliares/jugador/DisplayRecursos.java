@@ -1,5 +1,8 @@
 package vista.auxiliares.jugador;
 
+import jugabilidad.auxiliares.Recursos;
+import jugabilidad.auxiliares.Suministros;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -10,12 +13,19 @@ public class DisplayRecursos extends JPanel {
 
     private BufferedImage[] imagenes;
     private JPanel panel;
+    private Recursos recursosDeJugador;
+    private Suministros suministrosDeJugador;
 
     // Metodos ------------------------------
 
     public DisplayRecursos(){
+        this.init();
+    }
+    public DisplayRecursos(Recursos recursos, Suministros suministros){
 
         this.init();
+        this.recursosDeJugador = recursos;
+        this.suministrosDeJugador = suministros;
 
     }
 
@@ -56,10 +66,14 @@ public class DisplayRecursos extends JPanel {
     }
 
     private void agregarIndicadorMinerales(){
-
+        JPanel panelCristal = new JPanel();
         JLabel cristal = new JLabel(new ImageIcon( imagenes[0] ) );
-        cristal.setText("Cristal: <Cantidad>");
-        this.panel.add(cristal);
+
+        panelCristal.setLayout(new BoxLayout(panelCristal, BoxLayout.X_AXIS));
+        cristal.setText("Cristal: ");
+
+        panelCristal.add(cristal);
+        this.panel.add(panelCristal);
 
     }
 

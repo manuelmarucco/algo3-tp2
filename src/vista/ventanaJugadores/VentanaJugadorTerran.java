@@ -2,6 +2,7 @@ package vista.ventanaJugadores;
 
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
+import vista.auxiliares.jugador.DisplayRecursos;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,6 +18,16 @@ public class VentanaJugadorTerran extends VentanaJugador {
         super.init();
 
     }
+
+    @Override
+    protected void crearPanelRecursos() {
+
+
+        this.panelRecursos = new JPanel();
+        this.panelRecursos.add( new DisplayRecursos() );
+        this.panelRecursos.setPreferredSize(new Dimension(700, 35));
+    }
+
     public VentanaJugadorTerran(JugadorTerran jugador){
 
         super.init();

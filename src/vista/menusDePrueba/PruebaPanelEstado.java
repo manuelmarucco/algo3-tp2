@@ -1,15 +1,17 @@
 package vista.menusDePrueba;
 
 import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadGuerrera;
+import vista.ventanaJugadores.VentanaJugador;
 import vista.ventanaJugadores.VentanaJugadorProtoss;
 
 import javax.swing.*;
 
 public class PruebaPanelEstado{
     private JPanel panelLateral;
-    private VentanaJugadorProtoss frame;
+    private VentanaJugador frame;
 
     public void construyeVentana(){
+        //frame = new VentanaJugadorProtoss(new JugadorProtoss());
         frame = new VentanaJugadorProtoss();
         frame.mostrarPanelDeEstado(panelLateral);
         frame.pack();

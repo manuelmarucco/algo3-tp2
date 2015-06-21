@@ -1,6 +1,9 @@
 package vista.ventanaJugadores;
 
-import vista.auxiliares.jugador.*;
+import vista.auxiliares.jugador.DisplayMapa;
+import vista.auxiliares.jugador.DisplayNotificaciones;
+import vista.auxiliares.jugador.PanelAcciones;
+import vista.auxiliares.jugador.PanelTerminarTurno;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,7 +17,7 @@ public abstract class VentanaJugador extends JFrame {
 
     protected JPanel contenedor;
 
-    private JPanel panelRecursos;
+    protected JPanel panelRecursos;
     private JScrollPane panelMapa;
     private JPanel panelLateral;
     protected JPanel panelInferior;
@@ -24,13 +27,13 @@ public abstract class VentanaJugador extends JFrame {
 
 
     // Metodos -------------------------
-
+/*
     public VentanaJugador(){
 
         this.init();
 
     }
-
+*/
     protected void init(){
 
         this.crearPaneles();
@@ -63,12 +66,9 @@ public abstract class VentanaJugador extends JFrame {
 
     }
 
-    private void crearPanelRecursos(){
-
+    protected void crearPanelRecursos(){
         this.panelRecursos = new JPanel();
-        this.panelRecursos.add( new DisplayRecursos() );
         this.panelRecursos.setPreferredSize(new Dimension(700, 35));
-
     }
 
     protected void crearPanelInferior(){
