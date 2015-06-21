@@ -1,105 +1,191 @@
 package jugabilidad.extrasJuego;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import interfaces.ColocableEnMapa;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
+import org.mockito.cglib.proxy.Proxy;
 import recursos.Cristal;
 import recursos.Volcan;
 
+import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CreadorDeMapa {
 
-    //TODO refactor de manera tal de recibir en el constructor la cantidad de jugadores Y VALIDARLA
-    // y generar el mapa en base a eso, reveer base uno y base dos
+    // Atributos -------------------------------------------------------------------------------------------------------
 
-    private void agregarMineralesAlMapa() throws ExcepcionNoSePudoAgregarAlMapa {
-        ProxyMapa proxyMapa = ProxyMapa.getInstance();
+    private ArrayList<ArrayList<Integer>> matriz = new ArrayList<>();
+    private HashMap<Integer, Class > mapeadorDeClases = new HashMap<>();
 
-        // Recursos en la esquina superior izquierda del mapa.
-        Coordenadas coordenadas = new Coordenadas(3,23);
-        Cristal cristal = new Cristal();
-        proxyMapa.agregar(cristal,coordenadas);
+    int anchoMapa, altoMapa;
+    private ProxyMapa proxyMapa;
 
-        coordenadas = new Coordenadas(5,21);
-        Volcan volcan = new Volcan();
-        proxyMapa.agregar(volcan,coordenadas);
+    ArrayList<Coordenadas> bases = new ArrayList<>();
 
-        // Recursos en la esquina inferior derecha del mapa.
-        coordenadas = new Coordenadas(21,5);
-        cristal = new Cristal();
-        proxyMapa.agregar(cristal,coordenadas);
+    // Metodos publicos ------------------------------------------------------------------------------------------------
 
-        coordenadas = new Coordenadas(23,3);
-        volcan = new Volcan();
-        proxyMapa.agregar(volcan,coordenadas);
+    public CreadorDeMapa(int cantidadDeJugadores){
 
-    }
+        this.armarMatrizDeMapa("src/jugabilidad/extrasJuego/mapaPara" + cantidadDeJugadores + "Jugadores.txt");
 
-    private void agregarZonasExclusivamenteAereasAlMapa() throws ExcepcionNoSePudoAgregarAlMapa {
+        this.guardarDimensionesDelMapa();
 
-        ProxyMapa proxyMapa = ProxyMapa.getInstance();
+        this.crearMapeadorDeClases();
 
-        Coordenadas coordenadas = new Coordenadas(12,12);
-        NullPosicionTerrestre nulo = new NullPosicionTerrestre();
+        this.crearMapa();
 
-        proxyMapa.agregar(nulo, coordenadas);
-
-        coordenadas = new Coordenadas(12,13);
-        proxyMapa.agregar(nulo, coordenadas);
-
-        coordenadas = new Coordenadas(13,12);
-        proxyMapa.agregar(nulo, coordenadas);
-
-        coordenadas = new Coordenadas(13,13);
-        proxyMapa.agregar(nulo, coordenadas);
-
-        coordenadas = new Coordenadas(13,14);
-        proxyMapa.agregar(nulo, coordenadas);
-
-        coordenadas = new Coordenadas(14,13);
-        proxyMapa.agregar(nulo, coordenadas);
-
-        coordenadas = new Coordenadas(14,14);
-        proxyMapa.agregar(nulo, coordenadas);
-
-    }
-
-    public ProxyMapa crearMapa(){
-
-        ProxyMapa proxyMapa = ProxyMapa.getInstance();
-        proxyMapa.setCoordenadasMaximas(25,25);
-
-        try {
-            this.agregarMineralesAlMapa();
-        } catch (ExcepcionNoSePudoAgregarAlMapa e) {
-            e.printStackTrace();
-        }
-        try {
-            this.agregarZonasExclusivamenteAereasAlMapa();
-        } catch (ExcepcionNoSePudoAgregarAlMapa e) {
-            e.printStackTrace();
-        }
-
-        return proxyMapa;
+        this.crearBases("src/jugabilidad/extrasJuego/coordenadasBasesPara" + cantidadDeJugadores + "Jugadores.txt");
 
     }
 
     public ArrayList<Coordenadas> obtenerCoordenadasDeLasBases(){
 
-        ArrayList<Coordenadas> bases = new ArrayList<>();
-
-        Coordenadas baseUno = new Coordenadas(4,22);
-        bases.add(baseUno);
-
-        Coordenadas baseDos = new Coordenadas(22,4);
-        bases.add(baseDos);
-
-        return ( bases );
+        return ( this.bases );
 
     }
 
+    public ProxyMapa obtenerProxyMapa(){
 
+        return ( this.proxyMapa );
+
+    }
+
+    // Metodos privados ------------------------------------------------------------------------------------------------
+
+    private void armarMatrizDeMapa(String nombreDelArchivo){
+
+        try(BufferedReader archivo = new BufferedReader(new FileReader(nombreDelArchivo))) {
+
+            String lineaActual;
+
+            while ((lineaActual = archivo.readLine()) != null){
+
+                if (lineaActual.isEmpty()) continue;
+
+                ArrayList<Integer> fila = new ArrayList<>();
+
+                String[] valoresSinEspacios = lineaActual.trim().split(" ");
+
+                for(String letra: valoresSinEspacios){
+
+                    if (!letra.isEmpty()){
+
+                        int numero = Integer.parseInt(letra);
+
+                        fila.add(numero);
+                    }
+
+                }
+
+                this.matriz.add(fila);
+
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
+
+    private void guardarDimensionesDelMapa(){
+
+        this.altoMapa = this.matriz.size();
+
+        // Para el ancho,siendo un mapa rectangular, obtengo una posicion de la matriz (fila) y como es un array
+        // le pido su largo.
+        this.anchoMapa = this.matriz.get(0).size();
+
+    }
+
+    private void crearMapeadorDeClases(){
+
+        this.mapeadorDeClases.put(1, Cristal.class);
+        this.mapeadorDeClases.put(2, Volcan.class);
+        this.mapeadorDeClases.put(3, NullPosicionTerrestre.class);
+
+    }
+
+    @SuppressWarnings("unchecked")
+    private void crearMapa(){
+
+        this.proxyMapa = ProxyMapa.getInstance();
+        proxyMapa.setCoordenadasMaximas(this.anchoMapa,this.altoMapa);
+
+        for (int j = 0; j < this.altoMapa; j++){
+
+            for (int i = 0; i < this.anchoMapa; i++){
+
+                Integer valorActual = this.matriz.get(j).get(i);
+
+                if (valorActual != 0) {
+
+                    try {
+
+                        Class clase = (this.mapeadorDeClases.get(valorActual));
+                        ColocableEnMapa agregable = (ColocableEnMapa) clase.getDeclaredConstructor().newInstance();
+
+                        // El mapa no acepta coordenada igual a 0.
+                        // Los valores sumados/restados, en las coordenadas, son para colocar el origen en la esquina
+                        // inferior izquierda.
+                        proxyMapa.agregar(agregable, new Coordenadas( i + 1, 25 - j ) );
+
+                    } catch (InstantiationException | IllegalAccessException | ExcepcionNoSePudoAgregarAlMapa
+                                                                | NoSuchMethodException | InvocationTargetException e) {
+
+                        e.printStackTrace();
+
+                    }
+
+                }
+
+
+            }
+
+        }
+
+    }
+
+    private void crearBases(String nombreDelArchivo){
+
+        try(BufferedReader archivo = new BufferedReader(new FileReader(nombreDelArchivo))) {
+
+            String lineaActual;
+
+            while ((lineaActual = archivo.readLine()) != null){
+
+                if (lineaActual.isEmpty()) continue;
+
+                ArrayList<Integer> coordenadasDeLaBase = new ArrayList<>();
+
+                String[] valoresSinEspacios = lineaActual.trim().split(" ");
+
+                for(String letra: valoresSinEspacios){
+
+                    if (!letra.isEmpty()){
+
+                        int numero = Integer.parseInt(letra);
+
+                        coordenadasDeLaBase.add(numero);
+                    }
+
+                }
+
+                Coordenadas base = new Coordenadas(coordenadasDeLaBase.get(0),coordenadasDeLaBase.get(1));
+
+                this.bases.add(base);
+
+            }
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+
+    }
 
 }

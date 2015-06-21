@@ -37,11 +37,13 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
     }
 
     /* Al morir una unidad que usa un suministro deberian aumentar los suministros del jugador en uno. */
+
     @Test
+    @SuppressWarnings("unused")
     public void test1() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
-        ProxyMapa proxyMapa = creadorDeMapa.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+
         Vision vision  = Vision.VisionCompleta(25,25);
 
         Suministros suministros = new Suministros(0,0);
@@ -79,11 +81,14 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
     }
 
     /* Al morir una unidad que usa dos suministros deberian aumentar los suministros del jugador en dos. */
+
     @Test
+    @SuppressWarnings("unused")
     public void test2() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
-        ProxyMapa proxyMapa = creadorDeMapa.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+
         Vision vision  = Vision.VisionCompleta(25,25);
 
         Suministros suministros = new Suministros(0,0);
@@ -127,11 +132,14 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
     }
 
     /* Test de creacion de unidades, con chequeo de suministros. */
+
     @Test
+    @SuppressWarnings("unused")
     public void test4() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
-        ProxyMapa proxyMapa = creadorDeMapa.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+
         Vision vision  = Vision.VisionCompleta(25,25);
 
         Suministros suministros = new Suministros(0,0);
@@ -178,11 +186,14 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
     }
 
     /* Si envio tres unidades a crearse a la vez se deben crear de a una a la vez. */
+
     @Test
+    @SuppressWarnings("unused")
     public void test5() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
-        ProxyMapa proxyMapa = creadorDeMapa.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+
         Vision vision  = Vision.VisionCompleta(25,25);
 
         Suministros suministros = new Suministros(0,0);
@@ -233,18 +244,18 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
     }
 
     @Test (expected = ExcepcionNoSePuedeConstruir.class)
+    @SuppressWarnings("unused")
     public void seIntentaCrearUnaBarracaFueraDelRangoDeVisionEsperoUnaExcepcio() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
-        JugadorTerran jugador = new JugadorTerran(new Recursos(1000,100));
+        JugadorTerran jugador = new JugadorTerran(new Recursos(1000, 100));
         Vision vision = new Vision();
-        vision.agregarSectorVisible(new Coordenadas(4,4),3);
+        vision.agregarSectorVisible(new Coordenadas(4, 4), 3);
         jugador.setVisibilidad(vision);
         ProxyMapa proxy = ProxyMapa.getInstance();
 
-        Coordenadas coordenadas = new Coordenadas(10,10);
+        Coordenadas coordenadas = new Coordenadas(10, 10);
 
         jugador.construirBarraca(coordenadas);
 
     }
-
 
 }

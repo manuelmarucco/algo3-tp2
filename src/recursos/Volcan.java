@@ -5,6 +5,10 @@ import construcciones.terran.Refineria;
 
 public class Volcan extends Recurso {
 
+    public Volcan(){
+
+    }
+
     @Override
     public int recolectarRecursos() {
         return 10;

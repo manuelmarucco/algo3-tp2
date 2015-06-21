@@ -28,15 +28,16 @@ public class simulacionGanador {
         ProxyMapa.resetear();
     }
 
+
     @Test
     public void Jugador1MataTodoDeJugador2YGana() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
         Juego juego = new Juego();
         JugadorProtoss j1;
         JugadorTerran j2;
 
-        CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
-        creadorDeMapa.crearMapa();
-        ArrayList<Coordenadas> bases = creadorDeMapa.obtenerCoordenadasDeLasBases();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+
+        ArrayList<Coordenadas> bases = creador.obtenerCoordenadasDeLasBases();
 
         Construccion c1,c3;
         Acceso c2;
@@ -92,9 +93,8 @@ public class simulacionGanador {
         JugadorProtoss j1;
         JugadorTerran j2;
 
-        CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
-        creadorDeMapa.crearMapa();
-        ArrayList<Coordenadas> bases = creadorDeMapa.obtenerCoordenadasDeLasBases();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ArrayList<Coordenadas> bases = creador.obtenerCoordenadasDeLasBases();
 
         Construccion c1,c3;
         Acceso c2;
@@ -145,5 +145,6 @@ public class simulacionGanador {
         Assert.assertEquals(null, juego.ganador());
 
     }
+
 
 }

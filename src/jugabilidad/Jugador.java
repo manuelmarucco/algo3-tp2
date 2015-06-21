@@ -160,11 +160,7 @@ public abstract class Jugador implements Actualizable{
 
 	public boolean noTieneMasConstruccionesYUnidades() {
 
-		//TODO: Tira un Warning. El if puede ser simplificado. Por lo de abajo.
-		//return construccionesCreadas.size() == 0 && unidadesCreadas.size() == 0 && edificiosEnConstruccion.size() == 0;
-		if(construccionesCreadas.size() == 0 && unidadesCreadas.size()==0 && edificiosEnConstruccion.size()==0){
-			return true;
-		}else
-			return false;
+		return ( construccionesCreadas.size() == 0 && unidadesCreadas.size() == 0 && edificiosEnConstruccion.size() == 0 );
+
 	}
 }

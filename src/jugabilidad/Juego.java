@@ -8,6 +8,7 @@ import jugabilidad.extrasJuego.AdministradorDeTurnos;
 import jugabilidad.extrasJuego.CreadorDeJugador;
 import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import org.mockito.cglib.proxy.Proxy;
 
 import java.util.ArrayList;
 
@@ -15,7 +16,7 @@ import java.util.ArrayList;
 public class Juego implements Actualizable{
 
     AdministradorDeTurnos administradorDeTurnos = new AdministradorDeTurnos();
-    CreadorDeMapa creadorDeMapa = new CreadorDeMapa();
+    CreadorDeMapa creadorDeMapa = new CreadorDeMapa( 2 );
     ArrayList<Coordenadas> bases;
 
     // Metodos
@@ -62,7 +63,9 @@ public class Juego implements Actualizable{
 
     public ProxyMapa crearMapa(){
 
-        ProxyMapa proxyMapa = this.creadorDeMapa.crearMapa();
+        CreadorDeMapa creadorDeMapa = new CreadorDeMapa(2);
+
+        ProxyMapa proxyMapa = creadorDeMapa.obtenerProxyMapa();
 
         this.bases = creadorDeMapa.obtenerCoordenadasDeLasBases();
 

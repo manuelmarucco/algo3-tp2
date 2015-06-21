@@ -28,8 +28,6 @@ public class ProxyDeHechizos {
         for(int i =-1;i<2;i++){
             for(int j =-1;j<2;j++){
 
-                // todo no devolver distintas colecciones para distintas cosas (aereas y terrestres)
-                // todo en una segunda iteracion ver como quitar casteo
                 Coordenadas coordenadas =new Coordenadas(coordenada.getX()+i, coordenada.getY()+j);
                 Hechizable objetivoTerrestre = (Hechizable)mapa.obtenerDeCapaTerrestre(coordenadas);
                 if(objetivoTerrestre!=null)
@@ -40,6 +38,8 @@ public class ProxyDeHechizos {
             }
         }
         */
+
+        // TODO:  Ver si se puede sacar el casteo.
 
         // Obtengo todas las unidades alcanzables por el EMP.
         ArrayList<ColocableEnMapa> unidadesYConstruccionesDentroDeRango = new ArrayList<>();

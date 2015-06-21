@@ -29,7 +29,6 @@ public class CreadorDeMapaTest {
         CentroDeMineral centroDos = new CentroDeMineral(new Recursos(50,0));
 
         proxyMapa.agregar(centroUno, new Coordenadas(3,23));
-
         proxyMapa.agregar(centroDos, new Coordenadas(23,3));
 
         // De no haber cristales saltan Excepciones.
@@ -62,32 +61,35 @@ public class CreadorDeMapaTest {
     }
 
     @Test
+    @SuppressWarnings("unused")
     public void comprobacionDeMineralesDeberiaPoderConstruirCentrosDeRecoleccionSobreEllos()
             throws ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
 
         assertTrue( this.comprobarMinerales() );
 
     }
 
     @Test
+    @SuppressWarnings("unused")
     public void comprobacionDeVolcanesDeberiaPoderConstruirRefineriasSobreEllos()
             throws ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
 
         assertTrue( this.comprobarVolcanes() );
 
     }
 
     @Test
+    @SuppressWarnings("unused")
     public void comprobarCoordenadasIniciales(){
 
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
 
         ArrayList<Coordenadas> bases = creador.obtenerCoordenadasDeLasBases();
 
@@ -107,86 +109,87 @@ public class CreadorDeMapaTest {
     // Intento agregar una unidad terrestre en esas coordenadas exclusivas.
 
     @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
-    public void coordenadas1212esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
+    public void coordenadas1214esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(12,12);
+        Coordenadas coordenadas = new Coordenadas(12,14);
 
-        mapa.agregar(marine,coordenadas);
-
-    }
-
-    @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
-    public void coordenadas1213esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
-
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
-        Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(12,13);
-
-        mapa.agregar(marine, coordenadas);
-
-    }
-
-    @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
-    public void coordenadas1312esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
-
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
-        Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(13,12);
-
-        mapa.agregar(marine, coordenadas);
-
-    }
-
-    @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
-    public void coordenadas1313esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
-
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
-        Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(13,13);
-
-        mapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine,coordenadas);
 
     }
 
     @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
     public void coordenadas1314esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
         Coordenadas coordenadas = new Coordenadas(13,14);
 
-        mapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenadas);
 
     }
 
     @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
-    public void coordenadas1413esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
+    public void coordenadas1215esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(14,13);
+        Coordenadas coordenadas = new Coordenadas(12,15);
 
-        mapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenadas);
 
     }
 
     @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
-    public void coordenadas1414esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
+    public void coordenadas1315esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(14,14);
+        Coordenadas coordenadas = new Coordenadas(13,15);
 
-        mapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenadas);
+
+    }
+
+    @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
+    public void coordenadas1415esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
+
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+        Marine marine = new Marine();
+        Coordenadas coordenadas = new Coordenadas(14,15);
+
+        proxyMapa.agregar(marine, coordenadas);
+
+    }
+
+    @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
+    public void coordenadas1316esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
+
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+        Marine marine = new Marine();
+        Coordenadas coordenadas = new Coordenadas(13,16);
+
+        proxyMapa.agregar(marine, coordenadas);
+
+    }
+
+    @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
+    public void coordenadas1416esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
+
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+        Marine marine = new Marine();
+        Coordenadas coordenadas = new Coordenadas(14,16);
+
+        proxyMapa.agregar(marine, coordenadas);
 
     }
 
@@ -194,103 +197,153 @@ public class CreadorDeMapaTest {
     // Agrego una unidad aerea y verifico que se haya agregado.
 
     @Test
-    public void coordenadas1212() throws ExcepcionNoSePudoAgregarAlMapa {
+    public void coordenadas1214() throws ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+
         NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(12,12);
+        Coordenadas coordenadas = new Coordenadas(12,14);
 
-        mapa.agregar(naveCiencia,coordenadas);
+        proxyMapa.agregar(naveCiencia,coordenadas);
 
-        assertEquals(naveCiencia, mapa.obtenerDeCapaAerea(coordenadas));
-
-    }
-
-    @Test
-    public void coordenadas1213() throws ExcepcionNoSePudoAgregarAlMapa {
-
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
-        NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(12,13);
-
-        mapa.agregar(naveCiencia,coordenadas);
-
-        assertEquals(naveCiencia, mapa.obtenerDeCapaAerea(coordenadas));
-
-    }
-
-    @Test
-    public void coordenadas1312() throws ExcepcionNoSePudoAgregarAlMapa {
-
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
-        NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(13,12);
-
-        mapa.agregar(naveCiencia,coordenadas);
-
-        assertEquals(naveCiencia, mapa.obtenerDeCapaAerea(coordenadas));
-
-    }
-
-    @Test
-    public void coordenadas1313() throws ExcepcionNoSePudoAgregarAlMapa {
-
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
-        NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(13,13);
-
-        mapa.agregar(naveCiencia,coordenadas);
-
-        assertEquals(naveCiencia, mapa.obtenerDeCapaAerea(coordenadas));
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
 
     }
 
     @Test
     public void coordenadas1314() throws ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         NaveCiencia naveCiencia = new NaveCiencia();
         Coordenadas coordenadas = new Coordenadas(13,14);
 
-        mapa.agregar(naveCiencia,coordenadas);
+        proxyMapa.agregar(naveCiencia,coordenadas);
 
-        assertEquals(naveCiencia, mapa.obtenerDeCapaAerea(coordenadas));
-
-    }
-
-    @Test
-    public void coordenadas1413() throws ExcepcionNoSePudoAgregarAlMapa {
-
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
-        NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(14,13);
-
-        mapa.agregar(naveCiencia,coordenadas);
-
-        assertEquals(naveCiencia, mapa.obtenerDeCapaAerea(coordenadas));
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
 
     }
 
     @Test
-    public void coordenadas1414() throws ExcepcionNoSePudoAgregarAlMapa {
+    public void coordenadas1215() throws ExcepcionNoSePudoAgregarAlMapa {
 
-        CreadorDeMapa creador = new CreadorDeMapa();
-        ProxyMapa mapa = creador.crearMapa();
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(14,14);
+        Coordenadas coordenadas = new Coordenadas(12,15);
 
-        mapa.agregar(naveCiencia,coordenadas);
+        proxyMapa.agregar(naveCiencia,coordenadas);
 
-        assertEquals(naveCiencia, mapa.obtenerDeCapaAerea(coordenadas));
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
 
     }
 
+    @Test
+    public void coordenadas1315() throws ExcepcionNoSePudoAgregarAlMapa {
 
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+        NaveCiencia naveCiencia = new NaveCiencia();
+        Coordenadas coordenadas = new Coordenadas(13,15);
+
+        proxyMapa.agregar(naveCiencia,coordenadas);
+
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
+
+    }
+
+    @Test
+    public void coordenadas1415() throws ExcepcionNoSePudoAgregarAlMapa {
+
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+        NaveCiencia naveCiencia = new NaveCiencia();
+        Coordenadas coordenadas = new Coordenadas(14,15);
+
+        proxyMapa.agregar(naveCiencia,coordenadas);
+
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
+
+    }
+
+    @Test
+    public void coordenadas1316() throws ExcepcionNoSePudoAgregarAlMapa {
+
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+        NaveCiencia naveCiencia = new NaveCiencia();
+        Coordenadas coordenadas = new Coordenadas(13,16);
+
+        proxyMapa.agregar(naveCiencia,coordenadas);
+
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
+
+    }
+
+    @Test
+    public void coordenadas1416() throws ExcepcionNoSePudoAgregarAlMapa {
+
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+        NaveCiencia naveCiencia = new NaveCiencia();
+        Coordenadas coordenadas = new Coordenadas(14,16);
+
+        proxyMapa.agregar(naveCiencia,coordenadas);
+
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
+
+    }
+
+    // En las coordenadas en las que se encuentra un recurso, volcan/cristal, no se pordran poner unidades terrestres
+    // Intento agregar una unidad terrestre en esas coordenadas, espero una excepcion.
+
+    @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
+    public void coordenadas323esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
+
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+        Marine marine = new Marine();
+        Coordenadas coordenadas = new Coordenadas(3,23);
+
+        proxyMapa.agregar(marine, coordenadas);
+
+    }
+
+    @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
+    public void coordenadas233esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
+
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+        Marine marine = new Marine();
+        Coordenadas coordenadas = new Coordenadas(23,3);
+
+        proxyMapa.agregar(marine, coordenadas);
+
+    }
+
+    @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
+    public void coordenadas521esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
+
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+        Marine marine = new Marine();
+        Coordenadas coordenadas = new Coordenadas(5,21);
+
+        proxyMapa.agregar(marine, coordenadas);
+
+    }
+
+    @Test (expected = ExcepcionNoSePudoAgregarAlMapa.class)
+    public void coordenadas215esperoUnaExcepcion() throws ExcepcionNoSePudoAgregarAlMapa {
+
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+        Marine marine = new Marine();
+        Coordenadas coordenadas = new Coordenadas(21,5);
+
+        proxyMapa.agregar(marine, coordenadas);
+
+    }
 
 }

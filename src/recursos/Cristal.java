@@ -7,6 +7,10 @@ import construcciones.terran.Refineria;
 
 public class Cristal extends Recurso{
 
+    public Cristal(){
+
+    }
+
     @Override
     public int recolectarRecursos() {
         return 10;
