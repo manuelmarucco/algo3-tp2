@@ -1,7 +1,6 @@
 package vista.auxiliares.jugador;
 
 import control.vistaMapa.ControladorDeVistaMapa;
-import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import vista.auxiliares.ImagePanel;
 
@@ -96,6 +95,7 @@ public class DisplayMapa extends JPanel {
                 Coordenadas coordenadas = new Coordenadas( i + 1, 25 - j );
                 ImagePanel vista = (ImagePanel) this.controlador.getVistaRecursosEnPosicion(coordenadas);
 
+                vista.setOpaque(false);
                 panelDeRecursos.add(vista);
 
             }
