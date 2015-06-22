@@ -12,12 +12,12 @@ public class VistaNullPosicionTerrestre extends ImagePanel {
     private final VentanaJugador ventanaJugador;
 
     public VistaNullPosicionTerrestre() {
-        super(ANCHO,ALTO,new ImageIcon("src/vista/paisaje/imagenes/rocas.jpg").getImage());
+        super(ANCHO,ALTO,new ImageIcon("src/vista/paisaje/imagenes/rocas.png").getImage());
         this.ventanaJugador=null;
     }
 
     public VistaNullPosicionTerrestre(VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon("src/vista/paisaje/imagenes/rocas.jpg").getImage());
+        super(ANCHO,ALTO,new ImageIcon("src/vista/paisaje/imagenes/rocas.png").getImage());
         this.ventanaJugador=ventanaJugador;
     }
 
