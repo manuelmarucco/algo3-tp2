@@ -63,6 +63,7 @@ public class DisplayMapa extends JPanel {
         JPanel panelTerrestre = new JPanel(new GridLayout(25,25));
         panelTerrestre.setPreferredSize(new Dimension(1600,1600));
         panelTerrestre.setBounds(0,0,25*64,25*64);
+        panelTerrestre.setOpaque(false);
 
         for (int j = 0; j < this.cantidadTilesHorizontales; j++ ){
 
