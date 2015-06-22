@@ -42,10 +42,24 @@ public class VistaMarine extends JPanel implements MouseListener {
         BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
 
         Graphics2D g2d = dimg.createGraphics();
+
         g2d.drawImage(tmp, 0, 0, null);
         g2d.dispose();
 
         return dimg;
+
+        /* //TODO este casi que funciona pero dibuja el fondo en negro
+        BufferedImage newImg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = newImg.createGraphics();
+
+        g.setComposite(AlphaComposite.SrcOver);
+        g.setBackground(new Color(0,0,0,0));
+        g.setColor(new Color(0, 0, 0, 0));
+        g.fillRect(0, 0, newW, newH);
+        g.drawImage(img,0,0,newW,newH, new Color(0, 0, 0, 0), null);
+        g.dispose();
+        return newImg;
+        */
     }
 
     @Override
