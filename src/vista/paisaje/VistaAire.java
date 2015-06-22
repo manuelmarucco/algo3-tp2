@@ -14,12 +14,14 @@ public class VistaAire extends ImagePanel {
     public VistaAire() {
         super(ANCHO,ALTO,new ImageIcon("src/vista/paisaje/imagenes/aire.png").getImage());
         this.ventanaJugador= null;
+        this.setVisible(false);
     }
 
     public VistaAire(VentanaJugador ventanaJugador) {
 
         super(ANCHO,ALTO,new ImageIcon("src/vista/paisaje/imagenes/aire.png").getImage());
         this.ventanaJugador=ventanaJugador;
+        this.setVisible(false);
 
     }
 

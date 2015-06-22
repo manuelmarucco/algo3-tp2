@@ -10,6 +10,7 @@ import recursos.Cristal;
 import recursos.Volcan;
 import unidades.protoss.*;
 import unidades.terrran.*;
+import vista.auxiliares.ImagePanel;
 import vista.auxiliares.jugador.imagenesMapa.HashMapParaMapa;
 import vista.edificios.protoss.*;
 import vista.edificios.terran.*;
@@ -22,6 +23,7 @@ import vista.unidades.*;
 
 import javax.swing.*;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 
 public class ControladorDeVistaMapa {
 
@@ -33,8 +35,8 @@ public class ControladorDeVistaMapa {
     public ControladorDeVistaMapa() {
 
         this.crearAsociadorDeClasesTerrestresConSusVistas();
-        //this.crearAsociadorDeClasesAereasConSusVistas();
-        //this.crearAsociadorDeClasesDeRecursosConSusVistas();
+        this.crearAsociadorDeClasesAereasConSusVistas();
+        this.crearAsociadorDeClasesDeRecursosConSusVistas();
 
     }
 
@@ -49,10 +51,10 @@ public class ControladorDeVistaMapa {
             clase = colocable.getClass();
         }
 
-        JPanel aDevolver = null;
+        ImagePanel aDevolver = null;
 
         try {
-            aDevolver = (JPanel) asociadorDeVistasTerrestres.get(clase).getDeclaredConstructor().newInstance();
+            aDevolver = (ImagePanel) asociadorDeVistasTerrestres.get(clase).getDeclaredConstructor().newInstance();
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -70,10 +72,10 @@ public class ControladorDeVistaMapa {
             clase = colocable.getClass();
         }
 
-        JPanel aDevolver = null;
+        ImagePanel aDevolver = null;
 
         try {
-            aDevolver = (JPanel) asociadorDeVistasAereas.get(clase).getDeclaredConstructor().newInstance();
+            aDevolver = (ImagePanel) asociadorDeVistasAereas.get(clase).getDeclaredConstructor().newInstance();
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -91,10 +93,10 @@ public class ControladorDeVistaMapa {
             clase = colocable.getClass();
         }
 
-        JPanel aDevolver = null;
+        ImagePanel aDevolver = null;
 
         try {
-            aDevolver = (JPanel) asociadorDeVistasRecursos.get(clase).getDeclaredConstructor().newInstance();
+            aDevolver = (ImagePanel) asociadorDeVistasRecursos.get(clase).getDeclaredConstructor().newInstance();
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -105,7 +107,6 @@ public class ControladorDeVistaMapa {
 
     private void crearAsociadorDeClasesTerrestresConSusVistas(){
 
-        // Este hashMap devuelve un valor por defecto si se le pide una key = null.
         asociadorDeVistasTerrestres = new HashMapParaMapa<Class, Class>(VistaPasto.class);
 
         // Unidades.
@@ -141,7 +142,6 @@ public class ControladorDeVistaMapa {
 
     private void crearAsociadorDeClasesAereasConSusVistas(){
 
-        // Este hashMap devuelve un valor por defecto si se le pide una key = null.
         asociadorDeVistasAereas = new HashMapParaMapa<Class, Class>(VistaAire.class);
 
         // Unidades.
@@ -158,7 +158,6 @@ public class ControladorDeVistaMapa {
 
     private void crearAsociadorDeClasesDeRecursosConSusVistas() {
 
-        // Este hashMap devuelve un valor por defecto si se le pide una key = null.
         asociadorDeVistasRecursos = new HashMapParaMapa<Class, Class>(VistaAire.class);
 
         asociadorDeVistasRecursos.put(Volcan.class, VistaVolcan.class);
