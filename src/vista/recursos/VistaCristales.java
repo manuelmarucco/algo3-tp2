@@ -15,6 +15,14 @@ public class VistaCristales extends ImagePanel {
     private static String pathImagen="/imagenes/cristal.png";
     private final VentanaJugador ventanaJugador;
 
+    public VistaCristales() {
+        // Constructor para tests
+        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
+        this.ventanaJugador= null;
+        this.setVisible(false);
+        this.recurso = null;
+    }
+
     public VistaCristales(Cristal cristal,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
         this.recurso=cristal;

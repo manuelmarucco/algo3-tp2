@@ -1,6 +1,7 @@
 package vista.ventanaJugadores;
 
 import jugabilidad.RazaDeJugador.JugadorProtoss;
+import jugabilidad.extrasJuego.CreadorDeMapa;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
 import vista.auxiliares.jugador.DisplayRecursos;
 
@@ -42,6 +43,9 @@ public class VentanaJugadorProtoss extends VentanaJugador {
     // Main ---------------------------
 
     public static void main(String[] args){
+        // Para que se vean los recursos en testeo. despues borrar
+        CreadorDeMapa creador = new CreadorDeMapa(2);
+
         VentanaJugador ventanaJugador = new VentanaJugadorProtoss(new JugadorProtoss());
 
         ventanaJugador.pack();

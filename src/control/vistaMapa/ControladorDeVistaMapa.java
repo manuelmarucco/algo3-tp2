@@ -51,10 +51,10 @@ public class ControladorDeVistaMapa {
             clase = colocable.getClass();
         }
 
-        ImagePanel aDevolver = null;
+        JPanel aDevolver = null;
 
         try {
-            aDevolver = (ImagePanel) asociadorDeVistasTerrestres.get(clase).getDeclaredConstructor().newInstance();
+            aDevolver = (JPanel) asociadorDeVistasTerrestres.get(clase).getDeclaredConstructor().newInstance();
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }

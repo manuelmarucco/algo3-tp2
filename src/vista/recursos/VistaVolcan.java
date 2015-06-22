@@ -15,6 +15,14 @@ public class VistaVolcan extends ImagePanel  {
     private static String pathImagen="/imagenes/volcan.png";
     private final VentanaJugador ventanaJugador;
 
+    public VistaVolcan() {
+        // Constructor para tests
+        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
+        this.ventanaJugador= null;
+        this.setVisible(false);
+        this.recurso = null;
+    }
+
     public VistaVolcan(Volcan volcan,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
         this.recurso=volcan;
