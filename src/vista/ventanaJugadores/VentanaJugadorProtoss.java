@@ -1,7 +1,13 @@
 package vista.ventanaJugadores;
 
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
+import jugabilidad.auxiliares.Vision;
 import jugabilidad.extrasJuego.CreadorDeMapa;
+import jugabilidad.utilidadesMapa.Coordenadas;
+import unidades.terrran.Marine;
+import unidades.terrran.NaveCiencia;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
 import vista.auxiliares.jugador.DisplayRecursos;
 
@@ -44,7 +50,21 @@ public class VentanaJugadorProtoss extends VentanaJugador {
 
     public static void main(String[] args){
         // Para que se vean los recursos en testeo. despues borrar
+        // Mini test
         CreadorDeMapa creador = new CreadorDeMapa(2);
+        ProxyMapa proxyMapa = creador.obtenerProxyMapa();
+        Vision vision = Vision.VisionCompleta(6,6);
+        Marine marine = new Marine(vision);
+
+        NaveCiencia nave = new NaveCiencia();
+
+        try {
+            proxyMapa.agregar(marine, new Coordenadas(7,8));
+            proxyMapa.agregar(nave, new Coordenadas(8,8));
+        } catch (ExcepcionNoSePudoAgregarAlMapa excepcionNoSePudoAgregarAlMapa) {
+            excepcionNoSePudoAgregarAlMapa.printStackTrace();
+        }
+        // Mini test fin
 
         VentanaJugador ventanaJugador = new VentanaJugadorProtoss(new JugadorProtoss());
 

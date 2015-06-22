@@ -110,14 +110,15 @@ public class DisplayMapa extends JPanel {
 
         JPanel panelAereo = new JPanel(new GridLayout(25,25));
         panelAereo.setPreferredSize(new Dimension(1600,1600));
-       // panelAereo.setBounds(0,0,25*64,25*64);
+        panelAereo.setBounds(0,0,1600,1600);
+        panelAereo.setOpaque(false);
 
         for (int j = 0; j < this.cantidadTilesHorizontales; j++ ){
 
             for (int i = 0; i < this.cantidadTilesVerticales; i++){
 
                 Coordenadas coordenadas = new Coordenadas( i + 1, 25 - j );
-                ImagePanel vista = (ImagePanel) this.controlador.getVistaTerrestreEnPosicion(coordenadas);
+                ImagePanel vista = (ImagePanel) this.controlador.getVistaAereaEnPosicion(coordenadas);
 
                 panelAereo.add(vista);
 

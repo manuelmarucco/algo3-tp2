@@ -9,10 +9,15 @@ import java.awt.event.MouseListener;
 
 public class VistaMarine extends ImagePanel implements MouseListener {
 
-    private static final int ANCHO = 10;
-    private static final int ALTO = 10;
+    private static final int ANCHO = 64;
+    private static final int ALTO = 64;
     private final Marine unidad;
-    private static String pathImagen="";
+    private static String pathImagen="images/unidades/terrran/marine64.png";
+
+    public VistaMarine() {
+        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
+        this.unidad=null;
+    }
 
     public VistaMarine(Marine marine/*TODO aca se pasa el panel del juego*/) {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
