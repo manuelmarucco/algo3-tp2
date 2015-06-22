@@ -24,7 +24,7 @@ public class Juego implements Actualizable{
        return administradorDeTurnos.getJugadorDelTurnoActual();
     }
 
-    public Jugador crearJugadorProtoss(String nombre, String color, Coordenadas base){
+    public JugadorProtoss crearJugadorProtoss(String nombre, String color, Coordenadas base){
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
         JugadorProtoss jugador;
@@ -40,7 +40,7 @@ public class Juego implements Actualizable{
         return jugador;
     }
 
-    public Jugador crearJugadorTerran(String nombre, String color, Coordenadas base){
+    public JugadorTerran crearJugadorTerran(String nombre, String color, Coordenadas base){
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
         JugadorTerran jugador;

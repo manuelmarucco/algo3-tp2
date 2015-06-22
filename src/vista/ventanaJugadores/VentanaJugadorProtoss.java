@@ -43,7 +43,7 @@ public class VentanaJugadorProtoss extends VentanaJugador {
     // Main ---------------------------
 
     public static void main(String[] args){
-        // Para que se vean los recursos en testeo. despues borrar
+        // Para que se vean los recursos en testeo. despues borrarª
         CreadorDeMapa creador = new CreadorDeMapa(2);
 
         VentanaJugador ventanaJugador = new VentanaJugadorProtoss(new JugadorProtoss());

@@ -1,7 +1,6 @@
 package vista.Actions;
 
 import jugabilidad.Juego;
-import jugabilidad.Jugador;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import vista.CrearJugador;
 import vista.ventanaJugadores.VentanaJugadorTerran;
@@ -34,9 +33,9 @@ public class CrearTerran implements ActionListener {
                     "InputError", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        Jugador jugador=juego.crearJugadorTerran(form.getNombreJugador(),form.getColorJugador(),null);
+        JugadorTerran jugador = juego.crearJugadorTerran(form.getNombreJugador(),form.getColorJugador(),null);
         nombreUsado.concat(form.getNombreJugador());
-        form.setVentana(new VentanaJugadorTerran((JugadorTerran) jugador));
+        form.setVentana(new VentanaJugadorTerran( jugador));
         form.dispose();
     }
 }
