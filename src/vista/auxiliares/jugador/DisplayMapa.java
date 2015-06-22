@@ -42,7 +42,7 @@ public class DisplayMapa extends JPanel {
         this.cantidadTilesVerticales = 25; // En cantidad de tiles.
 
         this.panel = new JLayeredPane();
-        this.panel.setPreferredSize(new Dimension(1600,1600));
+        this.panel.setPreferredSize(new Dimension(1600, 1600));
         this.panel.setVisible(true);
 
         this.armarPaneles();
@@ -61,8 +61,8 @@ public class DisplayMapa extends JPanel {
     private void armarPanelTerrestre(){
 
         JPanel panelTerrestre = new JPanel(new GridLayout(25,25));
-        panelTerrestre.setPreferredSize(new Dimension(1600,1600));
-        panelTerrestre.setBounds(0,0,25*64,25*64);
+        panelTerrestre.setPreferredSize(new Dimension(1600, 1600));
+        panelTerrestre.setBounds(0, 0, 25 * 64, 25 * 64);
         panelTerrestre.setOpaque(false);
 
         for (int j = 0; j < this.cantidadTilesHorizontales; j++ ){
@@ -71,13 +71,12 @@ public class DisplayMapa extends JPanel {
 
                 Coordenadas coordenadas = new Coordenadas( i + 1, 25 - j );
                 JPanel vista = this.controlador.getVistaTerrestreEnPosicion(coordenadas);
-
-                vista.setOpaque(false);
                 panelTerrestre.add(vista);
 
             }
 
         }
+
         this.panel.add(panelTerrestre, new Integer(1),1);
 
     }
@@ -120,7 +119,6 @@ public class DisplayMapa extends JPanel {
 
                 Coordenadas coordenadas = new Coordenadas( i + 1, 25 - j );
                 ImagePanel vista = (ImagePanel) this.controlador.getVistaAereaEnPosicion(coordenadas);
-
                 vista.setOpaque(false);
                 panelAereo.add(vista);
 

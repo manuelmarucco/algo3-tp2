@@ -11,6 +11,7 @@ public class ImagePanel extends JPanel {
     private final int y;
     private Coordenadas posicioEnPantalla;
     private Image img;
+    private Image bg;
 
     public void setPosicionEnPantalla(Coordenadas coordenadas){
 
@@ -37,10 +38,17 @@ public class ImagePanel extends JPanel {
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+        if(bg!=null)
+            g.drawImage(bg, posicioEnPantalla.getX(), posicioEnPantalla.getY(), null);
         g.drawImage(img, posicioEnPantalla.getX(), posicioEnPantalla.getY(), null);
+
     }
 
     public void setImage(Image img){
          this.img=img;
+    }
+
+    public void setBackground(Image bg){
+        this.bg=bg;
     }
 }
