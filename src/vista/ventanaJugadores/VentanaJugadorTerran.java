@@ -1,6 +1,7 @@
 package vista.ventanaJugadores;
 
 import jugabilidad.RazaDeJugador.JugadorTerran;
+import jugabilidad.extrasJuego.CreadorDeMapa;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
 import vista.auxiliares.jugador.DisplayRecursos;
 
@@ -44,6 +45,8 @@ public class VentanaJugadorTerran extends VentanaJugador {
     // Main ---------------------------
 
     public static void main(String[] args){
+
+        CreadorDeMapa creador = new CreadorDeMapa(2);
 
         VentanaJugador ventanaJugador = new VentanaJugadorTerran(new JugadorTerran());
 

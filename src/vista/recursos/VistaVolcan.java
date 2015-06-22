@@ -9,18 +9,17 @@ import javax.swing.*;
 
 public class VistaVolcan extends ImagePanel  {
 
-    private static final int ANCHO = 10;
-    private static final int ALTO = 10;
+    private static final int ANCHO = 64;
+    private static final int ALTO = 64;
     private final Volcan recurso;
-    private static String pathImagen="/imagenes/volcan.png";
+    private static String pathImagen="src/vista/recursos/imagenes/volcan.png";
     private final VentanaJugador ventanaJugador;
 
     public VistaVolcan() {
         // Constructor para tests
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
+        super(ANCHO, ALTO, new ImageIcon("src/vista/recursos/imagenes/volcan.png").getImage());
         this.ventanaJugador= null;
-        this.setVisible(false);
-        this.recurso = null;
+        this.recurso = new Volcan();
     }
 
     public VistaVolcan(Volcan volcan,VentanaJugador ventanaJugador) {
