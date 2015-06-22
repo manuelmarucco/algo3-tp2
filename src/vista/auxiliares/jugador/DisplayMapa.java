@@ -1,11 +1,8 @@
 package vista.auxiliares.jugador;
 
 import control.vistaMapa.ControladorDeVistaMapa;
-import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import vista.auxiliares.ImagePanel;
-import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
 import java.awt.*;
@@ -56,8 +53,8 @@ public class DisplayMapa extends JPanel {
     private void armarPaneles(){
 
         this.armarPanelTerrestre();
-        //this.armarPanelDeRecursos();
-        //this.armarPanelAereo();
+        this.armarPanelDeRecursos();
+      //  this.armarPanelAereo();
 
     }
 
@@ -80,7 +77,7 @@ public class DisplayMapa extends JPanel {
 
         }
 
-        this.panel.add(panelTerrestre, new Integer(1),1);
+        this.panel.add(panelTerrestre, new Integer(1));
 
     }
 
@@ -88,7 +85,8 @@ public class DisplayMapa extends JPanel {
 
         JPanel panelDeRecursos = new JPanel(new GridLayout());
         panelDeRecursos.setPreferredSize(new Dimension(1600,1600));
-        panelDeRecursos.setBounds(0,0,25*64,25*64);
+        panelDeRecursos.setBounds(0,0,1600,1600);
+        panelDeRecursos.setOpaque(false);
 
         for (int j = 0; j < this.cantidadTilesHorizontales; j++ ){
 
@@ -111,7 +109,7 @@ public class DisplayMapa extends JPanel {
 
         JPanel panelAereo = new JPanel(new GridLayout());
         panelAereo.setPreferredSize(new Dimension(1600,1600));
-        panelAereo.setBounds(0,0,25*64,25*64);
+       // panelAereo.setBounds(0,0,25*64,25*64);
 
         for (int j = 0; j < this.cantidadTilesHorizontales; j++ ){
 
