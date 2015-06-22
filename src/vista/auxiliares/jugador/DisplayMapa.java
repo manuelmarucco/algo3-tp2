@@ -71,12 +71,12 @@ public class DisplayMapa extends JPanel {
                 Coordenadas coordenadas = new Coordenadas( i + 1, 25 - j );
                 JPanel vista = this.controlador.getVistaTerrestreEnPosicion(coordenadas);
 
+                vista.setOpaque(false);
                 panelTerrestre.add(vista);
 
             }
 
         }
-
         this.panel.add(panelTerrestre, new Integer(1),1);
 
     }
@@ -120,6 +120,7 @@ public class DisplayMapa extends JPanel {
                 Coordenadas coordenadas = new Coordenadas( i + 1, 25 - j );
                 ImagePanel vista = (ImagePanel) this.controlador.getVistaAereaEnPosicion(coordenadas);
 
+                vista.setOpaque(false);
                 panelAereo.add(vista);
 
             }

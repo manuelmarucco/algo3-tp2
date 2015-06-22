@@ -1,27 +1,58 @@
 package vista.unidades;
 
 import unidades.terrran.Marine;
-import vista.auxiliares.ImagePanel;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.image.BufferedImage;
+import java.io.FileInputStream;
+import java.io.IOException;
 
-public class VistaMarine extends ImagePanel implements MouseListener {
+public class VistaMarine extends JPanel implements MouseListener {
 
     private static final int ANCHO = 64;
     private static final int ALTO = 64;
     private final Marine unidad;
-    private static String pathImagen="images/unidades/terrran/marine64.png";
+    private static String pathImagen="images/unidades/terrran/marine.png";
+    private BufferedImage image;
 
     public VistaMarine() {
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
+        try {
+            this.image = ImageIO.read(new FileInputStream(pathImagen));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        this.setOpaque(false);
+        this.image = this.cambiarTamanio(this.image,ANCHO,ALTO);
         this.unidad=null;
     }
 
     public VistaMarine(Marine marine/*TODO aca se pasa el panel del juego*/) {
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
+        //this();
         this.unidad=marine;
+
+    }
+
+    private static BufferedImage cambiarTamanio(BufferedImage img, int newW, int newH) {
+        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
+        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
+
+        Graphics2D g2d = dimg.createGraphics();
+        g2d.drawImage(tmp, 0, 0, null);
+        g2d.dispose();
+
+        return dimg;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+
+        super.paintComponent(g);
+        g.drawImage(image, 0, 0, null);
     }
 
     @Override
