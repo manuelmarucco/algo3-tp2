@@ -9,9 +9,14 @@ import java.awt.event.MouseListener;
 
 public class VistaNaveCiencia extends ImagePanel implements MouseListener {
 
-    private static final int ANCHO = 1;
-    private static final int ALTO = 2;
+    private static final int ANCHO = 64;
+    private static final int ALTO = 64;
     private final NaveCiencia unidad;
+
+    public VistaNaveCiencia() {
+        super(ANCHO,ALTO,new ImageIcon("images/unidades/terrran/naveCiencia64.png").getImage());
+        this.unidad=null;
+    }
 
     public VistaNaveCiencia(NaveCiencia naveCiencia/*TODO aca se pasa el panel del juego*/) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
