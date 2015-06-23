@@ -12,10 +12,10 @@ public class VistaNaveTransporteProtoss extends ImagePanel {
     private static final int ALTO = 2;
     private final NaveTransporteProtoss unidad;
     private final VentanaJugador ventanaJugador;
-    private static final String imagePath="";
+    private static String pathImagen="images/unidades/protoss/naveTransporte.png";
 
     public VistaNaveTransporteProtoss(NaveTransporteProtoss nave,VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon(imagePath).getImage());
+        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
         this.unidad=nave;
         this.ventanaJugador=ventanaJugador;
     }

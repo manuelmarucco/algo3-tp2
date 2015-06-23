@@ -13,7 +13,7 @@ public class VistaAltoTemplario extends ImagePanel{
     private static final int ALTO = 2;
     private final AltoTemplario unidad;
     private final VentanaJugador ventanaJugador;
-    private static String pathImagen="images/unidades/terrran/marine64.png";
+    private static String pathImagen="images/unidades/protoss/altoTemplario.png";
 
     public VistaAltoTemplario(ColocableEnMapa altoTemplario,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
