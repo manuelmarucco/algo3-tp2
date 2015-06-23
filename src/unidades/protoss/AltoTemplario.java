@@ -6,6 +6,7 @@ import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Costo;
@@ -65,10 +66,16 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
 
     public void recibirEMP(){
         super.recibirEMP();
-        //TODO ¿Porqué los casteos?
         this.resistencia.quitar(this.getEscudo());
     }
     public int getEscudo() {
         return ((ResistenciaProtoss) resistencia).getEscudoActual();
+    }
+
+    @Override
+    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa{
+
+        mapa.moverEnCapaTerrestre(this, hasta);
+
     }
 }

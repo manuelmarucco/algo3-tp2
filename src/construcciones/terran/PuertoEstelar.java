@@ -2,11 +2,13 @@ package construcciones.terran;
 
 import construcciones.CentroDeEntrenamiento;
 import construcciones.Construccion;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNecesitaConstruirFabrica;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import interfaces.Construible;
 import jugabilidad.Jugador;
+import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -90,6 +92,10 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 		return naveTransporte;
 	}
 
+	@Override
+	public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+
+	}
 
 }
 

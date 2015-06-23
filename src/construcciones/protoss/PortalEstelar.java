@@ -2,11 +2,13 @@ package construcciones.protoss;
 
 import construcciones.CentroDeEntrenamiento;
 import construcciones.Construccion;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNecesitaConstruirAcceso;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import interfaces.Construible;
 import jugabilidad.Jugador;
+import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -72,6 +74,11 @@ public class PortalEstelar extends CentroDeEntrenamiento{
 		NaveTransporteProtoss n = new NaveTransporteProtoss(this.jugador.getVisibilidad());
 		this.colaDeEntrenamiento.add(n);
 		return n;
+	}
+
+	@Override
+	public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+
 	}
 	
 }

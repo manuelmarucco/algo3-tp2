@@ -14,4 +14,11 @@ public class Terrestre implements Ubicacion {
         mapa.agregarEnCapaTerrestre(unidad,coordenadas);
     }
 
+    @Override
+    public void moverse(Mapa mapa,ColocableEnMapa unidad,Coordenadas hasta) throws ExcepcionPosicionOcupada {
+
+        mapa.moverEnCapaTerrestre(unidad, hasta);
+
+    }
+
 }

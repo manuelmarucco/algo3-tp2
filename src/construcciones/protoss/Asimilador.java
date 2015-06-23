@@ -1,9 +1,11 @@
 package construcciones.protoss;
 
 import construcciones.CentroDeRecoleccion;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionConstruccionNoRecolectaCristal;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
@@ -50,4 +52,8 @@ public class Asimilador extends CentroDeRecoleccion {
 		recursosDeJugador.agregarRecursos(0, this.obtenerRecurso());
 	}
 
+	@Override
+	public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+
+	}
 }

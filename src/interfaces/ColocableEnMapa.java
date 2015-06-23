@@ -7,5 +7,7 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 public interface ColocableEnMapa{
 
 	void agregarse(Mapa mapa, Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa;
+
+	void moverse(Coordenadas hasta, Mapa mapa) throws  ExcepcionNoSePudoAgregarAlMapa;
 	
 }

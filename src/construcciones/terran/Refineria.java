@@ -1,10 +1,12 @@
 package construcciones.terran;
 
 import construcciones.CentroDeRecoleccion;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionConstruccionNoRecolectaCristal;
 import excepciones.construicciones.ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
@@ -48,5 +50,10 @@ public class Refineria extends CentroDeRecoleccion {
 	public void update() {
 		super.update();
 		recursosDeJugador.agregarRecursos(0, this.obtenerRecurso());
+	}
+
+	@Override
+	public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+
 	}
 }

@@ -16,4 +16,9 @@ public class NullPosicionTerrestre implements ColocableEnMapa {
         mapa.agregarEnCapaTerrestre(this, coordenadas);
 
     }
+
+    @Override
+    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa{
+
+    }
 }

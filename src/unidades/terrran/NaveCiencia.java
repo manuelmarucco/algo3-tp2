@@ -1,9 +1,11 @@
 package unidades.terrran;
 
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Hechizable;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
@@ -49,6 +51,13 @@ public class NaveCiencia extends UnidadMagica {
         if(objetivo!=null)
         objetivo.irradiar();
         this.accion.actuo();
+    }
+
+    @Override
+    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+
+        mapa.moverEnCapaAerea(this, hasta);
+
     }
 
 }

@@ -1,5 +1,6 @@
 package unidades.protoss;
 
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionNoPuedeAtacarAire;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
@@ -7,8 +8,10 @@ import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
+import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Danio;
 import unidades.Terrestre;
 import unidades.UnidadGuerrera;
@@ -33,5 +36,12 @@ public class Zealot extends UnidadGuerrera implements Cargable {
 
     public void atacarAire(Daniable objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada, ExcepcionYaActuo, ExcepcionNoPuedeAtacarAire {
         throw new ExcepcionNoPuedeAtacarAire();
+    }
+
+    @Override
+    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+
+        mapa.moverEnCapaTerrestre(this, hasta);
+
     }
 }

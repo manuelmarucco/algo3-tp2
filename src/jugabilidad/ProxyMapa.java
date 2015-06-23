@@ -95,9 +95,8 @@ public class ProxyMapa {
     public void mover(Coordenadas hasta, ColocableEnMapa unidad)
         throws ExcepcionNoSePudoAgregarAlMapa {
 
-        unidad.agregarse(mapa,hasta);
-
-        mapa.quitar( (Unidad) unidad );
+        this.validarCoordenadas(hasta);
+        unidad.moverse(hasta, this.mapa);
 
     }
 

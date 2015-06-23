@@ -1,8 +1,11 @@
 package unidades.protoss;
 
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.ColocableEnMapa;
+import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Aereo;
 import unidades.Danio;
 import unidades.UnidadGuerrera;
@@ -23,6 +26,13 @@ public class Scout extends UnidadGuerrera {
 
     public int getEscudo() {
         return ((ResistenciaProtoss)resistencia).getEscudoActual();
+    }
+
+    @Override
+    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+
+        mapa.moverEnCapaAerea(this, hasta);
+
     }
 
 }
