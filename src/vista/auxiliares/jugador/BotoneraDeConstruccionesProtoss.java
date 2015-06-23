@@ -2,7 +2,7 @@ package vista.auxiliares.jugador;
 
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import vista.Actions.accionesConstruir.AccionConstruir;
-import vista.Actions.accionesConstruir.AccionConstruirEdificiosProtoss.*;
+import vista.Actions.accionesConstruir.AccionConstruirEdificiosProtoss.AccionConstruirNexoMineral;
 
 import javax.swing.*;
 import java.awt.*;
@@ -32,12 +32,20 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
     //TODO  }
     //TODO hacer el try and catch en la sentencia de cosntruirEn de aca arriba para exportar la excepcion
     //TODO al panel de notificaciones
-
-    public BotoneraDeConstruccionesProtoss(JugadorProtoss j){
+/*
+    public BotoneraDeConstruccionesProtoss(JugadorProtoss j, ){
         this.jugador = j;
         this.init();
 
     }
+    */
+    public BotoneraDeConstruccionesProtoss(JugadorProtoss jugador, AccionConstruir accionConstruirEnEspera){
+        this.jugador = jugador;
+        this.accionConstruirEnEspera = accionConstruirEnEspera;
+        this.init();
+
+    }
+
     private void init(){
 
         this.panel = new JPanel( new GridLayout(2,3,10,10));
@@ -52,8 +60,9 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
     private void crearBotones(){
 
         this.botonNexoMineral = this.crearBoton("Nexo Mineral" );
-        this.botonNexoMineral.addActionListener(new AccionConstruirNexoMineral(this));
-
+      //  this.botonNexoMineral.addActionListener(new AccionConstruirNexoMineral(this));
+        this.botonNexoMineral.addActionListener(new AccionConstruirNexoMineral(jugador,accionConstruirEnEspera));
+/*
         this.botonAsimilador = this.crearBoton("Asimilador");
         this.botonAsimilador .addActionListener(new AccionConstruirAsimilador(this));
 
@@ -68,7 +77,7 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
 
         this.botonArchivosTemplarios = this.crearBoton("Archivos Templarios" );
         this.botonArchivosTemplarios.addActionListener(new AccionConstruirArchivosTemplarios(this));
-
+*/
     }
 
     private JButton crearBoton( String nombre ){
@@ -83,17 +92,18 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
     private void agregarBotonesAlPanel(){
 
         this.panel.add(botonNexoMineral);
+        /*
         this.panel.add(botonAsimilador);
         this.panel.add(botonPilon);
         this.panel.add(botonAcceso);
         this.panel.add(botonPortalEstelar);
         this.panel.add(botonArchivosTemplarios);
-
+*/
     }
 
-    public void setAccionConstruirEnEspera(AccionConstruir accion) {
-        this.accionConstruirEnEspera = accion;
-    }
+//    public void setAccionConstruirEnEspera(AccionConstruir accion) {
+  //      this.accionConstruirEnEspera = accion;
+  //  }
 
     public JugadorProtoss getJugador() {
         return jugador;

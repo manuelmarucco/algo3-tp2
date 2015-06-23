@@ -1,5 +1,6 @@
 package vista.ventanaJugadores;
 
+import vista.Actions.accionesConstruir.AccionConstruir;
 import vista.VentanaJuego;
 import vista.auxiliares.jugador.DisplayMapa;
 import vista.auxiliares.jugador.DisplayNotificaciones;
@@ -17,6 +18,7 @@ public abstract class VentanaJugador extends JFrame {
     // Atributos ---------------------
     protected VentanaJuego ventanaJuego ;
     protected JPanel contenedor;
+    protected DisplayNotificaciones displayNotificaciones;
 
     protected JPanel panelRecursos;
     private JScrollPane panelMapa;
@@ -24,14 +26,24 @@ public abstract class VentanaJugador extends JFrame {
     protected JPanel panelInferior;
     private PanelAcciones panelAcciones;
 
+    protected AccionConstruir accionConstruirEnEspera;
 
 
+
+    public void setAccionConstruirEnEspera(AccionConstruir accion) {
+        this.accionConstruirEnEspera = accion;
+    }
+
+    public AccionConstruir getAccionConstruirEnEspera() {
+        return accionConstruirEnEspera;
+    }
 
     // Metodos -------------------------
     protected void init(){
-
+        this.accionConstruirEnEspera = null;
         this.crearPaneles();
         this.add(this.contenedor);
+
 
     }
 
@@ -50,7 +62,8 @@ public abstract class VentanaJugador extends JFrame {
     private void crearPanelLateral() {
         this.panelLateral = new JPanel();
         this.panelLateral.setLayout(new BoxLayout(panelLateral, BoxLayout.Y_AXIS));
-        this.panelLateral.add(new DisplayNotificaciones());
+        this.displayNotificaciones = new DisplayNotificaciones();
+        this.panelLateral.add(displayNotificaciones);
     }
 
     private void crearContenedor(){
@@ -76,7 +89,8 @@ public abstract class VentanaJugador extends JFrame {
     private void crearPanelMapa(){
 
         JPanel contenedor = new JPanel(new GridBagLayout());
-        contenedor.add(new DisplayMapa());
+        //contenedor.add(new DisplayMapa());
+        contenedor.add(new DisplayMapa(this));
 
         this.panelMapa = new JScrollPane(contenedor);
         this.panelMapa.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
@@ -125,6 +139,7 @@ public abstract class VentanaJugador extends JFrame {
     public PanelAcciones getPanelAcciones() {
         return panelAcciones;
     }
+
     public void borrarPanelDeEstadoAnterior() {
        this.panelLateral.remove(1); //posicion del Panel de Estado
 
@@ -132,5 +147,10 @@ public abstract class VentanaJugador extends JFrame {
         this.panelLateral.repaint();
 
     }
+
+    public DisplayNotificaciones getDisplayNotificaciones(){
+        return displayNotificaciones;
+    }
+
 }
 

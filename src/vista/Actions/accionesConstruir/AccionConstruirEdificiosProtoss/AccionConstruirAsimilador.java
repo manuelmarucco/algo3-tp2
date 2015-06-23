@@ -18,12 +18,12 @@ public class AccionConstruirAsimilador implements AccionConstruir,ActionListener
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        botonera.setAccionConstruirEnEspera(this);
+       // botonera.setAccionConstruirEnEspera(this);
     }
 
     @Override
     public void construirEn(Coordenadas coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         botonera.getJugador().construirAsimilador(coordenada);
-        botonera.setAccionConstruirEnEspera(null);
+        //botonera.setAccionConstruirEnEspera(null);
     }
 }

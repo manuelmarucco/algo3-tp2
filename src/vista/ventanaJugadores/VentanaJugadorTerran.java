@@ -20,6 +20,7 @@ public class VentanaJugadorTerran extends VentanaJugador {
         this.ventanaJuego = ventanaJuego;
         this.jugador = jugador;
         super.init();
+        this.setTitle(jugador.getNombre());
 
     }
 

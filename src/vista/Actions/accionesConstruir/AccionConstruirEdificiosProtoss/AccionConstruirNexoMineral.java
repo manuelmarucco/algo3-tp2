@@ -2,28 +2,32 @@ package vista.Actions.accionesConstruir.AccionConstruirEdificiosProtoss;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import vista.Actions.accionesConstruir.AccionConstruir;
-import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AccionConstruirNexoMineral implements AccionConstruir,ActionListener {
-    BotoneraDeConstruccionesProtoss botonera;
 
-    public AccionConstruirNexoMineral(BotoneraDeConstruccionesProtoss botonera) {
-        this.botonera = botonera;
+    private JugadorProtoss jugador;
+    private AccionConstruir accionConstruirEnEspera;
+
+    public AccionConstruirNexoMineral(JugadorProtoss jugador, AccionConstruir accionConstruirEnEspera) {
+        this.jugador = jugador;
+        this.accionConstruirEnEspera = accionConstruirEnEspera;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        botonera.setAccionConstruirEnEspera(this);
+        accionConstruirEnEspera = this;
     }
 
     @Override
     public void construirEn(Coordenadas coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
-        botonera.getJugador().construirNexoMineral(coordenada);
-        botonera.setAccionConstruirEnEspera(null);
+        jugador.construirNexoMineral(coordenada);
+        accionConstruirEnEspera = null;
     }
+
 }

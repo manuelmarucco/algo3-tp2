@@ -17,12 +17,12 @@ public class AccionConstruirAcceso implements AccionConstruir,ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        botonera.setAccionConstruirEnEspera(this);
+        //  botonera.setAccionConstruirEnEspera(this);
     }
 
     @Override
     public void construirEn(Coordenadas coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         botonera.getJugador().construirAcceso(coordenada);
-        botonera.setAccionConstruirEnEspera(null);
+     //   botonera.setAccionConstruirEnEspera(null);
     }
 }

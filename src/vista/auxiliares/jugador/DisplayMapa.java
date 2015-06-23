@@ -2,7 +2,9 @@ package vista.auxiliares.jugador;
 
 import control.vistaMapa.ControladorDeVistaMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import vista.ParselaAccionable;
 import vista.auxiliares.ImagePanel;
+import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,6 +15,8 @@ public class DisplayMapa extends JPanel {
     private int cantidadTilesVerticales, cantidadTilesHorizontales;
     private JLayeredPane panel;
     private ControladorDeVistaMapa controlador;
+    private ParselaAccionable parselaAccionable;
+    private VentanaJugador ventana;
     /*
     public static void main(String[] args){
         CreadorDeMapa creador = new CreadorDeMapa(2);
@@ -31,6 +35,14 @@ public class DisplayMapa extends JPanel {
 
     public DisplayMapa(){
 
+        this.controlador = new ControladorDeVistaMapa();
+        this.init();
+
+    }
+
+    public DisplayMapa(VentanaJugador ventana){
+
+        this.ventana = ventana;
         this.controlador = new ControladorDeVistaMapa();
         this.init();
 
@@ -55,6 +67,7 @@ public class DisplayMapa extends JPanel {
         this.armarPanelTerrestre();
         this.armarPanelDeRecursos();
         this.armarPanelAereo();
+        this.armarPanelAccionable();
 
     }
 
@@ -77,7 +90,7 @@ public class DisplayMapa extends JPanel {
 
         }
 
-        this.panel.add(panelTerrestre, new Integer(1),1);
+        this.panel.add(panelTerrestre, new Integer(1),0);
 
     }
 
@@ -102,7 +115,7 @@ public class DisplayMapa extends JPanel {
 
         }
 
-        this.panel.add(panelDeRecursos, new Integer(2),2);
+        this.panel.add(panelDeRecursos, new Integer(2),0);
 
     }
 
@@ -126,7 +139,33 @@ public class DisplayMapa extends JPanel {
 
         }
 
-        this.panel.add(panelAereo, new Integer(3),3);
+        this.panel.add(panelAereo, new Integer(3),0);
+
+    }
+
+    private void armarPanelAccionable(){
+
+        JPanel panelAccionable = new JPanel(new GridLayout(25,25));
+        panelAccionable.setPreferredSize(new Dimension(1600,1600));
+        panelAccionable.setBounds(0,0,1600,1600);
+        panelAccionable.setBackground(new Color(0,0,0,0));
+        panelAccionable.setOpaque(false);
+
+        for (int j = 0; j < this.cantidadTilesHorizontales; j++ ){
+
+            for (int i = 0; i < this.cantidadTilesVerticales; i++){
+
+                JPanel parsela = new JPanel();
+                parsela.setBackground(new Color(0,0,0,0));
+                parsela.addMouseListener(new ParselaAccionable(ventana,new Coordenadas(j,i)));
+
+                panelAccionable.add(parsela);
+
+            }
+
+        }
+
+        this.panel.add(panelAccionable, new Integer(0),0);
 
     }
 

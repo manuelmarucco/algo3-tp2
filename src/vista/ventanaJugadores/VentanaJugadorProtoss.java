@@ -27,6 +27,7 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         this.ventanaJuego = ventanaJuego;
         this.jugador = jugador;
         super.init();
+        this.setTitle(jugador.getNombre());
     }
 
     @Override
@@ -45,7 +46,8 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
 
         botoneraConstrucciones.add(tituloConstrucciones);
-        botoneraConstrucciones.add(new BotoneraDeConstruccionesProtoss(jugador));
+       // botoneraConstrucciones.add(new BotoneraDeConstruccionesProtoss(jugador));
+        botoneraConstrucciones.add(new BotoneraDeConstruccionesProtoss(jugador,accionConstruirEnEspera));
 
         this.panelInferior.add(botoneraConstrucciones,"West");
     }
@@ -78,6 +80,10 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         ventanaJugador.setExtendedState(JFrame.MAXIMIZED_BOTH);
         ventanaJugador.setVisible(true);
 
+    }
+
+    public JugadorProtoss getJugador(){
+        return jugador;
     }
 
 }
