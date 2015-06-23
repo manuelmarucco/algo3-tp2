@@ -22,8 +22,10 @@ import vista.paisaje.VistaPasto;
 import vista.recursos.VistaCristales;
 import vista.recursos.VistaVolcan;
 import vista.unidades.*;
+import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
 public class ControladorDeVistaMapa {
@@ -41,7 +43,8 @@ public class ControladorDeVistaMapa {
 
     }
 
-    public JPanel getVistaTerrestreEnPosicion(Coordenadas coordenadas) {
+    @SuppressWarnings("unused")
+    public JPanel getVistaTerrestreEnPosicion(Coordenadas coordenadas, VentanaJugador ventana) {
 
         Class clase = null;
         ColocableEnMapa colocable = proxyMapa.obtenerDeCapaTerrestre(coordenadas);
@@ -55,7 +58,8 @@ public class ControladorDeVistaMapa {
         JPanel aDevolver = null;
 
         try {
-            aDevolver = (JPanel) asociadorDeVistasTerrestres.get(clase).getDeclaredConstructor().newInstance();
+            Constructor constructor = asociadorDeVistasRecursos.get(clase).getConstructor(new Class[]{String.class, String.class});
+            aDevolver = (JPanel) constructor.newInstance(new Object[]{"colocable", "ventana"});
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -64,7 +68,8 @@ public class ControladorDeVistaMapa {
 
     }
 
-    public JPanel getVistaAereaEnPosicion(Coordenadas coordenadas) {
+    @SuppressWarnings("unused")
+    public JPanel getVistaAereaEnPosicion(Coordenadas coordenadas, VentanaJugador ventana) {
 
         Class clase = null;
         ColocableEnMapa colocable = proxyMapa.obtenerDeCapaAerea(coordenadas);
@@ -76,7 +81,8 @@ public class ControladorDeVistaMapa {
         ImagePanel aDevolver = null;
 
         try {
-            aDevolver = (ImagePanel) asociadorDeVistasAereas.get(clase).getDeclaredConstructor().newInstance();
+            Constructor constructor = asociadorDeVistasRecursos.get(clase).getConstructor(new Class[]{String.class, String.class});
+            aDevolver = (ImagePanel) constructor.newInstance(new Object[]{"colocable", "ventana"});
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -85,7 +91,8 @@ public class ControladorDeVistaMapa {
 
     }
 
-    public JPanel getVistaRecursosEnPosicion(Coordenadas coordenadas) {
+    @SuppressWarnings("unused")
+    public JPanel getVistaRecursosEnPosicion(Coordenadas coordenadas, VentanaJugador ventana) {
 
         Class clase = null;
         ColocableEnMapa colocable = proxyMapa.obtenerDeCapaDeRecursos(coordenadas);
@@ -97,9 +104,12 @@ public class ControladorDeVistaMapa {
         ImagePanel aDevolver = null;
 
         try {
-            aDevolver = (ImagePanel) asociadorDeVistasRecursos.get(clase).getDeclaredConstructor().newInstance();
+            Constructor constructor = asociadorDeVistasRecursos.get(clase).getConstructor(new Class[]{String.class, String.class});
+            aDevolver = (ImagePanel) constructor.newInstance(new Object[] { "colocable", "ventana" });
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+
             e.printStackTrace();
+
         }
 
         return aDevolver;

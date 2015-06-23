@@ -14,11 +14,6 @@ public class VistaNaveCiencia extends ImagePanel{
     private static String imagePath="images/unidades/terrran/naveCiencia.png";
     private VentanaJugador ventanaJugador;
 
-    public VistaNaveCiencia() {
-        super(ANCHO,ALTO,new ImageIcon(imagePath).getImage().getScaledInstance(ANCHO, ALTO,  java.awt.Image.SCALE_SMOOTH));
-        this.unidad=null;
-    }
-
     public VistaNaveCiencia(NaveCiencia naveCiencia,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(imagePath).getImage());
         this.unidad=naveCiencia;

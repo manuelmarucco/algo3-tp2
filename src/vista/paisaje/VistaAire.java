@@ -11,13 +11,8 @@ public class VistaAire extends ImagePanel {
     private static final int ALTO = 64;
     private final VentanaJugador ventanaJugador;
 
-    public VistaAire() {
-        super(ANCHO,ALTO,new ImageIcon("src/vista/paisaje/imagenes/aire.png").getImage());
-        this.ventanaJugador= null;
-        this.setVisible(false);
-    }
-
-    public VistaAire(VentanaJugador ventanaJugador) {
+    @SuppressWarnings("unused")
+    public VistaAire(Object parametroFantasma, VentanaJugador ventanaJugador) {
 
         super(ANCHO,ALTO,new ImageIcon("src/vista/paisaje/imagenes/aire.png").getImage());
         this.ventanaJugador=ventanaJugador;
