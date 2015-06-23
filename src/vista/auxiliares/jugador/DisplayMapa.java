@@ -82,7 +82,7 @@ public class DisplayMapa extends JPanel {
 
             for (int i = 0; i < this.cantidadTilesVerticales; i++){
 
-                Coordenadas coordenadas = new Coordenadas( i + 1, 25 - j );
+                Coordenadas coordenadas = new Coordenadas( i + 1, this.cantidadTilesHorizontales - j );
                 JPanel vista = this.controlador.getVistaTerrestreEnPosicion(coordenadas);
                 panelTerrestre.add(vista);
 
@@ -105,7 +105,7 @@ public class DisplayMapa extends JPanel {
 
             for (int i = 0; i < this.cantidadTilesVerticales; i++){
 
-                Coordenadas coordenadas = new Coordenadas( i + 1, 25 - j );
+                Coordenadas coordenadas = new Coordenadas( i + 1, this.cantidadTilesHorizontales - j );
                 ImagePanel vista = (ImagePanel) this.controlador.getVistaRecursosEnPosicion(coordenadas);
 
                 vista.setOpaque(false);
@@ -130,7 +130,7 @@ public class DisplayMapa extends JPanel {
 
             for (int i = 0; i < this.cantidadTilesVerticales; i++){
 
-                Coordenadas coordenadas = new Coordenadas( i + 1, 25 - j );
+                Coordenadas coordenadas = new Coordenadas( i + 1, this.cantidadTilesHorizontales - j );
                 ImagePanel vista = (ImagePanel) this.controlador.getVistaAereaEnPosicion(coordenadas);
                 vista.setOpaque(false);
                 panelAereo.add(vista);
@@ -151,13 +151,15 @@ public class DisplayMapa extends JPanel {
         panelAccionable.setBackground(new Color(0,0,0,0));
         panelAccionable.setOpaque(false);
 
-        for (int j = 0; j < this.cantidadTilesHorizontales; j++ ){
+        for (int j = 0; j < this.cantidadTilesHorizontales; j++ ) {
 
-            for (int i = 0; i < this.cantidadTilesVerticales; i++){
+            for (int i = 0; i < this.cantidadTilesVerticales; i++) {
 
                 JPanel parsela = new JPanel();
-                parsela.setBackground(new Color(0,0,0,0));
-                parsela.addMouseListener(new ParselaAccionable(ventana,new Coordenadas(j,i)));
+                parsela.setBackground(new Color(0, 0, 0, 0));
+                Coordenadas coordenadas = new Coordenadas(i + 1, this.cantidadTilesHorizontales - j);
+
+                parsela.addMouseListener(new ParselaAccionable(ventana, coordenadas));
 
                 panelAccionable.add(parsela);
 
