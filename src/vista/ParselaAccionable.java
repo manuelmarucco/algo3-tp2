@@ -24,7 +24,7 @@ public class ParselaAccionable implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent m) {
 
-        System.out.println("Parsela clickeada"); //Para test. ya se que funciona
+        System.out.println("Parsela clickeada " + coordenada.getX() + " " + coordenada.getY()); //Para test. ya se que funciona
 
         if(this.verificarConstruccionesEnEspera())
             {System.out.println("Edificio creado en el mapa");

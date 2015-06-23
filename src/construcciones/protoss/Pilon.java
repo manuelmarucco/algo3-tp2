@@ -1,8 +1,11 @@
 package construcciones.protoss;
 
 import construcciones.CentroDeSuministros;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Suministros;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.protoss.ResistenciaProtoss;
 
 
@@ -20,6 +23,11 @@ public class Pilon extends CentroDeSuministros {
 
 	public int getEscudo() {
 		return ((ResistenciaProtoss)resistencia).getEscudoActual();
+	}
+
+	@Override
+	public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+
 	}
 
 }

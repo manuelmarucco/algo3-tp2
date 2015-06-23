@@ -1,8 +1,11 @@
 package unidades.protoss;
 
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.ColocableEnMapa;
+import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Ubicacion;
 import unidades.Unidad;
 
@@ -16,6 +19,7 @@ public class Clon extends Unidad implements ColocableEnMapa {
     public void recibirDanio(int danio) {
         this.resistencia.quitar(danio);
     }
+    
     @Override
     public void matar(){
             ProxyMapa mapa = ProxyMapa.getInstance();
@@ -25,4 +29,5 @@ public class Clon extends Unidad implements ColocableEnMapa {
     public  void recibirEMP(){
         this.matar();
     }
+
 }

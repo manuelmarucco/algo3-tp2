@@ -86,6 +86,13 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
     }
 
     @Override
+    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa{
+
+        this.ubicacion.moverse(mapa, this, hasta);
+
+    }
+
+    @Override
 	public int getSuministro() {
 
 		return suministro;

@@ -1,9 +1,12 @@
 package unidades.protoss;
 
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
+import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Danio;
 import unidades.Terrestre;
 import unidades.UnidadGuerrera;
@@ -24,5 +27,12 @@ public class Dragon extends UnidadGuerrera implements Cargable {
 
     public int getEscudo() {
         return ((ResistenciaProtoss)resistencia).getEscudoActual();
+    }
+
+    @Override
+    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+
+        mapa.moverEnCapaTerrestre(this, hasta);
+
     }
 }

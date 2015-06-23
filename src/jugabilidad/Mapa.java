@@ -117,7 +117,25 @@ public class Mapa {
 
 	}
 
-	// -------------
+	// Mover ---------
+
+	public void moverEnCapaTerrestre(ColocableEnMapa colacable,Coordenadas hasta) throws ExcepcionPosicionOcupada {
+
+		if ( this.posicionDeRecursosOcupada(hasta) ) throw new ExcepcionPosicionOcupada();
+
+		this.agregarEnCapaTerrestre( colacable, hasta );
+		this.quitar( (Unidad) colacable);
+
+	}
+
+	public void moverEnCapaAerea(ColocableEnMapa colacable,Coordenadas hasta) throws ExcepcionPosicionOcupada {
+
+		this.agregarEnCapaAerea(colacable, hasta);
+		this.quitar( (Unidad) colacable);
+
+	}
+
+	//--------------
 
 	public boolean posicionAereaOcupada(Coordenadas coordenadas) {
 
@@ -128,6 +146,12 @@ public class Mapa {
 	public boolean posicionTerrestreOcupada(Coordenadas coordenadas) {
 
 		return (this.capaTerrestre.containsKey(coordenadas));
+
+	}
+
+	public boolean posicionDeRecursosOcupada(Coordenadas coordenadas){
+
+		return (this.capaDeRecursos.containsKey(coordenadas));
 
 	}
 

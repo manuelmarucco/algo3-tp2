@@ -2,9 +2,12 @@ package construcciones.terran;
 
 
 import construcciones.CentroDeEntrenamiento;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.Jugador;
+import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.terrran.Marine;
 import unidades.terrran.ResistenciaTerran;
 
@@ -48,5 +51,9 @@ public class Barraca extends CentroDeEntrenamiento {
 		return c.NecesitaBarraca();
 	}
 */
+	@Override
+	public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+
+	}
 }
 

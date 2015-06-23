@@ -14,4 +14,13 @@ public class Aereo implements Ubicacion {
         mapa.agregarEnCapaAerea(unidad, coordenadas);
 
     }
+
+    @Override
+    public void moverse(Mapa mapa,ColocableEnMapa unidad,Coordenadas hasta) throws ExcepcionPosicionOcupada {
+
+        mapa.moverEnCapaAerea(unidad, hasta);
+
+    }
+
+
 }

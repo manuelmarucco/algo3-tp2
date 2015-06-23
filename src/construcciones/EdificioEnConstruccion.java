@@ -1,5 +1,6 @@
 package construcciones;
 
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
@@ -61,4 +62,9 @@ public class EdificioEnConstruccion implements ColocableEnMapa, Daniable {
     public void recibirRadiacion(int danio){}
 
     public  void recibirEMP(){}
+
+    @Override
+    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+
+    }
 }

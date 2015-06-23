@@ -2,6 +2,9 @@ package recursos;
 
 import construcciones.protoss.Asimilador;
 import construcciones.terran.Refineria;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import jugabilidad.Mapa;
+import jugabilidad.utilidadesMapa.Coordenadas;
 
 public class Volcan extends Recurso {
 
@@ -21,4 +24,10 @@ public class Volcan extends Recurso {
     public boolean noPuedeSerRecolectadoPor(Asimilador asimilador){
         return false;
     }
+
+    @Override
+    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+
+    }
+
 }

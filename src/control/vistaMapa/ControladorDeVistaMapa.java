@@ -127,6 +127,7 @@ public class ControladorDeVistaMapa {
         // Protoss.
         asociadorDeVistasTerrestres.put(Zealot.class, VistaZealot.class);
         asociadorDeVistasTerrestres.put(Dragon.class, VistaDragon.class);
+        asociadorDeVistasAereas.put(AltoTemplario.class, VistaAltoTemplario.class);
 
         // Construcciones.
         // Terran.
@@ -163,7 +164,6 @@ public class ControladorDeVistaMapa {
         asociadorDeVistasAereas.put(NaveTransporteTerran.class, VistaNaveTransporteTerran.class);
         // Protoss.
         asociadorDeVistasAereas.put(Scout.class, VistaScout.class);
-        asociadorDeVistasAereas.put(AltoTemplario.class, VistaAltoTemplario.class);
         asociadorDeVistasAereas.put(NaveTransporteProtoss.class, VistaNaveTransporteProtoss.class);
 
     }
