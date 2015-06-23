@@ -1,17 +1,21 @@
-package vista.Actions;
+package vista.Actions.accionesEntrenar;
 
-import unidades.terrran.NaveCiencia;
+import construcciones.terran.Fabrica;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class ActionEmp implements MouseListener {
-    public ActionEmp(NaveCiencia unidad) {
+public class ActionEntrenarGolliat implements MouseListener {
+    private final Fabrica fabrica;
+
+    public ActionEntrenarGolliat(Fabrica unidad) {
+        this.fabrica=unidad;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        if (e.getButton()!=MouseEvent.BUTTON1) return;
+        this.fabrica.entrenarGolliat();
     }
 
     @Override

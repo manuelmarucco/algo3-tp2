@@ -66,4 +66,8 @@ public class ProxyDeHechizos {
 
         return true;
     }
+    public static Jugador obtenerDuenio(Unidad unidad){
+        if(jugador1.buscarUnidad(unidad)) return jugador1;
+        else return jugador2;
+    }
 }

@@ -1,21 +1,22 @@
-package vista.Actions;
+package vista.Actions.accionesEntrenar;
 
-import construcciones.protoss.Acceso;
+import construcciones.protoss.PortalEstelar;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class ActionEntrenarZealot implements MouseListener {
-    private final Acceso acceso;
+public class ActionEntrenarNaveTransporteProtoss implements MouseListener {
 
-    public ActionEntrenarZealot(Acceso unidad) {
-        this.acceso= unidad;
+    private PortalEstelar portalEstelar;
+
+    public ActionEntrenarNaveTransporteProtoss(PortalEstelar unidad) {
+        this.portalEstelar=unidad;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (e.getButton()!=MouseEvent.BUTTON1) return;
-        this.acceso.entrenarZealot();
+        if(e.getButton()!=MouseEvent.BUTTON1) return;
+        this.portalEstelar.entrenarNaveTransporte();
     }
 
     @Override

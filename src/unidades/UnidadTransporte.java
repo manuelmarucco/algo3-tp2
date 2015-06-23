@@ -1,5 +1,6 @@
 package unidades;
 
+import excepciones.Mapa.ExcepcionCasillaVacia;
 import excepciones.Unidades.ExcepcionCargaSuperada;
 import excepciones.Unidades.ExcepcionCargarUnidadEnemiga;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
@@ -31,6 +32,22 @@ public abstract class UnidadTransporte extends Unidad {
 
     public void cargar(Cargable unidad) throws ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionCargarUnidadEnemiga {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
+        if(ProxyDeHechizos.esEnemigo(this,unidad)) throw new ExcepcionCargarUnidadEnemiga();
+        int cargaTotal=0;
+        for(Cargable a:unidades){
+            cargaTotal+=a.getTransporte();
+        }
+        cargaTotal+=unidad.getTransporte();
+        if(cargaTotal>tranporteMax) throw new ExcepcionCargaSuperada();
+        unidades.add(unidad);
+        ProxyMapa.getInstance().quitar((Unidad) unidad);
+        this.accion.actuo();
+    }
+
+    public void cargar(Coordenadas coordenadas) throws ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionCargarUnidadEnemiga, ExcepcionCasillaVacia {
+        if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
+        Cargable unidad = (Cargable) ProxyMapa.getInstance().obtenerDeCapaTerrestre(coordenadas);
+        if(unidad==null) throw new ExcepcionCasillaVacia();
         if(ProxyDeHechizos.esEnemigo(this,unidad)) throw new ExcepcionCargarUnidadEnemiga();
         int cargaTotal=0;
         for(Cargable a:unidades){

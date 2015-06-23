@@ -1,21 +1,21 @@
-package vista.Actions;
+package vista.Actions.accionesEntrenar;
 
-import construcciones.terran.Barraca;
+import construcciones.terran.PuertoEstelar;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class ActionEntrenarMarine implements MouseListener {
-    private final Barraca barraca;
+public class ActionEntrenarEsprectro implements MouseListener {
+    private final PuertoEstelar puertoEstelar;
 
-    public ActionEntrenarMarine(Barraca unidad) {
-        this.barraca=unidad;
+    public ActionEntrenarEsprectro(PuertoEstelar unidad) {
+        this.puertoEstelar=unidad;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-        if (e.getButton()!=MouseEvent.BUTTON1) return;
-        this.barraca.entrenarMarine();
+        if(e.getButton()!=MouseEvent.BUTTON1) return;
+        puertoEstelar.entrenarEspectro();
     }
 
     @Override

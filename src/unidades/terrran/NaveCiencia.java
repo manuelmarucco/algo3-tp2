@@ -3,6 +3,7 @@ package unidades.terrran;
 import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
+import interfaces.ColocableEnMapa;
 import interfaces.Hechizable;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
@@ -48,6 +49,28 @@ public class NaveCiencia extends UnidadMagica {
         }
         if(objetivo!=null)
         objetivo.irradiar();
+        this.accion.actuo();
+    }
+
+    public void Radiacion(Coordenadas objetivo) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+        if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
+        Coordenadas nc=ProxyMapa.getInstance().getCoordenada(this);
+        if(this.getVision()<nc.distancia(objetivo)) throw new ExcepcionObjetivoFueraDeRango();
+        try {
+            this.energia.gastar(75);
+        } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {
+            energiaInsuficiente.printStackTrace();
+        }
+        ColocableEnMapa objAereo = ProxyMapa.getInstance().obtenerDeCapaAerea(objetivo);
+        ColocableEnMapa objTerrestre = ProxyMapa.getInstance().obtenerDeCapaAerea(objetivo);
+        if(objAereo!=null) {
+            ((Hechizable) objAereo).irradiar();
+        }
+        else if(objTerrestre!=null){
+            ((Hechizable)objTerrestre).irradiar();
+        }
+        //todo agregar Excepcion
+
         this.accion.actuo();
     }
 

@@ -1,17 +1,21 @@
-package vista.Actions;
+package vista.Actions.accionesEntrenar;
 
-import unidades.protoss.AltoTemplario;
+import construcciones.protoss.PortalEstelar;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class ActionAlucinacion implements MouseListener {
-    public ActionAlucinacion(AltoTemplario unidad) {
+public class ActionEntrenarScout implements MouseListener {
+
+    private PortalEstelar portalEstelar;
+    public ActionEntrenarScout(PortalEstelar unidad) {
+        this.portalEstelar=unidad;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        if(e.getButton()!=MouseEvent.BUTTON1) return;
+        this.portalEstelar.entrenarScout();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package vista.ventanaJugadores;
 
+import vista.Actions.WraperAccionActuar;
 import vista.Actions.WraperAccionConstruir;
 import vista.Actions.accionesConstruir.AccionConstruir;
 import vista.VentanaJuego;
@@ -28,7 +29,7 @@ public abstract class VentanaJugador extends JFrame {
     private PanelAcciones panelAcciones;
 
     protected WraperAccionConstruir accionConstruirEnEspera;
-
+    private WraperAccionActuar accionActuarEnEspera;
 
 
     public void setAccionConstruirEnEspera(AccionConstruir accion) {
@@ -42,6 +43,7 @@ public abstract class VentanaJugador extends JFrame {
     // Metodos -------------------------
     protected void init(){
         this.accionConstruirEnEspera = new WraperAccionConstruir();
+        this.accionActuarEnEspera = new WraperAccionActuar();
         this.crearPaneles();
         this.add(this.contenedor);
 
@@ -80,7 +82,7 @@ public abstract class VentanaJugador extends JFrame {
     }
 
     protected void crearPanelInferior(){
-        this.panelAcciones=new PanelAcciones();
+        this.panelAcciones=new PanelAcciones(accionActuarEnEspera);
         this.panelInferior = new JPanel( new BorderLayout() );
         this.panelInferior.add(new PanelTerminarTurno(ventanaJuego), "East");
         this.panelInferior.add(panelAcciones, "Center");

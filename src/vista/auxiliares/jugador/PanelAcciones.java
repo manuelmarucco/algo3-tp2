@@ -12,7 +12,9 @@ import unidades.UnidadGuerrera;
 import unidades.UnidadTransporte;
 import unidades.protoss.AltoTemplario;
 import unidades.terrran.NaveCiencia;
-import vista.Actions.*;
+import vista.Actions.WraperAccionActuar;
+import vista.Actions.accionesEntrenar.*;
+import vista.Actions.accionesUnidades.*;
 
 import javax.swing.*;
 
@@ -22,8 +24,10 @@ public class PanelAcciones extends JPanel {
     private JButton button3;
     private JButton button4;
     private JPanel panel;
+    private WraperAccionActuar accionActuarEnEspera;
 
-    public  PanelAcciones(){
+    public  PanelAcciones(WraperAccionActuar accionActuarEnEspera){
+        this.accionActuarEnEspera=accionActuarEnEspera;
         init();
     }
 
@@ -46,49 +50,49 @@ public class PanelAcciones extends JPanel {
         this.limpiar();
         button1.setEnabled(true);
         button1.setVisible(true);
-        button1.addMouseListener(new ActionMover(unidad));
+        button1.addActionListener(new ActionMover(unidad, accionActuarEnEspera));
         button2.setEnabled(true);
         button2.setVisible(true);
-        button2.addMouseListener(new ActionAtacar(unidad));
+        button2.addActionListener(new ActionAtacar(unidad, accionActuarEnEspera));
     }
 
     public void configurarBotones(NaveCiencia unidad){
         this.limpiar();
         button1.setEnabled(true);
         button1.setVisible(true);
-        button1.addMouseListener(new ActionMover(unidad));
+        button1.addActionListener(new ActionMover(unidad, accionActuarEnEspera));
         button2.setEnabled(true);
         button2.setVisible(true);
-        button2.addMouseListener(new ActionEmp(unidad));
+        button2.addActionListener(new ActionEmp(unidad, accionActuarEnEspera));
         button3.setEnabled(true);
         button3.setVisible(true);
-        button3.addMouseListener(new ActionRadiacion(unidad));
+        button3.addActionListener(new ActionRadiacion(unidad, accionActuarEnEspera));
     }
 
     public void configurarBotones(UnidadTransporte unidad){
         this.limpiar();
         button1.setEnabled(true);
         button1.setVisible(true);
-        button1.addMouseListener(new ActionMover(unidad));
+        button1.addActionListener(new ActionMover(unidad, accionActuarEnEspera));
         button2.setEnabled(true);
         button2.setVisible(true);
-        button2.addMouseListener(new ActionCarcar(unidad));
+        button2.addActionListener(new ActionCarcar(unidad, accionActuarEnEspera));
         button3.setEnabled(true);
         button3.setVisible(true);
-        button3.addMouseListener(new ActionDescargar(unidad));
+        button3.addActionListener(new ActionDescargar(unidad, accionActuarEnEspera));
     }
 
     public void configurarBotones(AltoTemplario unidad){
         this.limpiar();
         button1.setEnabled(true);
         button1.setVisible(true);
-        button1.addMouseListener(new ActionMover(unidad));
+        button1.addActionListener(new ActionMover(unidad, accionActuarEnEspera));
         button2.setEnabled(true);
         button2.setVisible(true);
-        button2.addMouseListener(new ActionTormentaPsionica(unidad));
+        button2.addActionListener(new ActionTormentaPsionica(unidad, accionActuarEnEspera));
         button3.setEnabled(true);
         button3.setVisible(true);
-        button3.addMouseListener(new ActionAlucinacion(unidad));
+        button3.addActionListener(new ActionAlucinacion(unidad, accionActuarEnEspera));
     }
 
     public void configurarBotones(Acceso unidad){

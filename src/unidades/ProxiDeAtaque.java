@@ -54,4 +54,14 @@ public class ProxiDeAtaque {
         if(jugador2.buscarUnidad(atacante)&& jugador2.buscarConstruccion(defensor)) throw new ExcepcionAtacarAUnidadAliada();
     }
 
+    public static void atacar(UnidadGuerrera atacante,Coordenadas coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango {
+        Daniable objetivoAereo = (Daniable) ProxyMapa.getInstance().obtenerDeCapaAerea(coordenada);
+        Daniable objetivoTerreste = (Daniable) ProxyMapa.getInstance().obtenerDeCapaTerrestre(coordenada);
+        if(objetivoAereo!=null){
+            atacarAire(atacante,objetivoAereo);
+        }
+        else if(objetivoTerreste!=null){
+            atacarTierra(atacante,objetivoTerreste);
+        }
+    }
 }

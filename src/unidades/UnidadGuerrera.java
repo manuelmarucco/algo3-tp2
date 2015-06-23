@@ -7,6 +7,7 @@ import interfaces.Daniable;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
 import excepciones.Unidades.ExcepcionNoPuedeAtacarAire;
+import jugabilidad.utilidadesMapa.Coordenadas;
 
 public abstract class UnidadGuerrera extends Unidad {
 
@@ -48,5 +49,9 @@ public abstract class UnidadGuerrera extends Unidad {
 
     public int getDanioAereo() {
         return danio.getDanioAire();
+    }
+
+    public void atacar(Coordenadas coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango {
+        ProxiDeAtaque.atacar(this,coordenada);
     }
 }

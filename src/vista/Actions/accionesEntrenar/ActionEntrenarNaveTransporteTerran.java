@@ -1,17 +1,21 @@
-package vista.Actions;
+package vista.Actions.accionesEntrenar;
 
-import unidades.protoss.AltoTemplario;
+import construcciones.terran.PuertoEstelar;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class ActionTormentaPsionica implements MouseListener {
-    public ActionTormentaPsionica(AltoTemplario unidad) {
+public class ActionEntrenarNaveTransporteTerran implements MouseListener {
+    private final PuertoEstelar puertoEstelar;
+
+    public ActionEntrenarNaveTransporteTerran(PuertoEstelar unidad) {
+        this.puertoEstelar=unidad;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        if(e.getButton()!=MouseEvent.BUTTON1) return;
+        puertoEstelar.entrenarNaveTransporte();
     }
 
     @Override

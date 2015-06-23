@@ -1,17 +1,21 @@
-package vista.Actions;
+package vista.Actions.accionesEntrenar;
 
-import unidades.UnidadGuerrera;
+import construcciones.protoss.Acceso;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class ActionAtacar implements MouseListener {
-    public ActionAtacar(UnidadGuerrera unidad) {
+public class ActionEntrenarZealot implements MouseListener {
+    private final Acceso acceso;
+
+    public ActionEntrenarZealot(Acceso unidad) {
+        this.acceso= unidad;
     }
 
     @Override
     public void mouseClicked(MouseEvent e) {
-
+        if (e.getButton()!=MouseEvent.BUTTON1) return;
+        this.acceso.entrenarZealot();
     }
 
     @Override

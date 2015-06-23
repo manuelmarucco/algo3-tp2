@@ -1,4 +1,4 @@
-package vista.Actions;
+package vista.Actions.accionesEntrenar;
 
 import construcciones.protoss.Acceso;
 
