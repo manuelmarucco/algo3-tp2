@@ -24,6 +24,7 @@ public class VistaMarine extends ImagePanel{
 
     public VistaMarine(Marine marine,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
+        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
         this.unidad=marine;
         this.ventanaJugador=ventanaJugador;
         //this.addMouseListener(new MouseActionObtenerInfoMarine(marine,ventanaJugador));

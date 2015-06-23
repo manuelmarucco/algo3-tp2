@@ -17,6 +17,7 @@ public class VistaAltoTemplario extends ImagePanel{
 
     public VistaAltoTemplario(ColocableEnMapa altoTemplario,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
+        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
         this.unidad=(AltoTemplario)altoTemplario;
         this.ventanaJugador=ventanaJugador;
         this.addMouseListener(new MouseActionObtenerInfoAltoTemplario(unidad,ventanaJugador));

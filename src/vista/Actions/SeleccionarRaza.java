@@ -26,12 +26,13 @@ public class SeleccionarRaza implements java.awt.event.ActionListener {
         JComboBox c = (JComboBox) e.getSource();
         switch ((String)c.getSelectedItem()){
             case "Protoss":
+                form.getAceptarButton().removeActionListener(form.getAceptarButton().getActionListeners()[0]);
                 form.getAceptarButton().addActionListener(new CrearProtoss(ventanaJuego,form,nombreUsado));
                 retrato.setImage(new ImageIcon("src/vista/resourses/retratoProtoss.jpg").getImage());
                 retrato.repaint();
                 break;
             case "Terran":
-
+                form.getAceptarButton().removeActionListener(form.getAceptarButton().getActionListeners()[0]);
                 form.getAceptarButton().addActionListener(new CrearTerran(ventanaJuego,form,nombreUsado));
                 retrato.setImage(new ImageIcon("src/vista/resourses/retratoTerran.jpg").getImage());
                 retrato.repaint();
