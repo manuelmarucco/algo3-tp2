@@ -61,8 +61,8 @@ public class DisplayMapa extends JPanel {
 
     private void init(){
 
-        this.cantidadTilesHorizontales = 25 ; // En cantidad de tiles.
-        this.cantidadTilesVerticales = 25; // En cantidad de tiles.
+        this.cantidadTilesHorizontales = 25 ;
+        this.cantidadTilesVerticales = 25;
 
         this.panel = new JLayeredPane();
         this.panel.setPreferredSize(new Dimension(1600, 1600));
@@ -101,7 +101,7 @@ public class DisplayMapa extends JPanel {
 
         }
 
-        this.panel.add(panelTerrestre, new Integer(1),0);
+        this.panel.add(panelTerrestre, 1,0);
 
     }
 
@@ -126,7 +126,7 @@ public class DisplayMapa extends JPanel {
 
         }
 
-        this.panel.add(panelDeRecursos, new Integer(2),0);
+        this.panel.add(panelDeRecursos, 2,0);
 
     }
 
@@ -150,7 +150,7 @@ public class DisplayMapa extends JPanel {
 
         }
 
-        this.panel.add(panelAereo, new Integer(3),0);
+        this.panel.add(panelAereo, 0,0);
 
     }
 
@@ -178,7 +178,7 @@ public class DisplayMapa extends JPanel {
 
         }
 
-        this.panel.add(panelAccionable, new Integer(0),0);
+        this.panel.add(panelAccionable, 0,0);
 
     }
 
