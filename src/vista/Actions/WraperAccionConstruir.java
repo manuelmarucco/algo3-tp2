@@ -2,7 +2,7 @@ package vista.Actions;
 
 import vista.Actions.accionesConstruir.AccionConstruir;
 
-public class WraperAccion {
+public class WraperAccionConstruir {
     private AccionConstruir accionConstruir;
 
     public AccionConstruir getAccionConstruir() {

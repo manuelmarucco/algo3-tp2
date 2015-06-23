@@ -4,7 +4,7 @@ import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import vista.Actions.WraperAccion;
+import vista.Actions.WraperAccionConstruir;
 import vista.Actions.accionesConstruir.AccionConstruir;
 
 import java.awt.event.ActionEvent;
@@ -13,9 +13,9 @@ import java.awt.event.ActionListener;
 public class AccionConstruirNexoMineral implements AccionConstruir,ActionListener {
 
     private JugadorProtoss jugador;
-    private WraperAccion accionConstruirEnEspera;
+    private WraperAccionConstruir accionConstruirEnEspera;
 
-    public AccionConstruirNexoMineral(JugadorProtoss jugador, WraperAccion accionConstruirEnEspera) {
+    public AccionConstruirNexoMineral(JugadorProtoss jugador, WraperAccionConstruir accionConstruirEnEspera) {
         this.jugador = jugador;
         this.accionConstruirEnEspera = accionConstruirEnEspera;
         System.out.println("Accion NExo");

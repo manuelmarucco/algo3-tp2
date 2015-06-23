@@ -1,6 +1,7 @@
 package vista.Actions;
 
 import jugabilidad.RazaDeJugador.JugadorTerran;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import vista.CrearJugador;
 import vista.VentanaJuego;
 import vista.ventanaJugadores.VentanaJugadorTerran;
@@ -10,14 +11,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CrearTerran implements ActionListener {
+    private final Coordenadas coordenadas;
     private  VentanaJuego ventanaJuego;
     private String nombreUsado;
     private CrearJugador form;
 
-    public CrearTerran(VentanaJuego ventanaJuego,CrearJugador form,String nombreUsado) {
+    public CrearTerran(VentanaJuego ventanaJuego,CrearJugador form,String nombreUsado,Coordenadas coordenadas) {
         this.ventanaJuego=ventanaJuego;
         this.form=form;
         this.nombreUsado=nombreUsado;
+        this.coordenadas=coordenadas;
     }
 
     @Override
@@ -33,7 +36,7 @@ public class CrearTerran implements ActionListener {
                     "InputError", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        JugadorTerran jugador = ventanaJuego.getJuego().crearJugadorTerran(form.getNombreJugador(), form.getColorJugador(), null);
+        JugadorTerran jugador = ventanaJuego.getJuego().crearJugadorTerran(form.getNombreJugador(), form.getColorJugador(), coordenadas);
         nombreUsado.concat(form.getNombreJugador());
         form.setVentana(new VentanaJugadorTerran( jugador, ventanaJuego));
         form.dispose();

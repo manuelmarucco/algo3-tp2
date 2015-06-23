@@ -1,5 +1,6 @@
 package control.vistaMapa;
 
+import construcciones.EdificioEnConstruccion;
 import construcciones.protoss.*;
 import construcciones.terran.*;
 import interfaces.ColocableEnMapa;
@@ -12,6 +13,7 @@ import unidades.protoss.*;
 import unidades.terrran.*;
 import vista.auxiliares.ImagePanel;
 import vista.auxiliares.jugador.imagenesMapa.HashMapParaMapa;
+import vista.edificios.VistaEdificioEnConstruccion;
 import vista.edificios.protoss.*;
 import vista.edificios.terran.*;
 import vista.paisaje.VistaAire;
@@ -23,7 +25,6 @@ import vista.unidades.*;
 
 import javax.swing.*;
 import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
 
 public class ControladorDeVistaMapa {
 
@@ -133,6 +134,7 @@ public class ControladorDeVistaMapa {
         asociadorDeVistasTerrestres.put(PortalEstelar.class, VistaPortalEstelar.class);
         asociadorDeVistasTerrestres.put(ArchivosTemplarios.class, VistaArchivosTemplarios.class);
 
+        asociadorDeVistasTerrestres.put(EdificioEnConstruccion.class, VistaEdificioEnConstruccion.class);
         // Paisaje.
         asociadorDeVistasTerrestres.put(NullPosicionTerrestre.class, VistaNullPosicionTerrestre.class);
 
