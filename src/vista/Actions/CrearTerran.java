@@ -1,8 +1,8 @@
 package vista.Actions;
 
-import jugabilidad.Juego;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import vista.CrearJugador;
+import vista.VentanaJuego;
 import vista.ventanaJugadores.VentanaJugadorTerran;
 
 import javax.swing.*;
@@ -10,12 +10,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CrearTerran implements ActionListener {
-    private final Juego juego;
+    private  VentanaJuego ventanaJuego;
     private String nombreUsado;
     private CrearJugador form;
 
-    public CrearTerran(Juego juego,CrearJugador form,String nombreUsado) {
-        this.juego=juego;
+    public CrearTerran(VentanaJuego ventanaJuego,CrearJugador form,String nombreUsado) {
+        this.ventanaJuego=ventanaJuego;
         this.form=form;
         this.nombreUsado=nombreUsado;
     }
@@ -33,9 +33,9 @@ public class CrearTerran implements ActionListener {
                     "InputError", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        JugadorTerran jugador = juego.crearJugadorTerran(form.getNombreJugador(),form.getColorJugador(),null);
+        JugadorTerran jugador = ventanaJuego.getJuego().crearJugadorTerran(form.getNombreJugador(), form.getColorJugador(), null);
         nombreUsado.concat(form.getNombreJugador());
-        form.setVentana(new VentanaJugadorTerran( jugador));
+        form.setVentana(new VentanaJugadorTerran( jugador, ventanaJuego));
         form.dispose();
     }
 }

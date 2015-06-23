@@ -1,19 +1,21 @@
 package vista.Actions;
 
-import jugabilidad.Juego;
+import jugabilidad.RazaDeJugador.JugadorProtoss;
 import vista.CrearJugador;
+import vista.VentanaJuego;
+import vista.ventanaJugadores.VentanaJugadorProtoss;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CrearProtoss implements ActionListener {
-    private final Juego juego;
+    private VentanaJuego ventanaJuego;
     private String nombreUsado;
     private CrearJugador form;
 
-    public CrearProtoss(Juego juego,CrearJugador form,String nombreUsado) {
-        this.juego=juego;
+    public CrearProtoss(VentanaJuego ventanaJuego,CrearJugador form,String nombreUsado) {
+        this.ventanaJuego=ventanaJuego;
         this.form=form;
         this.nombreUsado=nombreUsado;
     }
@@ -31,8 +33,9 @@ public class CrearProtoss implements ActionListener {
                     "InputError", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        juego.crearJugadorProtoss(form.getNombreJugador(), form.getColorJugador(), null);
+        JugadorProtoss jugador = ventanaJuego.getJuego().crearJugadorProtoss(form.getNombreJugador(), form.getColorJugador(), null);
         nombreUsado=form.getNombreJugador();
+        form.setVentana(new VentanaJugadorProtoss( jugador, ventanaJuego));
         form.dispose();
     }
 }

@@ -16,19 +16,21 @@ public class MenuPrincipal extends JFrame {
     private ImagePanel imageBackground;
     private JButton jugarBoton;
 
+    private VentanaJuego ventanaJuego;
+
     public MenuPrincipal(){
         this.init();
     }
 
     private void init() {
         //inicializacion del juego en general
-        Juego juego = new Juego();
+        ventanaJuego = new VentanaJuego(new Juego());
         //configuracion del boton "Jugar"
         jugarBoton.setIcon(new ImageIcon("images/menu/botonJugar.png"));
         jugarBoton.setMargin(new Insets(0, 0, 0, 0));
         jugarBoton.setBorder(null);
         //jugarBoton.setOpaque(falxse);
-        jugarBoton.addActionListener(new AccionJugar(juego));
+        jugarBoton.addActionListener(new AccionJugar(ventanaJuego));
         //configuracion del fondo de pantalla
         this.add(background);
 

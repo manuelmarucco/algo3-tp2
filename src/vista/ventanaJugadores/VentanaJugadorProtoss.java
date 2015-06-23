@@ -1,6 +1,7 @@
 package vista.ventanaJugadores;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import jugabilidad.Juego;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Vision;
@@ -8,6 +9,7 @@ import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.terrran.Marine;
 import unidades.terrran.NaveCiencia;
+import vista.VentanaJuego;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
 import vista.auxiliares.jugador.DisplayRecursos;
 
@@ -21,8 +23,9 @@ public class VentanaJugadorProtoss extends VentanaJugador {
     // Metodos -------------------------
 
 
-    public VentanaJugadorProtoss(JugadorProtoss j){
-        this.jugador = j;
+    public VentanaJugadorProtoss(JugadorProtoss jugador, VentanaJuego ventanaJuego){
+        this.ventanaJuego = ventanaJuego;
+        this.jugador = jugador;
         super.init();
     }
 
@@ -65,8 +68,10 @@ public class VentanaJugadorProtoss extends VentanaJugador {
             excepcionNoSePudoAgregarAlMapa.printStackTrace();
         }
         // Mini test fin
-
-        VentanaJugador ventanaJugador = new VentanaJugadorProtoss(new JugadorProtoss());
+        VentanaJuego ventanaJuego = new VentanaJuego(new Juego());
+        JugadorProtoss jugador = new JugadorProtoss();
+        ventanaJuego.getJuego().crearJugadorProtoss("pepe","rojo",new Coordenadas(3,3));
+        VentanaJugador ventanaJugador = new VentanaJugadorProtoss(jugador,ventanaJuego);
 
         ventanaJugador.pack();
         ventanaJugador.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

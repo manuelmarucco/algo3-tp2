@@ -1,5 +1,6 @@
 package vista.ventanaJugadores;
 
+import vista.VentanaJuego;
 import vista.auxiliares.jugador.DisplayMapa;
 import vista.auxiliares.jugador.DisplayNotificaciones;
 import vista.auxiliares.jugador.PanelAcciones;
@@ -14,7 +15,7 @@ import java.awt.event.MouseMotionListener;
 public abstract class VentanaJugador extends JFrame {
 
     // Atributos ---------------------
-
+    protected VentanaJuego ventanaJuego ;
     protected JPanel contenedor;
 
     protected JPanel panelRecursos;
@@ -67,7 +68,7 @@ public abstract class VentanaJugador extends JFrame {
     protected void crearPanelInferior(){
         this.panelAcciones=new PanelAcciones();
         this.panelInferior = new JPanel( new BorderLayout() );
-        this.panelInferior.add(new PanelTerminarTurno(), "East");
+        this.panelInferior.add(new PanelTerminarTurno(ventanaJuego), "East");
         this.panelInferior.add(panelAcciones, "Center");
 
     }

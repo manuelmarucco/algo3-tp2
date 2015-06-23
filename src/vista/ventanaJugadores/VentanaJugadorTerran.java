@@ -1,7 +1,9 @@
 package vista.ventanaJugadores;
 
+import jugabilidad.Juego;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.extrasJuego.CreadorDeMapa;
+import vista.VentanaJuego;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
 import vista.auxiliares.jugador.DisplayRecursos;
 
@@ -14,8 +16,9 @@ public class VentanaJugadorTerran extends VentanaJugador {
 
     // Metodos -------------------------
 
-    public VentanaJugadorTerran(JugadorTerran j){
-        this.jugador = j;
+    public VentanaJugadorTerran(JugadorTerran jugador, VentanaJuego ventanaJuego){
+        this.ventanaJuego = ventanaJuego;
+        this.jugador = jugador;
         super.init();
 
     }
@@ -47,8 +50,8 @@ public class VentanaJugadorTerran extends VentanaJugador {
     public static void main(String[] args){
 
         CreadorDeMapa creador = new CreadorDeMapa(2);
-
-        VentanaJugador ventanaJugador = new VentanaJugadorTerran(new JugadorTerran());
+        VentanaJuego ventanaJuego = new VentanaJuego(new Juego());
+        VentanaJugador ventanaJugador = new VentanaJugadorTerran(new JugadorTerran(), ventanaJuego);
 
         ventanaJugador.pack();
         ventanaJugador.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

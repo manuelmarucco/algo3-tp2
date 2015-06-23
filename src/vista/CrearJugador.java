@@ -1,6 +1,5 @@
 package vista;
 
-import jugabilidad.Juego;
 import vista.Actions.CrearTerran;
 import vista.Actions.SeleccionarRaza;
 import vista.auxiliares.IconoColor;
@@ -24,23 +23,23 @@ public class CrearJugador extends JDialog {
     private ImagePanel retrato;
     private VentanaJugador ventana;
 
-    public CrearJugador(Juego j, String titulo, String nombreUsado){
+    public CrearJugador(VentanaJuego ventanaJuego, String titulo, String nombreUsado){
         this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setTitle(titulo);
-        this.init(j,nombreUsado);
+        this.init(ventanaJuego,nombreUsado);
     }
 
-    private void init(Juego j, String nombreUsado) {
+    private void init(VentanaJuego ventanaJuego, String nombreUsado) {
         aceptarButton.setIcon(new ImageIcon("src/vista/resourses/botonAceptar.png"));
         aceptarButton.setMargin(new Insets(0, 0, 0, 0));
         aceptarButton.setBorder(null);
         aceptarButton.setVerticalTextPosition(SwingConstants.BOTTOM);
         aceptarButton.setHorizontalTextPosition(SwingConstants.CENTER);
-        aceptarButton.addActionListener(new CrearTerran(j,this,nombreUsado));
+        aceptarButton.addActionListener(new CrearTerran(ventanaJuego,this,nombreUsado));
         this.add(panel1);
         raza.addItem("Terran");
         raza.addItem("Protoss");
-        raza.addActionListener(new SeleccionarRaza(this,retrato,j,nombreUsado));
+        raza.addActionListener(new SeleccionarRaza(this,retrato,ventanaJuego,nombreUsado));
         Icon icon = new IconoColor(java.awt.Color.red,"rojo");
         color.addItem(icon);
         icon = new IconoColor(java.awt.Color.BLUE,"azul");

@@ -21,6 +21,7 @@ public class AdministradorDeTurnos implements Actualizable{
         jugadorDelTurnoActual = jugadores.get(iterador);
         jugadorDelTurnoActual.update();
         iterador++;
+        //TODO me parece que esto esta mal. deberia actualizar al jugador anterior y no al actual. nose hay q fijarse bien
     }
 
     public Jugador getJugadorDelTurnoActual(){
@@ -36,10 +37,7 @@ public class AdministradorDeTurnos implements Actualizable{
 
     public boolean hayGanador() {
         this.removerJugadoresQuePerdieron();
-        if(jugadores.size()==1){
-            return true;
-        }else
-            return false;
+        return jugadores.size() == 1;
     }
 
     private void removerJugadoresQuePerdieron() {
