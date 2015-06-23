@@ -25,7 +25,7 @@ public class MenuPrincipal extends JFrame {
     private void init() {
 
         //inicializacion del juego en general
-        ventanaJuego = new VentanaJuego(new Juego());
+        ventanaJuego = new VentanaJuego(new Juego(2));
 
         //configuracion del boton "Jugar"
         jugarBoton.setIcon(new ImageIcon("images/menu/botonJugar.png"));

@@ -14,7 +14,7 @@ public class PruebaPanelEstado{
     private VentanaJugador frame;
 
     public void construyeVentana(){
-        frame = new VentanaJugadorProtoss(new JugadorProtoss(),new VentanaJuego(new Juego()));
+        frame = new VentanaJugadorProtoss(new JugadorProtoss(),new VentanaJuego(new Juego(2)));
        // frame = new VentanaJugadorProtoss();
         frame.mostrarPanelDeEstado(panelLateral);
         frame.pack();

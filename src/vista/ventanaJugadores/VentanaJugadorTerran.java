@@ -51,7 +51,7 @@ public class VentanaJugadorTerran extends VentanaJugador {
     public static void main(String[] args){
 
         CreadorDeMapa creador = new CreadorDeMapa(2);
-        VentanaJuego ventanaJuego = new VentanaJuego(new Juego());
+        VentanaJuego ventanaJuego = new VentanaJuego(new Juego(2));
         VentanaJugador ventanaJugador = new VentanaJugadorTerran(new JugadorTerran(), ventanaJuego);
 
         ventanaJugador.pack();

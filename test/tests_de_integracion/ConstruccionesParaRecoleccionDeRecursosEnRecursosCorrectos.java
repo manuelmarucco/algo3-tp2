@@ -40,11 +40,9 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
     @Test
     public void construirCentroDeMineralSobreCristal() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
-        Juego juego = new Juego();
-        juego.crearMapa();
+        Juego juego = new Juego(2);
         // Crea un cristal en 3 , 23
-        ArrayList<Coordenadas> bases = juego.getBases();
-        JugadorTerran jugador = (JugadorTerran) juego.crearJugadorTerran("Jugado","Azul", bases.get(0));
+        JugadorTerran jugador = juego.crearJugadorTerran("Jugado","Azul");
 
         Coordenadas coordenadas = new Coordenadas(3,23);
         CentroDeMineral centroDeMineral = jugador.construirCentroDeMineral(coordenadas);
@@ -58,11 +56,9 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
     @Test
     public void construirNexoMineralSobreCristal() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
-        Juego juego = new Juego();
-        juego.crearMapa();
+        Juego juego = new Juego(2);
         // Crea un cristal en 3 , 23
-        ArrayList<Coordenadas> bases = juego.getBases();
-        JugadorProtoss jugador = (JugadorProtoss) juego.crearJugadorProtoss("Jugado", "Azul", bases.get(0));
+        JugadorProtoss jugador = juego.crearJugadorProtoss("Jugado", "Azul");
 
         Coordenadas coordenadas = new Coordenadas(3,23);
         NexoMineral nexoMineral = jugador.construirNexoMineral(coordenadas);
@@ -71,16 +67,15 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
 
         assertTrue(jugador.buscarConstruccion(nexoMineral));
 
+
     }
 
     @Test
     public void construirAsimiladorSobreVolcan() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
-        Juego juego = new Juego();
-        juego.crearMapa();
+        Juego juego = new Juego(2);
         // Crea un volcan en 5 , 21
-        ArrayList<Coordenadas> bases = juego.getBases();
-        JugadorProtoss jugador = (JugadorProtoss) juego.crearJugadorProtoss("Jugado", "Azul", bases.get(0));
+        JugadorProtoss jugador = juego.crearJugadorProtoss("Jugado", "Azul");
 
         Coordenadas coordenadas = new Coordenadas(5,21);
         Asimilador asimilador = jugador.construirAsimilador(coordenadas);
@@ -94,11 +89,9 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
     @Test
     public void construirRefineriaAsimiladorSobreVolcan() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
-        Juego juego = new Juego();
-        juego.crearMapa();
+        Juego juego = new Juego(2);
         // Crea un volcan en 5 , 21
-        ArrayList<Coordenadas> bases = juego.getBases();
-        JugadorTerran jugador = (JugadorTerran) juego.crearJugadorTerran("Jugado", "Azul", bases.get(0));
+        JugadorTerran jugador = juego.crearJugadorTerran("Jugado", "Azul");
 
         Coordenadas coordenadas = new Coordenadas(5,21);
         Refineria refineria = jugador.construirRefineria(coordenadas);
@@ -114,11 +107,9 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
     @Test(expected = ExcepcionNoSePuedeConstruir.class)
     public void siIntentoColocarUnaRefineriaSobreUnCristalEsperoUnaExcepcion() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
-        Juego juego = new Juego();
-        juego.crearMapa();
+        Juego juego = new Juego(2);
         // Crea un cristal en 3 , 23
-        ArrayList<Coordenadas> bases = juego.getBases();
-        JugadorTerran jugador = (JugadorTerran) juego.crearJugadorTerran("Jugado","Azul", bases.get(0));
+        JugadorTerran jugador = juego.crearJugadorTerran("Jugado","Azul");
 
         Coordenadas coordenadas = new Coordenadas(3,23);
         jugador.construirRefineria(coordenadas);
@@ -128,11 +119,9 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
     @Test (expected = ExcepcionNoSePuedeConstruir.class)
     public void siIntentoColocarUnaAsimiladorSobreUnCristalEsperoUnaExcepcion() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
-        Juego juego = new Juego();
-        juego.crearMapa();
+        Juego juego = new Juego(2);
         // Crea un cristal en 3 , 23
-        ArrayList<Coordenadas> bases = juego.getBases();
-        JugadorProtoss jugador = (JugadorProtoss) juego.crearJugadorProtoss("Jugado", "Azul", bases.get(0));
+        JugadorProtoss jugador = juego.crearJugadorProtoss("Jugado", "Azul");
 
         Coordenadas coordenadas = new Coordenadas(3,23);
         jugador.construirAsimilador(coordenadas);
@@ -142,11 +131,9 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
     @Test (expected = ExcepcionNoSePuedeConstruir.class)
     public void siIntentoColocarUnaNexoDeMineralSobreUnVolcanEsperoUnaExcepcion() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
-        Juego juego = new Juego();
-        juego.crearMapa();
+        Juego juego = new Juego(2);
         // Crea un volcan en 5 , 21
-        ArrayList<Coordenadas> bases = juego.getBases();
-        JugadorProtoss jugador = (JugadorProtoss) juego.crearJugadorProtoss("Jugado", "Azul", bases.get(0));
+        JugadorProtoss jugador = juego.crearJugadorProtoss("Jugado", "Azul");
 
         Coordenadas coordenadas = new Coordenadas(5,21);
         jugador.construirNexoMineral(coordenadas);
@@ -156,11 +143,9 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
     @Test (expected = ExcepcionNoSePuedeConstruir.class)
     public void siIntentoColocarUnaCentroDeMineralSobreUnVolcanEsperoUnaExcepcion() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 
-        Juego juego = new Juego();
-        juego.crearMapa();
+        Juego juego = new Juego(2);
         // Crea un volcan en 5 , 21
-        ArrayList<Coordenadas> bases = juego.getBases();
-        JugadorTerran jugador = (JugadorTerran) juego.crearJugadorTerran("Jugado", "Azul", bases.get(0));
+        JugadorTerran jugador = juego.crearJugadorTerran("Jugado", "Azul");
 
         Coordenadas coordenadas = new Coordenadas(5,21);
         jugador.construirCentroDeMineral(coordenadas);

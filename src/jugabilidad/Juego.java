@@ -14,23 +14,32 @@ import java.util.ArrayList;
 
 public class Juego implements Actualizable{
 
-    AdministradorDeTurnos administradorDeTurnos = new AdministradorDeTurnos();
-    CreadorDeMapa creadorDeMapa = new CreadorDeMapa( 2 );
+    AdministradorDeTurnos administradorDeTurnos;
+    CreadorDeMapa creadorDeMapa;
     ArrayList<Coordenadas> bases;
 
     // Metodos
+
+    public Juego(int cantidadDeJuegadores){
+
+        this.administradorDeTurnos = new AdministradorDeTurnos();
+        this.creadorDeMapa = new CreadorDeMapa( cantidadDeJuegadores );
+        this.bases = this.creadorDeMapa.obtenerCoordenadasDeLasBases();
+
+    }
 
     public Jugador getJugadorActual(){
        return administradorDeTurnos.getJugadorDelTurnoActual();
     }
 
-    public JugadorProtoss crearJugadorProtoss(String nombre, String color, Coordenadas base){
+    public JugadorProtoss crearJugadorProtoss(String nombre, String color){
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
         JugadorProtoss jugador;
 
         try {
-            jugador = creadorDeJugador.crearNuevoJugadorProtos(nombre,color,base);
+            jugador = creadorDeJugador.crearNuevoJugadorProtos(nombre,color,this.bases.get(0));
+            this.eliminarBaseUsada();
         } catch (ExcepcionNoSePudoCrearElJugador e) {
             e.printStackTrace();
             return null;
@@ -40,13 +49,14 @@ public class Juego implements Actualizable{
         return jugador;
     }
 
-    public JugadorTerran crearJugadorTerran(String nombre, String color, Coordenadas base){
+    public JugadorTerran crearJugadorTerran(String nombre, String color){
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
         JugadorTerran jugador;
 
         try {
-            jugador = creadorDeJugador.crearNuevoJugadorTerran(nombre, color, base);
+            jugador = creadorDeJugador.crearNuevoJugadorTerran(nombre, color, this.bases.get(0));
+            this.eliminarBaseUsada();
         } catch (ExcepcionNoSePudoCrearElJugador e) {
             e.printStackTrace();
             return null;
@@ -54,22 +64,6 @@ public class Juego implements Actualizable{
 
         administradorDeTurnos.agregarJugador(jugador);
         return jugador;
-    }
-
-    public ArrayList<Coordenadas> getBases(){
-        return (this.bases);
-    }
-
-    public ProxyMapa crearMapa(){
-
-        CreadorDeMapa creadorDeMapa = new CreadorDeMapa(2);
-
-        ProxyMapa proxyMapa = creadorDeMapa.obtenerProxyMapa();
-
-        this.bases = creadorDeMapa.obtenerCoordenadasDeLasBases();
-
-        return (proxyMapa);
-
     }
 
     @Override
@@ -83,6 +77,12 @@ public class Juego implements Actualizable{
             return administradorDeTurnos.getGanador();
         }else
             return null;
+    }
+
+    private void eliminarBaseUsada(){
+
+        bases.remove(0);
+
     }
 
 }

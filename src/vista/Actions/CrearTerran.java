@@ -36,7 +36,7 @@ public class CrearTerran implements ActionListener {
                     "InputError", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        JugadorTerran jugador = ventanaJuego.getJuego().crearJugadorTerran(form.getNombreJugador(), form.getColorJugador(), coordenadas);
+        JugadorTerran jugador = ventanaJuego.getJuego().crearJugadorTerran(form.getNombreJugador(), form.getColorJugador());
         nombreUsado.concat(form.getNombreJugador());
         form.setVentana(new VentanaJugadorTerran( jugador, ventanaJuego));
         form.dispose();

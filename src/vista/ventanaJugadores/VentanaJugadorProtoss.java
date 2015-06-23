@@ -73,9 +73,9 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         }
         */
         // Mini test fin
-        VentanaJuego ventanaJuego = new VentanaJuego(new Juego());
+        VentanaJuego ventanaJuego = new VentanaJuego(new Juego(2));
         JugadorProtoss jugador = new JugadorProtoss();
-        ventanaJuego.getJuego().crearJugadorProtoss("pepe","rojo",new Coordenadas(4,22));
+        ventanaJuego.getJuego().crearJugadorProtoss("pepe","rojo");
         VentanaJugador ventanaJugador = new VentanaJugadorProtoss(jugador,ventanaJuego);
 
         ventanaJugador.pack();

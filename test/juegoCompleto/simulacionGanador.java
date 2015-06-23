@@ -31,20 +31,16 @@ public class simulacionGanador {
 
     @Test
     public void Jugador1MataTodoDeJugador2YGana() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
-        Juego juego = new Juego();
+        Juego juego = new Juego(2);
         JugadorProtoss j1;
         JugadorTerran j2;
-
-        CreadorDeMapa creador = new CreadorDeMapa(2);
-
-        ArrayList<Coordenadas> bases = creador.obtenerCoordenadasDeLasBases();
 
         Construccion c1,depositoDeSuministrosDeJugador2;
         Acceso c2;
         Zealot zealot;
 
-        j1 = (JugadorProtoss) juego.crearJugadorProtoss("manuel","rojo", bases.get(0));
-        j2 = (JugadorTerran) juego.crearJugadorTerran("jorge", "azul",bases.get(1));
+        j1 = juego.crearJugadorProtoss("manuel","rojo");
+        j2 = juego.crearJugadorTerran("jorge", "azul");
 
 
         j1.setVisibilidad(Vision.VisionCompleta(25,25));
@@ -90,19 +86,16 @@ public class simulacionGanador {
 
     @Test
     public void JugadorNoPierdePorTenerEdificiosEnConstruccion() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
-        Juego juego = new Juego();
+        Juego juego = new Juego(2);
         JugadorProtoss j1;
         JugadorTerran j2;
-
-        CreadorDeMapa creador = new CreadorDeMapa(2);
-        ArrayList<Coordenadas> bases = creador.obtenerCoordenadasDeLasBases();
 
         Construccion c1,c3;
         Acceso c2;
         Zealot d;
 
-        j1 = (JugadorProtoss) juego.crearJugadorProtoss("manuel","rojo", bases.get(0));
-        j2 = (JugadorTerran) juego.crearJugadorTerran("jorge", "azul",bases.get(1));
+        j1 = juego.crearJugadorProtoss("manuel","rojo");
+        j2 = juego.crearJugadorTerran("jorge", "azul");
 
 
         j1.setVisibilidad(Vision.VisionCompleta(25,25));

@@ -25,14 +25,11 @@ public class AdministradorDeTurnosTest {
     @Test
     public void creo2JugadoresYLosTurnosSonRotativos() {
 
-        Juego juego = new Juego();
+        Juego juego = new Juego(2);
         Jugador j1, j2;
 
-        juego.crearMapa();
-        ArrayList<Coordenadas> bases = juego.getBases();
-
-        j1 = juego.crearJugadorProtoss("jugador1", "rojo", bases.get(0));
-        j2 = juego.crearJugadorTerran("jugador2", "azul", bases.get(1));
+        j1 = juego.crearJugadorProtoss("jugador1", "rojo");
+        j2 = juego.crearJugadorTerran("jugador2", "azul");
 
         Assert.assertEquals(j1, juego.getJugadorActual());
 
@@ -47,12 +44,10 @@ public class AdministradorDeTurnosTest {
     @SuppressWarnings("unused")
     public void verificoQueElPrimerTurnoCorrespondeAlPrimerJugadorEnDarseDeAlta() {
 
-        Juego juego = new Juego();
-        juego.crearMapa();
-        ArrayList<Coordenadas> bases = juego.getBases();
+        Juego juego = new Juego(2);
 
-        Jugador jugadorUno = juego.crearJugadorProtoss("jugador1", "rojo", bases.get(0));
-        Jugador JugadorDos = juego.crearJugadorTerran("jugador2", "azul", bases.get(1));
+        Jugador jugadorUno = juego.crearJugadorProtoss("jugador1", "rojo");
+        Jugador JugadorDos = juego.crearJugadorTerran("jugador2", "azul");
 
         Assert.assertEquals(jugadorUno, juego.getJugadorActual());
     }

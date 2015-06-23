@@ -36,7 +36,7 @@ public class CrearProtoss implements ActionListener {
                     "InputError", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        JugadorProtoss jugador = ventanaJuego.getJuego().crearJugadorProtoss(form.getNombreJugador(), form.getColorJugador(), coordenadas);
+        JugadorProtoss jugador = ventanaJuego.getJuego().crearJugadorProtoss(form.getNombreJugador(), form.getColorJugador());
         nombreUsado=form.getNombreJugador();
         form.setVentana(new VentanaJugadorProtoss( jugador, ventanaJuego));
         form.dispose();
