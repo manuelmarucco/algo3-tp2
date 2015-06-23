@@ -83,7 +83,7 @@ public class DisplayMapa extends JPanel {
             for (int i = 0; i < this.cantidadTilesVerticales; i++){
 
                 Coordenadas coordenadas = new Coordenadas( i + 1, this.cantidadTilesHorizontales - j );
-                JPanel vista = this.controlador.getVistaTerrestreEnPosicion(coordenadas);
+                JPanel vista = this.controlador.getVistaTerrestreEnPosicion(coordenadas, this.ventana);
                 panelTerrestre.add(vista);
 
             }
@@ -106,7 +106,7 @@ public class DisplayMapa extends JPanel {
             for (int i = 0; i < this.cantidadTilesVerticales; i++){
 
                 Coordenadas coordenadas = new Coordenadas( i + 1, this.cantidadTilesHorizontales - j );
-                ImagePanel vista = (ImagePanel) this.controlador.getVistaRecursosEnPosicion(coordenadas);
+                ImagePanel vista = (ImagePanel) this.controlador.getVistaRecursosEnPosicion(coordenadas, this.ventana);
 
                 vista.setOpaque(false);
                 panelDeRecursos.add(vista);
@@ -131,7 +131,7 @@ public class DisplayMapa extends JPanel {
             for (int i = 0; i < this.cantidadTilesVerticales; i++){
 
                 Coordenadas coordenadas = new Coordenadas( i + 1, this.cantidadTilesHorizontales - j );
-                ImagePanel vista = (ImagePanel) this.controlador.getVistaAereaEnPosicion(coordenadas);
+                ImagePanel vista = (ImagePanel) this.controlador.getVistaAereaEnPosicion(coordenadas, this.ventana);
                 vista.setOpaque(false);
                 panelAereo.add(vista);
 
