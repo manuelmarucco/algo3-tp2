@@ -23,10 +23,11 @@ public class VentanaJuego {
         this.juego.update();
         
         ventanaJugadorActual.setVisible(false);
-        
+
+        iterador++;
+
         if(iterador == ventanasDeJugadores.size()) iterador=0;
         ventanaJugadorActual = ventanasDeJugadores.get(iterador);
-        iterador++;
         
         ventanaJugadorActual.setVisible(true);
         ventanaJugadorActual.pack();
