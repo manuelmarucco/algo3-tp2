@@ -58,8 +58,8 @@ public class ControladorDeVistaMapa {
         JPanel aDevolver = null;
 
         try {
-            Constructor constructor = asociadorDeVistasRecursos.get(clase).getConstructor(new Class[]{String.class, String.class});
-            aDevolver = (JPanel) constructor.newInstance(new Object[]{"colocable", "ventana"});
+            Constructor constructor = asociadorDeVistasRecursos.get(clase).getConstructor();
+            aDevolver = (JPanel) constructor.newInstance(colocable, ventana);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -81,8 +81,8 @@ public class ControladorDeVistaMapa {
         ImagePanel aDevolver = null;
 
         try {
-            Constructor constructor = asociadorDeVistasRecursos.get(clase).getConstructor(new Class[]{String.class, String.class});
-            aDevolver = (ImagePanel) constructor.newInstance(new Object[]{"colocable", "ventana"});
+            Constructor constructor = asociadorDeVistasRecursos.get(clase).getConstructor();
+            aDevolver = (ImagePanel) constructor.newInstance(colocable, ventana);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();
         }
@@ -104,8 +104,8 @@ public class ControladorDeVistaMapa {
         ImagePanel aDevolver = null;
 
         try {
-            Constructor constructor = asociadorDeVistasRecursos.get(clase).getConstructor(new Class[]{String.class, String.class});
-            aDevolver = (ImagePanel) constructor.newInstance(new Object[] { "colocable", "ventana" });
+            Constructor constructor = asociadorDeVistasRecursos.get(clase).getConstructor();
+            aDevolver = (ImagePanel) constructor.newInstance(colocable, ventana);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
 
             e.printStackTrace();

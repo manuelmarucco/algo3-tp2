@@ -56,7 +56,9 @@ public class VentanaJugadorProtoss extends VentanaJugador {
     public static void main(String[] args){
         // Para que se vean los recursos en testeo. despues borrar
         // Mini test
+        ProxyMapa.resetear();
         CreadorDeMapa creador = new CreadorDeMapa(2);
+        /*
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Vision vision = Vision.VisionCompleta(6,6);
         Marine marine = new Marine(vision);
@@ -69,10 +71,11 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         } catch (ExcepcionNoSePudoAgregarAlMapa excepcionNoSePudoAgregarAlMapa) {
             excepcionNoSePudoAgregarAlMapa.printStackTrace();
         }
+        */
         // Mini test fin
         VentanaJuego ventanaJuego = new VentanaJuego(new Juego());
         JugadorProtoss jugador = new JugadorProtoss();
-        ventanaJuego.getJuego().crearJugadorProtoss("pepe","rojo",new Coordenadas(3,3));
+        ventanaJuego.getJuego().crearJugadorProtoss("pepe","rojo",new Coordenadas(4,22));
         VentanaJugador ventanaJugador = new VentanaJugadorProtoss(jugador,ventanaJuego);
 
         ventanaJugador.pack();
