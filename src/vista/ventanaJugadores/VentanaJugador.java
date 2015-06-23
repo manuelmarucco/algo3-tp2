@@ -1,5 +1,6 @@
 package vista.ventanaJugadores;
 
+import vista.Actions.WraperAccion;
 import vista.Actions.accionesConstruir.AccionConstruir;
 import vista.VentanaJuego;
 import vista.auxiliares.jugador.DisplayMapa;
@@ -26,21 +27,21 @@ public abstract class VentanaJugador extends JFrame {
     protected JPanel panelInferior;
     private PanelAcciones panelAcciones;
 
-    protected AccionConstruir accionConstruirEnEspera;
+    protected WraperAccion accionConstruirEnEspera;
 
 
 
     public void setAccionConstruirEnEspera(AccionConstruir accion) {
-        this.accionConstruirEnEspera = accion;
+        this.accionConstruirEnEspera.setAccionConstruir(accion);
     }
 
     public AccionConstruir getAccionConstruirEnEspera() {
-        return accionConstruirEnEspera;
+        return accionConstruirEnEspera.getAccionConstruir();
     }
 
     // Metodos -------------------------
     protected void init(){
-        this.accionConstruirEnEspera = null;
+        this.accionConstruirEnEspera = new WraperAccion();
         this.crearPaneles();
         this.add(this.contenedor);
 

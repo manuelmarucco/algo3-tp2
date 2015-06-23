@@ -1,7 +1,7 @@
 package vista.auxiliares.jugador;
 
 import jugabilidad.RazaDeJugador.JugadorProtoss;
-import vista.Actions.accionesConstruir.AccionConstruir;
+import vista.Actions.WraperAccion;
 import vista.Actions.accionesConstruir.AccionConstruirEdificiosProtoss.AccionConstruirNexoMineral;
 
 import javax.swing.*;
@@ -10,7 +10,7 @@ import java.awt.*;
 public class BotoneraDeConstruccionesProtoss extends JPanel {
 
     private JugadorProtoss jugador;
-    private AccionConstruir accionConstruirEnEspera;
+    private WraperAccion accionConstruirEnEspera;
 
     // Atributos ---------------------
 
@@ -39,9 +39,9 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
 
     }
     */
-    public BotoneraDeConstruccionesProtoss(JugadorProtoss jugador, AccionConstruir accionConstruirEnEspera){
+    public BotoneraDeConstruccionesProtoss(JugadorProtoss jugador, WraperAccion accionConstruirEnEspera){
         this.jugador = jugador;
-        this.accionConstruirEnEspera = accionConstruirEnEspera;
+        this.accionConstruirEnEspera=accionConstruirEnEspera;
         this.init();
 
     }
