@@ -1,5 +1,6 @@
 package vista.paisaje;
 
+import interfaces.ColocableEnMapa;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -12,7 +13,7 @@ public class VistaPasto extends ImagePanel {
     private final VentanaJugador ventanaJugador;
 
     @SuppressWarnings("unused")
-    public VistaPasto(Object parametroFantasma, VentanaJugador ventanaJugador) {
+    public VistaPasto(ColocableEnMapa parametroFantasma, VentanaJugador ventanaJugador) {
 
         super(ANCHO,ALTO,new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
         this.ventanaJugador=ventanaJugador;

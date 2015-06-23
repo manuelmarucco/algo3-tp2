@@ -1,7 +1,7 @@
 package vista.recursos;
 
+import interfaces.ColocableEnMapa;
 import recursos.Volcan;
-import vista.Actions.MouseActionObtenerInfoRecurso;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -16,10 +16,9 @@ public class VistaVolcan extends ImagePanel  {
     private final VentanaJugador ventanaJugador;
 
 
-    public VistaVolcan(Volcan volcan,VentanaJugador ventanaJugador) {
+    public VistaVolcan(ColocableEnMapa volcan,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
-        this.recurso=volcan;
+        this.recurso=(Volcan)volcan;
         this.ventanaJugador=ventanaJugador;
-        this.addMouseListener(new MouseActionObtenerInfoRecurso(volcan,ventanaJugador));
     }
 }

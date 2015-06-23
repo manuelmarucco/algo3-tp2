@@ -1,7 +1,7 @@
 package vista.recursos;
 
+import interfaces.ColocableEnMapa;
 import recursos.Cristal;
-import vista.Actions.MouseActionObtenerInfoRecurso;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -15,10 +15,9 @@ public class VistaCristales extends ImagePanel {
     private static String pathImagen="src/vista/recursos/imagenes/cristal.png";
     private final VentanaJugador ventanaJugador;
 
-    public VistaCristales(Cristal cristal,VentanaJugador ventanaJugador) {
+    public VistaCristales(ColocableEnMapa cristal,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
-        this.recurso=cristal;
+        this.recurso=(Cristal)cristal;
         this.ventanaJugador=ventanaJugador;
-        this.addMouseListener(new MouseActionObtenerInfoRecurso(cristal,ventanaJugador));
     }
 }
