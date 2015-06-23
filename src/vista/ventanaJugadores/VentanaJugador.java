@@ -153,5 +153,9 @@ public abstract class VentanaJugador extends JFrame {
         return displayNotificaciones;
     }
 
+    public void repaint(){
+        this.panelRecursos.repaint();
+    }
+
 }
 

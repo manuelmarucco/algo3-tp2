@@ -1,5 +1,6 @@
 package vista.unidades;
 
+import interfaces.ColocableEnMapa;
 import unidades.terrran.Marine;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
@@ -14,10 +15,10 @@ public class VistaMarine extends ImagePanel{
     private static String pathImagen="images/unidades/terrran/marine.png";
     private final Object ventanaJugador;
 
-    public VistaMarine(Marine marine,VentanaJugador ventanaJugador) {
+    public VistaMarine(ColocableEnMapa marine,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
         super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
-        this.unidad=marine;
+        this.unidad= (Marine) marine;
         this.ventanaJugador=ventanaJugador;
         //this.addMouseListener(new MouseActionObtenerInfoMarine(marine,ventanaJugador));
     }

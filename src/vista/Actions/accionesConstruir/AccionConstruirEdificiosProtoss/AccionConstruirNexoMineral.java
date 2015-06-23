@@ -18,7 +18,6 @@ public class AccionConstruirNexoMineral implements AccionConstruir,ActionListene
     public AccionConstruirNexoMineral(JugadorProtoss jugador, WraperAccionConstruir accionConstruirEnEspera) {
         this.jugador = jugador;
         this.accionConstruirEnEspera = accionConstruirEnEspera;
-        System.out.println("Accion NExo");
     }
 
     @Override

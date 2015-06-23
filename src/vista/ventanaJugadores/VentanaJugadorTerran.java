@@ -41,7 +41,7 @@ public class VentanaJugadorTerran extends VentanaJugador {
         tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
 
         botoneraConstrucciones.add(tituloConstrucciones);
-        botoneraConstrucciones.add( new BotoneraDeConstruccionesTerran() );
+        botoneraConstrucciones.add( new BotoneraDeConstruccionesTerran(jugador,accionConstruirEnEspera) );
 
         this.panelInferior.add(botoneraConstrucciones,"West");
     }

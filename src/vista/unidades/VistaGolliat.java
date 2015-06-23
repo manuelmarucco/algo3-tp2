@@ -1,5 +1,6 @@
 package vista.unidades;
 
+import interfaces.ColocableEnMapa;
 import unidades.terrran.Golliat;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
@@ -13,10 +14,10 @@ public class VistaGolliat extends ImagePanel {
     private final Golliat unidad;
     private final VentanaJugador ventanaJugador;
 
-    public VistaGolliat(Golliat golliat,VentanaJugador ventanaJugador) {
+    public VistaGolliat(ColocableEnMapa golliat,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
         super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
-        this.unidad=golliat;
+        this.unidad= (Golliat) golliat;
         this.ventanaJugador=ventanaJugador;
     }
 

@@ -1,5 +1,6 @@
 package vista.unidades;
 
+import interfaces.ColocableEnMapa;
 import unidades.terrran.NaveCiencia;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
@@ -14,9 +15,9 @@ public class VistaNaveCiencia extends ImagePanel{
     private static String imagePath="images/unidades/terrran/naveCiencia.png";
     private VentanaJugador ventanaJugador;
 
-    public VistaNaveCiencia(NaveCiencia naveCiencia,VentanaJugador ventanaJugador) {
+    public VistaNaveCiencia(ColocableEnMapa naveCiencia,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(imagePath).getImage());
-        this.unidad=naveCiencia;
+        this.unidad= (NaveCiencia) naveCiencia;
         this.ventanaJugador=ventanaJugador;
     }
 }

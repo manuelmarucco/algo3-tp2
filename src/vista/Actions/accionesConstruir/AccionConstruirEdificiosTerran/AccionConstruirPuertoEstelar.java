@@ -2,27 +2,30 @@ package vista.Actions.accionesConstruir.AccionConstruirEdificiosTerran;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import vista.Actions.WraperAccionConstruir;
 import vista.Actions.accionesConstruir.AccionConstruir;
-import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 public class AccionConstruirPuertoEstelar implements AccionConstruir,ActionListener {
-    BotoneraDeConstruccionesTerran botonera;
+    private JugadorTerran jugador;
+    private WraperAccionConstruir accionConstruirEnEspera;
 
-    public AccionConstruirPuertoEstelar(BotoneraDeConstruccionesTerran botonera) {
-        this.botonera = botonera;
+    public AccionConstruirPuertoEstelar(JugadorTerran jugador, WraperAccionConstruir accionConstruirEnEspera) {
+        this.jugador = jugador;
+        this.accionConstruirEnEspera = accionConstruirEnEspera;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        botonera.setAccionConstruirEnEspera(this);
+        accionConstruirEnEspera.setAccionConstruir(this);
     }
 
     @Override
     public void construirEn(Coordenadas coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
-        botonera.getJugador().construirPuertoEstelar(coordenada);
-        botonera.setAccionConstruirEnEspera(null);
+        jugador.construirPuertoEstelar(coordenada);
+        accionConstruirEnEspera.setAccionConstruir(null);
     }
 }

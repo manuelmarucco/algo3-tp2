@@ -1,7 +1,7 @@
 package vista.auxiliares.jugador;
 
 import jugabilidad.RazaDeJugador.JugadorTerran;
-import vista.Actions.accionesConstruir.AccionConstruir;
+import vista.Actions.WraperAccionConstruir;
 import vista.Actions.accionesConstruir.AccionConstruirEdificiosTerran.*;
 
 import javax.swing.*;
@@ -10,7 +10,7 @@ import java.awt.*;
 public class BotoneraDeConstruccionesTerran extends JPanel {
 
     private JugadorTerran jugador;
-    private AccionConstruir accionConstruirEnEspera;
+    private WraperAccionConstruir accionConstruirEnEspera;
 
     // Atributos ---------------------
 
@@ -35,8 +35,9 @@ public class BotoneraDeConstruccionesTerran extends JPanel {
     */
     // Metodos -------------------------
 
-    public BotoneraDeConstruccionesTerran(){
-
+    public BotoneraDeConstruccionesTerran(JugadorTerran jugador, WraperAccionConstruir accionConstruirEnEspera){
+        this.jugador = jugador;
+        this.accionConstruirEnEspera=accionConstruirEnEspera;
         this.init();
 
     }
@@ -55,22 +56,22 @@ public class BotoneraDeConstruccionesTerran extends JPanel {
     private void crearBotones(){
 
         this.botonCentroDeMineral = this.crearBoton("Centro de mineral" );
-        this.botonCentroDeMineral.addActionListener(new AccionConstruirCentroDeMineral(this));
+        this.botonCentroDeMineral.addActionListener(new AccionConstruirCentroDeMineral(jugador,accionConstruirEnEspera));
 
         this.botonRefineria = this.crearBoton("Refineria");
-        this.botonRefineria.addActionListener(new AccionConstruirRefineria(this));
+        this.botonRefineria.addActionListener(new AccionConstruirRefineria(jugador,accionConstruirEnEspera));
 
         this.botonDepositoDeSuministros = this.crearBoton("Deposito De Suministros");
-        this.botonDepositoDeSuministros.addActionListener(new AccionConstruirDepositoDeSuministros(this));
+        this.botonDepositoDeSuministros.addActionListener(new AccionConstruirDepositoDeSuministros(jugador,accionConstruirEnEspera));
 
         this.botonBarraca = this.crearBoton("Barraca");
-        this.botonBarraca.addActionListener(new AccionConstruirBarraca(this));
+        this.botonBarraca.addActionListener(new AccionConstruirBarraca(jugador,accionConstruirEnEspera));
 
         this.botonFabrica = this.crearBoton("Fabrica");
-        this.botonFabrica.addActionListener(new AccionConstruirFabrica(this));
+        this.botonFabrica.addActionListener(new AccionConstruirFabrica(jugador,accionConstruirEnEspera));
 
         this.botonPuertoEstelar = this.crearBoton("Puerto Estelar" );
-        this.botonPuertoEstelar.addActionListener(new AccionConstruirPuertoEstelar(this));
+        this.botonPuertoEstelar.addActionListener(new AccionConstruirPuertoEstelar(jugador,accionConstruirEnEspera));
 
     }
 
@@ -92,10 +93,6 @@ public class BotoneraDeConstruccionesTerran extends JPanel {
         this.panel.add(botonFabrica);
         this.panel.add(botonPuertoEstelar);
 
-    }
-
-    public void setAccionConstruirEnEspera(AccionConstruir accion) {
-        this.accionConstruirEnEspera = accion;
     }
 
     public JugadorTerran getJugador() {

@@ -28,7 +28,8 @@ public class VentanaJuego {
 
         if(iterador == ventanasDeJugadores.size()) iterador=0;
         ventanaJugadorActual = ventanasDeJugadores.get(iterador);
-        
+
+        ventanaJugadorActual.repaint();
         ventanaJugadorActual.setVisible(true);
         ventanaJugadorActual.pack();
         ventanaJugadorActual.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

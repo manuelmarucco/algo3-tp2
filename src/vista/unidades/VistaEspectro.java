@@ -1,5 +1,6 @@
 package vista.unidades;
 
+import interfaces.ColocableEnMapa;
 import unidades.terrran.Espectro;
 import vista.Actions.MouseActionObtenerInfoEspectro;
 import vista.auxiliares.ImagePanel;
@@ -13,9 +14,9 @@ public class VistaEspectro extends ImagePanel{
     private final Espectro unidad;
     private final VentanaJugador ventanaJugador;
 
-    public VistaEspectro(Espectro espectro,VentanaJugador ventanaJugador) {
+    public VistaEspectro(ColocableEnMapa espectro,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.unidad=espectro;
+        this.unidad=(Espectro)espectro;
         this.ventanaJugador = ventanaJugador;
         this.addMouseListener(new MouseActionObtenerInfoEspectro(unidad,ventanaJugador));
     }

@@ -2,7 +2,7 @@ package vista.auxiliares.jugador;
 
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import vista.Actions.WraperAccionConstruir;
-import vista.Actions.accionesConstruir.AccionConstruirEdificiosProtoss.AccionConstruirNexoMineral;
+import vista.Actions.accionesConstruir.AccionConstruirEdificiosProtoss.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -62,22 +62,26 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
         this.botonNexoMineral = this.crearBoton("Nexo Mineral" );
       //  this.botonNexoMineral.addActionListener(new AccionConstruirNexoMineral(this));
         this.botonNexoMineral.addActionListener(new AccionConstruirNexoMineral(jugador,accionConstruirEnEspera));
-/*
+
         this.botonAsimilador = this.crearBoton("Asimilador");
-        this.botonAsimilador .addActionListener(new AccionConstruirAsimilador(this));
+       // this.botonAsimilador .addActionListener(new AccionConstruirAsimilador(this));
+        this.botonAsimilador.addActionListener(new AccionConstruirAsimilador(jugador,accionConstruirEnEspera));
 
         this.botonPilon = this.crearBoton("Pilon");
-        this.botonPilon.addActionListener(new AccionConstruirPilon(this));
+       // this.botonPilon.addActionListener(new AccionConstruirPilon(this));
+        this.botonPilon.addActionListener(new AccionConstruirPilon(jugador,accionConstruirEnEspera));
 
         this.botonAcceso = this.crearBoton("Acceso");
-        this.botonAcceso .addActionListener(new AccionConstruirAcceso(this));
+       // this.botonAcceso .addActionListener(new AccionConstruirAcceso(this));
+        this.botonAcceso.addActionListener(new AccionConstruirAcceso(jugador,accionConstruirEnEspera));
 
         this.botonPortalEstelar= this.crearBoton("Portal Estelar");
-        this.botonPortalEstelar.addActionListener(new AccionConstruirPortalEstelar(this));
+     //   this.botonPortalEstelar.addActionListener(new AccionConstruirPortalEstelar(this));
+        this.botonPortalEstelar.addActionListener(new AccionConstruirPortalEstelar(jugador,accionConstruirEnEspera));
 
         this.botonArchivosTemplarios = this.crearBoton("Archivos Templarios" );
-        this.botonArchivosTemplarios.addActionListener(new AccionConstruirArchivosTemplarios(this));
-*/
+      //  this.botonArchivosTemplarios.addActionListener(new AccionConstruirArchivosTemplarios(this));
+        this.botonArchivosTemplarios.addActionListener(new AccionConstruirArchivosTemplarios(jugador,accionConstruirEnEspera));
     }
 
     private JButton crearBoton( String nombre ){
@@ -92,13 +96,13 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
     private void agregarBotonesAlPanel(){
 
         this.panel.add(botonNexoMineral);
-        /*
+
         this.panel.add(botonAsimilador);
         this.panel.add(botonPilon);
         this.panel.add(botonAcceso);
         this.panel.add(botonPortalEstelar);
         this.panel.add(botonArchivosTemplarios);
-*/
+
     }
 
 //    public void setAccionConstruirEnEspera(AccionConstruir accion) {

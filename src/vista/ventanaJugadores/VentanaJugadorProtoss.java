@@ -1,14 +1,9 @@
 package vista.ventanaJugadores;
 
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.Juego;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.auxiliares.Vision;
 import jugabilidad.extrasJuego.CreadorDeMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.terrran.Marine;
-import unidades.terrran.NaveCiencia;
 import vista.VentanaJuego;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
 import vista.auxiliares.jugador.DisplayRecursos;
