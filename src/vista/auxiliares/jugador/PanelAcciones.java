@@ -39,21 +39,25 @@ public class PanelAcciones extends JPanel {
     public void limpiar(){
         // Boton 1 -----------------------------------------------------------------------------------------------------
         button1.removeActionListener(button1.getAction());
-        button1.removeAll();
+        button1.removeMouseListener(button1.getMouseListeners()[0]);
+       // button1.removeAll();
         button1.setEnabled(false);
         button1.setVisible(false);
         // Boton 2 -----------------------------------------------------------------------------------------------------
         button2.removeActionListener(button2.getAction());
+        button2.removeMouseListener(button1.getMouseListeners()[0]);
         button2.removeAll();
         button2.setEnabled(false);
         button2.setVisible(false);
         // Boton 3 -----------------------------------------------------------------------------------------------------
         button3.removeActionListener(button3.getAction());
+        button3.removeMouseListener(button1.getMouseListeners()[0]);
         button3.removeAll();
         button3.setEnabled(false);
         button3.setVisible(false);
         // Boton 4 -----------------------------------------------------------------------------------------------------
         button4.removeActionListener(button4.getAction());
+        button4.removeMouseListener(button1.getMouseListeners()[0]);
         button4.removeAll();
         button4.setEnabled(false);
         button4.setVisible(false);
