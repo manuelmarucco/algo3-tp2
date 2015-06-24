@@ -1,6 +1,7 @@
 package vista;
 
 import control.ObservadorDeExcepciones;
+import control.vistaMapa.ObservadorMapa;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -34,6 +35,7 @@ public class ParselaAccionable implements MouseListener {
         {
             System.out.println("Edificio creado en el mapa");
             ObservadorRecursosSuministros.getInstance().informarCambios();
+            ObservadorMapa.getInstance().informarCambiosEnMapa();
             return;
         }
         else {
@@ -67,7 +69,6 @@ public class ParselaAccionable implements MouseListener {
 
             try {
                 ventana.getAccionConstruirEnEspera().construirEn(coordenada);
-               // ObservadorRecursosSuministros.getInstance().informarCambios();
             } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
                 ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
             }

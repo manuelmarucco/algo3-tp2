@@ -54,9 +54,19 @@ public class DisplayMapa extends JPanel {
     public void actualizarDisplayMapa(){
 
         this.panel.removeAll();
+
         this.armarPaneles();
 
         this.add(this.panel);
+
+        this.panel.paintComponents(this.panel.getGraphics());
+       /*
+        this.panel.revalidate();
+        this.panel.repaint();
+
+        this.revalidate();
+        this.repaint();
+*/
 
     }
 
