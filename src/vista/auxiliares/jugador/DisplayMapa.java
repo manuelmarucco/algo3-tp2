@@ -2,6 +2,7 @@ package vista.auxiliares.jugador;
 
 import control.vistaMapa.ControladorDeVistaMapa;
 import jugabilidad.Juego;
+import jugabilidad.Jugador;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.extrasJuego.CreadorDeMapa;
@@ -89,6 +90,7 @@ public class DisplayMapa extends JPanel {
         ArrayList<JPanel> paneles = new ArrayList<>();
 
         paneles.add(controlador.armarPanelAccionable(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana));
+        paneles.add(controlador.armarPanelDeVisionDisponible(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana.obtenerJugador() ));
         paneles.add(controlador.armarPanelAereo(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana));
         paneles.add(controlador.armarPanelDeRecursos(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana));
         paneles.add(controlador.armarPanelTerrestre(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana));

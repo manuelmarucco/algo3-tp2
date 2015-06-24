@@ -4,7 +4,9 @@ import construcciones.EdificioEnConstruccion;
 import construcciones.protoss.*;
 import construcciones.terran.*;
 import interfaces.ColocableEnMapa;
+import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
+import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
 import recursos.Cristal;
@@ -29,6 +31,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
 
 public class ControladorDeVistaMapa {
 
@@ -145,6 +148,40 @@ public class ControladorDeVistaMapa {
 
     }
 
+    public JPanel armarPanelDeVisionDisponible(int cantidadTilesHorizontales, int cantidadTilesVerticales, Jugador jugador){
+
+        JPanel panelDeVision = new JPanel(new GridLayout(25,25));
+        panelDeVision.setPreferredSize(new Dimension(1600,1600));
+        panelDeVision.setBounds(0,0,1600,1600);
+        panelDeVision.setBackground(new Color(0,0,0,0));
+        panelDeVision.setOpaque(false);
+
+        Vision visibilidad = jugador.getVisibilidad();
+
+        for (int j = 0; j < cantidadTilesHorizontales; j++ ) {
+
+            for (int i = 0; i < cantidadTilesVerticales; i++) {
+
+                JPanel parsela = new JPanel();
+                parsela.setBackground(Color.BLACK);
+
+                Coordenadas coordenadas = new Coordenadas(i + 1, cantidadTilesHorizontales - j);
+
+                if (visibilidad.esVisible(coordenadas)){
+                    parsela.setVisible(false);
+                } else {
+                    parsela.setVisible(true);
+                }
+
+                panelDeVision.add(parsela);
+
+            }
+
+        }
+
+        return (panelDeVision);
+    }
+
     // Metodos Privados ------------------------------------------------------------------------------------------------
 
     @SuppressWarnings("unused")
@@ -219,6 +256,8 @@ public class ControladorDeVistaMapa {
         return aDevolver;
 
     }
+
+    // Cargador de Hash Maps -------------------------------------------------------------------------------------------
 
     private void crearAsociadorDeClasesTerrestresConSusVistas(){
 

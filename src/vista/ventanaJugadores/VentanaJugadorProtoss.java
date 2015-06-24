@@ -1,6 +1,7 @@
 package vista.ventanaJugadores;
 
 import jugabilidad.Juego;
+import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.extrasJuego.CreadorDeMapa;
@@ -46,6 +47,12 @@ public class VentanaJugadorProtoss extends VentanaJugador {
 
         this.panelInferior.add(botoneraConstrucciones,"West");
     }
+
+    @Override
+    public Jugador obtenerJugador(){
+        return (this.jugador);
+    }
+
     // Main ---------------------------
 
     public static void main(String[] args){
@@ -78,10 +85,6 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         ventanaJugador.setExtendedState(JFrame.MAXIMIZED_BOTH);
         ventanaJugador.setVisible(true);
 
-    }
-
-    public JugadorProtoss getJugador(){
-        return jugador;
     }
 
 }

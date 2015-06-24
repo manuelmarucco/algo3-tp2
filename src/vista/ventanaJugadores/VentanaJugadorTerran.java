@@ -1,6 +1,7 @@
 package vista.ventanaJugadores;
 
 import jugabilidad.Juego;
+import jugabilidad.Jugador;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.extrasJuego.CreadorDeMapa;
 import vista.VentanaJuego;
@@ -44,6 +45,11 @@ public class VentanaJugadorTerran extends VentanaJugador {
         botoneraConstrucciones.add( new BotoneraDeConstruccionesTerran(jugador,accionConstruirEnEspera) );
 
         this.panelInferior.add(botoneraConstrucciones,"West");
+    }
+
+    @Override
+    public Jugador obtenerJugador(){
+        return (this.jugador);
     }
 
     // Main ---------------------------

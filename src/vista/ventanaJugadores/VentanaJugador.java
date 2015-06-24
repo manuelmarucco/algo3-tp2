@@ -1,5 +1,7 @@
 package vista.ventanaJugadores;
 
+import jugabilidad.Jugador;
+import jugabilidad.RazaDeJugador.JugadorTerran;
 import vista.Actions.WraperAccionActuar;
 import vista.Actions.WraperAccionConstruir;
 import vista.Actions.accionesConstruir.AccionConstruir;
@@ -157,6 +159,10 @@ public abstract class VentanaJugador extends JFrame {
 
     public void repaint(){
         this.panelRecursos.repaint();
+    }
+
+    public Jugador obtenerJugador(){
+        return (new JugadorTerran());
     }
 
 }
