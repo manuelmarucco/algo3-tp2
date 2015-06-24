@@ -64,10 +64,7 @@ public class DisplayMapa extends JPanel {
 
     public void actualizarDisplayMapa(){
 
-        this.panel = new JLayeredPane();
-        this.panel.setPreferredSize(new Dimension(1600, 1600));
-        this.panel.setVisible(true);
-
+        this.panel.removeAll();
         this.armarPaneles();
 
         this.add(this.panel);
