@@ -1,6 +1,7 @@
 package vista.auxiliares.jugador;
 
 import control.vistaMapa.ControladorDeVistaMapa;
+import control.vistaMapa.ObservadorMapa;
 import jugabilidad.Juego;
 import jugabilidad.Jugador;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
@@ -54,6 +55,7 @@ public class DisplayMapa extends JPanel {
 
     public DisplayMapa(VentanaJugador ventana){
 
+        ObservadorMapa.getInstance().agregarDisplay(this);
         this.ventana = ventana;
         this.controlador = new ControladorDeVistaMapa();
         this.init();

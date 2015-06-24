@@ -37,9 +37,13 @@ public class ObservadorMapa {
 
     private void actualizarDisplays(){
 
-        for ( DisplayMapa display : this.diplays ){
+        if (diplays != null){
 
-            display.actualizarDisplayMapa();
+            for ( DisplayMapa display : this.diplays ){
+
+                display.actualizarDisplayMapa();
+
+            }
 
         }
 

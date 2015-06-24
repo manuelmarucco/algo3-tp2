@@ -1,5 +1,6 @@
 package jugabilidad;
 
+import control.vistaMapa.ObservadorMapa;
 import excepciones.Mapa.ExcepcionCoordenadaXIngresadaFueraDelMapa;
 import excepciones.Mapa.ExcepcionCoordenadaYIngresadaFueraDelMapa;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
@@ -49,6 +50,7 @@ public class ProxyMapa {
 
         validarCoordenadas(coordenadas);
         colocable.agregarse(mapa,coordenadas);
+        ObservadorMapa.getInstance().informarCambiosEnMapa();
 
     }
 
@@ -58,7 +60,6 @@ public class ProxyMapa {
             throws ExcepcionNoSePudoAgregarAlMapa {
 
         this.validarCoordenadas(centro);
-
         return (this.mapa.obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(centro, radio));
 
     }
@@ -81,12 +82,14 @@ public class ProxyMapa {
     public void borrarEnCapaTerrestre(Coordenadas coordenadas){
 
         this.mapa.borrarEnCapaTerrestre(coordenadas);
+        ObservadorMapa.getInstance().informarCambiosEnMapa();
 
     }
 
     public void borrarEnCapaAerea(Coordenadas coordenadas){
 
         this.mapa.borrarEnCapaAerea(coordenadas);
+        ObservadorMapa.getInstance().informarCambiosEnMapa();
 
     }
 
@@ -97,6 +100,7 @@ public class ProxyMapa {
 
         this.validarCoordenadas(hasta);
         unidad.moverse(hasta, this.mapa);
+        ObservadorMapa.getInstance().informarCambiosEnMapa();
 
     }
 
@@ -119,7 +123,10 @@ public class ProxyMapa {
     }
 
     public void quitar(Unidad unidad){
+
         this.mapa.quitar(unidad);
+        ObservadorMapa.getInstance().informarCambiosEnMapa();
+
     }
 
     // Metodos Privados
