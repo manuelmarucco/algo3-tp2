@@ -14,11 +14,13 @@ public class ParselaAccionable implements MouseListener {
     VentanaJugador ventana;
     Coordenadas coordenada;
     DisplayNotificaciones displayNotificaciones;
+    IVista vista;
 
-    public ParselaAccionable(VentanaJugador ventana, Coordenadas coordenada){
+    public ParselaAccionable(VentanaJugador ventana, Coordenadas coordenada,IVista vista){
         this.ventana = ventana;
         this.displayNotificaciones = ventana.getDisplayNotificaciones();
         this.coordenada = coordenada;
+        this.vista=vista;
     }
 
     @Override
@@ -31,6 +33,10 @@ public class ParselaAccionable implements MouseListener {
                 //TODO hay qye hacer que aparezca la imagen
                 //TODO modificar el metodo construirEN() para que eso suceda
             return;
+        }
+        else {
+            vista.actualizarBotonera();
+            vista.actualizarPanelEstado();
         }
     }
 
