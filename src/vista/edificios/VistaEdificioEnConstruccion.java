@@ -17,6 +17,7 @@ public class VistaEdificioEnConstruccion  extends ImagePanel {
 
     public VistaEdificioEnConstruccion(ColocableEnMapa edificioEnConstruccion, VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(imagePath).getImage().getScaledInstance(ANCHO, ALTO,  java.awt.Image.SCALE_SMOOTH));
+        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
         this.edificio= (EdificioEnConstruccion) edificioEnConstruccion;
         this.ventanaJugador=ventanaJugador;
     }
