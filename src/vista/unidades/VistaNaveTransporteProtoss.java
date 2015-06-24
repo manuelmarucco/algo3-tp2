@@ -16,7 +16,7 @@ public class VistaNaveTransporteProtoss extends ImagePanel implements IVista {
     private static String pathImagen="images/unidades/protoss/naveTransporte.png";
 
     public VistaNaveTransporteProtoss(NaveTransporteProtoss nave,VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
+        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, java.awt.Image.SCALE_SMOOTH));
         this.unidad=nave;
         this.ventanaJugador=ventanaJugador;
     }

@@ -7,16 +7,19 @@ import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class VistaPuertoEstelar extends ImagePanel implements IVista{
 
-    private static final int ANCHO = 1;
-    private static final int ALTO = 2;
+    private static final int ANCHO = 64;
+    private static final int ALTO = 64;
     private final PuertoEstelar edificio;
     private final VentanaJugador ventanaJugador;
+    private static String pathImagen="images/construcciones/terran/puerto_estelar.png";
 
     public VistaPuertoEstelar(ColocableEnMapa puertoEstelar,VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon().getImage());
+        super(ANCHO, ALTO, new ImageIcon().getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
+        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
         this.edificio= (PuertoEstelar) puertoEstelar;
         this.ventanaJugador=ventanaJugador;
     }

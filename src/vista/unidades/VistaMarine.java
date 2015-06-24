@@ -17,7 +17,7 @@ public class VistaMarine extends ImagePanel implements IVista{
     private final VentanaJugador ventanaJugador;
 
     public VistaMarine(ColocableEnMapa marine,VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
+        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, java.awt.Image.SCALE_SMOOTH));
         super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
         this.unidad= (Marine) marine;
         this.ventanaJugador=ventanaJugador;
