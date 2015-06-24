@@ -30,6 +30,7 @@ public class VistaNexoMineral extends ImagePanel implements IVista{
 
     @Override
     public void actualizarPanelEstado() {
+        ventanaJugador.borrarPanelDeEstadoAnterior();
 
     }
 }

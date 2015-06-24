@@ -1,4 +1,4 @@
-package vista.Actions;
+package vista.Actions.accionesObtenerInfoDeUnidad;
 
 import unidades.protoss.AltoTemplario;
 import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadMagica;

@@ -31,6 +31,7 @@ public class VistaRefineria extends ImagePanel implements IVista{
 
     @Override
     public void actualizarPanelEstado() {
+        ventanaJugador.borrarPanelDeEstadoAnterior();
 
     }
 }

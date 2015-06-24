@@ -70,7 +70,7 @@ public class PanelAcciones extends JPanel {
         button1.setEnabled(true);
         button1.setVisible(true);
         button1.addMouseListener(new ActionMover(unidad, accionActuarEnEspera));
-        button2.setText("atacar");
+        button2.setText("Atacar");
         button2.setEnabled(true);
         button2.setVisible(true);
         button2.addMouseListener(new ActionAtacar(unidad, accionActuarEnEspera));
@@ -152,7 +152,7 @@ public class PanelAcciones extends JPanel {
         // Boton 1 -----------------------------------------------------------------------------------------------------
         this.button1.setEnabled(true);
         this.button1.setVisible(true);
-        this.button1.setText("Entrenar alto templario");
+        this.button1.setText("Entrenar Alto Templario");
         this.button1.addMouseListener(new ActionEntrenarAltoTemplario(unidad));
     }
 
@@ -161,12 +161,12 @@ public class PanelAcciones extends JPanel {
         // Boton 1 -----------------------------------------------------------------------------------------------------
         this.button1.setEnabled(true);
         this.button1.setVisible(true);
-        this.button1.setText("Entrenar scout");
+        this.button1.setText("Entrenar Scout");
         this.button1.addMouseListener(new ActionEntrenarScout(unidad));
         // Boton 2 -----------------------------------------------------------------------------------------------------
         this.button2.setEnabled(true);
         this.button2.setVisible(true);
-        this.button2.setText("Entrenar nave de transporte");
+        this.button2.setText("Entrenar Nave de Transporte");
         this.button2.addMouseListener(new ActionEntrenarNaveTransporteProtoss(unidad));
     }
 
@@ -175,7 +175,7 @@ public class PanelAcciones extends JPanel {
         // Boton 1 -----------------------------------------------------------------------------------------------------
         this.button1.setEnabled(true);
         this.button1.setVisible(true);
-        this.button1.setText("Entrenar marine");
+        this.button1.setText("Entrenar Marine");
         this.button1.addMouseListener(new ActionEntrenarMarine(unidad));
     }
 
@@ -184,7 +184,7 @@ public class PanelAcciones extends JPanel {
         // Boton 1 -----------------------------------------------------------------------------------------------------
         this.button1.setEnabled(true);
         this.button1.setVisible(true);
-        this.button1.setText("Entrenar golliat");
+        this.button1.setText("Entrenar Golliat");
         this.button1.addMouseListener(new ActionEntrenarGolliat(unidad));
     }
 
@@ -193,17 +193,17 @@ public class PanelAcciones extends JPanel {
         // Boton 1 -----------------------------------------------------------------------------------------------------
         this.button1.setEnabled(true);
         this.button1.setVisible(true);
-        this.button1.setText("Entrenar nave ciencia");
+        this.button1.setText("Entrenar Nave Ciencia");
         this.button1.addMouseListener(new ActionEntrenarNaveCiencia(unidad));
         // Boton 2 -----------------------------------------------------------------------------------------------------
         this.button2.setEnabled(true);
         this.button2.setVisible(true);
-        this.button2.setText("Entrenar nave de transporte");
+        this.button2.setText("Entrenar Nave de Transporte");
         this.button3.addMouseListener(new ActionEntrenarNaveTransporteTerran(unidad));
         // Boton 3 -----------------------------------------------------------------------------------------------------
         this.button3.setEnabled(true);
         this.button3.setVisible(true);
-        this.button3.setText("Entrenar espectro");
+        this.button3.setText("Entrenar Espectro");
         this.button3.addMouseListener(new ActionEntrenarEsprectro(unidad));
     }
 

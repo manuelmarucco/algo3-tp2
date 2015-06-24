@@ -139,8 +139,10 @@ public abstract class VentanaJugador extends JFrame {
         this.panelInferior.add(component,posicion);
     }
 
-    public void mostrarPanelDeEstado(JPanel panel){
-        this.panelLateral.add(panel);
+    public void mostrarPanelDeEstado(JPanel panelDeEstado){
+        this.panelLateral.add(panelDeEstado);
+        this.panelLateral.revalidate();
+        this.panelLateral.repaint();
     }
 
     public PanelAcciones getPanelAcciones() {
@@ -148,6 +150,7 @@ public abstract class VentanaJugador extends JFrame {
     }
 
     public void borrarPanelDeEstadoAnterior() {
+       if(this.panelLateral.getComponents().length == 1) return;
        this.panelLateral.remove(1); //posicion del Panel de Estado
 
         this.panelLateral.revalidate();

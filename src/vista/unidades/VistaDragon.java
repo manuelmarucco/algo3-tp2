@@ -2,7 +2,7 @@ package vista.unidades;
 
 import interfaces.ColocableEnMapa;
 import unidades.protoss.Dragon;
-import vista.Actions.MouseActionObtenerInfoDragon;
+import vista.Actions.accionesObtenerInfoDeUnidad.MouseActionObtenerInfoDragon;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;

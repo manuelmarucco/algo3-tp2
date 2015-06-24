@@ -31,6 +31,7 @@ public class VistaCentroDeMinerales extends ImagePanel implements IVista{
 
     @Override
     public void actualizarPanelEstado() {
+        ventanaJugador.borrarPanelDeEstadoAnterior();
 
     }
 }

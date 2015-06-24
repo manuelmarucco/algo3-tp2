@@ -2,7 +2,7 @@ package vista.unidades;
 
 import interfaces.ColocableEnMapa;
 import unidades.terrran.Espectro;
-import vista.Actions.MouseActionObtenerInfoEspectro;
+import vista.Actions.accionesObtenerInfoDeUnidad.MouseActionObtenerInfoEspectro;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;

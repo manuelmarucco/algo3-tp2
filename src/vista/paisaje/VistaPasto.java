@@ -28,6 +28,10 @@ public class VistaPasto extends ImagePanel implements IVista {
 
     @Override
     public void actualizarPanelEstado() {
+        JPanel panelVacio = new JPanel();
+
+        ventanaJugador.borrarPanelDeEstadoAnterior();
+        ventanaJugador.mostrarPanelDeEstado(panelVacio);
 
     }
 }

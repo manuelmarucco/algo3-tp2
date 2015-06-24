@@ -1,4 +1,4 @@
-package vista.Actions;
+package vista.Actions.accionesObtenerInfoDeUnidad;
 
 import unidades.terrran.Espectro;
 import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadGuerrera;

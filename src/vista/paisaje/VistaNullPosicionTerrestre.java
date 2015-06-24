@@ -25,6 +25,7 @@ public class VistaNullPosicionTerrestre extends ImagePanel implements IVista {
 
     @Override
     public void actualizarPanelEstado() {
+        ventanaJugador.borrarPanelDeEstadoAnterior();
 
     }
 }

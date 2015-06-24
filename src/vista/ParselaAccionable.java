@@ -31,6 +31,7 @@ public class ParselaAccionable implements MouseListener {
 
         System.out.println("Parsela clickeada " + coordenada.getX() + " " + coordenada.getY()); //Para test. ya se que funciona
 
+
         if (m.getButton() == MouseEvent.BUTTON3) {
 
             if(this.verificarConstruccionesEnEspera()) {
@@ -49,6 +50,7 @@ public class ParselaAccionable implements MouseListener {
 
         if(m.getButton() == MouseEvent.BUTTON1){
             vista.actualizarBotonera();
+            ventana.borrarPanelDeEstadoAnterior(); // el tema es que caundo tocas el pasto no se activa la VistaPasto entonces hay q borrar manualmente
             vista.actualizarPanelEstado();
         }
 

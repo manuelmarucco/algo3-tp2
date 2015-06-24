@@ -1,4 +1,4 @@
-package vista.Actions;
+package vista.Actions.accionesObtenerInfoDeUnidad;
 
 import recursos.Recurso;
 import vista.ventanaJugadores.VentanaJugador;

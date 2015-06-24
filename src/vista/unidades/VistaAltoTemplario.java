@@ -2,7 +2,7 @@ package vista.unidades;
 
 import interfaces.ColocableEnMapa;
 import unidades.protoss.AltoTemplario;
-import vista.Actions.MouseActionObtenerInfoAltoTemplario;
+import vista.Actions.accionesObtenerInfoDeUnidad.MouseActionObtenerInfoAltoTemplario;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;

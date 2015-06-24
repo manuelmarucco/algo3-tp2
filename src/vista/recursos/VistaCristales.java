@@ -2,7 +2,7 @@ package vista.recursos;
 
 import interfaces.ColocableEnMapa;
 import recursos.Cristal;
-import vista.Actions.MouseActionObtenerInfoRecurso;
+import vista.Actions.accionesObtenerInfoDeUnidad.MouseActionObtenerInfoRecurso;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;

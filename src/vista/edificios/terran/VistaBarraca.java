@@ -31,6 +31,6 @@ public class VistaBarraca extends ImagePanel implements IVista {
 
     @Override
     public void actualizarPanelEstado() {
-
+        ventanaJugador.borrarPanelDeEstadoAnterior();
     }
 }
