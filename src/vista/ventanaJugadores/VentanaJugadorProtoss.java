@@ -30,6 +30,7 @@ public class VentanaJugadorProtoss extends VentanaJugador {
     protected void crearPanelRecursos(){
         super.crearPanelRecursos();
         this.panelRecursos.add( new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros() ));
+        //this.panelRecursos = new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros());
     }
 
     @Override

@@ -4,6 +4,7 @@ import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import vista.auxiliares.jugador.DisplayNotificaciones;
+import vista.ventanaJugadores.ObservadorRecursosSuministros;
 import vista.ventanaJugadores.VentanaJugador;
 
 import java.awt.event.MouseEvent;
@@ -65,6 +66,7 @@ public class ParselaAccionable implements MouseListener {
 
             try {
                 ventana.getAccionConstruirEnEspera().construirEn(coordenada);
+                ObservadorRecursosSuministros.getInstance().informarCambios();
             } catch (ExcepcionNoSePuedeConstruir e) {
                 e.printStackTrace();
             } catch (ExcepcionNoSePudoAgregarAlMapa e) {

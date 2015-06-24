@@ -2,6 +2,7 @@ package vista.auxiliares.jugador;
 
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
+import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -20,6 +21,7 @@ public class DisplayRecursos extends JPanel {
 
     public DisplayRecursos(Recursos recursos, Suministros suministros){
 
+        ObservadorRecursosSuministros.getInstance().agregarDisplay(this);
         this.recursosDeJugador = recursos;
         this.suministrosDeJugador = suministros;
         this.init();
@@ -35,7 +37,14 @@ public class DisplayRecursos extends JPanel {
         this.add(this.panel);
 
     }
+    public void actualizarDisplayRecursos(){
 
+        this.panel.removeAll();
+        this.init();
+
+        this.add(this.panel);
+
+    }
     private void cargarImagenes(){
 
         try{
