@@ -1,6 +1,7 @@
 package vista.edificios.terran;
 
 import construcciones.terran.CentroDeMineral;
+import interfaces.ColocableEnMapa;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -13,9 +14,9 @@ public class VistaCentroDeMinerales extends ImagePanel{
     private final CentroDeMineral edificio;
     private final VentanaJugador ventanaJugador;
 
-    public VistaCentroDeMinerales(CentroDeMineral centroDeMineral, VentanaJugador ventanaJugador) {
+    public VistaCentroDeMinerales(ColocableEnMapa centroDeMineral, VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.edificio=centroDeMineral;
+        this.edificio= (CentroDeMineral) centroDeMineral;
         this.ventanaJugador=ventanaJugador;
     }
 

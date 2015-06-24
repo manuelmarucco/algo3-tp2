@@ -1,6 +1,7 @@
 package vista.edificios.protoss;
 
 import construcciones.protoss.Acceso;
+import interfaces.ColocableEnMapa;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -13,9 +14,9 @@ public class VistaAcceso extends ImagePanel {
     private final Acceso edificio;
     private final VentanaJugador ventanaJugador;
 
-    public VistaAcceso(Acceso acceso,VentanaJugador ventanaJugador) {
+    public VistaAcceso(ColocableEnMapa acceso,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.edificio=acceso;
+        this.edificio= (Acceso) acceso;
         this.ventanaJugador=ventanaJugador;
     }
 }

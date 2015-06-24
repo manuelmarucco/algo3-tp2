@@ -1,6 +1,7 @@
 package vista.edificios.protoss;
 
 import construcciones.protoss.PortalEstelar;
+import interfaces.ColocableEnMapa;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -13,9 +14,9 @@ public class VistaPortalEstelar extends ImagePanel{
     private final PortalEstelar edificio;
     private final VentanaJugador ventanaJugador;
 
-    public VistaPortalEstelar(PortalEstelar portalEstelar,VentanaJugador ventanaJugador) {
+    public VistaPortalEstelar(ColocableEnMapa portalEstelar,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.edificio=portalEstelar;
+        this.edificio= (PortalEstelar) portalEstelar;
         this.ventanaJugador=ventanaJugador;
     }
 

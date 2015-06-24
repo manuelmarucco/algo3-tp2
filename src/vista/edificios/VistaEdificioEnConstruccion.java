@@ -1,6 +1,7 @@
 package vista.edificios;
 
 import construcciones.EdificioEnConstruccion;
+import interfaces.ColocableEnMapa;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -14,9 +15,9 @@ public class VistaEdificioEnConstruccion  extends ImagePanel {
     private final VentanaJugador ventanaJugador;
     private static String imagePath="images/construicciones/terrran/edificioEnConstruccion.png";
 
-    public VistaEdificioEnConstruccion(EdificioEnConstruccion edificioEnConstruccion, VentanaJugador ventanaJugador) {
+    public VistaEdificioEnConstruccion(ColocableEnMapa edificioEnConstruccion, VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(imagePath).getImage().getScaledInstance(ANCHO, ALTO,  java.awt.Image.SCALE_SMOOTH));
-        this.edificio=edificioEnConstruccion;
+        this.edificio= (EdificioEnConstruccion) edificioEnConstruccion;
         this.ventanaJugador=ventanaJugador;
     }
 }

@@ -1,6 +1,7 @@
 package vista.edificios.terran;
 
 import construcciones.terran.Fabrica;
+import interfaces.ColocableEnMapa;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -13,9 +14,9 @@ public class VistaFabrica extends ImagePanel{
     private final Fabrica edificio;
     private final VentanaJugador ventanaJugador;
 
-    public VistaFabrica(Fabrica fabrica, VentanaJugador ventanaJugador) {
+    public VistaFabrica(ColocableEnMapa fabrica, VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.edificio=fabrica;
+        this.edificio= (Fabrica) fabrica;
         this.ventanaJugador=ventanaJugador;
     }
 

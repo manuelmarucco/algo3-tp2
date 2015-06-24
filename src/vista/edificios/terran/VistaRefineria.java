@@ -1,6 +1,7 @@
 package vista.edificios.terran;
 
 import construcciones.terran.Refineria;
+import interfaces.ColocableEnMapa;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -13,9 +14,9 @@ public class VistaRefineria extends ImagePanel{
     private final Refineria edificio;
     private final VentanaJugador ventanaJugador;
 
-    public VistaRefineria(Refineria refineria, VentanaJugador ventanaJugador) {
+    public VistaRefineria(ColocableEnMapa refineria, VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.edificio=refineria;
+        this.edificio= (Refineria) refineria;
         this.ventanaJugador=ventanaJugador;
     }
 

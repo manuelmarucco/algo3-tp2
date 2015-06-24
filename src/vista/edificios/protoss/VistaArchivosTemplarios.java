@@ -1,6 +1,7 @@
 package vista.edificios.protoss;
 
 import construcciones.protoss.ArchivosTemplarios;
+import interfaces.ColocableEnMapa;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -13,9 +14,9 @@ public class VistaArchivosTemplarios extends ImagePanel{
     private final ArchivosTemplarios edificio;
     private final VentanaJugador ventanaJugador;
 
-    public VistaArchivosTemplarios(ArchivosTemplarios archivosTemplarios, VentanaJugador ventanaJugador) {
+    public VistaArchivosTemplarios(ColocableEnMapa archivosTemplarios, VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.edificio=archivosTemplarios;
+        this.edificio= (ArchivosTemplarios) archivosTemplarios;
         this.ventanaJugador=ventanaJugador;
     }
 

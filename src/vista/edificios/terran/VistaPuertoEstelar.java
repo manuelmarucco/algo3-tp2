@@ -1,6 +1,7 @@
 package vista.edificios.terran;
 
 import construcciones.terran.PuertoEstelar;
+import interfaces.ColocableEnMapa;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -13,9 +14,9 @@ public class VistaPuertoEstelar extends ImagePanel{
     private final PuertoEstelar edificio;
     private final VentanaJugador ventanaJugador;
 
-    public VistaPuertoEstelar(PuertoEstelar puertoEstelar,VentanaJugador ventanaJugador) {
+    public VistaPuertoEstelar(ColocableEnMapa puertoEstelar,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.edificio=puertoEstelar;
+        this.edificio= (PuertoEstelar) puertoEstelar;
         this.ventanaJugador=ventanaJugador;
     }
 

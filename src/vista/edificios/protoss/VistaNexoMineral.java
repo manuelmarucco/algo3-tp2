@@ -1,6 +1,7 @@
 package vista.edificios.protoss;
 
 import construcciones.protoss.NexoMineral;
+import interfaces.ColocableEnMapa;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -13,9 +14,9 @@ public class VistaNexoMineral extends ImagePanel{
     private final NexoMineral edificio;
     private final VentanaJugador ventanaJugador;
 
-    public VistaNexoMineral(NexoMineral nexoMineral, VentanaJugador ventanaJugador) {
+    public VistaNexoMineral(ColocableEnMapa nexoMineral, VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.edificio=nexoMineral;
+        this.edificio= (NexoMineral) nexoMineral;
         this.ventanaJugador=ventanaJugador;
     }
 

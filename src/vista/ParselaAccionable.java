@@ -32,8 +32,7 @@ public class ParselaAccionable implements MouseListener {
                 //TODO modificar el metodo construirEN() para que eso suceda
             return;
         }
-
-
+        //else ventana.getDisplayNotificaciones().;
     }
 
     @Override

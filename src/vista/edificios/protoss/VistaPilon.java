@@ -1,6 +1,7 @@
 package vista.edificios.protoss;
 
 import construcciones.protoss.Pilon;
+import interfaces.ColocableEnMapa;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -13,9 +14,9 @@ public class VistaPilon extends ImagePanel{
     private final Pilon edificio;
     private final VentanaJugador ventanaJugador;
 
-    public VistaPilon(Pilon pilon, VentanaJugador ventanaJugador) {
+    public VistaPilon(ColocableEnMapa pilon, VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.edificio=pilon;
+        this.edificio= (Pilon) pilon;
         this.ventanaJugador=ventanaJugador;
     }
 

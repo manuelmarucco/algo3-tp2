@@ -2,6 +2,7 @@ package vista.recursos;
 
 import interfaces.ColocableEnMapa;
 import recursos.Cristal;
+import vista.Actions.MouseActionObtenerInfoRecurso;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -19,5 +20,6 @@ public class VistaCristales extends ImagePanel {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
         this.recurso=(Cristal)cristal;
         this.ventanaJugador=ventanaJugador;
+        this.addMouseListener(new MouseActionObtenerInfoRecurso(recurso,ventanaJugador));
     }
 }

@@ -1,6 +1,7 @@
 package vista.edificios.protoss;
 
 import construcciones.protoss.Asimilador;
+import interfaces.ColocableEnMapa;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -13,9 +14,9 @@ public class VistaAsimilador extends ImagePanel{
     private final Asimilador edificio;
     private final VentanaJugador ventanaJugador;
 
-    public VistaAsimilador(Asimilador asimilador, VentanaJugador ventanaJugador) {
+    public VistaAsimilador(ColocableEnMapa asimilador, VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.edificio=asimilador;
+        this.edificio= (Asimilador) asimilador;
         this.ventanaJugador=ventanaJugador;
     }
 
