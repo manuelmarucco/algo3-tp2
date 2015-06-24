@@ -84,7 +84,7 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
     @Test
     @SuppressWarnings("unused")
-    public void test2() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void test2() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();

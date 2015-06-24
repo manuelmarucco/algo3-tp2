@@ -62,7 +62,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoGolliatYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+	public void entrenoGolliatYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -87,7 +87,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoGolliatYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+	public void entrenoGolliatYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -112,7 +112,7 @@ public class EntrenamientoUnidadesTerranTest {
 
 
 	@Test
-	public void entrenoEspectroYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+	public void entrenoEspectroYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -136,7 +136,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoEspectreYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+	public void entrenoEspectreYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -160,7 +160,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoNaveCienciaYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+	public void entrenoNaveCienciaYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -184,7 +184,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoNaveCienciaYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+	public void entrenoNaveCienciaYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -208,7 +208,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoNaveTransporteYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+	public void entrenoNaveTransporteYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -232,7 +232,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoNaveTransporteYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+	public void entrenoNaveTransporteYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
