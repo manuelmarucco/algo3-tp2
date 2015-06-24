@@ -34,26 +34,32 @@ public class ParselaAccionable implements MouseListener {
         if(this.verificarConstruccionesEnEspera())
         {
             System.out.println("Edificio creado en el mapa");
-            ObservadorRecursosSuministros.getInstance().informarCambios();
-            ObservadorMapa.getInstance().informarCambiosEnMapa();
-            return;
+
         }
         else if(this.verificarAccionEnEspera()){
+
+            System.out.println("Accion de la unidad realizada");
+
         }
         else{
             vista.actualizarBotonera();
             vista.actualizarPanelEstado();
         }
+
+
+        ObservadorRecursosSuministros.getInstance().informarCambios();
+        ObservadorMapa.getInstance().informarCambiosEnMapa();
     }
 
     private boolean verificarAccionEnEspera() {
         if(ventana.getAccionActuarEnEspera() !=  null){
             try {
                 ventana.getAccionActuarEnEspera().actuarEn(coordenada);
+                return true;
             } catch (Throwable e) {
                 ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
+                return  false;
             }
-            return true;
 
         }else
             return  false;

@@ -22,7 +22,7 @@ public class ActionMover implements MouseListener, AccionUnidad {
 
     @Override
     public void actuarEn(Coordenadas coordenada) throws ExcepcionMoverfueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaSeMovioLaUnidad {
-
+/*
         try {
             unidad.mover(coordenada);
         }catch (Throwable e){
@@ -30,7 +30,10 @@ public class ActionMover implements MouseListener, AccionUnidad {
         }finally {
             accionActuarEnEspera.setAccionActuar(null);
         }
+*/
 
+        unidad.mover(coordenada);
+        accionActuarEnEspera.setAccionActuar(null);
     }
 
     @Override
