@@ -13,7 +13,7 @@ public class VistaEdificioEnConstruccion  extends ImagePanel {
     private static final int ALTO = 64;
     private final EdificioEnConstruccion edificio;
     private final VentanaJugador ventanaJugador;
-    private static String imagePath="images/construicciones/terrran/edificioEnConstruccion.png";
+    private static String imagePath="images/construcciones/edificioEnConstruccion.png";
 
     public VistaEdificioEnConstruccion(ColocableEnMapa edificioEnConstruccion, VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(imagePath).getImage().getScaledInstance(ANCHO, ALTO,  java.awt.Image.SCALE_SMOOTH));
