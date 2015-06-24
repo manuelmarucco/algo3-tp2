@@ -11,20 +11,21 @@ import java.awt.event.ActionListener;
 
 public class ActionRadiacion implements ActionListener, AccionUnidad {
     private NaveCiencia unidad;
-    private WraperAccionActuar WraperAccionActuar;
+    private WraperAccionActuar wraperAccionActuar;
 
     public ActionRadiacion(NaveCiencia unidad, WraperAccionActuar WraperAccionActuar){
         this.unidad = unidad;
-        this.WraperAccionActuar = WraperAccionActuar;
+        this.wraperAccionActuar = WraperAccionActuar;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        wraperAccionActuar.setAccionActuar(this);
     }
 
     @Override
     public void actuarEn(Coordenadas coordenada) throws ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo {
         unidad.Radiacion(coordenada);
-            WraperAccionActuar.setAccionActuar(null);
+        wraperAccionActuar.setAccionActuar(null);
     }
 }

@@ -31,6 +31,5 @@ public class VistaCristales extends ImagePanel implements IVista {
 
     @Override
     public void actualizarPanelEstado() {
-
     }
 }

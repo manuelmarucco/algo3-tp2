@@ -77,7 +77,7 @@ public class PanelAcciones extends JPanel {
         button1.addActionListener(new ActionMover(unidad, accionActuarEnEspera));
         button2.setEnabled(true);
         button2.setVisible(true);
-        button2.addActionListener(new ActionCarcar(unidad, accionActuarEnEspera));
+        button2.addActionListener(new ActionCargar(unidad, accionActuarEnEspera));
         button3.setEnabled(true);
         button3.setVisible(true);
         button3.addActionListener(new ActionDescargar(unidad, accionActuarEnEspera));

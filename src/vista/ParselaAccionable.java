@@ -37,10 +37,26 @@ public class ParselaAccionable implements MouseListener {
             ObservadorRecursosSuministros.getInstance().informarCambios();
             return;
         }
-        else {
+        else if(this.verificarAccionEnEspera()){
+        }
+        else{
             vista.actualizarBotonera();
             vista.actualizarPanelEstado();
         }
+    }
+
+    private boolean verificarAccionEnEspera() {
+        if(ventana.getAccionActuarEnEspera() !=  null){
+            try {
+                ventana.getAccionActuarEnEspera().actuarEn(coordenada);
+            } catch (Throwable e) {
+                ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
+            }
+            return true;
+
+        }else
+            return  false;
+
     }
 
     @Override

@@ -30,6 +30,13 @@ public class ObservadorDeExcepciones {
 
     }
 
+    public void informarNuevaExcepcion(Throwable e){
+
+        String alerta = e.getMessage();
+        this.enviarAlertasAlPanel(alerta);
+
+    }
+
 
     private void enviarAlertasAlPanel(String informacionDeAlerta){
 

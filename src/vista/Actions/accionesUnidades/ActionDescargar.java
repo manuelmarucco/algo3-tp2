@@ -20,6 +20,7 @@ public class ActionDescargar implements ActionListener, AccionUnidad {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        wraperAccionActuar.setAccionActuar(this);
     }
 
     @Override

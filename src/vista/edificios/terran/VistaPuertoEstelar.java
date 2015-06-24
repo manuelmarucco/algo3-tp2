@@ -18,7 +18,7 @@ public class VistaPuertoEstelar extends ImagePanel implements IVista{
     private static String pathImagen="images/construcciones/terran/puerto_estelar.png";
 
     public VistaPuertoEstelar(ColocableEnMapa puertoEstelar,VentanaJugador ventanaJugador) {
-        super(ANCHO, ALTO, new ImageIcon().getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
+        super(ANCHO, ALTO, new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
         super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
         this.edificio= (PuertoEstelar) puertoEstelar;
         this.ventanaJugador=ventanaJugador;

@@ -5,6 +5,7 @@ import jugabilidad.RazaDeJugador.JugadorTerran;
 import vista.Actions.WraperAccionActuar;
 import vista.Actions.WraperAccionConstruir;
 import vista.Actions.accionesConstruir.AccionConstruir;
+import vista.Actions.accionesUnidades.AccionUnidad;
 import vista.VentanaJuego;
 import vista.auxiliares.jugador.DisplayMapa;
 import vista.auxiliares.jugador.DisplayNotificaciones;
@@ -164,5 +165,8 @@ public abstract class VentanaJugador extends JFrame {
         return (new JugadorTerran());
     }
 
+    public AccionUnidad getAccionActuarEnEspera() {
+        return accionActuarEnEspera.getAccionActuar();
+    }
 }
 

@@ -24,6 +24,7 @@ public class ActionMover implements ActionListener, AccionUnidad {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        accionActuarEnEspera.setAccionActuar(this);
     }
 
     @Override

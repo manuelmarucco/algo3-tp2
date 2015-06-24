@@ -11,17 +11,19 @@ import vista.Actions.WraperAccionActuar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ActionCarcar implements ActionListener, AccionUnidad {
+public class ActionCargar implements ActionListener, AccionUnidad {
     private UnidadTransporte unidad;
     private WraperAccionActuar wraperAccionActuar;
 
-    public ActionCarcar(UnidadTransporte unidad, WraperAccionActuar wraperAccionActuar) {
+    public ActionCargar(UnidadTransporte unidad, WraperAccionActuar wraperAccionActuar) {
         this.unidad = unidad;
         this.wraperAccionActuar = wraperAccionActuar;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        wraperAccionActuar.setAccionActuar(this);
+
     }
 
     @Override
