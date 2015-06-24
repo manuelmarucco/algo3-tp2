@@ -5,7 +5,7 @@ import construcciones.terran.Fabrica;
 import construcciones.terran.PuertoEstelar;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
@@ -28,7 +28,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoMarineYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+	public void entrenoMarineYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,0));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
@@ -44,7 +44,7 @@ public class EntrenamientoUnidadesTerranTest {
 	}
 
 	@Test
-	public void entrenoMarineYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+	public void entrenoMarineYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 		JugadorTerran j = new JugadorTerran(new Recursos(200,0));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
