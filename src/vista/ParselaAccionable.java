@@ -32,26 +32,26 @@ public class ParselaAccionable implements MouseListener {
         System.out.println("Parsela clickeada " + coordenada.getX() + " " + coordenada.getY()); //Para test. ya se que funciona
 
         if (m.getButton() == MouseEvent.BUTTON3) {
-            if(this.verificarConstruccionesEnEspera())
-            {
+
+            if(this.verificarConstruccionesEnEspera()) {
                 System.out.println("Edificio creado en el mapa");
-
+                ObservadorRecursosSuministros.getInstance().informarCambios();
+                ObservadorMapa.getInstance().informarCambiosEnMapa();
             }
-            else if(this.verificarAccionEnEspera()){
 
+            if(this.verificarAccionEnEspera()){
                 System.out.println("Accion de la unidad realizada");
+                ObservadorRecursosSuministros.getInstance().informarCambios();
+                ObservadorMapa.getInstance().informarCambiosEnMapa();
+            }
 
-            }
-            else{
-                vista.actualizarBotonera();
-                vista.actualizarPanelEstado();
-            }
         }
 
+        if(m.getButton() == MouseEvent.BUTTON1){
+            vista.actualizarBotonera();
+            vista.actualizarPanelEstado();
+        }
 
-
-        ObservadorRecursosSuministros.getInstance().informarCambios();
-        ObservadorMapa.getInstance().informarCambiosEnMapa();
     }
 
     private boolean verificarAccionEnEspera() {
