@@ -1,5 +1,6 @@
 package vista;
 
+import control.ObservadorDeExcepciones;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.utilidadesMapa.Coordenadas;
@@ -65,10 +66,8 @@ public class ParselaAccionable implements MouseListener {
 
             try {
                 ventana.getAccionConstruirEnEspera().construirEn(coordenada);
-            } catch (ExcepcionNoSePuedeConstruir e) {
-                e.printStackTrace();
-            } catch (ExcepcionNoSePudoAgregarAlMapa e) {
-                e.printStackTrace();
+            } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
+                ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
             }
             return true;
 
