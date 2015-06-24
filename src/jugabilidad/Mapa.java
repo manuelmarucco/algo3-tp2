@@ -35,7 +35,7 @@ public class Mapa {
 	}
 	
 	public void agregarEnCapaTerrestre(ColocableEnMapa colocable, Coordenadas coordenadas)
-			throws ExcepcionPosicionOcupada {
+		throws ExcepcionPosicionOcupada {
 
 		if (this.posicionTerrestreOcupada(coordenadas)){
 			throw new ExcepcionPosicionOcupada();
@@ -120,8 +120,6 @@ public class Mapa {
 	// Mover ---------
 
 	public void moverEnCapaTerrestre(ColocableEnMapa colacable,Coordenadas hasta) throws ExcepcionPosicionOcupada {
-
-		if ( this.posicionDeRecursosOcupada(hasta) ) throw new ExcepcionPosicionOcupada();
 
 		this.agregarEnCapaTerrestre( colacable, hasta );
 		this.quitar( (Unidad) colacable);

@@ -85,10 +85,11 @@ public class ParselaAccionable implements MouseListener {
 
             try {
                 ventana.getAccionConstruirEnEspera().construirEn(coordenada);
+                return true;
             } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
                 ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
+                return  false;
             }
-            return true;
 
         }else
             return  false;

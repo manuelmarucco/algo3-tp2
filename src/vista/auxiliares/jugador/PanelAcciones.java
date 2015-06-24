@@ -78,95 +78,133 @@ public class PanelAcciones extends JPanel {
 
     public void configurarBotones(NaveCiencia unidad){
         this.limpiar();
+        // Boton 1 -----------------------------------------------------------------------------------------------------
         button1.setEnabled(true);
         button1.setVisible(true);
         button1.addMouseListener(new ActionMover(unidad, accionActuarEnEspera));
+        button1.setText("Mover");
+        // Boton 2 -----------------------------------------------------------------------------------------------------
         button2.setEnabled(true);
         button2.setVisible(true);
         button2.addMouseListener(new ActionEmp(unidad, accionActuarEnEspera));
+        button2.setText("EMP");
+        // Boton 3 -----------------------------------------------------------------------------------------------------
         button3.setEnabled(true);
         button3.setVisible(true);
         button3.addMouseListener(new ActionRadiacion(unidad, accionActuarEnEspera));
+        button3.setText("Radiacion");
     }
 
     public void configurarBotones(UnidadTransporte unidad){
         this.limpiar();
+        // Boton 1 -----------------------------------------------------------------------------------------------------
         button1.setEnabled(true);
         button1.setVisible(true);
+        button1.setText("Mover");
         button1.addMouseListener(new ActionMover(unidad, accionActuarEnEspera));
+        // Boton 2 -----------------------------------------------------------------------------------------------------
         button2.setEnabled(true);
         button2.setVisible(true);
+        button2.setText("Cargar");
         button2.addMouseListener(new ActionCargar(unidad, accionActuarEnEspera));
+        // Boton 3 -----------------------------------------------------------------------------------------------------
         button3.setEnabled(true);
         button3.setVisible(true);
+        button3.setText("Descarga");
         button3.addMouseListener(new ActionDescargar(unidad, accionActuarEnEspera));
     }
 
     public void configurarBotones(AltoTemplario unidad){
         this.limpiar();
+        // Boton 1 -----------------------------------------------------------------------------------------------------
         button1.setEnabled(true);
         button1.setVisible(true);
         button1.addMouseListener(new ActionMover(unidad, accionActuarEnEspera));
+        button1.setText("Mover");
+        // Boton 2 -----------------------------------------------------------------------------------------------------
         button2.setEnabled(true);
         button2.setVisible(true);
         button2.addMouseListener(new ActionTormentaPsionica(unidad, accionActuarEnEspera));
+        button2.setText("Tormenta psionica");
+        // Boton 3 -----------------------------------------------------------------------------------------------------
         button3.setEnabled(true);
         button3.setVisible(true);
         button3.addMouseListener(new ActionAlucinacion(unidad, accionActuarEnEspera));
+        button3.setText("Alucinacion");
     }
 
     public void configurarBotones(Acceso unidad){
         this.limpiar();
+        // Boton 1 -----------------------------------------------------------------------------------------------------
         this.button1.setEnabled(true);
         this.button1.setVisible(true);
-        button1.addMouseListener(new ActionEntrenarZealot(unidad));
+        this.button1.setText("Entrenar zealot");
+        this.button1.addMouseListener(new ActionEntrenarZealot(unidad));
+        // Boton 2 -----------------------------------------------------------------------------------------------------
         this.button2.setEnabled(true);
         this.button2.setVisible(true);
-        button2.addMouseListener(new ActionEntrenarDragon(unidad));
+        this.button2.setText("Entrenar Dragon");
+        this.button2.addMouseListener(new ActionEntrenarDragon(unidad));
     }
 
     public void configurarBotones(ArchivosTemplarios unidad){
         this.limpiar();
+        // Boton 1 -----------------------------------------------------------------------------------------------------
         this.button1.setEnabled(true);
         this.button1.setVisible(true);
-        button1.addMouseListener(new ActionEntrenarAltoTemplario(unidad));
+        this.button1.setText("Entrenar alto templario");
+        this.button1.addMouseListener(new ActionEntrenarAltoTemplario(unidad));
     }
 
     public void configurarBotones(PortalEstelar unidad){
         this.limpiar();
+        // Boton 1 -----------------------------------------------------------------------------------------------------
         this.button1.setEnabled(true);
         this.button1.setVisible(true);
+        this.button1.setText("Entrenar scout");
         this.button1.addMouseListener(new ActionEntrenarScout(unidad));
+        // Boton 2 -----------------------------------------------------------------------------------------------------
         this.button2.setEnabled(true);
         this.button2.setVisible(true);
+        this.button2.setText("Entrenar nave de transporte");
         this.button2.addMouseListener(new ActionEntrenarNaveTransporteProtoss(unidad));
     }
 
     public void configurarBotones(Barraca unidad){
         this.limpiar();
+        // Boton 1 -----------------------------------------------------------------------------------------------------
         this.button1.setEnabled(true);
         this.button1.setVisible(true);
-        button1.addMouseListener(new ActionEntrenarMarine(unidad));
+        this.button1.setText("Entrenar marine");
+        this.button1.addMouseListener(new ActionEntrenarMarine(unidad));
     }
 
     public void configurarBotones(Fabrica unidad){
         this.limpiar();
+        // Boton 1 -----------------------------------------------------------------------------------------------------
         this.button1.setEnabled(true);
         this.button1.setVisible(true);
-        button1.addMouseListener(new ActionEntrenarGolliat(unidad));
+        this.button1.setText("Entrenar golliat");
+        this.button1.addMouseListener(new ActionEntrenarGolliat(unidad));
     }
 
     public void configurarBotones(PuertoEstelar unidad){
         this.limpiar();
+        // Boton 1 -----------------------------------------------------------------------------------------------------
         this.button1.setEnabled(true);
         this.button1.setVisible(true);
+        this.button1.setText("Entrenar nave ciencia");
         this.button1.addMouseListener(new ActionEntrenarNaveCiencia(unidad));
+        // Boton 2 -----------------------------------------------------------------------------------------------------
         this.button2.setEnabled(true);
         this.button2.setVisible(true);
-        this.button2.addMouseListener(new ActionEntrenarNaveTransporteTerran(unidad));
-        this.button2.setEnabled(true);
-        this.button2.setVisible(true);
-        this.button2.addMouseListener(new ActionEntrenarEsprectro(unidad));
+        this.button2.setText("Entrenar nave de transporte");
+        this.button3.addMouseListener(new ActionEntrenarNaveTransporteTerran(unidad));
+        // Boton 3 -----------------------------------------------------------------------------------------------------
+        this.button3.setEnabled(true);
+        this.button3.setVisible(true);
+        this.button3.setText("Entrenar espectro");
+        this.button3.addMouseListener(new ActionEntrenarEsprectro(unidad));
     }
 
     public void configurarBotones(CentroDeSuministros unidad) {

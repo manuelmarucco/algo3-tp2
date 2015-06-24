@@ -112,6 +112,7 @@ public class DisplayRecursos extends JPanel {
         suministros.setText("Suministros: ");
 
 
+        panelSuministros.add(Box.createRigidArea(new Dimension(9,5)));
         panelSuministros.add(suministros);
         panelSuministros.add(new JLabel(String.valueOf(suministrosDeJugador.getSuministrosUsados()+"/")));
         panelSuministros.add(new JLabel(String.valueOf(suministrosDeJugador.getSuministrosLimiteActuales())));

@@ -1,6 +1,7 @@
 package vista.Actions;
 
 import control.ObservadorDeExcepciones;
+import control.vistaMapa.ObservadorMapa;
 import vista.VentanaJuego;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
@@ -20,6 +21,7 @@ public class AccionPasarTurno implements ActionListener {
         ObservadorDeExcepciones.getInstance().borrarDisplay();
         ventanaJuego.pasarTurno();
         ObservadorRecursosSuministros.getInstance().informarCambios();
+        ObservadorMapa.getInstance().informarCambiosEnMapa();
 
     }
 }
