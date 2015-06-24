@@ -96,7 +96,6 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
     private void agregarBotonesAlPanel(){
 
         this.panel.add(botonNexoMineral);
-
         this.panel.add(botonAsimilador);
         this.panel.add(botonPilon);
         this.panel.add(botonAcceso);

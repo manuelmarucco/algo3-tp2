@@ -45,6 +45,7 @@ public abstract class VentanaJugador extends JFrame {
 
     // Metodos -------------------------
     protected void init(){
+
         this.accionConstruirEnEspera = new WraperAccionConstruir();
         this.accionActuarEnEspera = new WraperAccionActuar();
         this.crearPaneles();
@@ -137,6 +138,7 @@ public abstract class VentanaJugador extends JFrame {
     public void mostrarPanelDeAcciones(JComponent component,String posicion){
         this.panelInferior.add(component,posicion);
     }
+
     public void mostrarPanelDeEstado(JPanel panel){
         this.panelLateral.add(panel);
     }
