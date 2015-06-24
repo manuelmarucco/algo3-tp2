@@ -45,6 +45,7 @@ public class MenuPrincipal extends JFrame {
         menuPrincipal.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         menuPrincipal.setVisible(true);
     }
+
     private void createUIComponents() throws IOException, FontFormatException {
         imageBackground = new ImagePanel("images/menu/background.jpg",1280,720);
     }

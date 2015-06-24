@@ -94,17 +94,16 @@ public abstract class VentanaJugador extends JFrame {
     private void crearPanelMapa(){
 
         JPanel contenedor = new JPanel(new GridBagLayout());
-        //contenedor.add(new DisplayMapa());
         contenedor.add(new DisplayMapa(this));
 
         this.panelMapa = new JScrollPane(contenedor);
-        this.panelMapa.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        this.panelMapa.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
+        //this.panelMapa.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        //this.panelMapa.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 
         MouseMotionListener doScrollRectToVisible = new MouseMotionAdapter() {
             @Override
             public void mouseMoved(MouseEvent e) {
-                Rectangle r = new Rectangle(e.getX()-80, e.getY()-80, 120, 120);
+                Rectangle r = new Rectangle(e.getX()-80, e.getY()-80, 120,120);
 
                 ((JPanel) e.getSource()).scrollRectToVisible(r);
 
@@ -120,7 +119,7 @@ public abstract class VentanaJugador extends JFrame {
         contenedor.addMouseMotionListener(doScrollRectToVisible);
         contenedor.setAutoscrolls(true);
 
-        this.panelMapa.setPreferredSize(new Dimension(700, 650));
+        //this.panelMapa.setPreferredSize(new Dimension(700, 650));
 
     }
 
