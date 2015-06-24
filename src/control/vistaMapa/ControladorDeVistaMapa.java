@@ -13,6 +13,7 @@ import recursos.Cristal;
 import recursos.Volcan;
 import unidades.protoss.*;
 import unidades.terrran.*;
+import vista.IVista;
 import vista.ParselaAccionable;
 import vista.auxiliares.ImagePanel;
 import vista.auxiliares.jugador.imagenesMapa.HashMapParaMapa;
@@ -31,13 +32,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ControladorDeVistaMapa {
 
     private HashMapParaMapa<Class, Class> asociadorDeVistasRecursos;
     private HashMapParaMapa<Class, Class> asociadorDeVistasTerrestres;
     private HashMapParaMapa<Class, Class> asociadorDeVistasAereas;
+    private HashMap<Coordenadas,ImagePanel> capaSuperior=new HashMap<>();
     private ProxyMapa proxyMapa = ProxyMapa.getInstance();
 
     public ControladorDeVistaMapa() {
@@ -60,9 +62,10 @@ public class ControladorDeVistaMapa {
             for (int i = 0; i < cantidadTilesVerticales; i++){
 
                 Coordenadas coordenadas = new Coordenadas( i + 1, cantidadTilesHorizontales - j );
-                JPanel vista = this.getVistaTerrestreEnPosicion(coordenadas, ventana);
+                ImagePanel vista = (ImagePanel) this.getVistaTerrestreEnPosicion(coordenadas, ventana);
                 panelTerrestre.add(vista);
-
+                if(proxyMapa.posicionTerrestreOcupada(coordenadas))
+                    capaSuperior.put(coordenadas,vista);
             }
 
         }
@@ -87,7 +90,7 @@ public class ControladorDeVistaMapa {
 
                 vista.setOpaque(false);
                 panelDeRecursos.add(vista);
-
+                capaSuperior.put(coordenadas, vista);
             }
 
         }
@@ -111,7 +114,8 @@ public class ControladorDeVistaMapa {
                 ImagePanel vista = (ImagePanel) this.getVistaAereaEnPosicion(coordenadas, ventana);
                 vista.setOpaque(false);
                 panelAereo.add(vista);
-
+                if(proxyMapa.posicionAereaOcupada(coordenadas))
+                    capaSuperior.put(coordenadas, vista);
             }
 
         }
@@ -124,8 +128,8 @@ public class ControladorDeVistaMapa {
 
         JPanel panelAccionable = new JPanel(new GridLayout(25,25));
         panelAccionable.setPreferredSize(new Dimension(1600,1600));
-        panelAccionable.setBounds(0,0,1600,1600);
-        panelAccionable.setBackground(new Color(0,0,0,0));
+        panelAccionable.setBounds(0, 0, 1600, 1600);
+        panelAccionable.setBackground(new Color(0, 0, 0, 0));
         panelAccionable.setOpaque(false);
 
         for (int j = 0; j < cantidadTilesHorizontales; j++ ) {
@@ -136,7 +140,7 @@ public class ControladorDeVistaMapa {
                 parsela.setBackground(new Color(0, 0, 0, 0));
                 Coordenadas coordenadas = new Coordenadas(i + 1, cantidadTilesHorizontales - j);
 
-                parsela.addMouseListener(new ParselaAccionable(ventana, coordenadas));
+                parsela.addMouseListener(new ParselaAccionable(ventana, coordenadas,(IVista) capaSuperior.get(coordenadas)));
 
                 panelAccionable.add(parsela);
 
@@ -153,7 +157,7 @@ public class ControladorDeVistaMapa {
         JPanel panelDeVision = new JPanel(new GridLayout(25,25));
         panelDeVision.setPreferredSize(new Dimension(1600,1600));
         panelDeVision.setBounds(0,0,1600,1600);
-        panelDeVision.setBackground(new Color(0,0,0,0));
+        panelDeVision.setBackground(new Color(0, 0, 0, 0));
         panelDeVision.setOpaque(false);
 
         Vision visibilidad = jugador.getVisibilidad();

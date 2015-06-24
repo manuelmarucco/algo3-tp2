@@ -2,18 +2,7 @@ package vista.auxiliares.jugador;
 
 import control.vistaMapa.ControladorDeVistaMapa;
 import control.vistaMapa.ObservadorMapa;
-import jugabilidad.Juego;
-import jugabilidad.Jugador;
-import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.extrasJuego.CreadorDeMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
-import vista.ParselaAccionable;
-import vista.VentanaJuego;
-import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
-import vista.ventanaJugadores.VentanaJugadorProtoss;
-import vista.ventanaJugadores.VentanaJugadorTerran;
 
 import javax.swing.*;
 import java.awt.*;
@@ -88,11 +77,20 @@ public class DisplayMapa extends JPanel {
     private void armarPaneles(){
         ArrayList<JPanel> paneles = new ArrayList<>();
 
-        paneles.add(controlador.armarPanelAccionable(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana));
-        paneles.add(controlador.armarPanelDeVisionDisponible(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana.obtenerJugador() ));
-        paneles.add(controlador.armarPanelAereo(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana));
-        paneles.add(controlador.armarPanelDeRecursos(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana));
-        paneles.add(controlador.armarPanelTerrestre(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana));
+        JPanel recursos=controlador.armarPanelDeRecursos(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana);
+        JPanel terrestre=controlador.armarPanelTerrestre(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana);
+        JPanel accionable=controlador.armarPanelAccionable(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana);
+        JPanel aereo=controlador.armarPanelAereo(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana);
+        JPanel vision=controlador.armarPanelDeVisionDisponible(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana.obtenerJugador());
+
+
+
+
+        paneles.add(accionable);
+        paneles.add(vision);
+        paneles.add(aereo);
+        paneles.add(recursos);
+        paneles.add(terrestre);
 
         this.agregarPaneles(paneles);
 
