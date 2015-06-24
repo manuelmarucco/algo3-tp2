@@ -3,6 +3,7 @@ package construcciones.protoss;
 import construcciones.CentroDeRecoleccion;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionConstruccionNoRecolectaVolcan;
+import excepciones.construicciones.ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
 import jugabilidad.Mapa;
@@ -34,6 +35,10 @@ public class NexoMineral extends CentroDeRecoleccion {
 	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados, Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir {
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		Recurso recurso = (Recurso) mapa.obtenerDeCapaDeRecursos(coordenadas);
+
+		if ( recurso == null ){
+			throw new ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso();
+		}
 
 		if (recurso.noPuedeSerRecolectadoPor(this)){
 			throw new ExcepcionConstruccionNoRecolectaVolcan();
