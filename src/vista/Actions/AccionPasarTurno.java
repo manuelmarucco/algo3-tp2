@@ -2,6 +2,7 @@ package vista.Actions;
 
 import control.ObservadorDeExcepciones;
 import vista.VentanaJuego;
+import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -18,6 +19,7 @@ public class AccionPasarTurno implements ActionListener {
 
         ObservadorDeExcepciones.getInstance().borrarDisplay();
         ventanaJuego.pasarTurno();
+        ObservadorRecursosSuministros.getInstance().informarCambios();
 
     }
 }

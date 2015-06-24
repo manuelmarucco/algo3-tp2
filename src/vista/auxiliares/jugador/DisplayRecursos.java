@@ -38,6 +38,8 @@ public class DisplayRecursos extends JPanel {
 
     }
     public void actualizarDisplayRecursos(){
+        this.removeAll();
+        this.revalidate();
 
         this.panel.removeAll();
         this.panel.revalidate();
