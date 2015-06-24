@@ -39,74 +39,51 @@ public class JugadorProtoss extends Jugador {
 
     }
 
-    public Acceso construirAcceso(Coordenadas coordenadas) {
+    public Acceso construirAcceso(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         Acceso acceso = new Acceso(this);
 
-        try {
-            this.construir(acceso,coordenadas);
-        } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
-        }
+        this.construir(acceso,coordenadas);
 
         return acceso;
     }
 
-    public PortalEstelar construirPortalEstelar(Coordenadas coordenadas){
+    public PortalEstelar construirPortalEstelar(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa{
         PortalEstelar portalEstelar = new PortalEstelar(this);
 
-        try {
-            this.construir(portalEstelar,coordenadas);
-        } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
-        }
+        this.construir(portalEstelar, coordenadas);
 
         return portalEstelar;
     }
 
-    public ArchivosTemplarios construirArchivosTemplarios(Coordenadas coordenadas){
+    public ArchivosTemplarios construirArchivosTemplarios(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa{
         ArchivosTemplarios archivosTemplarios = new ArchivosTemplarios(this);
 
-        try {
-            this.construir(archivosTemplarios,coordenadas);
-        } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
-        }
+        this.construir(archivosTemplarios, coordenadas);
+
 
         return archivosTemplarios ;
     }
 
-    public Asimilador construirAsimilador(Coordenadas coordenadas) {
+    public Asimilador construirAsimilador(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa{
        Asimilador asimilador = new Asimilador(this.recursosRecolectados);
 
-        try {
-            this.construir(asimilador,coordenadas);
-        } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
-        }
+        this.construir(asimilador,coordenadas);
 
         return asimilador;
     }
 
-    public Pilon construirPilon(Coordenadas coordenadas){
+    public Pilon construirPilon(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa{
         Pilon pilon = new Pilon(this.suministros);
 
-        try {
-            this.construir(pilon,coordenadas);
-        } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
-        }
+        this.construir(pilon,coordenadas);
 
         return pilon;
     }
 
-    public NexoMineral construirNexoMineral(Coordenadas coordenadas) {
+    public NexoMineral construirNexoMineral(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa{
         NexoMineral nexoMineral = new NexoMineral(recursosRecolectados);
 
-        try {
-            this.construir(nexoMineral, coordenadas);
-        } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
-        }
+        this.construir(nexoMineral, coordenadas);
 
         return nexoMineral;
     }
