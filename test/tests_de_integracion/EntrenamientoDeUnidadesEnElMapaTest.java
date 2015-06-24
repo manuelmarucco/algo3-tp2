@@ -3,6 +3,7 @@ package tests_de_integracion;
 import construcciones.terran.Barraca;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
@@ -23,7 +24,7 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
     }
 
     @Test
-    public void LosMarinesSeCreanAlrededorArribaDeLaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void LosMarinesSeCreanAlrededorArribaDeLaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         JugadorTerran j = new JugadorTerran(new Recursos(1000,1000),new Suministros(0,200));
         ProxyMapa mapa = ProxyMapa.getInstance();
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
@@ -54,7 +55,7 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
 
     }
     @Test
-    public void BarracaRodeadaDeVolcanExceptoUnLugarYMarineSeAgregaEnEseLugar() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void BarracaRodeadaDeVolcanExceptoUnLugarYMarineSeAgregaEnEseLugar() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         ProxyMapa proxyMapa =ProxyMapa.getInstance();
         proxyMapa.setCoordenadasMaximas(20,20);
 
@@ -89,7 +90,7 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
     }
 
     @Test
-    public void BarracaRodeadaDeVolcanYNoSePuedeAgregarMarineYEntoncesNoSeEntrena() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void BarracaRodeadaDeVolcanYNoSePuedeAgregarMarineYEntoncesNoSeEntrena() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         ProxyMapa proxyMapa =ProxyMapa.getInstance();
         proxyMapa.setCoordenadasMaximas(20,20);
 

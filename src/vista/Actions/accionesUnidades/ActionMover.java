@@ -10,9 +10,6 @@ import vista.Actions.WraperAccionActuar;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-/**
- * Created by coco on 20/06/15.
- */
 public class ActionMover implements ActionListener, AccionUnidad {
     private Unidad unidad;
     private WraperAccionActuar accionActuarEnEspera;

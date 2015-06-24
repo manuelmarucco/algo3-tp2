@@ -34,14 +34,11 @@ public class Fabrica extends CentroDeEntrenamiento{
 	}
 
 
-	public Golliat entrenarGolliat(){
+	public Golliat entrenarGolliat() throws ExcepcionNoSePuedeEntrenarUnidad {
 		Golliat g = new Golliat(this.jugador.getVisibilidad());
-		try {
-			this.validarCreacionUnidad(g);
-		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
-			e.printStackTrace();
-			return g;
-		}
+
+		this.validarCreacionUnidad(g);
+
 		colaDeEntrenamiento.add(g);
 		return g;
 	}

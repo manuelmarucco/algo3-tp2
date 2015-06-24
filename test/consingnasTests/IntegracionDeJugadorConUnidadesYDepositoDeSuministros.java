@@ -3,8 +3,8 @@ package consingnasTests;
 import construcciones.terran.Barraca;
 import construcciones.terran.Fabrica;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -13,13 +13,13 @@ import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.Vision;
 import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
-import static org.junit.Assert.*;
-
 import org.junit.Before;
 import org.junit.Test;
 import unidades.terrran.Golliat;
 import unidades.terrran.Marine;
-import unidades.terrran.NaveCiencia;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
@@ -40,7 +40,7 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
     @Test
     @SuppressWarnings("unused")
-    public void test1() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void test1() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 
         CreadorDeMapa creador = new CreadorDeMapa(2);
 
@@ -84,7 +84,7 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
     @Test
     @SuppressWarnings("unused")
-    public void test2() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void test2() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
@@ -135,7 +135,7 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
     @Test
     @SuppressWarnings("unused")
-    public void test4() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void test4() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
@@ -189,7 +189,7 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
 
     @Test
     @SuppressWarnings("unused")
-    public void test5() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void test5() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
 
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();

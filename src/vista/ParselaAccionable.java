@@ -33,7 +33,6 @@ public class ParselaAccionable implements MouseListener {
         if(this.verificarConstruccionesEnEspera())
         {
             System.out.println("Edificio creado en el mapa");
-
             ObservadorRecursosSuministros.getInstance().informarCambios();
             return;
         }

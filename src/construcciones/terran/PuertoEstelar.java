@@ -56,38 +56,29 @@ public class PuertoEstelar extends CentroDeEntrenamiento{
 	}
 
 
-	public Espectro entrenarEspectro() {
+	public Espectro entrenarEspectro() throws ExcepcionNoSePuedeEntrenarUnidad {
 		Espectro espectro = new Espectro(this.jugador.getVisibilidad());
-		try {
-			this.validarCreacionUnidad(espectro);
-		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
-			e.printStackTrace();
-			return espectro;
-		}
+
+		this.validarCreacionUnidad(espectro);
+
 		this.colaDeEntrenamiento.add(espectro);
 		return espectro;
 	}
 
-	public NaveCiencia entrenarNaveCiencia() {
+	public NaveCiencia entrenarNaveCiencia() throws ExcepcionNoSePuedeEntrenarUnidad {
 		NaveCiencia naveCiencia = new NaveCiencia(this.jugador.getVisibilidad());
-		try {
-			this.validarCreacionUnidad(naveCiencia);
-		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
-			e.printStackTrace();
-			return naveCiencia;
-		}
+
+		this.validarCreacionUnidad(naveCiencia);
+
 		this.colaDeEntrenamiento.add(naveCiencia);
 		return naveCiencia;
 	}
 
-	public NaveTransporteTerran entrenarNaveTransporte() {
+	public NaveTransporteTerran entrenarNaveTransporte() throws ExcepcionNoSePuedeEntrenarUnidad {
 		NaveTransporteTerran naveTransporte = new NaveTransporteTerran(this.jugador.getVisibilidad());
-		try {
-			this.validarCreacionUnidad(naveTransporte);
-		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
-			e.printStackTrace();
-			return naveTransporte;
-		}
+
+		this.validarCreacionUnidad(naveTransporte);
+
 		this.colaDeEntrenamiento.add(naveTransporte);
 		return naveTransporte;
 	}
