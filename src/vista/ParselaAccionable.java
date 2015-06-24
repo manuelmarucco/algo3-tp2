@@ -31,9 +31,10 @@ public class ParselaAccionable implements MouseListener {
         System.out.println("Parsela clickeada " + coordenada.getX() + " " + coordenada.getY()); //Para test. ya se que funciona
 
         if(this.verificarConstruccionesEnEspera())
-            {System.out.println("Edificio creado en el mapa");
-                //TODO hay qye hacer que aparezca la imagen
-                //TODO modificar el metodo construirEN() para que eso suceda
+        {
+            System.out.println("Edificio creado en el mapa");
+
+            ObservadorRecursosSuministros.getInstance().informarCambios();
             return;
         }
         else {
@@ -67,7 +68,7 @@ public class ParselaAccionable implements MouseListener {
 
             try {
                 ventana.getAccionConstruirEnEspera().construirEn(coordenada);
-                ObservadorRecursosSuministros.getInstance().informarCambios();
+               // ObservadorRecursosSuministros.getInstance().informarCambios();
             } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
                 ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
             }
