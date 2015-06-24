@@ -47,7 +47,7 @@ public class DisplayNotificaciones extends JPanel {
         this.notificacion.setLineWrap(true);
         this.notificacion.setOpaque(false);
         this.inicializarTipoDeLetra();
-        this.notificacion.setBounds( 20, 50,  background.getIcon().getIconWidth()-30, background.getIcon().getIconHeight()-50);
+        this.notificacion.setBounds( 20, 80,  background.getIcon().getIconWidth()-30, background.getIcon().getIconHeight()-50);
     }
 
 
