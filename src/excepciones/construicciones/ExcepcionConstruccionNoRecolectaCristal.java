@@ -1,7 +1,12 @@
 package excepciones.construicciones;
 
-/**
- * Created by home1 on 07/06/2015.
- */
 public class ExcepcionConstruccionNoRecolectaCristal extends ExcepcionNoSePuedeConstruir {
+
+    @Override
+    public String getMessage(){
+
+        return ( "La construccion debe colocarse sobre un cristal." );
+
+    }
+
 }
