@@ -1,5 +1,6 @@
 package vista.Actions.accionesUnidades;
 
+import control.ObservadorDeExcepciones;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionMoverfueraDeRango;
 import excepciones.Unidades.ExcepcionYaSeMovioLaUnidad;
@@ -21,12 +22,13 @@ public class ActionMover implements MouseListener, AccionUnidad {
 
 
     @Override
-    public void actuarEn(Coordenadas coordenada) throws ExcepcionMoverfueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaSeMovioLaUnidad {
+    public void actuarEn(Coordenadas coordenada) {
+
 
         try {
             unidad.mover(coordenada);
-        }catch (Throwable e){
-            throw e;
+        } catch (ExcepcionNoSePudoAgregarAlMapa | ExcepcionMoverfueraDeRango | ExcepcionYaSeMovioLaUnidad e) {
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }finally {
             accionActuarEnEspera.setAccionActuar(null);
         }
