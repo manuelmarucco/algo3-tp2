@@ -13,6 +13,7 @@ public class AccionJugar implements ActionListener {
 
     private VentanaJuego ventanaJuego;
     private String nombreUsado;
+    private String colorUsado;
 
     public AccionJugar(VentanaJuego ventanaJuego){
             this.ventanaJuego = ventanaJuego;
@@ -25,6 +26,7 @@ public class AccionJugar implements ActionListener {
         VentanaJugador ventana2;
 
         nombreUsado= new String();
+        colorUsado= new String();
         JButton c = (JButton) (e.getSource());
         c.setVisible(false);
         ventana1=this.crearJugador("Crear Jugador 1",new Coordenadas(4,22));
@@ -37,9 +39,10 @@ public class AccionJugar implements ActionListener {
     }
 
     private VentanaJugador crearJugador(String tituloJugador,Coordenadas coordenadas){
-        CrearJugador crearJugador = new CrearJugador(ventanaJuego,tituloJugador,nombreUsado,coordenadas);
+        CrearJugador crearJugador = new CrearJugador(ventanaJuego,tituloJugador,nombreUsado,colorUsado,coordenadas);
         crearJugador.mostrar();
         nombreUsado=crearJugador.getNombreJugador();
+        colorUsado=crearJugador.getColorJugador();
         return crearJugador.getVentana();
     }
 }

@@ -14,13 +14,15 @@ public class CrearTerran implements ActionListener {
     private final Coordenadas coordenadas;
     private  VentanaJuego ventanaJuego;
     private String nombreUsado;
+    private String colorUsado;
     private CrearJugador form;
 
-    public CrearTerran(VentanaJuego ventanaJuego,CrearJugador form,String nombreUsado,Coordenadas coordenadas) {
+    public CrearTerran(VentanaJuego ventanaJuego,CrearJugador form,String nombreUsado,String colorUsado,Coordenadas coordenadas) {
         this.ventanaJuego=ventanaJuego;
         this.form=form;
         this.nombreUsado=nombreUsado;
         this.coordenadas=coordenadas;
+        this.colorUsado=colorUsado;
     }
 
     @Override
@@ -38,6 +40,7 @@ public class CrearTerran implements ActionListener {
         }
         JugadorTerran jugador = ventanaJuego.getJuego().crearJugadorTerran(form.getNombreJugador(), form.getColorJugador());
         nombreUsado.concat(form.getNombreJugador());
+        colorUsado.concat(form.getColorJugador());
         form.setVentana(new VentanaJugadorTerran( jugador, ventanaJuego));
         form.dispose();
     }

@@ -25,34 +25,45 @@ public class CrearJugador extends JDialog {
     private ImagePanel retrato;
     private VentanaJugador ventana;
 
-    public CrearJugador(VentanaJuego ventanaJuego, String titulo, String nombreUsado,Coordenadas coordenadas){
+    public CrearJugador(VentanaJuego ventanaJuego, String titulo, String nombreUsado, String colorUsado, Coordenadas coordenadas){
         this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setTitle(titulo);
-        this.init(ventanaJuego, nombreUsado);
+        this.init(ventanaJuego, nombreUsado,colorUsado);
         this.coordenadas=coordenadas;
     }
 
-    private void init(VentanaJuego ventanaJuego, String nombreUsado) {
+    private void init(VentanaJuego ventanaJuego, String nombreUsado,String colorUsuado) {
         aceptarButton.setIcon(new ImageIcon("src/vista/resourses/botonAceptar.png"));
         aceptarButton.setMargin(new Insets(0, 0, 0, 0));
         aceptarButton.setBorder(null);
         aceptarButton.setVerticalTextPosition(SwingConstants.BOTTOM);
         aceptarButton.setHorizontalTextPosition(SwingConstants.CENTER);
-        aceptarButton.addActionListener(new CrearTerran(ventanaJuego,this,nombreUsado,this.coordenadas));
+        aceptarButton.addActionListener(new CrearTerran(ventanaJuego, this, nombreUsado,colorUsuado, this.coordenadas));
         this.add(panel1);
         raza.addItem("Terran");
         raza.addItem("Protoss");
-        raza.addActionListener(new SeleccionarRaza(this,retrato,ventanaJuego,nombreUsado,coordenadas));
-        Icon icon = new IconoColor(java.awt.Color.red,"rojo");
-        color.addItem(icon);
-        icon = new IconoColor(java.awt.Color.BLUE,"azul");
-        color.addItem(icon);
-        icon = new IconoColor(Color.GREEN,"verde");
-        color.addItem(icon);
-        icon = new IconoColor(Color.YELLOW,"amarillo");
-        color.addItem(icon);
-        icon = new IconoColor(Color.CYAN,"cian");
-        color.addItem(icon);
+        raza.addActionListener(new SeleccionarRaza(this,retrato,ventanaJuego,nombreUsado,colorUsuado,coordenadas));
+        Icon icon;
+        if(colorUsuado.compareTo("rojo")!=0) {
+            icon = new IconoColor(java.awt.Color.red, "rojo");
+            color.addItem(icon);
+        }
+        if(colorUsuado.compareTo("azul")!=0) {
+            icon = new IconoColor(java.awt.Color.BLUE, "azul");
+            color.addItem(icon);
+        }
+        if(colorUsuado.compareTo("verde")!=0) {
+            icon = new IconoColor(Color.GREEN, "verde");
+            color.addItem(icon);
+        }
+        if(colorUsuado.compareTo("amarillo")!=0) {
+            icon = new IconoColor(Color.YELLOW, "amarillo");
+            color.addItem(icon);
+        }
+        if(colorUsuado.compareTo("cian")!=0) {
+            icon = new IconoColor(Color.CYAN, "cian");
+            color.addItem(icon);
+        }
         File font_file = new File("src/vista/resourses/StarcraftNormal.ttf");
         Font font = null;
         try {
@@ -94,7 +105,7 @@ public class CrearJugador extends JDialog {
     }
 
     public String getColorJugador() {
-        return color.getSelectedItem().toString();
+        return ((IconoColor)color.getSelectedItem()).getNombre();
     }
 
     public void setVentana(VentanaJugador ventana) {

@@ -14,13 +14,15 @@ public class CrearProtoss implements ActionListener {
     private final Coordenadas coordenadas;
     private VentanaJuego ventanaJuego;
     private String nombreUsado;
+    private String colorUsado;
     private CrearJugador form;
 
-    public CrearProtoss(VentanaJuego ventanaJuego,CrearJugador form,String nombreUsado,Coordenadas coordenadas) {
+    public CrearProtoss(VentanaJuego ventanaJuego, CrearJugador form, String nombreUsado, String colorUsado, Coordenadas coordenadas) {
         this.ventanaJuego=ventanaJuego;
         this.form=form;
         this.nombreUsado=nombreUsado;
         this.coordenadas=coordenadas;
+        this.colorUsado=colorUsado;
     }
 
     @Override
@@ -37,7 +39,8 @@ public class CrearProtoss implements ActionListener {
             return;
         }
         JugadorProtoss jugador = ventanaJuego.getJuego().crearJugadorProtoss(form.getNombreJugador(), form.getColorJugador());
-        nombreUsado=form.getNombreJugador();
+        nombreUsado.concat(form.getNombreJugador());
+        colorUsado.concat(form.getColorJugador());
         form.setVentana(new VentanaJugadorProtoss( jugador, ventanaJuego));
         form.dispose();
     }

@@ -11,6 +11,11 @@ public class IconoColor implements Icon {
     private final boolean selected;
     private final int width;
     private final int height;
+
+    public String getNombre() {
+        return nombre;
+    }
+
     private final String nombre;
     private Polygon poly;
 
