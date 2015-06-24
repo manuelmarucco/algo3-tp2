@@ -8,6 +8,7 @@ import construcciones.protoss.PortalEstelar;
 import construcciones.terran.Barraca;
 import construcciones.terran.Fabrica;
 import construcciones.terran.PuertoEstelar;
+import recursos.Recurso;
 import unidades.UnidadGuerrera;
 import unidades.UnidadTransporte;
 import unidades.protoss.AltoTemplario;
@@ -35,7 +36,7 @@ public class PanelAcciones extends JPanel {
         this.add(panel);
     }
 
-    private void limpiar(){
+    public void limpiar(){
         button1.setEnabled(false);
         button1.setVisible(false);
         button2.setEnabled(false);
@@ -154,6 +155,10 @@ public class PanelAcciones extends JPanel {
     }
 
     public void configurarBotones(CentroDeRecoleccion unidad) {
+        this.limpiar();
+    }
+
+    public void configurarBotones(Recurso recurso) {
         this.limpiar();
     }
 }
