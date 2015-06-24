@@ -91,6 +91,7 @@ public abstract class CentroDeEntrenamiento extends Construccion{
             if(unidad.getTiempoDeEntrenamiento() == 0){
                 try {
                     this.crearUnidad(unidad);
+                    this.colaDeEntrenamiento.poll();
                 } catch (ExcepcionNoSePudoCrearUnidadPorNoTenerEspacioAlrededorDeEdificio e) {
                     e.printStackTrace();
                 }

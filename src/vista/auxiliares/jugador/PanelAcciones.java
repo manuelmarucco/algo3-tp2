@@ -18,12 +18,13 @@ import vista.Actions.accionesEntrenar.*;
 import vista.Actions.accionesUnidades.*;
 
 import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseListener;
 
 public class PanelAcciones extends JPanel {
     private JButton button1;
     private JButton button2;
     private JButton button3;
-    private JButton button4;
     private JPanel panel;
     private WraperAccionActuar accionActuarEnEspera;
 
@@ -37,63 +38,81 @@ public class PanelAcciones extends JPanel {
     }
 
     public void limpiar(){
+        for( ActionListener al : button1.getActionListeners() ) {
+            button1.removeActionListener(al);
+        }
+        for( MouseListener al : button1.getMouseListeners() ) {
+            button1.removeMouseListener(al);
+        }
         button1.setEnabled(false);
         button1.setVisible(false);
+        for( ActionListener al : button2.getActionListeners() ) {
+            button2.removeActionListener(al);
+        }
+        for( MouseListener al : button2.getMouseListeners() ) {
+            button2.removeMouseListener(al);
+        }
         button2.setEnabled(false);
         button2.setVisible(false);
+        for( ActionListener al : button3.getActionListeners() ) {
+            button3.removeActionListener(al);
+        }
+        for( MouseListener al : button3.getMouseListeners() ) {
+            button3.removeMouseListener(al);
+        }
         button3.setEnabled(false);
         button3.setVisible(false);
-        button4.setEnabled(false);
-        button4.setVisible(false);
     }
 
     public void configurarBotones(UnidadGuerrera unidad){
         this.limpiar();
+        button1.setText("Mover");
         button1.setEnabled(true);
         button1.setVisible(true);
-        button1.addActionListener(new ActionMover(unidad, accionActuarEnEspera));
+        button1.addMouseListener(new ActionMover(unidad, accionActuarEnEspera));
+        button2.setText("atacar");
         button2.setEnabled(true);
         button2.setVisible(true);
-        button2.addActionListener(new ActionAtacar(unidad, accionActuarEnEspera));
+        button2.addMouseListener(new ActionAtacar(unidad, accionActuarEnEspera));
     }
 
     public void configurarBotones(NaveCiencia unidad){
         this.limpiar();
         button1.setEnabled(true);
         button1.setVisible(true);
-        button1.addActionListener(new ActionMover(unidad, accionActuarEnEspera));
+        button1.addMouseListener(new ActionMover(unidad, accionActuarEnEspera));
         button2.setEnabled(true);
         button2.setVisible(true);
-        button2.addActionListener(new ActionEmp(unidad, accionActuarEnEspera));
+        button2.addMouseListener(new ActionEmp(unidad, accionActuarEnEspera));
         button3.setEnabled(true);
         button3.setVisible(true);
-        button3.addActionListener(new ActionRadiacion(unidad, accionActuarEnEspera));
+        button3.addMouseListener(new ActionRadiacion(unidad, accionActuarEnEspera));
     }
 
     public void configurarBotones(UnidadTransporte unidad){
         this.limpiar();
         button1.setEnabled(true);
         button1.setVisible(true);
-        button1.addActionListener(new ActionMover(unidad, accionActuarEnEspera));
+        button1.addMouseListener(new ActionMover(unidad, accionActuarEnEspera));
         button2.setEnabled(true);
         button2.setVisible(true);
-        button2.addActionListener(new ActionCargar(unidad, accionActuarEnEspera));
+        button2.addMouseListener(new ActionCargar(unidad, accionActuarEnEspera));
         button3.setEnabled(true);
         button3.setVisible(true);
-        button3.addActionListener(new ActionDescargar(unidad, accionActuarEnEspera));
+        button3.addMouseListener(new ActionDescargar(unidad, accionActuarEnEspera));
     }
 
     public void configurarBotones(AltoTemplario unidad){
         this.limpiar();
         button1.setEnabled(true);
         button1.setVisible(true);
-        button1.addActionListener(new ActionMover(unidad, accionActuarEnEspera));
+        button1.addMouseListener(new ActionMover(unidad, accionActuarEnEspera));
         button2.setEnabled(true);
         button2.setVisible(true);
-        button2.addActionListener(new ActionTormentaPsionica(unidad, accionActuarEnEspera));
+        button2.addMouseListener(new ActionTormentaPsionica(unidad, accionActuarEnEspera));
         button3.setEnabled(true);
         button3.setVisible(true);
-        button3.addActionListener(new ActionAlucinacion(unidad, accionActuarEnEspera));
+        button3.addMouseListener(new ActionAlucinacion(unidad, accionActuarEnEspera));
     }
 
     public void configurarBotones(Acceso unidad){

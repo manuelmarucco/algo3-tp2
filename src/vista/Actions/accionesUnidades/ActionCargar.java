@@ -8,10 +8,10 @@ import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.UnidadTransporte;
 import vista.Actions.WraperAccionActuar;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
-public class ActionCargar implements ActionListener, AccionUnidad {
+public class ActionCargar implements MouseListener, AccionUnidad {
     private UnidadTransporte unidad;
     private WraperAccionActuar wraperAccionActuar;
 
@@ -21,8 +21,27 @@ public class ActionCargar implements ActionListener, AccionUnidad {
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void mouseClicked(MouseEvent e) {
         wraperAccionActuar.setAccionActuar(this);
+    }
+
+    @Override
+    public void mousePressed(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseReleased(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseEntered(MouseEvent e) {
+
+    }
+
+    @Override
+    public void mouseExited(MouseEvent e) {
 
     }
 

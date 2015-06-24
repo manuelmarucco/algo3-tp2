@@ -1,11 +1,13 @@
 package vista.unidades;
 
+import interfaces.ColocableEnMapa;
 import unidades.protoss.Zealot;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class VistaZealot extends ImagePanel implements IVista{
 
@@ -15,10 +17,10 @@ public class VistaZealot extends ImagePanel implements IVista{
     private final VentanaJugador ventanaJugador;
     private static String pathImagen="images/unidades/protoss/zealot.png";
 
-    public VistaZealot(Zealot zealot,VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, java.awt.Image.SCALE_SMOOTH));
+    public VistaZealot(ColocableEnMapa zealot,VentanaJugador ventanaJugador) {
+        super(ANCHO, ALTO, new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
         super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
-        this.unidad=zealot;
+        this.unidad=(Zealot)zealot;
         this.ventanaJugador=ventanaJugador;
     }
 
