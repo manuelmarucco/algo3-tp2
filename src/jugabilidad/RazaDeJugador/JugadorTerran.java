@@ -1,6 +1,7 @@
 package jugabilidad.RazaDeJugador;
 
 import construcciones.terran.*;
+import control.NotificadorDeAlertas;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
@@ -29,10 +30,14 @@ public class JugadorTerran extends Jugador {
         this.visibilidad = new Vision();
     }
 
-    public Barraca construirBarraca(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public Barraca construirBarraca(Coordenadas coordenadas) {
         Barraca barraca = new Barraca(this);
 
-        this.construir(barraca,coordenadas);
+        try {
+            this.construir(barraca,coordenadas);
+        } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
+            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+        }
 
         return barraca;
     }
