@@ -3,12 +3,13 @@ package vista.unidades;
 import interfaces.ColocableEnMapa;
 import unidades.protoss.Dragon;
 import vista.Actions.MouseActionObtenerInfoDragon;
+import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
 
-public class VistaDragon extends ImagePanel {
+public class VistaDragon extends ImagePanel implements IVista {
     private static final int ANCHO = 1;
     private static final int ALTO = 2;
     private final Dragon unidad;
@@ -23,4 +24,13 @@ public class VistaDragon extends ImagePanel {
         this.addMouseListener(new MouseActionObtenerInfoDragon(unidad,ventanaJugador));
     }
 
+    @Override
+    public void actualizarBotonera() {
+        ventanaJugador.getPanelAcciones().configurarBotones(unidad);
+    }
+
+    @Override
+    public void actualizarPanelEstado() {
+
+    }
 }

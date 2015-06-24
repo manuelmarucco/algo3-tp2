@@ -2,12 +2,13 @@ package vista.unidades;
 
 import interfaces.ColocableEnMapa;
 import unidades.terrran.Golliat;
+import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
 
-public class VistaGolliat extends ImagePanel {
+public class VistaGolliat extends ImagePanel implements IVista {
 
     private static final int ANCHO = 1;
     private static final int ALTO = 2;
@@ -22,4 +23,13 @@ public class VistaGolliat extends ImagePanel {
         this.ventanaJugador=ventanaJugador;
     }
 
+    @Override
+    public void actualizarBotonera() {
+        ventanaJugador.getPanelAcciones().configurarBotones(unidad);
+    }
+
+    @Override
+    public void actualizarPanelEstado() {
+
+    }
 }
