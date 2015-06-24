@@ -17,12 +17,6 @@ public abstract class Recurso implements ColocableEnMapa, Recolectable {
     public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 
         mapa.agregarEnCapaDeRecursos(this,coordenadas);
-        // Agrego un NULL OBJECT para que no se pueda construir/caminar sobre los recursos.
-        try {
-            mapa.agregarEnCapaTerrestre(new NullPosicionTerrestre(), coordenadas);
-        } catch (ExcepcionPosicionOcupada e) {
-            e.printStackTrace();
-        }
 
     }
 
