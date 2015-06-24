@@ -2,26 +2,24 @@ package control;
 
 import vista.auxiliares.jugador.DisplayNotificaciones;
 
-import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 
-public class NotificadorDeAlertas {
+public class ObservadorDeExcepciones {
 
-    private static NotificadorDeAlertas proxy;
+    private static ObservadorDeExcepciones proxy;
     private ArrayList<DisplayNotificaciones> displays = new ArrayList<>();
 
-    public static NotificadorDeAlertas getInstance(){
+    public static ObservadorDeExcepciones getInstance(){
 
         if(proxy == null){
 
-            proxy = new NotificadorDeAlertas();
+            proxy = new ObservadorDeExcepciones();
 
         }
         return proxy;
     }
 
-    private NotificadorDeAlertas(){
+    private ObservadorDeExcepciones(){
 
     }
 
