@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class ObservadorMapa {
 
     private static ObservadorMapa proxy;
-    private ArrayList<DisplayMapa> diplays=new ArrayList<>();
+    private ArrayList<DisplayMapa> diplays = new ArrayList<>();
 
     public static ObservadorMapa getInstance(){
 

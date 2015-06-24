@@ -1,5 +1,6 @@
 package vista.auxiliares.jugador;
 
+import control.NotificadorDeAlertas;
 import interfaces.Mostrable;
 
 import javax.swing.*;
@@ -14,6 +15,9 @@ public class DisplayNotificaciones extends JPanel {
     private JLabel background;
 
     public DisplayNotificaciones(){
+
+        NotificadorDeAlertas.getInstance().agregarDisplay(this);
+
         this.initBackground();
         this.initNotificacion();
         this.initLayeredPane();
@@ -55,9 +59,17 @@ public class DisplayNotificaciones extends JPanel {
     }
 
 
-    public void mostrarNotificacion(Mostrable e){
+    public void mostrarNotificacion(String texto){
 
-        notificacion.setText(e.mostrarMensaje());
+        notificacion.removeAll();
+        notificacion.setText(texto);
+
+    }
+
+    public void borrarNotificaciones(){
+
+        this.notificacion.setText(" ");
+
     }
 
 /*

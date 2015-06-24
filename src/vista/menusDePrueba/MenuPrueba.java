@@ -51,7 +51,7 @@ public class MenuPrueba{
     public static void main(String[] args){
         MenuPrueba menuPrueba = new MenuPrueba();
 
-        menuPrueba.displayNotificaciones.mostrarNotificacion(new ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso());
+        //menuPrueba.displayNotificaciones.mostrarNotificacion(new ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso());
     }
 
 }
