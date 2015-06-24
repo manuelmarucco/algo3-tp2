@@ -5,7 +5,7 @@ public class ExcepcionConstruccionNoRecolectaCristal extends ExcepcionNoSePuedeC
     @Override
     public String getMessage(){
 
-        return ( "La construccion debe colocarse sobre un cristal." );
+        return ( "La construccion debe colocarse sobre un volcan." );
 
     }
 
