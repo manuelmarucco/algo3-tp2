@@ -42,42 +42,62 @@ public class JugadorTerran extends Jugador {
         return barraca;
     }
 
-    public Fabrica construirFabrica(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public Fabrica construirFabrica(Coordenadas coordenadas) {
         Fabrica fabrica = new Fabrica(this);
 
-        this.construir(fabrica,coordenadas);
+        try {
+            this.construir(fabrica,coordenadas);
+        } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
+            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+        }
 
         return fabrica;
     }
 
-    public PuertoEstelar construirPuertoEstelar(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public PuertoEstelar construirPuertoEstelar(Coordenadas coordenadas){
         PuertoEstelar puertoEstelar = new PuertoEstelar(this);
 
-        this.construir(puertoEstelar,coordenadas);
+        try {
+            this.construir(puertoEstelar,coordenadas);
+        } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
+            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+        }
 
         return puertoEstelar;
     }
 
-    public DepositoDeSuministros construirDepositoDeSuministros(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public DepositoDeSuministros construirDepositoDeSuministros(Coordenadas coordenadas){
         DepositoDeSuministros depositoDeSuministros = new DepositoDeSuministros(this.suministros);
 
-        this.construir(depositoDeSuministros,coordenadas);
+        try {
+            this.construir(depositoDeSuministros,coordenadas);
+        } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
+            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+        }
 
         return depositoDeSuministros;
     }
 
-    public CentroDeMineral construirCentroDeMineral(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public CentroDeMineral construirCentroDeMineral(Coordenadas coordenadas){
         CentroDeMineral centroDeMineral = new CentroDeMineral(this.recursosRecolectados);
 
-        this.construir(centroDeMineral,coordenadas);
+        try {
+            this.construir(centroDeMineral,coordenadas);
+        } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
+            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+        }
 
         return centroDeMineral ;
     }
 
-    public Refineria construirRefineria(Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public Refineria construirRefineria(Coordenadas coordenadas){
         Refineria refineria = new Refineria(this.recursosRecolectados);
 
-        this.construir(refineria,coordenadas);
+        try {
+            this.construir(refineria,coordenadas);
+        } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
+            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+        }
 
         return refineria ;
     }
