@@ -1,12 +1,13 @@
 package vista.unidades;
 
 import unidades.protoss.NaveTransporteProtoss;
+import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
 
-public class VistaNaveTransporteProtoss extends ImagePanel {
+public class VistaNaveTransporteProtoss extends ImagePanel implements IVista {
 
     private static final int ANCHO = 1;
     private static final int ALTO = 2;
@@ -20,4 +21,13 @@ public class VistaNaveTransporteProtoss extends ImagePanel {
         this.ventanaJugador=ventanaJugador;
     }
 
-  }
+    @Override
+    public void actualizarBotonera() {
+        ventanaJugador.getPanelAcciones().configurarBotones(unidad);
+    }
+
+    @Override
+    public void actualizarPanelEstado() {
+
+    }
+}
