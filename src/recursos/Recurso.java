@@ -16,6 +16,12 @@ public abstract class Recurso implements ColocableEnMapa, Recolectable {
     @Override
     public void agregarse(Mapa mapa, Coordenadas coordenadas) {
 
+        try {
+            mapa.agregarEnCapaTerrestre( new NullPosicionTerrestre(), coordenadas);
+        } catch (ExcepcionPosicionOcupada e) {
+            e.printStackTrace();
+        }
+
         mapa.agregarEnCapaDeRecursos(this,coordenadas);
 
     }
