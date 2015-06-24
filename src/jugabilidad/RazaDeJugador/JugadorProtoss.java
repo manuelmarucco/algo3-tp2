@@ -1,10 +1,9 @@
 package jugabilidad.RazaDeJugador;
 
 import construcciones.protoss.*;
-import control.NotificadorDeAlertas;
+import control.ObservadorDeExcepciones;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
@@ -46,7 +45,7 @@ public class JugadorProtoss extends Jugador {
         try {
             this.construir(acceso,coordenadas);
         } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }
 
         return acceso;
@@ -58,7 +57,7 @@ public class JugadorProtoss extends Jugador {
         try {
             this.construir(portalEstelar,coordenadas);
         } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }
 
         return portalEstelar;
@@ -70,7 +69,7 @@ public class JugadorProtoss extends Jugador {
         try {
             this.construir(archivosTemplarios,coordenadas);
         } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }
 
         return archivosTemplarios ;
@@ -82,7 +81,7 @@ public class JugadorProtoss extends Jugador {
         try {
             this.construir(asimilador,coordenadas);
         } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }
 
         return asimilador;
@@ -94,7 +93,7 @@ public class JugadorProtoss extends Jugador {
         try {
             this.construir(pilon,coordenadas);
         } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }
 
         return pilon;
@@ -106,7 +105,7 @@ public class JugadorProtoss extends Jugador {
         try {
             this.construir(nexoMineral, coordenadas);
         } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }
 
         return nexoMineral;

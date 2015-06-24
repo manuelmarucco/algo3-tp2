@@ -6,6 +6,6 @@ public class ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso extends Excepci
 
     @Override
     public String mostrarMensaje() {
-        return "La construccion debe construirse sobre un cristal o volcan";
+        return "La construccion debe construirse sobre un recurso.";
     }
 }

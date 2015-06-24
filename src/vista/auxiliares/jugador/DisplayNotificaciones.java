@@ -1,7 +1,6 @@
 package vista.auxiliares.jugador;
 
-import control.NotificadorDeAlertas;
-import interfaces.Mostrable;
+import control.ObservadorDeExcepciones;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +15,7 @@ public class DisplayNotificaciones extends JPanel {
 
     public DisplayNotificaciones(){
 
-        NotificadorDeAlertas.getInstance().agregarDisplay(this);
+        ObservadorDeExcepciones.getInstance().agregarDisplay(this);
 
         this.initBackground();
         this.initNotificacion();

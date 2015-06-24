@@ -1,10 +1,9 @@
 package jugabilidad.RazaDeJugador;
 
 import construcciones.terran.*;
-import control.NotificadorDeAlertas;
+import control.ObservadorDeExcepciones;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
 import jugabilidad.Jugador;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
@@ -36,7 +35,7 @@ public class JugadorTerran extends Jugador {
         try {
             this.construir(barraca,coordenadas);
         } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }
 
         return barraca;
@@ -48,7 +47,7 @@ public class JugadorTerran extends Jugador {
         try {
             this.construir(fabrica,coordenadas);
         } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }
 
         return fabrica;
@@ -60,7 +59,7 @@ public class JugadorTerran extends Jugador {
         try {
             this.construir(puertoEstelar,coordenadas);
         } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }
 
         return puertoEstelar;
@@ -72,7 +71,7 @@ public class JugadorTerran extends Jugador {
         try {
             this.construir(depositoDeSuministros,coordenadas);
         } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }
 
         return depositoDeSuministros;
@@ -84,7 +83,7 @@ public class JugadorTerran extends Jugador {
         try {
             this.construir(centroDeMineral,coordenadas);
         } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }
 
         return centroDeMineral ;
@@ -96,7 +95,7 @@ public class JugadorTerran extends Jugador {
         try {
             this.construir(refineria,coordenadas);
         } catch (ExcepcionNoSePuedeConstruir | ExcepcionNoSePudoAgregarAlMapa e) {
-            NotificadorDeAlertas.getInstance().informarNuevaExcepcion(e);
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
         }
 
         return refineria ;
