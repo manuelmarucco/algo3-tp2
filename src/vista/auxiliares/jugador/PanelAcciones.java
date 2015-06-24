@@ -49,9 +49,11 @@ public class PanelAcciones extends JPanel {
 
     public void configurarBotones(UnidadGuerrera unidad){
         this.limpiar();
+        button1.setText("Mover");
         button1.setEnabled(true);
         button1.setVisible(true);
         button1.addActionListener(new ActionMover(unidad, accionActuarEnEspera));
+        button2.setText("Atacar");
         button2.setEnabled(true);
         button2.setVisible(true);
         button2.addActionListener(new ActionAtacar(unidad, accionActuarEnEspera));
