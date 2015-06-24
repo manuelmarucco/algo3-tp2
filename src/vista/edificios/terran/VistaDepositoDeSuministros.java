@@ -1,6 +1,7 @@
 package vista.edificios.terran;
 
 import construcciones.CentroDeSuministros;
+import construcciones.terran.DepositoDeSuministros;
 import interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
@@ -13,11 +14,13 @@ public class VistaDepositoDeSuministros extends ImagePanel implements IVista{
     private static final int ANCHO = 1;
     private static final int ALTO = 2;
     private final CentroDeSuministros edificio;
+    private static String pathImagen="images/construcciones/terrran/deposito_de_suministros.png";
     private final VentanaJugador ventanaJugador;
 
-    public VistaDepositoDeSuministros(ColocableEnMapa centroDeSuministros,VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon().getImage());
-        this.edificio= (CentroDeSuministros) centroDeSuministros;
+    public VistaDepositoDeSuministros(ColocableEnMapa depositoDeSuministros,VentanaJugador ventanaJugador) {
+        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage());
+        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
+        this.edificio= (DepositoDeSuministros) depositoDeSuministros;
         this.ventanaJugador=ventanaJugador;
     }
 
