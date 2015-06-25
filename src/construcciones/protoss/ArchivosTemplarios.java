@@ -57,16 +57,13 @@ public class ArchivosTemplarios extends CentroDeEntrenamiento {
 	}
 
 
-	public AltoTemplario entrenarAltoTemplario() {
-		AltoTemplario a = new AltoTemplario(this.jugador.getVisibilidad());
-		try {
-			this.validarCreacionUnidad(a);
-		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
-			e.printStackTrace();
-			return a;
-		}
-		this.colaDeEntrenamiento.add(a);
-		return a;
+	public AltoTemplario entrenarAltoTemplario() throws ExcepcionNoSePuedeEntrenarUnidad {
+		AltoTemplario altoTemplario = new AltoTemplario(this.jugador.getVisibilidad());
+
+		this.validarCreacionUnidad(altoTemplario);
+
+		this.colaDeEntrenamiento.add(altoTemplario);
+		return altoTemplario;
 	}
 
 	@Override

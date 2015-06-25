@@ -38,26 +38,20 @@ public class Acceso extends CentroDeEntrenamiento {
 		return true;
 	}
 
-	public Zealot entrenarZealot(){
+	public Zealot entrenarZealot() throws ExcepcionNoSePuedeEntrenarUnidad {
 		Zealot zealot = new Zealot(this.jugador.getVisibilidad());
-		try {
-			this.validarCreacionUnidad(zealot);
-		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
-			e.printStackTrace();
-			return zealot;
-		}
+
+		this.validarCreacionUnidad(zealot);
+
 		this.colaDeEntrenamiento.add(zealot);
 		return zealot;
 	}
 
-	public Dragon entrenarDragon(){
+	public Dragon entrenarDragon() throws ExcepcionNoSePuedeEntrenarUnidad {
 		Dragon dragon = new Dragon(this.jugador.getVisibilidad());
-		try {
-			this.validarCreacionUnidad(dragon);
-		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
-			e.printStackTrace();
-			return dragon;
-		}
+
+		this.validarCreacionUnidad(dragon);
+
 		this.colaDeEntrenamiento.add(dragon);
 		return dragon;
 	}
