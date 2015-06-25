@@ -15,7 +15,7 @@ public class PanelUnidadGuerrera extends PanelUnidad{
         this.crearLabels();
         this.crearPaneles();
 
-        this.add(panel);
+        this.add(panePrincipal);
 
     }
 
@@ -57,14 +57,14 @@ public class PanelUnidadGuerrera extends PanelUnidad{
         panelrangoAtaqueAereo.add(new JLabel("Rango De Ataque Aereo:  "));
         panelrangoAtaqueAereo.add(rangoAtaqueAereo);
 
-        panel.add(paneldanioTerrestre);
-        panel.add(Box.createRigidArea(new Dimension(10,10)));
-        panel.add(paneldanioAereo);
-        panel.add(Box.createRigidArea(new Dimension(10,10)));
-        panel.add(panelrangoAtaqueTerrestre);
-        panel.add(Box.createRigidArea(new Dimension(10,10)));
-        panel.add(panelrangoAtaqueAereo);
-        panel.add(Box.createRigidArea(new Dimension(10,10)));
+        panePrincipal.add(paneldanioTerrestre);
+        panePrincipal.add(Box.createRigidArea(new Dimension(10,10)));
+        panePrincipal.add(paneldanioAereo);
+        panePrincipal.add(Box.createRigidArea(new Dimension(10,10)));
+        panePrincipal.add(panelrangoAtaqueTerrestre);
+        panePrincipal.add(Box.createRigidArea(new Dimension(10,10)));
+        panePrincipal.add(panelrangoAtaqueAereo);
+        panePrincipal.add(Box.createRigidArea(new Dimension(10,10)));
 
     }
 

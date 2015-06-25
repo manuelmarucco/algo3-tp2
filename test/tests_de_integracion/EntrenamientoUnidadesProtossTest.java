@@ -5,7 +5,6 @@ import construcciones.protoss.ArchivosTemplarios;
 import construcciones.protoss.PortalEstelar;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Recursos;
@@ -38,7 +37,7 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
 
         z = a.entrenarZealot();
-        tiempo = z.getTiempoDeEntrenamiento();
+        tiempo = z.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo; i++) j.update();
 
         Assert.assertTrue(j.buscarUnidad(z));
@@ -56,7 +55,7 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<12; i++) j.update();
 
         z = a.entrenarZealot();
-        tem = z.getTiempoDeEntrenamiento();
+        tem = z.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tem-1; i++) j.update();
 
         Assert.assertFalse(j.buscarUnidad(z));
@@ -74,7 +73,7 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
 
         d = a.entrenarDragon();
-        tiempo = d.getTiempoDeEntrenamiento();
+        tiempo = d.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo; i++) j.update();
 
         Assert.assertTrue(j.buscarUnidad(d));
@@ -92,7 +91,7 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
 
         d = a.entrenarDragon();
-        tem = d.getTiempoDeEntrenamiento();
+        tem = d.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tem-1; i++) j.update();
 
         Assert.assertFalse(j.buscarUnidad(d));
@@ -116,7 +115,7 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<pe.getTiempoDeConstruccion(); i++) j.update();
 
         s = pe.entrenarScout();
-        i3 = s.getTiempoDeEntrenamiento();
+        i3 = s.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<i3; i++) j.update();
 
         Assert.assertTrue(j.buscarUnidad(s));
@@ -141,7 +140,7 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<i2; i++) j.update();
 
         s = pe.entrenarScout();
-        i3 = s.getTiempoDeEntrenamiento();
+        i3 = s.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<i3-1; i++) j.update();
 
         Assert.assertFalse(j.buscarUnidad(s));
@@ -165,7 +164,7 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<archivosTemplarios.getTiempoDeConstruccion(); i++) j.update();
 
         altoTemplario = archivosTemplarios.entrenarAltoTemplario();
-        tiempo = altoTemplario.getTiempoDeEntrenamiento();
+        tiempo = altoTemplario.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo; i++) j.update();
 
         Assert.assertTrue(j.buscarUnidad(altoTemplario));
@@ -189,7 +188,7 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<archivosTemplarios.getTiempoDeConstruccion(); i++) j.update();
 
         altoTemplario = archivosTemplarios.entrenarAltoTemplario();
-        tiempo = altoTemplario.getTiempoDeEntrenamiento();
+        tiempo = altoTemplario.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo-1; i++) j.update();
 
         Assert.assertFalse(j.buscarUnidad(altoTemplario));
@@ -210,7 +209,7 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<pe.getTiempoDeConstruccion(); i++) j.update();
 
         n = pe.entrenarNaveTransporte();
-        tiempo = n.getTiempoDeEntrenamiento();
+        tiempo = n.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo; i++) j.update();
 
         Assert.assertTrue(j.buscarUnidad(n));
@@ -231,7 +230,7 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<pe.getTiempoDeConstruccion(); i++) j.update();
 
         n = pe.entrenarNaveTransporte();
-        tiempo = n.getTiempoDeEntrenamiento();
+        tiempo = n.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo-1; i++) j.update();
 
         Assert.assertFalse(j.buscarUnidad(n));

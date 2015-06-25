@@ -85,9 +85,9 @@ public abstract class CentroDeEntrenamiento extends Construccion{
         if(!this.colaDeEntrenamiento.isEmpty()){
             Entrenable unidad= this.colaDeEntrenamiento.peek();
 
-            unidad.disminuirTiempoDeEntrenamiento();
+            unidad.disminuirTiempoDeEntrenamientoActual();
 
-            if(unidad.getTiempoDeEntrenamiento() == 0){
+            if(unidad.getTiempoDeEntrenamientoActual() == 0){
                 try {
                     this.crearUnidad(unidad);
                    // this.colaDeEntrenamiento.poll();

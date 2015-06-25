@@ -4,6 +4,7 @@ import construcciones.protoss.ArchivosTemplarios;
 import interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
+import vista.panelesDeEstado.panelesDeConstruccion.PanelCentroDeEntrenamiento;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
@@ -31,6 +32,19 @@ public class VistaArchivosTemplarios extends ImagePanel implements IVista{
 
     @Override
     public void actualizarPanelEstado() {
+        PanelCentroDeEntrenamiento panelDeConstruccion = new PanelCentroDeEntrenamiento();
 
+        ventanaJugador.borrarPanelDeEstadoAnterior();
+        this.cargarInfoAlPanelDeEstado(panelDeConstruccion);
+        ventanaJugador.mostrarPanelDeEstado(panelDeConstruccion);
+
+    }
+
+    private void cargarInfoAlPanelDeEstado(PanelCentroDeEntrenamiento panelDeConstruccion) {
+
+        panelDeConstruccion.setNombre(edificio.getClass().getSimpleName());
+        panelDeConstruccion.setVida(String.valueOf(edificio.getVida()));
+        panelDeConstruccion.setVida(String.valueOf(edificio.getEscudo()));
+        panelDeConstruccion.mostrarColaDeEntrenamiento(edificio.getColaDeEntrenamiento());
     }
 }

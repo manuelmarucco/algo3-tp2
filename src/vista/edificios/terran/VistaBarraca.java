@@ -44,6 +44,6 @@ public class VistaBarraca extends ImagePanel implements IVista {
 
         panelDeConstruccion.setNombre(barraca.getClass().getSimpleName());
         panelDeConstruccion.setVida(String.valueOf(barraca.getVida()));
-        panelDeConstruccion.setColaDeEntrenamiento(barraca.getColaDeEntrenamiento());
+        panelDeConstruccion.mostrarColaDeEntrenamiento(barraca.getColaDeEntrenamiento());
     }
 }

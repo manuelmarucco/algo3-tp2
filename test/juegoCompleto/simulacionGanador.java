@@ -11,15 +11,12 @@ import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import unidades.ProxiDeAtaque;
 import unidades.protoss.Zealot;
-
-import java.util.ArrayList;
 
 public class simulacionGanador {
 
@@ -67,7 +64,7 @@ public class simulacionGanador {
         for(int i = 0; i<depositoDeSuministrosDeJugador2.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
         zealot = c2.entrenarZealot();
-        int tiempo = zealot.getTiempoDeEntrenamiento();
+        int tiempo = zealot.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo*2; i++){
             juego.update();
         }
@@ -122,7 +119,7 @@ public class simulacionGanador {
         for(int i = 0; i<c3.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
         d = c2.entrenarZealot();
-        int tiempo = d.getTiempoDeEntrenamiento();
+        int tiempo = d.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo*2; i++){ //Un turno equivale a que el jugador retome el control ( 2 subturnos)
             juego.update();
         }

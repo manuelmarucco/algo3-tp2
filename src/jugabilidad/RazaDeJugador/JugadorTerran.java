@@ -1,7 +1,6 @@
 package jugabilidad.RazaDeJugador;
 
 import construcciones.terran.*;
-import control.ObservadorDeExcepciones;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.Jugador;
@@ -14,7 +13,8 @@ public class JugadorTerran extends Jugador {
 
     public JugadorTerran(){       //Constructor para el Juego
         this.suministros = new Suministros(0,0);
-        this.recursosRecolectados = new Recursos(200,0);
+        //this.recursosRecolectados = new Recursos(200,0);
+        this.recursosRecolectados = new Recursos(500,0); //TODO es para facilitar el comienzo del juego. ponerlo como supuesto
         this.visibilidad = new Vision();
     }
 

@@ -4,6 +4,7 @@ import construcciones.terran.Fabrica;
 import interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
+import vista.panelesDeEstado.panelesDeConstruccion.PanelCentroDeEntrenamiento;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
@@ -32,6 +33,18 @@ public class VistaFabrica extends ImagePanel implements IVista{
 
     @Override
     public void actualizarPanelEstado() {
+        PanelCentroDeEntrenamiento panelDeConstruccion = new PanelCentroDeEntrenamiento();
 
+        ventanaJugador.borrarPanelDeEstadoAnterior();
+        this.cargarInfoAlPanelDeEstado(panelDeConstruccion);
+        ventanaJugador.mostrarPanelDeEstado(panelDeConstruccion);
+
+    }
+
+    private void cargarInfoAlPanelDeEstado(PanelCentroDeEntrenamiento panelDeConstruccion) {
+
+        panelDeConstruccion.setNombre(edificio.getClass().getSimpleName());
+        panelDeConstruccion.setVida(String.valueOf(edificio.getVida()));
+        panelDeConstruccion.mostrarColaDeEntrenamiento(edificio.getColaDeEntrenamiento());
     }
 }

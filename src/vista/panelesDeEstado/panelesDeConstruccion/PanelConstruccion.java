@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class PanelConstruccion extends JPanel {
-    protected JPanel panel;
+    protected JPanel panelPrincipal;
 
     protected  JLabel nombre;
     protected  JLabel vida;
@@ -12,8 +12,8 @@ public abstract class PanelConstruccion extends JPanel {
 
 
     public PanelConstruccion(){
-        panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panelPrincipal = new JPanel();
+        panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
     }
 
 
@@ -29,9 +29,12 @@ public abstract class PanelConstruccion extends JPanel {
         JPanel panelNombre = new JPanel();
         JPanel panelvida = new JPanel();
         JPanel panelescudo = new JPanel();
+        JPanel panelTitulo = new JPanel();
 
         panelNombre.setLayout(new BoxLayout(panelNombre, BoxLayout.X_AXIS));
         panelvida.setLayout(new BoxLayout(panelvida, BoxLayout.X_AXIS));
+        panelescudo.setLayout(new BoxLayout(panelescudo, BoxLayout.X_AXIS));
+        panelTitulo.setLayout(new BoxLayout(panelTitulo, BoxLayout.X_AXIS));
 
         panelNombre.add(new JLabel("Nombre:  "));
         panelNombre.add(nombre);
@@ -40,17 +43,18 @@ public abstract class PanelConstruccion extends JPanel {
         panelescudo.add(new JLabel("Escudo:  "));
         panelescudo.add(escudo);
 
-        JTextArea titulo = new JTextArea("Estado de la Construccion");
+        JLabel titulo = new JLabel("Estado de la Construccion");
         titulo.setFont(new Font("Verdana", Font.BOLD, 12));
         titulo.setOpaque(false);
+        panelTitulo.add(titulo);
 
-        panel.add(titulo);
-        panel.add(Box.createRigidArea(new Dimension(10,30)));
-        panel.add(panelNombre);
-        panel.add(Box.createRigidArea(new Dimension(10,10)));
-        panel.add(panelvida);
-        panel.add(Box.createRigidArea(new Dimension(10,10)));
-        panel.add(panelescudo);
+        panelPrincipal.add(panelTitulo);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
+        panelPrincipal.add(panelNombre);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
+        panelPrincipal.add(panelvida);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
+        panelPrincipal.add(panelescudo);
 
         panelescudo.setVisible(false);
 
@@ -69,5 +73,6 @@ public abstract class PanelConstruccion extends JPanel {
         escudo.setText(string);
         escudo.setVisible(true);
     }
+
 
 }

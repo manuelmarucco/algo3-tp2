@@ -18,8 +18,8 @@ public class AccionPasarTurno implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        ObservadorDeExcepciones.getInstance().borrarDisplay();
         ventanaJuego.pasarTurno();
+        ObservadorDeExcepciones.getInstance().borrarDisplay();
         ObservadorRecursosSuministros.getInstance().informarCambios();
         ObservadorMapa.getInstance().informarCambiosEnMapa();
 
