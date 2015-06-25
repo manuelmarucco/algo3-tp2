@@ -29,11 +29,10 @@ public class VentanaJuego {
         if(iterador == ventanasDeJugadores.size()) iterador=0;
         ventanaJugadorActual = ventanasDeJugadores.get(iterador);
 
+        this.setearParametrosDeVentana(ventanaJugadorActual);
+
+        ventanaJugadorActual.limpiarPaneles();
         ventanaJugadorActual.repaint();
-        ventanaJugadorActual.setVisible(true);
-        ventanaJugadorActual.pack();
-        ventanaJugadorActual.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        ventanaJugadorActual.setExtendedState(JFrame.MAXIMIZED_BOTH);
         
     }
     
@@ -41,14 +40,18 @@ public class VentanaJuego {
         ventanasDeJugadores.add(ventana);
         if (ventanasDeJugadores.size() == 1) {
             ventanaJugadorActual = ventanasDeJugadores.get(0);
-            ventanaJugadorActual.setVisible(true);
-            ventanaJugadorActual.pack();
-            ventanaJugadorActual.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-            ventanaJugadorActual.setExtendedState(JFrame.MAXIMIZED_BOTH);
+            this.setearParametrosDeVentana(ventanaJugadorActual);
         }
     }
 
     public Juego getJuego() {
         return juego;
+    }
+
+    public void setearParametrosDeVentana(VentanaJugador ventana) {
+        ventana.setVisible(true);
+        ventana.pack();
+        ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
 }

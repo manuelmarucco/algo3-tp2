@@ -55,7 +55,7 @@ public abstract class Jugador implements Actualizable{
 			EdificioEnConstruccion e = edificiosEnConstruccion.get(i);
 			e.disminuirTiempoDeConstruccion();
 
-			if (e.getTiempoDeConstruccion() == 0) {
+			if (e.getTiempoDeConstruccionActual() == 0) {
 
 				Construible t = e.finalizarConstruccion();
 				construccionesCreadas.add(t);

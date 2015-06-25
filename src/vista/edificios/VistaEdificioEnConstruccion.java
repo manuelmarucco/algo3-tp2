@@ -4,6 +4,7 @@ import construcciones.EdificioEnConstruccion;
 import interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
+import vista.panelesDeEstado.panelesDeConstruccion.PanelEdificioEnConstruccion;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
@@ -30,6 +31,18 @@ public class VistaEdificioEnConstruccion  extends ImagePanel implements IVista {
 
     @Override
     public void actualizarPanelEstado() {
+        PanelEdificioEnConstruccion panelDeConstruccion = new PanelEdificioEnConstruccion();
 
+        ventanaJugador.borrarPanelDeEstadoAnterior();
+        this.cargarInfoAlPanelDeEstado(panelDeConstruccion);
+        ventanaJugador.mostrarPanelDeEstado(panelDeConstruccion);
+
+    }
+
+    private void cargarInfoAlPanelDeEstado(PanelEdificioEnConstruccion panelDeConstruccion) {
+
+        panelDeConstruccion.setNombre(edificio.getEdificioAConvertirse().getClass().getSimpleName());
+        panelDeConstruccion.setVida(String.valueOf(edificio.getEdificioAConvertirse().getVida()));
+        panelDeConstruccion.setTiempoDeConstruccion(edificio.getTiempoDeConstruccionActual(),edificio.getEdificioAConvertirse().getTiempoDeConstruccion());
     }
 }

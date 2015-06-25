@@ -70,6 +70,8 @@ public abstract class VentanaJugador extends JFrame {
         this.panelLateral = new JPanel();
         this.panelLateral.setLayout(new BoxLayout(panelLateral, BoxLayout.Y_AXIS));
         this.displayNotificaciones = new DisplayNotificaciones();
+       // this.panelLateral.setPreferredSize(displayNotificaciones.getDimension());
+       // this.panelLateral.setMaximumSize(displayNotificaciones.getDimension());
         this.panelLateral.add(displayNotificaciones);
     }
 
@@ -172,6 +174,10 @@ public abstract class VentanaJugador extends JFrame {
 
     public AccionUnidad getAccionActuarEnEspera() {
         return accionActuarEnEspera.getAccionActuar();
+    }
+
+    public void limpiarPaneles() {
+        this.borrarPanelDeEstadoAnterior();
     }
 }
 

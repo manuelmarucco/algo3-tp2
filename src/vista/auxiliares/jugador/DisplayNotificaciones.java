@@ -12,6 +12,7 @@ public class DisplayNotificaciones extends JPanel {
     private JLayeredPane layeredPane;
     private JTextArea notificacion;
     private JLabel background;
+    private  Dimension dimension;
 
     public DisplayNotificaciones(){
 
@@ -36,6 +37,7 @@ public class DisplayNotificaciones extends JPanel {
 
     private void initBackground() {
         ImageIcon imageBackground = new ImageIcon("images/menu/panelNotificaciones.png");
+        dimension = new Dimension(imageBackground.getIconWidth(),imageBackground.getIconHeight());
         this.background = new JLabel(imageBackground);
         this.background.setBounds(0, 0, imageBackground.getIconWidth(), imageBackground.getIconHeight());
 
@@ -71,6 +73,9 @@ public class DisplayNotificaciones extends JPanel {
 
     }
 
+    public Dimension getDimension(){
+        return  dimension;
+    }
 /*
     private static BufferedImage cambiarTamanio(BufferedImage img, int newW, int newH) {
         Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);

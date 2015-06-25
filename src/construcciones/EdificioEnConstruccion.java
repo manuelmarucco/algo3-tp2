@@ -24,7 +24,7 @@ public class EdificioEnConstruccion implements ColocableEnMapa, Daniable {
         this.tiempoDeConstruccion--;
     }
 
-    public int getTiempoDeConstruccion() {
+    public int getTiempoDeConstruccionActual() {
         return tiempoDeConstruccion;
     }
 
@@ -66,5 +66,9 @@ public class EdificioEnConstruccion implements ColocableEnMapa, Daniable {
     @Override
     public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
+    }
+
+    public Construccion getEdificioAConvertirse() {
+        return (Construccion)construccionAConvertirse;
     }
 }

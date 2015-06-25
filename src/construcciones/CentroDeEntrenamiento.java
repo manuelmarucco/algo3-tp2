@@ -18,7 +18,6 @@ import java.util.Queue;
 public abstract class CentroDeEntrenamiento extends Construccion{
 
     protected Queue<Entrenable> colaDeEntrenamiento = new LinkedList<>();
-   // protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<>();
     protected Jugador jugador;
 
     private void crearUnidad(Entrenable unidad) throws ExcepcionNoSePudoCrearUnidadPorNoTenerEspacioAlrededorDeEdificio {
@@ -98,6 +97,10 @@ public abstract class CentroDeEntrenamiento extends Construccion{
             }
         }
         //this.regenerar.regenerar(this);
+    }
+
+    public Queue<Entrenable> getColaDeEntrenamiento(){
+        return colaDeEntrenamiento;
     }
 
 
