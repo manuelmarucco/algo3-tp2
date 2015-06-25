@@ -13,6 +13,6 @@ public class AccionSalir implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.dispose();
     }
 }

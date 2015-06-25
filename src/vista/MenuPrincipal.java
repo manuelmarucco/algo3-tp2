@@ -30,21 +30,16 @@ public class MenuPrincipal extends JFrame {
         ventanaJuego = new VentanaJuego(new Juego(2));
 
         //configuracion del boton "Jugar"
-        ImageIcon boton = new ImageIcon("images/menu/botonJugar.png");
-        jugarBoton.setIcon(boton);
-       // jugarBoton.setPreferredSize(new Dimension(boton.getIconWidth(),boton.getIconHeight()));
-        salirBoton.setBackground(new Color(0,0,150,80));
+        jugarBoton.setIcon( new ImageIcon("images/menu/botonJugar.png"));
         jugarBoton.setMargin(new Insets(0, 0, 0, 0));
-       // jugarBoton.setBorder(null);
+        jugarBoton.setOpaque(false);
         jugarBoton.addActionListener(new AccionJugar(ventanaJuego));
 
 
         //configuracion del boton "Jugar"
         salirBoton.setIcon(new ImageIcon("images/menu/salirBoton.png"));
-      //  salirBoton.setPreferredSize(new Dimension(boton.getIconWidth(),boton.getIconHeight()));
         salirBoton.setBackground(new Color(0,0,150,80));
         salirBoton.setMargin(new Insets(0, 0, 0, 0));
-        // jugarBoton.setBorder(null);
         salirBoton.addActionListener(new AccionSalir(this));
 
         //configuracion del fondo de pantalla
