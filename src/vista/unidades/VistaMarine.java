@@ -22,7 +22,6 @@ public class VistaMarine extends ImagePanel implements IVista{
         super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
         this.marine= (Marine) marine;
         this.ventanaJugador=ventanaJugador;
-        //this.addMouseListener(new MouseActionObtenerInfoMarine(this.marine,ventanaJugador));
     }
 
     @Override
