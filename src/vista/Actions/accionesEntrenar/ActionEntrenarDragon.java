@@ -3,6 +3,7 @@ package vista.Actions.accionesEntrenar;
 import construcciones.protoss.Acceso;
 import control.ObservadorDeExcepciones;
 import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
+import vista.ventanaJugadores.ObservadorEstado;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
 import java.awt.event.MouseEvent;
@@ -25,6 +26,7 @@ public class ActionEntrenarDragon implements MouseListener {
 
             System.out.println("Dragon en entrenamiento");
             ObservadorRecursosSuministros.getInstance().informarCambios();
+            ObservadorEstado.getInstance().informarCambios();
 
         } catch (ExcepcionNoSePuedeEntrenarUnidad e) {
             ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);

@@ -3,6 +3,7 @@ package vista.Actions.accionesEntrenar;
 import construcciones.terran.PuertoEstelar;
 import control.ObservadorDeExcepciones;
 import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
+import vista.ventanaJugadores.ObservadorEstado;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
 import java.awt.event.MouseEvent;
@@ -22,6 +23,7 @@ public class ActionEntrenarNaveCiencia implements MouseListener {
             puertoEstelar.entrenarNaveCiencia();
             System.out.println("NaveCiencia en entrenamiento");
             ObservadorRecursosSuministros.getInstance().informarCambios();
+            ObservadorEstado.getInstance().informarCambios();
 
         } catch (ExcepcionNoSePuedeEntrenarUnidad e) {
             ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);

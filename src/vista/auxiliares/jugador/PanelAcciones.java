@@ -204,7 +204,7 @@ public class PanelAcciones extends JPanel {
         this.button3.setEnabled(true);
         this.button3.setVisible(true);
         this.button3.setText("Entrenar Espectro");
-        this.button3.addMouseListener(new ActionEntrenarEsprectro(unidad));
+        this.button3.addMouseListener(new ActionEntrenarEspectro(unidad));
     }
 
     public void configurarBotones(CentroDeSuministros unidad) {
