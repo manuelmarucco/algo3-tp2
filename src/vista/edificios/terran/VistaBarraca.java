@@ -1,6 +1,7 @@
 package vista.edificios.terran;
 
 import construcciones.terran.Barraca;
+import control.BufferImagenes;
 import interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
@@ -12,11 +13,21 @@ import java.awt.*;
 
 public class VistaBarraca extends ImagePanel implements IVista {
 
+    //private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
     private static final int ANCHO = 64;
     private static final int ALTO = 64;
     private final Barraca barraca;
     private static String pathImagen="images/construcciones/terran/barraca.png";
     private final VentanaJugador ventanaJugador;
+
+    /*
+    public VistaBarraca(ColocableEnMapa barraca,VentanaJugador ventanaJugador) {
+        super( ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("barraca").getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST) );
+        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
+        this.edificio = (Barraca) barraca;
+        this.ventanaJugador=ventanaJugador;
+    }
+    */
 
     public VistaBarraca(ColocableEnMapa barraca,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO,ALTO, Image.SCALE_FAST));
@@ -24,6 +35,7 @@ public class VistaBarraca extends ImagePanel implements IVista {
         this.barraca=(Barraca) barraca;
         this.ventanaJugador=ventanaJugador;
     }
+
 
     @Override
     public void actualizarBotonera() {
