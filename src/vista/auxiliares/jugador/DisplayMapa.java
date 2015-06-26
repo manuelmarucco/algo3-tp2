@@ -35,12 +35,6 @@ public class DisplayMapa extends JPanel {
 
     // Metodos -----
 
-    public DisplayMapa(){
-
-        this.controlador = new ControladorDeVistaMapa();
-        this.init();
-
-    }
 
     public DisplayMapa(VentanaJugador ventana){
 

@@ -12,7 +12,7 @@ public class VistaNaveTransporteTerran extends ImagePanel implements IVista{
     private static final int ANCHO = 64;
     private static final int ALTO = 64;
     private final NaveTransporteTerran unidad;
-    private static String pathImagen = "images/unidades/terrran/naveTRansporte.png";
+    private static String pathImagen="images/unidades/terrran/naveTRansporte.png";
     private final VentanaJugador ventanaJugador;
 
     public VistaNaveTransporteTerran(NaveTransporteTerran nave,VentanaJugador ventanaJugador) {

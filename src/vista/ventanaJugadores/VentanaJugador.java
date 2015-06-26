@@ -165,7 +165,14 @@ public abstract class VentanaJugador extends JFrame {
     }
 
     public void repaint(){
+        this.panelRecursos.revalidate();
         this.panelRecursos.repaint();
+
+        this.panelLateral.revalidate();
+        this.panelLateral.repaint();
+
+        this.panelMapa.revalidate();
+        this.panelMapa.repaint();
     }
 
     public Jugador obtenerJugador(){
@@ -177,7 +184,10 @@ public abstract class VentanaJugador extends JFrame {
     }
 
     public void limpiarPaneles() {
-        this.borrarPanelDeEstadoAnterior();
+        //this.borrarPanelDeEstadoAnterior();
+
+        if(this.panelLateral.getComponents().length == 1) return;
+        this.panelLateral.getComponent(1).repaint();
     }
 }
 

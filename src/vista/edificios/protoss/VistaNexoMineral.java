@@ -14,7 +14,7 @@ public class VistaNexoMineral extends ImagePanel implements IVista{
     private static final int ALTO = 64;
     private final NexoMineral edificio;
     private final VentanaJugador ventanaJugador;
-    private static String pathImagen="images/construcciones/protoss/nexoMineral.png";
+    private static String pathImagen="images/construcciones/protoss/asimilador.png";
 
     public VistaNexoMineral(ColocableEnMapa nexoMineral, VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, java.awt.Image.SCALE_SMOOTH));

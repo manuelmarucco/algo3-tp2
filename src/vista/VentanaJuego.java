@@ -32,6 +32,7 @@ public class VentanaJuego {
         this.setearParametrosDeVentana(ventanaJugadorActual);
 
         ventanaJugadorActual.limpiarPaneles();
+        ventanaJugadorActual.revalidate();
         ventanaJugadorActual.repaint();
         
     }

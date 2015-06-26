@@ -1,35 +1,25 @@
 package vista.panelesDeEstado.panelesDeConstruccion;
 
+import construcciones.EdificioEnConstruccion;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class PanelEdificioEnConstruccion extends PanelConstruccion {
     private JPanel panelTiempoDeConstruccion;
+    private EdificioEnConstruccion edificio;
 
 
 
     public PanelEdificioEnConstruccion(){
-        this.crearLabels();
-        this.crearPaneles();
-
-        this.add(panelPrincipal);
-
+        this.inicializarPanelesPadre();
     }
 
 
-    @Override
-    protected void crearLabels() {
+    private void inicializarPanelesPadre(){
         super.crearLabels();
-
-    }
-
-    @Override
-    protected void crearPaneles() {
         super.crearPaneles();
-
-        this.crearPanelTiempoDeConstruccion();
-
-
+        this.add(panelPrincipal);
     }
 
     private void crearPanelTiempoDeConstruccion() {
@@ -42,6 +32,8 @@ public class PanelEdificioEnConstruccion extends PanelConstruccion {
     }
 
     public void mostrarTiempoDeConstruccion(int tiempoDeConstruccionActual, int tiempoDeConstruccionTotal){
+        this.crearPanelTiempoDeConstruccion();
+
         JProgressBar progressTiempoDeConstruccion = new JProgressBar(0,tiempoDeConstruccionTotal);
         progressTiempoDeConstruccion.setPreferredSize(new Dimension(190,20));
         progressTiempoDeConstruccion.setMaximumSize(new Dimension(190, 20));
@@ -52,6 +44,25 @@ public class PanelEdificioEnConstruccion extends PanelConstruccion {
         progressTiempoDeConstruccion.setString(String.valueOf(tiempoDeConstruccionActual)+" turnos para finalizar");
         panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
         panelPrincipal.add(progressTiempoDeConstruccion);
+    }
+
+    public void cargarDatosDeEdificioEnConstruccion(EdificioEnConstruccion e){
+        this.edificio = e;
+        this.setNombre(edificio.getEdificioAConvertirse().getClass().getSimpleName());
+        this.setVida(String.valueOf(edificio.getEdificioAConvertirse().getVida()));
+        this.mostrarTiempoDeConstruccion(edificio.getTiempoDeConstruccionActual(), edificio.getEdificioAConvertirse().getTiempoDeConstruccion());
+
+    }
+
+    @Override
+    public void repaint(){
+        if(edificio!= null) {
+            this.panelPrincipal.removeAll();
+            this.crearLabels();
+            this.crearPaneles();
+            this.add(panelPrincipal);
+            this.cargarDatosDeEdificioEnConstruccion(this.edificio);
+        }
     }
 
 }

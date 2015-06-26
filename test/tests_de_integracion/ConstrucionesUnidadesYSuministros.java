@@ -4,11 +4,11 @@ import construcciones.protoss.Acceso;
 import construcciones.protoss.Pilon;
 import construcciones.terran.DepositoDeSuministros;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -34,7 +34,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void NoPuedoEntrenarMasUnidadesPorLlegarALLimiteDeSuministros(){
+    public void NoPuedoEntrenarMasUnidadesPorLlegarALLimiteDeSuministros() throws ExcepcionNoSePuedeEntrenarUnidad {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),new Suministros(4,5));// 4 usados, 5 limite
         Acceso a = new Acceso(j);
         Dragon d;
