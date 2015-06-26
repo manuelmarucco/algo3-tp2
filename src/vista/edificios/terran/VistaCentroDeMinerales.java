@@ -1,6 +1,7 @@
 package vista.edificios.terran;
 
 import construcciones.terran.CentroDeMineral;
+import control.BufferImagenes;
 import interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
@@ -13,13 +14,13 @@ public class VistaCentroDeMinerales extends ImagePanel implements IVista{
 
     private static final int ANCHO = 64;
     private static final int ALTO = 64;
+    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
     private final CentroDeMineral edificio;
     private final VentanaJugador ventanaJugador;
-    private static String pathImagen="images/construcciones/terran/centro_de_minerales.png";
 
     public VistaCentroDeMinerales(ColocableEnMapa centroDeMineral, VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
-        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
+        super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("CemtroDeMinerales").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
+        super.setBackground( BUFFERIMAGENES.obtenerImagen("Pasto").getImage());
         this.edificio= (CentroDeMineral) centroDeMineral;
         this.ventanaJugador=ventanaJugador;
     }

@@ -1,6 +1,7 @@
 package vista.edificios.terran;
 
 import construcciones.terran.Fabrica;
+import control.BufferImagenes;
 import interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
@@ -14,14 +15,15 @@ public class VistaFabrica extends ImagePanel implements IVista{
 
     private static final int ANCHO = 64;
     private static final int ALTO = 64;
+    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
     private final Fabrica edificio;
     private final VentanaJugador ventanaJugador;
-    private static String pathImagen="images/construcciones/terran/fabrica.png";
+
 
 
     public VistaFabrica(ColocableEnMapa fabrica, VentanaJugador ventanaJugador) {
-        super(ANCHO, ALTO, new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
-        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
+        super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("DepositoDeSuministros").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
+        super.setBackground( BUFFERIMAGENES.obtenerImagen("Pasto").getImage());
         this.edificio= (Fabrica) fabrica;
         this.ventanaJugador=ventanaJugador;
     }

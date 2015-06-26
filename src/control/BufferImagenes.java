@@ -1,16 +1,13 @@
 package control;
 
-
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.awt.image.BufferedImage;
+import javax.swing.*;
 import java.io.IOException;
 import java.util.HashMap;
 
 public class BufferImagenes {
 
-    HashMap<String,BufferedImage> buffer;
-    int ancho,alto;
+    private static HashMap<String,ImageIcon> buffer;
+    private int ancho,alto;
 
     public BufferImagenes(){
 
@@ -20,7 +17,7 @@ public class BufferImagenes {
 
         try {
 
-                this.cargarImagenesDeConstrucciones();
+            this.cargarImagenesDeConstrucciones();
             this.cargarImagenesDeUnidades();
             this.cargarImagenesDePaisaje();
 
@@ -30,7 +27,7 @@ public class BufferImagenes {
 
     }
 
-    public Image obtenerImagen( String nombreImagen ){
+    public ImageIcon obtenerImagen( String nombreImagen ){
 
         return ( this.buffer.get(nombreImagen) );
 
@@ -40,50 +37,49 @@ public class BufferImagenes {
 
         // Terran ------------------------------------------------------------------------------------------------------
         
-                        buffer.put("barraca", ImageIO.read(getClass().getResource("images/construcciones/terran/barraca.png")));
-        buffer.put("CemtroDeMinerales", ImageIO.read(getClass().getResource("images/construcciones/terran/centro_de_minerales.png")));
-        buffer.put("DepositoDeSuministros", ImageIO.read(getClass().getResource("images/construcciones/terran/deposito_de_suministros.png")));
-        buffer.put("Fabrica", ImageIO.read(getClass().getResource("images/construcciones/terran/fabrica.png")));
-        buffer.put("PuertoEstelar", ImageIO.read(getClass().getResource("images/construcciones/terran/puerto_estelar.png")));
-        buffer.put("Refineria", ImageIO.read(getClass().getResource("images/construcciones/terran/refineria.png")));
+        buffer.put("Barraca", new ImageIcon("images/construcciones/terran/barraca.png"));
+        buffer.put("CemtroDeMinerales", new ImageIcon("images/construcciones/terran/centro_de_minerales.png"));
+        buffer.put("DepositoDeSuministros", new ImageIcon("images/construcciones/terran/deposito_de_suministros.png"));
+        buffer.put("Fabrica", new ImageIcon("images/construcciones/terran/fabrica.png"));
+        buffer.put("PuertoEstelar", new ImageIcon("images/construcciones/terran/puerto_estelar.png"));
+        buffer.put("Refineria", new ImageIcon("images/construcciones/terran/refineria.png"));
 
         // Protoss -----------------------------------------------------------------------------------------------------
         
-                        buffer.put("Acceso", ImageIO.read(getClass().getResource("images/construcciones/protoss/acceso.png")));
-        buffer.put("ArchivosTemplarios", ImageIO.read(getClass().getResource("images/construcciones/protoss/archivosTemplarios.png")));
-        buffer.put("Asimilador", ImageIO.read(getClass().getResource("images/construcciones/protoss/asimilador.png")));
-        buffer.put("NexoMineral", ImageIO.read(getClass().getResource("images/construcciones/protoss/nexoMineral.png")));
-        buffer.put("Pilon", ImageIO.read(getClass().getResource("images/construcciones/protoss/pilon.png")));
-        buffer.put("PortalEstelar", ImageIO.read(getClass().getResource("images/construcciones/protoss/portalEstelar.png")));
+        buffer.put("Acceso", new ImageIcon("images/construcciones/protoss/acceso.png"));
+        buffer.put("ArchivosTemplarios", new ImageIcon("images/construcciones/protoss/archivosTemplarios.png"));
+        buffer.put("Asimilador", new ImageIcon("images/construcciones/protoss/asimilador.png"));
+        buffer.put("NexoMineral", new ImageIcon("images/construcciones/protoss/nexoMineral.png"));
+        buffer.put("Pilon", new ImageIcon("images/construcciones/protoss/pilon.png"));
+        buffer.put("PortalEstelar", new ImageIcon("images/construcciones/protoss/portalEstelar.png"));
 
-        //new ImageIcon(buffer.get("Barraca")).getImage().getScaledInstance(this.alto, this.ancho ,Image.SCALE_FAST);
-            }
+    }
 
     private void cargarImagenesDeUnidades() throws IOException {
 
         // Terran ------------------------------------------------------------------------------------------------------
         
-                        buffer.put("Marine", ImageIO.read(getClass().getResource("images/unidades/terrran/marine.png")));
-        buffer.put("Golliat", ImageIO.read(getClass().getResource("images/unidades/terrran/golliat.png")));
-        buffer.put("Espectro", ImageIO.read(getClass().getResource("images/unidades/terrran/espectro.png")));
-        buffer.put("NaveCiencia", ImageIO.read(getClass().getResource("images/unidades/terrran/naveCiencia.png")));
-        buffer.put("NaveTransporteTerran", ImageIO.read(getClass().getResource("images/unidades/terrran/naveTRansporte.png")));
+        buffer.put("Marine", new ImageIcon("images/unidades/terrran/marine.png"));
+        buffer.put("Golliat", new ImageIcon("images/unidades/terrran/golliat.png"));
+        buffer.put("Espectro", new ImageIcon("images/unidades/terrran/espectro.png"));
+        buffer.put("NaveCiencia", new ImageIcon("images/unidades/terrran/naveCiencia.png"));
+        buffer.put("NaveTransporteTerran", new ImageIcon("images/unidades/terrran/naveTRansporte.png"));
 
         // Protoss -----------------------------------------------------------------------------------------------------
         
-                        buffer.put("Zealot", ImageIO.read(getClass().getResource("images/unidades/protoss/zealot.png")));
-        buffer.put("Dragon", ImageIO.read(getClass().getResource("images/unidades/protoss/dragon.png")));
-        buffer.put("Scout", ImageIO.read(getClass().getResource("images/unidades/protoss/scout.png")));
-        buffer.put("AltoTemplario", ImageIO.read(getClass().getResource("images/unidades/protoss/altoTemplario.png")));
-        buffer.put("NaveTransporteProtoss", ImageIO.read(getClass().getResource("images/unidades/protoss/naveTransporte.png")));
+        buffer.put("Zealot", new ImageIcon("images/unidades/protoss/zealot.png"));
+        buffer.put("Dragon", new ImageIcon("images/unidades/protoss/dragon.png"));
+        buffer.put("Scout", new ImageIcon("images/unidades/protoss/scout.png"));
+        buffer.put("AltoTemplario", new ImageIcon("images/unidades/protoss/altoTemplario.png"));
+        buffer.put("NaveTransporteProtoss", new ImageIcon("images/unidades/protoss/naveTransporte.png"));
 
     }
 
     private void cargarImagenesDePaisaje() throws IOException {
 
-        buffer.put("Aire", ImageIO.read(getClass().getResource("src/vista/paisaje/imagenes/aire.png")));
-        buffer.put("Rocas", ImageIO.read(getClass().getResource("src/vista/paisaje/imagenes/rocas.png")));
-        buffer.put("Pasto", ImageIO.read(getClass().getResource("src/vista/paisaje/imagenes/pasto.png")));
+        buffer.put("Aire", new ImageIcon("src/vista/paisaje/imagenes/aire.png"));
+        buffer.put("Rocas", new ImageIcon("src/vista/paisaje/imagenes/rocas.png"));
+        buffer.put("Pasto", new ImageIcon("src/vista/paisaje/imagenes/pasto.png"));
 
     }
 
