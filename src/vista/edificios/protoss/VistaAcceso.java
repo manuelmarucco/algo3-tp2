@@ -42,9 +42,9 @@ public class VistaAcceso extends ImagePanel implements IVista {
 
     private void cargarInfoAlPanelDeEstado(PanelCentroDeEntrenamiento panelDeConstruccion) {
 
-        panelDeConstruccion.setNombre(edificio.getClass().getSimpleName());
-        panelDeConstruccion.setVida(String.valueOf(edificio.getVida()));
-        panelDeConstruccion.setVida(String.valueOf(edificio.getEscudo()));
+        panelDeConstruccion.cargarNombre(edificio.getClass().getSimpleName());
+        panelDeConstruccion.cargarVida(String.valueOf(edificio.getVida()));
+        panelDeConstruccion.cargarEscudo(String.valueOf(edificio.getEscudo()));
         panelDeConstruccion.mostrarColaDeEntrenamiento(edificio.getColaDeEntrenamiento());
     }
 }

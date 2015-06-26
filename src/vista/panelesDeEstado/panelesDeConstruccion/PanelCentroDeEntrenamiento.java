@@ -11,6 +11,8 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
     private  JTree treeColaDeEntrenamiento;
     private DefaultMutableTreeNode root;
     private JPanel panelTiempoDeEntrenamientoDeUnidad;
+    private Queue<Entrenable> colaDeEntrenamiento;
+    private Container contenedorColaYTiempo;
 
 
     public PanelCentroDeEntrenamiento(){
@@ -18,26 +20,11 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
         super.crearPaneles();
 
         this.add(panelPrincipal);
+
+        contenedorColaYTiempo = new Container();
+        contenedorColaYTiempo.setLayout(new BoxLayout(contenedorColaYTiempo, BoxLayout.Y_AXIS));
+        this.panelPrincipal.add(contenedorColaYTiempo);
     }
-
-/*
-    @Override
-    protected void crearLabels() {
-        super.crearLabels();
-        //this.crearTreeColaDeEntrenamiento();
-
-    }
-
-
-    @Override
-    protected void crearPaneles() {
-        super.crearPaneles();
-
-        //this.crearPanelColaDeEntrenamiento();
-        //this.crearPanelTiempoDeEntrenamientoDeUnidad();
-
-    }
-*/
 
     public void mostrarColaDeEntrenamiento(Queue<Entrenable> colaDeEntrenamiento) {
         if(colaDeEntrenamiento.size() == 0) return;
@@ -59,12 +46,14 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
 
         JScrollPane panelColaDeEntrenamiento = new JScrollPane(treeColaDeEntrenamiento);
         panelColaDeEntrenamiento.setPreferredSize(new Dimension(170,60));
-        this.panelPrincipal.add(panelColaDeEntrenamiento);
+       // this.panelPrincipal.add(panelColaDeEntrenamiento);
+        this.contenedorColaYTiempo.add(panelColaDeEntrenamiento);
+
 
         //TODO no logré hacer que sea scrolleable
     }
 
-    public void mostrarTiempoDeEntrenamiento(Entrenable unidad){
+    private void mostrarTiempoDeEntrenamiento(Entrenable unidad){
         int tiempoDeEntrenamientoTotal = unidad.getTiempoDeEntrenamientoTotal();
         int tiempoDeEntrenamientoActual = unidad.getTiempoDeEntrenamientoActual();
 
@@ -78,21 +67,39 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
         progressTiempoDeEntrenamiento.setVisible(true);
 
         progressTiempoDeEntrenamiento.setString(String.valueOf(tiempoDeEntrenamientoActual) + " turnos para finalizar");
-        this.panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
-        this.panelPrincipal.add(progressTiempoDeEntrenamiento);
+       // this.panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
+        // this.panelPrincipal.add(progressTiempoDeEntrenamiento);
+        this.contenedorColaYTiempo.add(Box.createRigidArea(new Dimension(10, 10)));
+        this.contenedorColaYTiempo.add(progressTiempoDeEntrenamiento);
+
     }
 
 
     private void crearLabelDeUnidadEnEntrenamiento(String nombreDeUnidad) {
-        panelTiempoDeEntrenamientoDeUnidad = new JPanel();
+        this.panelTiempoDeEntrenamientoDeUnidad = new JPanel();
 
-        panelTiempoDeEntrenamientoDeUnidad.setLayout(new BoxLayout(panelTiempoDeEntrenamientoDeUnidad, BoxLayout.X_AXIS));
-        panelTiempoDeEntrenamientoDeUnidad.add(new JLabel("Entrenando "+nombreDeUnidad+"..."));
+        this.panelTiempoDeEntrenamientoDeUnidad.setLayout(new BoxLayout(panelTiempoDeEntrenamientoDeUnidad, BoxLayout.X_AXIS));
+        this.panelTiempoDeEntrenamientoDeUnidad.add(new JLabel("Entrenando "+nombreDeUnidad+"..."));
 
-        this.panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
-        this.panelPrincipal.add(panelTiempoDeEntrenamientoDeUnidad);
+      //  this.panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
+      //  this.panelPrincipal.add(this.panelTiempoDeEntrenamientoDeUnidad);
+        this.contenedorColaYTiempo.add(Box.createRigidArea(new Dimension(10, 10)));
+        this.contenedorColaYTiempo.add(this.panelTiempoDeEntrenamientoDeUnidad);
 
     }
 
+    @Override
+    public void repaint(){
+        if(this.colaDeEntrenamiento!= null) {
+            this.contenedorColaYTiempo.removeAll();
+            this.cargarDatosDeColaDeEntrenamiento(this.colaDeEntrenamiento);
+        }
+    }
 
+
+    public void cargarDatosDeColaDeEntrenamiento(Queue<Entrenable> colaDeEntrenamiento) {
+        this.colaDeEntrenamiento = colaDeEntrenamiento;
+
+        this.mostrarColaDeEntrenamiento(colaDeEntrenamiento);
+    }
 }

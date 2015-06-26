@@ -61,15 +61,15 @@ public abstract class PanelConstruccion extends JPanel {
 
     }
 
-    public void setNombre(String string){
+    public void cargarNombre(String string){
         nombre.setText(string);
     }
 
-    public void setVida(String string){
+    public void cargarVida(String string){
         vida.setText(string);
     }
 
-    public void setEscudo(String string){
+    public void cargarEscudo(String string){
         escudo.setText(string);
         escudo.setVisible(true);
     }

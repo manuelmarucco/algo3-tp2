@@ -42,8 +42,8 @@ public class VistaPuertoEstelar extends ImagePanel implements IVista{
 
     private void cargarInfoAlPanelDeEstado(PanelCentroDeEntrenamiento panelDeConstruccion) {
 
-        panelDeConstruccion.setNombre(edificio.getClass().getSimpleName());
-        panelDeConstruccion.setVida(String.valueOf(edificio.getVida()));
+        panelDeConstruccion.cargarNombre(edificio.getClass().getSimpleName());
+        panelDeConstruccion.cargarVida(String.valueOf(edificio.getVida()));
         panelDeConstruccion.mostrarColaDeEntrenamiento(edificio.getColaDeEntrenamiento());
     }
 }

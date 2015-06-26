@@ -15,14 +15,14 @@ public class VistaBarraca extends ImagePanel implements IVista {
     //private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
     private static final int ANCHO = 64;
     private static final int ALTO = 64;
-    private final Barraca barraca;
+    private final Barraca edificio;
     private static String pathImagen="images/construcciones/terran/barraca.png";
     private final VentanaJugador ventanaJugador;
 
     public VistaBarraca(ColocableEnMapa barraca,VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO,ALTO, Image.SCALE_FAST));
         super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
-        this.barraca=(Barraca) barraca;
+        this.edificio=(Barraca) barraca;
         this.ventanaJugador=ventanaJugador;
     }
 
@@ -37,7 +37,7 @@ public class VistaBarraca extends ImagePanel implements IVista {
 
     @Override
     public void actualizarBotonera() {
-        ventanaJugador.getPanelAcciones().configurarBotones(barraca);
+        ventanaJugador.getPanelAcciones().configurarBotones(edificio);
     }
 
     @Override
@@ -52,8 +52,8 @@ public class VistaBarraca extends ImagePanel implements IVista {
 
     private void cargarInfoAlPanelDeEstado(PanelCentroDeEntrenamiento panelDeConstruccion) {
 
-        panelDeConstruccion.setNombre(barraca.getClass().getSimpleName());
-        panelDeConstruccion.setVida(String.valueOf(barraca.getVida()));
-        panelDeConstruccion.mostrarColaDeEntrenamiento(barraca.getColaDeEntrenamiento());
+        panelDeConstruccion.cargarNombre(edificio.getClass().getSimpleName());
+        panelDeConstruccion.cargarVida(String.valueOf(edificio.getVida()));
+        panelDeConstruccion.cargarDatosDeColaDeEntrenamiento(edificio.getColaDeEntrenamiento());
     }
 }

@@ -41,8 +41,8 @@ public class VistaEdificioEnConstruccion  extends ImagePanel implements IVista {
 
     private void cargarInfoAlPanelDeEstado(PanelEdificioEnConstruccion panelDeConstruccion) {
 /*
-        panelDeConstruccion.setNombre(edificio.getEdificioAConvertirse().getClass().getSimpleName());
-        panelDeConstruccion.setVida(String.valueOf(edificio.getEdificioAConvertirse().getVida()));
+        panelDeConstruccion.cargarNombre(edificio.getEdificioAConvertirse().getClass().getSimpleName());
+        panelDeConstruccion.cargarVida(String.valueOf(edificio.getEdificioAConvertirse().getVida()));
         panelDeConstruccion.mostrarTiempoDeConstruccion(edificio.getTiempoDeConstruccionActual(), edificio.getEdificioAConvertirse().getTiempoDeConstruccion());
         //TODO ver como se si tiene escudo o no.
         */

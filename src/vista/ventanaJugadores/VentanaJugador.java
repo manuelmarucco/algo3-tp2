@@ -45,7 +45,7 @@ public abstract class VentanaJugador extends JFrame {
 
     // Metodos -------------------------
     protected void init(){
-
+        ObservadorEstado.getInstance().agregarVentana(this);
         this.accionConstruirEnEspera = new WraperAccionConstruir();
         this.accionActuarEnEspera = new WraperAccionActuar();
         this.crearPaneles();
@@ -183,11 +183,11 @@ public abstract class VentanaJugador extends JFrame {
         return accionActuarEnEspera.getAccionActuar();
     }
 
-    public void limpiarPaneles() {
+    public void actualizarPanelDeEstado() {
         //this.borrarPanelDeEstadoAnterior();
 
         if(this.panelLateral.getComponents().length == 1) return;
-        this.panelLateral.getComponent(1).repaint();
+        this.panelLateral.getComponent(1).repaint(); //panel de estado
     }
 }
 

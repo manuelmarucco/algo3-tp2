@@ -46,10 +46,10 @@ public class PanelEdificioEnConstruccion extends PanelConstruccion {
         panelPrincipal.add(progressTiempoDeConstruccion);
     }
 
-    public void cargarDatosDeEdificioEnConstruccion(EdificioEnConstruccion e){
-        this.edificio = e;
-        this.setNombre(edificio.getEdificioAConvertirse().getClass().getSimpleName());
-        this.setVida(String.valueOf(edificio.getEdificioAConvertirse().getVida()));
+    public void cargarDatosDeEdificioEnConstruccion(EdificioEnConstruccion edificioEnConstruccion){
+        this.edificio = edificioEnConstruccion;
+        this.cargarNombre(edificio.getEdificioAConvertirse().getClass().getSimpleName());
+        this.cargarVida(String.valueOf(edificio.getEdificioAConvertirse().getVida()));
         this.mostrarTiempoDeConstruccion(edificio.getTiempoDeConstruccionActual(), edificio.getEdificioAConvertirse().getTiempoDeConstruccion());
 
     }
