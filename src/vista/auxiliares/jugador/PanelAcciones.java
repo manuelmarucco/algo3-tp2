@@ -35,6 +35,7 @@ public class PanelAcciones extends JPanel {
 
     private void init() {
         this.add(panel);
+        this.limpiar();
     }
 
     public void limpiar(){

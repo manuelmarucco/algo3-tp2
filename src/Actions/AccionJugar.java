@@ -1,6 +1,9 @@
 package Actions;
 
+import jugabilidad.Jugador;
 import jugabilidad.utilidadesMapa.Coordenadas;
+import unidades.ProxiDeAtaque;
+import unidades.ProxyDeHechizos;
 import vista.CrearJugador;
 import vista.VentanaJuego;
 import vista.ventanaJugadores.VentanaJugador;
@@ -30,8 +33,11 @@ public class AccionJugar implements ActionListener {
         JButton c = (JButton) (e.getSource());
         c.setVisible(false);
         ventana1=this.crearJugador("Crear Jugador 1",new Coordenadas(4,22));
-        ventana2=this.crearJugador("Crear Jugador 2",new Coordenadas(22,4));
-
+        ventana2=this.crearJugador("Crear Jugador 2", new Coordenadas(22, 4));
+        Jugador jugador1 = ventana1.obtenerJugador();
+        Jugador jugador2 = ventana1.obtenerJugador();
+        ProxyDeHechizos.inicializar(jugador1,jugador2);
+        ProxiDeAtaque.inicializar(jugador1, jugador2);
         ventanaJuego.agregarVentana(ventana1);
         ventanaJuego.agregarVentana(ventana2);
 
