@@ -3,7 +3,7 @@ package jugabilidad.RazaDeJugador;
 import construcciones.Construccion;
 import construcciones.protoss.*;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
