@@ -28,7 +28,7 @@ public class CrearProtoss implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         JLabel label= new JLabel();
-        if(form.getNombreJugador().length()<4){
+        if(form.getNombreJugador().trim().length()<4){
             JOptionPane.showMessageDialog(label, "Ingrese un nombre con 4 o mas letras",
                     "InputError", JOptionPane.ERROR_MESSAGE);
             return;

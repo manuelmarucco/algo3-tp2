@@ -42,7 +42,7 @@ public class CrearJugador extends JDialog {
         this.add(panel1);
         raza.addItem("Terran");
         raza.addItem("Protoss");
-        raza.addActionListener(new SeleccionarRaza(this,retrato,ventanaJuego,nombreUsado,colorUsuado,coordenadas));
+        raza.addActionListener(new SeleccionarRaza(this,retrato,ventanaJuego,colorUsuado,nombreUsado,coordenadas));
         Icon icon;
         if(colorUsuado.compareTo("rojo")!=0) {
             icon = new IconoColor(java.awt.Color.red, "rojo");
