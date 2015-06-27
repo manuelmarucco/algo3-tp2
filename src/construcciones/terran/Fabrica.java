@@ -39,7 +39,8 @@ public class Fabrica extends CentroDeEntrenamiento{
 
 		this.validarCreacionUnidad(g);
 
-		colaDeEntrenamiento.add(g);
+		this.colaDeEntrenamiento.add(g);
+
 		return g;
 	}
 

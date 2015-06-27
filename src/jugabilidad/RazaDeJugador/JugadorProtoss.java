@@ -19,7 +19,7 @@ public class JugadorProtoss extends Jugador {
     public JugadorProtoss(){       //Constructor para el Juego
         this.suministros = new Suministros(0,0);
        // this.recursosRecolectados = new Recursos(200,0);
-        this.recursosRecolectados = new Recursos(500,500); //TODO es para facilitar el comienzo del juego. ponerlo como supuesto
+        this.recursosRecolectados = new Recursos(500,0); //TODO es para facilitar el comienzo del juego. ponerlo como supuesto
         this.tormentasPsionica= new ArrayList<>();
         this.visibilidad = new Vision();
     }
