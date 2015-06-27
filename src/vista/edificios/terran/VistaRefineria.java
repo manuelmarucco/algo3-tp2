@@ -5,9 +5,9 @@ import control.BufferImagenes;
 import interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
+import vista.panelesDeEstado.panelesDeConstruccion.PanelConstruccion;
 import vista.ventanaJugadores.VentanaJugador;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class VistaRefineria extends ImagePanel implements IVista{
@@ -32,7 +32,17 @@ public class VistaRefineria extends ImagePanel implements IVista{
 
     @Override
     public void actualizarPanelEstado() {
-        ventanaJugador.borrarPanelDeEstadoAnterior();
+        PanelConstruccion panelDeConstruccion = new PanelConstruccion();
 
+        ventanaJugador.borrarPanelDeEstadoAnterior();
+        this.cargarInfoAlPanelDeEstado(panelDeConstruccion);
+        ventanaJugador.mostrarPanelDeEstado(panelDeConstruccion);
+
+    }
+
+    private void cargarInfoAlPanelDeEstado(PanelConstruccion panelDeConstruccion) {
+
+        panelDeConstruccion.cargarNombre(edificio.getClass().getSimpleName());
+        panelDeConstruccion.cargarVida(String.valueOf(edificio.getVida()));
     }
 }

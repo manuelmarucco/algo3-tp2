@@ -2,6 +2,8 @@ package vista.panelesDeEstado.panelesDeUnidad;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.font.TextAttribute;
+import java.util.Map;
 
 public abstract class PanelUnidad extends JPanel {
     protected JPanel panePrincipal;
@@ -39,7 +41,11 @@ public abstract class PanelUnidad extends JPanel {
         panelvida.setLayout(new BoxLayout(panelvida, BoxLayout.X_AXIS));
         panelTitulo.setLayout(new BoxLayout(panelTitulo, BoxLayout.X_AXIS));
 
-        panelNombre.add(new JLabel("Nombre:  "));
+        Font font = new Font("Verdana", Font.BOLD, 12);
+        Map attributes = font.getAttributes();
+        attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        nombre.setFont(font.deriveFont(attributes));
+
         panelNombre.add(nombre);
         panelvision.add(new JLabel("Rango De Vision:  "));
         panelvision.add(vision);
@@ -48,13 +54,6 @@ public abstract class PanelUnidad extends JPanel {
         panelescudo.add(new JLabel("Escudo:  "));
         panelescudo.add(escudo);
 
-        JLabel titulo = new JLabel("Estado de la Unidad");
-        titulo.setFont(new Font("Verdana", Font.BOLD, 12));
-        titulo.setOpaque(false);
-        panelTitulo.add(titulo);
-
-        panePrincipal.add(panelTitulo);
-        panePrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
         panePrincipal.add(panelNombre);
         panePrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
         panePrincipal.add(panelvision);

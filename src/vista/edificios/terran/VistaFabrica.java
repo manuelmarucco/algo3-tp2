@@ -8,7 +8,6 @@ import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeConstruccion.PanelCentroDeEntrenamiento;
 import vista.ventanaJugadores.VentanaJugador;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class VistaFabrica extends ImagePanel implements IVista{
@@ -22,7 +21,7 @@ public class VistaFabrica extends ImagePanel implements IVista{
 
 
     public VistaFabrica(ColocableEnMapa fabrica, VentanaJugador ventanaJugador) {
-        super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("DepositoDeSuministros").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
+        super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("Fabrica").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
         super.setBackground( BUFFERIMAGENES.obtenerImagen("Pasto").getImage());
         this.edificio= (Fabrica) fabrica;
         this.ventanaJugador=ventanaJugador;

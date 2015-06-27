@@ -1,6 +1,7 @@
 package vista.edificios.protoss;
 
 import construcciones.protoss.PortalEstelar;
+import control.BufferImagenes;
 import interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
@@ -8,6 +9,7 @@ import vista.panelesDeEstado.panelesDeConstruccion.PanelCentroDeEntrenamiento;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class VistaPortalEstelar extends ImagePanel implements IVista{
 
@@ -15,11 +17,12 @@ public class VistaPortalEstelar extends ImagePanel implements IVista{
     private static final int ALTO = 64;
     private final PortalEstelar edificio;
     private final VentanaJugador ventanaJugador;
-    private static String pathImagen="images/construcciones/protoss/portalEstelar.png";
+    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
+    //private static String pathImagen="images/construcciones/protoss/portalEstelar.png";
 
 
     public VistaPortalEstelar(ColocableEnMapa portalEstelar,VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, java.awt.Image.SCALE_SMOOTH));
+        super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("PortalEstelar").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
         super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
         this.edificio= (PortalEstelar) portalEstelar;
         this.ventanaJugador=ventanaJugador;
