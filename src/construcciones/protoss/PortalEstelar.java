@@ -19,7 +19,7 @@ import unidades.protoss.Scout;
 import java.util.ArrayList;
 
 
-public class PortalEstelar extends CentroDeEntrenamiento{
+public class PortalEstelar extends CentroDeEntrenamiento implements IEdificioProtoss{
 
 
 	public PortalEstelar(){

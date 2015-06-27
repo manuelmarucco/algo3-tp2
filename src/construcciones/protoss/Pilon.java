@@ -9,7 +9,7 @@ import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.protoss.ResistenciaProtoss;
 
 
-public class Pilon extends CentroDeSuministros {
+public class Pilon extends CentroDeSuministros implements IEdificioProtoss {
 	
 	public Pilon(Suministros suministros){
 
