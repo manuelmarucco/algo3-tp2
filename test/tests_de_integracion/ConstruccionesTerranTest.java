@@ -3,7 +3,7 @@ package tests_de_integracion;
 import construcciones.terran.*;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
-import excepciones.construicciones.*;
+import excepciones.construcciones.*;
 import interfaces.Construible;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -71,8 +71,8 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionConstruccionNoRecolectaVolcan.class)
 	public void SeQuiereConstruirUnaCentroDeMineralSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
-		j.setVisibilidad(Vision.VisionCompleta(20, 20));
-		Coordenada coordenada = new Coordenada(0,1);
+		j.setVisibilidad(Vision.VisionCompleta(25, 25));
+		Coordenada coordenada = new Coordenada(1,1);
 		Volcan volcan = new Volcan();
 		CentroDeMineral centroDeMineral;
 		ProxyMapa mapa = ProxyMapa.getInstance();
@@ -108,8 +108,8 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionConstruccionNoRecolectaCristal.class)
 	public void SeQuiereConstruirUnaRefineriaSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran jugador = new JugadorTerran(new Recursos(150,0));
-		jugador.setVisibilidad(Vision.VisionCompleta(20, 20));
-		Coordenada coordenada = new Coordenada(0,1);
+		jugador.setVisibilidad(Vision.VisionCompleta(25, 25));
+		Coordenada coordenada = new Coordenada(1,1);
 		Cristal cristal = new Cristal();
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
@@ -194,6 +194,7 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionNecesitaConstruirBarraca.class)
 	public void JugadorQuiereCrearFabricaPeroNecesitaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Fabrica f;
 		Coordenada coordenada = new Coordenada(5,6);
 		
@@ -225,8 +226,9 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionNecesitaConstruirFabrica.class)
 	public void JugadorQuiereCrearPuertoEstelarPeroNecesitaFabrica() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
+		j.setVisibilidad(Vision.VisionCompleta(25, 25));
 		Coordenada coordenada = new Coordenada(8,8);
-		
+
 		j.construirPuertoEstelar(coordenada);
 
 	}
@@ -236,6 +238,7 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionRecursosInsuficientes.class)
 	public void JugadorNoPuedeConstruirCentroDeMineralPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
+		j.setVisibilidad(Vision.VisionCompleta(25, 25));
 		Cristal cristal = new Cristal();
 		Coordenada coordenada = new Coordenada(1,7);
 		ProxyMapa mapa = ProxyMapa.getInstance();
@@ -249,6 +252,7 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
 	public void JugadorNoPuedeConstruirBarracaPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
+		j.setVisibilidad(Vision.VisionCompleta(25, 25));
 		Coordenada coordenada = new Coordenada(1,8);
 		
 		j.construirBarraca(coordenada);
@@ -290,7 +294,8 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
 	public void JugadorNoPuedeConstruirDepositoDeSuministrosPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
-		Coordenada coordenada = new Coordenada(0,0);
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
+		Coordenada coordenada = new Coordenada(1,1);
 		
 		j.construirDepositoDeSuministros(coordenada);
 	}
@@ -298,6 +303,7 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
 	public void JugadorNoPuedeConstruirRefineriaPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
+		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Volcan volcan = new Volcan();
 		Coordenada coordenada = new Coordenada(1,7);
 		ProxyMapa mapa = ProxyMapa.getInstance();

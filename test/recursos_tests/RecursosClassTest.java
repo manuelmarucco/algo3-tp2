@@ -1,13 +1,11 @@
 package recursos_tests;
 
+import excepciones.construcciones.ExcepcionRecursosInsuficientes;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-
-import excepciones.construicciones.ExcepcionRecursosInsuficientes;
 
 public class RecursosClassTest {
 

@@ -1,12 +1,10 @@
 package jugabilidad.auxiliares_tests;
 
+import excepciones.construcciones.ExcepcionRecursosInsuficientes;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
-
 import org.junit.Assert;
 import org.junit.Test;
-
-import excepciones.construicciones.ExcepcionRecursosInsuficientes;
 
 public class Recursos_Test {
 	
@@ -32,7 +30,7 @@ public class Recursos_Test {
 	public void GasInsuficientesYExcepcion() throws ExcepcionRecursosInsuficientes{
 		Recursos recursos = new Recursos(100,50);
 		
-		recursos.gastarRecursos(new Costo(10,51));
+		recursos.gastarRecursos(new Costo(10, 51));
 		
 	}
 

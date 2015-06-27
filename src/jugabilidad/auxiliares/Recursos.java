@@ -1,8 +1,8 @@
 package jugabilidad.auxiliares;
 
-import excepciones.construicciones.ExcepcionGasInsuficiente;
-import excepciones.construicciones.ExcepcionMineralesInsuficientes;
-import excepciones.construicciones.ExcepcionRecursosInsuficientes;
+import excepciones.construcciones.ExcepcionGasInsuficiente;
+import excepciones.construcciones.ExcepcionMineralesInsuficientes;
+import excepciones.construcciones.ExcepcionRecursosInsuficientes;
 
 public class Recursos {
 
@@ -26,7 +26,9 @@ public class Recursos {
 	}
 	
 	public void gastarRecursos(Costo costoDeEntidad) throws ExcepcionRecursosInsuficientes{
-		
+
+		this.validacionRecursosSuficientes(costoDeEntidad);
+
 		mineralesDisponibles -= costoDeEntidad.getCostoMineral();
 		gasVespenoDisponible -= costoDeEntidad.getCostoGas();
 	}

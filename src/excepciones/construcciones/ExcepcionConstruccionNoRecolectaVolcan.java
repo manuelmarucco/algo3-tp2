@@ -1,4 +1,4 @@
-package excepciones.construicciones;
+package excepciones.construcciones;
 
 public class ExcepcionConstruccionNoRecolectaVolcan extends ExcepcionNoSePuedeConstruir {
 

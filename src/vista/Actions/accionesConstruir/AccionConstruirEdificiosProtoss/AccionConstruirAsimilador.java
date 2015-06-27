@@ -1,7 +1,7 @@
 package vista.Actions.accionesConstruir.AccionConstruirEdificiosProtoss;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.utilidadesMapa.Coordenada;
 import vista.Actions.WraperAccionConstruir;

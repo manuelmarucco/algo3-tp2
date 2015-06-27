@@ -1,4 +1,4 @@
-package excepciones.construicciones;
+package excepciones.construcciones;
 
 public class ExcepcionNoSePuedeEntrenarUnidad extends Exception {
 

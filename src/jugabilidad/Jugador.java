@@ -3,8 +3,9 @@ package jugabilidad;
 import construcciones.Construccion;
 import construcciones.EdificioEnConstruccion;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
-import excepciones.construicciones.ExcepcionSuministrosInsuficientes;
+import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construcciones.ExcepcionNoSePuedeConstruirDondeNoEsVisibleElMapa;
+import excepciones.construcciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Actualizable;
 import interfaces.Construible;
 import interfaces.Entrenable;
@@ -32,7 +33,7 @@ public abstract class Jugador implements Actualizable{
 	protected void 	construir(Construible construccionCreada,Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		ProxyMapa proxyMapa = ProxyMapa.getInstance();
 
-		if(! this.visibilidad.esVisible(coordenada))throw new ExcepcionNoSePuedeConstruir();
+		if(! this.visibilidad.esVisible(coordenada))throw new ExcepcionNoSePuedeConstruirDondeNoEsVisibleElMapa();
 
 		construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados, coordenada);
 
