@@ -1,6 +1,9 @@
 package vista.Actions.accionesMenu;
 
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.Jugador;
+import jugabilidad.utilidadesMapa.Coordenada;
+import unidades.ProxiDeAtaque;
+import unidades.ProxyDeHechizos;
 import vista.CrearJugador;
 import vista.VentanaJuego;
 import vista.ventanaJugadores.VentanaJugador;
@@ -33,7 +36,7 @@ public class AccionJugar implements ActionListener {
         ventana2=this.crearJugador("Crear Jugador 2", new Coordenada(22, 4));
         Jugador jugador1 = ventana1.obtenerJugador();
         Jugador jugador2 = ventana1.obtenerJugador();
-        ProxyDeHechizos.inicializar(jugador1,jugador2);
+        ProxyDeHechizos.inicializar(jugador1, jugador2);
         ProxiDeAtaque.inicializar(jugador1, jugador2);
         ventanaJuego.agregarVentana(ventana1);
         ventanaJuego.agregarVentana(ventana2);
