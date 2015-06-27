@@ -1,24 +1,29 @@
 package vista.unidades;
 
+import control.BufferImagenes;
+import interfaces.ColocableEnMapa;
 import unidades.protoss.NaveTransporteProtoss;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class VistaNaveTransporteProtoss extends ImagePanel implements IVista {
 
-    private static final int ANCHO = 1;
-    private static final int ALTO = 2;
+    private static final int ANCHO = 64;
+    private static final int ALTO = 64;
     private final NaveTransporteProtoss unidad;
     private final VentanaJugador ventanaJugador;
-    private static String pathImagen="images/unidades/protoss/naveTransporte.png";
+    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
 
-    public VistaNaveTransporteProtoss(NaveTransporteProtoss nave,VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, java.awt.Image.SCALE_SMOOTH));
-        this.unidad=nave;
-        this.ventanaJugador=ventanaJugador;
+    public VistaNaveTransporteProtoss(ColocableEnMapa nave,VentanaJugador ventanaJugador) {
+
+        super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("NaveTransporteProtoss").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
+        this.unidad = (NaveTransporteProtoss) nave;
+        this.ventanaJugador = ventanaJugador;
+
     }
 
     @Override

@@ -1,5 +1,6 @@
 package vista.unidades;
 
+import control.BufferImagenes;
 import interfaces.ColocableEnMapa;
 import unidades.terrran.Marine;
 import vista.IVista;
@@ -8,18 +9,19 @@ import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadGuerrera;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class VistaMarine extends ImagePanel implements IVista{
 
     private static final int ANCHO = 64;
     private static final int ALTO = 64;
     private final Marine marine;
-    private static String pathImagen="images/unidades/terrran/marine.png";
+    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
     private final VentanaJugador ventanaJugador;
 
     public VistaMarine(ColocableEnMapa marine,VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, java.awt.Image.SCALE_SMOOTH));
-        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
+        super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("Marine").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
+        super.setBackground( BUFFERIMAGENES.obtenerImagen("Pasto").getImage());
         this.marine= (Marine) marine;
         this.ventanaJugador=ventanaJugador;
     }
