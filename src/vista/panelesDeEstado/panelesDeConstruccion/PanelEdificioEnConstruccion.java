@@ -24,9 +24,12 @@ public class PanelEdificioEnConstruccion extends PanelConstruccion {
 
     private void crearPanelTiempoDeConstruccion() {
         panelTiempoDeConstruccion = new JPanel();
+        JLabel tituloTiempoDeConstruccion = new JLabel("Construyendo...");
+        this.setearFuenteDeJLabel(tituloTiempoDeConstruccion,false,Font.TRUETYPE_FONT,12);
 
         panelTiempoDeConstruccion.setLayout(new BoxLayout(panelTiempoDeConstruccion, BoxLayout.X_AXIS));
-        panelTiempoDeConstruccion.add(new JLabel("Turnos para terminar la construccion"));
+        panelTiempoDeConstruccion.setOpaque(false);
+        panelTiempoDeConstruccion.add(tituloTiempoDeConstruccion);
 
         panelPrincipal.add(panelTiempoDeConstruccion);
     }
@@ -41,7 +44,7 @@ public class PanelEdificioEnConstruccion extends PanelConstruccion {
         progressTiempoDeConstruccion.setStringPainted(true);
         progressTiempoDeConstruccion.setVisible(true);
 
-        progressTiempoDeConstruccion.setString(String.valueOf(tiempoDeConstruccionActual)+" turnos para finalizar");
+        progressTiempoDeConstruccion.setString(String.valueOf(tiempoDeConstruccionActual)+" turnos para construirse");
         panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
         panelPrincipal.add(progressTiempoDeConstruccion);
     }

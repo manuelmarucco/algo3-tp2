@@ -19,6 +19,7 @@ public class ActionEntrenarMarine implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent m) {
         if (m.getButton()!=MouseEvent.BUTTON1) return;
+
         try {
             this.barraca.entrenarMarine();
 

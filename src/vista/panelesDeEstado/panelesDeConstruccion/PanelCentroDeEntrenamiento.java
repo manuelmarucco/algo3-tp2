@@ -16,11 +16,7 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
 
 
     public PanelCentroDeEntrenamiento(){
-        super.crearLabels();
-        super.crearPaneles();
-
-        this.add(panelPrincipal);
-
+        super();
         contenedorColaYTiempo = new Container();
         contenedorColaYTiempo.setLayout(new BoxLayout(contenedorColaYTiempo, BoxLayout.Y_AXIS));
         this.panelPrincipal.add(contenedorColaYTiempo);
@@ -38,7 +34,7 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
     }
 
     private void crearTreeColaDeEntrenamiento(Queue<Entrenable> colaDeEntrenamiento) {
-        root = new DefaultMutableTreeNode(String.valueOf(colaDeEntrenamiento.size())+" unidad/s en Cola de Entrenamiento");
+        root = new DefaultMutableTreeNode(String.valueOf("Entrenando "+colaDeEntrenamiento.size())+" unidad/s");
         treeColaDeEntrenamiento = new JTree(root);
         treeColaDeEntrenamiento.setOpaque(false);
         treeColaDeEntrenamiento.setPreferredSize(new Dimension(100,20));
@@ -99,7 +95,6 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
 
     public void cargarDatosDeColaDeEntrenamiento(Queue<Entrenable> colaDeEntrenamiento) {
         this.colaDeEntrenamiento = colaDeEntrenamiento;
-
         this.mostrarColaDeEntrenamiento(colaDeEntrenamiento);
     }
 }

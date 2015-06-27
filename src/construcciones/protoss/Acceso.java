@@ -44,6 +44,7 @@ public class Acceso extends CentroDeEntrenamiento {
 		this.validarCreacionUnidad(zealot);
 
 		this.colaDeEntrenamiento.add(zealot);
+
 		return zealot;
 	}
 
@@ -53,6 +54,7 @@ public class Acceso extends CentroDeEntrenamiento {
 		this.validarCreacionUnidad(dragon);
 
 		this.colaDeEntrenamiento.add(dragon);
+
 		return dragon;
 	}
 

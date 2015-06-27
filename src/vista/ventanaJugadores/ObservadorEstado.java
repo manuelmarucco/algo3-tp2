@@ -40,7 +40,7 @@ public class ObservadorEstado {
 
             for (  VentanaJugador ventana : this.ventanas ){
 
-                ventana.actualizarPanelDeEstado(); //TODO cambiar nombre a "actualizarPanelDeEstado"
+                ventana.actualizarPanelDeEstado();
 
             }
 

@@ -21,6 +21,7 @@ public class ActionEntrenarGolliat implements MouseListener {
         if (m.getButton()!=MouseEvent.BUTTON1) return;
         try {
             this.fabrica.entrenarGolliat();
+
             System.out.println("Golliat en entrenamiento");
             ObservadorRecursosSuministros.getInstance().informarCambios();
             ObservadorEstado.getInstance().informarCambios();

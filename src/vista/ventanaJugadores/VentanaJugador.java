@@ -75,7 +75,6 @@ public abstract class VentanaJugador extends JFrame {
        // this.panelLateral.setPreferredSize(displayNotificaciones.getDimension());
        // this.panelLateral.setMaximumSize(displayNotificaciones.getDimension());
 
-        //--//this.panelLateral.add(displayNotificaciones);
         this.panelLateral.add(displayNotificaciones);
         this.panelLateral.add(displayEstado);
     }
@@ -142,19 +141,8 @@ public abstract class VentanaJugador extends JFrame {
         this.contenedor.add(this.panelInferior, "South");
 
     }
-/*
-    public void mostrarPanelDeAcciones(JComponent component,String posicion){
-        this.panelInferior.add(component,posicion);
-    }
-*/
     public void mostrarPanelDeEstado(JPanel panelDeEstado){
-    /*    this.panelLateral.add(panelDeEstado);
-        this.panelLateral.revalidate();
-        this.panelLateral.repaint();
-      */
         this.displayEstado.mostrarPanel(panelDeEstado);
-   //     this.displayEstado.revalidate();
-   //     this.displayEstado.repaint();
     }
 
     public PanelAcciones getPanelAcciones() {
@@ -162,13 +150,6 @@ public abstract class VentanaJugador extends JFrame {
     }
 
     public void borrarPanelDeEstadoAnterior() {
-    /*
-       if(this.panelLateral.getComponents().length == 1) return;
-       this.panelLateral.remove(1); //posicion del Panel de Estado
-
-        this.panelLateral.revalidate();
-        this.panelLateral.repaint();
-        */
         this.displayEstado.limpiarPanel();
 
     }
@@ -197,10 +178,6 @@ public abstract class VentanaJugador extends JFrame {
     }
 
     public void actualizarPanelDeEstado() {
-    /*
-        if(this.panelLateral.getComponents().length == 1) return;
-        this.panelLateral.getComponent(1).repaint(); //panel de estado
-        */
         this.displayEstado.repaint();
     }
 }

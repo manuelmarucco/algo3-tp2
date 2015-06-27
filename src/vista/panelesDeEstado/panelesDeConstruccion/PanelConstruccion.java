@@ -12,11 +12,17 @@ public class PanelConstruccion extends JPanel {
     protected  JLabel vida;
     protected  JLabel escudo;
 
+    private JPanel panelEscudo;
+
 
     public PanelConstruccion(){
         panelPrincipal = new JPanel();
         panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
         panelPrincipal.setOpaque(false);
+
+        this.crearLabels();
+        this.crearPaneles();
+        this.add(panelPrincipal);
     }
 
 
@@ -31,34 +37,38 @@ public class PanelConstruccion extends JPanel {
 
         JPanel panelNombre = new JPanel();
         JPanel panelvida = new JPanel();
-        JPanel panelescudo = new JPanel();
+        panelEscudo = new JPanel();
+        JLabel tituloVida = new JLabel("Vida:");
+        JLabel tituloEscudo = new JLabel("Escudo:");
 
         panelNombre.setLayout(new BoxLayout(panelNombre, BoxLayout.X_AXIS));
         panelNombre.setOpaque(false);
         panelvida.setLayout(new BoxLayout(panelvida, BoxLayout.X_AXIS));
         panelvida.setOpaque(false);
-        panelescudo.setLayout(new BoxLayout(panelescudo, BoxLayout.X_AXIS));
-        panelescudo.setOpaque(false);
+        panelEscudo.setLayout(new BoxLayout(panelEscudo, BoxLayout.X_AXIS));
+        panelEscudo.setOpaque(false);
 
-        Font font = new Font("Verdana", Font.BOLD, 12);
-        Map attributes = font.getAttributes();
-        attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-        nombre.setFont(font.deriveFont(attributes));
+        this.setearFuenteDeJLabel(nombre,true,Font.BOLD,13);
+        this.setearFuenteDeJLabel(tituloVida,true,Font.BOLD,12);
+        this.setearFuenteDeJLabel(tituloEscudo,true,Font.BOLD,12);
 
         panelNombre.add(nombre);
-        panelvida.add(new JLabel("Vida:  "));
+        panelvida.add(tituloVida);
+        vida.setForeground(new Color(200,200,20));
         panelvida.add(vida);
-        panelescudo.add(new JLabel("Escudo:  "));
-        panelescudo.add(escudo);
+        panelEscudo.add(tituloEscudo);
+        escudo.setForeground(new Color(200,200,20));
+        panelEscudo.add(escudo);
 
         panelPrincipal.add(panelNombre);
         panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
         panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
         panelPrincipal.add(panelvida);
         panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
-        panelPrincipal.add(panelescudo);
+        panelPrincipal.add(panelEscudo);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
 
-        panelescudo.setVisible(false);
+        panelEscudo.setVisible(false);
 
 
     }
@@ -73,7 +83,19 @@ public class PanelConstruccion extends JPanel {
 
     public void cargarEscudo(String string){
         escudo.setText(string);
-        escudo.setVisible(true);
+        panelEscudo.setVisible(true);
+    }
+
+    protected void setearFuenteDeJLabel(JLabel label,boolean underline,int fontType,int fontSize){
+
+        Font font = new Font("Verdana", fontType, fontSize);
+        if(underline){
+            Map attributes = font.getAttributes();
+            attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+            label.setFont(font.deriveFont(attributes));
+        }
+        label.setForeground(new Color(200,200,20));
+
     }
 
 
