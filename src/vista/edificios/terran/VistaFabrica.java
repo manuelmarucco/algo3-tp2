@@ -46,6 +46,6 @@ public class VistaFabrica extends ImagePanel implements IVista{
 
         panelDeConstruccion.cargarNombre(edificio.getClass().getSimpleName());
         panelDeConstruccion.cargarVida(String.valueOf(edificio.getVida()));
-        panelDeConstruccion.mostrarColaDeEntrenamiento(edificio.getColaDeEntrenamiento());
+        panelDeConstruccion.cargarDatosDeColaDeEntrenamiento(edificio.getColaDeEntrenamiento());
     }
 }

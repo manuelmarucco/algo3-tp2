@@ -8,7 +8,6 @@ import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeConstruccion.PanelCentroDeEntrenamiento;
 import vista.ventanaJugadores.VentanaJugador;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class VistaPuertoEstelar extends ImagePanel implements IVista{
@@ -45,6 +44,6 @@ public class VistaPuertoEstelar extends ImagePanel implements IVista{
 
         panelDeConstruccion.cargarNombre(edificio.getClass().getSimpleName());
         panelDeConstruccion.cargarVida(String.valueOf(edificio.getVida()));
-        panelDeConstruccion.mostrarColaDeEntrenamiento(edificio.getColaDeEntrenamiento());
+        panelDeConstruccion.cargarDatosDeColaDeEntrenamiento(edificio.getColaDeEntrenamiento());
     }
 }

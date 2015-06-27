@@ -22,7 +22,7 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
         this.panelPrincipal.add(contenedorColaYTiempo);
     }
 
-    public void mostrarColaDeEntrenamiento(Queue<Entrenable> colaDeEntrenamiento) {
+    private void mostrarColaDeEntrenamiento(Queue<Entrenable> colaDeEntrenamiento) {
         if(colaDeEntrenamiento.size() == 0) return;
 
         this.crearTreeColaDeEntrenamiento(colaDeEntrenamiento);

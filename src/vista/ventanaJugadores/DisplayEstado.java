@@ -39,8 +39,6 @@ public class DisplayEstado extends JPanel {
         this.panelDeEstado.setBounds( 12, 50,  background.getIcon().getIconWidth()-20, background.getIcon().getIconHeight());
         this.layeredPane.add(this.panelDeEstado, new Integer(100),0);
 
-        this.revalidate();
-        this.repaint();
     }
 
     public void limpiarPanel(){

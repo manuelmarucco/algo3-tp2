@@ -48,6 +48,6 @@ public class VistaPortalEstelar extends ImagePanel implements IVista{
         panelDeConstruccion.cargarNombre(edificio.getClass().getSimpleName());
         panelDeConstruccion.cargarVida(String.valueOf(edificio.getVida()));
         panelDeConstruccion.cargarEscudo(String.valueOf(edificio.getEscudo()));
-        panelDeConstruccion.mostrarColaDeEntrenamiento(edificio.getColaDeEntrenamiento());
+        panelDeConstruccion.cargarDatosDeColaDeEntrenamiento(edificio.getColaDeEntrenamiento());
     }
 }
