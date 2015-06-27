@@ -51,7 +51,9 @@ public abstract class UnidadGuerrera extends Unidad {
         return danio.getDanioAire();
     }
 
-    public void atacar(Coordenadas coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango {
+    public void atacar(Coordenadas coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo {
+        if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         ProxiDeAtaque.atacar(this,coordenada);
+        this.accion=this.accion.actuo();
     }
 }
