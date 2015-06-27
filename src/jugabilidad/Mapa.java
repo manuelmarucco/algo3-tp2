@@ -120,12 +120,14 @@ public class Mapa {
 	// Mover ---------
 
 	public void moverEnCapaTerrestre(ColocableEnMapa colacable,Coordenadas hasta) throws ExcepcionPosicionOcupada {
+		if (this.posicionTerrestreOcupada(hasta)) throw new ExcepcionPosicionOcupada();
 		this.quitar( (Unidad) colacable);
 		this.agregarEnCapaTerrestre(colacable, hasta);
 
 	}
 
 	public void moverEnCapaAerea(ColocableEnMapa colacable,Coordenadas hasta) throws ExcepcionPosicionOcupada {
+		if (this.posicionAereaOcupada(hasta)) throw new ExcepcionPosicionOcupada();
 		this.quitar( (Unidad) colacable);
 		this.agregarEnCapaAerea(colacable, hasta);
 
