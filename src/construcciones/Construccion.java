@@ -5,8 +5,8 @@ import construcciones.protoss.PortalEstelar;
 import construcciones.terran.Fabrica;
 import construcciones.terran.PuertoEstelar;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
-import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
-import excepciones.construicciones.ExcepcionRecursosInsuficientes;
+import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construcciones.ExcepcionRecursosInsuficientes;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import interfaces.Daniable;
@@ -34,12 +34,17 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Dania
 	}
 
 	@Override
+	public Costo getCosto(){
+		return costo;
+	}
+
+	@Override
 	public void recibirDanio(int danio){
 		resistencia.quitar(danio);
 	}
 	
 	protected void verificarRecursosDisponibles(Recursos r) throws ExcepcionRecursosInsuficientes{
-		r.gastarRecursos(costo);
+		r.validacionRecursosSuficientes(costo);
 	}
 	
 	@Override

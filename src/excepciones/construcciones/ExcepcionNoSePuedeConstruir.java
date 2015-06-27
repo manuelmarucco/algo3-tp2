@@ -1,4 +1,4 @@
-package excepciones.construicciones;
+package excepciones.construcciones;
 
 @SuppressWarnings("serial")
 public class ExcepcionNoSePuedeConstruir extends Exception {

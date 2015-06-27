@@ -5,7 +5,7 @@ import construcciones.protoss.NexoMineral;
 import construcciones.terran.CentroDeMineral;
 import construcciones.terran.Refineria;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.Juego;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;

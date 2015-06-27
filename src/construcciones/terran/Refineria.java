@@ -2,9 +2,9 @@ package construcciones.terran;
 
 import construcciones.CentroDeRecoleccion;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construicciones.ExcepcionConstruccionNoRecolectaCristal;
-import excepciones.construicciones.ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso;
-import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construcciones.ExcepcionConstruccionNoRecolectaCristal;
+import excepciones.construcciones.ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso;
+import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
 import interfaces.Construible;
 import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;

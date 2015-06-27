@@ -2,7 +2,7 @@ package vista.Actions.accionesEntrenar;
 
 import construcciones.protoss.ArchivosTemplarios;
 import control.ObservadorDeExcepciones;
-import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
+import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
 import vista.ventanaJugadores.ObservadorEstado;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 

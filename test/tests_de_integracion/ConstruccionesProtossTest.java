@@ -3,7 +3,7 @@ package tests_de_integracion;
 import construcciones.protoss.*;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
-import excepciones.construicciones.*;
+import excepciones.construcciones.*;
 import interfaces.Construible;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
@@ -73,7 +73,9 @@ public class ConstruccionesProtossTest {
 	@Test(expected = ExcepcionConstruccionNoRecolectaVolcan.class)
 	public void SeQuiereConstruirUnaNexoMineralSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
-		Coordenada coordenada = new Coordenada(0,1);
+		Vision vision  = Vision.VisionCompleta(25,25);
+		j.setVisibilidad(vision);
+		Coordenada coordenada = new Coordenada(1,1);
 		Volcan volcan = new Volcan();
 		NexoMineral NexoMineral;
 		ProxyMapa mapa = ProxyMapa.getInstance();
@@ -110,18 +112,16 @@ public class ConstruccionesProtossTest {
 	@Test(expected = ExcepcionConstruccionNoRecolectaCristal.class)
 	public void SeQuiereConstruirUnaAsimiladorSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(150,0));
+		Vision vision  = Vision.VisionCompleta(25,25);
+		j.setVisibilidad(vision);
 		Coordenada coordenada = new Coordenada(9,6);
 		Cristal cristal = new Cristal();
-		Asimilador Asimilador;
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 
 		mapa.agregar(cristal, coordenada);
 
-		Asimilador = j.construirAsimilador(coordenada);
-		for (int i = 0; i < Asimilador.getTiempoDeConstruccion(); i ++) j.update();
-
-		Assert.assertFalse(j.buscarConstruccion(Asimilador));
+		j.construirAsimilador(coordenada);
 	}
 
 
@@ -204,8 +204,10 @@ public class ConstruccionesProtossTest {
 	@Test(expected = ExcepcionNecesitaConstruirAcceso.class)
 	public void JugadorQuiereCrearPortalEstelarPeroNecesitaAcceso() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		Vision vision  = Vision.VisionCompleta(25,25);
+		j.setVisibilidad(vision);
 		PortalEstelar p;
-		Coordenada coordenada = new Coordenada(0,5);
+		Coordenada coordenada = new Coordenada(1,5);
 
 		p =j.construirPortalEstelar(coordenada);
 
@@ -215,7 +217,8 @@ public class ConstruccionesProtossTest {
 	@Test
 	public void JugadorCreaArchivosTemplariosConPortalEstelarPrevia() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
-		j.setVisibilidad(Vision.VisionCompleta(20, 20));
+		Vision vision  = Vision.VisionCompleta(25,25);
+		j.setVisibilidad(vision);
 		Acceso a;
 		PortalEstelar p;
 		ArchivosTemplarios at;
@@ -236,6 +239,8 @@ public class ConstruccionesProtossTest {
 	@Test(expected = ExcepcionNecesitaConstruirPortalEstelar.class)
 	public void JugadorQuiereCrearArchivosTemplariosPeroNecesitaPortalEstelar() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
+		Vision vision  = Vision.VisionCompleta(25,25);
+		j.setVisibilidad(vision);
 		ArchivosTemplarios at;
 		
 		at = j.construirArchivosTemplarios(new Coordenada(1,9));
@@ -248,6 +253,8 @@ public class ConstruccionesProtossTest {
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
 	public void JugadorNoPuedeConstruirNexoMineralPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
+		Vision vision  = Vision.VisionCompleta(25,25);
+		j.setVisibilidad(vision);
 		NexoMineral c;
 		Cristal cristal = new Cristal();
 		Coordenada coordenada = new Coordenada(1,7);
@@ -264,6 +271,8 @@ public class ConstruccionesProtossTest {
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
 	public void JugadorNoPuedeConstruirAccesoPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
+		Vision vision  = Vision.VisionCompleta(25,25);
+		j.setVisibilidad(vision);
 		Acceso a;
 		
 		a = j.construirAcceso(new Coordenada(1,1));
@@ -304,7 +313,7 @@ public class ConstruccionesProtossTest {
 		JugadorProtoss j = new JugadorProtoss(new Recursos(0,0));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		
-		j.construirPilon(new Coordenada(1,7));
+		j.construirPilon(new Coordenada(1, 7));
 
 	}
 

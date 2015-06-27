@@ -4,7 +4,7 @@ import construcciones.terran.Barraca;
 import construcciones.terran.Fabrica;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
-import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;

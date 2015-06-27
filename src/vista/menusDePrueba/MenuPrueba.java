@@ -1,6 +1,5 @@
 package vista.menusDePrueba;
 
-import excepciones.construicciones.ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso;
 import vista.auxiliares.jugador.DisplayNotificaciones;
 
 import javax.swing.*;

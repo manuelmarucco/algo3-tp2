@@ -2,7 +2,7 @@ package construcciones.protoss;
 
 import construcciones.CentroDeEntrenamiento;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
+import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
