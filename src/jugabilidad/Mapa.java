@@ -111,21 +111,23 @@ public class Mapa {
 
 	}
 
-	public void borrarEnCapaAerea(Coordenada coordenada) {
+	public void borrarEnCapaAerea(Coordenadas coordenadas) {
 
-		this.capaAerea.remove(coordenada);
+		this.capaAerea.remove(coordenadas);
 
 	}
 
 	// Mover ---------
 
 	public void moverEnCapaTerrestre(ColocableEnMapa colacable,Coordenada hasta) throws ExcepcionPosicionOcupada {
+		if(this.posicionTerrestreOcupada(hasta)) throw new ExcepcionPosicionOcupada();
 		this.quitar( (Unidad) colacable);
 		this.agregarEnCapaTerrestre(colacable, hasta);
 
 	}
 
 	public void moverEnCapaAerea(ColocableEnMapa colacable,Coordenada hasta) throws ExcepcionPosicionOcupada {
+		if(this.posicionAereaOcupada(hasta)) throw new ExcepcionPosicionOcupada();
 		this.quitar( (Unidad) colacable);
 		this.agregarEnCapaAerea(colacable, hasta);
 

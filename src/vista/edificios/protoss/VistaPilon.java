@@ -18,12 +18,10 @@ public class VistaPilon extends ImagePanel implements IVista{
     private final Pilon edificio;
     private final VentanaJugador ventanaJugador;
     private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
-   // private static String pathImagen="images/construcciones/protoss/pilon.png";
-
 
     public VistaPilon(ColocableEnMapa pilon, VentanaJugador ventanaJugador) {
         super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("Pilon").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
-        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
+        super.setBackground( BUFFERIMAGENES.obtenerImagen("Pasto").getImage());
         this.edificio= (Pilon) pilon;
         this.ventanaJugador=ventanaJugador;
     }

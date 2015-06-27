@@ -226,7 +226,7 @@ public class ControladorDeVistaMapa {
         ImagePanel aDevolver = null;
 
         try {
-            Constructor constructor = asociadorDeVistasRecursos.get(clase).getConstructor(ColocableEnMapa.class,VentanaJugador.class);
+            Constructor constructor = asociadorDeVistasAereas.get(clase).getConstructor(ColocableEnMapa.class,VentanaJugador.class);
             aDevolver = (ImagePanel) constructor.newInstance(colocable, ventana);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             e.printStackTrace();

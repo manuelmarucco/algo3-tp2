@@ -18,11 +18,10 @@ public class VistaNexoMineral extends ImagePanel implements IVista{
     private final NexoMineral edificio;
     private final VentanaJugador ventanaJugador;
     private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
-  //  private static String pathImagen="images/construcciones/protoss/nexoMineral.png";
 
     public VistaNexoMineral(ColocableEnMapa nexoMineral, VentanaJugador ventanaJugador) {
         super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("NexoMineral").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
-        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
+        super.setBackground( BUFFERIMAGENES.obtenerImagen("Pasto").getImage());
         this.edificio= (NexoMineral) nexoMineral;
         this.ventanaJugador=ventanaJugador;
     }

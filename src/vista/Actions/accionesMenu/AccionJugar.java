@@ -1,6 +1,6 @@
 package vista.Actions.accionesMenu;
 
-import jugabilidad.utilidadesMapa.Coordenada;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import vista.CrearJugador;
 import vista.VentanaJuego;
 import vista.ventanaJugadores.VentanaJugador;
@@ -29,9 +29,12 @@ public class AccionJugar implements ActionListener {
         colorUsado= new String();
         JButton c = (JButton) (e.getSource());
         c.setVisible(false);
-        ventana1=this.crearJugador("Crear Jugador 1",new Coordenada(4,22)); //TODO estas coordenadas las tiene que obtener del txt de bases o del propio juego (ver en MenuPrincipal--> constructor --> new Juego(2))
-        ventana2=this.crearJugador("Crear Jugador 2",new Coordenada(22,4));
-
+        ventana1=this.crearJugador("Crear Jugador 1",new Coordenada(4,22));
+        ventana2=this.crearJugador("Crear Jugador 2", new Coordenada(22, 4));
+        Jugador jugador1 = ventana1.obtenerJugador();
+        Jugador jugador2 = ventana1.obtenerJugador();
+        ProxyDeHechizos.inicializar(jugador1,jugador2);
+        ProxiDeAtaque.inicializar(jugador1, jugador2);
         ventanaJuego.agregarVentana(ventana1);
         ventanaJuego.agregarVentana(ventana2);
 

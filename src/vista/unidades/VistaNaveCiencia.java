@@ -7,6 +7,7 @@ import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class VistaNaveCiencia extends ImagePanel implements IVista{
 
@@ -17,7 +18,7 @@ public class VistaNaveCiencia extends ImagePanel implements IVista{
     private VentanaJugador ventanaJugador;
 
     public VistaNaveCiencia(ColocableEnMapa naveCiencia,VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, java.awt.Image.SCALE_SMOOTH));
+        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
         this.unidad= (NaveCiencia) naveCiencia;
         this.ventanaJugador=ventanaJugador;
     }

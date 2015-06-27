@@ -1,6 +1,6 @@
 package vista;
 
-import jugabilidad.utilidadesMapa.Coordenada;
+import jugabilidad.utilidadesMapa.Coordenadas;
 import vista.Actions.CrearTerran;
 import vista.Actions.SeleccionarRaza;
 import vista.auxiliares.IconoColor;
@@ -29,7 +29,7 @@ public class CrearJugador extends JDialog {
         this.coordenadaDeBase = coordenadaDeBase;
         this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setTitle(titulo);
-        this.init(ventanaJuego, nombreUsado,colorUsado);
+        this.init(ventanaJuego, nombreUsado, colorUsado);
     }
 
     private void init(VentanaJuego ventanaJuego, String nombreUsado,String colorUsuado) {
@@ -42,7 +42,7 @@ public class CrearJugador extends JDialog {
         this.add(panel1);
         raza.addItem("Terran");
         raza.addItem("Protoss");
-        raza.addActionListener(new SeleccionarRaza(this,retrato,ventanaJuego,nombreUsado,colorUsuado, this.coordenadaDeBase));
+        raza.addActionListener(new SeleccionarRaza(this,retrato,ventanaJuego,colorUsuado,nombreUsado, this.coordenadaDeBase));
         Icon icon;
         if(colorUsuado.compareTo("rojo")!=0) {
             icon = new IconoColor(java.awt.Color.red, "rojo");

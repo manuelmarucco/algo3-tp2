@@ -7,13 +7,10 @@ import java.util.HashMap;
 public class BufferImagenes {
 
     private static HashMap<String,ImageIcon> buffer;
-    private int ancho,alto;
 
     public BufferImagenes(){
 
-        this.buffer = new HashMap<>();
-        this.ancho = 64;
-        this.alto = 64;
+        buffer = new HashMap<>();
 
         try {
 
@@ -29,7 +26,7 @@ public class BufferImagenes {
 
     public ImageIcon obtenerImagen( String nombreImagen ){
 
-        return ( this.buffer.get(nombreImagen) );
+        return ( buffer.get(nombreImagen) );
 
     }
 
