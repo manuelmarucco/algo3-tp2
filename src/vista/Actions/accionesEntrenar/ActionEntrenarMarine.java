@@ -3,6 +3,7 @@ package vista.Actions.accionesEntrenar;
 import construcciones.terran.Barraca;
 import control.ObservadorDeExcepciones;
 import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
+import vista.ventanaJugadores.ObservadorEstado;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
 import java.awt.event.MouseEvent;
@@ -18,11 +19,13 @@ public class ActionEntrenarMarine implements MouseListener {
     @Override
     public void mouseClicked(MouseEvent m) {
         if (m.getButton()!=MouseEvent.BUTTON1) return;
+
         try {
             this.barraca.entrenarMarine();
 
             System.out.println("Marine en entrenamiento");
             ObservadorRecursosSuministros.getInstance().informarCambios();
+            ObservadorEstado.getInstance().informarCambios();
 
         } catch (ExcepcionNoSePuedeEntrenarUnidad e) {
             ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);

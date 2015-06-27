@@ -24,6 +24,7 @@ public abstract class VentanaJugador extends JFrame {
     protected VentanaJuego ventanaJuego ;
     protected JPanel contenedor;
     protected DisplayNotificaciones displayNotificaciones;
+    private DisplayEstado displayEstado;
 
     protected JPanel panelRecursos;
     private JScrollPane panelMapa;
@@ -45,7 +46,7 @@ public abstract class VentanaJugador extends JFrame {
 
     // Metodos -------------------------
     protected void init(){
-
+        ObservadorEstado.getInstance().agregarVentana(this);
         this.accionConstruirEnEspera = new WraperAccionConstruir();
         this.accionActuarEnEspera = new WraperAccionActuar();
         this.crearPaneles();
@@ -70,7 +71,12 @@ public abstract class VentanaJugador extends JFrame {
         this.panelLateral = new JPanel();
         this.panelLateral.setLayout(new BoxLayout(panelLateral, BoxLayout.Y_AXIS));
         this.displayNotificaciones = new DisplayNotificaciones();
+        this.displayEstado = new DisplayEstado();
+       // this.panelLateral.setPreferredSize(displayNotificaciones.getDimension());
+       // this.panelLateral.setMaximumSize(displayNotificaciones.getDimension());
+
         this.panelLateral.add(displayNotificaciones);
+        this.panelLateral.add(displayEstado);
     }
 
     private void crearContenedor(){
@@ -96,6 +102,7 @@ public abstract class VentanaJugador extends JFrame {
     private void crearPanelMapa(){
 
         JPanel contenedor = new JPanel(new GridBagLayout());
+       // DisplayMapa displayMapa = new DisplayMapa(this);
         contenedor.add(new DisplayMapa(this));
 
         this.panelMapa = new JScrollPane(contenedor);
@@ -134,15 +141,8 @@ public abstract class VentanaJugador extends JFrame {
         this.contenedor.add(this.panelInferior, "South");
 
     }
-
-    public void mostrarPanelDeAcciones(JComponent component,String posicion){
-        this.panelInferior.add(component,posicion);
-    }
-
     public void mostrarPanelDeEstado(JPanel panelDeEstado){
-        this.panelLateral.add(panelDeEstado);
-        this.panelLateral.revalidate();
-        this.panelLateral.repaint();
+        this.displayEstado.mostrarPanel(panelDeEstado);
     }
 
     public PanelAcciones getPanelAcciones() {
@@ -150,11 +150,7 @@ public abstract class VentanaJugador extends JFrame {
     }
 
     public void borrarPanelDeEstadoAnterior() {
-       if(this.panelLateral.getComponents().length == 1) return;
-       this.panelLateral.remove(1); //posicion del Panel de Estado
-
-        this.panelLateral.revalidate();
-        this.panelLateral.repaint();
+        this.displayEstado.limpiarPanel();
 
     }
 
@@ -163,7 +159,14 @@ public abstract class VentanaJugador extends JFrame {
     }
 
     public void repaint(){
+        this.panelRecursos.revalidate();
         this.panelRecursos.repaint();
+
+        this.panelLateral.revalidate();
+        this.panelLateral.repaint();
+
+        this.panelMapa.revalidate();
+        this.panelMapa.repaint();
     }
 
     public Jugador obtenerJugador(){
@@ -172,6 +175,10 @@ public abstract class VentanaJugador extends JFrame {
 
     public AccionUnidad getAccionActuarEnEspera() {
         return accionActuarEnEspera.getAccionActuar();
+    }
+
+    public void actualizarPanelDeEstado() {
+        this.displayEstado.repaint();
     }
 }
 

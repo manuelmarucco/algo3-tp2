@@ -16,10 +16,7 @@ import org.junit.Test;
 import recursos.Cristal;
 import recursos.Volcan;
 
-import java.util.ArrayList;
-
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class RecoleccionDeRecursosTest {
 
@@ -81,17 +78,17 @@ public class RecoleccionDeRecursosTest {
         JugadorTerran jugador = (JugadorTerran) juego.crearJugadorTerran("Jugado", "Azul");
 
         Coordenadas coordenadas = new Coordenadas(3,23);
-        jugador.construirCentroDeMineral(coordenadas);
+        int mineralesIniciales = jugador.getRecursos().getMinerales();
+        jugador.construirCentroDeMineral(coordenadas); //gasto 50 minerales en construirla
 
         // Construyo el centroDeMineral.
-        this.lanzarUpdates(4,jugador);
+        this.lanzarUpdates(4,jugador); //se contruye y recoelcta 10
         // Cuando se termina de construir comienza a sumar.
 
         // Corro 3 updates se tienen que sumar 30 cristales.
         this.lanzarUpdates(3,jugador);
-        // Como en el juego, el jugador inica con 200. El Centro gasta 50. Mas 30. Tengo 180.
 
-        assertEquals(190, jugador.getRecursos().getMinerales());
+        assertEquals(mineralesIniciales-50+10+30, jugador.getRecursos().getMinerales());
 
     }
 
@@ -128,18 +125,17 @@ public class RecoleccionDeRecursosTest {
         JugadorProtoss jugador = juego.crearJugadorProtoss("Jugado", "Azul");
 
         Coordenadas coordenadas = new Coordenadas(3,23);
-        jugador.construirNexoMineral(coordenadas);
+        int mineralesIniciales = jugador.getRecursos().getMinerales();
+        jugador.construirNexoMineral(coordenadas); //gasto 50 minerales
 
         // Construyo el centroDeMineral.
-        this.lanzarUpdates(4,jugador);
+        this.lanzarUpdates(4,jugador);  //se construye y recolecta 1 turno osea 10 minerales
         // Cuando se termina de construir comienza a sumar.
 
         // Corro 3 updates se tienen que sumar 30 cristales.
-        this.lanzarUpdates(3,jugador);
-        // Como en el juego, el jugador inica con 200. El Centro gasta 50. Se termina de construir suma 10 .Mas 30.
-        // Tengo 190.
+        this.lanzarUpdates(3,jugador); //recoelcta 3 veces osea 30 minerales
 
-        assertEquals(190, jugador.getRecursos().getMinerales());
+        assertEquals(mineralesIniciales-50+10+30, jugador.getRecursos().getMinerales());
 
     }
 

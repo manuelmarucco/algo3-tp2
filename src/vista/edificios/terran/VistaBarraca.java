@@ -1,28 +1,31 @@
 package vista.edificios.terran;
 
 import construcciones.terran.Barraca;
+import control.BufferImagenes;
 import interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
+import vista.panelesDeEstado.panelesDeConstruccion.PanelCentroDeEntrenamiento;
 import vista.ventanaJugadores.VentanaJugador;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class VistaBarraca extends ImagePanel implements IVista {
 
+    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
     private static final int ANCHO = 64;
     private static final int ALTO = 64;
     private final Barraca edificio;
-    private static String pathImagen="images/construcciones/terran/barraca.png";
+   // private static String pathImagen="images/construcciones/terran/barraca.png";
     private final VentanaJugador ventanaJugador;
 
     public VistaBarraca(ColocableEnMapa barraca,VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO,ALTO, Image.SCALE_FAST));
-        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
-        this.edificio=(Barraca) barraca;
+        super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("Barraca").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
+        super.setBackground( BUFFERIMAGENES.obtenerImagen("Pasto").getImage());
+        this.edificio = (Barraca) barraca;
         this.ventanaJugador=ventanaJugador;
     }
+
 
     @Override
     public void actualizarBotonera() {
@@ -31,6 +34,18 @@ public class VistaBarraca extends ImagePanel implements IVista {
 
     @Override
     public void actualizarPanelEstado() {
+        PanelCentroDeEntrenamiento panelDeConstruccion = new PanelCentroDeEntrenamiento();
+
         ventanaJugador.borrarPanelDeEstadoAnterior();
+        this.cargarInfoAlPanelDeEstado(panelDeConstruccion);
+        ventanaJugador.mostrarPanelDeEstado(panelDeConstruccion);
+
+    }
+
+    private void cargarInfoAlPanelDeEstado(PanelCentroDeEntrenamiento panelDeConstruccion) {
+
+        panelDeConstruccion.cargarNombre(edificio.getClass().getSimpleName());
+        panelDeConstruccion.cargarVida(String.valueOf(edificio.getVida()));
+        panelDeConstruccion.cargarDatosDeColaDeEntrenamiento(edificio.getColaDeEntrenamiento());
     }
 }

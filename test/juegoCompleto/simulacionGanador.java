@@ -6,20 +6,18 @@ import construcciones.protoss.Pilon;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.*;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.Juego;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import unidades.ProxiDeAtaque;
 import unidades.protoss.Zealot;
-
-import java.util.ArrayList;
 
 public class simulacionGanador {
 
@@ -30,7 +28,7 @@ public class simulacionGanador {
 
 
     @Test
-    public void Jugador1MataTodoDeJugador2YGana() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
+    public void Jugador1MataTodoDeJugador2YGana() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionNoSePuedeEntrenarUnidad {
         Juego juego = new Juego(2);
         JugadorProtoss j1;
         JugadorTerran j2;
@@ -67,7 +65,7 @@ public class simulacionGanador {
         for(int i = 0; i<depositoDeSuministrosDeJugador2.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
         zealot = c2.entrenarZealot();
-        int tiempo = zealot.getTiempoDeEntrenamiento();
+        int tiempo = zealot.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo*2; i++){
             juego.update();
         }
@@ -85,7 +83,7 @@ public class simulacionGanador {
     }
 
     @Test
-    public void JugadorNoPierdePorTenerEdificiosEnConstruccion() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad {
+    public void JugadorNoPierdePorTenerEdificiosEnConstruccion() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionNoSePuedeEntrenarUnidad {
         Juego juego = new Juego(2);
         JugadorProtoss j1;
         JugadorTerran j2;
@@ -122,7 +120,7 @@ public class simulacionGanador {
         for(int i = 0; i<c3.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
         d = c2.entrenarZealot();
-        int tiempo = d.getTiempoDeEntrenamiento();
+        int tiempo = d.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo*2; i++){ //Un turno equivale a que el jugador retome el control ( 2 subturnos)
             juego.update();
         }

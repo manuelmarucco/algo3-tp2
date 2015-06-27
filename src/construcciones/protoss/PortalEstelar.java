@@ -58,22 +58,22 @@ public class PortalEstelar extends CentroDeEntrenamiento{
 		return true;
 	}
 
-	public Scout entrenarScout(){
-		Scout s = new Scout(this.jugador.getVisibilidad());
-		try {
-			this.validarCreacionUnidad(s);
-		} catch (ExcepcionNoSePuedeEntrenarUnidad e) {
-			e.printStackTrace();
-			return s;
-		}
-		this.colaDeEntrenamiento.add(s);
-		return s;
+	public Scout entrenarScout() throws ExcepcionNoSePuedeEntrenarUnidad {
+		Scout scout = new Scout(this.jugador.getVisibilidad());
+
+		this.validarCreacionUnidad(scout);
+
+		this.colaDeEntrenamiento.add(scout);
+		return scout;
 	}
 
-	public NaveTransporteProtoss entrenarNaveTransporte(){
-		NaveTransporteProtoss n = new NaveTransporteProtoss(this.jugador.getVisibilidad());
-		this.colaDeEntrenamiento.add(n);
-		return n;
+	public NaveTransporteProtoss entrenarNaveTransporte() throws ExcepcionNoSePuedeEntrenarUnidad {
+		NaveTransporteProtoss nave = new NaveTransporteProtoss(this.jugador.getVisibilidad());
+
+		this.validarCreacionUnidad(nave);
+
+		this.colaDeEntrenamiento.add(nave);
+		return nave;
 	}
 
 	@Override

@@ -18,7 +18,6 @@ import java.util.Queue;
 public abstract class CentroDeEntrenamiento extends Construccion{
 
     protected Queue<Entrenable> colaDeEntrenamiento = new LinkedList<>();
-   // protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<>();
     protected Jugador jugador;
 
     private void crearUnidad(Entrenable unidad) throws ExcepcionNoSePudoCrearUnidadPorNoTenerEspacioAlrededorDeEdificio {
@@ -86,9 +85,9 @@ public abstract class CentroDeEntrenamiento extends Construccion{
         if(!this.colaDeEntrenamiento.isEmpty()){
             Entrenable unidad= this.colaDeEntrenamiento.peek();
 
-            unidad.disminuirTiempoDeEntrenamiento();
+            unidad.disminuirTiempoDeEntrenamientoActual();
 
-            if(unidad.getTiempoDeEntrenamiento() == 0){
+            if(unidad.getTiempoDeEntrenamientoActual() == 0){
                 try {
                     this.crearUnidad(unidad);
                    // this.colaDeEntrenamiento.poll();
@@ -98,6 +97,10 @@ public abstract class CentroDeEntrenamiento extends Construccion{
             }
         }
         //this.regenerar.regenerar(this);
+    }
+
+    public Queue<Entrenable> getColaDeEntrenamiento(){
+        return colaDeEntrenamiento;
     }
 
 

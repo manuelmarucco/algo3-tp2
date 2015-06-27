@@ -12,7 +12,7 @@ public class PanelUnidadMagica extends PanelUnidad {
         this.crearLabels();
         this.crearPaneles();
 
-        this.add(panel);
+        this.add(panePrincipal);
 
     }
 
@@ -42,10 +42,10 @@ public class PanelUnidadMagica extends PanelUnidad {
         panelenergiaTotal.add(energiaTotal);
 
 
-        panel.add(panelenergiaActual);
-        panel.add(Box.createRigidArea(new Dimension(10,10)));
-        panel.add(panelenergiaTotal);
-        panel.add(Box.createRigidArea(new Dimension(10,10)));
+        panePrincipal.add(panelenergiaActual);
+        panePrincipal.add(Box.createRigidArea(new Dimension(10,10)));
+        panePrincipal.add(panelenergiaTotal);
+        panePrincipal.add(Box.createRigidArea(new Dimension(10,10)));
 
     }
 

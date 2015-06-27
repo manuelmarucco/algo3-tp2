@@ -1,9 +1,12 @@
 package unidades;
 
-import excepciones.Unidades.ExcepcionMoverfueraDeRango;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Unidades.ExcepcionMoverfueraDeRango;
 import excepciones.Unidades.ExcepcionYaSeMovioLaUnidad;
-import interfaces.*;
+import interfaces.Actualizable;
+import interfaces.ColocableEnMapa;
+import interfaces.Entrenable;
+import interfaces.Hechizable;
 import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
@@ -20,7 +23,8 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
     protected Costo costo;
     protected int suministro;
     protected EstadoUnidad estado;
-    protected int tiempoDeEntrenamiento;
+    protected int tiempoDeEntrenamientoActual;
+    protected int tiempoDeEntrenamientoTotal;
     protected EstadoDeAccion accion;
     protected int movilidad;
     protected int transporte;
@@ -32,7 +36,8 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
         this.ubicacion=ubicacion;
         this.suministro=suministro;
         this.costo=costo;
-        this.tiempoDeEntrenamiento=tiempoDeEntrenamiento;
+        this.tiempoDeEntrenamientoActual = tiempoDeEntrenamiento;
+        this.tiempoDeEntrenamientoTotal = tiempoDeEntrenamiento;
         this.accion=new NoActuo();
         this.movilidad=movilidad;
         this.visionJugador=visionJugador;
@@ -46,7 +51,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
         this.ubicacion=ubicacion;
         this.suministro=suministro;
         this.costo=costo;
-        this.tiempoDeEntrenamiento=tiempoDeEntrenamiento;
+        this.tiempoDeEntrenamientoActual = tiempoDeEntrenamiento;
         this.accion=new NoActuo();
         this.movilidad=movilidad;
     }
@@ -69,13 +74,15 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
     }
     
     @Override
-    public int getTiempoDeEntrenamiento(){
-    	return tiempoDeEntrenamiento;
+    public int getTiempoDeEntrenamientoActual(){
+    	return this.tiempoDeEntrenamientoActual;
     }
-    
+
     @Override
-    public void disminuirTiempoDeEntrenamiento(){
-    	tiempoDeEntrenamiento--;
+    public int getTiempoDeEntrenamientoTotal(){return this.tiempoDeEntrenamientoTotal; }
+    @Override
+    public void disminuirTiempoDeEntrenamientoActual(){
+    	this.tiempoDeEntrenamientoActual--;
     }
 
     @Override

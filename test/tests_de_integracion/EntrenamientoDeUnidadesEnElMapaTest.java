@@ -38,7 +38,7 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
         for(int i=0; i<b.getTiempoDeConstruccion(); i++)  j.update();
 
         m1 = b.entrenarMarine();
-        tiempoDeEntrenamiento = m1.getTiempoDeEntrenamiento();
+        tiempoDeEntrenamiento = m1.getTiempoDeEntrenamientoActual();
         m2 = b.entrenarMarine();
         m3 = b.entrenarMarine();
         for(int i=0; i<(tiempoDeEntrenamiento*3); i++)  j.update();
@@ -79,7 +79,7 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
         for(int i=0; i<b.getTiempoDeConstruccion(); i++)  j.update();
 
         m = b.entrenarMarine();
-        tiempoDeEntrenamiento = m.getTiempoDeEntrenamiento();
+        tiempoDeEntrenamiento = m.getTiempoDeEntrenamientoActual();
         for(int i=0; i<(tiempoDeEntrenamiento); i++)  j.update();
 
         Assert.assertTrue(j.buscarUnidad(m));
@@ -115,7 +115,7 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
         for(int i=0; i<b.getTiempoDeConstruccion(); i++)  j.update();
 
         m = b.entrenarMarine();
-        tiempoDeEntrenamiento = m.getTiempoDeEntrenamiento();
+        tiempoDeEntrenamiento = m.getTiempoDeEntrenamientoActual();
         for(int i=0; i<(tiempoDeEntrenamiento); i++)  j.update();
 
         Assert.assertFalse(j.buscarUnidad(m));

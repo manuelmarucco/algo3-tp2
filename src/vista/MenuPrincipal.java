@@ -1,7 +1,8 @@
 package vista;
 
-import Actions.AccionJugar;
 import jugabilidad.Juego;
+import vista.Actions.accionesMenu.AccionJugar;
+import vista.Actions.accionesMenu.AccionSalir;
 import vista.auxiliares.ImagePanel;
 
 import javax.sound.sampled.*;
@@ -15,6 +16,7 @@ public class MenuPrincipal extends JFrame {
     private JPanel background;
     private ImagePanel imageBackground;
     private JButton jugarBoton;
+    private JButton salirBoton;
 
     private VentanaJuego ventanaJuego;
 
@@ -28,10 +30,17 @@ public class MenuPrincipal extends JFrame {
         ventanaJuego = new VentanaJuego(new Juego(2));
 
         //configuracion del boton "Jugar"
-        jugarBoton.setIcon(new ImageIcon("images/menu/botonJugar.png"));
+        jugarBoton.setIcon( new ImageIcon("images/menu/botonJugar.png"));
         jugarBoton.setMargin(new Insets(0, 0, 0, 0));
-        jugarBoton.setBorder(null);
+        jugarBoton.setOpaque(false);
         jugarBoton.addActionListener(new AccionJugar(ventanaJuego));
+
+
+        //configuracion del boton "Jugar"
+        salirBoton.setIcon(new ImageIcon("images/menu/salirBoton.png"));
+        salirBoton.setBackground(new Color(0,0,150,80));
+        salirBoton.setMargin(new Insets(0, 0, 0, 0));
+        salirBoton.addActionListener(new AccionSalir(this));
 
         //configuracion del fondo de pantalla
         this.add(background);

@@ -35,12 +35,6 @@ public class DisplayMapa extends JPanel {
 
     // Metodos -----
 
-    public DisplayMapa(){
-
-        this.controlador = new ControladorDeVistaMapa();
-        this.init();
-
-    }
 
     public DisplayMapa(VentanaJugador ventana){
 
@@ -54,19 +48,10 @@ public class DisplayMapa extends JPanel {
     public void actualizarDisplayMapa(){
 
         this.panel.removeAll();
-
         this.armarPaneles();
-
-        this.add(this.panel);
+        //this.add(this.panel);
 
         this.panel.paintComponents(this.panel.getGraphics());
-       /*
-        this.panel.revalidate();
-        this.panel.repaint();
-
-        this.revalidate();
-        this.repaint();
-*/
 
     }
 
@@ -111,10 +96,6 @@ public class DisplayMapa extends JPanel {
 
         }
 
-        //this.panel.add(panelTerrestre, 1,0);
-        //this.panel.add(panelDeRecursos, 2,0);
-        //this.panel.add(panelAereo, 3,0);
-        ///this.panel.add(panelAccionable, 0,0);
 
     }
 

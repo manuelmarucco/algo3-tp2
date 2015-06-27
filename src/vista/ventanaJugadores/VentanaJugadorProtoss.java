@@ -30,7 +30,6 @@ public class VentanaJugadorProtoss extends VentanaJugador {
     protected void crearPanelRecursos(){
         super.crearPanelRecursos();
         this.panelRecursos.add( new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros() ));
-        //this.panelRecursos = new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros());
     }
 
     @Override
@@ -43,7 +42,6 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         tituloConstrucciones.setHorizontalAlignment(JLabel.CENTER);
 
         botoneraConstrucciones.add(tituloConstrucciones);
-       // botoneraConstrucciones.add(new BotoneraDeConstruccionesProtoss(jugador));
         botoneraConstrucciones.add(new BotoneraDeConstruccionesProtoss(jugador,accionConstruirEnEspera));
 
         this.panelInferior.add(botoneraConstrucciones,"West");

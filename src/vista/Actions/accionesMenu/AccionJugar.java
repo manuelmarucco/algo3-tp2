@@ -1,4 +1,4 @@
-package Actions;
+package vista.Actions.accionesMenu;
 
 import jugabilidad.Jugador;
 import jugabilidad.utilidadesMapa.Coordenadas;

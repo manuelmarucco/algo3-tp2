@@ -3,12 +3,13 @@ package tests_de_integracion;
 import construcciones.protoss.Acceso;
 import construcciones.protoss.Pilon;
 import construcciones.terran.DepositoDeSuministros;
+import excepciones.ExcepcionNoSePuedeEntrenarUnidadPorSuministrosInsuficientes;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -20,7 +21,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import unidades.ProxiDeAtaque;
-import unidades.protoss.Dragon;
 import unidades.terrran.Marine;
 
 public class ConstrucionesUnidadesYSuministros {
@@ -33,15 +33,13 @@ public class ConstrucionesUnidadesYSuministros {
         proxyMapa.setCoordenadasMaximas(20, 20);
     }
 
-    @Test
-    public void NoPuedoEntrenarMasUnidadesPorLlegarALLimiteDeSuministros(){
+    @Test(expected = ExcepcionNoSePuedeEntrenarUnidadPorSuministrosInsuficientes.class)
+    public void NoPuedoEntrenarMasUnidadesPorLlegarALLimiteDeSuministros() throws ExcepcionNoSePuedeEntrenarUnidad {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000),new Suministros(4,5));// 4 usados, 5 limite
-        Acceso a = new Acceso(j);
-        Dragon d;
+        Acceso acceso = new Acceso(j);
 
-        d = a.entrenarDragon();//+ 2 sumistro
+        acceso.entrenarDragon();//+ 2 sumistro
 
-        Assert.assertFalse(j.buscarUnidad(d));
 
     }
 

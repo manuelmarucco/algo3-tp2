@@ -3,6 +3,7 @@ package vista.Actions;
 import control.ObservadorDeExcepciones;
 import control.vistaMapa.ObservadorMapa;
 import vista.VentanaJuego;
+import vista.ventanaJugadores.ObservadorEstado;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
 import java.awt.event.ActionEvent;
@@ -18,8 +19,9 @@ public class AccionPasarTurno implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        ObservadorDeExcepciones.getInstance().borrarDisplay();
         ventanaJuego.pasarTurno();
+        ObservadorDeExcepciones.getInstance().borrarDisplay(); //TODO ¿no deberia informar cambios en vez de borrar?
+        ObservadorEstado.getInstance().informarCambios();
         ObservadorRecursosSuministros.getInstance().informarCambios();
         ObservadorMapa.getInstance().informarCambiosEnMapa();
 

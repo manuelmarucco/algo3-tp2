@@ -5,7 +5,7 @@ import construcciones.protoss.ArchivosTemplarios;
 import construcciones.protoss.PortalEstelar;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Recursos;
@@ -27,7 +27,7 @@ public class EntrenamientoUnidadesProtossTest {
     }
 
     @Test
-    public void entrenoZealotYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void entrenoZealotYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -38,14 +38,14 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
 
         z = a.entrenarZealot();
-        tiempo = z.getTiempoDeEntrenamiento();
+        tiempo = z.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo; i++) j.update();
 
         Assert.assertTrue(j.buscarUnidad(z));
     }
 
     @Test
-    public void entrenoZealotYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void entrenoZealotYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -56,14 +56,14 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<12; i++) j.update();
 
         z = a.entrenarZealot();
-        tem = z.getTiempoDeEntrenamiento();
+        tem = z.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tem-1; i++) j.update();
 
         Assert.assertFalse(j.buscarUnidad(z));
     }
 
     @Test
-    public void entrenoDragonYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void entrenoDragonYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -74,14 +74,14 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
 
         d = a.entrenarDragon();
-        tiempo = d.getTiempoDeEntrenamiento();
+        tiempo = d.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo; i++) j.update();
 
         Assert.assertTrue(j.buscarUnidad(d));
     }
 
     @Test
-    public void entrenoDragonYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void entrenoDragonYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -92,7 +92,7 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
 
         d = a.entrenarDragon();
-        tem = d.getTiempoDeEntrenamiento();
+        tem = d.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tem-1; i++) j.update();
 
         Assert.assertFalse(j.buscarUnidad(d));
@@ -100,7 +100,7 @@ public class EntrenamientoUnidadesProtossTest {
 
 
     @Test
-    public void entrenoScoutYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void entrenoScoutYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -116,14 +116,14 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<pe.getTiempoDeConstruccion(); i++) j.update();
 
         s = pe.entrenarScout();
-        i3 = s.getTiempoDeEntrenamiento();
+        i3 = s.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<i3; i++) j.update();
 
         Assert.assertTrue(j.buscarUnidad(s));
     }
 
     @Test
-    public void entrenoScoutYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void entrenoScoutYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -141,14 +141,14 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<i2; i++) j.update();
 
         s = pe.entrenarScout();
-        i3 = s.getTiempoDeEntrenamiento();
+        i3 = s.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<i3-1; i++) j.update();
 
         Assert.assertFalse(j.buscarUnidad(s));
     }
 
     @Test
-    public void entrenoNaveCienciaYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void entrenoNaveCienciaYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -165,14 +165,14 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<archivosTemplarios.getTiempoDeConstruccion(); i++) j.update();
 
         altoTemplario = archivosTemplarios.entrenarAltoTemplario();
-        tiempo = altoTemplario.getTiempoDeEntrenamiento();
+        tiempo = altoTemplario.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo; i++) j.update();
 
         Assert.assertTrue(j.buscarUnidad(altoTemplario));
     }
 
     @Test
-    public void entrenoAltoTemplarioYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void entrenoAltoTemplarioYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -189,14 +189,14 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<archivosTemplarios.getTiempoDeConstruccion(); i++) j.update();
 
         altoTemplario = archivosTemplarios.entrenarAltoTemplario();
-        tiempo = altoTemplario.getTiempoDeEntrenamiento();
+        tiempo = altoTemplario.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo-1; i++) j.update();
 
         Assert.assertFalse(j.buscarUnidad(altoTemplario));
     }
 
     @Test
-    public void entrenoNaveTransporteYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void entrenoNaveTransporteYSeAgregaAlJugador() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -210,14 +210,14 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<pe.getTiempoDeConstruccion(); i++) j.update();
 
         n = pe.entrenarNaveTransporte();
-        tiempo = n.getTiempoDeEntrenamiento();
+        tiempo = n.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo; i++) j.update();
 
         Assert.assertTrue(j.buscarUnidad(n));
     }
 
     @Test
-    public void entrenoNaveTransporteYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void entrenoNaveTransporteYLoBuscoPeroTodaviaNoTerminoElTiempoDeEntrenamiento() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeEntrenarUnidad {
         JugadorProtoss j = new JugadorProtoss(new Recursos(1000,1000));
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Acceso a;
@@ -231,7 +231,7 @@ public class EntrenamientoUnidadesProtossTest {
         for(int i = 0; i<pe.getTiempoDeConstruccion(); i++) j.update();
 
         n = pe.entrenarNaveTransporte();
-        tiempo = n.getTiempoDeEntrenamiento();
+        tiempo = n.getTiempoDeEntrenamientoActual();
         for(int i = 0; i<tiempo-1; i++) j.update();
 
         Assert.assertFalse(j.buscarUnidad(n));

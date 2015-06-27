@@ -1,6 +1,10 @@
 package vista.Actions.accionesEntrenar;
 
 import construcciones.protoss.Acceso;
+import control.ObservadorDeExcepciones;
+import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
+import vista.ventanaJugadores.ObservadorEstado;
+import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -13,9 +17,19 @@ public class ActionEntrenarZealot implements MouseListener {
     }
 
     @Override
-    public void mouseClicked(MouseEvent e) {
-        if (e.getButton()!=MouseEvent.BUTTON1) return;
-        this.acceso.entrenarZealot();
+    public void mouseClicked(MouseEvent m) {
+        if (m.getButton()!=MouseEvent.BUTTON1) return;
+
+        try {
+            this.acceso.entrenarZealot();
+
+            System.out.println("Zealot en entrenamiento");
+            ObservadorRecursosSuministros.getInstance().informarCambios();
+            ObservadorEstado.getInstance().informarCambios();
+
+        } catch (ExcepcionNoSePuedeEntrenarUnidad e) {
+            ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
+        }
     }
 
     @Override

@@ -3,15 +3,16 @@ package vista.Actions.accionesEntrenar;
 import construcciones.terran.PuertoEstelar;
 import control.ObservadorDeExcepciones;
 import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
+import vista.ventanaJugadores.ObservadorEstado;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
-public class ActionEntrenarEsprectro implements MouseListener {
+public class ActionEntrenarEspectro implements MouseListener {
     private final PuertoEstelar puertoEstelar;
 
-    public ActionEntrenarEsprectro(PuertoEstelar unidad) {
+    public ActionEntrenarEspectro(PuertoEstelar unidad) {
         this.puertoEstelar=unidad;
     }
 
@@ -22,6 +23,7 @@ public class ActionEntrenarEsprectro implements MouseListener {
             puertoEstelar.entrenarEspectro();
             System.out.println("Espectro en entrenamiento");
             ObservadorRecursosSuministros.getInstance().informarCambios();
+            ObservadorEstado.getInstance().informarCambios();
 
         } catch (ExcepcionNoSePuedeEntrenarUnidad e) {
             ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);

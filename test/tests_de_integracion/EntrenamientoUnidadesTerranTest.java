@@ -55,7 +55,7 @@ public class EntrenamientoUnidadesTerranTest {
 		for(int i = 0; i<12; i++) j.update();
 
 		m = b.entrenarMarine();
-		tem = m.getTiempoDeEntrenamiento();
+		tem = m.getTiempoDeEntrenamientoActual();
 		for(int i = 0; i<tem-1; i++) j.update();
 
 		Assert.assertFalse(j.buscarUnidad(m));
@@ -80,7 +80,7 @@ public class EntrenamientoUnidadesTerranTest {
 		for(int i = 0; i<i2; i++) j.update();
 
 		g = f.entrenarGolliat();
-		i3 = g.getTiempoDeEntrenamiento();
+		i3 = g.getTiempoDeEntrenamientoActual();
 		for(int i = 0; i<i3; i++) j.update();
 
 		Assert.assertTrue(j.buscarUnidad(g));
@@ -104,7 +104,7 @@ public class EntrenamientoUnidadesTerranTest {
 		for(int i = 0; i<i2; i++) j.update();
 
 		g = f.entrenarGolliat();
-		i3 = g.getTiempoDeEntrenamiento();
+		i3 = g.getTiempoDeEntrenamientoActual();
 		for(int i = 0; i<i3-1; i++) j.update();
 
 		Assert.assertFalse(j.buscarUnidad(g));
@@ -129,7 +129,7 @@ public class EntrenamientoUnidadesTerranTest {
 		for(int i = 0; i<p.getTiempoDeConstruccion(); i++) j.update();
 
 		e = p.entrenarEspectro();
-		tiempo = e.getTiempoDeEntrenamiento();
+		tiempo = e.getTiempoDeEntrenamientoActual();
 		for(int i = 0; i<tiempo; i++) j.update();
 
 		Assert.assertTrue(j.buscarUnidad(e));
@@ -153,7 +153,7 @@ public class EntrenamientoUnidadesTerranTest {
 		for(int i = 0; i<p.getTiempoDeConstruccion(); i++) j.update();
 
 		e = p.entrenarEspectro();
-		tiempo = e.getTiempoDeEntrenamiento();
+		tiempo = e.getTiempoDeEntrenamientoActual();
 		for(int i = 0; i<tiempo-1; i++) j.update();
 
 		Assert.assertFalse(j.buscarUnidad(e));
@@ -177,7 +177,7 @@ public class EntrenamientoUnidadesTerranTest {
 		for(int i = 0; i<p.getTiempoDeConstruccion(); i++) j.update();
 
 		n = p.entrenarNaveCiencia();
-		tiempo = n.getTiempoDeEntrenamiento();
+		tiempo = n.getTiempoDeEntrenamientoActual();
 		for(int i = 0; i<tiempo; i++) j.update();
 
 		Assert.assertTrue(j.buscarUnidad(n));
@@ -201,7 +201,7 @@ public class EntrenamientoUnidadesTerranTest {
 		for(int i = 0; i<p.getTiempoDeConstruccion(); i++) j.update();
 
 		n = p.entrenarNaveCiencia();
-		tiempo = n.getTiempoDeEntrenamiento();
+		tiempo = n.getTiempoDeEntrenamientoActual();
 		for(int i = 0; i<tiempo-1; i++) j.update();
 
 		Assert.assertFalse(j.buscarUnidad(n));
@@ -225,7 +225,7 @@ public class EntrenamientoUnidadesTerranTest {
 		for(int i = 0; i<p.getTiempoDeConstruccion(); i++) j.update();
 
 		n = p.entrenarNaveTransporte();
-		tiempo = n.getTiempoDeEntrenamiento();
+		tiempo = n.getTiempoDeEntrenamientoActual();
 		for(int i = 0; i<tiempo; i++) j.update();
 
 		Assert.assertTrue(j.buscarUnidad(n));
@@ -249,7 +249,7 @@ public class EntrenamientoUnidadesTerranTest {
 		for(int i = 0; i<p.getTiempoDeConstruccion(); i++) j.update();
 
 		n = p.entrenarNaveTransporte();
-		tiempo = n.getTiempoDeEntrenamiento();
+		tiempo = n.getTiempoDeEntrenamientoActual();
 		for(int i = 0; i<tiempo-1; i++) j.update();
 
 		Assert.assertFalse(j.buscarUnidad(n));
