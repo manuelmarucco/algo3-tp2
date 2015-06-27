@@ -16,7 +16,6 @@ public class VistaBarraca extends ImagePanel implements IVista {
     private static final int ANCHO = 64;
     private static final int ALTO = 64;
     private final Barraca edificio;
-   // private static String pathImagen="images/construcciones/terran/barraca.png";
     private final VentanaJugador ventanaJugador;
 
     public VistaBarraca(ColocableEnMapa barraca,VentanaJugador ventanaJugador) {

@@ -99,20 +99,21 @@ public class RecoleccionDeRecursosTest {
         // Crea un cristal en 3 , 23
         // Crea un volcan en 5 , 21
         JugadorTerran jugador = juego.crearJugadorTerran("Jugado", "Azul");
+        int gasInicial = jugador.getRecursos().getGasVespeno();
 
         Coordenadas coordenadas = new Coordenadas(5,21);
         jugador.construirRefineria(coordenadas);
 
-        assertEquals(0, jugador.getRecursos().getGasVespeno());
+        assertEquals(500, jugador.getRecursos().getGasVespeno());
 
         // Construyo la Refineria.
-        this.lanzarUpdates(6,jugador);
+        this.lanzarUpdates(6,jugador) ;//se contruye y recoelcta 10
         // Cuando se termina de construir comienza a sumar.
 
         // Corro 3 updates se tienen que sumar 30 Gas.
         this.lanzarUpdates(3,jugador);
 
-        assertEquals(40, jugador.getRecursos().getGasVespeno());
+        assertEquals(gasInicial+30+10, jugador.getRecursos().getGasVespeno());
 
     }
 
