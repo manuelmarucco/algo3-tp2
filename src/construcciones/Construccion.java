@@ -34,12 +34,17 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Dania
 	}
 
 	@Override
+	public Costo getCosto(){
+		return costo;
+	}
+
+	@Override
 	public void recibirDanio(int danio){
 		resistencia.quitar(danio);
 	}
 	
 	protected void verificarRecursosDisponibles(Recursos r) throws ExcepcionRecursosInsuficientes{
-		r.gastarRecursos(costo);
+		r.validacionRecursosSuficientes(costo);
 	}
 	
 	@Override

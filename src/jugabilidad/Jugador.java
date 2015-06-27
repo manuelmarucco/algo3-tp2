@@ -31,11 +31,15 @@ public abstract class Jugador implements Actualizable{
 
 	protected void 	construir(Construible construccionCreada,Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		ProxyMapa proxyMapa = ProxyMapa.getInstance();
-		construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados, coordenada);
 
 		if(! this.visibilidad.esVisible(coordenada))throw new ExcepcionNoSePuedeConstruir();
+
+		construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados, coordenada);
+
 		EdificioEnConstruccion edificioEnConstruccion = new EdificioEnConstruccion(coordenada,construccionCreada);
 		proxyMapa.agregar(edificioEnConstruccion, coordenada);
+
+		recursosRecolectados.gastarRecursos(construccionCreada.getCosto());
 		edificiosEnConstruccion.add(edificioEnConstruccion);
 	}
 

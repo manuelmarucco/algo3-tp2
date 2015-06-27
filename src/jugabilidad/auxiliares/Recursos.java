@@ -27,8 +27,6 @@ public class Recursos {
 	
 	public void gastarRecursos(Costo costoDeEntidad) throws ExcepcionRecursosInsuficientes{
 		
-		this.validacionRecursosSuficientes(costoDeEntidad);
-		
 		mineralesDisponibles -= costoDeEntidad.getCostoMineral();
 		gasVespenoDisponible -= costoDeEntidad.getCostoGas();
 	}

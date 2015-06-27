@@ -49,7 +49,7 @@ public class ProxyMapa {
 
         validarCoordenadas(coordenada);
         colocable.agregarse(mapa, coordenada);
-        ObservadorMapa.getInstance().informarCambios();
+        ObservadorMapa.getInstance().informarCambios(); //TODO por favor saquen esto de aca. el modelo NO puede conocer a la vista
 
     }
 
