@@ -36,7 +36,7 @@ public class AccionJugar implements ActionListener {
         ventana2=this.crearJugador("Crear Jugador 2", new Coordenada(22, 4));
         Jugador jugador1 = ventana1.obtenerJugador();
         Jugador jugador2 = ventana1.obtenerJugador();
-        ProxyDeHechizos.inicializar(jugador1, jugador2);
+        ProxyDeHechizos.inicializar(jugador1, jugador2);    // TODO poner esto urgente en el modelo
         ProxiDeAtaque.inicializar(jugador1, jugador2);
         ventanaJuego.agregarVentana(ventana1);
         ventanaJuego.agregarVentana(ventana2);

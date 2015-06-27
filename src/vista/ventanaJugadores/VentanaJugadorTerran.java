@@ -29,9 +29,9 @@ public class VentanaJugadorTerran extends VentanaJugador {
 
 
     @Override
-    protected void crearPanelRecursos(){
-        super.crearPanelRecursos();
-        this.panelRecursos.add( new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros() ));
+    protected void crearPanelSuperior(){
+        super.crearPanelSuperior();
+        this.panelSuperior.add( new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros() ));
     }
 
     @Override

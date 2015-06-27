@@ -26,7 +26,7 @@ public abstract class VentanaJugador extends JFrame {
     private DisplayEstado displayEstado;
     private DisplayMapa displayMapa;
 
-    protected JPanel panelRecursos; //TODO me parece que se podrian sacar estos atributos y ser locales
+    protected JPanel panelSuperior; //TODO me parece que se podrian sacar estos atributos y ser locales
     private JScrollPane panelMapa;
     private JPanel panelLateral;
     protected JPanel panelInferior;
@@ -59,7 +59,7 @@ public abstract class VentanaJugador extends JFrame {
 
         this.crearContenedor();
 
-        this.crearPanelRecursos();
+        this.crearPanelSuperior();
         this.crearPanelMapa();
         this.crearPanelLateral();
         this.crearPanelInferior();
@@ -86,9 +86,14 @@ public abstract class VentanaJugador extends JFrame {
 
     }
 
-    protected void crearPanelRecursos(){
-        this.panelRecursos = new JPanel();
-        this.panelRecursos.setPreferredSize(new Dimension(700, 35));
+    protected void crearPanelSuperior(){
+        this.panelSuperior = new JPanel();
+        this.panelSuperior.setLayout(new BoxLayout(panelSuperior, BoxLayout.X_AXIS));
+        this.panelSuperior.setPreferredSize(new Dimension(700, 35));
+
+        DisplaySonido displaySonido = new DisplaySonido();;
+        this.panelSuperior.add(displaySonido);
+
     }
 
     protected void crearPanelInferior(){
@@ -119,7 +124,7 @@ public abstract class VentanaJugador extends JFrame {
 
     private void agregarAlContenedor(){
 
-        this.contenedor.add(this.panelRecursos, "North");
+        this.contenedor.add(this.panelSuperior, "North");
         this.contenedor.add(this.panelLateral, "West");
         this.contenedor.add(this.panelMapa, "Center");
         this.contenedor.add(this.panelInferior, "South");
