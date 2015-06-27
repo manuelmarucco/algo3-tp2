@@ -41,12 +41,14 @@ public class ParselaAccionable implements MouseListener {
                 System.out.println("Edificio creado en el mapa");
                 ObservadorRecursosSuministros.getInstance().informarCambios();
                 ObservadorMapa.getInstance().informarCambios();
+                ObservadorDeExcepciones.getInstance().borrarDisplay();
             }
 
             if(this.verificarAccionEnEspera()){
                 System.out.println("Accion de la unidad realizada");
                 ObservadorRecursosSuministros.getInstance().informarCambios();
                 ObservadorMapa.getInstance().informarCambios();
+                ObservadorDeExcepciones.getInstance().borrarDisplay();
             }
 
         }
@@ -61,8 +63,13 @@ public class ParselaAccionable implements MouseListener {
             else{
                 this.ventana.getPanelAcciones().limpiar();
             }
+
+            ObservadorDeExcepciones.getInstance().borrarDisplay();
+
+            //TODO refactorizar esto
             ventana.borrarPanelDeEstadoAnterior(); // el tema es que caundo tocas el pasto no se activa la VistaPasto entonces hay q borrar manualmente
             vista.actualizarPanelEstado();
+
         }
 
     }
