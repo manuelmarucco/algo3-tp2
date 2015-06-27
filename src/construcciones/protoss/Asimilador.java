@@ -17,7 +17,7 @@ import unidades.protoss.ResistenciaProtoss;
 import java.util.ArrayList;
 
 
-public class Asimilador extends CentroDeRecoleccion {
+public class Asimilador extends CentroDeRecoleccion implements IEdificioProtoss{
 
 	public Asimilador(Recursos recursos){
 

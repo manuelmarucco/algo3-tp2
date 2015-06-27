@@ -17,7 +17,7 @@ import unidades.protoss.ResistenciaProtoss;
 import java.util.ArrayList;
 
 
-public class NexoMineral extends CentroDeRecoleccion {
+public class NexoMineral extends CentroDeRecoleccion implements IEdificioProtoss {
 
 	public NexoMineral(Recursos recursos){
 

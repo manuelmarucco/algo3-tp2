@@ -293,6 +293,7 @@ public class ControladorDeVistaMapa {
         asociadorDeVistasTerrestres.put(ArchivosTemplarios.class, VistaArchivosTemplarios.class);
         //Edificio en Construccion
         asociadorDeVistasTerrestres.put(EdificioEnConstruccion.class, VistaEdificioEnConstruccion.class);
+        asociadorDeVistasTerrestres.put(EdificioEnInvocacion.class, VistaEdificioEnInvocacion.class);
         // Paisaje.////////////////
         asociadorDeVistasTerrestres.put(NullPosicionTerrestre.class, VistaNullPosicionTerrestre.class);
 

@@ -136,7 +136,9 @@ public class ConstruccionesProtossTest {
 		
 		p = j.construirPilon(coordenada);
 		t = p.getTiempoDeConstruccion();
-		for(int i=0; i<t; i++)	j.update();
+		for(int i=0; i<t; i++) {
+			j.update();
+		}
 
 		Assert.assertEquals(5,suministros.getSuministrosLimiteActuales());
 		Assert.assertTrue(j.buscarConstruccion(p));

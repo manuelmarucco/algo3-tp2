@@ -1,20 +1,25 @@
 package jugabilidad.RazaDeJugador;
 
+import construcciones.Construccion;
 import construcciones.protoss.*;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
+import interfaces.Construible;
 import jugabilidad.Jugador;
+import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.TormentaPsionica;
 import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenada;
+import unidades.Unidad;
 
 import java.util.ArrayList;
 
 public class JugadorProtoss extends Jugador {
 
     private ArrayList<TormentaPsionica> tormentasPsionica;
+    private ArrayList<EdificioEnInvocacion> edificiosEnInvocacion =new ArrayList<>();
 
     public JugadorProtoss(){       //Constructor para el Juego
         this.suministros = new Suministros(0,0);
@@ -90,17 +95,74 @@ public class JugadorProtoss extends Jugador {
 
     @Override
     public void update(){
-        super.update();
         for(TormentaPsionica a:tormentasPsionica){
             a.update();
             if(a.getTurnos()==0){
                 tormentasPsionica.remove(a);
             }
         }
+        for (int i = 0; i < edificiosEnInvocacion.size(); i++) {
+            EdificioEnInvocacion e = edificiosEnInvocacion.get(i);
+            e.disminuirTiempoDeConstruccion();
+
+            if (e.getTiempoDeConstruccionActual() == 0) {
+
+                Construible t = e.finalizarConstruccion();
+                construccionesCreadas.add(t);
+
+                Coordenada coordenada = e.getCoordenada();
+                ProxyMapa proxyMapa = ProxyMapa.getInstance();
+
+                try {
+                    proxyMapa.agregar((Construccion) t, coordenada);
+                } catch (ExcepcionNoSePudoAgregarAlMapa excepcionNoSePudoAgregarAlMapa) {
+                    excepcionNoSePudoAgregarAlMapa.printStackTrace();
+                }
+
+                //para evitar casteo hacer que Construible herede de Actualizable
+                edificiosEnInvocacion.remove(e);
+                i--;//por q al borrar baja en 1 el size
+
+            }
+            if(e.getVida()==0){
+                edificiosEnInvocacion.remove(e);
+                i--;//por q al borrar baja en 1 el size
+            }
+        }
+
+        for (int i = 0; i < construccionesCreadas.size(); i++) {
+            Construccion c = (Construccion) construccionesCreadas.get(i);
+            c.update();
+            if(c.getVida() == 0) {
+                construccionesCreadas.remove(c);
+                i--;//por q al borrar baja en 1 el size
+            }
+        }
+
+        for (int i = 0; i < unidadesCreadas.size(); i++) {
+            Unidad c = (Unidad) unidadesCreadas.get(i);
+            c.update();
+            if(c.getVida() == 0) {
+                unidadesCreadas.remove(c);
+                suministros.disminuirSuministrosUsados(c.getSuministro());
+                i--;//por q al borrar baja en 1 el size
+            }
+        }
+
     }
 
     public void agregarTormenta(TormentaPsionica tormentaPsionica){
         this.tormentasPsionica.add(tormentaPsionica);
     }
 
+    protected void 	construir(Construible construccionCreada,Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+        ProxyMapa proxyMapa = ProxyMapa.getInstance();
+        construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados, coordenada);
+
+        if(! this.visibilidad.esVisible(coordenada))throw new ExcepcionNoSePuedeConstruir();
+        EdificioEnInvocacion edificioEnInvocacion = new EdificioEnInvocacion(coordenada,construccionCreada);
+        proxyMapa.agregar(edificioEnInvocacion, coordenada);
+        edificiosEnInvocacion.add(edificioEnInvocacion);
+
+    }
 }

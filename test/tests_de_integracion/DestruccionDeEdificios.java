@@ -1,6 +1,6 @@
 package tests_de_integracion;
 
-import construcciones.EdificioEnConstruccion;
+import construcciones.protoss.EdificioEnInvocacion;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
@@ -31,13 +31,13 @@ public class DestruccionDeEdificios {
         ProxiDeAtaque.inicializar(j2, j1);
         Marine m = new Marine(Vision.VisionCompleta(10, 10));
         Coordenada coordDePilon = new Coordenada(7, 6);
-        EdificioEnConstruccion edifEnConst;
+        EdificioEnInvocacion edifEnConst;
 
         proxyMapa.agregar(m, new Coordenada(7, 5));
         j2.agregarUnidad(m);
 
         j1.construirPilon(coordDePilon);
-        edifEnConst = (EdificioEnConstruccion) proxyMapa.obtenerDeCapaTerrestre(coordDePilon);
+        edifEnConst = (EdificioEnInvocacion) proxyMapa.obtenerDeCapaTerrestre(coordDePilon);
 
         while(edifEnConst.getVida()!= 0){
             m.atacarTierra(edifEnConst);

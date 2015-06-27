@@ -18,7 +18,7 @@ import unidades.protoss.ResistenciaProtoss;
 import java.util.ArrayList;
 
 
-public class ArchivosTemplarios extends CentroDeEntrenamiento {
+public class ArchivosTemplarios extends CentroDeEntrenamiento implements IEdificioProtoss {
 
 	public ArchivosTemplarios(){
 

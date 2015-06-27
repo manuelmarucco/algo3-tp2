@@ -12,7 +12,7 @@ import unidades.protoss.ResistenciaProtoss;
 import unidades.protoss.Zealot;
 
 
-public class Acceso extends CentroDeEntrenamiento {
+public class Acceso extends CentroDeEntrenamiento implements IEdificioProtoss {
 
 	public Acceso(){
 		resistencia = new ResistenciaProtoss(500,500);
