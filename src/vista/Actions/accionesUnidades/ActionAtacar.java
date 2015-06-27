@@ -45,7 +45,7 @@ public class ActionAtacar implements MouseListener, AccionUnidad {
     }
 
     @Override
-    public void actuarEn(Coordenada coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango {
+    public void actuarEn(Coordenada coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo {
         unidad.atacar(coordenada);
         accionActuarEnEspera.setAccionActuar(null);
     }
