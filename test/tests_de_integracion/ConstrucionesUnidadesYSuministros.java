@@ -16,7 +16,7 @@ import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -50,11 +50,11 @@ public class ConstrucionesUnidadesYSuministros {
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         Pilon p;
 
-        p = j.construirPilon(new Coordenadas(1,2));
+        p = j.construirPilon(new Coordenada(1,2));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirPilon(new Coordenadas(1,1));
+        j.construirPilon(new Coordenada(1,1));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirPilon(new Coordenadas(5,2));
+        j.construirPilon(new Coordenada(5,2));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
 
         Assert.assertEquals(15,s.getSuministrosLimiteActuales());
@@ -67,11 +67,11 @@ public class ConstrucionesUnidadesYSuministros {
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         DepositoDeSuministros d;
 
-        d = j.construirDepositoDeSuministros(new Coordenadas(4, 6));
+        d = j.construirDepositoDeSuministros(new Coordenada(4, 6));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirDepositoDeSuministros(new Coordenadas(4, 1));
+        j.construirDepositoDeSuministros(new Coordenada(4, 1));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirDepositoDeSuministros(new Coordenadas(4, 2));
+        j.construirDepositoDeSuministros(new Coordenada(4, 2));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
 
         Assert.assertEquals(15,s.getSuministrosLimiteActuales());
@@ -85,11 +85,11 @@ public class ConstrucionesUnidadesYSuministros {
         Pilon p;
 
 
-        p = j.construirPilon(new Coordenadas(3,5));
+        p = j.construirPilon(new Coordenada(3,5));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirPilon(new Coordenadas(3,1));
+        j.construirPilon(new Coordenada(3,1));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirPilon(new Coordenadas(3,2));
+        j.construirPilon(new Coordenada(3,2));
         for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
 
         Assert.assertEquals(200,s.getSuministrosLimiteActuales());
@@ -102,11 +102,11 @@ public class ConstrucionesUnidadesYSuministros {
         j.setVisibilidad(Vision.VisionCompleta(20, 20));
         DepositoDeSuministros d;
 
-        d = j.construirDepositoDeSuministros(new Coordenadas(1, 1));
+        d = j.construirDepositoDeSuministros(new Coordenada(1, 1));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirDepositoDeSuministros(new Coordenadas(1, 3));
+        j.construirDepositoDeSuministros(new Coordenada(1, 3));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
-        j.construirDepositoDeSuministros(new Coordenadas(1, 5));
+        j.construirDepositoDeSuministros(new Coordenada(1, 5));
         for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
 
         Assert.assertEquals( 200,s.getSuministrosLimiteActuales());
@@ -125,9 +125,9 @@ public class ConstrucionesUnidadesYSuministros {
         ProxiDeAtaque.inicializar(j2, j1);
         DepositoDeSuministros d;
         Marine m = new Marine(Vision.VisionCompleta(10,10));
-        Coordenadas coordDeDepot = new Coordenadas(5, 6);
+        Coordenada coordDeDepot = new Coordenada(5, 6);
 
-        proxyMapa.agregar(m, new Coordenadas(5, 5));
+        proxyMapa.agregar(m, new Coordenada(5, 5));
         j2.agregarUnidad(m);
 
         d = j1.construirDepositoDeSuministros(coordDeDepot);
@@ -161,9 +161,9 @@ public class ConstrucionesUnidadesYSuministros {
         ProxiDeAtaque.inicializar(j2, j1);
         Pilon p;
         Marine m = new Marine(Vision.VisionCompleta(10,10));
-        Coordenadas coordDePilon = new Coordenadas(7, 6);
+        Coordenada coordDePilon = new Coordenada(7, 6);
 
-        proxyMapa.agregar(m, new Coordenadas(7, 5));
+        proxyMapa.agregar(m, new Coordenada(7, 5));
         j2.agregarUnidad(m);
 
         p = j1.construirPilon(coordDePilon);

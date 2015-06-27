@@ -10,7 +10,7 @@ import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Before;
 import org.junit.Test;
 import recursos.Cristal;
@@ -34,12 +34,12 @@ public class RecoleccionDeRecursosTest {
 
         Recursos recursos = new Recursos(0,0);
 
-        Coordenadas coordenadas = new Coordenadas(1,1);
+        Coordenada coordenada = new Coordenada(1,1);
         Cristal cristal = new Cristal();
         CentroDeMineral centroDeMineral = new CentroDeMineral(recursos);
 
-        proxyMapa.agregar(cristal,coordenadas);
-        proxyMapa.agregar(centroDeMineral,coordenadas);
+        proxyMapa.agregar(cristal, coordenada);
+        proxyMapa.agregar(centroDeMineral, coordenada);
 
         assertEquals( 10,centroDeMineral.obtenerRecurso() );
 
@@ -49,12 +49,12 @@ public class RecoleccionDeRecursosTest {
     public void cuandoUbicoUnaRefineriaSobreUnVolcanMeDeberiaDevolverDiezMinerales() throws ExcepcionNoSePudoAgregarAlMapa {
 
         Recursos recursos = new Recursos(0,0);
-        Coordenadas coordenadas = new Coordenadas(1,2);
+        Coordenada coordenada = new Coordenada(1,2);
         Volcan volcan = new Volcan();
         Refineria refineria = new Refineria(recursos);
 
-        proxyMapa.agregar(volcan,coordenadas);
-        proxyMapa.agregar(refineria,coordenadas);
+        proxyMapa.agregar(volcan, coordenada);
+        proxyMapa.agregar(refineria, coordenada);
 
         assertEquals( 10,refineria.obtenerRecurso() );
     }
@@ -77,9 +77,9 @@ public class RecoleccionDeRecursosTest {
         // Crea un volcan en 5 , 21
         JugadorTerran jugador = (JugadorTerran) juego.crearJugadorTerran("Jugado", "Azul");
 
-        Coordenadas coordenadas = new Coordenadas(3,23);
+        Coordenada coordenada = new Coordenada(3,23);
         int mineralesIniciales = jugador.getRecursos().getMinerales();
-        jugador.construirCentroDeMineral(coordenadas); //gasto 50 minerales en construirla
+        jugador.construirCentroDeMineral(coordenada); //gasto 50 minerales en construirla
 
         // Construyo el centroDeMineral.
         this.lanzarUpdates(4,jugador); //se contruye y recoelcta 10
@@ -101,8 +101,8 @@ public class RecoleccionDeRecursosTest {
         JugadorTerran jugador = juego.crearJugadorTerran("Jugado", "Azul");
         int gasInicial = jugador.getRecursos().getGasVespeno();
 
-        Coordenadas coordenadas = new Coordenadas(5,21);
-        jugador.construirRefineria(coordenadas);
+        Coordenada coordenada = new Coordenada(5,21);
+        jugador.construirRefineria(coordenada);
 
         assertEquals(500, jugador.getRecursos().getGasVespeno());
 
@@ -125,9 +125,9 @@ public class RecoleccionDeRecursosTest {
         // Crea un volcan en 5 , 21
         JugadorProtoss jugador = juego.crearJugadorProtoss("Jugado", "Azul");
 
-        Coordenadas coordenadas = new Coordenadas(3,23);
+        Coordenada coordenada = new Coordenada(3,23);
         int mineralesIniciales = jugador.getRecursos().getMinerales();
-        jugador.construirNexoMineral(coordenadas); //gasto 50 minerales
+        jugador.construirNexoMineral(coordenada); //gasto 50 minerales
 
         // Construyo el centroDeMineral.
         this.lanzarUpdates(4,jugador);  //se construye y recolecta 1 turno osea 10 minerales
@@ -148,8 +148,8 @@ public class RecoleccionDeRecursosTest {
         // Crea un volcan en 5 , 21
         JugadorProtoss jugador = juego.crearJugadorProtoss("Jugado", "Azul");
 
-        Coordenadas coordenadas = new Coordenadas(5,21);
-        jugador.construirAsimilador(coordenadas);
+        Coordenada coordenada = new Coordenada(5,21);
+        jugador.construirAsimilador(coordenada);
 
         assertEquals(0, jugador.getRecursos().getGasVespeno());
 

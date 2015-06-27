@@ -42,7 +42,6 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
 
         JScrollPane panelColaDeEntrenamiento = new JScrollPane(treeColaDeEntrenamiento);
         panelColaDeEntrenamiento.setPreferredSize(new Dimension(170,60));
-       // this.panelPrincipal.add(panelColaDeEntrenamiento);
         this.contenedorColaYTiempo.add(panelColaDeEntrenamiento);
 
 
@@ -63,8 +62,6 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
         progressTiempoDeEntrenamiento.setVisible(true);
 
         progressTiempoDeEntrenamiento.setString(String.valueOf(tiempoDeEntrenamientoActual) + " turnos para finalizar");
-       // this.panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
-        // this.panelPrincipal.add(progressTiempoDeEntrenamiento);
         this.contenedorColaYTiempo.add(Box.createRigidArea(new Dimension(10, 10)));
         this.contenedorColaYTiempo.add(progressTiempoDeEntrenamiento);
 
@@ -77,8 +74,6 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
         this.panelTiempoDeEntrenamientoDeUnidad.setLayout(new BoxLayout(panelTiempoDeEntrenamientoDeUnidad, BoxLayout.X_AXIS));
         this.panelTiempoDeEntrenamientoDeUnidad.add(new JLabel("Entrenando "+nombreDeUnidad+"..."));
 
-      //  this.panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
-      //  this.panelPrincipal.add(this.panelTiempoDeEntrenamientoDeUnidad);
         this.contenedorColaYTiempo.add(Box.createRigidArea(new Dimension(10, 10)));
         this.contenedorColaYTiempo.add(this.panelTiempoDeEntrenamientoDeUnidad);
 

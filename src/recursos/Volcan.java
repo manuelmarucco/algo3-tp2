@@ -4,7 +4,7 @@ import construcciones.protoss.Asimilador;
 import construcciones.terran.Refineria;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.Mapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 public class Volcan extends Recurso {
 
@@ -26,7 +26,7 @@ public class Volcan extends Recurso {
     }
 
     @Override
-    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+    public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
     }
 

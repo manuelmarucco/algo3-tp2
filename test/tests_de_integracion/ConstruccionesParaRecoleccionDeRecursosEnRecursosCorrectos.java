@@ -11,11 +11,9 @@ import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
 
 import static org.junit.Assert.assertTrue;
 
@@ -44,8 +42,8 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
         // Crea un cristal en 3 , 23
         JugadorTerran jugador = juego.crearJugadorTerran("Jugado","Azul");
 
-        Coordenadas coordenadas = new Coordenadas(3,23);
-        CentroDeMineral centroDeMineral = jugador.construirCentroDeMineral(coordenadas);
+        Coordenada coordenada = new Coordenada(3,23);
+        CentroDeMineral centroDeMineral = jugador.construirCentroDeMineral(coordenada);
 
         this.lanzarUpdates(4,jugador);
 
@@ -60,8 +58,8 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
         // Crea un cristal en 3 , 23
         JugadorProtoss jugador = juego.crearJugadorProtoss("Jugado", "Azul");
 
-        Coordenadas coordenadas = new Coordenadas(3,23);
-        NexoMineral nexoMineral = jugador.construirNexoMineral(coordenadas);
+        Coordenada coordenada = new Coordenada(3,23);
+        NexoMineral nexoMineral = jugador.construirNexoMineral(coordenada);
 
         this.lanzarUpdates(4,jugador);
 
@@ -77,8 +75,8 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
         // Crea un volcan en 5 , 21
         JugadorProtoss jugador = juego.crearJugadorProtoss("Jugado", "Azul");
 
-        Coordenadas coordenadas = new Coordenadas(5,21);
-        Asimilador asimilador = jugador.construirAsimilador(coordenadas);
+        Coordenada coordenada = new Coordenada(5,21);
+        Asimilador asimilador = jugador.construirAsimilador(coordenada);
 
         this.lanzarUpdates(6,jugador);
 
@@ -93,8 +91,8 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
         // Crea un volcan en 5 , 21
         JugadorTerran jugador = juego.crearJugadorTerran("Jugado", "Azul");
 
-        Coordenadas coordenadas = new Coordenadas(5,21);
-        Refineria refineria = jugador.construirRefineria(coordenadas);
+        Coordenada coordenada = new Coordenada(5,21);
+        Refineria refineria = jugador.construirRefineria(coordenada);
 
         this.lanzarUpdates(6,jugador);
 
@@ -111,8 +109,8 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
         // Crea un cristal en 3 , 23
         JugadorTerran jugador = juego.crearJugadorTerran("Jugado","Azul");
 
-        Coordenadas coordenadas = new Coordenadas(3,23);
-        jugador.construirRefineria(coordenadas);
+        Coordenada coordenada = new Coordenada(3,23);
+        jugador.construirRefineria(coordenada);
 
     }
 
@@ -123,8 +121,8 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
         // Crea un cristal en 3 , 23
         JugadorProtoss jugador = juego.crearJugadorProtoss("Jugado", "Azul");
 
-        Coordenadas coordenadas = new Coordenadas(3,23);
-        jugador.construirAsimilador(coordenadas);
+        Coordenada coordenada = new Coordenada(3,23);
+        jugador.construirAsimilador(coordenada);
 
     }
 
@@ -135,8 +133,8 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
         // Crea un volcan en 5 , 21
         JugadorProtoss jugador = juego.crearJugadorProtoss("Jugado", "Azul");
 
-        Coordenadas coordenadas = new Coordenadas(5,21);
-        jugador.construirNexoMineral(coordenadas);
+        Coordenada coordenada = new Coordenada(5,21);
+        jugador.construirNexoMineral(coordenada);
 
     }
 
@@ -147,8 +145,8 @@ public class ConstruccionesParaRecoleccionDeRecursosEnRecursosCorrectos {
         // Crea un volcan en 5 , 21
         JugadorTerran jugador = juego.crearJugadorTerran("Jugado", "Azul");
 
-        Coordenadas coordenadas = new Coordenadas(5,21);
-        jugador.construirCentroDeMineral(coordenadas);
+        Coordenada coordenada = new Coordenada(5,21);
+        jugador.construirCentroDeMineral(coordenada);
 
     }
 }

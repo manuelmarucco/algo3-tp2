@@ -1,7 +1,7 @@
 package unidades.protoss;
 
-import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Cargable;
@@ -12,8 +12,11 @@ import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.TormentaPsionica;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
-import unidades.*;
+import jugabilidad.utilidadesMapa.Coordenada;
+import unidades.Energia;
+import unidades.Terrestre;
+import unidades.Unidad;
+import unidades.UnidadMagica;
 
 public class AltoTemplario extends UnidadMagica implements Cargable {
 
@@ -25,28 +28,28 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
         super(new ResistenciaProtoss(40, 40), new Energia(200, 50, 10), 7, new Terrestre(), 2, new Costo(50, 150), 7, 5, visionJugador, 2);
     }
 
-    public void tormentaPsionica(Coordenadas coordenadas, JugadorProtoss duenio) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
-        Coordenadas at= ProxyMapa.getInstance().getCoordenada(this);
+    public void tormentaPsionica(Coordenada coordenada, JugadorProtoss duenio) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+        Coordenada at= ProxyMapa.getInstance().getCoordenada(this);
         ProxyMapa mapa = ProxyMapa.getInstance();
-        if(at.distancia(coordenadas)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
+        if(at.distancia(coordenada)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         try {
             this.energia.gastar(75);
         } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {
             energiaInsuficiente.printStackTrace();
         }
-        duenio.agregarTormenta(new TormentaPsionica(coordenadas));
+        duenio.agregarTormenta(new TormentaPsionica(coordenada));
         this.accion.actuo();
     }
 
-    public void alucinacion(Unidad objetivo,Coordenadas destino1,Coordenadas destino2) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void alucinacion(Unidad objetivo,Coordenada destino1,Coordenada destino2) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
-        Coordenadas coordenadasObjetivo=ProxyMapa.getInstance().getCoordenada(objetivo);
-        Coordenadas coordenadasAltoTemplario= ProxyMapa.getInstance().getCoordenada(this);
+        Coordenada coordenadaObjetivo =ProxyMapa.getInstance().getCoordenada(objetivo);
+        Coordenada coordenadaAltoTemplario = ProxyMapa.getInstance().getCoordenada(this);
         ProxyMapa mapa = ProxyMapa.getInstance();
-        if(coordenadasObjetivo.distancia(coordenadasAltoTemplario)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
-        if(coordenadasObjetivo.distancia(destino1)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
-        if(coordenadasObjetivo.distancia(destino2)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
+        if(coordenadaObjetivo.distancia(coordenadaAltoTemplario)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
+        if(coordenadaObjetivo.distancia(destino1)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
+        if(coordenadaObjetivo.distancia(destino2)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
         try {
             this.energia.gastar(100);
             // Por el proxy agrego que tiran excepciones
@@ -73,7 +76,7 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
     }
 
     @Override
-    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa{
+    public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa{
 
         mapa.moverEnCapaTerrestre(this, hasta);
 

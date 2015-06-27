@@ -2,7 +2,7 @@ package vista.Actions.accionesUnidades;
 
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.terrran.NaveCiencia;
 import vista.Actions.WraperAccionActuar;
 
@@ -43,7 +43,7 @@ public class ActionRadiacion implements MouseListener, AccionUnidad {
 
     }
     @Override
-    public void actuarEn(Coordenadas coordenada) throws ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo {
+    public void actuarEn(Coordenada coordenada) throws ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo {
         unidad.Radiacion(coordenada);
         wraperAccionActuar.setAccionActuar(null);
     }

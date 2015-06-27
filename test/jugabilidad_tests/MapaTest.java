@@ -5,7 +5,7 @@ import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Test;
 import recursos.Cristal;
 import unidades.protoss.NaveTransporteProtoss;
@@ -15,9 +15,7 @@ import unidades.terrran.NaveTransporteTerran;
 
 import java.util.ArrayList;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 
 public class MapaTest {
@@ -26,12 +24,12 @@ public class MapaTest {
 	public void deberiaAgregarUnaBarracaEnLasCoordenadasEspecificadas() throws ExcepcionPosicionOcupada {
 		Mapa mapa = new Mapa();
 
-		Coordenadas coordenadas = new Coordenadas(1,2);
+		Coordenada coordenada = new Coordenada(1,2);
 		ColocableEnMapa barraca = new Barraca();
 		
-		mapa.agregarEnCapaTerrestre(barraca, coordenadas);
+		mapa.agregarEnCapaTerrestre(barraca, coordenada);
 		
-		assertEquals( barraca , mapa.obtenerDeCapaTerrestre(coordenadas) );
+		assertEquals( barraca , mapa.obtenerDeCapaTerrestre(coordenada) );
 	
 	}
 
@@ -39,12 +37,12 @@ public class MapaTest {
 	public void deberiaAgregarUnaUnidadTerrestreEnLaCapaTerrestre() throws ExcepcionNoSePudoAgregarAlMapa {
 		Mapa mapa = new Mapa();
 
-		Coordenadas coordenadas = new Coordenadas(2,2);
+		Coordenada coordenada = new Coordenada(2,2);
 		ColocableEnMapa marine = new Marine();
 
-		mapa.agregarEnCapaTerrestre(marine, coordenadas);
+		mapa.agregarEnCapaTerrestre(marine, coordenada);
 
-		assertEquals( marine , mapa.obtenerDeCapaTerrestre(coordenadas) );
+		assertEquals( marine , mapa.obtenerDeCapaTerrestre(coordenada) );
 	}
 
 	@Test
@@ -52,36 +50,36 @@ public class MapaTest {
 
 		Mapa mapa = new Mapa();
 
-		Coordenadas coordenadas = new Coordenadas(2,6);
+		Coordenada coordenada = new Coordenada(2,6);
 		ColocableEnMapa nave = new NaveCiencia();
 
-		mapa.agregarEnCapaAerea(nave, coordenadas);
+		mapa.agregarEnCapaAerea(nave, coordenada);
 
-		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenadas) );
+		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenada) );
 	}
 
 	@Test
 	public void deberiaAgregarUnaNaveTransporteProtossEnLaCapaAerea() throws ExcepcionNoSePudoAgregarAlMapa {
 		Mapa mapa = new Mapa();
 
-		Coordenadas coordenadas = new Coordenadas(2,4);
+		Coordenada coordenada = new Coordenada(2,4);
 		ColocableEnMapa nave = new NaveTransporteProtoss();
 
-		mapa.agregarEnCapaAerea(nave, coordenadas);
+		mapa.agregarEnCapaAerea(nave, coordenada);
 
-		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenadas) );
+		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenada) );
 	}
 
 	@Test
 	public void deberiaAgregarUnaNaveTransporteTerranEnLaCapaAerea() throws ExcepcionNoSePudoAgregarAlMapa {
 		Mapa mapa = new Mapa();
 
-		Coordenadas coordenadas = new Coordenadas(2,3);
+		Coordenada coordenada = new Coordenada(2,3);
 		ColocableEnMapa nave = new NaveTransporteTerran();
 
-		mapa.agregarEnCapaAerea(nave, coordenadas);
+		mapa.agregarEnCapaAerea(nave, coordenada);
 
-		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenadas) );
+		assertEquals( nave , mapa.obtenerDeCapaAerea(coordenada) );
 	}
 
 	@Test
@@ -89,12 +87,12 @@ public class MapaTest {
 
 		Mapa mapa = new Mapa();
 
-		Coordenadas coordenadas = new Coordenadas(1,2);
+		Coordenada coordenada = new Coordenada(1,2);
 		Cristal cristal = new Cristal();
 
-		mapa.agregarEnCapaDeRecursos(cristal, coordenadas);
+		mapa.agregarEnCapaDeRecursos(cristal, coordenada);
 
-		assertEquals( cristal , mapa.obtenerDeCapaDeRecursos(coordenadas) );
+		assertEquals( cristal , mapa.obtenerDeCapaDeRecursos(coordenada) );
 
 	}
 
@@ -104,13 +102,13 @@ public class MapaTest {
 
 		Mapa mapa = new Mapa();
 
-		Coordenadas coordenadas = new Coordenadas(1,2);
+		Coordenada coordenada = new Coordenada(1,2);
 		ColocableEnMapa barraca = new Barraca();
 
-		mapa.agregarEnCapaTerrestre(barraca, coordenadas);
-		mapa.borrarEnCapaTerrestre(coordenadas);
+		mapa.agregarEnCapaTerrestre(barraca, coordenada);
+		mapa.borrarEnCapaTerrestre(coordenada);
 
-		assertFalse(mapa.posicionTerrestreOcupada(coordenadas));
+		assertFalse(mapa.posicionTerrestreOcupada(coordenada));
 
 	}
 
@@ -120,13 +118,13 @@ public class MapaTest {
 
 		Mapa mapa = new Mapa();
 
-		Coordenadas coordenadas = new Coordenadas(1,2);
+		Coordenada coordenada = new Coordenada(1,2);
 		NaveCiencia nave = new NaveCiencia();
 
-		mapa.agregarEnCapaAerea(nave, coordenadas);
-		mapa.borrarEnCapaAerea(coordenadas);
+		mapa.agregarEnCapaAerea(nave, coordenada);
+		mapa.borrarEnCapaAerea(coordenada);
 
-		assertFalse(mapa.posicionAereaOcupada(coordenadas));
+		assertFalse(mapa.posicionAereaOcupada(coordenada));
 
 	}
 
@@ -137,21 +135,21 @@ public class MapaTest {
 		Mapa mapa = new Mapa();
 
 		Marine marine = new Marine();
-		Coordenadas coordenadasMarine = new Coordenadas(5,5);
+		Coordenada coordenadaMarine = new Coordenada(5,5);
 
 		NaveCiencia naveCiencia = new NaveCiencia();
-		Coordenadas coordenadasNaveCiencia = new Coordenadas(5,6);
+		Coordenada coordenadaNaveCiencia = new Coordenada(5,6);
 
 		try {
 
-			mapa.agregarEnCapaTerrestre(marine, coordenadasMarine);
-			mapa.agregarEnCapaAerea(naveCiencia, coordenadasNaveCiencia);
+			mapa.agregarEnCapaTerrestre(marine, coordenadaMarine);
+			mapa.agregarEnCapaAerea(naveCiencia, coordenadaNaveCiencia);
 
 		} catch (ExcepcionPosicionOcupada e) {
 			e.printStackTrace();
 		}
 
-		Coordenadas centro = new Coordenadas(6,5);
+		Coordenada centro = new Coordenada(6,5);
 
 		ArrayList<ColocableEnMapa> encontrados = null;
 
@@ -175,21 +173,21 @@ public class MapaTest {
 		Mapa mapa = new Mapa();
 
 		Marine marine = new Marine();
-		Coordenadas coordenadasMarine = new Coordenadas(5,5);
+		Coordenada coordenadaMarine = new Coordenada(5,5);
 
 		NaveCiencia naveCiencia = new NaveCiencia();
-		Coordenadas coordenadasNaveCiencia = new Coordenadas(15,16);
+		Coordenada coordenadaNaveCiencia = new Coordenada(15,16);
 
 		try {
 
-			mapa.agregarEnCapaTerrestre(marine, coordenadasMarine);
-			mapa.agregarEnCapaAerea(naveCiencia, coordenadasNaveCiencia);
+			mapa.agregarEnCapaTerrestre(marine, coordenadaMarine);
+			mapa.agregarEnCapaAerea(naveCiencia, coordenadaNaveCiencia);
 
 		} catch (ExcepcionPosicionOcupada e) {
 			e.printStackTrace();
 		}
 
-		Coordenadas centro = new Coordenadas(6,5);
+		Coordenada centro = new Coordenada(6,5);
 
 		ArrayList<ColocableEnMapa> encontrados = null;
 

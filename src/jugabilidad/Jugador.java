@@ -11,7 +11,7 @@ import interfaces.Entrenable;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Unidad;
 
 import java.util.ArrayList;
@@ -29,13 +29,13 @@ public abstract class Jugador implements Actualizable{
 	protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion = new ArrayList<>();
 
 
-	protected void 	construir(Construible construccionCreada,Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+	protected void 	construir(Construible construccionCreada,Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		ProxyMapa proxyMapa = ProxyMapa.getInstance();
-		construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados,coordenadas);
+		construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados, coordenada);
 
-		if(! this.visibilidad.esVisible(coordenadas))throw new ExcepcionNoSePuedeConstruir();
-		EdificioEnConstruccion edificioEnConstruccion = new EdificioEnConstruccion(coordenadas,construccionCreada);
-		proxyMapa.agregar(edificioEnConstruccion, coordenadas);
+		if(! this.visibilidad.esVisible(coordenada))throw new ExcepcionNoSePuedeConstruir();
+		EdificioEnConstruccion edificioEnConstruccion = new EdificioEnConstruccion(coordenada,construccionCreada);
+		proxyMapa.agregar(edificioEnConstruccion, coordenada);
 		edificiosEnConstruccion.add(edificioEnConstruccion);
 	}
 
@@ -60,11 +60,11 @@ public abstract class Jugador implements Actualizable{
 				Construible t = e.finalizarConstruccion();
 				construccionesCreadas.add(t);
 
-				Coordenadas coordenadas = e.getCoordenada();
+				Coordenada coordenada = e.getCoordenada();
 				ProxyMapa proxyMapa = ProxyMapa.getInstance();
 
 				try {
-					proxyMapa.agregar((Construccion) t,coordenadas);
+					proxyMapa.agregar((Construccion) t, coordenada);
 				} catch (ExcepcionNoSePudoAgregarAlMapa excepcionNoSePudoAgregarAlMapa) {
 					excepcionNoSePudoAgregarAlMapa.printStackTrace();
 				}

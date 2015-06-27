@@ -5,12 +5,13 @@ import excepciones.Mapa.ExcepcionCoordenadaYIngresadaFueraDelMapa;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import jugabilidad.ProxyMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Before;
 import org.junit.Test;
 import unidades.terrran.Marine;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class ProxyMapaTest {
 
@@ -36,10 +37,10 @@ public class ProxyMapaTest {
         ProxyMapa proxy = ProxyMapa.getInstance();
         proxy.setCoordenadasMaximas(10,10);
 
-        Coordenadas coordenadas = new Coordenadas(15,5);
+        Coordenada coordenada = new Coordenada(15,5);
         Marine marine = new Marine();
 
-        proxy.agregar(marine, coordenadas);
+        proxy.agregar(marine, coordenada);
     }
 
     @Test(expected= ExcepcionCoordenadaYIngresadaFueraDelMapa.class)
@@ -49,10 +50,10 @@ public class ProxyMapaTest {
         ProxyMapa proxy = ProxyMapa.getInstance();
         proxy.setCoordenadasMaximas(10,10);
 
-        Coordenadas coordenadas = new Coordenadas(5,15);
+        Coordenada coordenada = new Coordenada(5,15);
         Marine marine = new Marine();
 
-        proxy.agregar(marine, coordenadas);
+        proxy.agregar(marine, coordenada);
     }
 
     @Test
@@ -62,15 +63,15 @@ public class ProxyMapaTest {
         ProxyMapa proxy = ProxyMapa.getInstance();
         proxy.setCoordenadasMaximas(10,10);
 
-        Coordenadas coordenadasUno = new Coordenadas(5,5);
+        Coordenada coordenadaUno = new Coordenada(5,5);
         Marine marine = new Marine();
 
-        proxy.agregar(marine, coordenadasUno);
-        Coordenadas coordenadasDos = new Coordenadas(5,6);
+        proxy.agregar(marine, coordenadaUno);
+        Coordenada coordenadaDos = new Coordenada(5,6);
 
-        proxy.mover(coordenadasDos, marine);
+        proxy.mover(coordenadaDos, marine);
 
-        assertFalse(proxy.posicionTerrestreOcupada(coordenadasUno));
+        assertFalse(proxy.posicionTerrestreOcupada(coordenadaUno));
 
     }
 
@@ -81,16 +82,16 @@ public class ProxyMapaTest {
         ProxyMapa proxy = ProxyMapa.getInstance();
         proxy.setCoordenadasMaximas(10,10);
 
-        Coordenadas coordenadasUno = new Coordenadas(5,5);
+        Coordenada coordenadaUno = new Coordenada(5,5);
         Marine marineUno = new Marine();
 
-        Coordenadas coordenadasDos = new Coordenadas(5,6);
+        Coordenada coordenadaDos = new Coordenada(5,6);
         Marine marineDos = new Marine();
 
-        proxy.agregar(marineUno, coordenadasUno);
-        proxy.agregar(marineDos, coordenadasDos);
+        proxy.agregar(marineUno, coordenadaUno);
+        proxy.agregar(marineDos, coordenadaDos);
 
-        proxy.mover(coordenadasDos, marineUno);
+        proxy.mover(coordenadaDos, marineUno);
     }
 
     @Test
@@ -100,22 +101,22 @@ public class ProxyMapaTest {
         ProxyMapa proxy = ProxyMapa.getInstance();
         proxy.setCoordenadasMaximas(10,10);
 
-        Coordenadas coordenadasUno = new Coordenadas(5,5);
+        Coordenada coordenadaUno = new Coordenada(5,5);
         Marine marineUno = new Marine();
 
-        Coordenadas coordenadasDos = new Coordenadas(5,6);
+        Coordenada coordenadaDos = new Coordenada(5,6);
         Marine marineDos = new Marine();
 
-        proxy.agregar(marineUno, coordenadasUno);
-        proxy.agregar(marineDos, coordenadasDos);
+        proxy.agregar(marineUno, coordenadaUno);
+        proxy.agregar(marineDos, coordenadaDos);
 
         try {
-            proxy.mover(coordenadasDos, marineUno);
+            proxy.mover(coordenadaDos, marineUno);
         } catch (ExcepcionPosicionOcupada e){
             e.printStackTrace();
         }
 
-        assertTrue(proxy.posicionTerrestreOcupada(coordenadasUno));
+        assertTrue(proxy.posicionTerrestreOcupada(coordenadaUno));
     }
 
     @Test
@@ -125,22 +126,22 @@ public class ProxyMapaTest {
         ProxyMapa proxy = ProxyMapa.getInstance();
         proxy.setCoordenadasMaximas(10,10);
 
-        Coordenadas coordenadasUno = new Coordenadas(5,5);
+        Coordenada coordenadaUno = new Coordenada(5,5);
         Marine marineUno = new Marine();
 
-        Coordenadas coordenadasDos = new Coordenadas(5,6);
+        Coordenada coordenadaDos = new Coordenada(5,6);
         Marine marineDos = new Marine();
 
-        proxy.agregar(marineUno, coordenadasUno);
-        proxy.agregar(marineDos, coordenadasDos);
+        proxy.agregar(marineUno, coordenadaUno);
+        proxy.agregar(marineDos, coordenadaDos);
 
         try {
-            proxy.mover(coordenadasDos, marineUno);
+            proxy.mover(coordenadaDos, marineUno);
         } catch (ExcepcionPosicionOcupada e){
             e.printStackTrace();
         }
 
-        assertTrue(proxy.posicionTerrestreOcupada(coordenadasDos));
+        assertTrue(proxy.posicionTerrestreOcupada(coordenadaDos));
     }
 
     @Test (expected= ExcepcionNoSePudoAgregarAlMapa.class)
@@ -150,7 +151,7 @@ public class ProxyMapaTest {
         ProxyMapa proxy = ProxyMapa.getInstance();
         proxy.setCoordenadasMaximas(10,10);
 
-        Coordenadas centro = new Coordenadas(11,11);
+        Coordenada centro = new Coordenada(11,11);
 
         proxy.obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(centro,1);
 

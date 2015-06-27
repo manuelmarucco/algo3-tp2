@@ -60,7 +60,7 @@ public class BufferImagenes {
         buffer.put("Golliat", new ImageIcon("images/unidades/terrran/golliat.png"));
         buffer.put("Espectro", new ImageIcon("images/unidades/terrran/espectro.png"));
         buffer.put("NaveCiencia", new ImageIcon("images/unidades/terrran/naveCiencia.png"));
-        buffer.put("NaveTransporteTerran", new ImageIcon("images/unidades/terrran/naveTRansporte.png"));
+        buffer.put("NaveTransporteTerran", new ImageIcon("images/unidades/terrran/naveTransporte.png"));
 
         // Protoss -----------------------------------------------------------------------------------------------------
         

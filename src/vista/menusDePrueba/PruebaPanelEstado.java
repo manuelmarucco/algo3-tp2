@@ -2,6 +2,7 @@ package vista.menusDePrueba;
 
 import jugabilidad.Juego;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
+import jugabilidad.utilidadesMapa.Coordenada;
 import vista.VentanaJuego;
 import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadGuerrera;
 import vista.ventanaJugadores.VentanaJugador;
@@ -14,7 +15,7 @@ public class PruebaPanelEstado{
     private VentanaJugador frame;
 
     public void construyeVentana(){
-        frame = new VentanaJugadorProtoss(new JugadorProtoss(),new VentanaJuego(new Juego(2)));
+        frame = new VentanaJugadorProtoss(new JugadorProtoss(),new VentanaJuego(new Juego(2)),new Coordenada(10,10));
        // frame = new VentanaJugadorProtoss();
         frame.mostrarPanelDeEstado(panelLateral);
         frame.pack();

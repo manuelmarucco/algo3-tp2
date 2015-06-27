@@ -3,13 +3,13 @@ package tests_de_integracion;
 import construcciones.terran.Barraca;
 import construcciones.terran.Fabrica;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
+import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,9 +30,9 @@ public class ConstruccionesEnElMapaTest {
         Fabrica f;
         Barraca b;
 
-        b = j.construirBarraca(new Coordenadas(1,1));
+        b = j.construirBarraca(new Coordenada(1,1));
         for (int i = 0; i < b.getTiempoDeConstruccion(); i ++) j.update();
-        f = j.construirFabrica(new Coordenadas(1,1));
+        f = j.construirFabrica(new Coordenada(1,1));
 
         Assert.assertFalse(j.buscarConstruccion(f));
     }

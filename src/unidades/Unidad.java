@@ -11,7 +11,7 @@ import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Estado.EstadoDeAccion;
 import unidades.Estado.NoActuo;
 
@@ -86,14 +86,14 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
     }
 
     @Override
-    public void agregarse(Mapa mapa, Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa{
+    public void agregarse(Mapa mapa, Coordenada coordenada) throws ExcepcionNoSePudoAgregarAlMapa{
 
-        this.ubicacion.agregarse(mapa,this,coordenadas);
+        this.ubicacion.agregarse(mapa,this, coordenada);
 
     }
 
     @Override
-    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa{
+    public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa{
 
         this.ubicacion.moverse(mapa, this, hasta);
 
@@ -138,7 +138,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
         this.matar();
     }
 
-    public void mover(Coordenadas destino) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaSeMovioLaUnidad, ExcepcionMoverfueraDeRango {
+    public void mover(Coordenada destino) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaSeMovioLaUnidad, ExcepcionMoverfueraDeRango {
 
         if(!this.accion.puedeMover()) throw new ExcepcionYaSeMovioLaUnidad();
 

@@ -14,7 +14,7 @@ import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Resistencia;
 
 import java.util.ArrayList;
@@ -43,7 +43,7 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Dania
 	}
 	
 	@Override
-	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados, Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir{
+	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados, Coordenada coordenada) throws ExcepcionNoSePuedeConstruir{
 		this.verificarRecursosDisponibles(recursosRecolectados);
 	}
 	
@@ -54,10 +54,10 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Dania
 	}
 
 	@Override
-	public void agregarse(Mapa mapa, Coordenadas coordenadas) {
+	public void agregarse(Mapa mapa, Coordenada coordenada) {
 
 		try {
-			mapa.agregarEnCapaTerrestre(this, coordenadas);
+			mapa.agregarEnCapaTerrestre(this, coordenada);
 		} catch (ExcepcionPosicionOcupada e){
 			e.printStackTrace();
 		}

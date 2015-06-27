@@ -9,7 +9,7 @@ import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -36,8 +36,8 @@ public class UnidadesTerranTest {
         j1.agregarUnidad(marine);
         Zealot zealot = new Zealot(v);
         j2.agregarUnidad(zealot);
-        Coordenadas c1 = new Coordenadas(5,5);
-        Coordenadas c2 = new Coordenadas(6,6);
+        Coordenada c1 = new Coordenada(5,5);
+        Coordenada c2 = new Coordenada(6,6);
         ProxyMapa mapa = ProxyMapa.getInstance();
         ProxyMapa.getInstance().setCoordenadasMaximas(10, 10);
         mapa.agregar(marine, c1);
@@ -55,8 +55,8 @@ public class UnidadesTerranTest {
         j1.agregarUnidad(marine);
         Zealot zealot = new Zealot(v);
         j2.agregarUnidad(zealot);
-        Coordenadas c1 = new Coordenadas(3,3);
-        Coordenadas c2 = new Coordenadas(8,8);
+        Coordenada c1 = new Coordenada(3,3);
+        Coordenada c2 = new Coordenada(8,8);
         ProxyMapa.getInstance().setCoordenadasMaximas(10, 10);
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(marine, c1);
@@ -73,8 +73,8 @@ public class UnidadesTerranTest {
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
         j2.agregarUnidad(at);
-        Coordenadas c1 = new Coordenadas(4,4);
-        Coordenadas c2 = new Coordenadas(9,9);
+        Coordenada c1 = new Coordenada(4,4);
+        Coordenada c2 = new Coordenada(9,9);
         ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(nc,c1);
@@ -98,8 +98,8 @@ public class UnidadesTerranTest {
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
         j2.agregarUnidad(at);
-        Coordenadas c1 = new Coordenadas(1,1);
-        Coordenadas c2 = new Coordenadas(6,5);
+        Coordenada c1 = new Coordenada(1,1);
+        Coordenada c2 = new Coordenada(6,5);
         ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.agregar(nc,c1);
@@ -144,10 +144,10 @@ public class UnidadesTerranTest {
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
         j2.agregarUnidad(at);
-        Coordenadas c1 = new Coordenadas(3,2);
-        Coordenadas c2 = new Coordenadas(8,8);
-        Coordenadas c3 = new Coordenadas(9,8);
-        Coordenadas c4 = new Coordenadas(8,9);
+        Coordenada c1 = new Coordenada(3,2);
+        Coordenada c2 = new Coordenada(8,8);
+        Coordenada c3 = new Coordenada(9,8);
+        Coordenada c4 = new Coordenada(8,9);
         ProxyMapa mapa = ProxyMapa.getInstance();
         ProxyMapa.getInstance().setCoordenadasMaximas(10, 10);
 
@@ -178,9 +178,9 @@ public class UnidadesTerranTest {
         Marine marine = new Marine(v);
         ProxyMapa mapa = ProxyMapa.getInstance();
         mapa.setCoordenadasMaximas(100,100);
-        mapa.agregar(marine,new Coordenadas(1,1));
-        marine.mover(new Coordenadas(1, 2));
-        marine.mover(new Coordenadas(1,3));
+        mapa.agregar(marine,new Coordenada(1,1));
+        marine.mover(new Coordenada(1, 2));
+        marine.mover(new Coordenada(1,3));
     }
 
     @Test(expected = ExcepcionYaActuo.class)
@@ -192,8 +192,8 @@ public class UnidadesTerranTest {
         j1.agregarUnidad(marine);
         Zealot zealot = new Zealot(v);
         j2.agregarUnidad(zealot);
-        Coordenadas c1 = new Coordenadas(5,5);
-        Coordenadas c2 = new Coordenadas(6,6);
+        Coordenada c1 = new Coordenada(5,5);
+        Coordenada c2 = new Coordenada(6,6);
         ProxyMapa mapa = ProxyMapa.getInstance();
         ProxyMapa.getInstance().setCoordenadasMaximas(10, 10);
         mapa.agregar(marine, c1);

@@ -3,7 +3,7 @@ package jugabilidad;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Unidad;
 
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ import java.util.Objects;
 
 public class Mapa {
 	
-	private HashMap<Coordenadas, ColocableEnMapa> capaTerrestre = new HashMap<>();
-	private HashMap<Coordenadas, ColocableEnMapa> capaAerea = new HashMap<>();
-	private HashMap<Coordenadas, ColocableEnMapa> capaDeRecursos = new HashMap<>();
+	private HashMap<Coordenada, ColocableEnMapa> capaTerrestre = new HashMap<>();
+	private HashMap<Coordenada, ColocableEnMapa> capaAerea = new HashMap<>();
+	private HashMap<Coordenada, ColocableEnMapa> capaDeRecursos = new HashMap<>();
 	
 	public Mapa(){
 	
@@ -23,37 +23,37 @@ public class Mapa {
 
 	// Agregar -----
 	
-	public void agregarEnCapaAerea(ColocableEnMapa colocable, Coordenadas coordenadas)
+	public void agregarEnCapaAerea(ColocableEnMapa colocable, Coordenada coordenada)
 			throws ExcepcionPosicionOcupada{
 
-		if (this.posicionAereaOcupada(coordenadas)){
+		if (this.posicionAereaOcupada(coordenada)){
 			throw new ExcepcionPosicionOcupada();
 		}
 
-		this.capaAerea.put(coordenadas, colocable);
+		this.capaAerea.put(coordenada, colocable);
 
 	}
 	
-	public void agregarEnCapaTerrestre(ColocableEnMapa colocable, Coordenadas coordenadas)
+	public void agregarEnCapaTerrestre(ColocableEnMapa colocable, Coordenada coordenada)
 		throws ExcepcionPosicionOcupada {
 
-		if (this.posicionTerrestreOcupada(coordenadas)){
+		if (this.posicionTerrestreOcupada(coordenada)){
 			throw new ExcepcionPosicionOcupada();
 		}
 		
-		this.capaTerrestre.put(coordenadas, colocable);
+		this.capaTerrestre.put(coordenada, colocable);
 		
 	}
 
-	public void agregarEnCapaDeRecursos(ColocableEnMapa colocable, Coordenadas coordenadas){
+	public void agregarEnCapaDeRecursos(ColocableEnMapa colocable, Coordenada coordenada){
 
-		this.capaDeRecursos.put(coordenadas, colocable);
+		this.capaDeRecursos.put(coordenada, colocable);
 
 	}
 
 	// Obtener -----
 
-	public ArrayList<ColocableEnMapa> obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(Coordenadas centro, int radio)
+	public ArrayList<ColocableEnMapa> obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(Coordenada centro, int radio)
 			throws ExcepcionNoSePudoAgregarAlMapa{
 
 		ArrayList<ColocableEnMapa> unidadesYconstruccionesPertenecientes = new ArrayList<>();
@@ -62,7 +62,7 @@ public class Mapa {
 
 			for (int j = 0; j <= 2 * radio; j ++){
 
-				Coordenadas punto = this.armarPuntoDeInicio(centro,radio);
+				Coordenada punto = this.armarPuntoDeInicio(centro,radio);
 
 				punto.aumentarX(i);
 				punto.aumentarY(j);
@@ -85,33 +85,33 @@ public class Mapa {
 
 	}
 
-	public ColocableEnMapa obtenerDeCapaTerrestre(Coordenadas coordenadas) {
+	public ColocableEnMapa obtenerDeCapaTerrestre(Coordenada coordenada) {
 
-		return ( capaTerrestre.get(coordenadas) ) ;
-
-	}
-
-	public ColocableEnMapa obtenerDeCapaAerea(Coordenadas coordenadas) {
-
-		return ( capaAerea.get(coordenadas) ) ;
+		return ( capaTerrestre.get(coordenada) ) ;
 
 	}
 
-	public ColocableEnMapa obtenerDeCapaDeRecursos(Coordenadas coordenadas){
+	public ColocableEnMapa obtenerDeCapaAerea(Coordenada coordenada) {
 
-		return ( this.capaDeRecursos.get(coordenadas) );
+		return ( capaAerea.get(coordenada) ) ;
+
+	}
+
+	public ColocableEnMapa obtenerDeCapaDeRecursos(Coordenada coordenada){
+
+		return ( this.capaDeRecursos.get(coordenada) );
 
 	}
 
 	// Remover -----
 
-	public void borrarEnCapaTerrestre(Coordenadas coordenadas){ //para el movimiento de las unidades
+	public void borrarEnCapaTerrestre(Coordenada coordenada){ //para el movimiento de las unidades
 
-		this.capaTerrestre.remove(coordenadas);
+		this.capaTerrestre.remove(coordenada);
 
 	}
 
-	public void borrarEnCapaAerea(Coordenadas coordenadas) {
+	public void borrarEnCapaAerea(Coordenada coordenadas) {
 
 		this.capaAerea.remove(coordenadas);
 
@@ -119,14 +119,14 @@ public class Mapa {
 
 	// Mover ---------
 
-	public void moverEnCapaTerrestre(ColocableEnMapa colacable,Coordenadas hasta) throws ExcepcionPosicionOcupada {
+	public void moverEnCapaTerrestre(ColocableEnMapa colacable,Coordenada hasta) throws ExcepcionPosicionOcupada {
 		if(this.posicionTerrestreOcupada(hasta)) throw new ExcepcionPosicionOcupada();
 		this.quitar( (Unidad) colacable);
 		this.agregarEnCapaTerrestre(colacable, hasta);
 
 	}
 
-	public void moverEnCapaAerea(ColocableEnMapa colacable,Coordenadas hasta) throws ExcepcionPosicionOcupada {
+	public void moverEnCapaAerea(ColocableEnMapa colacable,Coordenada hasta) throws ExcepcionPosicionOcupada {
 		if(this.posicionAereaOcupada(hasta)) throw new ExcepcionPosicionOcupada();
 		this.quitar( (Unidad) colacable);
 		this.agregarEnCapaAerea(colacable, hasta);
@@ -135,31 +135,31 @@ public class Mapa {
 
 	//--------------
 
-	public boolean posicionAereaOcupada(Coordenadas coordenadas) {
+	public boolean posicionAereaOcupada(Coordenada coordenada) {
 
-		return (this.capaAerea.containsKey(coordenadas));
-
-	}
-
-	public boolean posicionTerrestreOcupada(Coordenadas coordenadas) {
-
-		return (this.capaTerrestre.containsKey(coordenadas));
+		return (this.capaAerea.containsKey(coordenada));
 
 	}
 
-	public boolean posicionDeRecursosOcupada(Coordenadas coordenadas){
+	public boolean posicionTerrestreOcupada(Coordenada coordenada) {
 
-		return (this.capaDeRecursos.containsKey(coordenadas));
+		return (this.capaTerrestre.containsKey(coordenada));
 
 	}
 
-	public Coordenadas getCoordenada(final ColocableEnMapa daniable) {
-		for (Map.Entry<Coordenadas, ColocableEnMapa> entry : capaTerrestre.entrySet()) {
+	public boolean posicionDeRecursosOcupada(Coordenada coordenada){
+
+		return (this.capaDeRecursos.containsKey(coordenada));
+
+	}
+
+	public Coordenada getCoordenada(final ColocableEnMapa daniable) {
+		for (Map.Entry<Coordenada, ColocableEnMapa> entry : capaTerrestre.entrySet()) {
 			if (Objects.equals(daniable, entry.getValue())) {
 				return entry.getKey();
 			}
 		}
-		for (Map.Entry<Coordenadas, ColocableEnMapa> entry : capaAerea.entrySet()) {
+		for (Map.Entry<Coordenada, ColocableEnMapa> entry : capaAerea.entrySet()) {
 			if (Objects.equals(daniable, entry.getValue())) {
 				return entry.getKey();
 			}
@@ -168,7 +168,7 @@ public class Mapa {
 	}
 
 	public void quitar(Unidad unidad) {
-		Coordenadas c =this.getCoordenada(unidad);
+		Coordenada c =this.getCoordenada(unidad);
 		if(this.capaTerrestre.get(c)==unidad)
 			this.capaTerrestre.remove(c);
 		if(this.capaAerea.get(c)==unidad)
@@ -177,13 +177,13 @@ public class Mapa {
 
 	// Metodos privados ----------------------------------------------------
 
-	private Coordenadas armarPuntoDeInicio(Coordenadas punto, int radio){
+	private Coordenada armarPuntoDeInicio(Coordenada punto, int radio){
 
 		if(punto!=null) {
 			int x = punto.getX() - radio;
 			int y = punto.getY() - radio;
 
-			return (new Coordenadas(x, y));
+			return (new Coordenada(x, y));
 		}
 
 		return null;

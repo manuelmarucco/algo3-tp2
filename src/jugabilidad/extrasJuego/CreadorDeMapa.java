@@ -3,7 +3,7 @@ package jugabilidad.extrasJuego;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
 import recursos.Cristal;
 import recursos.Volcan;
@@ -25,7 +25,7 @@ public class CreadorDeMapa {
     int anchoMapa, altoMapa;
     private ProxyMapa proxyMapa;
 
-    ArrayList<Coordenadas> bases = new ArrayList<>();
+    ArrayList<Coordenada> bases = new ArrayList<>();
 
     // Metodos publicos ------------------------------------------------------------------------------------------------
 
@@ -43,7 +43,7 @@ public class CreadorDeMapa {
 
     }
 
-    public ArrayList<Coordenadas> obtenerCoordenadasDeLasBases(){
+    public ArrayList<Coordenada> obtenerCoordenadasDeLasBases(){
 
         return ( this.bases );
 
@@ -131,7 +131,7 @@ public class CreadorDeMapa {
                         // El mapa no acepta coordenada igual a 0.
                         // Los valores sumados/restados, en las coordenadas, son para colocar el origen en la esquina
                         // inferior izquierda.
-                        proxyMapa.agregar(agregable, new Coordenadas( i + 1, 25 - j ) );
+                        proxyMapa.agregar(agregable, new Coordenada( i + 1, 25 - j ) );
 
                     } catch (InstantiationException | IllegalAccessException | ExcepcionNoSePudoAgregarAlMapa
                                                                 | NoSuchMethodException | InvocationTargetException e) {
@@ -174,7 +174,7 @@ public class CreadorDeMapa {
 
                 }
 
-                Coordenadas base = new Coordenadas(coordenadasDeLaBase.get(0),coordenadasDeLaBase.get(1));
+                Coordenada base = new Coordenada(coordenadasDeLaBase.get(0),coordenadasDeLaBase.get(1));
 
                 this.bases.add(base);
 

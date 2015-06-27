@@ -1,11 +1,8 @@
 package unidades.protoss;
 
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.ColocableEnMapa;
-import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
-import jugabilidad.utilidadesMapa.Coordenadas;
 import unidades.Ubicacion;
 import unidades.Unidad;
 

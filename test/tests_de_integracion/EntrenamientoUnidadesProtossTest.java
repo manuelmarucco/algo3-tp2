@@ -10,7 +10,7 @@ import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class EntrenamientoUnidadesProtossTest {
         Zealot z;
         int tiempo;
 
-        a = j.construirAcceso(new Coordenadas(2,2));
+        a = j.construirAcceso(new Coordenada(2,2));
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
 
         z = a.entrenarZealot();
@@ -52,7 +52,7 @@ public class EntrenamientoUnidadesProtossTest {
         Zealot z;
         int tem;
 
-        a = j.construirAcceso(new Coordenadas(1, 1));
+        a = j.construirAcceso(new Coordenada(1, 1));
         for(int i = 0; i<12; i++) j.update();
 
         z = a.entrenarZealot();
@@ -70,7 +70,7 @@ public class EntrenamientoUnidadesProtossTest {
         Dragon d;
         int tiempo;
 
-        a = j.construirAcceso(new Coordenadas(1, 2));
+        a = j.construirAcceso(new Coordenada(1, 2));
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
 
         d = a.entrenarDragon();
@@ -88,7 +88,7 @@ public class EntrenamientoUnidadesProtossTest {
         Dragon d;
         int tem;
 
-        a = j.construirAcceso(new Coordenadas(2, 3));
+        a = j.construirAcceso(new Coordenada(2, 3));
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
 
         d = a.entrenarDragon();
@@ -109,10 +109,10 @@ public class EntrenamientoUnidadesProtossTest {
         int	 i3;
 
 
-        a = j.construirAcceso(new Coordenadas(2, 4));
+        a = j.construirAcceso(new Coordenada(2, 4));
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
 
-        pe = j.construirPortalEstelar(new Coordenadas(3, 5));
+        pe = j.construirPortalEstelar(new Coordenada(3, 5));
         for(int i = 0; i<pe.getTiempoDeConstruccion(); i++) j.update();
 
         s = pe.entrenarScout();
@@ -132,11 +132,11 @@ public class EntrenamientoUnidadesProtossTest {
         int	 i1,i2,i3;
 
 
-        a = j.construirAcceso(new Coordenadas(2, 6));
+        a = j.construirAcceso(new Coordenada(2, 6));
         i1 = a.getTiempoDeConstruccion();
         for(int i = 0; i<i1; i++) j.update();
 
-        pe = j.construirPortalEstelar(new Coordenadas(5, 7));
+        pe = j.construirPortalEstelar(new Coordenada(5, 7));
         i2 = pe.getTiempoDeConstruccion();
         for(int i = 0; i<i2; i++) j.update();
 
@@ -157,11 +157,11 @@ public class EntrenamientoUnidadesProtossTest {
         AltoTemplario altoTemplario;
         int tiempo;
 
-        a = j.construirAcceso(new Coordenadas(1, 8));
+        a = j.construirAcceso(new Coordenada(1, 8));
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
-        pe = j.construirPortalEstelar(new Coordenadas(2,9));
+        pe = j.construirPortalEstelar(new Coordenada(2,9));
         for(int i = 0; i<pe.getTiempoDeConstruccion(); i++) j.update();
-        archivosTemplarios = j.construirArchivosTemplarios(new Coordenadas(1, 4));
+        archivosTemplarios = j.construirArchivosTemplarios(new Coordenada(1, 4));
         for(int i = 0; i<archivosTemplarios.getTiempoDeConstruccion(); i++) j.update();
 
         altoTemplario = archivosTemplarios.entrenarAltoTemplario();
@@ -181,11 +181,11 @@ public class EntrenamientoUnidadesProtossTest {
         AltoTemplario altoTemplario;
         int tiempo;
 
-        a = j.construirAcceso(new Coordenadas(1, 1));
+        a = j.construirAcceso(new Coordenada(1, 1));
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
-        pe = j.construirPortalEstelar(new Coordenadas(1, 2));
+        pe = j.construirPortalEstelar(new Coordenada(1, 2));
         for(int i = 0; i<pe.getTiempoDeConstruccion(); i++) j.update();
-        archivosTemplarios = j.construirArchivosTemplarios(new Coordenadas(1, 3));
+        archivosTemplarios = j.construirArchivosTemplarios(new Coordenada(1, 3));
         for(int i = 0; i<archivosTemplarios.getTiempoDeConstruccion(); i++) j.update();
 
         altoTemplario = archivosTemplarios.entrenarAltoTemplario();
@@ -204,9 +204,9 @@ public class EntrenamientoUnidadesProtossTest {
         NaveTransporteProtoss n;
         int tiempo;
 
-        a = j.construirAcceso(new Coordenadas(1, 4));
+        a = j.construirAcceso(new Coordenada(1, 4));
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
-        pe = j.construirPortalEstelar(new Coordenadas(1, 5));
+        pe = j.construirPortalEstelar(new Coordenada(1, 5));
         for(int i = 0; i<pe.getTiempoDeConstruccion(); i++) j.update();
 
         n = pe.entrenarNaveTransporte();
@@ -225,9 +225,9 @@ public class EntrenamientoUnidadesProtossTest {
         NaveTransporteProtoss n;
         int tiempo;
 
-        a = j.construirAcceso(new Coordenadas(1, 6));
+        a = j.construirAcceso(new Coordenada(1, 6));
         for(int i = 0; i<a.getTiempoDeConstruccion(); i++) j.update();
-        pe = j.construirPortalEstelar(new Coordenadas(1, 7));
+        pe = j.construirPortalEstelar(new Coordenada(1, 7));
         for(int i = 0; i<pe.getTiempoDeConstruccion(); i++) j.update();
 
         n = pe.entrenarNaveTransporte();

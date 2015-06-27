@@ -4,9 +4,8 @@ import control.vistaMapa.ObservadorMapa;
 import excepciones.Mapa.ExcepcionCoordenadaXIngresadaFueraDelMapa;
 import excepciones.Mapa.ExcepcionCoordenadaYIngresadaFueraDelMapa;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Unidad;
 
 import java.util.ArrayList;
@@ -46,17 +45,17 @@ public class ProxyMapa {
 
     // Agregar ----
 
-    public void agregar(ColocableEnMapa colocable, Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa {
+    public void agregar(ColocableEnMapa colocable, Coordenada coordenada) throws ExcepcionNoSePudoAgregarAlMapa {
 
-        validarCoordenadas(coordenadas);
-        colocable.agregarse(mapa,coordenadas);
-        ObservadorMapa.getInstance().informarCambiosEnMapa();
+        validarCoordenadas(coordenada);
+        colocable.agregarse(mapa, coordenada);
+        ObservadorMapa.getInstance().informarCambios();
 
     }
 
     // Obtener ---
 
-    public ArrayList<ColocableEnMapa> obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(Coordenadas centro, int radio)
+    public ArrayList<ColocableEnMapa> obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(Coordenada centro, int radio)
             throws ExcepcionNoSePudoAgregarAlMapa {
 
         this.validarCoordenadas(centro);
@@ -64,60 +63,60 @@ public class ProxyMapa {
 
     }
 
-    public ColocableEnMapa obtenerDeCapaTerrestre(Coordenadas coordenadas){
-        return ( this.mapa.obtenerDeCapaTerrestre(coordenadas) );
+    public ColocableEnMapa obtenerDeCapaTerrestre(Coordenada coordenada){
+        return ( this.mapa.obtenerDeCapaTerrestre(coordenada) );
     }
 
-    public ColocableEnMapa obtenerDeCapaAerea(Coordenadas coordenadas){
-        return ( this.mapa.obtenerDeCapaAerea(coordenadas) );
+    public ColocableEnMapa obtenerDeCapaAerea(Coordenada coordenada){
+        return ( this.mapa.obtenerDeCapaAerea(coordenada) );
     }
 
-    public ColocableEnMapa obtenerDeCapaDeRecursos(Coordenadas coordenadas){
+    public ColocableEnMapa obtenerDeCapaDeRecursos(Coordenada coordenada){
 
-        return ( this.mapa.obtenerDeCapaDeRecursos(coordenadas) );
+        return ( this.mapa.obtenerDeCapaDeRecursos(coordenada) );
     }
 
     // Remover ---
 
-    public void borrarEnCapaTerrestre(Coordenadas coordenadas){
+    public void borrarEnCapaTerrestre(Coordenada coordenada){
 
-        this.mapa.borrarEnCapaTerrestre(coordenadas);
-        ObservadorMapa.getInstance().informarCambiosEnMapa();
+        this.mapa.borrarEnCapaTerrestre(coordenada);
+        ObservadorMapa.getInstance().informarCambios();
 
     }
 
-    public void borrarEnCapaAerea(Coordenadas coordenadas){
+    public void borrarEnCapaAerea(Coordenada coordenada){
 
-        this.mapa.borrarEnCapaAerea(coordenadas);
-        ObservadorMapa.getInstance().informarCambiosEnMapa();
+        this.mapa.borrarEnCapaAerea(coordenada);
+        ObservadorMapa.getInstance().informarCambios();
 
     }
 
     // Mover ---
 
-    public void mover(Coordenadas hasta, ColocableEnMapa unidad)
+    public void mover(Coordenada hasta, ColocableEnMapa unidad)
         throws ExcepcionNoSePudoAgregarAlMapa {
 
         this.validarCoordenadas(hasta);
         unidad.moverse(hasta, this.mapa);
-        ObservadorMapa.getInstance().informarCambiosEnMapa();
+        ObservadorMapa.getInstance().informarCambios();
 
     }
 
     // ---
 
-    public boolean posicionAereaOcupada(Coordenadas coordenadas) {
+    public boolean posicionAereaOcupada(Coordenada coordenada) {
 
-        return (this.mapa.posicionAereaOcupada(coordenadas));
+        return (this.mapa.posicionAereaOcupada(coordenada));
     }
 
-    public boolean posicionTerrestreOcupada(Coordenadas coordenadas) {
+    public boolean posicionTerrestreOcupada(Coordenada coordenada) {
 
-        return (this.mapa.posicionTerrestreOcupada(coordenadas));
+        return (this.mapa.posicionTerrestreOcupada(coordenada));
 
     }
 
-    public Coordenadas getCoordenada(final ColocableEnMapa daniable){
+    public Coordenada getCoordenada(final ColocableEnMapa daniable){
 
         return ( this.mapa.getCoordenada(daniable) );
     }
@@ -125,18 +124,18 @@ public class ProxyMapa {
     public void quitar(Unidad unidad){
 
         this.mapa.quitar(unidad);
-        ObservadorMapa.getInstance().informarCambiosEnMapa();
+        ObservadorMapa.getInstance().informarCambios();
 
     }
 
     // Metodos Privados
 
-    private void validarCoordenadas(Coordenadas coordenadas)
+    private void validarCoordenadas(Coordenada coordenada)
             throws ExcepcionCoordenadaXIngresadaFueraDelMapa, ExcepcionCoordenadaYIngresadaFueraDelMapa {
-        if ( coordenadas.getX() > coordenadaXMaxima ) {
+        if ( coordenada.getX() > coordenadaXMaxima ) {
             throw new ExcepcionCoordenadaXIngresadaFueraDelMapa();
         }
-        if ( coordenadas.getY() > coordenadaYMaxima ) {
+        if ( coordenada.getY() > coordenadaYMaxima ) {
             throw new ExcepcionCoordenadaYIngresadaFueraDelMapa();
         }
     }

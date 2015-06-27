@@ -1,13 +1,13 @@
 package unidades;
 
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
+import excepciones.Unidades.ExcepcionNoPuedeAtacarAire;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Daniable;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
-import excepciones.Unidades.ExcepcionNoPuedeAtacarAire;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 public abstract class UnidadGuerrera extends Unidad {
 
@@ -51,7 +51,7 @@ public abstract class UnidadGuerrera extends Unidad {
         return danio.getDanioAire();
     }
 
-    public void atacar(Coordenadas coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo {
+    public void atacar(Coordenada coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         ProxiDeAtaque.atacar(this,coordenada);
         this.accion=this.accion.actuo();

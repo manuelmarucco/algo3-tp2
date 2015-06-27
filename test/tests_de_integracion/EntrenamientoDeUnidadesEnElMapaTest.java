@@ -9,7 +9,7 @@ import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -32,7 +32,7 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
         Barraca b;
         Marine m1,m2,m3;
         int tiempoDeEntrenamiento;
-        Coordenadas cb = new Coordenadas(1,1);
+        Coordenada cb = new Coordenada(1,1);
 
         b = j.construirBarraca(cb);
         for(int i=0; i<b.getTiempoDeConstruccion(); i++)  j.update();
@@ -44,13 +44,13 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
         for(int i=0; i<(tiempoDeEntrenamiento*3); i++)  j.update();
 
         Assert.assertTrue(j.buscarUnidad(m1));
-        Assert.assertTrue(mapa.getCoordenada(m1).equals(new Coordenadas(cb.getX()-1,cb.getY()-1)));
+        Assert.assertTrue(mapa.getCoordenada(m1).equals(new Coordenada(cb.getX()-1,cb.getY()-1)));
 
         Assert.assertTrue(j.buscarUnidad(m2));
-        Assert.assertTrue(mapa.getCoordenada(m2).equals(new Coordenadas(cb.getX(),cb.getY()-1)));
+        Assert.assertTrue(mapa.getCoordenada(m2).equals(new Coordenada(cb.getX(),cb.getY()-1)));
 
         Assert.assertTrue(j.buscarUnidad(m2));
-        Assert.assertTrue(mapa.getCoordenada(m3).equals(new Coordenadas(cb.getX()+1,cb.getY()-1)));
+        Assert.assertTrue(mapa.getCoordenada(m3).equals(new Coordenada(cb.getX()+1,cb.getY()-1)));
 
 
     }
@@ -65,15 +65,15 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
         Barraca b;
         Marine m;
         int tiempoDeEntrenamiento;
-        Coordenadas coordenadaDeBarraca = new Coordenadas(5,5);
+        Coordenada coordenadaDeBarraca = new Coordenada(5,5);
 
-        proxyMapa.agregar(new Volcan(), new Coordenadas(4, 4));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(5, 4));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(6, 4));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(6, 5));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(4, 5));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(4, 6));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(6, 6));
+        proxyMapa.agregar(new Volcan(), new Coordenada(4, 4));
+        proxyMapa.agregar(new Volcan(), new Coordenada(5, 4));
+        proxyMapa.agregar(new Volcan(), new Coordenada(6, 4));
+        proxyMapa.agregar(new Volcan(), new Coordenada(6, 5));
+        proxyMapa.agregar(new Volcan(), new Coordenada(4, 5));
+        proxyMapa.agregar(new Volcan(), new Coordenada(4, 6));
+        proxyMapa.agregar(new Volcan(), new Coordenada(6, 6));
 
         b = j.construirBarraca(coordenadaDeBarraca);
         for(int i=0; i<b.getTiempoDeConstruccion(); i++)  j.update();
@@ -83,7 +83,7 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
         for(int i=0; i<(tiempoDeEntrenamiento); i++)  j.update();
 
         Assert.assertTrue(j.buscarUnidad(m));
-        Assert.assertTrue(proxyMapa.getCoordenada(m).equals(new Coordenadas(coordenadaDeBarraca.getX(), coordenadaDeBarraca.getY() + 1)));
+        Assert.assertTrue(proxyMapa.getCoordenada(m).equals(new Coordenada(coordenadaDeBarraca.getX(), coordenadaDeBarraca.getY() + 1)));
 
 
 
@@ -100,16 +100,16 @@ public class EntrenamientoDeUnidadesEnElMapaTest {
         Barraca b;
         Marine m;
         int tiempoDeEntrenamiento;
-        Coordenadas coordenadaDeBarraca = new Coordenadas(5,5);
+        Coordenada coordenadaDeBarraca = new Coordenada(5,5);
 
-        proxyMapa.agregar(new Volcan(), new Coordenadas(4, 4));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(4, 5));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(4, 6));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(5, 4));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(5, 6));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(6, 4));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(6, 5));
-        proxyMapa.agregar(new Volcan(), new Coordenadas(6, 6));
+        proxyMapa.agregar(new Volcan(), new Coordenada(4, 4));
+        proxyMapa.agregar(new Volcan(), new Coordenada(4, 5));
+        proxyMapa.agregar(new Volcan(), new Coordenada(4, 6));
+        proxyMapa.agregar(new Volcan(), new Coordenada(5, 4));
+        proxyMapa.agregar(new Volcan(), new Coordenada(5, 6));
+        proxyMapa.agregar(new Volcan(), new Coordenada(6, 4));
+        proxyMapa.agregar(new Volcan(), new Coordenada(6, 5));
+        proxyMapa.agregar(new Volcan(), new Coordenada(6, 6));
 
         b = j.construirBarraca(coordenadaDeBarraca);
         for(int i=0; i<b.getTiempoDeConstruccion(); i++)  j.update();

@@ -7,7 +7,7 @@ import interfaces.ColocableEnMapa;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
 import recursos.Cristal;
 import recursos.Volcan;
@@ -39,7 +39,7 @@ public class ControladorDeVistaMapa {
     private HashMapParaMapa<Class, Class> asociadorDeVistasRecursos;
     private HashMapParaMapa<Class, Class> asociadorDeVistasTerrestres;
     private HashMapParaMapa<Class, Class> asociadorDeVistasAereas;
-    private HashMap<Coordenadas,ImagePanel> capaSuperior=new HashMap<>();
+    private HashMap<Coordenada,ImagePanel> capaSuperior=new HashMap<>();
     private ProxyMapa proxyMapa = ProxyMapa.getInstance();
 
     public ControladorDeVistaMapa() {
@@ -61,11 +61,11 @@ public class ControladorDeVistaMapa {
 
             for (int i = 0; i < cantidadTilesVerticales; i++){
 
-                Coordenadas coordenadas = new Coordenadas( i + 1, cantidadTilesHorizontales - j );
-                ImagePanel vista = (ImagePanel) this.getVistaTerrestreEnPosicion(coordenadas, ventana);
+                Coordenada coordenada = new Coordenada( i + 1, cantidadTilesHorizontales - j );
+                ImagePanel vista = (ImagePanel) this.getVistaTerrestreEnPosicion(coordenada, ventana);
                 panelTerrestre.add(vista);
-                if(proxyMapa.posicionTerrestreOcupada(coordenadas))
-                    capaSuperior.put(coordenadas,vista);
+                if(proxyMapa.posicionTerrestreOcupada(coordenada))
+                    capaSuperior.put(coordenada,vista);
             }
 
         }
@@ -85,12 +85,12 @@ public class ControladorDeVistaMapa {
 
             for (int i = 0; i < cantidadTilesVerticales; i++){
 
-                Coordenadas coordenadas = new Coordenadas( i + 1, cantidadTilesHorizontales - j );
-                ImagePanel vista = (ImagePanel) this.getVistaRecursosEnPosicion(coordenadas, ventana);
+                Coordenada coordenada = new Coordenada( i + 1, cantidadTilesHorizontales - j );
+                ImagePanel vista = (ImagePanel) this.getVistaRecursosEnPosicion(coordenada, ventana);
 
                 vista.setOpaque(false);
                 panelDeRecursos.add(vista);
-                capaSuperior.put(coordenadas, vista);
+                capaSuperior.put(coordenada, vista);
             }
 
         }
@@ -110,12 +110,12 @@ public class ControladorDeVistaMapa {
 
             for (int i = 0; i < cantidadTilesVerticales; i++){
 
-                Coordenadas coordenadas = new Coordenadas( i + 1, cantidadTilesHorizontales - j );
-                ImagePanel vista = (ImagePanel) this.getVistaAereaEnPosicion(coordenadas, ventana);
+                Coordenada coordenada = new Coordenada( i + 1, cantidadTilesHorizontales - j );
+                ImagePanel vista = (ImagePanel) this.getVistaAereaEnPosicion(coordenada, ventana);
                 vista.setOpaque(false);
                 panelAereo.add(vista);
-                if(proxyMapa.posicionAereaOcupada(coordenadas))
-                    capaSuperior.put(coordenadas, vista);
+                if(proxyMapa.posicionAereaOcupada(coordenada))
+                    capaSuperior.put(coordenada, vista);
             }
 
         }
@@ -138,9 +138,9 @@ public class ControladorDeVistaMapa {
 
                 JPanel parsela = new JPanel();
                 parsela.setBackground(new Color(0, 0, 0, 0));
-                Coordenadas coordenadas = new Coordenadas(i + 1, cantidadTilesHorizontales - j);
+                Coordenada coordenada = new Coordenada(i + 1, cantidadTilesHorizontales - j);
 
-                parsela.addMouseListener(new ParselaAccionable(ventana, coordenadas,(IVista) capaSuperior.get(coordenadas)));
+                parsela.addMouseListener(new ParselaAccionable(ventana, coordenada,(IVista) capaSuperior.get(coordenada)));
 
                 panelAccionable.add(parsela);
 
@@ -169,9 +169,9 @@ public class ControladorDeVistaMapa {
                 JPanel parsela = new JPanel();
                 parsela.setBackground(Color.BLACK);
 
-                Coordenadas coordenadas = new Coordenadas(i + 1, cantidadTilesHorizontales - j);
+                Coordenada coordenada = new Coordenada(i + 1, cantidadTilesHorizontales - j);
 
-                if (visibilidad.esVisible(coordenadas)){
+                if (visibilidad.esVisible(coordenada)){
                     parsela.setVisible(false);
                 } else {
                     parsela.setVisible(true);
@@ -189,12 +189,12 @@ public class ControladorDeVistaMapa {
     // Metodos Privados ------------------------------------------------------------------------------------------------
 
     @SuppressWarnings("unused")
-    private JPanel getVistaTerrestreEnPosicion(Coordenadas coordenadas, VentanaJugador ventana) {
+    private JPanel getVistaTerrestreEnPosicion(Coordenada coordenada, VentanaJugador ventana) {
 
         Class clase = null;
-        ColocableEnMapa colocable = proxyMapa.obtenerDeCapaTerrestre(coordenadas);
+        ColocableEnMapa colocable = proxyMapa.obtenerDeCapaTerrestre(coordenada);
 
-        // No puedo hacer directamente  Class clase = proxyMapa.obtenerDeCapaTerrestre(coordenadas).getClass;
+        // No puedo hacer directamente  Class clase = proxyMapa.obtenerDeCapaTerrestre(coordenada).getClass;
         // porque el getClass si es null tira un error.
         if (colocable != null){
             clase = colocable.getClass();
@@ -214,10 +214,10 @@ public class ControladorDeVistaMapa {
     }
 
     @SuppressWarnings("unused")
-    private JPanel getVistaAereaEnPosicion(Coordenadas coordenadas, VentanaJugador ventana) {
+    private JPanel getVistaAereaEnPosicion(Coordenada coordenada, VentanaJugador ventana) {
 
         Class clase = null;
-        ColocableEnMapa colocable = proxyMapa.obtenerDeCapaAerea(coordenadas);
+        ColocableEnMapa colocable = proxyMapa.obtenerDeCapaAerea(coordenada);
 
         if (colocable != null){
             clase = colocable.getClass();
@@ -237,10 +237,10 @@ public class ControladorDeVistaMapa {
     }
 
     @SuppressWarnings("unused")
-    private JPanel getVistaRecursosEnPosicion(Coordenadas coordenadas, VentanaJugador ventana) {
+    private JPanel getVistaRecursosEnPosicion(Coordenada coordenada, VentanaJugador ventana) {
 
         Class clase = null;
-        ColocableEnMapa colocable = proxyMapa.obtenerDeCapaDeRecursos(coordenadas);
+        ColocableEnMapa colocable = proxyMapa.obtenerDeCapaDeRecursos(coordenada);
 
         if (colocable != null){
             clase = colocable.getClass();

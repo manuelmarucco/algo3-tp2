@@ -10,7 +10,7 @@ import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -34,7 +34,7 @@ public class EntrenamientoUnidadesTerranTest {
 		Barraca b;
 		Marine m;
 		
-		b = j.construirBarraca(new Coordenadas(2,2));
+		b = j.construirBarraca(new Coordenada(2,2));
 		for(int i = 0; i<12; i++) j.update();
 		
 		m = b.entrenarMarine();
@@ -51,7 +51,7 @@ public class EntrenamientoUnidadesTerranTest {
 		Marine m;
 		int tem;
 
-		b = j.construirBarraca(new Coordenadas(3,2));
+		b = j.construirBarraca(new Coordenada(3,2));
 		for(int i = 0; i<12; i++) j.update();
 
 		m = b.entrenarMarine();
@@ -71,11 +71,11 @@ public class EntrenamientoUnidadesTerranTest {
 		int	 i1,i2,i3;
 
 
-		b = j.construirBarraca(new Coordenadas(3,2));
+		b = j.construirBarraca(new Coordenada(3,2));
 		i1 =  b.getTiempoDeConstruccion();
 		for(int i = 0; i<i1; i++) j.update();
 
-		f = j.construirFabrica(new Coordenadas(2,3));
+		f = j.construirFabrica(new Coordenada(2,3));
 		i2 = f.getTiempoDeConstruccion();
 		for(int i = 0; i<i2; i++) j.update();
 
@@ -95,11 +95,11 @@ public class EntrenamientoUnidadesTerranTest {
 		Golliat g;
 		int	 i1,i2,i3;
 
-		b = j.construirBarraca(new Coordenadas(1,4));
+		b = j.construirBarraca(new Coordenada(1,4));
 		i1 = b.getTiempoDeConstruccion();
 		for(int i = 0; i<i1; i++) j.update();
 
-		f = j.construirFabrica(new Coordenadas(3,5));
+		f = j.construirFabrica(new Coordenada(3,5));
 		i2 = f.getTiempoDeConstruccion();
 		for(int i = 0; i<i2; i++) j.update();
 
@@ -121,11 +121,11 @@ public class EntrenamientoUnidadesTerranTest {
 		Espectro e;
 		int tiempo;
 
-		b = j.construirBarraca(new Coordenadas(3,6));
+		b = j.construirBarraca(new Coordenada(3,6));
 		for(int i = 0; i<b.getTiempoDeConstruccion(); i++) j.update();
-		f = j.construirFabrica(new Coordenadas(4,7));
+		f = j.construirFabrica(new Coordenada(4,7));
 		for(int i = 0; i<f.getTiempoDeConstruccion(); i++) j.update();
-		p = j.construirPuertoEstelar(new Coordenadas(5, 8));
+		p = j.construirPuertoEstelar(new Coordenada(5, 8));
 		for(int i = 0; i<p.getTiempoDeConstruccion(); i++) j.update();
 
 		e = p.entrenarEspectro();
@@ -145,11 +145,11 @@ public class EntrenamientoUnidadesTerranTest {
 		Espectro e;
 		int tiempo;
 
-		b = j.construirBarraca(new Coordenadas(2,9));
+		b = j.construirBarraca(new Coordenada(2,9));
 		for(int i = 0; i<b.getTiempoDeConstruccion(); i++) j.update();
-		f = j.construirFabrica(new Coordenadas(1,3));
+		f = j.construirFabrica(new Coordenada(1,3));
 		for(int i = 0; i<f.getTiempoDeConstruccion(); i++) j.update();
-		p = j.construirPuertoEstelar(new Coordenadas(1,1));
+		p = j.construirPuertoEstelar(new Coordenada(1,1));
 		for(int i = 0; i<p.getTiempoDeConstruccion(); i++) j.update();
 
 		e = p.entrenarEspectro();
@@ -169,11 +169,11 @@ public class EntrenamientoUnidadesTerranTest {
 		NaveCiencia n;
 		int tiempo;
 
-		b = j.construirBarraca(new Coordenadas(1,2));
+		b = j.construirBarraca(new Coordenada(1,2));
 		for(int i = 0; i<b.getTiempoDeConstruccion(); i++) j.update();
-		f = j.construirFabrica(new Coordenadas(1,3));
+		f = j.construirFabrica(new Coordenada(1,3));
 		for(int i = 0; i<f.getTiempoDeConstruccion(); i++) j.update();
-		p = j.construirPuertoEstelar(new Coordenadas(1,4));
+		p = j.construirPuertoEstelar(new Coordenada(1,4));
 		for(int i = 0; i<p.getTiempoDeConstruccion(); i++) j.update();
 
 		n = p.entrenarNaveCiencia();
@@ -193,11 +193,11 @@ public class EntrenamientoUnidadesTerranTest {
 		NaveCiencia n;
 		int tiempo;
 
-		b = j.construirBarraca(new Coordenadas(1,5));
+		b = j.construirBarraca(new Coordenada(1,5));
 		for(int i = 0; i<b.getTiempoDeConstruccion(); i++) j.update();
-		f = j.construirFabrica(new Coordenadas(1,6));
+		f = j.construirFabrica(new Coordenada(1,6));
 		for(int i = 0; i<f.getTiempoDeConstruccion(); i++) j.update();
-		p = j.construirPuertoEstelar(new Coordenadas(1,7));
+		p = j.construirPuertoEstelar(new Coordenada(1,7));
 		for(int i = 0; i<p.getTiempoDeConstruccion(); i++) j.update();
 
 		n = p.entrenarNaveCiencia();
@@ -217,11 +217,11 @@ public class EntrenamientoUnidadesTerranTest {
 		NaveTransporteTerran n;
 		int tiempo;
 
-		b = j.construirBarraca(new Coordenadas(1,8));
+		b = j.construirBarraca(new Coordenada(1,8));
 		for(int i = 0; i<b.getTiempoDeConstruccion(); i++) j.update();
-		f = j.construirFabrica(new Coordenadas(1,9));
+		f = j.construirFabrica(new Coordenada(1,9));
 		for(int i = 0; i<f.getTiempoDeConstruccion(); i++) j.update();
-		p = j.construirPuertoEstelar(new Coordenadas(2,5));
+		p = j.construirPuertoEstelar(new Coordenada(2,5));
 		for(int i = 0; i<p.getTiempoDeConstruccion(); i++) j.update();
 
 		n = p.entrenarNaveTransporte();
@@ -241,11 +241,11 @@ public class EntrenamientoUnidadesTerranTest {
 		NaveTransporteTerran n;
 		int tiempo;
 
-		b = j.construirBarraca(new Coordenadas(2,1));
+		b = j.construirBarraca(new Coordenada(2,1));
 		for(int i = 0; i<b.getTiempoDeConstruccion(); i++) j.update();
-		f = j.construirFabrica(new Coordenadas(2,2));
+		f = j.construirFabrica(new Coordenada(2,2));
 		for(int i = 0; i<f.getTiempoDeConstruccion(); i++) j.update();
-		p = j.construirPuertoEstelar(new Coordenadas(2,3));
+		p = j.construirPuertoEstelar(new Coordenada(2,3));
 		for(int i = 0; i<p.getTiempoDeConstruccion(); i++) j.update();
 
 		n = p.entrenarNaveTransporte();
