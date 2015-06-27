@@ -111,7 +111,7 @@ public class Mapa {
 
 	}
 
-	public void borrarEnCapaAerea(Coordenadas coordenadas) {
+	public void borrarEnCapaAerea(Coordenada coordenadas) {
 
 		this.capaAerea.remove(coordenadas);
 

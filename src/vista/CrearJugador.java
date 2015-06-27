@@ -1,6 +1,6 @@
 package vista;
 
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import vista.Actions.CrearTerran;
 import vista.Actions.SeleccionarRaza;
 import vista.auxiliares.IconoColor;
