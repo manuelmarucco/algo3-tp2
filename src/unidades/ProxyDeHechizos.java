@@ -70,4 +70,11 @@ public class ProxyDeHechizos {
         if(jugador1.buscarUnidad(unidad)) return jugador1;
         else return jugador2;
     }
+
+    public static Jugador obtenerDuenio(ColocableEnMapa objetivo){
+        if(objetivo==null) return null;
+        if(jugador1.buscarUnidad(objetivo)) return jugador1;
+        if(jugador1.buscarConstruccion(objetivo)) return jugador1;
+        else return jugador2;
+    }
 }

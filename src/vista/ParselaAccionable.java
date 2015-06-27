@@ -5,6 +5,9 @@ import control.vistaMapa.ObservadorMapa;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.utilidadesMapa.Coordenada;
+import interfaces.ColocableEnMapa;
+import jugabilidad.ProxyMapa;
+import unidades.ProxyDeHechizos;
 import vista.auxiliares.jugador.DisplayNotificaciones;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 import vista.ventanaJugadores.VentanaJugador;
@@ -49,7 +52,15 @@ public class ParselaAccionable implements MouseListener {
         }
 
         if(m.getButton() == MouseEvent.BUTTON1){
-            vista.actualizarBotonera();
+            ColocableEnMapa seleccionado = ProxyMapa.getInstance().obtenerDeCapaAerea(coordenada);
+            if(seleccionado==null)
+                seleccionado=ProxyMapa.getInstance().obtenerDeCapaTerrestre(coordenada);
+            if(this.ventana.obtenerJugador()== ProxyDeHechizos.obtenerDuenio(seleccionado)) {
+                vista.actualizarBotonera();
+            }
+            else{
+                this.ventana.getPanelAcciones().limpiar();
+            }
             ventana.borrarPanelDeEstadoAnterior(); // el tema es que caundo tocas el pasto no se activa la VistaPasto entonces hay q borrar manualmente
             vista.actualizarPanelEstado();
         }

@@ -1,11 +1,14 @@
 package vista.unidades;
 
+import control.BufferImagenes;
+import interfaces.ColocableEnMapa;
 import unidades.protoss.Scout;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class VistaScout extends ImagePanel implements IVista{
 
@@ -13,12 +16,14 @@ public class VistaScout extends ImagePanel implements IVista{
     private static final int ALTO = 64;
     private final Scout unidad;
     private final VentanaJugador ventanaJugador;
-    private static String pathImagen="images/unidades/protoss/scout.png";
+    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
 
-    public VistaScout(Scout scout,VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon(pathImagen).getImage().getScaledInstance(ANCHO, ALTO, java.awt.Image.SCALE_SMOOTH));
-        this.unidad=scout;
+    public VistaScout(ColocableEnMapa scout,VentanaJugador ventanaJugador) {
+        
+        super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("Scout").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
+        this.unidad = (Scout) scout;
         this.ventanaJugador=ventanaJugador;
+
     }
 
     @Override
