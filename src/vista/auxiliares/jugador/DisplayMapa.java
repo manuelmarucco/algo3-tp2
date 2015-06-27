@@ -36,8 +36,7 @@ public class DisplayMapa extends JPanel {
     // Metodos -----
 
 
-    public DisplayMapa(VentanaJugador ventana){
-
+    public DisplayMapa(VentanaJugador ventana) {
         ObservadorMapa.getInstance().agregarDisplay(this);
         this.ventana = ventana;
         this.controlador = new ControladorDeVistaMapa();
@@ -45,23 +44,22 @@ public class DisplayMapa extends JPanel {
 
     }
 
-    public void actualizarDisplayMapa(){
+    public void actualizarDisplayMapa() {
 
         this.panel.removeAll();
         this.armarPaneles();
-        //this.add(this.panel);
 
         this.panel.paintComponents(this.panel.getGraphics());
 
     }
 
-    private void init(){
+    private void init() {
 
-        this.cantidadTilesHorizontales = 25 ;
+        this.cantidadTilesHorizontales = 25;
         this.cantidadTilesVerticales = 25;
 
         this.panel = new JLayeredPane();
-        this.panel.setPreferredSize(new Dimension(1600, 1600));
+        this.panel.setPreferredSize(new Dimension(1600, 1600)); //cada parsela mide 64x64 pixels entonces 64*25=1600
         this.panel.setVisible(true);
 
         this.armarPaneles();
@@ -69,14 +67,14 @@ public class DisplayMapa extends JPanel {
         this.add(this.panel);
     }
 
-    private void armarPaneles(){
+    private void armarPaneles() {
         ArrayList<JPanel> paneles = new ArrayList<>();
 
-        JPanel recursos=controlador.armarPanelDeRecursos(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana);
-        JPanel terrestre=controlador.armarPanelTerrestre(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana);
-        JPanel accionable=controlador.armarPanelAccionable(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana);
-        JPanel aereo=controlador.armarPanelAereo(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana);
-        JPanel vision=controlador.armarPanelDeVisionDisponible(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana.obtenerJugador());
+        JPanel recursos = controlador.armarPanelDeRecursos(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana);
+        JPanel terrestre = controlador.armarPanelTerrestre(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana);
+        JPanel accionable = controlador.armarPanelAccionable(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana);
+        JPanel aereo = controlador.armarPanelAereo(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana);
+        JPanel vision = controlador.armarPanelDeVisionDisponible(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana.obtenerJugador());
 
         paneles.add(accionable);
         paneles.add(vision);
@@ -88,9 +86,9 @@ public class DisplayMapa extends JPanel {
 
     }
 
-    private void agregarPaneles(ArrayList<JPanel> paneles){
+    private void agregarPaneles(ArrayList<JPanel> paneles) {
 
-        for (JPanel panel : paneles){
+        for (JPanel panel : paneles) {
 
             this.panel.add(panel);
 
@@ -98,6 +96,5 @@ public class DisplayMapa extends JPanel {
 
 
     }
-
 
 }

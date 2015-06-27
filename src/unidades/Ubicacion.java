@@ -4,12 +4,12 @@ import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import jugabilidad.Mapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 public interface Ubicacion {
 
-    void agregarse(Mapa mapa,ColocableEnMapa unidad,Coordenadas coordenadas) throws ExcepcionPosicionOcupada;
+    void agregarse(Mapa mapa,ColocableEnMapa unidad,Coordenada coordenada) throws ExcepcionPosicionOcupada;
 
-    void moverse(Mapa mapa,ColocableEnMapa unidad,Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa;
+    void moverse(Mapa mapa,ColocableEnMapa unidad,Coordenada coordenada) throws ExcepcionNoSePudoAgregarAlMapa;
 
 }

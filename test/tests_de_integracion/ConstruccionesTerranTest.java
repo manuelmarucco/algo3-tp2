@@ -10,7 +10,7 @@ import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
@@ -41,9 +41,9 @@ public class ConstruccionesTerranTest {
 		jugador.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
 		int i1;
-		Coordenadas coordenadas = new Coordenadas(1,1);
+		Coordenada coordenada = new Coordenada(1,1);
 
-		b = jugador.construirBarraca(coordenadas);
+		b = jugador.construirBarraca(coordenada);
 		i1 = b.getTiempoDeConstruccion();
 		for (int i = 0; i < i1; i++) jugador.update();
 
@@ -54,15 +54,15 @@ public class ConstruccionesTerranTest {
 	public void SeConstruyeUnaCentroDeMineralSobreUnCristal() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
-		Coordenadas coordenadas = new Coordenadas(1,1);
+		Coordenada coordenada = new Coordenada(1,1);
 		Cristal cristal = new Cristal();
 		CentroDeMineral centroDeMineral;
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 
-		mapa.agregar(cristal,coordenadas);
+		mapa.agregar(cristal, coordenada);
 
-		centroDeMineral = j.construirCentroDeMineral(coordenadas);
+		centroDeMineral = j.construirCentroDeMineral(coordenada);
 		for (int i = 0; i < centroDeMineral.getTiempoDeConstruccion(); i ++) j.update();
 
 		Assert.assertTrue(j.buscarConstruccion(centroDeMineral));
@@ -72,15 +72,15 @@ public class ConstruccionesTerranTest {
 	public void SeQuiereConstruirUnaCentroDeMineralSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,0));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
-		Coordenadas coordenadas = new Coordenadas(0,1);
+		Coordenada coordenada = new Coordenada(0,1);
 		Volcan volcan = new Volcan();
 		CentroDeMineral centroDeMineral;
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 
-		mapa.agregar(volcan,coordenadas);
+		mapa.agregar(volcan, coordenada);
 
-		centroDeMineral = j.construirCentroDeMineral(coordenadas);
+		centroDeMineral = j.construirCentroDeMineral(coordenada);
 		for (int i = 0; i < centroDeMineral.getTiempoDeConstruccion(); i ++) j.update();
 
 		Assert.assertFalse(j.buscarConstruccion(centroDeMineral));
@@ -92,14 +92,14 @@ public class ConstruccionesTerranTest {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,150));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Refineria r;
-		Coordenadas coordenadas = new Coordenadas(1,4);
+		Coordenada coordenada = new Coordenada(1,4);
 		Volcan volcan = new Volcan();
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 
-		mapa.agregar(volcan,coordenadas);
+		mapa.agregar(volcan, coordenada);
 		
-		r = j.construirRefineria(coordenadas);
+		r = j.construirRefineria(coordenada);
 		for (int i = 0; i < r.getTiempoDeConstruccion(); i ++) j.update();
 		
 		Assert.assertTrue(j.buscarConstruccion(r));
@@ -109,14 +109,14 @@ public class ConstruccionesTerranTest {
 	public void SeQuiereConstruirUnaRefineriaSobreUnVolcanYNoSePuede() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran jugador = new JugadorTerran(new Recursos(150,0));
 		jugador.setVisibilidad(Vision.VisionCompleta(20, 20));
-		Coordenadas coordenadas = new Coordenadas(0,1);
+		Coordenada coordenada = new Coordenada(0,1);
 		Cristal cristal = new Cristal();
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 
-		mapa.agregar(cristal,coordenadas);
+		mapa.agregar(cristal, coordenada);
 
-		jugador.construirRefineria(coordenadas);
+		jugador.construirRefineria(coordenada);
 	}
 
 	@Test
@@ -125,9 +125,9 @@ public class ConstruccionesTerranTest {
 		JugadorTerran j = new JugadorTerran(new Recursos(150,150),suministros);
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		DepositoDeSuministros d ;
-		Coordenadas coordenadas = new Coordenadas(2,2);
+		Coordenada coordenada = new Coordenada(2,2);
 		
-		d = j.construirDepositoDeSuministros(coordenadas);
+		d = j.construirDepositoDeSuministros(coordenada);
 		for (int i = 0; i < d.getTiempoDeConstruccion(); i ++) j.update();
 
 		Assert.assertEquals(5,suministros.getSuministrosLimiteActuales());
@@ -149,7 +149,7 @@ public class ConstruccionesTerranTest {
 		Fabrica f = new Fabrica();
 
 	    exception.expect(ExcepcionNoSePuedeConstruir.class);
-		f.esConstruible(cs,r,new Coordenadas(9,9));
+		f.esConstruible(cs,r,new Coordenada(9,9));
 		
 	}
 	
@@ -166,7 +166,7 @@ public class ConstruccionesTerranTest {
 		PuertoEstelar p = new PuertoEstelar();
 
 	    exception2.expect(ExcepcionNoSePuedeConstruir.class);
-		p.esConstruible(cs,recursosRecolectados, new Coordenadas(5,6));
+		p.esConstruible(cs,recursosRecolectados, new Coordenada(5,6));
 		
 	}
 	
@@ -178,13 +178,13 @@ public class ConstruccionesTerranTest {
 		Fabrica f;
 		int i1,i2;
 		
-		b = jugador.construirBarraca(new Coordenadas(3,3));
+		b = jugador.construirBarraca(new Coordenada(3,3));
 		i1 = b.getTiempoDeConstruccion();
 		for (int i = 0; i < i1; i ++) jugador.update();
 		
 		Assert.assertTrue(jugador.buscarConstruccion(b));
 		
-		f = jugador.construirFabrica(new Coordenadas(3,4));
+		f = jugador.construirFabrica(new Coordenada(3,4));
 		i2 = f.getTiempoDeConstruccion();
 		for (int i = 0; i < i2; i ++) jugador.update();
 
@@ -195,9 +195,9 @@ public class ConstruccionesTerranTest {
 	public void JugadorQuiereCrearFabricaPeroNecesitaBarraca() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
 		Fabrica f;
-		Coordenadas coordenadas = new Coordenadas(5,6);
+		Coordenada coordenada = new Coordenada(5,6);
 		
-		f = j.construirFabrica(coordenadas);
+		f = j.construirFabrica(coordenada);
 
 		Assert.assertFalse(j.buscarConstruccion(f));
 	}
@@ -210,13 +210,13 @@ public class ConstruccionesTerranTest {
 		Fabrica f;
 		PuertoEstelar p;
 
-		b = j.construirBarraca(new Coordenadas(5,5));
+		b = j.construirBarraca(new Coordenada(5,5));
 		for (int i = 0; i < b.getTiempoDeConstruccion(); i ++) j.update();
 
-		f = j.construirFabrica(new Coordenadas(5,7));
+		f = j.construirFabrica(new Coordenada(5,7));
 		for (int i = 0; i < f.getTiempoDeConstruccion(); i ++) j.update();
 
-		p = j.construirPuertoEstelar(new Coordenadas(7,7));
+		p = j.construirPuertoEstelar(new Coordenada(7,7));
 		for (int i = 0; i < p.getTiempoDeConstruccion(); i ++) j.update();
 
 		Assert.assertTrue(j.buscarConstruccion(p));
@@ -225,9 +225,9 @@ public class ConstruccionesTerranTest {
 	@Test(expected = ExcepcionNecesitaConstruirFabrica.class)
 	public void JugadorQuiereCrearPuertoEstelarPeroNecesitaFabrica() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(10000,1000));
-		Coordenadas coordenadas = new Coordenadas(8,8);
+		Coordenada coordenada = new Coordenada(8,8);
 		
-		j.construirPuertoEstelar(coordenadas);
+		j.construirPuertoEstelar(coordenada);
 
 	}
 	
@@ -237,21 +237,21 @@ public class ConstruccionesTerranTest {
 	public void JugadorNoPuedeConstruirCentroDeMineralPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		Cristal cristal = new Cristal();
-		Coordenadas coordenadas = new Coordenadas(1,7);
+		Coordenada coordenada = new Coordenada(1,7);
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 
-		mapa.agregar(cristal,coordenadas);
+		mapa.agregar(cristal, coordenada);
 
-		j.construirCentroDeMineral(coordenadas);
+		j.construirCentroDeMineral(coordenada);
 	}
 
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
 	public void JugadorNoPuedeConstruirBarracaPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
-		Coordenadas coordenadas = new Coordenadas(1,8);
+		Coordenada coordenada = new Coordenada(1,8);
 		
-		j.construirBarraca(coordenadas);
+		j.construirBarraca(coordenada);
 	}
 	
 	@Test(expected = ExcepcionGasInsuficiente.class)
@@ -259,12 +259,12 @@ public class ConstruccionesTerranTest {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,0));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
-		Coordenadas coordenadas = new Coordenadas(1,9);
+		Coordenada coordenada = new Coordenada(1,9);
 		
-		b = j.construirBarraca(coordenadas);
+		b = j.construirBarraca(coordenada);
 		for (int i = 0; i < b.getTiempoDeConstruccion(); i ++) j.update();
 
-		j.construirFabrica(coordenadas);
+		j.construirFabrica(coordenada);
 
 	}
 	
@@ -274,38 +274,38 @@ public class ConstruccionesTerranTest {
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
 		Barraca b;
 		Fabrica f;
-		Coordenadas coordenadas = new Coordenadas(2,9);
-		Coordenadas coordenadas2 = new Coordenadas(2,8);
-		Coordenadas coordenadas3 = new Coordenadas(2,7);
+		Coordenada coordenada = new Coordenada(2,9);
+		Coordenada coordenada2 = new Coordenada(2,8);
+		Coordenada coordenada3 = new Coordenada(2,7);
 
-		b = j.construirBarraca(coordenadas); //costo 150
+		b = j.construirBarraca(coordenada); //costo 150
 		for (int i = 0; i < b.getTiempoDeConstruccion(); i ++) j.update();
 
-		f = j.construirFabrica(coordenadas2); //costo 200,100
+		f = j.construirFabrica(coordenada2); //costo 200,100
 		for (int i = 0; i < f.getTiempoDeConstruccion(); i ++) j.update();
 
-		j.construirPuertoEstelar(coordenadas3); //costo 150,100
+		j.construirPuertoEstelar(coordenada3); //costo 150,100
 	}
 	
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
 	public void JugadorNoPuedeConstruirDepositoDeSuministrosPorFaltaDeRecursos() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
-		Coordenadas coordenadas = new Coordenadas(0,0);
+		Coordenada coordenada = new Coordenada(0,0);
 		
-		j.construirDepositoDeSuministros(coordenadas);
+		j.construirDepositoDeSuministros(coordenada);
 	}
 
 	@Test(expected = ExcepcionMineralesInsuficientes.class)
 	public void JugadorNoPuedeConstruirRefineriaPorFaltaDeRecursos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(0,0));
 		Volcan volcan = new Volcan();
-		Coordenadas coordenadas = new Coordenadas(1,7);
+		Coordenada coordenada = new Coordenada(1,7);
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 
-		mapa.agregar(volcan,coordenadas);
+		mapa.agregar(volcan, coordenada);
 
-		j.construirRefineria(coordenadas);
+		j.construirRefineria(coordenada);
 
 	}
 
@@ -315,14 +315,14 @@ public class ConstruccionesTerranTest {
 	public void JugadorNoPuedeConstruirUnEdificioNoRecolectorDondeHayUnVolcan() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
-		Coordenadas coordenadas = new Coordenadas(8,1);
+		Coordenada coordenada = new Coordenada(8,1);
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 		Volcan volcan = new Volcan();
 
-		mapa.agregar(volcan,coordenadas);
+		mapa.agregar(volcan, coordenada);
 
-		j.construirBarraca(coordenadas);
+		j.construirBarraca(coordenada);
 
 	}
 
@@ -330,14 +330,14 @@ public class ConstruccionesTerranTest {
 	public void JugadorNoPuedeConstruirUnEdificioNoRecolectoDondeHayUnCristal() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
 		JugadorTerran j = new JugadorTerran(new Recursos(1000,1000));
 		j.setVisibilidad(Vision.VisionCompleta(20, 20));
-		Coordenadas coordenadas = new Coordenadas(8,1);
+		Coordenada coordenada = new Coordenada(8,1);
 		ProxyMapa mapa = ProxyMapa.getInstance();
 		ProxyMapa.getInstance().setCoordenadasMaximas(10,10);
 		Cristal cristal = new Cristal();
 
-		mapa.agregar(cristal,coordenadas);
+		mapa.agregar(cristal, coordenada);
 
-		j.construirBarraca(coordenadas);
+		j.construirBarraca(coordenada);
 	}
 
 }

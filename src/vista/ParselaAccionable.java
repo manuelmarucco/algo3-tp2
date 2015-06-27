@@ -4,7 +4,7 @@ import control.ObservadorDeExcepciones;
 import control.vistaMapa.ObservadorMapa;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import vista.auxiliares.jugador.DisplayNotificaciones;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 import vista.ventanaJugadores.VentanaJugador;
@@ -15,11 +15,11 @@ import java.awt.event.MouseListener;
 public class ParselaAccionable implements MouseListener {
 
     VentanaJugador ventana;
-    Coordenadas coordenada;
+    Coordenada coordenada;
     DisplayNotificaciones displayNotificaciones;
     IVista vista;
 
-    public ParselaAccionable(VentanaJugador ventana, Coordenadas coordenada,IVista vista){
+    public ParselaAccionable(VentanaJugador ventana, Coordenada coordenada,IVista vista){
         this.ventana = ventana;
         this.displayNotificaciones = ventana.getDisplayNotificaciones();
         this.coordenada = coordenada;
@@ -37,13 +37,13 @@ public class ParselaAccionable implements MouseListener {
             if(this.verificarConstruccionesEnEspera()) {
                 System.out.println("Edificio creado en el mapa");
                 ObservadorRecursosSuministros.getInstance().informarCambios();
-                ObservadorMapa.getInstance().informarCambiosEnMapa();
+                ObservadorMapa.getInstance().informarCambios();
             }
 
             if(this.verificarAccionEnEspera()){
                 System.out.println("Accion de la unidad realizada");
                 ObservadorRecursosSuministros.getInstance().informarCambios();
-                ObservadorMapa.getInstance().informarCambiosEnMapa();
+                ObservadorMapa.getInstance().informarCambios();
             }
 
         }

@@ -23,7 +23,7 @@ public class ObservadorMapa {
 
     }
 
-    public void informarCambiosEnMapa(){
+    public void informarCambios(){
 
         this.actualizarDisplays();
 

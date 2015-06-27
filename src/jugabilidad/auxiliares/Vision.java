@@ -1,20 +1,20 @@
 package jugabilidad.auxiliares;
 
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 import java.util.HashSet;
 
 public class Vision {
 
-    private HashSet<Coordenadas> visibilidad = new HashSet<>();
+    private HashSet<Coordenada> visibilidad = new HashSet<>();
 
-    public void agregarSectorVisible(Coordenadas coordenadaDeUnidad, int visionDeUnidad){
+    public void agregarSectorVisible(Coordenada coordenadaDeUnidad, int visionDeUnidad){
         if(coordenadaDeUnidad==null) return;
         for (int i = 0; i <= 2 * visionDeUnidad; i++){
 
             for (int j = 0; j <= 2 * visionDeUnidad; j ++){
 
-                Coordenadas punto = this.armarPuntoDeInicio(coordenadaDeUnidad,visionDeUnidad);
+                Coordenada punto = this.armarPuntoDeInicio(coordenadaDeUnidad,visionDeUnidad);
 
                 punto.aumentarX(i);
                 punto.aumentarY(j);
@@ -29,12 +29,12 @@ public class Vision {
 
     }
 
-    private Coordenadas armarPuntoDeInicio(Coordenadas punto, int vision){
+    private Coordenada armarPuntoDeInicio(Coordenada punto, int vision){
         if(punto!=null) {
             int x = punto.getX() - vision;
             int y = punto.getY() - vision;
 
-            return (new Coordenadas(x, y));
+            return (new Coordenada(x, y));
         }
         return null;
     }
@@ -43,13 +43,13 @@ public class Vision {
         Vision v = new Vision();
         for(int i = 1; i <= x; i++){
             for(int j = 1; j <= y; j++){
-                v.visibilidad.add(new Coordenadas(i,j));
+                v.visibilidad.add(new Coordenada(i,j));
             }
         }
         return v;
     }
 
-    public Boolean esVisible( Coordenadas coordenada ){
+    public Boolean esVisible( Coordenada coordenada ){
 
         return ( this.visibilidad.contains(coordenada) );
 

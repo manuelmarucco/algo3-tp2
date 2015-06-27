@@ -3,7 +3,7 @@ package vista.Actions.accionesUnidades;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionMoverfueraDeRango;
 import excepciones.Unidades.ExcepcionYaSeMovioLaUnidad;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Unidad;
 import vista.Actions.WraperAccionActuar;
 
@@ -21,7 +21,7 @@ public class ActionMover implements MouseListener, AccionUnidad {
 
 
     @Override
-    public void actuarEn(Coordenadas coordenada) throws ExcepcionMoverfueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaSeMovioLaUnidad {
+    public void actuarEn(Coordenada coordenada) throws ExcepcionMoverfueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaSeMovioLaUnidad {
         accionActuarEnEspera.setAccionActuar(null);
         unidad.mover(coordenada);
     }

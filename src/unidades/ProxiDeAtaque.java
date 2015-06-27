@@ -6,7 +6,7 @@ import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 public class ProxiDeAtaque {
     private static Jugador jugador1;
@@ -32,15 +32,15 @@ public class ProxiDeAtaque {
 
     public static void comprobarRangoAereo(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango {
         ProxyMapa mapa = ProxyMapa.getInstance();
-        Coordenadas c1=mapa.getCoordenada(atacante);
-        Coordenadas c2=mapa.getCoordenada((ColocableEnMapa)defensor);
+        Coordenada c1=mapa.getCoordenada(atacante);
+        Coordenada c2=mapa.getCoordenada((ColocableEnMapa)defensor);
         if(c1.distancia(c2)> atacante.getRangoAereo()) throw new ExcepcionObjetivoFueraDeRango();
 
     }
     public static void comprobarRangoTerrestre(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango {
         ProxyMapa mapa = ProxyMapa.getInstance();
-        Coordenadas c1=mapa.getCoordenada(atacante);
-        Coordenadas c2=mapa.getCoordenada((ColocableEnMapa)defensor);
+        Coordenada c1=mapa.getCoordenada(atacante);
+        Coordenada c2=mapa.getCoordenada((ColocableEnMapa)defensor);
         if(c1.distancia(c2)> atacante.getRangoTerrestre()) throw new ExcepcionObjetivoFueraDeRango();
 
     }
@@ -54,7 +54,7 @@ public class ProxiDeAtaque {
         if(jugador2.buscarUnidad(atacante)&& jugador2.buscarConstruccion(defensor)) throw new ExcepcionAtacarAUnidadAliada();
     }
 
-    public static void atacar(UnidadGuerrera atacante,Coordenadas coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango {
+    public static void atacar(UnidadGuerrera atacante,Coordenada coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango {
         Daniable objetivoAereo = (Daniable) ProxyMapa.getInstance().obtenerDeCapaAerea(coordenada);
         Daniable objetivoTerreste = (Daniable) ProxyMapa.getInstance().obtenerDeCapaTerrestre(coordenada);
         if(objetivoAereo!=null){

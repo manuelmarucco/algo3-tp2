@@ -12,7 +12,7 @@ import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.Vision;
 import jugabilidad.extrasJuego.CreadorDeMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Before;
 import org.junit.Test;
 import unidades.terrran.Golliat;
@@ -50,15 +50,15 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
         JugadorTerran jugadorTerran = new JugadorTerran(new Recursos(1000,1000),suministros);
         jugadorTerran.setVisibilidad(vision);
 
-        Coordenadas coordenadas = new Coordenadas(8,18);
+        Coordenada coordenada = new Coordenada(8,18);
         // Suministros 5. Usados 0.
-        jugadorTerran.construirDepositoDeSuministros(coordenadas);
+        jugadorTerran.construirDepositoDeSuministros(coordenada);
 
         // Para que se construya el deposito.
         this.lanzarUpdates(6, jugadorTerran);
 
-        Coordenadas coordenadas2 = new Coordenadas(10,18);
-        Barraca barraca = jugadorTerran.construirBarraca(coordenadas2);
+        Coordenada coordenada2 = new Coordenada(10,18);
+        Barraca barraca = jugadorTerran.construirBarraca(coordenada2);
 
         // Para que se construya la barraca.
         this.lanzarUpdates(13, jugadorTerran);
@@ -95,21 +95,21 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
         JugadorTerran jugadorTerran = new JugadorTerran(new Recursos(1000,1000),suministros);
         jugadorTerran.setVisibilidad(vision);
 
-        Coordenadas coordenadas = new Coordenadas(8,18);
-        jugadorTerran.construirDepositoDeSuministros(coordenadas);
+        Coordenada coordenada = new Coordenada(8,18);
+        jugadorTerran.construirDepositoDeSuministros(coordenada);
 
         // Para que se construya el deposito.
         this.lanzarUpdates(6, jugadorTerran);
         // Suministros 5. Usados 0.
 
-        Coordenadas coordenadas2 = new Coordenadas(10,18);
-        Barraca barraca = jugadorTerran.construirBarraca(coordenadas2);
+        Coordenada coordenada2 = new Coordenada(10,18);
+        Barraca barraca = jugadorTerran.construirBarraca(coordenada2);
 
         // Para que se construya la barraca.
         this.lanzarUpdates(13, jugadorTerran);
 
-        Coordenadas coordenadas3 = new Coordenadas(17,17);
-        Fabrica fabrica = jugadorTerran.construirFabrica(coordenadas3);
+        Coordenada coordenada3 = new Coordenada(17,17);
+        Fabrica fabrica = jugadorTerran.construirFabrica(coordenada3);
 
         // Para que se construya la fabrica.
         this.lanzarUpdates(12, jugadorTerran);
@@ -146,15 +146,15 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
         JugadorTerran jugadorTerran = new JugadorTerran(new Recursos(1000,1000),suministros);
         jugadorTerran.setVisibilidad(vision);
 
-        Coordenadas coordenadas = new Coordenadas(8,18);
+        Coordenada coordenada = new Coordenada(8,18);
         // Suministros 5. Usados 0.
-        jugadorTerran.construirDepositoDeSuministros(coordenadas);
+        jugadorTerran.construirDepositoDeSuministros(coordenada);
 
         // Para que se construya el deposito.
         this.lanzarUpdates(6, jugadorTerran);
 
-        Coordenadas coordenadas2 = new Coordenadas(10,18);
-        Barraca barraca = jugadorTerran.construirBarraca(coordenadas2);
+        Coordenada coordenada2 = new Coordenada(10,18);
+        Barraca barraca = jugadorTerran.construirBarraca(coordenada2);
 
         // Para que se construya la barraca.
         this.lanzarUpdates(13, jugadorTerran);
@@ -200,15 +200,15 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
         JugadorTerran jugadorTerran = new JugadorTerran(new Recursos(1000,1000),suministros);
         jugadorTerran.setVisibilidad(vision);
 
-        Coordenadas coordenadas = new Coordenadas(8,18);
+        Coordenada coordenada = new Coordenada(8,18);
         // Suministros 5. Usados 0.
-        jugadorTerran.construirDepositoDeSuministros(coordenadas);
+        jugadorTerran.construirDepositoDeSuministros(coordenada);
 
         // Para que se construya el deposito.
         this.lanzarUpdates(6, jugadorTerran);
 
-        Coordenadas coordenadas2 = new Coordenadas(10,18);
-        Barraca barraca = jugadorTerran.construirBarraca(coordenadas2);
+        Coordenada coordenada2 = new Coordenada(10,18);
+        Barraca barraca = jugadorTerran.construirBarraca(coordenada2);
 
         // Para que se construya la barraca.
         this.lanzarUpdates(13, jugadorTerran);
@@ -248,13 +248,13 @@ public class IntegracionDeJugadorConUnidadesYDepositoDeSuministros {
     public void seIntentaCrearUnaBarracaFueraDelRangoDeVisionEsperoUnaExcepcio() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         JugadorTerran jugador = new JugadorTerran(new Recursos(1000, 100));
         Vision vision = new Vision();
-        vision.agregarSectorVisible(new Coordenadas(4, 4), 3);
+        vision.agregarSectorVisible(new Coordenada(4, 4), 3);
         jugador.setVisibilidad(vision);
         ProxyMapa proxy = ProxyMapa.getInstance();
 
-        Coordenadas coordenadas = new Coordenadas(10, 10);
+        Coordenada coordenada = new Coordenada(10, 10);
 
-        jugador.construirBarraca(coordenadas);
+        jugador.construirBarraca(coordenada);
 
     }
 

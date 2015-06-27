@@ -12,7 +12,7 @@ import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -46,7 +46,7 @@ public class simulacionGanador {
 
         ProxiDeAtaque.inicializar(j1, j2);
 
-        c1 =j1.construirNexoMineral(new Coordenadas(3, 23)); //hay un cristal en 3,23 por defecto
+        c1 =j1.construirNexoMineral(new Coordenada(3, 23)); //hay un cristal en 3,23 por defecto
         for(int i = 0; i<c1.getTiempoDeConstruccion()*2; i++ ) {
             juego.update();
         }
@@ -55,13 +55,13 @@ public class simulacionGanador {
             juego.update();
         }
 
-        c2 = j1.construirAcceso(new Coordenadas(10, 23));
+        c2 = j1.construirAcceso(new Coordenada(10, 23));
         for(int i = 0; i<c2.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
-        Pilon c4 = j1.construirPilon(new Coordenadas(7, 24));
+        Pilon c4 = j1.construirPilon(new Coordenada(7, 24));
         for(int i = 0; i<c4.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
-        depositoDeSuministrosDeJugador2 = j2.construirDepositoDeSuministros(new Coordenadas(10,24));
+        depositoDeSuministrosDeJugador2 = j2.construirDepositoDeSuministros(new Coordenada(10,24));
         for(int i = 0; i<depositoDeSuministrosDeJugador2.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
         zealot = c2.entrenarZealot();
@@ -70,7 +70,7 @@ public class simulacionGanador {
             juego.update();
         }
 
-        zealot.mover(new Coordenadas(9, 24));
+        zealot.mover(new Coordenada(9, 24));
         while (depositoDeSuministrosDeJugador2.getVida()!=0) {
             zealot.atacarTierra(depositoDeSuministrosDeJugador2);
             juego.update();
@@ -101,7 +101,7 @@ public class simulacionGanador {
 
         ProxiDeAtaque.inicializar(j1, j2);
 
-        c1 =j1.construirNexoMineral(new Coordenadas(3, 23)); //hay un cristal en 3,23 por defecto
+        c1 =j1.construirNexoMineral(new Coordenada(3, 23)); //hay un cristal en 3,23 por defecto
         for(int i = 0; i<c1.getTiempoDeConstruccion()*2; i++ ) {
             juego.update();
         }
@@ -110,13 +110,13 @@ public class simulacionGanador {
             juego.update();
         }
 
-        c2 = j1.construirAcceso(new Coordenadas(10, 23));
+        c2 = j1.construirAcceso(new Coordenada(10, 23));
         for(int i = 0; i<c2.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
-        Pilon c4 = j1.construirPilon(new Coordenadas(7, 24));
+        Pilon c4 = j1.construirPilon(new Coordenada(7, 24));
         for(int i = 0; i<c4.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
-        c3 = j2.construirDepositoDeSuministros(new Coordenadas(10,24));
+        c3 = j2.construirDepositoDeSuministros(new Coordenada(10,24));
         for(int i = 0; i<c3.getTiempoDeConstruccion()*2; i++ ) juego.update();
 
         d = c2.entrenarZealot();
@@ -124,7 +124,7 @@ public class simulacionGanador {
         for(int i = 0; i<tiempo*2; i++){ //Un turno equivale a que el jugador retome el control ( 2 subturnos)
             juego.update();
         }
-        d.mover(new Coordenadas(9,24));
+        d.mover(new Coordenada(9,24));
         while (c3.getVida()!=0) {
             d.atacarTierra(c3);
             juego.update();
@@ -132,7 +132,7 @@ public class simulacionGanador {
 
         }
 
-        j2.construirDepositoDeSuministros(new Coordenadas(11,24)); //edificio en Construccion
+        j2.construirDepositoDeSuministros(new Coordenada(11,24)); //edificio en Construccion
 
         Assert.assertEquals(null, juego.ganador());
 

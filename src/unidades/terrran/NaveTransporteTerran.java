@@ -4,7 +4,7 @@ import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Aereo;
 import unidades.UnidadTransporte;
 
@@ -19,7 +19,7 @@ public class NaveTransporteTerran extends UnidadTransporte {
     }
 
     @Override
-    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+    public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
         mapa.moverEnCapaAerea(this, hasta);
 

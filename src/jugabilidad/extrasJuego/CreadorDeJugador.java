@@ -8,7 +8,7 @@ import jugabilidad.Jugador;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 import java.util.ArrayList;
 
@@ -19,7 +19,7 @@ public class CreadorDeJugador {
 
     // Metodos ----
 
-    public JugadorTerran crearNuevoJugadorTerran(String nombre, String color, Coordenadas coordenadasIniciales)
+    public JugadorTerran crearNuevoJugadorTerran(String nombre, String color, Coordenada coordenadaIniciales)
             throws ExcepcionNoSePudoCrearElJugador {
         this.verificarNombre(nombre);
         this.nombres.add(nombre);
@@ -29,12 +29,12 @@ public class CreadorDeJugador {
         jugador.setNombre(nombre);
         jugador.setColor(color);
 
-        this.colocarVisibilidadEn(jugador, coordenadasIniciales);
+        this.colocarVisibilidadEn(jugador, coordenadaIniciales);
 
         return (jugador);
     }
 
-    public JugadorProtoss crearNuevoJugadorProtos(String nombre, String color, Coordenadas coordenadasIniciales)
+    public JugadorProtoss crearNuevoJugadorProtos(String nombre, String color, Coordenada coordenadaIniciales)
             throws ExcepcionNoSePudoCrearElJugador {
 
         this.verificarNombre(nombre);
@@ -45,7 +45,7 @@ public class CreadorDeJugador {
         jugador.setNombre(nombre);
         jugador.setColor(color);
 
-        this.colocarVisibilidadEn(jugador, coordenadasIniciales);
+        this.colocarVisibilidadEn(jugador, coordenadaIniciales);
 
         return (jugador);
     }
@@ -73,11 +73,11 @@ public class CreadorDeJugador {
 
     }
 
-    private void colocarVisibilidadEn(Jugador jugador, Coordenadas coordenadasIniciales){
+    private void colocarVisibilidadEn(Jugador jugador, Coordenada coordenadaIniciales){
 
         Vision visibilidad = new Vision();
         int radioDeVisibilidadInicial = 2;
-        visibilidad.agregarSectorVisible(coordenadasIniciales,radioDeVisibilidadInicial);
+        visibilidad.agregarSectorVisible(coordenadaIniciales,radioDeVisibilidadInicial);
 
         jugador.setVisibilidad(visibilidad);
 

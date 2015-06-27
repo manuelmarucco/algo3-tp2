@@ -5,6 +5,7 @@ import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.extrasJuego.CreadorDeMapa;
+import jugabilidad.utilidadesMapa.Coordenada;
 import vista.VentanaJuego;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
 import vista.auxiliares.jugador.DisplayRecursos;
@@ -19,9 +20,10 @@ public class VentanaJugadorProtoss extends VentanaJugador {
     // Metodos -------------------------
 
 
-    public VentanaJugadorProtoss(JugadorProtoss jugador, VentanaJuego ventanaJuego){
+    public VentanaJugadorProtoss(JugadorProtoss jugador, VentanaJuego ventanaJuego,Coordenada coordenadaDeBase){
         this.ventanaJuego = ventanaJuego;
         this.jugador = jugador;
+        this.coordenadaDeBase = coordenadaDeBase;
         super.init();
         this.setTitle(jugador.getNombre());
     }
@@ -67,8 +69,8 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         NaveCiencia nave = new NaveCiencia();
 
         try {
-            proxyMapa.agregar(marine, new Coordenadas(7,8));
-            proxyMapa.agregar(nave, new Coordenadas(8,8));
+            proxyMapa.agregar(marine, new Coordenada(7,8));
+            proxyMapa.agregar(nave, new Coordenada(8,8));
         } catch (ExcepcionNoSePudoAgregarAlMapa excepcionNoSePudoAgregarAlMapa) {
             excepcionNoSePudoAgregarAlMapa.printStackTrace();
         }
@@ -77,7 +79,7 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         VentanaJuego ventanaJuego = new VentanaJuego(new Juego(2));
         JugadorProtoss jugador = new JugadorProtoss();
         ventanaJuego.getJuego().crearJugadorProtoss("pepe","rojo");
-        VentanaJugador ventanaJugador = new VentanaJugadorProtoss(jugador,ventanaJuego);
+        VentanaJugador ventanaJugador = new VentanaJugadorProtoss(jugador,ventanaJuego,new Coordenada(10,10));
 
         ventanaJugador.pack();
         ventanaJugador.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

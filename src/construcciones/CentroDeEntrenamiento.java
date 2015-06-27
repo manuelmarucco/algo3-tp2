@@ -10,7 +10,7 @@ import excepciones.construicciones.ExcepcionSuministrosInsuficientes;
 import interfaces.Entrenable;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -23,8 +23,8 @@ public abstract class CentroDeEntrenamiento extends Construccion{
     private void crearUnidad(Entrenable unidad) throws ExcepcionNoSePudoCrearUnidadPorNoTenerEspacioAlrededorDeEdificio {
         boolean agregadoAlMapa = false;
         ProxyMapa mapa = ProxyMapa.getInstance();
-        Coordenadas coordenadaDeEdificio = mapa.getCoordenada(this);
-        Coordenadas coordenadaDeUnidad = new Coordenadas(coordenadaDeEdificio.getX()-1,coordenadaDeEdificio.getY()-1);
+        Coordenada coordenadaDeEdificio = mapa.getCoordenada(this);
+        Coordenada coordenadaDeUnidad = new Coordenada(coordenadaDeEdificio.getX()-1,coordenadaDeEdificio.getY()-1);
 
         while(!agregadoAlMapa) {
             try {
@@ -44,9 +44,9 @@ public abstract class CentroDeEntrenamiento extends Construccion{
 
     }
 
-    private boolean modicarCoordenadaAlrededorDeEdificio(Coordenadas coordenadaDeUnidad) {
+    private boolean modicarCoordenadaAlrededorDeEdificio(Coordenada coordenadaDeUnidad) {
         ProxyMapa mapa = ProxyMapa.getInstance();
-        Coordenadas coordenadaDeEdificio = mapa.getCoordenada(this);
+        Coordenada coordenadaDeEdificio = mapa.getCoordenada(this);
 
         if(coordenadaDeUnidad.getX()<1+coordenadaDeEdificio.getX()){
                     coordenadaDeUnidad.aumentarX(1);

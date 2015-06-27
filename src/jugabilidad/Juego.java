@@ -7,7 +7,7 @@ import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.extrasJuego.AdministradorDeTurnos;
 import jugabilidad.extrasJuego.CreadorDeJugador;
 import jugabilidad.extrasJuego.CreadorDeMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 import java.util.ArrayList;
 
@@ -16,7 +16,7 @@ public class Juego implements Actualizable{
 
     AdministradorDeTurnos administradorDeTurnos;
     CreadorDeMapa creadorDeMapa;
-    ArrayList<Coordenadas> bases;
+    ArrayList<Coordenada> bases;
 
     // Metodos
 

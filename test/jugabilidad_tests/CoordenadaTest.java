@@ -1,17 +1,19 @@
 package jugabilidad_tests;
 
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import jugabilidad.utilidadesMapa.Coordenadas;
-
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.hamcrest.CoreMatchers.not;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
 
 public class CoordenadaTest {
 
 	@Test
 	public void deberiaDevolverDosEnLaCoordenadaX() {
 		
-		Coordenadas coordenada = new Coordenadas (2,1);
+		Coordenada coordenada = new Coordenada(2,1);
 		assertEquals( 2, coordenada.getX() );
 	
 	}
@@ -19,7 +21,7 @@ public class CoordenadaTest {
 	@Test 
 	public void deberiaDevolverUnoEnLaCoordenadaY(){
 		
-		Coordenadas coordenada = new Coordenadas (2,1);
+		Coordenada coordenada = new Coordenada(2,1);
 		assertEquals( 1, coordenada.getY() );
 		
 	}
@@ -27,8 +29,8 @@ public class CoordenadaTest {
 	@Test
 	public void dosCoordenadasConIgualCorrdenadaXeYDeberianTenerIgualHashCode(){
 		
-		Coordenadas coordenadaUno = new Coordenadas (2,1);
-		Coordenadas coordenadaDos = new Coordenadas (2,1);
+		Coordenada coordenadaUno = new Coordenada(2,1);
+		Coordenada coordenadaDos = new Coordenada(2,1);
 		
 		assertEquals(coordenadaUno.hashCode(), coordenadaDos.hashCode());
 	}
@@ -36,8 +38,8 @@ public class CoordenadaTest {
 	@Test
 	public void dosCoordenadasConIgualCorrdenadaXeYDeberianSerIguales(){
 		
-		Coordenadas coordenadaUno = new Coordenadas (2,1);
-		Coordenadas coordenadaDos = new Coordenadas (2,1);
+		Coordenada coordenadaUno = new Coordenada(2,1);
+		Coordenada coordenadaDos = new Coordenada(2,1);
 		
 		assertEquals(coordenadaUno, coordenadaDos);
 	}
@@ -45,8 +47,8 @@ public class CoordenadaTest {
 	@Test
 	public void dosCoordenadasConCorrdenadaXeYInvertidaDeberianSerDistintas(){
 		
-		Coordenadas coordenadaUno = new Coordenadas (2,1);
-		Coordenadas coordenadaDos = new Coordenadas (1,2);
+		Coordenada coordenadaUno = new Coordenada(2,1);
+		Coordenada coordenadaDos = new Coordenada(1,2);
 		
 		assertThat(coordenadaUno, not(equalTo(coordenadaDos)));
 		//assertNotEquals(coordenadaUno, coordenadaDos);  <- ant no compila
@@ -55,8 +57,8 @@ public class CoordenadaTest {
 	@Test
 	public void paraLasDosCoordenadasDadasLaDistanciaDeberiaSerCuatro(){
 
-		Coordenadas coordenadaUno = new Coordenadas(1,7);
-		Coordenadas coordenadaDos = new Coordenadas(3,5);
+		Coordenada coordenadaUno = new Coordenada(1,7);
+		Coordenada coordenadaDos = new Coordenada(3,5);
 
 		assertEquals(3,coordenadaDos.distancia(coordenadaUno));
 
@@ -65,8 +67,8 @@ public class CoordenadaTest {
 	@Test
 	public void paraLasDosCoordenadasDeberiaSerIgualCalcularLaDistanciaDeUnoADosYDeDosAUno(){
 
-		Coordenadas coordenadaUno = new Coordenadas(1,7);
-		Coordenadas coordenadaDos = new Coordenadas(3,5);
+		Coordenada coordenadaUno = new Coordenada(1,7);
+		Coordenada coordenadaDos = new Coordenada(3,5);
 
 		assertEquals(coordenadaUno.distancia(coordenadaDos),coordenadaDos.distancia(coordenadaUno));
 
@@ -75,7 +77,7 @@ public class CoordenadaTest {
 	@Test
 		 public void seDeveriaComprobarQueSiAumentoUnaCoordenadaXSoloXCambie(){
 
-		Coordenadas coordenada = new Coordenadas(1,1);
+		Coordenada coordenada = new Coordenada(1,1);
 		coordenada.aumentarX(1);
 
 		//Sigue igual.
@@ -88,7 +90,7 @@ public class CoordenadaTest {
 	@Test
 	public void seDeveriaComprobarQueSiAumentoUnaCoordenadaYSoloYCambie(){
 
-		Coordenadas coordenada = new Coordenadas(1,1);
+		Coordenada coordenada = new Coordenada(1,1);
 		coordenada.aumentarY(1);
 
 		//Sigue igual.

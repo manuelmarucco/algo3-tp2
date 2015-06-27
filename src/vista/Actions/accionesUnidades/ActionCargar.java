@@ -4,7 +4,7 @@ import excepciones.Mapa.ExcepcionCasillaVacia;
 import excepciones.Unidades.ExcepcionCargaSuperada;
 import excepciones.Unidades.ExcepcionCargarUnidadEnemiga;
 import excepciones.Unidades.ExcepcionYaActuo;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.UnidadTransporte;
 import vista.Actions.WraperAccionActuar;
 
@@ -46,7 +46,7 @@ public class ActionCargar implements MouseListener, AccionUnidad {
     }
 
     @Override
-    public void actuarEn(Coordenadas coordenada) throws ExcepcionCargarUnidadEnemiga, ExcepcionCargaSuperada, ExcepcionCasillaVacia, ExcepcionYaActuo {
+    public void actuarEn(Coordenada coordenada) throws ExcepcionCargarUnidadEnemiga, ExcepcionCargaSuperada, ExcepcionCasillaVacia, ExcepcionYaActuo {
         unidad.cargar(coordenada);
         wraperAccionActuar.setAccionActuar(null);
     }

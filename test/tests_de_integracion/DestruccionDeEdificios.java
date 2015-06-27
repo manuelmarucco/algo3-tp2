@@ -2,7 +2,6 @@ package tests_de_integracion;
 
 import construcciones.EdificioEnConstruccion;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
@@ -13,7 +12,7 @@ import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Test;
 import unidades.ProxiDeAtaque;
@@ -31,10 +30,10 @@ public class DestruccionDeEdificios {
         j2.setVisibilidad(Vision.VisionCompleta(20, 20));
         ProxiDeAtaque.inicializar(j2, j1);
         Marine m = new Marine(Vision.VisionCompleta(10, 10));
-        Coordenadas coordDePilon = new Coordenadas(7, 6);
+        Coordenada coordDePilon = new Coordenada(7, 6);
         EdificioEnConstruccion edifEnConst;
 
-        proxyMapa.agregar(m, new Coordenadas(7, 5));
+        proxyMapa.agregar(m, new Coordenada(7, 5));
         j2.agregarUnidad(m);
 
         j1.construirPilon(coordDePilon);

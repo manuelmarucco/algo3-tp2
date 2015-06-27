@@ -10,7 +10,7 @@ import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.*;
 
 public class NaveCiencia extends UnidadMagica {
@@ -22,7 +22,7 @@ public class NaveCiencia extends UnidadMagica {
         super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10,8,visionJugador,0);
     }
 
-    public void EMP(Coordenadas c) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void EMP(Coordenada c) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         try {
             this.energia.gastar(100);
@@ -41,8 +41,8 @@ public class NaveCiencia extends UnidadMagica {
 
     public void Radiacion(Unidad objetivo) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
-        Coordenadas nc=ProxyMapa.getInstance().getCoordenada(this);
-        Coordenadas obj=ProxyMapa.getInstance().getCoordenada(objetivo);
+        Coordenada nc=ProxyMapa.getInstance().getCoordenada(this);
+        Coordenada obj=ProxyMapa.getInstance().getCoordenada(objetivo);
         if(this.getVision()<nc.distancia(obj)) throw new ExcepcionObjetivoFueraDeRango();
         try {
             this.energia.gastar(75);
@@ -54,9 +54,9 @@ public class NaveCiencia extends UnidadMagica {
         this.accion.actuo();
     }
 
-    public void Radiacion(Coordenadas objetivo) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void Radiacion(Coordenada objetivo) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
-        Coordenadas nc=ProxyMapa.getInstance().getCoordenada(this);
+        Coordenada nc=ProxyMapa.getInstance().getCoordenada(this);
         if(this.getVision()<nc.distancia(objetivo)) throw new ExcepcionObjetivoFueraDeRango();
         try {
             this.energia.gastar(75);
@@ -77,7 +77,7 @@ public class NaveCiencia extends UnidadMagica {
     }
 
     @Override
-    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+    public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
         mapa.moverEnCapaAerea(this, hasta);
 

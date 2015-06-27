@@ -3,7 +3,7 @@ package vista.Actions.accionesConstruir.AccionConstruirEdificiosProtoss;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construicciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import vista.Actions.WraperAccionConstruir;
 import vista.Actions.accionesConstruir.AccionConstruir;
 
@@ -25,7 +25,7 @@ public class AccionConstruirPortalEstelar implements AccionConstruir,ActionListe
     }
 
     @Override
-    public void construirEn(Coordenadas coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+    public void construirEn(Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         jugador.construirPortalEstelar(coordenada);
         accionConstruirEnEspera.setAccionConstruir(null);
     }

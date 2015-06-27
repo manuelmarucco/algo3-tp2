@@ -5,7 +5,7 @@ import interfaces.Cargable;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Danio;
 import unidades.Terrestre;
 import unidades.UnidadGuerrera;
@@ -21,7 +21,7 @@ public class Marine extends UnidadGuerrera implements Cargable {
     }
 
     @Override
-    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+    public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
         mapa.moverEnCapaTerrestre(this, hasta);
 

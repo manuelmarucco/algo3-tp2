@@ -3,12 +3,9 @@ package JugadoresYTurnosTest;
 import jugabilidad.Juego;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.ArrayList;
 
 public class AdministradorDeTurnosTest {
 

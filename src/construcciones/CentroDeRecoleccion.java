@@ -4,7 +4,7 @@ import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.Recolectable;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Recursos;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 public abstract class CentroDeRecoleccion extends Construccion {
 
@@ -12,15 +12,15 @@ public abstract class CentroDeRecoleccion extends Construccion {
     protected Recolectable estructuraRecolectable;
 
     @Override
-    public void agregarse(Mapa mapa, Coordenadas coordenadas) {
+    public void agregarse(Mapa mapa, Coordenada coordenada) {
 
-        this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaDeRecursos(coordenadas);
+        this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaDeRecursos(coordenada);
 
         // Borra el NULL OBJECT
-        mapa.borrarEnCapaTerrestre(coordenadas);
+        mapa.borrarEnCapaTerrestre(coordenada);
 
         try {
-            mapa.agregarEnCapaTerrestre(this, coordenadas);
+            mapa.agregarEnCapaTerrestre(this, coordenada);
         } catch (ExcepcionPosicionOcupada e) {
             e.printStackTrace();
         }

@@ -11,7 +11,7 @@ import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.protoss.NaveTransporteProtoss;
 import unidades.protoss.ResistenciaProtoss;
 import unidades.protoss.Scout;
@@ -39,7 +39,7 @@ public class PortalEstelar extends CentroDeEntrenamiento{
 	}
 
 	@Override
-	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados,Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir{
+	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados,Coordenada coordenada) throws ExcepcionNoSePuedeConstruir{
 		boolean construible = false;
 
 		for (T c : cs) {
@@ -77,7 +77,7 @@ public class PortalEstelar extends CentroDeEntrenamiento{
 	}
 
 	@Override
-	public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+	public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
 	}
 	

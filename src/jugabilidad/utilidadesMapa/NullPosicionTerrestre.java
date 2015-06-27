@@ -11,14 +11,14 @@ public class NullPosicionTerrestre implements ColocableEnMapa {
     }
 
     @Override
-    public void agregarse(Mapa mapa, Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa {
+    public void agregarse(Mapa mapa, Coordenada coordenada) throws ExcepcionNoSePudoAgregarAlMapa {
 
-        mapa.agregarEnCapaTerrestre(this, coordenadas);
+        mapa.agregarEnCapaTerrestre(this, coordenada);
 
     }
 
     @Override
-    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa{
+    public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa{
 
     }
 }

@@ -2,7 +2,7 @@ package vista.Actions.accionesUnidades;
 
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.UnidadGuerrera;
 import vista.Actions.WraperAccionActuar;
 
@@ -44,7 +44,7 @@ public class ActionAtacar implements MouseListener, AccionUnidad {
     }
 
     @Override
-    public void actuarEn(Coordenadas coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango {
+    public void actuarEn(Coordenada coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango {
         unidad.atacar(coordenada);
         accionActuarEnEspera.setAccionActuar(null);
     }

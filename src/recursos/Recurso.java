@@ -8,21 +8,21 @@ import excepciones.Mapa.ExcepcionPosicionOcupada;
 import interfaces.ColocableEnMapa;
 import interfaces.Recolectable;
 import jugabilidad.Mapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
 
 public abstract class Recurso implements ColocableEnMapa, Recolectable {
 
     @Override
-    public void agregarse(Mapa mapa, Coordenadas coordenadas) {
+    public void agregarse(Mapa mapa, Coordenada coordenada) {
 
         try {
-            mapa.agregarEnCapaTerrestre( new NullPosicionTerrestre(), coordenadas);
+            mapa.agregarEnCapaTerrestre( new NullPosicionTerrestre(), coordenada);
         } catch (ExcepcionPosicionOcupada e) {
             e.printStackTrace();
         }
 
-        mapa.agregarEnCapaDeRecursos(this,coordenadas);
+        mapa.agregarEnCapaDeRecursos(this, coordenada);
 
     }
 

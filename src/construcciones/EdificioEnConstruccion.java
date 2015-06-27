@@ -7,15 +7,15 @@ import interfaces.Construible;
 import interfaces.Daniable;
 import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 public class EdificioEnConstruccion implements ColocableEnMapa, Daniable {
-    private Coordenadas coordenadasDeConstruccion;
+    private Coordenada coordenadaDeConstruccion;
     private Construible construccionAConvertirse;
     private int tiempoDeConstruccion;
 
-    public EdificioEnConstruccion(Coordenadas coordenadas, Construible construccion){
-        this.coordenadasDeConstruccion = coordenadas;
+    public EdificioEnConstruccion(Coordenada coordenada, Construible construccion){
+        this.coordenadaDeConstruccion = coordenada;
         this.construccionAConvertirse = construccion;
         this.tiempoDeConstruccion = construccion.getTiempoDeConstruccion();
     }
@@ -30,18 +30,18 @@ public class EdificioEnConstruccion implements ColocableEnMapa, Daniable {
 
     public Construible finalizarConstruccion() {
         ProxyMapa mapa = ProxyMapa.getInstance();
-        mapa.borrarEnCapaTerrestre(coordenadasDeConstruccion);
+        mapa.borrarEnCapaTerrestre(coordenadaDeConstruccion);
         return construccionAConvertirse;
     }
 
-    public Coordenadas getCoordenada() {
-        return coordenadasDeConstruccion;
+    public Coordenada getCoordenada() {
+        return coordenadaDeConstruccion;
     }
 
     @Override
-    public void agregarse(Mapa mapa ,Coordenadas coordenadas) throws ExcepcionPosicionOcupada {
+    public void agregarse(Mapa mapa ,Coordenada coordenada) throws ExcepcionPosicionOcupada {
 
-        mapa.agregarEnCapaTerrestre(this, coordenadas);
+        mapa.agregarEnCapaTerrestre(this, coordenada);
 
     }
 
@@ -51,7 +51,7 @@ public class EdificioEnConstruccion implements ColocableEnMapa, Daniable {
 
         ((Daniable) construccionAConvertirse).recibirDanio(danio);
         if(this.getVida()==0){
-            mapa.borrarEnCapaTerrestre(coordenadasDeConstruccion);
+            mapa.borrarEnCapaTerrestre(coordenadaDeConstruccion);
         }
     }
 
@@ -64,7 +64,7 @@ public class EdificioEnConstruccion implements ColocableEnMapa, Daniable {
     public  void recibirEMP(){}
 
     @Override
-    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+    public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
     }
 

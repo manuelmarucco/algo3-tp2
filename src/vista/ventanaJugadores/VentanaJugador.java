@@ -2,6 +2,7 @@ package vista.ventanaJugadores;
 
 import jugabilidad.Jugador;
 import jugabilidad.RazaDeJugador.JugadorTerran;
+import jugabilidad.utilidadesMapa.Coordenada;
 import vista.Actions.WraperAccionActuar;
 import vista.Actions.WraperAccionConstruir;
 import vista.Actions.accionesConstruir.AccionConstruir;
@@ -14,19 +15,18 @@ import vista.auxiliares.jugador.PanelTerminarTurno;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
-import java.awt.event.MouseMotionListener;
 
 public abstract class VentanaJugador extends JFrame {
 
     // Atributos ---------------------
     protected VentanaJuego ventanaJuego ;
+    protected Coordenada coordenadaDeBase;
     protected JPanel contenedor;
     protected DisplayNotificaciones displayNotificaciones;
     private DisplayEstado displayEstado;
+    private DisplayMapa displayMapa;
 
-    protected JPanel panelRecursos;
+    protected JPanel panelRecursos; //TODO me parece que se podrian sacar estos atributos y ser locales
     private JScrollPane panelMapa;
     private JPanel panelLateral;
     protected JPanel panelInferior;
@@ -101,34 +101,18 @@ public abstract class VentanaJugador extends JFrame {
 
     private void crearPanelMapa(){
 
-        JPanel contenedor = new JPanel(new GridBagLayout());
-       // DisplayMapa displayMapa = new DisplayMapa(this);
-        contenedor.add(new DisplayMapa(this));
+        AutoScrollablePanel contenedor = new AutoScrollablePanel();
+        this.displayMapa = new DisplayMapa(this);
+
+        contenedor.add(displayMapa);
 
         this.panelMapa = new JScrollPane(contenedor);
-        //this.panelMapa.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-        //this.panelMapa.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 
-        MouseMotionListener doScrollRectToVisible = new MouseMotionAdapter() {
-            @Override
-            public void mouseMoved(MouseEvent e) {
-                Rectangle r = new Rectangle(e.getX()-80, e.getY()-80, 120,120);
 
-                ((JPanel) e.getSource()).scrollRectToVisible(r);
+        Point vistaInicialDeJugador = new Point( ((coordenadaDeBase.getX()-(19/2))*64),((27-coordenadaDeBase.getY()-(16/2))*64));
 
-            }
 
-            ///Para que se mueva mas rapido hay que setearle mas grande los limites del rectangulo
-            //---------------
-            //Se puede hacer con "mouseDragged" y la unica diferencia es que hay que hacer click,mantener apretado
-            //y pararte sobre el borde de la imagen y se mueve solo. Para que funcione bien bien va a ver que meterle
-            //unos bordes laterales.
-        };
-
-        contenedor.addMouseMotionListener(doScrollRectToVisible);
-        contenedor.setAutoscrolls(true);
-
-        //this.panelMapa.setPreferredSize(new Dimension(700, 650));
+        this.panelMapa.getViewport().setViewPosition(vistaInicialDeJugador);
 
     }
 
@@ -158,15 +142,18 @@ public abstract class VentanaJugador extends JFrame {
         return displayNotificaciones;
     }
 
+    @Override
     public void repaint(){
-        this.panelRecursos.revalidate();
-        this.panelRecursos.repaint();
+        this.actualizarPanelDeEstado();
+        this.actualizarMapa();
+    }
 
-        this.panelLateral.revalidate();
-        this.panelLateral.repaint();
+    private  void actualizarMapa(){
+        this.displayMapa.actualizarDisplayMapa();
+    }
 
-        this.panelMapa.revalidate();
-        this.panelMapa.repaint();
+    public void actualizarPanelDeEstado() {
+        this.displayEstado.repaint();
     }
 
     public Jugador obtenerJugador(){
@@ -177,8 +164,5 @@ public abstract class VentanaJugador extends JFrame {
         return accionActuarEnEspera.getAccionActuar();
     }
 
-    public void actualizarPanelDeEstado() {
-        this.displayEstado.repaint();
-    }
 }
 

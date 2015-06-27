@@ -6,7 +6,7 @@ import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.extrasJuego.CreadorDeMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Before;
 import org.junit.Test;
 import unidades.terrran.Marine;
@@ -28,8 +28,8 @@ public class CreadorDeMapaTest {
         CentroDeMineral centroUno = new CentroDeMineral(new Recursos(50,0));
         CentroDeMineral centroDos = new CentroDeMineral(new Recursos(50,0));
 
-        proxyMapa.agregar(centroUno, new Coordenadas(3,23));
-        proxyMapa.agregar(centroDos, new Coordenadas(23,3));
+        proxyMapa.agregar(centroUno, new Coordenada(3,23));
+        proxyMapa.agregar(centroDos, new Coordenada(23,3));
 
         // De no haber cristales saltan Excepciones.
         centroUno.update();
@@ -45,8 +45,8 @@ public class CreadorDeMapaTest {
         Refineria refineriaUno = new Refineria(new Recursos(50,0));
         Refineria refineriaDos = new Refineria(new Recursos(50,0));
 
-        proxyMapa.agregar(refineriaUno, new Coordenadas(3,23));
-        proxyMapa.agregar(refineriaDos, new Coordenadas(23,3));
+        proxyMapa.agregar(refineriaUno, new Coordenada(3,23));
+        proxyMapa.agregar(refineriaDos, new Coordenada(23,3));
 
         // De no haber cristales saltan Excepciones.
         refineriaUno.update();
@@ -91,14 +91,14 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
 
-        ArrayList<Coordenadas> bases = creador.obtenerCoordenadasDeLasBases();
+        ArrayList<Coordenada> bases = creador.obtenerCoordenadasDeLasBases();
 
-        Coordenadas baseUno = bases.get(0);
-        Coordenadas baseDos = bases.get(1);
+        Coordenada baseUno = bases.get(0);
+        Coordenada baseDos = bases.get(1);
 
         // Supuestas coordenadas de las bases.
-        Coordenadas uno = new Coordenadas(4,22);
-        Coordenadas dos = new Coordenadas(22,4);
+        Coordenada uno = new Coordenada(4,22);
+        Coordenada dos = new Coordenada(22,4);
 
         assertTrue( baseUno.equals(uno) && baseDos.equals(dos)  );
 
@@ -115,9 +115,9 @@ public class CreadorDeMapaTest {
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
 
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(12,14);
+        Coordenada coordenada = new Coordenada(12,14);
 
-        proxyMapa.agregar(marine,coordenadas);
+        proxyMapa.agregar(marine, coordenada);
 
     }
 
@@ -127,9 +127,9 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(13,14);
+        Coordenada coordenada = new Coordenada(13,14);
 
-        proxyMapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenada);
 
     }
 
@@ -139,9 +139,9 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(12,15);
+        Coordenada coordenada = new Coordenada(12,15);
 
-        proxyMapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenada);
 
     }
 
@@ -151,9 +151,9 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(13,15);
+        Coordenada coordenada = new Coordenada(13,15);
 
-        proxyMapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenada);
 
     }
 
@@ -163,9 +163,9 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(14,15);
+        Coordenada coordenada = new Coordenada(14,15);
 
-        proxyMapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenada);
 
     }
 
@@ -175,9 +175,9 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(13,16);
+        Coordenada coordenada = new Coordenada(13,16);
 
-        proxyMapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenada);
 
     }
 
@@ -187,9 +187,9 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(14,16);
+        Coordenada coordenada = new Coordenada(14,16);
 
-        proxyMapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenada);
 
     }
 
@@ -203,11 +203,11 @@ public class CreadorDeMapaTest {
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
 
         NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(12,14);
+        Coordenada coordenada = new Coordenada(12,14);
 
-        proxyMapa.agregar(naveCiencia,coordenadas);
+        proxyMapa.agregar(naveCiencia, coordenada);
 
-        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenada));
 
     }
 
@@ -217,11 +217,11 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(13,14);
+        Coordenada coordenada = new Coordenada(13,14);
 
-        proxyMapa.agregar(naveCiencia,coordenadas);
+        proxyMapa.agregar(naveCiencia, coordenada);
 
-        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenada));
 
     }
 
@@ -231,11 +231,11 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(12,15);
+        Coordenada coordenada = new Coordenada(12,15);
 
-        proxyMapa.agregar(naveCiencia,coordenadas);
+        proxyMapa.agregar(naveCiencia, coordenada);
 
-        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenada));
 
     }
 
@@ -245,11 +245,11 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(13,15);
+        Coordenada coordenada = new Coordenada(13,15);
 
-        proxyMapa.agregar(naveCiencia,coordenadas);
+        proxyMapa.agregar(naveCiencia, coordenada);
 
-        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenada));
 
     }
 
@@ -259,11 +259,11 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(14,15);
+        Coordenada coordenada = new Coordenada(14,15);
 
-        proxyMapa.agregar(naveCiencia,coordenadas);
+        proxyMapa.agregar(naveCiencia, coordenada);
 
-        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenada));
 
     }
 
@@ -273,11 +273,11 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(13,16);
+        Coordenada coordenada = new Coordenada(13,16);
 
-        proxyMapa.agregar(naveCiencia,coordenadas);
+        proxyMapa.agregar(naveCiencia, coordenada);
 
-        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenada));
 
     }
 
@@ -287,11 +287,11 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         NaveCiencia naveCiencia = new NaveCiencia();
-        Coordenadas coordenadas = new Coordenadas(14,16);
+        Coordenada coordenada = new Coordenada(14,16);
 
-        proxyMapa.agregar(naveCiencia,coordenadas);
+        proxyMapa.agregar(naveCiencia, coordenada);
 
-        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenadas));
+        assertEquals(naveCiencia, proxyMapa.obtenerDeCapaAerea(coordenada));
 
     }
 
@@ -304,9 +304,9 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(3,23);
+        Coordenada coordenada = new Coordenada(3,23);
 
-        proxyMapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenada);
 
     }
 
@@ -316,9 +316,9 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(23,3);
+        Coordenada coordenada = new Coordenada(23,3);
 
-        proxyMapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenada);
 
     }
 
@@ -328,9 +328,9 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(5,21);
+        Coordenada coordenada = new Coordenada(5,21);
 
-        proxyMapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenada);
 
     }
 
@@ -340,9 +340,9 @@ public class CreadorDeMapaTest {
         CreadorDeMapa creador = new CreadorDeMapa(2);
         ProxyMapa proxyMapa = creador.obtenerProxyMapa();
         Marine marine = new Marine();
-        Coordenadas coordenadas = new Coordenadas(21,5);
+        Coordenada coordenada = new Coordenada(21,5);
 
-        proxyMapa.agregar(marine, coordenadas);
+        proxyMapa.agregar(marine, coordenada);
 
     }
 

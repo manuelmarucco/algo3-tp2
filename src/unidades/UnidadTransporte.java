@@ -1,16 +1,16 @@
 package unidades;
 
 import excepciones.Mapa.ExcepcionCasillaVacia;
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionCargaSuperada;
 import excepciones.Unidades.ExcepcionCargarUnidadEnemiga;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -44,9 +44,9 @@ public abstract class UnidadTransporte extends Unidad {
         this.accion.actuo();
     }
 
-    public void cargar(Coordenadas coordenadas) throws ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionCargarUnidadEnemiga, ExcepcionCasillaVacia {
+    public void cargar(Coordenada coordenada) throws ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionCargarUnidadEnemiga, ExcepcionCasillaVacia {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
-        Cargable unidad = (Cargable) ProxyMapa.getInstance().obtenerDeCapaTerrestre(coordenadas);
+        Cargable unidad = (Cargable) ProxyMapa.getInstance().obtenerDeCapaTerrestre(coordenada);
         if(unidad==null) throw new ExcepcionCasillaVacia();
         if(ProxyDeHechizos.esEnemigo(this,unidad)) throw new ExcepcionCargarUnidadEnemiga();
         int cargaTotal=0;
@@ -60,10 +60,10 @@ public abstract class UnidadTransporte extends Unidad {
         this.accion.actuo();
     }
 
-    public void descargar(Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
+    public void descargar(Coordenada coordenada) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         ProxyMapa proxy = ProxyMapa.getInstance();
-        proxy.agregar((ColocableEnMapa) unidades.remove(), coordenadas);
+        proxy.agregar((ColocableEnMapa) unidades.remove(), coordenada);
         this.accion.actuo();
     }
 

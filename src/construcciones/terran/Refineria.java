@@ -10,7 +10,7 @@ import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import recursos.Recurso;
 import unidades.terrran.ResistenciaTerran;
 
@@ -28,9 +28,9 @@ public class Refineria extends CentroDeRecoleccion {
 	}
 
 	@Override
-	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados, Coordenadas coordenadas) throws ExcepcionNoSePuedeConstruir {
+	public <T extends Construible> void esConstruible(ArrayList<T> cs,Recursos recursosRecolectados, Coordenada coordenada) throws ExcepcionNoSePuedeConstruir {
 		ProxyMapa mapa = ProxyMapa.getInstance();
-		Recurso recurso = (Recurso) mapa.obtenerDeCapaDeRecursos(coordenadas);
+		Recurso recurso = (Recurso) mapa.obtenerDeCapaDeRecursos(coordenada);
 
 		if ( recurso == null ){
 			throw new ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso();
@@ -40,7 +40,7 @@ public class Refineria extends CentroDeRecoleccion {
 			throw new ExcepcionConstruccionNoRecolectaCristal();
 		}
 
-		mapa.borrarEnCapaTerrestre(coordenadas);
+		mapa.borrarEnCapaTerrestre(coordenada);
 
 		super.verificarRecursosDisponibles(recursosRecolectados);
 
@@ -53,7 +53,7 @@ public class Refineria extends CentroDeRecoleccion {
 	}
 
 	@Override
-	public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+	public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
 	}
 }

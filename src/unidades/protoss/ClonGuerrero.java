@@ -1,6 +1,6 @@
 package unidades.protoss;
 
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Ubicacion;
 
 public class ClonGuerrero extends Clon {
@@ -8,11 +8,11 @@ public class ClonGuerrero extends Clon {
         super(resistencia, vision, ubicacion, movilidad,trasnporte);
     }
 
-    public void atacarAire(Coordenadas c) {
+    public void atacarAire(Coordenada c) {
 
     }
 
-    public void atacarTierra(Coordenadas c) {
+    public void atacarTierra(Coordenada c) {
 
     }
 }

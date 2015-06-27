@@ -2,12 +2,12 @@ package interfaces;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.Mapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 public interface ColocableEnMapa{
 
-	void agregarse(Mapa mapa, Coordenadas coordenadas) throws ExcepcionNoSePudoAgregarAlMapa;
+	void agregarse(Mapa mapa, Coordenada coordenada) throws ExcepcionNoSePudoAgregarAlMapa;
 
-	void moverse(Coordenadas hasta, Mapa mapa) throws  ExcepcionNoSePudoAgregarAlMapa;
+	void moverse(Coordenada hasta, Mapa mapa) throws  ExcepcionNoSePudoAgregarAlMapa;
 	
 }

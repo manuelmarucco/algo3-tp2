@@ -1,6 +1,6 @@
 package vista.auxiliares;
 
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,13 +9,13 @@ public class ImagePanel extends JPanel {
 
     private final int x;
     private final int y;
-    private Coordenadas posicioEnPantalla;
+    private Coordenada posicioEnPantalla;
     private Image img;
     private Image bg;
 
-    public void setPosicionEnPantalla(Coordenadas coordenadas){
+    public void setPosicionEnPantalla(Coordenada coordenada){
 
-        this.posicioEnPantalla = coordenadas;
+        this.posicioEnPantalla = coordenada;
 
     }
 
@@ -27,7 +27,7 @@ public class ImagePanel extends JPanel {
         this.x = x;
         this.y = y;
         this.img = img;
-        this.posicioEnPantalla = new Coordenadas(0,0);
+        this.posicioEnPantalla = new Coordenada(0,0);
         Dimension size = new Dimension(x, y);
         setPreferredSize(size);
         setMinimumSize(size);

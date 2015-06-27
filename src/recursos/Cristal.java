@@ -1,12 +1,10 @@
 package recursos;
 
-import construcciones.protoss.Asimilador;
 import construcciones.protoss.NexoMineral;
 import construcciones.terran.CentroDeMineral;
-import construcciones.terran.Refineria;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import jugabilidad.Mapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 
 public class Cristal extends Recurso{
 
@@ -28,7 +26,7 @@ public class Cristal extends Recurso{
     }
 
     @Override
-    public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+    public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
     }
 

@@ -7,7 +7,7 @@ import interfaces.ColocableEnMapa;
 import interfaces.Hechizable;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.terrran.NaveCiencia;
 
 import java.util.ArrayList;
@@ -21,14 +21,14 @@ public class ProxyDeHechizos {
         jugador2=j2;
     }
 
-    public static void EMP(NaveCiencia naveCiencia,Coordenadas coordenada) throws ExcepcionObjetivoFueraDeRango {
+    public static void EMP(NaveCiencia naveCiencia,Coordenada coordenada) throws ExcepcionObjetivoFueraDeRango {
         ProxyMapa mapa = ProxyMapa.getInstance();
         if(naveCiencia.getVision()<coordenada.distancia(mapa.getCoordenada(naveCiencia))) throw new ExcepcionObjetivoFueraDeRango();
         /*
         for(int i =-1;i<2;i++){
             for(int j =-1;j<2;j++){
 
-                Coordenadas coordenadas =new Coordenadas(coordenada.getX()+i, coordenada.getY()+j);
+                Coordenada coordenadas =new Coordenada(coordenada.getX()+i, coordenada.getY()+j);
                 Hechizable objetivoTerrestre = (Hechizable)mapa.obtenerDeCapaTerrestre(coordenadas);
                 if(objetivoTerrestre!=null)
                     naveCiencia.EMP(objetivoTerrestre);

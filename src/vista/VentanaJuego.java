@@ -30,10 +30,6 @@ public class VentanaJuego {
         ventanaJugadorActual = ventanasDeJugadores.get(iterador);
 
         this.setearParametrosDeVentana(ventanaJugadorActual);
-
-        ventanaJugadorActual.actualizarPanelDeEstado();
-        ventanaJugadorActual.revalidate();
-        ventanaJugadorActual.repaint();
         
     }
     

@@ -7,7 +7,7 @@ import excepciones.construicciones.ExcepcionNoSePuedeEntrenarUnidad;
 import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
-import jugabilidad.utilidadesMapa.Coordenadas;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.terrran.Marine;
 import unidades.terrran.ResistenciaTerran;
 
@@ -50,7 +50,7 @@ public class Barraca extends CentroDeEntrenamiento {
 	}
 */
 	@Override
-	public void moverse(Coordenadas hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
+	public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
 	}
 }

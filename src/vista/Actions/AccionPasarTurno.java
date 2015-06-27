@@ -20,10 +20,10 @@ public class AccionPasarTurno implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         ventanaJuego.pasarTurno();
-        ObservadorDeExcepciones.getInstance().borrarDisplay(); //TODO ¿no deberia informar cambios en vez de borrar?
+        ObservadorDeExcepciones.getInstance().borrarDisplay();
         ObservadorEstado.getInstance().informarCambios();
         ObservadorRecursosSuministros.getInstance().informarCambios();
-        ObservadorMapa.getInstance().informarCambiosEnMapa();
+        ObservadorMapa.getInstance().informarCambios();
 
     }
 }
