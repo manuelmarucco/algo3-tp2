@@ -18,12 +18,11 @@ public class VistaArchivosTemplarios extends ImagePanel implements IVista{
     private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
     private final ArchivosTemplarios edificio;
     private final VentanaJugador ventanaJugador;
-  //  private static String pathImagen="images/construcciones/protoss/archivosTemplarios.png";
 
 
     public VistaArchivosTemplarios(ColocableEnMapa archivosTemplarios, VentanaJugador ventanaJugador) {
         super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("ArchivosTemplarios").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
-        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
+        super.setBackground( BUFFERIMAGENES.obtenerImagen("Pasto").getImage());
         this.edificio= (ArchivosTemplarios) archivosTemplarios;
         this.ventanaJugador=ventanaJugador;
     }

@@ -18,12 +18,11 @@ public class VistaPortalEstelar extends ImagePanel implements IVista{
     private final PortalEstelar edificio;
     private final VentanaJugador ventanaJugador;
     private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
-    //private static String pathImagen="images/construcciones/protoss/portalEstelar.png";
 
 
     public VistaPortalEstelar(ColocableEnMapa portalEstelar,VentanaJugador ventanaJugador) {
         super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("PortalEstelar").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
-        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
+        super.setBackground( BUFFERIMAGENES.obtenerImagen("Pasto").getImage());
         this.edificio= (PortalEstelar) portalEstelar;
         this.ventanaJugador=ventanaJugador;
     }
