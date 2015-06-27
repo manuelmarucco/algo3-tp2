@@ -62,7 +62,7 @@ public class ParselaAccionable implements MouseListener {
                 ventana.getAccionActuarEnEspera().actuarEn(coordenada);
                 return true;
             } catch (Throwable e) {
-                System.out.println("no funciono");
+                System.out.println("no funciono"); //TODO ver el manejo de las excepciones. no podes agarrar un Throwable.
                 ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);
                 return  false;
             }

@@ -6,17 +6,17 @@ import java.util.ArrayList;
 
 public class ObservadorMapa {
 
-    private static ObservadorMapa mapa;
+    private static ObservadorMapa singleton;
     private ArrayList<DisplayMapa> diplays = new ArrayList<>();
 
     public static ObservadorMapa getInstance(){
 
-        if(mapa == null){
+        if(singleton == null){
 
-            mapa = new ObservadorMapa();
+            singleton = new ObservadorMapa();
 
         }
-        return mapa;
+        return singleton;
     }
 
     private ObservadorMapa(){

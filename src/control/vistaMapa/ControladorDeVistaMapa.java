@@ -267,7 +267,7 @@ public class ControladorDeVistaMapa {
 
         asociadorDeVistasTerrestres = new HashMapParaMapa<Class, Class>(VistaPasto.class);
 
-        // Unidades.
+        //////////////////// Unidades.
         // Terran.
         asociadorDeVistasTerrestres.put(Marine.class, VistaMarine.class);
         asociadorDeVistasTerrestres.put(Golliat.class, VistaGolliat.class);
@@ -276,7 +276,7 @@ public class ControladorDeVistaMapa {
         asociadorDeVistasTerrestres.put(Dragon.class, VistaDragon.class);
         asociadorDeVistasTerrestres.put(AltoTemplario.class, VistaAltoTemplario.class);
 
-        // Construcciones.
+        ///////////////////// Construcciones.
         // Terran.
         asociadorDeVistasTerrestres.put(CentroDeMineral.class, VistaCentroDeMinerales.class);
         asociadorDeVistasTerrestres.put(Refineria.class, VistaRefineria.class);
@@ -291,9 +291,9 @@ public class ControladorDeVistaMapa {
         asociadorDeVistasTerrestres.put(Acceso.class, VistaAcceso.class);
         asociadorDeVistasTerrestres.put(PortalEstelar.class, VistaPortalEstelar.class);
         asociadorDeVistasTerrestres.put(ArchivosTemplarios.class, VistaArchivosTemplarios.class);
-
+        //Edificio en Construccion
         asociadorDeVistasTerrestres.put(EdificioEnConstruccion.class, VistaEdificioEnConstruccion.class);
-        // Paisaje.
+        // Paisaje.////////////////
         asociadorDeVistasTerrestres.put(NullPosicionTerrestre.class, VistaNullPosicionTerrestre.class);
 
 
