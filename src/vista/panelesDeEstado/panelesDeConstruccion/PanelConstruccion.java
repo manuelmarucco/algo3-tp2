@@ -16,6 +16,7 @@ public class PanelConstruccion extends JPanel {
     public PanelConstruccion(){
         panelPrincipal = new JPanel();
         panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
+        panelPrincipal.setOpaque(false);
     }
 
 
@@ -31,12 +32,13 @@ public class PanelConstruccion extends JPanel {
         JPanel panelNombre = new JPanel();
         JPanel panelvida = new JPanel();
         JPanel panelescudo = new JPanel();
-        JPanel panelTitulo = new JPanel();
 
         panelNombre.setLayout(new BoxLayout(panelNombre, BoxLayout.X_AXIS));
+        panelNombre.setOpaque(false);
         panelvida.setLayout(new BoxLayout(panelvida, BoxLayout.X_AXIS));
+        panelvida.setOpaque(false);
         panelescudo.setLayout(new BoxLayout(panelescudo, BoxLayout.X_AXIS));
-        panelTitulo.setLayout(new BoxLayout(panelTitulo, BoxLayout.X_AXIS));
+        panelescudo.setOpaque(false);
 
         Font font = new Font("Verdana", Font.BOLD, 12);
         Map attributes = font.getAttributes();

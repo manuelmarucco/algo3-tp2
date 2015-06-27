@@ -148,9 +148,13 @@ public abstract class VentanaJugador extends JFrame {
     }
 */
     public void mostrarPanelDeEstado(JPanel panelDeEstado){
-        this.panelLateral.add(panelDeEstado);
+    /*    this.panelLateral.add(panelDeEstado);
         this.panelLateral.revalidate();
         this.panelLateral.repaint();
+      */
+        this.displayEstado.mostrarPanel(panelDeEstado);
+   //     this.displayEstado.revalidate();
+   //     this.displayEstado.repaint();
     }
 
     public PanelAcciones getPanelAcciones() {
@@ -158,11 +162,14 @@ public abstract class VentanaJugador extends JFrame {
     }
 
     public void borrarPanelDeEstadoAnterior() {
+    /*
        if(this.panelLateral.getComponents().length == 1) return;
        this.panelLateral.remove(1); //posicion del Panel de Estado
 
         this.panelLateral.revalidate();
         this.panelLateral.repaint();
+        */
+        this.displayEstado.limpiarPanel();
 
     }
 
@@ -190,9 +197,11 @@ public abstract class VentanaJugador extends JFrame {
     }
 
     public void actualizarPanelDeEstado() {
-
+    /*
         if(this.panelLateral.getComponents().length == 1) return;
         this.panelLateral.getComponent(1).repaint(); //panel de estado
+        */
+        this.displayEstado.repaint();
     }
 }
 
