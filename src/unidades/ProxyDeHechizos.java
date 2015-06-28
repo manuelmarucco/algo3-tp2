@@ -1,6 +1,7 @@
 package unidades;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
@@ -21,7 +22,7 @@ public class ProxyDeHechizos {
         jugador2=j2;
     }
 
-    public static void EMP(NaveCiencia naveCiencia,Coordenada coordenada) throws ExcepcionObjetivoFueraDeRango {
+    public static void EMP(NaveCiencia naveCiencia,Coordenada coordenada) throws ExcepcionDeAccionDeUnidad {
         ProxyMapa mapa = ProxyMapa.getInstance();
         if(naveCiencia.getVision()<coordenada.distancia(mapa.getCoordenada(naveCiencia))) throw new ExcepcionObjetivoFueraDeRango();
         /*

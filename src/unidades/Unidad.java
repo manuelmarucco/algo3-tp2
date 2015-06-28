@@ -1,6 +1,7 @@
 package unidades;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import excepciones.Unidades.ExcepcionMoverfueraDeRango;
 import excepciones.Unidades.ExcepcionYaSeMovioLaUnidad;
 import interfaces.Actualizable;
@@ -138,7 +139,7 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
         this.matar();
     }
 
-    public void mover(Coordenada destino) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaSeMovioLaUnidad, ExcepcionMoverfueraDeRango {
+    public void mover(Coordenada destino) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
 
         if(!this.accion.puedeMover()) throw new ExcepcionYaSeMovioLaUnidad();
 

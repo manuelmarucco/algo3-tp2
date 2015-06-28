@@ -1,9 +1,6 @@
 package unidades;
 
-import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
-import excepciones.Unidades.ExcepcionNoPuedeAtacarAire;
-import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
-import excepciones.Unidades.ExcepcionYaActuo;
+import excepciones.Unidades.*;
 import interfaces.Daniable;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
@@ -23,13 +20,13 @@ public abstract class UnidadGuerrera extends Unidad {
         this.danio=danio;
     }
 
-    public void atacarTierra(Daniable objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada, ExcepcionYaActuo {
+    public void atacarTierra(Daniable objetivo) throws ExcepcionDeAccionDeUnidad {
         if(!this.accion.puedoActuar())throw new ExcepcionYaActuo();
         ProxiDeAtaque.atacarTierra(this, objetivo);
         this.accion=this.accion.actuo();
     }
 
-    public void atacarAire(Daniable objetivo) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada, ExcepcionYaActuo, ExcepcionNoPuedeAtacarAire {
+    public void atacarAire(Daniable objetivo) throws ExcepcionDeAccionDeUnidad {
         if(!this.accion.puedoActuar())throw new ExcepcionYaActuo();
         ProxiDeAtaque.atacarAire(this, objetivo);
         this.accion=this.accion.actuo();
@@ -51,7 +48,7 @@ public abstract class UnidadGuerrera extends Unidad {
         return danio.getDanioAire();
     }
 
-    public void atacar(Coordenada coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo {
+    public void atacar(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         ProxiDeAtaque.atacar(this,coordenada);
         this.accion=this.accion.actuo();

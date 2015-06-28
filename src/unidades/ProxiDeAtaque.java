@@ -1,6 +1,7 @@
 package unidades;
 
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
+import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
@@ -17,44 +18,44 @@ public class ProxiDeAtaque {
         jugador2=j2;
     }
 
-    public static void atacarTierra(UnidadGuerrera atacante, Daniable defensor) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
+    public static void atacarTierra(UnidadGuerrera atacante, Daniable defensor) throws ExcepcionDeAccionDeUnidad {
         ProxiDeAtaque.comprobarRangoTerrestre(atacante, defensor);
         ProxiDeAtaque.comprobarDuenioDeUnidad(atacante, defensor);
         ProxiDeAtaque.comprobarDuenioDeEdificio(atacante, defensor);
         defensor.recibirDanio(atacante.getDanioTerrestre());
     }
 
-    public static void atacarAire(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango, ExcepcionAtacarAUnidadAliada {
+    public static void atacarAire(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionDeAccionDeUnidad {
         ProxiDeAtaque.comprobarRangoAereo(atacante, defensor);
         ProxiDeAtaque.comprobarDuenioDeUnidad(atacante, defensor);
         defensor.recibirDanio(atacante.getDanioAereo());
     }
 
-    public static void comprobarRangoAereo(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango {
+    public static void comprobarRangoAereo(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionDeAccionDeUnidad {
         ProxyMapa mapa = ProxyMapa.getInstance();
         Coordenada c1=mapa.getCoordenada(atacante);
         Coordenada c2=mapa.getCoordenada((ColocableEnMapa)defensor);
         if(c1.distancia(c2)> atacante.getRangoAereo()) throw new ExcepcionObjetivoFueraDeRango();
 
     }
-    public static void comprobarRangoTerrestre(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionObjetivoFueraDeRango {
+    public static void comprobarRangoTerrestre(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionDeAccionDeUnidad {
         ProxyMapa mapa = ProxyMapa.getInstance();
         Coordenada c1=mapa.getCoordenada(atacante);
         Coordenada c2=mapa.getCoordenada((ColocableEnMapa)defensor);
         if(c1.distancia(c2)> atacante.getRangoTerrestre()) throw new ExcepcionObjetivoFueraDeRango();
 
     }
-    public static void comprobarDuenioDeUnidad(Object atacante,Object defensor) throws ExcepcionAtacarAUnidadAliada {
+    public static void comprobarDuenioDeUnidad(Object atacante,Object defensor) throws ExcepcionDeAccionDeUnidad {
         if(jugador1.buscarUnidad(atacante)&& jugador1.buscarUnidad(defensor)) throw new ExcepcionAtacarAUnidadAliada();
         if(jugador2.buscarUnidad(atacante)&& jugador2.buscarUnidad(defensor)) throw new ExcepcionAtacarAUnidadAliada();
     }
 
-    public static void comprobarDuenioDeEdificio(Object atacante,Object defensor) throws ExcepcionAtacarAUnidadAliada {
+    public static void comprobarDuenioDeEdificio(Object atacante,Object defensor) throws ExcepcionDeAccionDeUnidad {
         if(jugador1.buscarUnidad(atacante)&& jugador1.buscarConstruccion(defensor)) throw new ExcepcionAtacarAUnidadAliada();
         if(jugador2.buscarUnidad(atacante)&& jugador2.buscarConstruccion(defensor)) throw new ExcepcionAtacarAUnidadAliada();
     }
 
-    public static void atacar(UnidadGuerrera atacante,Coordenada coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango {
+    public static void atacar(UnidadGuerrera atacante,Coordenada coordenada) throws ExcepcionDeAccionDeUnidad {
         Daniable objetivoAereo = (Daniable) ProxyMapa.getInstance().obtenerDeCapaAerea(coordenada);
         Daniable objetivoTerreste = (Daniable) ProxyMapa.getInstance().obtenerDeCapaTerrestre(coordenada);
         if(objetivoAereo!=null){

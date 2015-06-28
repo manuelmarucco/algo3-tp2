@@ -1,7 +1,7 @@
 package excepciones.Unidades;
 
 @SuppressWarnings("serial")
-public class ExcepcionObjetivoFueraDeRango extends Throwable {
+public class ExcepcionObjetivoFueraDeRango extends ExcepcionDeAccionDeUnidad {
 
     @Override
     public String getMessage(){

@@ -1,6 +1,7 @@
 package unidades.protoss;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
@@ -28,16 +29,11 @@ public class AltoTemplario extends UnidadMagica implements Cargable {
         super(new ResistenciaProtoss(40, 40), new Energia(200, 50, 10), 7, new Terrestre(), 2, new Costo(50, 150), 7, 5, visionJugador, 2);
     }
 
-    public void tormentaPsionica(Coordenada coordenada, JugadorProtoss duenio) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void tormentaPsionica(Coordenada coordenada, JugadorProtoss duenio) throws ExcepcionDeAccionDeUnidad {
         Coordenada at= ProxyMapa.getInstance().getCoordenada(this);
-        ProxyMapa mapa = ProxyMapa.getInstance();
         if(at.distancia(coordenada)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
-        try {
             this.energia.gastar(75);
-        } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {
-            energiaInsuficiente.printStackTrace();
-        }
         duenio.agregarTormenta(new TormentaPsionica(coordenada));
         this.accion.actuo();
     }

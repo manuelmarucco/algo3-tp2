@@ -2,10 +2,7 @@ package unidades;
 
 import excepciones.Mapa.ExcepcionCasillaVacia;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Unidades.ExcepcionCargaSuperada;
-import excepciones.Unidades.ExcepcionCargarUnidadEnemiga;
-import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
-import excepciones.Unidades.ExcepcionYaActuo;
+import excepciones.Unidades.*;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
@@ -31,7 +28,7 @@ public abstract class UnidadTransporte extends Unidad {
         this.unidades= new LinkedList<>();
     }
 
-    public void cargar(Cargable unidad) throws ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionCargarUnidadEnemiga {
+    public void cargar(Cargable unidad) throws ExcepcionDeAccionDeUnidad {
         //if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         if(ProxyDeHechizos.esEnemigo(this,unidad)) throw new ExcepcionCargarUnidadEnemiga();
         int cargaTotal=0;
@@ -45,7 +42,7 @@ public abstract class UnidadTransporte extends Unidad {
         //this.accion.actuo();
     }
 
-    public void cargar(Coordenada coordenada) throws ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionCargarUnidadEnemiga, ExcepcionCasillaVacia, ExcepcionObjetivoFueraDeRango {
+    public void cargar(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad, ExcepcionCasillaVacia {
        // if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         int distancia =ProxyMapa.getInstance().getCoordenada(this).distancia(coordenada);
         if(distancia>1) throw new ExcepcionObjetivoFueraDeRango();
@@ -63,7 +60,7 @@ public abstract class UnidadTransporte extends Unidad {
        // this.accion.actuo();
     }
 
-    public void descargar(Coordenada coordenada) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void descargar(Coordenada coordenada) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
      //   if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         int distancia =ProxyMapa.getInstance().getCoordenada(this).distancia(coordenada);
         if(distancia>1) throw new ExcepcionObjetivoFueraDeRango();
