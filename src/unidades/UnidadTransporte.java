@@ -4,6 +4,7 @@ import excepciones.Mapa.ExcepcionCasillaVacia;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionCargaSuperada;
 import excepciones.Unidades.ExcepcionCargarUnidadEnemiga;
+import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
@@ -31,7 +32,7 @@ public abstract class UnidadTransporte extends Unidad {
     }
 
     public void cargar(Cargable unidad) throws ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionCargarUnidadEnemiga {
-        if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
+        //if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         if(ProxyDeHechizos.esEnemigo(this,unidad)) throw new ExcepcionCargarUnidadEnemiga();
         int cargaTotal=0;
         for(Cargable a:unidades){
@@ -41,11 +42,13 @@ public abstract class UnidadTransporte extends Unidad {
         if(cargaTotal>tranporteMax) throw new ExcepcionCargaSuperada();
         unidades.add(unidad);
         ProxyMapa.getInstance().quitar((Unidad) unidad);
-        this.accion.actuo();
+        //this.accion.actuo();
     }
 
-    public void cargar(Coordenada coordenada) throws ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionCargarUnidadEnemiga, ExcepcionCasillaVacia {
-        if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
+    public void cargar(Coordenada coordenada) throws ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionCargarUnidadEnemiga, ExcepcionCasillaVacia, ExcepcionObjetivoFueraDeRango {
+       // if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
+        int distancia =ProxyMapa.getInstance().getCoordenada(this).distancia(coordenada);
+        if(distancia>1) throw new ExcepcionObjetivoFueraDeRango();
         Cargable unidad = (Cargable) ProxyMapa.getInstance().obtenerDeCapaTerrestre(coordenada);
         if(unidad==null) throw new ExcepcionCasillaVacia();
         if(ProxyDeHechizos.esEnemigo(this,unidad)) throw new ExcepcionCargarUnidadEnemiga();
@@ -57,14 +60,16 @@ public abstract class UnidadTransporte extends Unidad {
         if(cargaTotal>tranporteMax) throw new ExcepcionCargaSuperada();
         unidades.add(unidad);
         ProxyMapa.getInstance().quitar((Unidad) unidad);
-        this.accion.actuo();
+       // this.accion.actuo();
     }
 
-    public void descargar(Coordenada coordenada) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
-        if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
+    public void descargar(Coordenada coordenada) throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+     //   if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
+        int distancia =ProxyMapa.getInstance().getCoordenada(this).distancia(coordenada);
+        if(distancia>1) throw new ExcepcionObjetivoFueraDeRango();
         ProxyMapa proxy = ProxyMapa.getInstance();
         proxy.agregar((ColocableEnMapa) unidades.remove(), coordenada);
-        this.accion.actuo();
+      //  this.accion.actuo();
     }
 
     public int getTransporteOcupado() {
