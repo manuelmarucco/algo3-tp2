@@ -2,6 +2,7 @@ package vista.Actions.accionesVentanaJugador;
 
 import vista.sonido.Sound;
 
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,10 +15,13 @@ public class AccionBotonSonido implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(soundtrack.isPlaying()){
+        JButton boton = (JButton) e.getSource();
+        if (soundtrack.isPlaying()) {
+            boton.setIcon(new ImageIcon("images/menu/botonSonido/soundOn.png"));
             soundtrack.stop();
-        }else
-            soundtrack.playLoop();
-
+        } else{
+             boton.setIcon(new ImageIcon("images/menu/botonSonido/soundOff.png"));
+             soundtrack.playLoop();
+         }
     }
 }

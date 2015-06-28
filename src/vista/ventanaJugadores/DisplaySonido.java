@@ -23,8 +23,9 @@ public class DisplaySonido extends JPanel {
     }
 
     private void initBotonSonido(Sound soundtrack) {
-        botonSonido = new JButton();
-        botonSonido.addActionListener(new AccionBotonSonido(soundtrack));
+        this.botonSonido = new JButton();
+        this.botonSonido.setIcon(new ImageIcon( "images/menu/botonSonido/soundOff.png" ));
+        this.botonSonido.addActionListener(new AccionBotonSonido(soundtrack));
     }
 
     private void initBackground() {
@@ -52,7 +53,6 @@ public class DisplaySonido extends JPanel {
         //this.panelDeSonido.setBounds( 12, 50,  background.getIcon().getIconWidth()-20, background.getIcon().getIconHeight());
         this.panelDeSonido.setBounds( 130, 0,  background.getIcon().getIconWidth(), background.getIcon().getIconHeight());
 
-        //this.panelDeSonido.add(Box.createRigidArea(new Dimension(5, 5)));
         this.panelDeSonido.add(botonSonido);
     }
 }
