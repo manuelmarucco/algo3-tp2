@@ -3,6 +3,7 @@ package vista.auxiliares.jugador;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import vista.Actions.accionesConstruir.AccionConstruirEdificiosProtoss.*;
 import vista.Actions.accionesVentanaJugador.WraperAccionConstruir;
+import vista.auxiliares.jugador.botones.BotonConInformacionDesplegable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,12 +17,12 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
 
     private JPanel panel;
 
-    private JButton botonNexoMineral;
-    private JButton botonAsimilador;
-    private JButton botonPilon;
-    private JButton botonAcceso;
-    private JButton botonPortalEstelar;
-    private JButton botonArchivosTemplarios;
+    private BotonConInformacionDesplegable botonNexoMineral;
+    private BotonConInformacionDesplegable botonAsimilador;
+    private BotonConInformacionDesplegable botonPilon;
+    private BotonConInformacionDesplegable botonAcceso;
+    private BotonConInformacionDesplegable botonPortalEstelar;
+    private BotonConInformacionDesplegable botonArchivosTemplarios;
 
     // Metodos -------------------------
 
@@ -59,35 +60,28 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
 
     private void crearBotones(){
 
-        this.botonNexoMineral = this.crearBoton("Nexo Mineral" );
-      //  this.botonNexoMineral.addActionListener(new AccionConstruirNexoMineral(this));
+        this.botonNexoMineral = this.crearBoton("Nexo Mineral", "50", "0" );
         this.botonNexoMineral.addActionListener(new AccionConstruirNexoMineral(jugador,accionConstruirEnEspera));
 
-        this.botonAsimilador = this.crearBoton("Asimilador");
-       // this.botonAsimilador .addActionListener(new AccionConstruirAsimilador(this));
+        this.botonAsimilador = this.crearBoton("Asimilador", "100", "0");
         this.botonAsimilador.addActionListener(new AccionConstruirAsimilador(jugador,accionConstruirEnEspera));
 
-        this.botonPilon = this.crearBoton("Pilon");
-       // this.botonPilon.addActionListener(new AccionConstruirPilon(this));
+        this.botonPilon = this.crearBoton("Pilon", "100", "0");
         this.botonPilon.addActionListener(new AccionConstruirPilon(jugador,accionConstruirEnEspera));
 
-        this.botonAcceso = this.crearBoton("Acceso");
-       // this.botonAcceso .addActionListener(new AccionConstruirAcceso(this));
+        this.botonAcceso = this.crearBoton("Acceso", "150", "0");
         this.botonAcceso.addActionListener(new AccionConstruirAcceso(jugador,accionConstruirEnEspera));
 
-        this.botonPortalEstelar= this.crearBoton("Portal Estelar");
-     //   this.botonPortalEstelar.addActionListener(new AccionConstruirPortalEstelar(this));
+        this.botonPortalEstelar= this.crearBoton("Portal Estelar", "150", "150");
         this.botonPortalEstelar.addActionListener(new AccionConstruirPortalEstelar(jugador,accionConstruirEnEspera));
 
-        this.botonArchivosTemplarios = this.crearBoton("Archivos Templarios" );
-      //  this.botonArchivosTemplarios.addActionListener(new AccionConstruirArchivosTemplarios(this));
+        this.botonArchivosTemplarios = this.crearBoton("Archivos Templarios", "150", "200" );
         this.botonArchivosTemplarios.addActionListener(new AccionConstruirArchivosTemplarios(jugador,accionConstruirEnEspera));
     }
 
-    private JButton crearBoton( String nombre ){
+    private BotonConInformacionDesplegable crearBoton( String nombre, String mineralNecesario, String gasNecesario ){
 
-        JButton boton = new JButton();
-        boton.setText(nombre);
+        BotonConInformacionDesplegable boton = new BotonConInformacionDesplegable(nombre, mineralNecesario, gasNecesario);
 
         return boton;
 
