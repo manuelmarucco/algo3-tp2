@@ -5,10 +5,8 @@ import vista.Actions.accionesMenu.AccionJugar;
 import vista.Actions.accionesMenu.AccionSalir;
 import vista.auxiliares.ImagePanel;
 
-import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 
 public class MenuPrincipal extends JFrame {
@@ -58,7 +56,7 @@ public class MenuPrincipal extends JFrame {
     private void createUIComponents() throws IOException, FontFormatException {
         imageBackground = new ImagePanel("images/menu/background.jpg",1280,720);
     }
-
+/*
     public void soundplay(String wavefile) throws Exception {
         File soundFile = new File(wavefile);
         AudioInputStream soundIn = AudioSystem.getAudioInputStream(soundFile);
@@ -75,6 +73,6 @@ public class MenuPrincipal extends JFrame {
         }
 
     }
-
+*/
 
 }

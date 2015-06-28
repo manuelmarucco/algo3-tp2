@@ -1,5 +1,7 @@
 package vista.panelesDeEstado.panelesDeUnidad;
 
+import vista.sonido.SonidosDelJuego;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.font.TextAttribute;
@@ -17,6 +19,7 @@ public abstract class PanelUnidad extends JPanel {
     public PanelUnidad(){
         panePrincipal = new JPanel();
         panePrincipal.setLayout(new BoxLayout(panePrincipal, BoxLayout.Y_AXIS));
+        SonidosDelJuego.getInstance().reproducirSeleccionarUnidad();
     }
 
 

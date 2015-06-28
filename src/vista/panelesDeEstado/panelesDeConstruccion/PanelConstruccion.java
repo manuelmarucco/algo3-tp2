@@ -1,5 +1,7 @@
 package vista.panelesDeEstado.panelesDeConstruccion;
 
+import vista.sonido.SonidosDelJuego;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.font.TextAttribute;
@@ -19,6 +21,8 @@ public class PanelConstruccion extends JPanel {
         panelPrincipal = new JPanel();
         panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
         panelPrincipal.setOpaque(false);
+
+        SonidosDelJuego.getInstance().reproducirSeleccionarConstruccion();
 
         this.crearLabels();
         this.crearPaneles();

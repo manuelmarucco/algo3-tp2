@@ -21,9 +21,8 @@ public class VentanaJuego {
         if(ventanasDeJugadores.size() == 0) return; // TODO tirar excepcion
         
         this.juego.update();
-        
-        ventanaJugadorActual.setVisible(false);
-        ventanaJugadorActual.desactivarMusica();
+
+        this.desactivarVentanaJugadorActual();
 
         iterador++;
 
@@ -33,7 +32,12 @@ public class VentanaJuego {
         this.setearParametrosDeVentana(ventanaJugadorActual);
         
     }
-    
+
+    private void desactivarVentanaJugadorActual() {
+        ventanaJugadorActual.setVisible(false);
+        ventanaJugadorActual.desactivarMusica();
+    }
+
     public void agregarVentana(VentanaJugador ventana) {
         ventanasDeJugadores.add(ventana);
         if (ventanasDeJugadores.size() == 1) {

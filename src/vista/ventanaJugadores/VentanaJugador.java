@@ -19,19 +19,21 @@ import java.awt.*;
 
 public abstract class VentanaJugador extends JFrame {
 
-    // Atributos ---------------------
+    // Atributos --------------------- //TODO creo q tiene muchos atributos
     protected VentanaJuego ventanaJuego ;
     protected Coordenada coordenadaDeBase;
-    protected JPanel contenedor;
+
     protected DisplayNotificaciones displayNotificaciones;
     private DisplayEstado displayEstado;
     private DisplayMapa displayMapa;
     private DisplaySonido displaySonido;
+
     private Sound soundtrack;
 
-    protected JPanel panelSuperior; //TODO me parece que se podrian sacar estos atributos y ser locales
-    private JScrollPane panelMapa;
-    private JPanel panelLateral;
+  //  private JScrollPane panelMapa;
+   // private JPanel panelLateral;
+    protected JPanel contenedor;
+    protected JPanel panelSuperior;
     protected JPanel panelInferior;
     private PanelAcciones panelAcciones;
 
@@ -81,19 +83,21 @@ public abstract class VentanaJugador extends JFrame {
         this.crearPanelLateral();
         this.crearPanelInferior();
 
-        this.agregarAlContenedor();
+        //this.agregarAlContenedor();
 
     }
     private void crearPanelLateral() {
-        this.panelLateral = new JPanel();
-        this.panelLateral.setLayout(new BoxLayout(panelLateral, BoxLayout.Y_AXIS));
+        JPanel panelLateral = new JPanel();
+        panelLateral.setLayout(new BoxLayout(panelLateral, BoxLayout.Y_AXIS));
         this.displayNotificaciones = new DisplayNotificaciones();
         this.displayEstado = new DisplayEstado();
        // this.panelLateral.setPreferredSize(displayNotificaciones.getDimension());
        // this.panelLateral.setMaximumSize(displayNotificaciones.getDimension());
 
-        this.panelLateral.add(displayNotificaciones);
-        this.panelLateral.add(displayEstado);
+        panelLateral.add(displayNotificaciones);
+        panelLateral.add(displayEstado);
+
+        this.contenedor.add(panelLateral, "West");
     }
 
     private void crearContenedor(){
@@ -110,6 +114,7 @@ public abstract class VentanaJugador extends JFrame {
 
         this.displaySonido = new DisplaySonido(soundtrack);;
         this.panelSuperior.add(displaySonido);
+        this.contenedor.add(this.panelSuperior, "North");
 
     }
 
@@ -118,6 +123,8 @@ public abstract class VentanaJugador extends JFrame {
         this.panelInferior = new JPanel( new BorderLayout() );
         this.panelInferior.add(new PanelTerminarTurno(ventanaJuego), "East");
         this.panelInferior.add(panelAcciones, "Center");
+
+        this.contenedor.add(this.panelInferior, "South");
 
     }
 
@@ -128,17 +135,20 @@ public abstract class VentanaJugador extends JFrame {
 
         contenedor.add(displayMapa);
 
-        this.panelMapa = new JScrollPane(contenedor);
+       // this.panelMapa = new JScrollPane(contenedor);
+        JScrollPane panelMapa = new JScrollPane(contenedor);
 
 
         Point vistaInicialDeJugador = new Point( ((coordenadaDeBase.getX()-(19/2))*64),((27-coordenadaDeBase.getY()-(16/2))*64));
 
 
-        this.panelMapa.getViewport().setViewPosition(vistaInicialDeJugador);
+        panelMapa.getViewport().setViewPosition(vistaInicialDeJugador);
+
+        this.contenedor.add(panelMapa, "Center");
 
     }
 
-
+/*
     private void agregarAlContenedor(){
 
         this.contenedor.add(this.panelSuperior, "North");
@@ -147,6 +157,7 @@ public abstract class VentanaJugador extends JFrame {
         this.contenedor.add(this.panelInferior, "South");
 
     }
+    */
     public void mostrarPanelDeEstado(JPanel panelDeEstado){
         this.displayEstado.mostrarPanel(panelDeEstado);
     }

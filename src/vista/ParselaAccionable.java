@@ -9,6 +9,7 @@ import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.ProxyDeHechizos;
 import vista.auxiliares.jugador.DisplayNotificaciones;
+import vista.sonido.SonidosDelJuego;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -39,6 +40,8 @@ public class ParselaAccionable implements MouseListener {
 
             if(this.verificarConstruccionesEnEspera()) {
                 System.out.println("Edificio creado en el mapa");
+                SonidosDelJuego.getInstance().reproducirEdificioEnConstruccion();
+
                 ObservadorRecursosSuministros.getInstance().informarCambios();
                 ObservadorMapa.getInstance().informarCambios();
                 ObservadorDeExcepciones.getInstance().borrarDisplay();

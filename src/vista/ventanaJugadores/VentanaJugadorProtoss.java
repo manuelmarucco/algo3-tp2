@@ -1,10 +1,7 @@
 package vista.ventanaJugadores;
 
-import jugabilidad.Juego;
 import jugabilidad.Jugador;
-import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenada;
 import vista.VentanaJuego;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
@@ -25,6 +22,7 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         this.jugador = jugador;
         this.coordenadaDeBase = coordenadaDeBase;
         super.init();
+
         this.setTitle(jugador.getNombre());
     }
 
@@ -32,6 +30,7 @@ public class VentanaJugadorProtoss extends VentanaJugador {
     protected void crearPanelSuperior(){
         super.crearPanelSuperior();
         this.panelSuperior.add( new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros() ));
+
     }
 
     @Override
@@ -55,7 +54,7 @@ public class VentanaJugadorProtoss extends VentanaJugador {
     }
 
     // Main ---------------------------
-
+/*
     public static void main(String[] args){
         // Para que se vean los recursos en testeo. despues borrar
         // Mini test
@@ -74,7 +73,7 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         } catch (ExcepcionNoSePudoAgregarAlMapa excepcionNoSePudoAgregarAlMapa) {
             excepcionNoSePudoAgregarAlMapa.printStackTrace();
         }
-        */
+        *//*
         // Mini test fin
         VentanaJuego ventanaJuego = new VentanaJuego(new Juego(2));
         JugadorProtoss jugador = new JugadorProtoss();
@@ -87,5 +86,5 @@ public class VentanaJugadorProtoss extends VentanaJugador {
         ventanaJugador.setVisible(true);
 
     }
-
+*/
 }

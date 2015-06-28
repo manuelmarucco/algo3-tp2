@@ -1,22 +1,23 @@
 package control;
 
 import vista.auxiliares.jugador.DisplayNotificaciones;
+import vista.sonido.SonidosDelJuego;
 
 import java.util.ArrayList;
 
 public class ObservadorDeExcepciones {
 
-    private static ObservadorDeExcepciones proxy;
+    private static ObservadorDeExcepciones singleton;
     private ArrayList<DisplayNotificaciones> displays = new ArrayList<>();
 
     public static ObservadorDeExcepciones getInstance(){
 
-        if(proxy == null){
+        if(singleton == null){
 
-            proxy = new ObservadorDeExcepciones();
+            singleton = new ObservadorDeExcepciones();
 
         }
-        return proxy;
+        return singleton;
     }
 
     private ObservadorDeExcepciones(){
@@ -26,6 +27,9 @@ public class ObservadorDeExcepciones {
     public void informarNuevaExcepcion(Exception e){
 
         String alerta = e.getMessage();
+
+        SonidosDelJuego.getInstance().reproducirError();
+
         this.enviarAlertasAlPanel(alerta);
 
     }
