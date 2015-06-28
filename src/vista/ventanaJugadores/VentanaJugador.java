@@ -26,6 +26,7 @@ public abstract class VentanaJugador extends JFrame {
     protected DisplayNotificaciones displayNotificaciones;
     private DisplayEstado displayEstado;
     private DisplayMapa displayMapa;
+    private DisplaySonido displaySonido;
     private Sound soundtrack;
 
     protected JPanel panelSuperior; //TODO me parece que se podrian sacar estos atributos y ser locales
@@ -64,6 +65,7 @@ public abstract class VentanaJugador extends JFrame {
 
     public void activarMusica(){
         this.soundtrack.playLoop();
+
     }
 
     public void desactivarMusica(){
@@ -106,7 +108,7 @@ public abstract class VentanaJugador extends JFrame {
         this.panelSuperior.setLayout(new BoxLayout(panelSuperior, BoxLayout.X_AXIS));
         this.panelSuperior.setPreferredSize(new Dimension(700, 35));
 
-        DisplaySonido displaySonido = new DisplaySonido(soundtrack);;
+        this.displaySonido = new DisplaySonido(soundtrack);;
         this.panelSuperior.add(displaySonido);
 
     }
@@ -184,5 +186,13 @@ public abstract class VentanaJugador extends JFrame {
         return accionActuarEnEspera.getAccionActuar();
     }
 
+    public void reactivarSonido() {
+        if(this.displaySonido.silenciamientoDeSonidoActivado()){
+            this.desactivarMusica();
+        }else{
+            this.activarMusica();
+        }
+
+    }
 }
 

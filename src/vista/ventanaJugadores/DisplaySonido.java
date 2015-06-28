@@ -55,4 +55,8 @@ public class DisplaySonido extends JPanel {
 
         this.panelDeSonido.add(botonSonido);
     }
+
+    public boolean silenciamientoDeSonidoActivado() {
+        return (((AccionBotonSonido)(botonSonido.getActionListeners()[0])).isAccionSilenciarOn());
+    }
 }
