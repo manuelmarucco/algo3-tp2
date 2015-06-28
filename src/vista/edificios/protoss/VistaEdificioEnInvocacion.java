@@ -15,7 +15,7 @@ public class VistaEdificioEnInvocacion  extends ImagePanel implements IVista {
     private static final int ALTO = 64;
     private final EdificioEnInvocacion edificio;
     private final VentanaJugador ventanaJugador;
-    private static String imagePath="images/construcciones/edificioEnConstruccion.png";
+    private static String imagePath="images/construcciones/edificioEnInvocacion.png";
 
     public VistaEdificioEnInvocacion(ColocableEnMapa edificioEnConstruccion, VentanaJugador ventanaJugador) {
         super(ANCHO,ALTO,new ImageIcon(imagePath).getImage().getScaledInstance(ANCHO, ALTO,  java.awt.Image.SCALE_SMOOTH));

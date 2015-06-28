@@ -330,7 +330,7 @@ public class unidadesTest {
     /* 5) Naves de transporte soportan su capacidad. Se debe probar que se sube unidades, desde un punto A , se pasa por espacio y se bajan del otro lado tierra B.*/
 
     @Test
-    public void naveTransporteTerranCargaUnMarineYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga {
+    public void naveTransporteTerranCargaUnMarineYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga, ExcepcionObjetivoFueraDeRango {
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
         NaveTransporteTerran nt = new NaveTransporteTerran(v);
@@ -399,7 +399,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void naveTransporteProtossCargaUnZealotYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga {
+    public void naveTransporteProtossCargaUnZealotYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga, ExcepcionObjetivoFueraDeRango {
         Zealot m = new Zealot(v);
         j2.agregarUnidad(m);
         NaveTransporteProtoss nt = new NaveTransporteProtoss(v);
