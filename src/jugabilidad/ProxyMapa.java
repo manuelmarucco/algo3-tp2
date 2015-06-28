@@ -49,7 +49,6 @@ public class ProxyMapa {
 
         validarCoordenadas(coordenada);
         colocable.agregarse(mapa, coordenada);
-        ObservadorMapa.getInstance().informarCambios(); //TODO por favor saquen esto de aca. el modelo NO puede conocer a la vista
 
     }
 
@@ -81,14 +80,12 @@ public class ProxyMapa {
     public void borrarEnCapaTerrestre(Coordenada coordenada){
 
         this.mapa.borrarEnCapaTerrestre(coordenada);
-        ObservadorMapa.getInstance().informarCambios();
 
     }
 
     public void borrarEnCapaAerea(Coordenada coordenada){
 
         this.mapa.borrarEnCapaAerea(coordenada);
-        ObservadorMapa.getInstance().informarCambios();
 
     }
 
@@ -99,7 +96,6 @@ public class ProxyMapa {
 
         this.validarCoordenadas(hasta);
         unidad.moverse(hasta, this.mapa);
-        ObservadorMapa.getInstance().informarCambios();
 
     }
 
@@ -124,7 +120,6 @@ public class ProxyMapa {
     public void quitar(Unidad unidad){
 
         this.mapa.quitar(unidad);
-        ObservadorMapa.getInstance().informarCambios();
 
     }
 
