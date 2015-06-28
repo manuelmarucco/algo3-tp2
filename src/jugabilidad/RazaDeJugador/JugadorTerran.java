@@ -1,15 +1,24 @@
 package jugabilidad.RazaDeJugador;
 
+import construcciones.Construccion;
+import construcciones.EdificioEnConstruccion;
 import construcciones.terran.*;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construcciones.ExcepcionNoSePuedeConstruirDondeNoEsVisibleElMapa;
+import interfaces.Construible;
 import jugabilidad.Jugador;
+import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenada;
 
+import java.util.ArrayList;
+
 public class JugadorTerran extends Jugador {
+
+    protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion = new ArrayList<>();
 
     public JugadorTerran(){       //Constructor para el Juego
         this.suministros = new Suministros(0,5);
@@ -30,6 +39,19 @@ public class JugadorTerran extends Jugador {
     }
 
 
+    protected void 	construir(Construible construccionCreada,Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+        ProxyMapa proxyMapa = ProxyMapa.getInstance();
+
+        if(! this.visibilidad.esVisible(coordenada))throw new ExcepcionNoSePuedeConstruirDondeNoEsVisibleElMapa();
+
+        construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados, coordenada);
+
+        EdificioEnConstruccion edificioEnConstruccion = new EdificioEnConstruccion(coordenada,construccionCreada);
+        proxyMapa.agregar(edificioEnConstruccion, coordenada);
+
+        recursosRecolectados.gastarRecursos(construccionCreada.getCosto());
+        edificiosEnConstruccion.add(edificioEnConstruccion);
+    }
 
     public Barraca construirBarraca(Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa{
         Barraca barraca = new Barraca(this);
@@ -78,4 +100,48 @@ public class JugadorTerran extends Jugador {
 
         return refineria ;
     }
+
+    @Override
+    public void update() {
+
+
+        for (int i = 0; i < edificiosEnConstruccion.size(); i++) {
+            EdificioEnConstruccion e = edificiosEnConstruccion.get(i);
+            e.disminuirTiempoDeConstruccion();
+
+            if (e.getTiempoDeConstruccionActual() == 0) {
+
+                Construible t = e.finalizarConstruccion();
+                construccionesCreadas.add(t);
+
+                Coordenada coordenada = e.getCoordenada();
+                ProxyMapa proxyMapa = ProxyMapa.getInstance();
+
+                try {
+                    proxyMapa.agregar((Construccion) t, coordenada);
+                } catch (ExcepcionNoSePudoAgregarAlMapa excepcionNoSePudoAgregarAlMapa) {
+                    excepcionNoSePudoAgregarAlMapa.printStackTrace();
+                }
+
+                //para evitar casteo hacer que Construible herede de Actualizable
+                edificiosEnConstruccion.remove(e);
+                i--;//por q al borrar baja en 1 el size
+
+            }
+            if(e.getVida()==0){
+                edificiosEnConstruccion.remove(e);
+                i--;//por q al borrar baja en 1 el size
+            }
+        }
+
+        super.update();
+
+    }
+
+    @Override
+    public boolean noTieneMasConstruccionesYUnidades() {
+        return ( construccionesCreadas.size() == 0 && unidadesCreadas.size() == 0 && edificiosEnConstruccion.size() == 0 );
+    }
+
+
 }

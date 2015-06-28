@@ -13,7 +13,6 @@ import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.TormentaPsionica;
 import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenada;
-import unidades.Unidad;
 
 import java.util.ArrayList;
 
@@ -110,6 +109,7 @@ public class JugadorProtoss extends Jugador {
 
     @Override
     public void update(){
+
         for(TormentaPsionica a:tormentasPsionica){
             a.update();
             if(a.getTurnos()==0){
@@ -145,40 +145,16 @@ public class JugadorProtoss extends Jugador {
             }
         }
 
-        for (int i = 0; i < construccionesCreadas.size(); i++) {
-            Construccion c = (Construccion) construccionesCreadas.get(i);
-            c.update();
-            if(c.getVida() == 0) {
-                construccionesCreadas.remove(c);
-                i--;//por q al borrar baja en 1 el size
-            }
-        }
-
-        for (int i = 0; i < unidadesCreadas.size(); i++) {
-            Unidad c = (Unidad) unidadesCreadas.get(i);
-            c.update();
-            if(c.getVida() == 0) {
-                unidadesCreadas.remove(c);
-                suministros.disminuirSuministrosUsados(c.getSuministro());
-                i--;//por q al borrar baja en 1 el size
-            }
-        }
+        super.update();
 
     }
 
     public void agregarTormenta(TormentaPsionica tormentaPsionica){
         this.tormentasPsionica.add(tormentaPsionica);
     }
-/*
-    protected void 	construir(Construible construccionCreada,Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
-        ProxyMapa proxyMapa = ProxyMapa.getInstance();
-        construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados, coordenada);
 
-        if(! this.visibilidad.esVisible(coordenada))throw new ExcepcionNoSePuedeConstruir();
-        EdificioEnInvocacion edificioEnInvocacion = new EdificioEnInvocacion(coordenada,construccionCreada);
-        proxyMapa.agregar(edificioEnInvocacion, coordenada);
-        edificiosEnInvocacion.add(edificioEnInvocacion);
-
+    @Override
+    public boolean noTieneMasConstruccionesYUnidades() {
+        return ( construccionesCreadas.size() == 0 && unidadesCreadas.size() == 0 && edificiosEnInvocacion.size() == 0 );
     }
-    */
 }
