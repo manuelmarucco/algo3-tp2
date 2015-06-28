@@ -17,7 +17,6 @@ import vista.IVista;
 import vista.ParselaAccionable;
 import vista.auxiliares.ImagePanel;
 import vista.auxiliares.jugador.imagenesMapa.HashMapParaMapa;
-import vista.edificios.VistaEdificioEnConstruccion;
 import vista.edificios.protoss.*;
 import vista.edificios.terran.*;
 import vista.paisaje.VistaAire;

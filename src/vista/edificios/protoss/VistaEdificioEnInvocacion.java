@@ -4,7 +4,7 @@ import construcciones.protoss.EdificioEnInvocacion;
 import interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
-import vista.panelesDeEstado.panelesDeConstruccion.PanelEdificioEnConstruccion;
+import vista.panelesDeEstado.panelesDeConstruccion.PanelEdificioEnInvocacion;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
@@ -31,7 +31,7 @@ public class VistaEdificioEnInvocacion  extends ImagePanel implements IVista {
 
     @Override
     public void actualizarPanelEstado() {
-        PanelEdificioEnConstruccion panelDeConstruccion = new PanelEdificioEnConstruccion();
+        PanelEdificioEnInvocacion panelDeConstruccion = new PanelEdificioEnInvocacion();
 
         ventanaJugador.borrarPanelDeEstadoAnterior();
         this.cargarInfoAlPanelDeEstado(panelDeConstruccion);
@@ -39,13 +39,7 @@ public class VistaEdificioEnInvocacion  extends ImagePanel implements IVista {
 
     }
 
-    private void cargarInfoAlPanelDeEstado(PanelEdificioEnConstruccion panelDeConstruccion) {
-/*
-        panelDeConstruccion.cargarNombre(edificio.getEdificioAConvertirse().getClass().getSimpleName());
-        panelDeConstruccion.cargarVida(String.valueOf(edificio.getEdificioAConvertirse().getVida()));
-        panelDeConstruccion.mostrarTiempoDeConstruccion(edificio.getTiempoDeConstruccionActual(), edificio.getEdificioAConvertirse().getTiempoDeConstruccion());
-        //TODO ver como se si tiene escudo o no.
-        */
-       // panelDeConstruccion.cargarDatosDeEdificioEnConstruccion(edificio);
+    private void cargarInfoAlPanelDeEstado(PanelEdificioEnInvocacion panelDeConstruccion) {
+        panelDeConstruccion.cargarDatosDeEdificioEnConstruccion(edificio);
     }
 }
