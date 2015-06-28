@@ -200,7 +200,7 @@ public class PanelAcciones extends JPanel {
         this.button2.setEnabled(true);
         this.button2.setVisible(true);
         this.button2.setText("Entrenar Nave de Transporte");
-        this.button3.addMouseListener(new ActionEntrenarNaveTransporteTerran(unidad));
+        this.button2.addMouseListener(new ActionEntrenarNaveTransporteTerran(unidad));
         // Boton 3 -----------------------------------------------------------------------------------------------------
         this.button3.setEnabled(true);
         this.button3.setVisible(true);

@@ -1,6 +1,7 @@
 package unidades.terrran;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
@@ -22,7 +23,7 @@ public class NaveCiencia extends UnidadMagica {
         super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10,8,visionJugador,0);
     }
 
-    public void EMP(Coordenada c) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void EMP(Coordenada c) throws ExcepcionDeAccionDeUnidad {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         try {
             this.energia.gastar(100);
@@ -39,7 +40,7 @@ public class NaveCiencia extends UnidadMagica {
         d.recibirEMP();
     }
 
-    public void Radiacion(Unidad objetivo) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void Radiacion(Unidad objetivo) throws ExcepcionDeAccionDeUnidad {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         Coordenada nc=ProxyMapa.getInstance().getCoordenada(this);
         Coordenada obj=ProxyMapa.getInstance().getCoordenada(objetivo);
@@ -54,15 +55,11 @@ public class NaveCiencia extends UnidadMagica {
         this.accion.actuo();
     }
 
-    public void Radiacion(Coordenada objetivo) throws ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void Radiacion(Coordenada objetivo) throws ExcepcionDeAccionDeUnidad {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         Coordenada nc=ProxyMapa.getInstance().getCoordenada(this);
         if(this.getVision()<nc.distancia(objetivo)) throw new ExcepcionObjetivoFueraDeRango();
-        try {
             this.energia.gastar(75);
-        } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {
-            energiaInsuficiente.printStackTrace();
-        }
         ColocableEnMapa objAereo = ProxyMapa.getInstance().obtenerDeCapaAerea(objetivo);
         ColocableEnMapa objTerrestre = ProxyMapa.getInstance().obtenerDeCapaAerea(objetivo);
         if(objAereo!=null) {

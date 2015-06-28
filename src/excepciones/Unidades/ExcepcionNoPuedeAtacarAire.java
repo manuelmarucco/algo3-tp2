@@ -1,6 +1,6 @@
 package excepciones.Unidades;
 
-public class ExcepcionNoPuedeAtacarAire extends Throwable {
+public class ExcepcionNoPuedeAtacarAire extends ExcepcionDeAccionDeUnidad {
 
     @Override
     public String getMessage(){

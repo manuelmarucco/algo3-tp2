@@ -6,7 +6,7 @@ import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenada;
 
 public class EstadoIrradiado implements EstadoUnidad {
-    @Override
+    @Override//todo cambiar esto
     public void update(ColocableEnMapa daniable) {
         ProxyMapa mapa = ProxyMapa.getInstance();
         Coordenada c=mapa.getCoordenada(daniable);
