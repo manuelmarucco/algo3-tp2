@@ -3,6 +3,7 @@ package vista.auxiliares.jugador;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import vista.Actions.accionesConstruir.AccionConstruirEdificiosTerran.*;
 import vista.Actions.accionesVentanaJugador.WraperAccionConstruir;
+import vista.auxiliares.jugador.botones.BotonConInformacionDesplegable;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,12 +17,12 @@ public class BotoneraDeConstruccionesTerran extends JPanel {
 
     private JPanel panel;
 
-    private JButton botonCentroDeMineral;
-    private JButton botonRefineria;
-    private JButton botonDepositoDeSuministros;
-    private JButton botonBarraca;
-    private JButton botonFabrica;
-    private JButton botonPuertoEstelar;
+    private BotonConInformacionDesplegable botonCentroDeMineral;
+    private BotonConInformacionDesplegable botonRefineria;
+    private BotonConInformacionDesplegable botonDepositoDeSuministros;
+    private BotonConInformacionDesplegable botonBarraca;
+    private BotonConInformacionDesplegable botonFabrica;
+    private BotonConInformacionDesplegable botonPuertoEstelar;
 
     // Main ---------------------------
     /*
@@ -55,30 +56,29 @@ public class BotoneraDeConstruccionesTerran extends JPanel {
 
     private void crearBotones(){
 
-        this.botonCentroDeMineral = this.crearBoton("Centro de mineral" );
+        this.botonCentroDeMineral = this.crearBoton("Centro de mineral", "50", "0");
         this.botonCentroDeMineral.addActionListener(new AccionConstruirCentroDeMineral(jugador,accionConstruirEnEspera));
 
-        this.botonRefineria = this.crearBoton("Refineria");
+        this.botonRefineria = this.crearBoton("Refineria", "100", "0");
         this.botonRefineria.addActionListener(new AccionConstruirRefineria(jugador,accionConstruirEnEspera));
 
-        this.botonDepositoDeSuministros = this.crearBoton("Deposito De Suministros");
+        this.botonDepositoDeSuministros = this.crearBoton("Deposito De Suministros", "100", "0");
         this.botonDepositoDeSuministros.addActionListener(new AccionConstruirDepositoDeSuministros(jugador,accionConstruirEnEspera));
 
-        this.botonBarraca = this.crearBoton("Barraca");
+        this.botonBarraca = this.crearBoton("Barraca", "150", "0");
         this.botonBarraca.addActionListener(new AccionConstruirBarraca(jugador,accionConstruirEnEspera));
 
-        this.botonFabrica = this.crearBoton("Fabrica");
+        this.botonFabrica = this.crearBoton("Fabrica", "200", "100");
         this.botonFabrica.addActionListener(new AccionConstruirFabrica(jugador,accionConstruirEnEspera));
 
-        this.botonPuertoEstelar = this.crearBoton("Puerto Estelar" );
+        this.botonPuertoEstelar = this.crearBoton("Puerto Estelar" , "150", "100");
         this.botonPuertoEstelar.addActionListener(new AccionConstruirPuertoEstelar(jugador,accionConstruirEnEspera));
 
     }
 
-    private JButton crearBoton( String nombre ){
+    private BotonConInformacionDesplegable crearBoton( String nombre, String mineralNecesario, String gasNecesario ){
 
-        JButton boton = new JButton();
-        boton.setText(nombre);
+        BotonConInformacionDesplegable boton = new BotonConInformacionDesplegable(nombre, mineralNecesario, gasNecesario);
 
         return boton;
 
