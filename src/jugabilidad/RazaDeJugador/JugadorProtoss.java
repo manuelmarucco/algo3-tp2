@@ -4,6 +4,7 @@ import construcciones.Construccion;
 import construcciones.protoss.*;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import excepciones.construcciones.ExcepcionNoSePuedeConstruirDondeNoEsVisibleElMapa;
 import interfaces.Construible;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
@@ -42,6 +43,20 @@ public class JugadorProtoss extends Jugador {
         this.tormentasPsionica= new ArrayList<>();
         this.visibilidad = new Vision();
 
+    }
+
+    protected void 	construir(Construible construccionCreada,Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
+        ProxyMapa proxyMapa = ProxyMapa.getInstance();
+
+        if(! this.visibilidad.esVisible(coordenada))throw new ExcepcionNoSePuedeConstruirDondeNoEsVisibleElMapa();
+
+        construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados, coordenada);
+
+        EdificioEnInvocacion edificioEnInvocacion = new EdificioEnInvocacion(coordenada,construccionCreada);
+        proxyMapa.agregar(edificioEnInvocacion, coordenada);
+
+        recursosRecolectados.gastarRecursos(construccionCreada.getCosto());
+        edificiosEnInvocacion.add(edificioEnInvocacion);
     }
 
     public Acceso construirAcceso(Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
@@ -154,7 +169,7 @@ public class JugadorProtoss extends Jugador {
     public void agregarTormenta(TormentaPsionica tormentaPsionica){
         this.tormentasPsionica.add(tormentaPsionica);
     }
-
+/*
     protected void 	construir(Construible construccionCreada,Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
         ProxyMapa proxyMapa = ProxyMapa.getInstance();
         construccionCreada.esConstruible(construccionesCreadas,recursosRecolectados, coordenada);
@@ -165,4 +180,5 @@ public class JugadorProtoss extends Jugador {
         edificiosEnInvocacion.add(edificioEnInvocacion);
 
     }
+    */
 }

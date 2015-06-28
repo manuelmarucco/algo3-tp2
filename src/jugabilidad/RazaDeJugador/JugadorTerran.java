@@ -29,6 +29,8 @@ public class JugadorTerran extends Jugador {
         this.visibilidad = new Vision();
     }
 
+
+
     public Barraca construirBarraca(Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa{
         Barraca barraca = new Barraca(this);
 

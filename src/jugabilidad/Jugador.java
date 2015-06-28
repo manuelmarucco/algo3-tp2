@@ -29,7 +29,6 @@ public abstract class Jugador implements Actualizable{
 	protected ArrayList<Entrenable> unidadesCreadas = new ArrayList<>();
 	protected ArrayList<EdificioEnConstruccion> edificiosEnConstruccion = new ArrayList<>();
 
-
 	protected void 	construir(Construible construccionCreada,Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa {
 		ProxyMapa proxyMapa = ProxyMapa.getInstance();
 

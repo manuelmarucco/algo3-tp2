@@ -39,4 +39,10 @@ public class SonidosDelJuego {
         Sound sonido = new Sound("sounds/construcciones/seleccionarConstruccion.wav");
         sonido.playSingleTime();
     }
+
+    public void reproducirUnidadEntrenada(){
+        Sound sonido = new Sound("sounds/unidades/unidadCreada.wav");
+        sonido.playSingleTime();
+
+    }
 }
