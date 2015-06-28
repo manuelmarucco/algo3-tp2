@@ -5,7 +5,7 @@ import excepciones.Unidades.ExcepcionMoverfueraDeRango;
 import excepciones.Unidades.ExcepcionYaSeMovioLaUnidad;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Unidad;
-import vista.Actions.WraperAccionActuar;
+import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

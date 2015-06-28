@@ -4,7 +4,7 @@ import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionYaActuo;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.UnidadTransporte;
-import vista.Actions.WraperAccionActuar;
+import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

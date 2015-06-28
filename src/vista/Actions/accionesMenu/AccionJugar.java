@@ -32,11 +32,11 @@ public class AccionJugar implements ActionListener {
         colorUsado= new String();
         JButton c = (JButton) (e.getSource());
         c.setVisible(false);
-        ventana1=this.crearJugador("Crear Jugador 1",new Coordenada(4,22));
+        ventana1=this.crearJugador("Crear Jugador 1",new Coordenada(4,22)); //TODO EL MODELO DEBERIA ASIGNARSE LA COORDENADA
         ventana2=this.crearJugador("Crear Jugador 2", new Coordenada(22, 4));
         Jugador jugador1 = ventana1.obtenerJugador();
         Jugador jugador2 = ventana2.obtenerJugador();
-        ProxyDeHechizos.inicializar(jugador1, jugador2);
+        ProxyDeHechizos.inicializar(jugador1, jugador2); //TODO PONERLO EN EL MODELO
         ProxiDeAtaque.inicializar(jugador1, jugador2);
         ventanaJuego.agregarVentana(ventana1);
         ventanaJuego.agregarVentana(ventana2);

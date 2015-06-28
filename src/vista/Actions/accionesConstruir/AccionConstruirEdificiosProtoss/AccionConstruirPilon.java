@@ -4,8 +4,8 @@ import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.utilidadesMapa.Coordenada;
-import vista.Actions.WraperAccionConstruir;
 import vista.Actions.accionesConstruir.AccionConstruir;
+import vista.Actions.accionesVentanaJugador.WraperAccionConstruir;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

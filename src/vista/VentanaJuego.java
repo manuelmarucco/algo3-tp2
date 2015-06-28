@@ -23,6 +23,7 @@ public class VentanaJuego {
         this.juego.update();
         
         ventanaJugadorActual.setVisible(false);
+        ventanaJugadorActual.desactivarMusica();
 
         iterador++;
 
@@ -37,6 +38,7 @@ public class VentanaJuego {
         ventanasDeJugadores.add(ventana);
         if (ventanasDeJugadores.size() == 1) {
             ventanaJugadorActual = ventanasDeJugadores.get(0);
+            this.ventanaJugadorActual.activarMusica();
             this.setearParametrosDeVentana(ventanaJugadorActual);
         }
     }
@@ -46,6 +48,7 @@ public class VentanaJuego {
     }
 
     public void setearParametrosDeVentana(VentanaJugador ventana) {
+        //TODO ventana.recordarAccionSonido();
         ventana.setVisible(true);
         ventana.pack();
         ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

@@ -1,4 +1,4 @@
-package vista.Actions;
+package vista.Actions.accionesVentanaJugador;
 
 import control.ObservadorDeExcepciones;
 import control.vistaMapa.ObservadorMapa;

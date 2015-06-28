@@ -66,6 +66,7 @@ public class MenuPrincipal extends JFrame {
         DataLine.Info info = new DataLine.Info(Clip.class, format);
 
         Clip clip = (Clip)AudioSystem.getLine(info);
+       // Clip clip = AudioSystem.getClip();
         clip.open(soundIn);
         clip.start();
         while(clip.isRunning())

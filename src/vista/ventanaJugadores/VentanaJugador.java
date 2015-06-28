@@ -3,15 +3,16 @@ package vista.ventanaJugadores;
 import jugabilidad.Jugador;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.utilidadesMapa.Coordenada;
-import vista.Actions.WraperAccionActuar;
-import vista.Actions.WraperAccionConstruir;
 import vista.Actions.accionesConstruir.AccionConstruir;
 import vista.Actions.accionesUnidades.AccionUnidad;
+import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
+import vista.Actions.accionesVentanaJugador.WraperAccionConstruir;
 import vista.VentanaJuego;
 import vista.auxiliares.jugador.DisplayMapa;
 import vista.auxiliares.jugador.DisplayNotificaciones;
 import vista.auxiliares.jugador.PanelAcciones;
 import vista.auxiliares.jugador.PanelTerminarTurno;
+import vista.sonido.Sound;
 
 import javax.swing.*;
 import java.awt.*;
@@ -25,6 +26,7 @@ public abstract class VentanaJugador extends JFrame {
     protected DisplayNotificaciones displayNotificaciones;
     private DisplayEstado displayEstado;
     private DisplayMapa displayMapa;
+    private Sound soundtrack;
 
     protected JPanel panelSuperior; //TODO me parece que se podrian sacar estos atributos y ser locales
     private JScrollPane panelMapa;
@@ -49,10 +51,23 @@ public abstract class VentanaJugador extends JFrame {
         ObservadorEstado.getInstance().agregarVentana(this);
         this.accionConstruirEnEspera = new WraperAccionConstruir();
         this.accionActuarEnEspera = new WraperAccionActuar();
+        this.inicializarSonido();
         this.crearPaneles();
         this.add(this.contenedor);
 
 
+    }
+
+    private void inicializarSonido(){
+        this.soundtrack = new Sound("sounds/soundtrack.wav");
+    }
+
+    public void activarMusica(){
+        this.soundtrack.playLoop();
+    }
+
+    public void desactivarMusica(){
+        this.soundtrack.stop();
     }
 
     private void crearPaneles(){
@@ -91,7 +106,7 @@ public abstract class VentanaJugador extends JFrame {
         this.panelSuperior.setLayout(new BoxLayout(panelSuperior, BoxLayout.X_AXIS));
         this.panelSuperior.setPreferredSize(new Dimension(700, 35));
 
-        DisplaySonido displaySonido = new DisplaySonido();;
+        DisplaySonido displaySonido = new DisplaySonido(soundtrack);;
         this.panelSuperior.add(displaySonido);
 
     }

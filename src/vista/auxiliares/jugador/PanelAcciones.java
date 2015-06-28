@@ -13,9 +13,9 @@ import unidades.UnidadGuerrera;
 import unidades.UnidadTransporte;
 import unidades.protoss.AltoTemplario;
 import unidades.terrran.NaveCiencia;
-import vista.Actions.WraperAccionActuar;
 import vista.Actions.accionesEntrenar.*;
 import vista.Actions.accionesUnidades.*;
+import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
 
 import javax.swing.*;
 import java.awt.event.ActionListener;

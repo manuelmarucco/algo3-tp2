@@ -1,8 +1,8 @@
 package vista.auxiliares.jugador;
 
 import jugabilidad.RazaDeJugador.JugadorTerran;
-import vista.Actions.WraperAccionConstruir;
 import vista.Actions.accionesConstruir.AccionConstruirEdificiosTerran.*;
+import vista.Actions.accionesVentanaJugador.WraperAccionConstruir;
 
 import javax.swing.*;
 import java.awt.*;

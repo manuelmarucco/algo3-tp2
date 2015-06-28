@@ -1,4 +1,4 @@
-package vista.Actions;
+package vista.Actions.accionesVentanaJugador;
 
 import vista.Actions.accionesConstruir.AccionConstruir;
 

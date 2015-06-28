@@ -4,7 +4,7 @@ import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.protoss.AltoTemplario;
-import vista.Actions.WraperAccionActuar;
+import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

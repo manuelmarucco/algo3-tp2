@@ -4,7 +4,7 @@ import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.terrran.NaveCiencia;
-import vista.Actions.WraperAccionActuar;
+import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
