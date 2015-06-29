@@ -37,12 +37,14 @@ public abstract class CentroDeRecoleccion extends Construccion {
         ProxyMapa mapa = ProxyMapa.getInstance();
 
         if(resistencia.getVidaActual() == 0){
+            Coordenada coordenadasDelEdificio = mapa.getCoordenada(this);
+
+            mapa.borrarEnCapaTerrestre(mapa.getCoordenada(this));
             try {
-                mapa.agregar((ColocableEnMapa) this.estructuraRecolectable, mapa.getCoordenada(this));
+                mapa.agregar((ColocableEnMapa) this.estructuraRecolectable, coordenadasDelEdificio);
             } catch (ExcepcionNoSePudoAgregarAlMapa e) {
                 e.printStackTrace();
             }
-            mapa.borrarEnCapaTerrestre(mapa.getCoordenada(this));
         }
 
     }
