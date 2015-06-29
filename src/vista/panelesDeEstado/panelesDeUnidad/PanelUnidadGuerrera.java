@@ -15,7 +15,7 @@ public class PanelUnidadGuerrera extends PanelUnidad{
         this.crearLabels();
         this.crearPaneles();
 
-        this.add(panePrincipal);
+        this.add(panelPrincipal);
 
     }
 
@@ -36,35 +36,52 @@ public class PanelUnidadGuerrera extends PanelUnidad{
         JPanel paneldanioAereo = new JPanel();
         JPanel panelrangoAtaqueTerrestre = new JPanel();
         JPanel panelrangoAtaqueAereo = new JPanel();
+        JLabel tituloDanioTerrestre = new JLabel("Danio Terrestre:");
+        JLabel tituloDanioAereo = new JLabel("Danio Aereo:");
+        JLabel tituloRangoAtaqueTerrestre = new JLabel("Rango De Ataque Terrestre:");
+        JLabel tituloRangoAtaqueAereo = new JLabel("Rango De Ataque Aereo:");
 
         paneldanioTerrestre.setLayout(new BoxLayout(paneldanioTerrestre, BoxLayout.X_AXIS));
+        paneldanioTerrestre.setOpaque(false);
         paneldanioAereo.setLayout(new BoxLayout(paneldanioAereo, BoxLayout.X_AXIS));
+        paneldanioAereo.setOpaque(false);
         panelrangoAtaqueTerrestre.setLayout(new BoxLayout(panelrangoAtaqueTerrestre, BoxLayout.X_AXIS));
+        panelrangoAtaqueTerrestre.setOpaque(false);
         panelrangoAtaqueAereo.setLayout(new BoxLayout(panelrangoAtaqueAereo, BoxLayout.X_AXIS));
+        panelrangoAtaqueAereo.setOpaque(false);
 
 
-        paneldanioTerrestre.add(new JLabel("Danio Terrestre:  "));
+        this.setearFuenteDeJLabel(tituloDanioTerrestre,true,Font.BOLD,12);
+        this.setearFuenteDeJLabel(tituloDanioAereo,true,Font.BOLD,12);
+        this.setearFuenteDeJLabel(tituloRangoAtaqueTerrestre,true,Font.BOLD,12);
+        this.setearFuenteDeJLabel(tituloRangoAtaqueAereo,true,Font.BOLD,12);
+
+        paneldanioTerrestre.add(tituloDanioTerrestre);
+        danioTerrestre.setForeground(new Color(200,200,20));
         paneldanioTerrestre.add(danioTerrestre);
 
 
-        paneldanioAereo.add(new JLabel("Danio Aereo:  "));
+        paneldanioAereo.add(tituloDanioAereo);
+        danioAereo.setForeground(new Color(200,200,20));
         paneldanioAereo.add(danioAereo);
 
 
-        panelrangoAtaqueTerrestre.add(new JLabel("Rango De Ataque Terrestre:  "));
+        panelrangoAtaqueTerrestre.add(tituloRangoAtaqueTerrestre);
+        rangoAtaqueTerrestre.setForeground(new Color(200,200,20));
         panelrangoAtaqueTerrestre.add(rangoAtaqueTerrestre);
 
-        panelrangoAtaqueAereo.add(new JLabel("Rango De Ataque Aereo:  "));
+        panelrangoAtaqueAereo.add(tituloRangoAtaqueAereo);
+        rangoAtaqueAereo.setForeground(new Color(200,200,20));
         panelrangoAtaqueAereo.add(rangoAtaqueAereo);
 
-        panePrincipal.add(paneldanioTerrestre);
-        panePrincipal.add(Box.createRigidArea(new Dimension(10,10)));
-        panePrincipal.add(paneldanioAereo);
-        panePrincipal.add(Box.createRigidArea(new Dimension(10,10)));
-        panePrincipal.add(panelrangoAtaqueTerrestre);
-        panePrincipal.add(Box.createRigidArea(new Dimension(10,10)));
-        panePrincipal.add(panelrangoAtaqueAereo);
-        panePrincipal.add(Box.createRigidArea(new Dimension(10,10)));
+        panelPrincipal.add(paneldanioTerrestre);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10,10)));
+        panelPrincipal.add(paneldanioAereo);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10,10)));
+        panelPrincipal.add(panelrangoAtaqueTerrestre);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10,10)));
+        panelPrincipal.add(panelrangoAtaqueAereo);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10,10)));
 
     }
 

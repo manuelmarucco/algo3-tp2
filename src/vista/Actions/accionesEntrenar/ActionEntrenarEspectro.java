@@ -3,6 +3,7 @@ package vista.Actions.accionesEntrenar;
 import construcciones.terran.PuertoEstelar;
 import control.ObservadorDeExcepciones;
 import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import vista.sonido.SonidosDelJuego;
 import vista.ventanaJugadores.ObservadorEstado;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
@@ -22,6 +23,7 @@ public class ActionEntrenarEspectro implements MouseListener {
         try {
             puertoEstelar.entrenarEspectro();
             System.out.println("Espectro en entrenamiento");
+            SonidosDelJuego.getInstance().reproducirUnidadEntrenada();
             ObservadorRecursosSuministros.getInstance().informarCambios();
             ObservadorEstado.getInstance().informarCambios();
 

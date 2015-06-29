@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class PanelUnidadMagica extends PanelUnidad {
+
     private JLabel energiaActual;
     private JLabel energiaTotal;
 
@@ -12,7 +13,7 @@ public class PanelUnidadMagica extends PanelUnidad {
         this.crearLabels();
         this.crearPaneles();
 
-        this.add(panePrincipal);
+        this.add(panelPrincipal);
 
     }
 
@@ -29,23 +30,32 @@ public class PanelUnidadMagica extends PanelUnidad {
         super.crearPaneles();
         JPanel panelenergiaActual = new JPanel();
         JPanel panelenergiaTotal = new JPanel();
+        JLabel tituloEnergiaActual  = new JLabel("Energia Actual:");
+        JLabel tituloEnergiaTotal  = new JLabel("Energia Total:");
 
         panelenergiaActual.setLayout(new BoxLayout(panelenergiaActual, BoxLayout.X_AXIS));
+        panelenergiaActual.setOpaque(false);
         panelenergiaTotal.setLayout(new BoxLayout(panelenergiaTotal, BoxLayout.X_AXIS));
+        panelenergiaTotal.setOpaque(false);
 
 
-        panelenergiaActual.add(new JLabel("Energia Actual:  "));
+        this.setearFuenteDeJLabel(tituloEnergiaActual,true,Font.BOLD,12);
+        this.setearFuenteDeJLabel(tituloEnergiaTotal,true,Font.BOLD,12);
+
+        panelenergiaActual.add(tituloEnergiaActual);
+        energiaActual.setForeground(new Color(200,200,20));
         panelenergiaActual.add(energiaActual);
 
 
-        panelenergiaTotal.add(new JLabel("Energia Total:  "));
+        panelenergiaTotal.add(tituloEnergiaTotal);
+        energiaTotal.setForeground(new Color(200,200,20));
         panelenergiaTotal.add(energiaTotal);
 
 
-        panePrincipal.add(panelenergiaActual);
-        panePrincipal.add(Box.createRigidArea(new Dimension(10,10)));
-        panePrincipal.add(panelenergiaTotal);
-        panePrincipal.add(Box.createRigidArea(new Dimension(10,10)));
+        panelPrincipal.add(panelenergiaActual);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10,10)));
+        panelPrincipal.add(panelenergiaTotal);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10,10)));
 
     }
 

@@ -52,7 +52,7 @@ public class PanelConstruccion extends JPanel {
         panelEscudo.setLayout(new BoxLayout(panelEscudo, BoxLayout.X_AXIS));
         panelEscudo.setOpaque(false);
 
-        this.setearFuenteDeJLabel(nombre,true,Font.BOLD,13);
+        this.setearFuenteDeJLabel(nombre,true,Font.BOLD,15);
         this.setearFuenteDeJLabel(tituloVida,true,Font.BOLD,12);
         this.setearFuenteDeJLabel(tituloEscudo,true,Font.BOLD,12);
 

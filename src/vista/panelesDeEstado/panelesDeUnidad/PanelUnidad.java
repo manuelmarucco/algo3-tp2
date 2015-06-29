@@ -8,17 +8,20 @@ import java.awt.font.TextAttribute;
 import java.util.Map;
 
 public abstract class PanelUnidad extends JPanel {
-    protected JPanel panePrincipal;
+    protected JPanel panelPrincipal;
 
     protected  JLabel nombre;
     protected JLabel vision;
     protected  JLabel vida;
     protected  JLabel escudo;
 
+    private  JPanel panelEscudo;
+
 
     public PanelUnidad(){
-        panePrincipal = new JPanel();
-        panePrincipal.setLayout(new BoxLayout(panePrincipal, BoxLayout.Y_AXIS));
+        panelPrincipal = new JPanel();
+        panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
+        panelPrincipal.setOpaque(false);
         SonidosDelJuego.getInstance().reproducirSeleccionarUnidad();
     }
 
@@ -37,33 +40,43 @@ public abstract class PanelUnidad extends JPanel {
         JPanel panelvision = new JPanel();
         JPanel panelvida = new JPanel();
         JPanel panelescudo = new JPanel();
-        JPanel panelTitulo = new JPanel();
+        JLabel tituloVida = new JLabel("Vida:");
+        JLabel tituloEscudo = new JLabel("Escudo:");
+        JLabel tituloVision = new JLabel("Rango De Vision:");
 
         panelNombre.setLayout(new BoxLayout(panelNombre, BoxLayout.X_AXIS));
+        panelNombre.setOpaque(false);
         panelvision.setLayout(new BoxLayout(panelvision, BoxLayout.X_AXIS));
+        panelvision.setOpaque(false);
         panelvida.setLayout(new BoxLayout(panelvida, BoxLayout.X_AXIS));
-        panelTitulo.setLayout(new BoxLayout(panelTitulo, BoxLayout.X_AXIS));
+        panelvida.setOpaque(false);
+        panelescudo.setLayout(new BoxLayout(panelescudo, BoxLayout.X_AXIS));
+        panelescudo.setOpaque(false);
 
-        Font font = new Font("Verdana", Font.BOLD, 12);
-        Map attributes = font.getAttributes();
-        attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-        nombre.setFont(font.deriveFont(attributes));
+        this.setearFuenteDeJLabel(nombre,true,Font.BOLD,14);
+        this.setearFuenteDeJLabel(tituloVida,true,Font.BOLD,12);
+        this.setearFuenteDeJLabel(tituloEscudo,true,Font.BOLD,12);
+        this.setearFuenteDeJLabel(tituloVision,true,Font.BOLD,12);
 
         panelNombre.add(nombre);
-        panelvision.add(new JLabel("Rango De Vision:  "));
+        panelvision.add(tituloVision);
         panelvision.add(vision);
-        panelvida.add(new JLabel("Vida:  "));
+        vision.setForeground(new Color(200,200,20));
+        panelvida.add(tituloVida);
         panelvida.add(vida);
-        panelescudo.add(new JLabel("Escudo:  "));
+        vida.setForeground(new Color(200,200,20));
+        panelescudo.add(tituloEscudo);
+        escudo.setForeground(new Color(200,200,20));
         panelescudo.add(escudo);
 
-        panePrincipal.add(panelNombre);
-        panePrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
-        panePrincipal.add(panelvision);
-        panePrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
-        panePrincipal.add(panelvida);
-        panePrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
-        panePrincipal.add(panelescudo);
+        panelPrincipal.add(panelNombre);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10,10)));
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10,10)));
+        panelPrincipal.add(panelvision);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
+        panelPrincipal.add(panelvida);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
+        panelPrincipal.add(panelescudo);
 
         panelescudo.setVisible(false);
 
@@ -83,7 +96,18 @@ public abstract class PanelUnidad extends JPanel {
 
     public void setEscudo(String string){
         escudo.setText(string);
-        escudo.setVisible(true);
+        panelEscudo.setVisible(true);
     }
 
+    protected void setearFuenteDeJLabel(JLabel label,boolean underline,int fontType,int fontSize){
+
+        Font font = new Font("Verdana", fontType, fontSize);
+        if(underline){
+            Map attributes = font.getAttributes();
+            attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+            label.setFont(font.deriveFont(attributes));
+        }
+        label.setForeground(new Color(200,200,20));
+
+    }
 }

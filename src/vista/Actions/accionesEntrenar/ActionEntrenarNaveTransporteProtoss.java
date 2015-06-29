@@ -3,6 +3,7 @@ package vista.Actions.accionesEntrenar;
 import construcciones.protoss.PortalEstelar;
 import control.ObservadorDeExcepciones;
 import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import vista.sonido.SonidosDelJuego;
 import vista.ventanaJugadores.ObservadorEstado;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
@@ -25,6 +26,7 @@ public class ActionEntrenarNaveTransporteProtoss implements MouseListener {
             this.portalEstelar.entrenarNaveTransporte();
 
             System.out.println("Nave Transporte en entrenamiento");
+            SonidosDelJuego.getInstance().reproducirUnidadEntrenada();
             ObservadorRecursosSuministros.getInstance().informarCambios();
             ObservadorEstado.getInstance().informarCambios();
 

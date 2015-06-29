@@ -3,6 +3,7 @@ package vista.sonido;
 
 public class SonidosDelJuego {
     private static SonidosDelJuego singleton;
+    private Sound sonidoEntrenarUnidad;
     private Sound sonidoEdificioEnConstruccion;
     private Sound sonidoExcepcion;
     private Sound sonidoSeleccionarEdificio;
@@ -32,6 +33,7 @@ public class SonidosDelJuego {
         sonidoSeleccionarUnidad = new Sound("sounds/unidades/seleccionarUnidad.wav");
         sonidoSeleccionarEdificio = new Sound("sounds/construcciones/seleccionarConstruccion.wav");
         sonidoUnidadCreada = new Sound("sounds/unidades/unidadCreada.wav");
+        sonidoEntrenarUnidad = new Sound("sounds/unidades/entrenarUnidad.wav");
         sonidoAlucinacion = new Sound("sounds/unidades/hechizos/alucinacion.wav");
         sonidoEMP = new Sound("sounds/unidades/hechizos/emp.wav");
         sonidoRadiacion = new Sound("sounds/unidades/hechizos/radiacion.wav");
@@ -71,4 +73,6 @@ public class SonidosDelJuego {
     public void reproducirEdificioConstruido() { sonidoEdificioConstruido.playSingleTime();}
 
     public void reproducirEdificioInvocado() { sonidoEdificioInvocado.playSingleTime();}
+
+    public void reproducirEntrenarUnidad() { sonidoEntrenarUnidad.playSingleTime();}
 }

@@ -3,6 +3,7 @@ package vista.Actions.accionesEntrenar;
 import construcciones.protoss.ArchivosTemplarios;
 import control.ObservadorDeExcepciones;
 import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import vista.sonido.SonidosDelJuego;
 import vista.ventanaJugadores.ObservadorEstado;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
@@ -23,6 +24,7 @@ public class ActionEntrenarAltoTemplario implements MouseListener {
             this.archivosTemplarios.entrenarAltoTemplario();
 
             System.out.println("Alto Templario en entrenamiento");
+            SonidosDelJuego.getInstance().reproducirUnidadEntrenada();
             ObservadorRecursosSuministros.getInstance().informarCambios();
             ObservadorEstado.getInstance().informarCambios();
 

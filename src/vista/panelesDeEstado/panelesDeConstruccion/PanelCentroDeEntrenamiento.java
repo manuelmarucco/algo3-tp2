@@ -61,7 +61,8 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
         progressTiempoDeEntrenamiento.setStringPainted(true);
         progressTiempoDeEntrenamiento.setVisible(true);
 
-        progressTiempoDeEntrenamiento.setString(String.valueOf(tiempoDeEntrenamientoActual) + " turnos para finalizar");
+        progressTiempoDeEntrenamiento.setString(String.valueOf(tiempoDeEntrenamientoActual) + " turnos para entrenar");
+
         this.contenedorColaYTiempo.add(Box.createRigidArea(new Dimension(10, 10)));
         this.contenedorColaYTiempo.add(progressTiempoDeEntrenamiento);
 

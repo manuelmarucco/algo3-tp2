@@ -3,6 +3,7 @@ package vista.Actions.accionesEntrenar;
 import construcciones.terran.PuertoEstelar;
 import control.ObservadorDeExcepciones;
 import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import vista.sonido.SonidosDelJuego;
 import vista.ventanaJugadores.ObservadorEstado;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
@@ -20,10 +21,11 @@ public class ActionEntrenarNaveTransporteTerran implements MouseListener {
     public void mouseClicked(MouseEvent m) {
         if(m.getButton()!=MouseEvent.BUTTON1) return;
         try {
-            puertoEstelar.entrenarNaveTransporte();
-        System.out.println("NaveTransporte en entrenamiento");
-        ObservadorRecursosSuministros.getInstance().informarCambios();
-            ObservadorEstado.getInstance().informarCambios();
+             puertoEstelar.entrenarNaveTransporte();
+             System.out.println("NaveTransporte en entrenamiento");
+             SonidosDelJuego.getInstance().reproducirUnidadEntrenada();
+             ObservadorRecursosSuministros.getInstance().informarCambios();
+             ObservadorEstado.getInstance().informarCambios();
 
         } catch (ExcepcionNoSePuedeEntrenarUnidad e) {
              ObservadorDeExcepciones.getInstance().informarNuevaExcepcion(e);

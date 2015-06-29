@@ -8,7 +8,6 @@ import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadMagica;
 import vista.ventanaJugadores.VentanaJugador;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class VistaAltoTemplario extends ImagePanel implements IVista{
@@ -42,7 +41,7 @@ public class VistaAltoTemplario extends ImagePanel implements IVista{
 
     private void cargarInfoAlPanelDeEstado(PanelUnidadMagica panelDeUnidad) {
 
-        panelDeUnidad.setNombre(altoTemplario.getClass().toString());
+        panelDeUnidad.setNombre(altoTemplario.getClass().getSimpleName());
         panelDeUnidad.setVida(String.valueOf(altoTemplario.getVida()));
         panelDeUnidad.setEnergiaTotal(String.valueOf(altoTemplario.getEnergia().getEnergiaTotal()));
         panelDeUnidad.setEnergiaActual(String.valueOf(altoTemplario.getEnergiaActual()));
