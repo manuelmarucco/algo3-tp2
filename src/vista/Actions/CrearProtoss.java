@@ -42,6 +42,7 @@ public class CrearProtoss implements ActionListener {
         nombreUsado.concat(form.getNombreJugador());
         colorUsado.concat(form.getColorJugador());
         form.setVentana(new VentanaJugadorProtoss( jugador, ventanaJuego, coordenadaDeBase));
+        //form.setVentana(new VentanaJugadorProtoss( jugador, ventanaJuego, jugador.getCoordenadaDeBase()));
         form.dispose();
     }
 }

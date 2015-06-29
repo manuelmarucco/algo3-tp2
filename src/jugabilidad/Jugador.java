@@ -16,6 +16,7 @@ public abstract class Jugador implements Actualizable{
 
 	protected String nombre;
 	protected String color;
+	//protected Coordenada coordenadaDeBase;
 
 	protected Vision visibilidad;
 	protected Recursos recursosRecolectados;
@@ -112,6 +113,10 @@ public abstract class Jugador implements Actualizable{
 	public void setVisibilidad(Vision vision){
 		this.visibilidad = vision;
 	}
-
+	/*
+	public Coordenada getCoordenadaDeBase(){
+		return coordenadaDeBase;
+	}
+*/
 	public abstract boolean noTieneMasConstruccionesYUnidades();
 }

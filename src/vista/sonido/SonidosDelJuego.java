@@ -3,6 +3,11 @@ package vista.sonido;
 
 public class SonidosDelJuego {
     private static SonidosDelJuego singleton;
+    private Sound sonidoEdificioEnConstruccion;
+    private Sound sonidoExcepcion;
+    private Sound sonidoSeleccionarEdificio;
+    private Sound sonidoSeleccionarUnidad;
+    private Sound sonidoUnidadCreada;
 
     public static SonidosDelJuego getInstance(){
 
@@ -15,34 +20,33 @@ public class SonidosDelJuego {
     }
 
     private SonidosDelJuego(){
-
+        sonidoEdificioEnConstruccion = new Sound("sounds/construcciones/edificioEnConstruccion.wav");
+        sonidoExcepcion = new Sound("sounds/excepciones/excepcionLanzadaGeneral.wav");
+        sonidoSeleccionarUnidad = new Sound("sounds/unidades/seleccionarUnidad.wav");
+        sonidoSeleccionarEdificio = new Sound("sounds/construcciones/seleccionarConstruccion.wav");
+        sonidoUnidadCreada = new Sound("sounds/unidades/unidadCreada.wav");
     }
 
 
     public void reproducirEdificioEnConstruccion() {
-        Sound sonido = new Sound("sounds/construcciones/edificioEnConstruccion.wav");
-        sonido.playSingleTime();
+        sonidoEdificioEnConstruccion.playSingleTime();
     }
 
     public void reproducirError() {
 
-        Sound sonido = new Sound("sounds/excepciones/excepcionLanzadaGeneral.wav");
-        sonido.playSingleTime();
+        sonidoExcepcion.playSingleTime();
     }
 
     public void reproducirSeleccionarUnidad() {
-        Sound sonido = new Sound("sounds/unidades/seleccionarUnidad.wav");
-        sonido.playSingleTime();
+        sonidoSeleccionarUnidad.playSingleTime();
     }
 
     public void reproducirSeleccionarConstruccion() {
-        Sound sonido = new Sound("sounds/construcciones/seleccionarConstruccion.wav");
-        sonido.playSingleTime();
+        sonidoSeleccionarEdificio.playSingleTime();
     }
 
     public void reproducirUnidadEntrenada(){
-        Sound sonido = new Sound("sounds/unidades/unidadCreada.wav");
-        sonido.playSingleTime();
+        sonidoUnidadCreada.playSingleTime();
 
     }
 }
