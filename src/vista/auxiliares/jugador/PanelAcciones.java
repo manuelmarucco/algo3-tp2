@@ -12,6 +12,9 @@ import recursos.Recurso;
 import unidades.UnidadGuerrera;
 import unidades.UnidadTransporte;
 import unidades.protoss.AltoTemplario;
+import unidades.protoss.ClonGuerrero;
+import unidades.protoss.ClonMagico;
+import unidades.protoss.ClonTransporte;
 import unidades.terrran.NaveCiencia;
 import vista.Actions.accionesEntrenar.*;
 import vista.Actions.accionesUnidades.*;
@@ -218,5 +221,33 @@ public class PanelAcciones extends JPanel {
 
     public void configurarBotones(Recurso recurso) {
         this.limpiar();
+    }
+
+    public void configurarBotones(ClonGuerrero unidad) {
+        this.limpiar();
+        button1.setText("Mover");
+        button1.setEnabled(true);
+        button1.setVisible(true);
+        button1.addMouseListener(new ActionMover(unidad, accionActuarEnEspera));
+        button2.setText("Atacar");
+        button2.setEnabled(true);
+        button2.setVisible(true);
+        button2.addMouseListener(new ActionAtacarClon(unidad, accionActuarEnEspera));
+    }
+
+    public void configurarBotones(ClonMagico unidad) {
+        this.limpiar();
+        button1.setText("Mover");
+        button1.setEnabled(true);
+        button1.setVisible(true);
+        button1.addMouseListener(new ActionMover(unidad, accionActuarEnEspera));
+    }
+
+    public void configurarBotones(ClonTransporte unidad) {
+        this.limpiar();
+        button1.setText("Mover");
+        button1.setEnabled(true);
+        button1.setVisible(true);
+        button1.addMouseListener(new ActionMover(unidad, accionActuarEnEspera));
     }
 }

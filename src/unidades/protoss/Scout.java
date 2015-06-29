@@ -21,7 +21,7 @@ public class Scout extends UnidadGuerrera {
     }
 
     public ColocableEnMapa getClon() {
-        return new ClonGuerrero((ResistenciaProtoss)this.resistencia,this.vision,this.ubicacion,this.movilidad,this.transporte);
+        return new ClonGuerrero((ResistenciaProtoss)this.resistencia,this.vision,this.ubicacion,this.movilidad,this.transporte,this);
     }
 
     public int getEscudo() {

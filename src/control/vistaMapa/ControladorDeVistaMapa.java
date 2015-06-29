@@ -271,6 +271,9 @@ public class ControladorDeVistaMapa {
         asociadorDeVistasTerrestres.put(Marine.class, VistaMarine.class);
         asociadorDeVistasTerrestres.put(Golliat.class, VistaGolliat.class);
         // Protoss.
+        asociadorDeVistasTerrestres.put(ClonGuerrero.class, VistaClonGuerrero.class);
+        asociadorDeVistasTerrestres.put(ClonMagico.class, VistaClonMagico.class);
+        asociadorDeVistasTerrestres.put(ClonTransporte.class, VistaClonTransporte.class);
         asociadorDeVistasTerrestres.put(Zealot.class, VistaZealot.class);
         asociadorDeVistasTerrestres.put(Dragon.class, VistaDragon.class);
         asociadorDeVistasTerrestres.put(AltoTemplario.class, VistaAltoTemplario.class);
@@ -312,6 +315,9 @@ public class ControladorDeVistaMapa {
         // Protoss.
         asociadorDeVistasAereas.put(Scout.class, VistaScout.class);
         asociadorDeVistasAereas.put(NaveTransporteProtoss.class, VistaNaveTransporteProtoss.class);
+        asociadorDeVistasAereas.put(ClonGuerrero.class, VistaClonGuerrero.class);
+        asociadorDeVistasAereas.put(ClonMagico.class, VistaClonMagico.class);
+        asociadorDeVistasAereas.put(ClonTransporte.class, VistaClonTransporte.class);
 
     }
 

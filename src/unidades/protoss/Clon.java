@@ -8,8 +8,11 @@ import unidades.Unidad;
 
 public class Clon extends Unidad implements ColocableEnMapa {
 
-    public Clon(ResistenciaProtoss resistencia, int vision, Ubicacion ubicacion,int movilidad,int transporte) {
+    private final Unidad unidad;
+
+    public Clon(ResistenciaProtoss resistencia, int vision, Ubicacion ubicacion,int movilidad,int transporte,Unidad unidad) {
         super(resistencia,vision,ubicacion,0,new Costo(0,0),0,movilidad,null,transporte);
+        this.unidad=unidad;
     }
 
     @Override
@@ -27,4 +30,11 @@ public class Clon extends Unidad implements ColocableEnMapa {
         this.matar();
     }
 
+    public int getEscudo(){
+        return ((ResistenciaProtoss)this.resistencia).getEscudoActual();
+    }
+
+    public Unidad getUnidad() {
+        return unidad;
+    }
 }
