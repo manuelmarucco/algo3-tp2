@@ -32,7 +32,7 @@ public class CrearJugador extends JDialog {
     private void init(VentanaJuego ventanaJuego, String nombreUsado,String colorUsuado) {
         aceptarButton.setIcon(new ImageIcon("src/vista/resourses/botonAceptar.png"));
         aceptarButton.setMargin(new Insets(0, 0, 0, 0));
-        aceptarButton.setBorder(null);
+        aceptarButton.setBackground(new Color(0, 0, 150, 80));
         aceptarButton.setVerticalTextPosition(SwingConstants.BOTTOM);
         aceptarButton.setHorizontalTextPosition(SwingConstants.CENTER);
         aceptarButton.addActionListener(new CrearTerran(ventanaJuego, this, nombreUsado,colorUsuado));

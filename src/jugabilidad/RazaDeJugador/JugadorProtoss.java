@@ -22,7 +22,7 @@ public class JugadorProtoss extends Jugador {
     private ArrayList<EdificioEnInvocacion> edificiosEnInvocacion =new ArrayList<>();
 
     public JugadorProtoss(){       //Constructor para el Juego
-        this.suministros = new Suministros(0,0);
+        this.suministros = new Suministros(0,5);
        // this.recursosRecolectados = new Recursos(200,0);
         this.recursosRecolectados = new Recursos(500,500); //TODO es para facilitar el comienzo del juego. ponerlo como supuesto
         this.tormentasPsionica= new ArrayList<>();
