@@ -34,7 +34,7 @@ public class ParselaAccionable implements MouseListener {
     public void mouseClicked(MouseEvent m) {
 
         System.out.println("Parsela clickeada " + coordenada.getX() + " " + coordenada.getY()); //Para test. ya se que funciona
-
+        ObservadorMapa.getInstance().informarCambios();
 
         if (m.getButton() == MouseEvent.BUTTON3) {
 
