@@ -83,12 +83,6 @@ public class ProxyMapa {
 
     }
 
-    public void borrarEnCapaAerea(Coordenada coordenada){
-
-        this.mapa.borrarEnCapaAerea(coordenada);
-
-    }
-
     // Mover ---
 
     public void mover(Coordenada hasta, ColocableEnMapa unidad)
