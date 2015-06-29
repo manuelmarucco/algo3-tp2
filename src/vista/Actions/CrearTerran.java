@@ -1,7 +1,6 @@
 package vista.Actions;
 
 import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.utilidadesMapa.Coordenada;
 import vista.CrearJugador;
 import vista.VentanaJuego;
 import vista.ventanaJugadores.VentanaJugadorTerran;
@@ -36,11 +35,11 @@ public class CrearTerran implements ActionListener {
                     "InputError", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        Coordenada coordenadaDeBase = ventanaJuego.getJuego().getCoordenadaDeBaseDeJugadorAAgregarse();
+       // Coordenada coordenadaDeBase = ventanaJuego.getJuego().getCoordenadaDeBaseDeJugadorAAgregarse();
         JugadorTerran jugador = ventanaJuego.getJuego().crearJugadorTerran(form.getNombreJugador(), form.getColorJugador());
         nombreUsado.concat(form.getNombreJugador());
         colorUsado.concat(form.getColorJugador());
-        form.setVentana(new VentanaJugadorTerran( jugador, ventanaJuego,coordenadaDeBase));
+        form.setVentana(new VentanaJugadorTerran( jugador, ventanaJuego,jugador.getCoordenadaDeBase()));
         form.dispose();
     }
 }

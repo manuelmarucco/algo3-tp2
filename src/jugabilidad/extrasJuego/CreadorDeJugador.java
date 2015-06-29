@@ -28,6 +28,7 @@ public class CreadorDeJugador {
 
         jugador.setNombre(nombre);
         jugador.setColor(color);
+        jugador.setCoordenadaDeBase(coordenadaIniciales);
 
         this.colocarVisibilidadEn(jugador, coordenadaIniciales);
 
@@ -44,6 +45,7 @@ public class CreadorDeJugador {
 
         jugador.setNombre(nombre);
         jugador.setColor(color);
+        jugador.setCoordenadaDeBase(coordenadaIniciales);
 
         this.colocarVisibilidadEn(jugador, coordenadaIniciales);
 

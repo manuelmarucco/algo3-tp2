@@ -8,6 +8,7 @@ import interfaces.Entrenable;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.auxiliares.Vision;
+import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Unidad;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public abstract class Jugador implements Actualizable{
 
 	protected String nombre;
 	protected String color;
-	//protected Coordenada coordenadaDeBase;
+	private Coordenada coordenadaDeBase;
 
 	protected Vision visibilidad;
 	protected Recursos recursosRecolectados;
@@ -113,10 +114,14 @@ public abstract class Jugador implements Actualizable{
 	public void setVisibilidad(Vision vision){
 		this.visibilidad = vision;
 	}
-	/*
-	public Coordenada getCoordenadaDeBase(){
+
+	public abstract boolean noTieneMasConstruccionesYUnidades();
+
+	public Coordenada getCoordenadaDeBase() {
 		return coordenadaDeBase;
 	}
-*/
-	public abstract boolean noTieneMasConstruccionesYUnidades();
+
+	public void setCoordenadaDeBase(Coordenada coordenadaInicial) {
+		this.coordenadaDeBase = coordenadaInicial;
+	}
 }
