@@ -5,9 +5,9 @@ import interfaces.ColocableEnMapa;
 import unidades.terrran.NaveTransporteTerran;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
+import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadTransporte;
 import vista.ventanaJugadores.VentanaJugador;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class VistaNaveTransporteTerran extends ImagePanel implements IVista{
@@ -33,6 +33,20 @@ public class VistaNaveTransporteTerran extends ImagePanel implements IVista{
 
     @Override
     public void actualizarPanelEstado() {
+        PanelUnidadTransporte panelDeUnidad = new PanelUnidadTransporte();
 
+        ventanaJugador.borrarPanelDeEstadoAnterior();
+        this.cargarInfoAlPanelDeEstado(panelDeUnidad);
+        ventanaJugador.mostrarPanelDeEstado(panelDeUnidad);
+
+    }
+
+    private void cargarInfoAlPanelDeEstado(PanelUnidadTransporte panelDeUnidad) {
+
+        panelDeUnidad.setNombre(unidad.getClass().getSimpleName());
+        panelDeUnidad.setVida(String.valueOf(unidad.getVida()));
+        panelDeUnidad.setVision(String.valueOf(unidad.getVision()));
+        panelDeUnidad.cargarCapacidad(String.valueOf(unidad.getCapacidadMaxima()));
+        panelDeUnidad.cargarDatosDeUnidadesCargadas(unidad.getUnidadesCargadas());
     }
 }

@@ -10,6 +10,7 @@ import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.ProxyDeHechizos;
 import vista.auxiliares.jugador.DisplayNotificaciones;
 import vista.sonido.SonidosDelJuego;
+import vista.ventanaJugadores.ObservadorEstado;
 import vista.ventanaJugadores.ObservadorRecursosSuministros;
 import vista.ventanaJugadores.VentanaJugador;
 
@@ -50,6 +51,7 @@ public class ParselaAccionable implements MouseListener {
             if(this.verificarAccionEnEspera()){
                 System.out.println("Accion de la unidad realizada");
                 ObservadorRecursosSuministros.getInstance().informarCambios();
+                ObservadorEstado.getInstance().informarCambios();
                 ObservadorMapa.getInstance().informarCambios();
                 ObservadorDeExcepciones.getInstance().borrarDisplay();
             }

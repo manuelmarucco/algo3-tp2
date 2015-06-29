@@ -5,6 +5,7 @@ import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.UnidadTransporte;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
+import vista.ventanaJugadores.ObservadorEstado;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -21,6 +22,7 @@ public class ActionDescargar implements MouseListener, AccionUnidad {
     @Override
     public void mouseClicked(MouseEvent e) {
         wraperAccionActuar.setAccionActuar(this);
+        ObservadorEstado.getInstance().informarCambios();
     }
 
     @Override

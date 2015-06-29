@@ -5,9 +5,9 @@ import interfaces.ColocableEnMapa;
 import unidades.terrran.NaveCiencia;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
+import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadMagica;
 import vista.ventanaJugadores.VentanaJugador;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class VistaNaveCiencia extends ImagePanel implements IVista{
@@ -31,6 +31,20 @@ public class VistaNaveCiencia extends ImagePanel implements IVista{
 
     @Override
     public void actualizarPanelEstado() {
+        PanelUnidadMagica panelDeUnidad = new PanelUnidadMagica();
 
+        ventanaJugador.borrarPanelDeEstadoAnterior();
+        this.cargarInfoAlPanelDeEstado(panelDeUnidad);
+        ventanaJugador.mostrarPanelDeEstado(panelDeUnidad);
+
+    }
+
+    private void cargarInfoAlPanelDeEstado(PanelUnidadMagica panelDeUnidad) {
+
+        panelDeUnidad.setNombre(unidad.getClass().getSimpleName());
+        panelDeUnidad.setVida(String.valueOf(unidad.getVida()));
+        panelDeUnidad.setEnergiaTotal(String.valueOf(unidad.getEnergia().getEnergiaTotal()));
+        panelDeUnidad.setEnergiaActual(String.valueOf(unidad.getEnergiaActual()));
+        panelDeUnidad.setVision(String.valueOf(unidad.getVision()));
     }
 }

@@ -2,7 +2,10 @@ package unidades;
 
 import excepciones.Mapa.ExcepcionCasillaVacia;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Unidades.*;
+import excepciones.Unidades.ExcepcionCargaSuperada;
+import excepciones.Unidades.ExcepcionCargarUnidadEnemiga;
+import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
+import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import interfaces.Cargable;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
@@ -86,5 +89,13 @@ public abstract class UnidadTransporte extends Unidad {
                 ((Unidad)u).recibirDanio(500);
             }
         }
+    }
+
+    public Queue<Cargable> getUnidadesCargadas(){
+        return unidades;
+    }
+
+    public int getCapacidadMaxima(){
+        return tranporteMax;
     }
 }

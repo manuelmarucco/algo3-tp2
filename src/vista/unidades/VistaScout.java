@@ -5,9 +5,9 @@ import interfaces.ColocableEnMapa;
 import unidades.protoss.Scout;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
+import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadGuerrera;
 import vista.ventanaJugadores.VentanaJugador;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class VistaScout extends ImagePanel implements IVista{
@@ -33,6 +33,23 @@ public class VistaScout extends ImagePanel implements IVista{
 
     @Override
     public void actualizarPanelEstado() {
+        PanelUnidadGuerrera panelDeUnidad = new PanelUnidadGuerrera();
 
+        ventanaJugador.borrarPanelDeEstadoAnterior();
+        this.cargarInfoAlPanelDeEstado(panelDeUnidad);
+        ventanaJugador.mostrarPanelDeEstado(panelDeUnidad);
+
+    }
+
+    private void cargarInfoAlPanelDeEstado(PanelUnidadGuerrera panelDeUnidad) {
+
+        panelDeUnidad.setNombre(unidad.getClass().getSimpleName());
+        panelDeUnidad.setVida(String.valueOf(unidad.getVida()));
+        panelDeUnidad.setVision(String.valueOf(unidad.getVision()));
+        panelDeUnidad.setEscudo(String.valueOf(unidad.getEscudo()));
+        panelDeUnidad.setDanioTerrestre(String.valueOf(unidad.getDanioTerrestre()));
+        panelDeUnidad.setDanioAereo(String.valueOf(unidad.getDanioAereo()));
+        panelDeUnidad.setRangoAtaqueTerrestre(String.valueOf(unidad.getRangoTerrestre()));
+        panelDeUnidad.setRangoAtaqueAereo(String.valueOf(unidad.getRangoAereo()));
     }
 }

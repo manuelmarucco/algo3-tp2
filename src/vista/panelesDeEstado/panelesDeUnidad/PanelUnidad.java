@@ -84,9 +84,8 @@ public abstract class PanelUnidad extends JPanel {
 
     }
 
-    public void setNombre(String string){
-        nombre.setText(string);
-    }
+    public void setNombre(String string){nombre.setText(string);}
+
     public void setVision(String string){
         vision.setText(string);
     }
