@@ -28,7 +28,7 @@ public class simulacionGanador {
 
 
     @Test
-    public void Jugador1MataTodoDeJugador2YGana() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionNoSePuedeEntrenarUnidad {
+    public void Jugador1MataTodoDeJugador2YGana() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeEntrenarUnidad {
         Juego juego = new Juego(2);
         JugadorProtoss j1;
         JugadorTerran j2;
@@ -83,7 +83,7 @@ public class simulacionGanador {
     }
 
     @Test
-    public void JugadorNoPierdePorTenerEdificiosEnConstruccion() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionNoSePuedeEntrenarUnidad {
+    public void JugadorNoPierdePorTenerEdificiosEnConstruccion() throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeEntrenarUnidad {
         Juego juego = new Juego(2);
         JugadorProtoss j1;
         JugadorTerran j2;

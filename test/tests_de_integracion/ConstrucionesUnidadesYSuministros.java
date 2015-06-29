@@ -6,6 +6,7 @@ import construcciones.terran.DepositoDeSuministros;
 import excepciones.ExcepcionNoSePuedeEntrenarUnidadPorSuministrosInsuficientes;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
+import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import excepciones.Unidades.ExcepcionYaActuo;
 import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
@@ -113,7 +114,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir, ExcepcionYaActuo {
+    public void SeDestruyeUnDepositoDeSuminisitrosYDisminuyenLosSuministrosDelJugador() throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
         ProxyMapa proxyMapa = ProxyMapa.getInstance();
         proxyMapa.setCoordenadasMaximas(20,20);
 
@@ -149,7 +150,7 @@ public class ConstrucionesUnidadesYSuministros {
     }
 
     @Test
-    public void SeDestruyeUnPilonYDisminuyenLosSuministrosDelJugador() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir, ExcepcionYaActuo {
+    public void SeDestruyeUnPilonYDisminuyenLosSuministrosDelJugador() throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePudoAgregarAlMapa, ExcepcionNoSePuedeConstruir {
         ProxyMapa proxyMapa = ProxyMapa.getInstance();
         proxyMapa.setCoordenadasMaximas(20,20);
 

@@ -6,5 +6,5 @@ import excepciones.Unidades.*;
 import jugabilidad.utilidadesMapa.Coordenada;
 
 public interface AccionUnidad {
-    void actuarEn(Coordenada coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionMoverfueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaSeMovioLaUnidad, ExcepcionYaActuo, ExcepcionCargarUnidadEnemiga, ExcepcionCargaSuperada, ExcepcionCasillaVacia;
+    void actuarEn(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePudoAgregarAlMapa, ExcepcionCasillaVacia;
 }
