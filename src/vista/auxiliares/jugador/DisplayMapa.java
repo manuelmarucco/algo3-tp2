@@ -12,7 +12,7 @@ public class DisplayMapa extends JPanel {
     // Si se saca el main va a tener que heredar de JPanel
 
     private int cantidadTilesVerticales, cantidadTilesHorizontales;
-    private JLayeredPane panel;
+    private JLayeredPane layeredPane;
     private ControladorDeVistaMapa controlador;
     private VentanaJugador ventana;
     /*
@@ -46,12 +46,11 @@ public class DisplayMapa extends JPanel {
 
     public void actualizarDisplayMapa() {
 
-        this.panel.removeAll();
+        this.layeredPane.removeAll();
         this.armarPaneles();
-        //this.add(this.panel);
 
-        this.panel.paintComponents(this.panel.getGraphics());
-
+        // this.layeredPane.paintComponents(this.layeredPane.getGraphics());
+        this.layeredPane.update(this.layeredPane.getGraphics());
     }
 
     private void init() {
@@ -59,13 +58,14 @@ public class DisplayMapa extends JPanel {
         this.cantidadTilesHorizontales = 25;
         this.cantidadTilesVerticales = 25;
 
-        this.panel = new JLayeredPane();
-        this.panel.setPreferredSize(new Dimension(1600, 1600)); //cada parsela mide 64x64 pixels entonces 64*25=1600
-        this.panel.setVisible(true);
+        this.layeredPane = new JLayeredPane();
+        this.layeredPane.setPreferredSize(new Dimension(1600, 1600)); //cada parsela mide 64x64 pixels entonces 64*25=1600
+       // this.layeredPane.setBounds(0,0,1600,1600);
+        this.layeredPane.setVisible(true);
 
         this.armarPaneles();
 
-        this.add(this.panel);
+        this.add(this.layeredPane);
     }
 
     private void armarPaneles() {
@@ -88,11 +88,9 @@ public class DisplayMapa extends JPanel {
     }
 
     private void agregarPaneles(ArrayList<JPanel> paneles) {
-
         for (JPanel panel : paneles) {
 
-            this.panel.add(panel);
-
+            this.layeredPane.add(panel);
         }
 
 

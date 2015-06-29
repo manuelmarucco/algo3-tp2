@@ -63,4 +63,8 @@ public class VentanaJuego {
         ventana.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         ventana.setExtendedState(JFrame.MAXIMIZED_BOTH);
     }
+
+    public VentanaJugador getVentanaJugadorActual(){
+        return ventanaJugadorActual;
+    }
 }

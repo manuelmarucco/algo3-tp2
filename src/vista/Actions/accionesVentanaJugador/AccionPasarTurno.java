@@ -20,6 +20,7 @@ public class AccionPasarTurno implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         ventanaJuego.pasarTurno();
+        ventanaJuego.getVentanaJugadorActual().revalidate(); //actualiza la ventana del jugador
         ObservadorDeExcepciones.getInstance().borrarDisplay();
         ObservadorEstado.getInstance().informarCambios();
         ObservadorRecursosSuministros.getInstance().informarCambios();

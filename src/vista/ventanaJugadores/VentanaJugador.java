@@ -135,18 +135,16 @@ public abstract class VentanaJugador extends JFrame {
 
         contenedor.add(displayMapa);
 
-       // this.panelMapa = new JScrollPane(contenedor);
         JScrollPane panelMapa = new JScrollPane(contenedor);
 
 
         Point vistaInicialDeJugador = new Point( ((coordenadaDeBase.getX()-(19/2))*64),((27-coordenadaDeBase.getY()-(16/2))*64));
-
-
         panelMapa.getViewport().setViewPosition(vistaInicialDeJugador);
 
         this.contenedor.add(panelMapa, "Center");
 
     }
+
 
 /*
     private void agregarAlContenedor(){
