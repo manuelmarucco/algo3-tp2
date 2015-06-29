@@ -4,6 +4,7 @@ import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.protoss.ClonGuerrero;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
+import vista.sonido.SonidosDelJuego;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -46,5 +47,6 @@ public class ActionAtacarClon implements MouseListener, AccionUnidad {
     public void actuarEn(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad {
         unidad.atacar(coordenada);
         accionActuarEnEspera.setAccionActuar(null);
+        SonidosDelJuego.getInstance().reproducirAtaqueUnidad();
     }
 }

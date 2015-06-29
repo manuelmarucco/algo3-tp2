@@ -23,14 +23,19 @@ public class VentanaJuego {
         this.juego.update();
 
         this.desactivarVentanaJugadorActual();
-
-        iterador++;
-
-        if(iterador == ventanasDeJugadores.size()) iterador=0;
-        ventanaJugadorActual = ventanasDeJugadores.get(iterador);
-
-        this.setearParametrosDeVentana(ventanaJugadorActual);
+        this.activarVentanaJugadorSiguiente();
         
+    }
+
+    private void activarVentanaJugadorSiguiente() {
+        this.actualizarIterador();
+        ventanaJugadorActual = ventanasDeJugadores.get(iterador);
+        this.setearParametrosDeVentana(ventanaJugadorActual);
+    }
+
+    private void actualizarIterador(){
+        iterador++;
+        if(iterador == ventanasDeJugadores.size()) iterador=0;
     }
 
     private void desactivarVentanaJugadorActual() {
