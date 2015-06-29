@@ -1,5 +1,8 @@
 package vista.panelesDeEstado.panelesDeUnidad;
 
+import unidades.UnidadMagica;
+import unidades.protoss.ResistenciaProtoss;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -7,6 +10,7 @@ public class PanelUnidadMagica extends PanelUnidad {
 
     private JLabel energiaActual;
     private JLabel energiaTotal;
+    private UnidadMagica unidadMagica;
 
 
     public PanelUnidadMagica() {
@@ -63,7 +67,24 @@ public class PanelUnidadMagica extends PanelUnidad {
         energiaActual.setText(string);
     }
 
+
     public void setEnergiaTotal(String string) {
         energiaTotal.setText(string);
+    }
+
+    public void cargarDatosActualizablesDeUnidadMagica(UnidadMagica unidadMagica){
+        this.unidadMagica = unidadMagica;
+        this.setVida(String.valueOf(unidadMagica.getVida()));
+        this.setEnergiaActual(String.valueOf(unidadMagica.getEnergiaActual()));
+        if(escudo != null){
+            this.setEscudo(String.valueOf(((ResistenciaProtoss) unidadMagica.getResistencia()).getEscudoActual()));
+        }
+    }
+
+    @Override
+    public void repaint(){
+        if(this.unidadMagica!= null) {
+            this.cargarDatosActualizablesDeUnidadMagica(this.unidadMagica);
+        }
     }
 }
