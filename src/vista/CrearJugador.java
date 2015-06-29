@@ -1,6 +1,5 @@
 package vista;
 
-import jugabilidad.utilidadesMapa.Coordenada;
 import vista.Actions.CrearTerran;
 import vista.Actions.SeleccionarRaza;
 import vista.auxiliares.IconoColor;
@@ -13,7 +12,6 @@ import java.io.File;
 import java.io.IOException;
 
 public class CrearJugador extends JDialog {
-    private Coordenada coordenadaDeBase;
     private JPanel panel1;
     private JComboBox raza;
     private JTextField textField1;
@@ -25,8 +23,7 @@ public class CrearJugador extends JDialog {
     private ImagePanel retrato;
     private VentanaJugador ventana;
 
-    public CrearJugador(VentanaJuego ventanaJuego, String titulo, String nombreUsado, String colorUsado, Coordenada coordenadaDeBase){
-        this.coordenadaDeBase = coordenadaDeBase;
+    public CrearJugador(VentanaJuego ventanaJuego, String titulo, String nombreUsado, String colorUsado){
         this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setTitle(titulo);
         this.init(ventanaJuego, nombreUsado, colorUsado);
@@ -38,11 +35,11 @@ public class CrearJugador extends JDialog {
         aceptarButton.setBorder(null);
         aceptarButton.setVerticalTextPosition(SwingConstants.BOTTOM);
         aceptarButton.setHorizontalTextPosition(SwingConstants.CENTER);
-        aceptarButton.addActionListener(new CrearTerran(ventanaJuego, this, nombreUsado,colorUsuado, this.coordenadaDeBase));
+        aceptarButton.addActionListener(new CrearTerran(ventanaJuego, this, nombreUsado,colorUsuado));
         this.add(panel1);
         raza.addItem("Terran");
         raza.addItem("Protoss");
-        raza.addActionListener(new SeleccionarRaza(this,retrato,ventanaJuego,colorUsuado,nombreUsado, this.coordenadaDeBase));
+        raza.addActionListener(new SeleccionarRaza(this,retrato,ventanaJuego,colorUsuado,nombreUsado));
         Icon icon;
         if(colorUsuado.compareTo("rojo")!=0) {
             icon = new IconoColor(java.awt.Color.red, "rojo");

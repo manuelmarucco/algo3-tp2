@@ -1,7 +1,6 @@
 package vista.Actions;
 
 import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.utilidadesMapa.Coordenada;
 import vista.CrearJugador;
 import vista.VentanaJuego;
 import vista.ventanaJugadores.VentanaJugadorProtoss;
@@ -11,17 +10,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CrearProtoss implements ActionListener {
-    private final Coordenada coordenadaDeBase;
     private VentanaJuego ventanaJuego;
     private String nombreUsado;
     private String colorUsado;
     private CrearJugador form;
 
-    public CrearProtoss(VentanaJuego ventanaJuego, CrearJugador form, String nombreUsado, String colorUsado, Coordenada coordenadaDeBase) {
+    public CrearProtoss(VentanaJuego ventanaJuego, CrearJugador form, String nombreUsado, String colorUsado) {
         this.ventanaJuego=ventanaJuego;
         this.form=form;
         this.nombreUsado=nombreUsado;
-        this.coordenadaDeBase = coordenadaDeBase;
         this.colorUsado=colorUsado;
     }
 
@@ -38,10 +35,12 @@ public class CrearProtoss implements ActionListener {
                     "InputError", JOptionPane.ERROR_MESSAGE);
             return;
         }
+       // Coordenada coordenadaDeBase = ventanaJuego.getJuego().getCoordenadaDeBaseDeJugadorAAgregarse();
         JugadorProtoss jugador = ventanaJuego.getJuego().crearJugadorProtoss(form.getNombreJugador(), form.getColorJugador());
         nombreUsado.concat(form.getNombreJugador());
         colorUsado.concat(form.getColorJugador());
-        form.setVentana(new VentanaJugadorProtoss( jugador, ventanaJuego, coordenadaDeBase));
+       // form.setVentana(new VentanaJugadorProtoss( jugador, ventanaJuego, coordenadaDeBase));
+        form.setVentana(new VentanaJugadorProtoss( jugador, ventanaJuego, jugador.getCoordenadaDeBase()));
         form.dispose();
     }
 }

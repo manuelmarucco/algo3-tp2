@@ -31,7 +31,11 @@ public class Juego implements Actualizable{
     public Jugador getJugadorActual(){
        return administradorDeTurnos.getJugadorDelTurnoActual();
     }
-
+/*
+    public Coordenada getCoordenadaDeBaseDeJugadorAAgregarse(){
+        return this.bases.get(0);
+    }
+*/
     public JugadorProtoss crearJugadorProtoss(String nombre, String color){
 
         CreadorDeJugador creadorDeJugador = new CreadorDeJugador();

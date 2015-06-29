@@ -1,7 +1,6 @@
 package vista.Actions.accionesMenu;
 
 import jugabilidad.Jugador;
-import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.ProxiDeAtaque;
 import unidades.ProxyDeHechizos;
 import vista.CrearJugador;
@@ -32,8 +31,8 @@ public class AccionJugar implements ActionListener {
         colorUsado= new String();
         JButton c = (JButton) (e.getSource());
         c.setVisible(false);
-        ventana1=this.crearJugador("Crear Jugador 1",new Coordenada(4,22)); //TODO EL MODELO DEBERIA ASIGNARSE LA COORDENADA
-        ventana2=this.crearJugador("Crear Jugador 2", new Coordenada(22, 4));
+        ventana1=this.crearJugador("Crear Jugador 1");
+        ventana2=this.crearJugador("Crear Jugador 2");
         Jugador jugador1 = ventana1.obtenerJugador();
         Jugador jugador2 = ventana2.obtenerJugador();
         ProxyDeHechizos.inicializar(jugador1, jugador2); //TODO PONERLO EN EL MODELO
@@ -44,8 +43,8 @@ public class AccionJugar implements ActionListener {
 
     }
 
-    private VentanaJugador crearJugador(String tituloJugador,Coordenada coordenadaDeBase){
-        CrearJugador crearJugador = new CrearJugador(ventanaJuego,tituloJugador,nombreUsado,colorUsado, coordenadaDeBase);
+    private VentanaJugador crearJugador(String tituloJugador){
+        CrearJugador crearJugador = new CrearJugador(ventanaJuego,tituloJugador,nombreUsado,colorUsado);
         crearJugador.mostrar();
         nombreUsado=crearJugador.getNombreJugador();
         colorUsado=crearJugador.getColorJugador();
