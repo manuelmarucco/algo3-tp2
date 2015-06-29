@@ -11,17 +11,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CrearTerran implements ActionListener {
-    private final Coordenada coordenadaDeBase;
     private  VentanaJuego ventanaJuego;
     private String nombreUsado;
     private String colorUsado;
     private CrearJugador form;
 
-    public CrearTerran(VentanaJuego ventanaJuego,CrearJugador form,String nombreUsado,String colorUsado,Coordenada coordenadaDeBase) {
+    public CrearTerran(VentanaJuego ventanaJuego,CrearJugador form,String nombreUsado,String colorUsado) {
         this.ventanaJuego=ventanaJuego;
         this.form=form;
         this.nombreUsado=nombreUsado;
-        this.coordenadaDeBase = coordenadaDeBase;
         this.colorUsado=colorUsado;
     }
 
@@ -38,6 +36,7 @@ public class CrearTerran implements ActionListener {
                     "InputError", JOptionPane.ERROR_MESSAGE);
             return;
         }
+        Coordenada coordenadaDeBase = ventanaJuego.getJuego().getCoordenadaDeBaseDeJugadorAAgregarse();
         JugadorTerran jugador = ventanaJuego.getJuego().crearJugadorTerran(form.getNombreJugador(), form.getColorJugador());
         nombreUsado.concat(form.getNombreJugador());
         colorUsado.concat(form.getColorJugador());
