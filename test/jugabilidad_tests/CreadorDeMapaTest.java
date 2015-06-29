@@ -23,17 +23,45 @@ public class CreadorDeMapaTest {
 
         // Coloco un CentroDeMineral sobre los cristales, para verificar que ahi hay cristales.
 
-
         ProxyMapa proxyMapa = ProxyMapa.getInstance();
+
+        // Esquina superior izquierda ----------------------------------------------------------------------------------
         CentroDeMineral centroUno = new CentroDeMineral(new Recursos(50,0));
         CentroDeMineral centroDos = new CentroDeMineral(new Recursos(50,0));
+        CentroDeMineral centroTres = new CentroDeMineral(new Recursos(50,0));
+        CentroDeMineral centroCuatro = new CentroDeMineral(new Recursos(50,0));
+        CentroDeMineral centroCinco = new CentroDeMineral(new Recursos(50,0));
 
-        proxyMapa.agregar(centroUno, new Coordenada(3,23));
-        proxyMapa.agregar(centroDos, new Coordenada(23,3));
+        proxyMapa.agregar(centroUno, new Coordenada(2,22));
+        proxyMapa.agregar(centroDos, new Coordenada(2,23));
+        proxyMapa.agregar(centroTres, new Coordenada(2,24));
+        proxyMapa.agregar(centroCuatro, new Coordenada(3,23));
+        proxyMapa.agregar(centroCinco, new Coordenada(3,24));
 
-        // De no haber cristales saltan Excepciones.
+        // Esquina inferior derecha ------------------------------------------------------------------------------------
+        CentroDeMineral centroSeis = new CentroDeMineral(new Recursos(50,0));
+        CentroDeMineral centroSiete = new CentroDeMineral(new Recursos(50,0));
+        CentroDeMineral centroOcho = new CentroDeMineral(new Recursos(50,0));
+        CentroDeMineral centroNueve = new CentroDeMineral(new Recursos(50,0));
+        CentroDeMineral centroDiez = new CentroDeMineral(new Recursos(50,0));
+
+        proxyMapa.agregar(centroSeis, new Coordenada(23,2));
+        proxyMapa.agregar(centroSiete, new Coordenada(23,3));
+        proxyMapa.agregar(centroOcho, new Coordenada(24,2));
+        proxyMapa.agregar(centroNueve, new Coordenada(24,3));
+        proxyMapa.agregar(centroDiez, new Coordenada(24,4));
+
+        // De no haber cristales, en las posiciones, saltan Excepciones.
         centroUno.update();
         centroDos.update();
+        centroTres.update();
+        centroCuatro.update();
+        centroCinco.update();
+        centroSeis.update();
+        centroSiete.update();
+        centroOcho.update();
+        centroNueve.update();
+        centroDiez.update();
 
         return true;
 
@@ -42,15 +70,32 @@ public class CreadorDeMapaTest {
     private Boolean comprobarVolcanes() throws ExcepcionNoSePudoAgregarAlMapa {
 
         ProxyMapa proxyMapa = ProxyMapa.getInstance();
+
+        // Esquina superior izquierda ----------------------------------------------------------------------------------
         Refineria refineriaUno = new Refineria(new Recursos(50,0));
         Refineria refineriaDos = new Refineria(new Recursos(50,0));
+        Refineria refineriaTres = new Refineria(new Recursos(50,0));
 
-        proxyMapa.agregar(refineriaUno, new Coordenada(3,23));
-        proxyMapa.agregar(refineriaDos, new Coordenada(23,3));
+        proxyMapa.agregar(refineriaUno, new Coordenada(5,21));
+        proxyMapa.agregar(refineriaDos, new Coordenada(5,20));
+        proxyMapa.agregar(refineriaTres, new Coordenada(6,20));
 
-        // De no haber cristales saltan Excepciones.
+        // Esquina inferior derecha  -----------------------------------------------------------------------------------
+        Refineria refineriaCuatro = new Refineria(new Recursos(50,0));
+        Refineria refineriaCinco = new Refineria(new Recursos(50,0));
+        Refineria refineriaSeis = new Refineria(new Recursos(50,0));
+
+        proxyMapa.agregar(refineriaCuatro, new Coordenada(21,5));
+        proxyMapa.agregar(refineriaCinco, new Coordenada(21,6));
+        proxyMapa.agregar(refineriaSeis, new Coordenada(20,6));
+
+        // De no haber volcanes, en las posiciones, saltan Excepciones.
         refineriaUno.update();
         refineriaDos.update();
+        refineriaTres.update();
+        refineriaCuatro.update();
+        refineriaCinco.update();
+        refineriaSeis.update();
 
         return true;
     }

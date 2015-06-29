@@ -151,8 +151,6 @@ public class RecoleccionDeRecursosTest {
         Coordenada coordenada = new Coordenada(5,21);
         jugador.construirAsimilador(coordenada);
 
-        assertEquals(0, jugador.getRecursos().getGasVespeno());
-
         // Construyo la Refineria.
         this.lanzarUpdates(6,jugador);
         // Cuando se termina de construir comienza a sumar.
@@ -160,7 +158,7 @@ public class RecoleccionDeRecursosTest {
         // Corro 3 updates se tienen que sumar 30 Gas.
         this.lanzarUpdates(3,jugador);
 
-        assertEquals(40, jugador.getRecursos().getGasVespeno());
+        assertEquals(540, jugador.getRecursos().getGasVespeno());
 
     }
 
