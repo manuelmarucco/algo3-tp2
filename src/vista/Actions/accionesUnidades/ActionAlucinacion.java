@@ -6,6 +6,7 @@ import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.protoss.AltoTemplario;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
+import vista.sonido.SonidosDelJuego;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -48,5 +49,6 @@ public class ActionAlucinacion implements MouseListener, AccionUnidad {
     public void actuarEn(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad, ExcepcionCasillaVacia, ExcepcionNoSePuedeClonarEdificio {
         unidad.alucinacion(coordenada);
         wraperAccionActuar.setAccionActuar(null);
+        SonidosDelJuego.getInstance().reproducirAlucionacion();
     }
 }

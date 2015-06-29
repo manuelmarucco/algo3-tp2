@@ -4,6 +4,7 @@ import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.terrran.NaveCiencia;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
+import vista.sonido.SonidosDelJuego;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -45,5 +46,6 @@ public class ActionRadiacion implements MouseListener, AccionUnidad {
     public void actuarEn(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad {
         unidad.Radiacion(coordenada);
         wraperAccionActuar.setAccionActuar(null);
+        SonidosDelJuego.getInstance().reproducirRadiacion();
     }
 }

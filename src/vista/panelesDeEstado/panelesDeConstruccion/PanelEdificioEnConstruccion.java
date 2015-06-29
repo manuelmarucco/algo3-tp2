@@ -1,6 +1,7 @@
 package vista.panelesDeEstado.panelesDeConstruccion;
 
 import construcciones.EdificioEnConstruccion;
+import vista.sonido.SonidosDelJuego;
 
 import javax.swing.*;
 import java.awt.*;
@@ -44,7 +45,13 @@ public class PanelEdificioEnConstruccion extends PanelConstruccion {
         progressTiempoDeConstruccion.setStringPainted(true);
         progressTiempoDeConstruccion.setVisible(true);
 
-        progressTiempoDeConstruccion.setString(String.valueOf(tiempoDeConstruccionActual)+" turnos para construirse");
+        if(progressTiempoDeConstruccion.getValue() < tiempoDeConstruccionTotal){
+            progressTiempoDeConstruccion.setString(String.valueOf(tiempoDeConstruccionActual)+" turnos para construirse");
+        }else{
+            progressTiempoDeConstruccion.setString("edificio construido");
+            SonidosDelJuego.getInstance().reproducirEdificioConstruido();
+        }
+
         panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
         panelPrincipal.add(progressTiempoDeConstruccion);
     }
