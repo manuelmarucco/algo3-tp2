@@ -14,12 +14,15 @@ import unidades.terrran.NaveCiencia;
 import java.util.ArrayList;
 
 public class ProxyDeHechizos {
-    private static Jugador jugador1;
-    private static Jugador jugador2;
+    private static ArrayList<Jugador> jugadores= new ArrayList<>();
 
     public static void inicializar(Jugador j1,Jugador j2){
-        jugador1=j1;
-        jugador2=j2;
+        jugadores.add(j1);
+        jugadores.add(j2);
+    }
+
+    public void agregarJugador(Jugador jugador){
+        jugadores.add(jugador);
     }
 
     public static void EMP(NaveCiencia naveCiencia,Coordenada coordenada) throws ExcepcionDeAccionDeUnidad {
@@ -62,20 +65,24 @@ public class ProxyDeHechizos {
 
     @SuppressWarnings("all")
     public static boolean esEnemigo(Unidad unidadTransporte, Cargable unidad) {
-        if(jugador2.buscarUnidad(unidadTransporte)&&jugador2.buscarUnidad(unidad)) return false;
-        if(jugador1.buscarUnidad(unidadTransporte)&&jugador1.buscarUnidad(unidad)) return false;
-
+        for(Jugador j: jugadores) {
+            if (j.buscarUnidad(unidadTransporte) && j.buscarUnidad(unidad)) return false;
+        }
         return true;
     }
     public static Jugador obtenerDuenio(Unidad unidad){
-        if(jugador1.buscarUnidad(unidad)) return jugador1;
-        else return jugador2;
+        for(Jugador j: jugadores) {
+            if (j.buscarUnidad(unidad)) return j;
+        }
+        return null;
     }
 
     public static Jugador obtenerDuenio(ColocableEnMapa objetivo){
         if(objetivo==null) return null;
-        if(jugador1.buscarUnidad(objetivo)) return jugador1;
-        if(jugador1.buscarConstruccion(objetivo)) return jugador1;
-        else return jugador2;
+        for(Jugador j:jugadores) {
+            if (j.buscarUnidad(objetivo)) return j;
+            if (j.buscarConstruccion(objetivo)) return j;
+        }
+        return null;
     }
 }
