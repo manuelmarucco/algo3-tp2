@@ -9,6 +9,7 @@ import jugabilidad.extrasJuego.CreadorDeJugador;
 import jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class CreadorDeJugadorTest {
@@ -47,6 +48,17 @@ public class CreadorDeJugadorTest {
         Coordenada base = new Coordenada(5,5);
 
         Jugador jugador = creadorDeJugador.crearNuevoJugadorProtos("Mar", "Azul",base);
+
+    }
+
+    @Test (expected = ExcepcionNombreDeJugadorMenorACuatroCaracteres.class)
+    public void alCrearseUnJugadorSiSuNombreTieneSoloEspaciosEsperoUnaExcepcion()
+            throws ExcepcionNoSePudoCrearElJugador{
+
+        CreadorDeJugador creadorDeJugador = new CreadorDeJugador();
+        Coordenada base = new Coordenada(5,5);
+
+        Jugador jugador = creadorDeJugador.crearNuevoJugadorProtos("       ", "Azul",base);
 
     }
 
