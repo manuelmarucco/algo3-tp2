@@ -36,4 +36,8 @@ public abstract class UnidadMagica extends Unidad{
     public Energia getEnergia(){
         return energia;
     }
+
+    public Resistencia getResistencia(){
+        return resistencia;
+    }
 }

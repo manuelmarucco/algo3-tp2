@@ -36,34 +36,36 @@ public class AltoTemplario extends UnidadMagica implements Cargable, Clonable {
         this.accion.actuo();
     }
 
-    public void alucinacion(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad, ExcepcionCasillaVacia, ExcepcionNoSePuedeClonarEdificio {
+    public void alucinacion(Coordenada coordenadaDeUnidadAClonar) throws ExcepcionDeAccionDeUnidad, ExcepcionCasillaVacia, ExcepcionNoSePuedeClonarEdificio {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
-        Coordenada temp=coordenada;
+        Coordenada temp=coordenadaDeUnidadAClonar;
         ProxyMapa mapa= ProxyMapa.getInstance();
-        ColocableEnMapa objetivo = mapa.obtenerDeCapaAerea(coordenada);
+        ColocableEnMapa objetivo = mapa.obtenerDeCapaAerea(coordenadaDeUnidadAClonar);
         if(objetivo==null)
-            objetivo= mapa.obtenerDeCapaTerrestre(coordenada);
+            objetivo= mapa.obtenerDeCapaTerrestre(coordenadaDeUnidadAClonar);
         if(objetivo==null) throw new ExcepcionCasillaVacia();
         Coordenada coordenadaAltoTemplario = ProxyMapa.getInstance().getCoordenada(this);
-        if(coordenada.distancia(coordenadaAltoTemplario)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
+        if(coordenadaDeUnidadAClonar.distancia(coordenadaAltoTemplario)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
         this.energia.gastar(75);
         this.agregarClon((Clonable) objetivo, temp);
-        temp=coordenada;
+        temp=coordenadaDeUnidadAClonar;
         this.agregarClon((Clonable)objetivo,temp);
         this.accion=this.accion.actuo();
 
     }
 
-    private void agregarClon(Clonable objetivo ,Coordenada coordenada) throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeClonarEdificio {
+    private void agregarClon(Clonable objetivo ,Coordenada coordenadaDeUnidadAClonar) throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeClonarEdificio {
         boolean agregadoAlMapa=false;
         ProxyMapa mapa= ProxyMapa.getInstance();
         ColocableEnMapa clon = objetivo.getClon();
+        Coordenada coordenadaDondeAgregarClon = new Coordenada(coordenadaDeUnidadAClonar.getX()-1,coordenadaDeUnidadAClonar.getY()-1);
+
         while(!agregadoAlMapa) {
             try {
-                mapa.agregar(clon, coordenada);
+                mapa.agregar(clon, coordenadaDondeAgregarClon);
                 agregadoAlMapa = true;
             } catch (ExcepcionNoSePudoAgregarAlMapa e) {
-                if(!this.modicarCoordenadaAlrededorDeLaUnidad(coordenada)){
+                if(!this.modicarCoordenadaAlrededorDeLaUnidad(coordenadaDondeAgregarClon,coordenadaDeUnidadAClonar)){
                     throw new ExcepcionNoSePudoCrearUnidadPorNoTenerEspacioAlrededorDeLaUnidad();
                 }
             }
@@ -71,17 +73,16 @@ public class AltoTemplario extends UnidadMagica implements Cargable, Clonable {
         ProxyDeHechizos.obtenerDuenio(this).agregarUnidad((Entrenable)clon);
     }
 
-    private boolean modicarCoordenadaAlrededorDeLaUnidad(Coordenada coordenadaDeUnidad) {
+    private boolean modicarCoordenadaAlrededorDeLaUnidad(Coordenada coordenadaDeClon, Coordenada coordenadaDeUnidadAClonar) {
         ProxyMapa mapa = ProxyMapa.getInstance();
-        Coordenada coordenadaDelaUnidad = mapa.getCoordenada(this);
 
-        if(coordenadaDeUnidad.getX()<1+coordenadaDelaUnidad.getX()){
-            coordenadaDeUnidad.aumentarX(1);
+        if(coordenadaDeClon.getX()<1+coordenadaDeUnidadAClonar.getX()){
+            coordenadaDeClon.aumentarX(1);
         }
         else {
-            coordenadaDeUnidad.aumentarX(-2);
-            if (coordenadaDeUnidad.getY() < 1 + coordenadaDelaUnidad.getY()) {
-                coordenadaDeUnidad.aumentarY(1);
+            coordenadaDeClon.aumentarX(-2);
+            if (coordenadaDeClon.getY() < 1 + coordenadaDeUnidadAClonar.getY()) {
+                coordenadaDeClon.aumentarY(1);
             } else return false;
         }
 

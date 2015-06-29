@@ -9,7 +9,6 @@ import java.awt.*;
 import java.util.ArrayList;
 
 public class DisplayMapa extends JPanel {
-    // Si se saca el main va a tener que heredar de JPanel
 
     private int cantidadTilesVerticales, cantidadTilesHorizontales;
     private JLayeredPane layeredPane;
@@ -60,7 +59,6 @@ public class DisplayMapa extends JPanel {
 
         this.layeredPane = new JLayeredPane();
         this.layeredPane.setPreferredSize(new Dimension(1600, 1600)); //cada parsela mide 64x64 pixels entonces 64*25=1600
-       // this.layeredPane.setBounds(0,0,1600,1600);
         this.layeredPane.setVisible(true);
 
         this.armarPaneles();
@@ -88,8 +86,8 @@ public class DisplayMapa extends JPanel {
     }
 
     private void agregarPaneles(ArrayList<JPanel> paneles) {
-        for (JPanel panel : paneles) {
 
+        for (JPanel panel : paneles) {
             this.layeredPane.add(panel);
         }
 
