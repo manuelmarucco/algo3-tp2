@@ -2,8 +2,6 @@ package vista.Actions.accionesUnidades;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
-import excepciones.Unidades.ExcepcionMoverfueraDeRango;
-import excepciones.Unidades.ExcepcionYaSeMovioLaUnidad;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Unidad;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;

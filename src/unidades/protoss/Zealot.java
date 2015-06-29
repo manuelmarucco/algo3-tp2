@@ -30,7 +30,7 @@ public class Zealot extends UnidadGuerrera implements Cargable {
         return ((ResistenciaProtoss)resistencia).getEscudoActual();
     }
 
-    public ColocableEnMapa getClone() {
+    public ColocableEnMapa getClon() {
         return new ClonGuerrero((ResistenciaProtoss)this.resistencia,this.vision,this.ubicacion,this.movilidad,this.transporte);
     }
 

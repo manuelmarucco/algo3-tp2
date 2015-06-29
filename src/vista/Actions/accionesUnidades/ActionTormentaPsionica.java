@@ -1,8 +1,6 @@
 package vista.Actions.accionesUnidades;
 
 import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
-import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
-import excepciones.Unidades.ExcepcionYaActuo;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.ProxyDeHechizos;

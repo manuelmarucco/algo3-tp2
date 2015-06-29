@@ -24,7 +24,7 @@ public class JugadorProtoss extends Jugador {
     public JugadorProtoss(){       //Constructor para el Juego
         this.suministros = new Suministros(0,0);
        // this.recursosRecolectados = new Recursos(200,0);
-        this.recursosRecolectados = new Recursos(500,0); //TODO es para facilitar el comienzo del juego. ponerlo como supuesto
+        this.recursosRecolectados = new Recursos(500,500); //TODO es para facilitar el comienzo del juego. ponerlo como supuesto
         this.tormentasPsionica= new ArrayList<>();
         this.visibilidad = new Vision();
     }
@@ -109,12 +109,15 @@ public class JugadorProtoss extends Jugador {
 
     @Override
     public void update(){
-
+        ArrayList<TormentaPsionica> toRemove = new ArrayList<>();
         for(TormentaPsionica a:tormentasPsionica){
             a.update();
             if(a.getTurnos()==0){
-                tormentasPsionica.remove(a);
+                toRemove.add(a);
             }
+        }
+        for(TormentaPsionica a:toRemove){
+            tormentasPsionica.remove(a);
         }
         for (int i = 0; i < edificiosEnInvocacion.size(); i++) {
             EdificioEnInvocacion e = edificiosEnInvocacion.get(i);

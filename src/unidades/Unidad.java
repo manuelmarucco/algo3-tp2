@@ -3,11 +3,10 @@ package unidades;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import excepciones.Unidades.ExcepcionMoverfueraDeRango;
+import excepciones.Unidades.ExcepcionNoSePUedeClonarALaUnidad;
 import excepciones.Unidades.ExcepcionYaSeMovioLaUnidad;
-import interfaces.Actualizable;
-import interfaces.ColocableEnMapa;
-import interfaces.Entrenable;
-import interfaces.Hechizable;
+import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
+import interfaces.*;
 import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
@@ -16,7 +15,7 @@ import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.Estado.EstadoDeAccion;
 import unidades.Estado.NoActuo;
 
-public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizable,Entrenable  {
+public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizable,Entrenable, Clonable {
     private Vision visionJugador;
     protected Resistencia resistencia;
     protected int vision;
@@ -130,8 +129,8 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
 
     public  void recibirEMP(){}
 
-    public ColocableEnMapa getClone() {
-        return null;
+    public ColocableEnMapa getClon() throws ExcepcionNoSePUedeClonarALaUnidad, ExcepcionNoSePuedeClonarEdificio {
+        throw new ExcepcionNoSePUedeClonarALaUnidad();
     }
 
     public void recibirDanio(int danio) {

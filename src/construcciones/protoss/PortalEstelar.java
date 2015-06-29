@@ -4,14 +4,17 @@ import construcciones.CentroDeEntrenamiento;
 import construcciones.Construccion;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construcciones.ExcepcionNecesitaConstruirAcceso;
+import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
 import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
 import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import interfaces.Clonable;
 import interfaces.Construible;
 import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenada;
+import unidades.protoss.Clon;
 import unidades.protoss.NaveTransporteProtoss;
 import unidades.protoss.ResistenciaProtoss;
 import unidades.protoss.Scout;
@@ -19,7 +22,7 @@ import unidades.protoss.Scout;
 import java.util.ArrayList;
 
 
-public class PortalEstelar extends CentroDeEntrenamiento implements IEdificioProtoss{
+public class PortalEstelar extends CentroDeEntrenamiento implements IEdificioProtoss, Clonable {
 
 
 	public PortalEstelar(){
@@ -80,5 +83,9 @@ public class PortalEstelar extends CentroDeEntrenamiento implements IEdificioPro
 	public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
 	}
-	
+
+	@Override
+	public Clon getClon() throws ExcepcionNoSePuedeClonarEdificio {
+		throw new ExcepcionNoSePuedeClonarEdificio();
+	}
 }

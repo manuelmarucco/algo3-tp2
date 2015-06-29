@@ -3,6 +3,7 @@ package consingnasTests;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.*;
+import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -122,7 +123,7 @@ public class unidadesTest {
     Al recibir un EMP, mueren instantáneamente.*/
 
     @Test
-    public void cuartoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
+    public void cuartoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeClonarEdificio {
         NaveCiencia nc = new NaveCiencia(v);
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);

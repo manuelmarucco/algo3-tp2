@@ -1,7 +1,8 @@
 package vista.Actions.accionesUnidades;
 
-import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
-import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
+import excepciones.Mapa.ExcepcionCasillaVacia;
+import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
+import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.protoss.AltoTemplario;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
@@ -44,8 +45,8 @@ public class ActionAlucinacion implements MouseListener, AccionUnidad {
     }
 
     @Override
-    public void actuarEn(Coordenada coordenada) throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango {
-        //   unidad.alucinacion(coordenada); //todo cambiar alucinacion
+    public void actuarEn(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad, ExcepcionCasillaVacia, ExcepcionNoSePuedeClonarEdificio {
+        unidad.alucinacion(coordenada);
         wraperAccionActuar.setAccionActuar(null);
     }
 }

@@ -1,0 +1,4 @@
+package excepciones.Unidades;
+
+public class ExcepcionNoSePudoCrearUnidadPorNoTenerEspacioAlrededorDeLaUnidad extends ExcepcionDeAccionDeUnidad {
+}

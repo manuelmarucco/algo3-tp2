@@ -2,10 +2,7 @@ package tests_de_integracion;
 
 import construcciones.protoss.EdificioEnInvocacion;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
-import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
-import excepciones.Unidades.ExcepcionYaActuo;
 import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
