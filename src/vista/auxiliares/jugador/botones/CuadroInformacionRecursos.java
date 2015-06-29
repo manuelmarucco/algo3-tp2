@@ -16,6 +16,9 @@ public class CuadroInformacionRecursos extends JFrame {
 
         this.setUndecorated(true);
         this.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+        this.setLayout(new BorderLayout());
+        this.setContentPane(new JLabel(new ImageIcon("images/menu/boton.png")));
+        this.setLayout(new FlowLayout());
 
         this.contenedor = new JPanel(new GridLayout(1,2,0,1));
 
@@ -65,20 +68,6 @@ public class CuadroInformacionRecursos extends JFrame {
 
     }
 
-    private JPanel crearTitulo(){
-
-        JPanel panel = new JPanel();
-        panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
-
-        JLabel label = new JLabel();
-        label.setText("Recursos necesarios:");
-
-        panel.add(label);
-
-        return panel;
-
-    }
-
     private JPanel armarLabelCristaleNecesario(String cristalNecesario){
 
         JPanel panel = new JPanel();
@@ -87,6 +76,7 @@ public class CuadroInformacionRecursos extends JFrame {
         JLabel label = new JLabel();
         label.setIcon(new ImageIcon(imagenes[0]));
         label.setText(cristalNecesario);
+        label.setOpaque(false);
 
         panel.add(label);
 
@@ -102,6 +92,7 @@ public class CuadroInformacionRecursos extends JFrame {
         JLabel label = new JLabel();
         label.setIcon(new ImageIcon(imagenes[1]));
         label.setText(gasNecesario);
+        label.setOpaque(false);
 
         panel.add(label);
 
