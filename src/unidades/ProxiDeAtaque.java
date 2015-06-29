@@ -9,13 +9,18 @@ import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenada;
 
+import java.util.ArrayList;
+
 public class ProxiDeAtaque {
-    private static Jugador jugador1;
-    private static Jugador jugador2;
+    private static ArrayList<Jugador> jugadores= new ArrayList<>();
 
     public static void inicializar(Jugador j1,Jugador j2){
-        jugador1=j1;
-        jugador2=j2;
+        jugadores.add(j1);
+        jugadores.add(j2);
+    }
+
+    public void agregarJugador(Jugador jugador){
+        jugadores.add(jugador);
     }
 
     public static void atacarTierra(UnidadGuerrera atacante, Daniable defensor) throws ExcepcionDeAccionDeUnidad {
@@ -46,15 +51,21 @@ public class ProxiDeAtaque {
 
     }
     public static void comprobarDuenioDeUnidad(Object atacante,Object defensor) throws ExcepcionDeAccionDeUnidad {
-        if(jugador1.buscarUnidad(atacante)&& jugador1.buscarUnidad(defensor)) throw new ExcepcionAtacarAUnidadAliada();
-        if(jugador2.buscarUnidad(atacante)&& jugador2.buscarUnidad(defensor)) throw new ExcepcionAtacarAUnidadAliada();
+        for(Jugador j:jugadores){
+            if(j.buscarUnidad(atacante)&& j.buscarUnidad(defensor)) throw new ExcepcionAtacarAUnidadAliada();
+            if(j.buscarUnidad(atacante)&& j.buscarUnidad(defensor)) throw new ExcepcionAtacarAUnidadAliada();
+
+        }
     }
 
     public static void comprobarDuenioDeEdificio(Object atacante,Object defensor) throws ExcepcionDeAccionDeUnidad {
-        if(jugador1.buscarUnidad(atacante)&& jugador1.buscarConstruccion(defensor)) throw new ExcepcionAtacarAUnidadAliada();
-        if(jugador2.buscarUnidad(atacante)&& jugador2.buscarConstruccion(defensor)) throw new ExcepcionAtacarAUnidadAliada();
+        for (Jugador j : jugadores) {
+            if (j.buscarUnidad(atacante) && j.buscarConstruccion(defensor))
+                throw new ExcepcionAtacarAUnidadAliada();
+            if (j.buscarUnidad(atacante) && j.buscarConstruccion(defensor))
+                throw new ExcepcionAtacarAUnidadAliada();
+        }
     }
-
     public static void atacar(UnidadGuerrera atacante,Coordenada coordenada) throws ExcepcionDeAccionDeUnidad {
         Daniable objetivoAereo = (Daniable) ProxyMapa.getInstance().obtenerDeCapaAerea(coordenada);
         Daniable objetivoTerreste = (Daniable) ProxyMapa.getInstance().obtenerDeCapaTerrestre(coordenada);
