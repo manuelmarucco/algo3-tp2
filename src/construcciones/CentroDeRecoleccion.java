@@ -33,7 +33,8 @@ public abstract class CentroDeRecoleccion extends Construccion {
     }
 
     @Override
-    public void update() {
+    protected void verificarDestruccionDeEdificio(){
+
         ProxyMapa mapa = ProxyMapa.getInstance();
 
         if(resistencia.getVidaActual() == 0){

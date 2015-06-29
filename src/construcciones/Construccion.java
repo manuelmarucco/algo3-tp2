@@ -40,7 +40,16 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Dania
 
 	@Override
 	public void recibirDanio(int danio){
-		resistencia.quitar(danio);
+		this.resistencia.quitar(danio);
+		this.verificarDestruccionDeEdificio();
+	}
+
+	protected void verificarDestruccionDeEdificio(){
+
+		ProxyMapa mapa = ProxyMapa.getInstance();
+
+		if(resistencia.getVidaActual() == 0) mapa.borrarEnCapaTerrestre( mapa.getCoordenada(this) );
+
 	}
 	
 	protected void verificarRecursosDisponibles(Recursos r) throws ExcepcionRecursosInsuficientes{
@@ -70,11 +79,6 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Dania
 
 	@Override
 	public void update() {
-		ProxyMapa mapa = ProxyMapa.getInstance();
-
-		if(resistencia.getVidaActual() == 0){
-			mapa.borrarEnCapaTerrestre(mapa.getCoordenada(this));
-		}
 
 	}
 
@@ -98,6 +102,7 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Dania
 	public  void recibirEMP(){}
 
 	public void recibirRadiacion(int danio){}
+
 /*
 	@Override
 	public  abstract boolean habilitaAConstruir(Construccion c);
