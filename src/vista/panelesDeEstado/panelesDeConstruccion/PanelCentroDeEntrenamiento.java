@@ -71,9 +71,12 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
 
     private void crearLabelDeUnidadEnEntrenamiento(String nombreDeUnidad) {
         this.panelTiempoDeEntrenamientoDeUnidad = new JPanel();
+        JLabel tituloEntrenando = new JLabel("Entrenando "+nombreDeUnidad+"...");
 
         this.panelTiempoDeEntrenamientoDeUnidad.setLayout(new BoxLayout(panelTiempoDeEntrenamientoDeUnidad, BoxLayout.X_AXIS));
-        this.panelTiempoDeEntrenamientoDeUnidad.add(new JLabel("Entrenando "+nombreDeUnidad+"..."));
+        this.panelTiempoDeEntrenamientoDeUnidad.setOpaque(false);
+        this.setearFuenteDeJLabel(tituloEntrenando,false,Font.ITALIC,12);
+        this.panelTiempoDeEntrenamientoDeUnidad.add(tituloEntrenando);
 
         this.contenedorColaYTiempo.add(Box.createRigidArea(new Dimension(10, 10)));
         this.contenedorColaYTiempo.add(this.panelTiempoDeEntrenamientoDeUnidad);
