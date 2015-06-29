@@ -38,8 +38,8 @@ public abstract class PanelUnidad extends JPanel {
 
         JPanel panelNombre = new JPanel();
         JPanel panelvision = new JPanel();
+        panelEscudo = new JPanel();
         JPanel panelvida = new JPanel();
-        JPanel panelescudo = new JPanel();
         JLabel tituloVida = new JLabel("Vida:");
         JLabel tituloEscudo = new JLabel("Escudo:");
         JLabel tituloVision = new JLabel("Rango De Vision:");
@@ -50,8 +50,8 @@ public abstract class PanelUnidad extends JPanel {
         panelvision.setOpaque(false);
         panelvida.setLayout(new BoxLayout(panelvida, BoxLayout.X_AXIS));
         panelvida.setOpaque(false);
-        panelescudo.setLayout(new BoxLayout(panelescudo, BoxLayout.X_AXIS));
-        panelescudo.setOpaque(false);
+        panelEscudo.setLayout(new BoxLayout(panelEscudo, BoxLayout.X_AXIS));
+        panelEscudo.setOpaque(false);
 
         this.setearFuenteDeJLabel(nombre,true,Font.BOLD,14);
         this.setearFuenteDeJLabel(tituloVida,true,Font.BOLD,12);
@@ -65,9 +65,9 @@ public abstract class PanelUnidad extends JPanel {
         panelvida.add(tituloVida);
         panelvida.add(vida);
         vida.setForeground(new Color(200,200,20));
-        panelescudo.add(tituloEscudo);
+        panelEscudo.add(tituloEscudo);
         escudo.setForeground(new Color(200,200,20));
-        panelescudo.add(escudo);
+        panelEscudo.add(escudo);
 
         panelPrincipal.add(panelNombre);
         panelPrincipal.add(Box.createRigidArea(new Dimension(10,10)));
@@ -76,9 +76,10 @@ public abstract class PanelUnidad extends JPanel {
         panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
         panelPrincipal.add(panelvida);
         panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
-        panelPrincipal.add(panelescudo);
+        panelPrincipal.add(panelEscudo);
+        panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
 
-        panelescudo.setVisible(false);
+        panelEscudo.setVisible(false);
 
 
     }
