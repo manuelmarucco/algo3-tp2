@@ -18,12 +18,12 @@ public class BotonConInformacionDesplegable extends JButton implements MouseList
 
     }
 
-    public BotonConInformacionDesplegable(String nombre,String cristalNecesario, String gasNecesario, String siministroNecesario){
+    public BotonConInformacionDesplegable(String nombre,String cristalNecesario, String gasNecesario, String suministroNecesario){
 
         this.setText(nombre);
         addMouseListener(this);
 
-        this.cuadroInformacionRecursos = new CuadroInformacionRecursos(cristalNecesario, gasNecesario, siministroNecesario);
+        this.cuadroInformacionRecursos = new CuadroInformacionRecursos(cristalNecesario, gasNecesario, suministroNecesario);
 
     }
 

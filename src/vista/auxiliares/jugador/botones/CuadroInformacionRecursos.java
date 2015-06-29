@@ -3,8 +3,10 @@ package vista.auxiliares.jugador.botones;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.font.TextAttribute;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.Map;
 
 public class CuadroInformacionRecursos extends JFrame {
 
@@ -20,15 +22,26 @@ public class CuadroInformacionRecursos extends JFrame {
         this.setContentPane(new JLabel(new ImageIcon("images/menu/boton.png")));
         this.setLayout(new FlowLayout());
 
-        this.contenedor = new JPanel(new GridLayout(1,2,0,1));
+        this.contenedor = new JPanel(new GridLayout(1,3,0,1));
+        this.contenedor.setOpaque(false);
 
         this.cargarImagenes();
 
+        this.contenedor.add(this.armarLabelTituloCosto());
         this.contenedor.add(this.armarLabelCristaleNecesario(cristalNecesario));
         this.contenedor.add(this.armarLabelGasNecesario(gasNecesario));
 
         this.add(contenedor);
 
+    }
+
+    private Component armarLabelTituloCosto() {
+        JLabel titulo = new JLabel("Costo:");
+        titulo.setForeground(new Color(200,200,20)); Map attributes = titulo.getFont().getAttributes();
+        attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        titulo.setFont(titulo.getFont().deriveFont(attributes));
+        titulo.setOpaque(false);
+        return titulo;
     }
 
     // Para unidades
@@ -72,8 +85,10 @@ public class CuadroInformacionRecursos extends JFrame {
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+        panel.setOpaque(false);
 
         JLabel label = new JLabel();
+        label.setForeground(new Color(200,200,20));
         label.setIcon(new ImageIcon(imagenes[0]));
         label.setText(cristalNecesario);
         label.setOpaque(false);
@@ -88,8 +103,10 @@ public class CuadroInformacionRecursos extends JFrame {
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+        panel.setOpaque(false);
 
         JLabel label = new JLabel();
+        label.setForeground(new Color(200,200,20));
         label.setIcon(new ImageIcon(imagenes[1]));
         label.setText(gasNecesario);
         label.setOpaque(false);
