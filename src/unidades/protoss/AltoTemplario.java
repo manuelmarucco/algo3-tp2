@@ -7,6 +7,7 @@ import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
 import interfaces.Cargable;
 import interfaces.Clonable;
 import interfaces.ColocableEnMapa;
+import interfaces.Entrenable;
 import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
@@ -14,10 +15,7 @@ import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.TormentaPsionica;
 import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenada;
-import unidades.Energia;
-import unidades.Terrestre;
-import unidades.Unidad;
-import unidades.UnidadMagica;
+import unidades.*;
 
 public class AltoTemplario extends UnidadMagica implements Cargable, Clonable {
 
@@ -40,6 +38,7 @@ public class AltoTemplario extends UnidadMagica implements Cargable, Clonable {
 
     public void alucinacion(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad, ExcepcionCasillaVacia, ExcepcionNoSePuedeClonarEdificio {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
+        Coordenada temp=coordenada;
         ProxyMapa mapa= ProxyMapa.getInstance();
         ColocableEnMapa objetivo = mapa.obtenerDeCapaAerea(coordenada);
         if(objetivo==null)
@@ -48,8 +47,9 @@ public class AltoTemplario extends UnidadMagica implements Cargable, Clonable {
         Coordenada coordenadaAltoTemplario = ProxyMapa.getInstance().getCoordenada(this);
         if(coordenada.distancia(coordenadaAltoTemplario)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
         this.energia.gastar(75);
-        this.agregarClon((Clonable)objetivo,coordenada);
-        this.agregarClon((Clonable)objetivo,coordenada);
+        this.agregarClon((Clonable) objetivo, temp);
+        temp=coordenada;
+        this.agregarClon((Clonable)objetivo,temp);
         this.accion=this.accion.actuo();
 
     }
@@ -57,9 +57,10 @@ public class AltoTemplario extends UnidadMagica implements Cargable, Clonable {
     private void agregarClon(Clonable objetivo ,Coordenada coordenada) throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeClonarEdificio {
         boolean agregadoAlMapa=false;
         ProxyMapa mapa= ProxyMapa.getInstance();
+        ColocableEnMapa clon = objetivo.getClon();
         while(!agregadoAlMapa) {
             try {
-                mapa.agregar(objetivo.getClon(), coordenada);
+                mapa.agregar(clon, coordenada);
                 agregadoAlMapa = true;
             } catch (ExcepcionNoSePudoAgregarAlMapa e) {
                 if(!this.modicarCoordenadaAlrededorDeLaUnidad(coordenada)){
@@ -67,18 +68,19 @@ public class AltoTemplario extends UnidadMagica implements Cargable, Clonable {
                 }
             }
         }
+        ProxyDeHechizos.obtenerDuenio(this).agregarUnidad((Entrenable)clon);
     }
 
     private boolean modicarCoordenadaAlrededorDeLaUnidad(Coordenada coordenadaDeUnidad) {
         ProxyMapa mapa = ProxyMapa.getInstance();
-        Coordenada coordenadaDeEdificio = mapa.getCoordenada(this);
+        Coordenada coordenadaDelaUnidad = mapa.getCoordenada(this);
 
-        if(coordenadaDeUnidad.getX()<1+coordenadaDeEdificio.getX()){
+        if(coordenadaDeUnidad.getX()<1+coordenadaDelaUnidad.getX()){
             coordenadaDeUnidad.aumentarX(1);
         }
         else {
             coordenadaDeUnidad.aumentarX(-2);
-            if (coordenadaDeUnidad.getY() < 1 + coordenadaDeEdificio.getY()) {
+            if (coordenadaDeUnidad.getY() < 1 + coordenadaDelaUnidad.getY()) {
                 coordenadaDeUnidad.aumentarY(1);
             } else return false;
         }
@@ -86,7 +88,7 @@ public class AltoTemplario extends UnidadMagica implements Cargable, Clonable {
         return true;
 
     }
-
+//todo no va mas este(Hay q cambiar los tests)
     public void alucinacion(Unidad objetivo,Coordenada destino1,Coordenada destino2) throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeClonarEdificio {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         Coordenada coordenadaObjetivo =ProxyMapa.getInstance().getCoordenada(objetivo);

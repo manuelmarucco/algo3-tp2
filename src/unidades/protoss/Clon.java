@@ -3,6 +3,7 @@ package unidades.protoss;
 import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
+import unidades.Estado.NoActuo;
 import unidades.Ubicacion;
 import unidades.Unidad;
 
@@ -36,5 +37,10 @@ public class Clon extends Unidad implements ColocableEnMapa {
 
     public Unidad getUnidad() {
         return unidad;
+    }
+
+    public void update(){
+        this.estado.update(this);
+        this.accion=new NoActuo();
     }
 }
