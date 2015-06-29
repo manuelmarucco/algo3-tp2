@@ -9,6 +9,7 @@ import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenada;
+import unidades.ProxyDeHechizos;
 
 import java.util.ArrayList;
 
@@ -56,13 +57,16 @@ public class CreadorDeJugador {
 
     private void verificarNombre(String nombre) throws ExcepcionNoSePudoCrearElJugador {
 
-       if ( this.longitudDeNombreIncorrecta(nombre) )
+        String nombreSinEspacios = nombre;
+        nombreSinEspacios = nombreSinEspacios.trim();
+
+        if ( this.longitudDeNombreIncorrecta(nombreSinEspacios) )
             throw new ExcepcionNombreDeJugadorMenorACuatroCaracteres();
 
-        if ( this.elNombreSeRepiteEnAlgunoDeLosOtrosJugadores(nombre) )
+        if ( this.elNombreSeRepiteEnAlgunoDeLosOtrosJugadores(nombreSinEspacios) )
             throw new ExcepcionElNombreIngresadoRepiteAlDeOtroJugador();
 
-        this.nombres.add(nombre);
+        this.nombres.add(nombreSinEspacios);
 
     }
 

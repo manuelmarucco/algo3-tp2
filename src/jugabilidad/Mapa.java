@@ -117,6 +117,12 @@ public class Mapa {
 
 	}
 
+    public void borrarEnCapaDeRecursos(Coordenada coordenadas){
+
+        this.capaDeRecursos.remove(coordenadas);
+
+    }
+
 	// Mover ---------
 
 	public void moverEnCapaTerrestre(ColocableEnMapa colacable,Coordenada hasta) throws ExcepcionPosicionOcupada {
