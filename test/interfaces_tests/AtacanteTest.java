@@ -2,10 +2,7 @@ package interfaces_tests;
 
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
-import excepciones.Unidades.ExcepcionNoPuedeAtacarAire;
-import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
-import excepciones.Unidades.ExcepcionYaActuo;
+import excepciones.Unidades.*;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -29,7 +26,7 @@ public class AtacanteTest {
     }
 
     @Test
-    public void testAtacarAereo() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionNoPuedeAtacarAire {
+    public void testAtacarAereo() throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePudoAgregarAlMapa {
         ProxyMapa proxyMapa =ProxyMapa.getInstance();
         proxyMapa.setCoordenadasMaximas(20,20);
 
@@ -47,7 +44,7 @@ public class AtacanteTest {
     }
 
     @Test
-    public void testAtacarTerrestre() throws ExcepcionAtacarAUnidadAliada, ExcepcionObjetivoFueraDeRango, ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo {
+    public void testAtacarTerrestre() throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePudoAgregarAlMapa {
         ProxyMapa proxyMapa =ProxyMapa.getInstance();
         proxyMapa.setCoordenadasMaximas(20,20);
 

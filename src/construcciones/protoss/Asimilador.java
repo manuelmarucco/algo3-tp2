@@ -4,7 +4,9 @@ import construcciones.CentroDeRecoleccion;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.construcciones.ExcepcionConstruccionNoRecolectaCristal;
 import excepciones.construcciones.ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso;
+import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
 import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import interfaces.Clonable;
 import interfaces.Construible;
 import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
@@ -12,12 +14,13 @@ import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Recursos;
 import jugabilidad.utilidadesMapa.Coordenada;
 import recursos.Recurso;
+import unidades.protoss.Clon;
 import unidades.protoss.ResistenciaProtoss;
 
 import java.util.ArrayList;
 
 
-public class Asimilador extends CentroDeRecoleccion implements IEdificioProtoss{
+public class Asimilador extends CentroDeRecoleccion implements IEdificioProtoss, Clonable{
 
 	public Asimilador(Recursos recursos){
 
@@ -60,5 +63,10 @@ public class Asimilador extends CentroDeRecoleccion implements IEdificioProtoss{
 	@Override
 	public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
+	}
+
+	@Override
+	public Clon getClon() throws ExcepcionNoSePuedeClonarEdificio {
+		throw new ExcepcionNoSePuedeClonarEdificio();
 	}
 }

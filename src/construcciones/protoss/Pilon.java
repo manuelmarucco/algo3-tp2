@@ -2,14 +2,17 @@ package construcciones.protoss;
 
 import construcciones.CentroDeSuministros;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
+import interfaces.Clonable;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Suministros;
 import jugabilidad.utilidadesMapa.Coordenada;
+import unidades.protoss.Clon;
 import unidades.protoss.ResistenciaProtoss;
 
 
-public class Pilon extends CentroDeSuministros implements IEdificioProtoss {
+public class Pilon extends CentroDeSuministros implements IEdificioProtoss , Clonable {
 	
 	public Pilon(Suministros suministros){
 
@@ -28,6 +31,10 @@ public class Pilon extends CentroDeSuministros implements IEdificioProtoss {
 	@Override
 	public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
+	}
+	@Override
+	public Clon getClon() throws ExcepcionNoSePuedeClonarEdificio {
+		throw new ExcepcionNoSePuedeClonarEdificio();
 	}
 
 }

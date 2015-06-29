@@ -3,14 +3,17 @@ package construcciones.protoss;
 import construcciones.Construccion;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
+import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
+import interfaces.Clonable;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import interfaces.Daniable;
 import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenada;
+import unidades.protoss.Clon;
 
-public class EdificioEnInvocacion implements ColocableEnMapa, Daniable {
+public class EdificioEnInvocacion implements ColocableEnMapa, Daniable , Clonable {
     private Coordenada coordenadaDeConstruccion;
     private Construible construccionAConvertirse;
     private int tiempoDeConstruccion;
@@ -75,5 +78,10 @@ public class EdificioEnInvocacion implements ColocableEnMapa, Daniable {
 
     public Construccion getEdificioAConvertirse() {
         return (Construccion)construccionAConvertirse;
+    }
+
+    @Override
+    public Clon getClon() throws ExcepcionNoSePuedeClonarEdificio {
+        throw new ExcepcionNoSePuedeClonarEdificio();
     }
 }

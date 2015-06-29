@@ -1,8 +1,7 @@
 package vista.Actions.accionesUnidades;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
-import excepciones.Unidades.ExcepcionYaActuo;
+import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.UnidadTransporte;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
@@ -45,7 +44,7 @@ public class ActionDescargar implements MouseListener, AccionUnidad {
     }
 
     @Override
-    public void actuarEn(Coordenada coordenada) throws ExcepcionYaActuo, ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango {
+    public void actuarEn(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePudoAgregarAlMapa {
         unidad.descargar(coordenada);
         wraperAccionActuar.setAccionActuar(null);
     }

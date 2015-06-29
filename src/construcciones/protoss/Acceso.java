@@ -2,17 +2,20 @@ package construcciones.protoss;
 
 import construcciones.CentroDeEntrenamiento;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
 import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import interfaces.Clonable;
 import jugabilidad.Jugador;
 import jugabilidad.Mapa;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.utilidadesMapa.Coordenada;
+import unidades.protoss.Clon;
 import unidades.protoss.Dragon;
 import unidades.protoss.ResistenciaProtoss;
 import unidades.protoss.Zealot;
 
 
-public class Acceso extends CentroDeEntrenamiento implements IEdificioProtoss {
+public class Acceso extends CentroDeEntrenamiento implements IEdificioProtoss, Clonable {
 
 	public Acceso(){
 		resistencia = new ResistenciaProtoss(500,500);
@@ -61,5 +64,10 @@ public class Acceso extends CentroDeEntrenamiento implements IEdificioProtoss {
 	@Override
 	public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa {
 
+	}
+
+	@Override
+	public Clon getClon() throws ExcepcionNoSePuedeClonarEdificio {
+		throw new ExcepcionNoSePuedeClonarEdificio();
 	}
 }

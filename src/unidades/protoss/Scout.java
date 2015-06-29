@@ -20,7 +20,7 @@ public class Scout extends UnidadGuerrera {
         super(new ResistenciaProtoss(150,100),new Danio(8,14,4,4),7,new Aereo(),3,new Costo(300,150),9,5,visionJugador,0);
     }
 
-    public ColocableEnMapa getClone() {
+    public ColocableEnMapa getClon() {
         return new ClonGuerrero((ResistenciaProtoss)this.resistencia,this.vision,this.ubicacion,this.movilidad,this.transporte);
     }
 

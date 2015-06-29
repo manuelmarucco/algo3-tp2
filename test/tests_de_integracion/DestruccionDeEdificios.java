@@ -2,9 +2,7 @@ package tests_de_integracion;
 
 import construcciones.protoss.EdificioEnInvocacion;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
-import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
-import excepciones.Unidades.ExcepcionYaActuo;
+import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
@@ -20,7 +18,7 @@ import unidades.terrran.Marine;
 
 public class DestruccionDeEdificios {
     @Test
-    public void SeDestruyeUnEdificioEnConstruccion() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionNoSePuedeConstruir {
+    public void SeDestruyeUnEdificioEnConstruccion() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeConstruir {
         ProxyMapa proxyMapa = ProxyMapa.getInstance();
         proxyMapa.setCoordenadasMaximas(20,20);
 

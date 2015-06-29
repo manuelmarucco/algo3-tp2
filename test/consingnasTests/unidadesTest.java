@@ -3,6 +3,7 @@ package consingnasTests;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.*;
+import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
 import jugabilidad.ProxyMapa;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.RazaDeJugador.JugadorTerran;
@@ -46,7 +47,7 @@ public class unidadesTest {
     La nave de ciencia tenga menos energía
     El protoss no tenga más escudo*/
     @Test
-    public void primerTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void primerTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         NaveCiencia nc = new NaveCiencia(v);
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
@@ -67,7 +68,7 @@ public class unidadesTest {
     La nave de ciencia tenga menos energía
     El alto templario y la otra nave de ciencia no tengan más energía*/
     @Test
-    public void segundoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void segundoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         NaveCiencia nc = new NaveCiencia(v);
         NaveCiencia nc2 = new NaveCiencia(v);
         j1.agregarUnidad(nc);
@@ -93,7 +94,7 @@ public class unidadesTest {
     La nave de ciencia tenga menos energía
     El alto templario y la unidad protoss no han sufrido modificaciones.*/
     @Test
-    public void tercerTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void tercerTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         NaveCiencia nc = new NaveCiencia(v);
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
@@ -122,7 +123,7 @@ public class unidadesTest {
     Al recibir un EMP, mueren instantáneamente.*/
 
     @Test
-    public void cuartoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionYaActuo, ExcepcionObjetivoFueraDeRango {
+    public void cuartoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeClonarEdificio {
         NaveCiencia nc = new NaveCiencia(v);
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
@@ -160,7 +161,7 @@ public class unidadesTest {
 
     /*4) Se verifica unidad por unidad, que ataque en el rango correspondiente.*/
     @Test
-    public void marineAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void marineAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
         Zealot zl = new Zealot(v);
@@ -174,7 +175,7 @@ public class unidadesTest {
     }
 
     @Test(expected = ExcepcionObjetivoFueraDeRango.class)
-    public void marineNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void marineNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
         Zealot zl = new Zealot(v);
@@ -188,7 +189,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void golliatAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void golliatAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Golliat g = new Golliat(v);
         j1.agregarUnidad(g);
         Zealot zl = new Zealot(v);
@@ -202,7 +203,7 @@ public class unidadesTest {
     }
 
     @Test(expected = ExcepcionObjetivoFueraDeRango.class)
-    public void golliatNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void golliatNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Golliat g = new Golliat(v);
         j1.agregarUnidad(g);
         Zealot zl = new Zealot(v);
@@ -216,7 +217,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void espectroAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void espectroAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Espectro e = new Espectro(v);
         j1.agregarUnidad(e);
         Zealot zl = new Zealot(v);
@@ -230,7 +231,7 @@ public class unidadesTest {
     }
 
     @Test(expected = ExcepcionObjetivoFueraDeRango.class)
-    public void espectroNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void espectroNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Espectro e = new Espectro(v);
         j1.agregarUnidad(e);
         Zealot zl = new Zealot(v);
@@ -244,7 +245,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void zealotAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void zealotAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
         Zealot zl = new Zealot(v);
@@ -258,7 +259,7 @@ public class unidadesTest {
     }
 
     @Test(expected = ExcepcionObjetivoFueraDeRango.class)
-    public void zealotNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void zealotNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
         Zealot zl = new Zealot(v);
@@ -272,7 +273,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void dragontAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void dragontAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
         Dragon zl = new Dragon(v);
@@ -286,7 +287,7 @@ public class unidadesTest {
     }
 
     @Test(expected = ExcepcionObjetivoFueraDeRango.class)
-    public void dragonNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void dragonNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
         Dragon zl = new Dragon(v);
@@ -300,7 +301,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void scoutAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void scoutAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
         Scout zl = new Scout(v);
@@ -314,7 +315,7 @@ public class unidadesTest {
     }
 
     @Test(expected = ExcepcionObjetivoFueraDeRango.class)
-    public void scoutNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void scoutNoAtacaTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
         Scout zl = new Scout(v);
@@ -330,7 +331,7 @@ public class unidadesTest {
     /* 5) Naves de transporte soportan su capacidad. Se debe probar que se sube unidades, desde un punto A , se pasa por espacio y se bajan del otro lado tierra B.*/
 
     @Test
-    public void naveTransporteTerranCargaUnMarineYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga, ExcepcionObjetivoFueraDeRango {
+    public void naveTransporteTerranCargaUnMarineYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
         NaveTransporteTerran nt = new NaveTransporteTerran(v);
@@ -351,7 +352,7 @@ public class unidadesTest {
     }
 
     @Test(expected = ExcepcionCargaSuperada.class)
-    public void naveTransporteTerranSeLLena() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga {
+    public void naveTransporteTerranSeLLena() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Golliat g1 = new Golliat(v);
         Golliat g2 = new Golliat(v);
         Golliat g3 = new Golliat(v);
@@ -399,7 +400,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void naveTransporteProtossCargaUnZealotYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga, ExcepcionObjetivoFueraDeRango {
+    public void naveTransporteProtossCargaUnZealotYlodeja() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Zealot m = new Zealot(v);
         j2.agregarUnidad(m);
         NaveTransporteProtoss nt = new NaveTransporteProtoss(v);
@@ -421,7 +422,7 @@ public class unidadesTest {
     }
 
     @Test(expected = ExcepcionCargarUnidadEnemiga.class)
-    public void naveTransporteNOCargaEnemigos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga {
+    public void naveTransporteNOCargaEnemigos() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
 
         Marine m = new Marine(v);
         j1.agregarUnidad(m);
@@ -435,7 +436,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void naveTransporteMuereTambienLoHaceLaCarga() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga {
+    public void naveTransporteMuereTambienLoHaceLaCarga() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Zealot m = new Zealot(v);
         j2.agregarUnidad(m);
         NaveTransporteProtoss nt = new NaveTransporteProtoss(v);
@@ -454,7 +455,7 @@ public class unidadesTest {
     }
 
     @Test(expected = ExcepcionCargaSuperada.class)
-    public void naveTransporteProtossSeLLena() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionCargaSuperada, ExcepcionYaActuo, ExcepcionMoverfueraDeRango, ExcepcionYaSeMovioLaUnidad, ExcepcionCargarUnidadEnemiga {
+    public void naveTransporteProtossSeLLena() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Dragon g1 = new Dragon(v);
         AltoTemplario g2 = new AltoTemplario(v);
         Dragon g3 = new Dragon(v);
@@ -485,7 +486,7 @@ public class unidadesTest {
     /* 9) Verificar recuperación del escudo protoss con el paso de los turnos.*/
 
     @Test
-    public void zealotRegeneraEscudoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void zealotRegeneraEscudoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Golliat g = new Golliat(v);
         j1.agregarUnidad(g);
         Zealot zl = new Zealot(v);
@@ -502,7 +503,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void DragonRegeneraEscudoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada {
+    public void DragonRegeneraEscudoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Golliat g = new Golliat(v);
         j1.agregarUnidad(g);
         Dragon zl = new Dragon(v);
@@ -519,7 +520,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void ScoutRegeneraEscudoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionNoPuedeAtacarAire {
+    public void ScoutRegeneraEscudoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Golliat g = new Golliat(v);
         j1.agregarUnidad(g);
         Scout zl = new Scout(v);
@@ -536,7 +537,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void AltoTemplarioRegeneraEscudoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionNoPuedeAtacarAire {
+    public void AltoTemplarioRegeneraEscudoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Golliat g = new Golliat(v);
         j1.agregarUnidad(g);
         AltoTemplario zl = new AltoTemplario(v);
@@ -553,7 +554,7 @@ public class unidadesTest {
     }
 
     @Test
-    public void NaveTransporteProtossRegeneraEscudoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo, ExcepcionAtacarAUnidadAliada, ExcepcionNoPuedeAtacarAire {
+    public void NaveTransporteProtossRegeneraEscudoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Golliat g = new Golliat(v);
         j1.agregarUnidad(g);
         NaveTransporteProtoss zl = new NaveTransporteProtoss(v);

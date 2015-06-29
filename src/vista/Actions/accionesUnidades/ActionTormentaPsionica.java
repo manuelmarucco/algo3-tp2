@@ -1,7 +1,6 @@
 package vista.Actions.accionesUnidades;
 
-import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
-import excepciones.Unidades.ExcepcionYaActuo;
+import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.ProxyDeHechizos;
@@ -46,7 +45,7 @@ public class ActionTormentaPsionica implements MouseListener, AccionUnidad {
     }
 
     @Override
-    public void actuarEn(Coordenada coordenada) throws ExcepcionObjetivoFueraDeRango, ExcepcionYaActuo {
+    public void actuarEn(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad {
         unidad.tormentaPsionica(coordenada, (JugadorProtoss) ProxyDeHechizos.obtenerDuenio(unidad));
         wraperAccionActuar.setAccionActuar(null);
     }
