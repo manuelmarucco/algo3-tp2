@@ -34,8 +34,8 @@ public class PanelUnidadMagica extends PanelUnidad {
         super.crearPaneles();
         JPanel panelenergiaActual = new JPanel();
         JPanel panelenergiaTotal = new JPanel();
-        JLabel tituloEnergiaActual  = new JLabel("Energia Actual:");
-        JLabel tituloEnergiaTotal  = new JLabel("Energia Total:");
+        JLabel tituloEnergiaActual  = new JLabel("Energia Actual: ");
+        JLabel tituloEnergiaTotal  = new JLabel("Energia Total: ");
 
         panelenergiaActual.setLayout(new BoxLayout(panelenergiaActual, BoxLayout.X_AXIS));
         panelenergiaActual.setOpaque(false);

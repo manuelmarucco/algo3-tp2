@@ -41,9 +41,9 @@ public abstract class PanelUnidad extends JPanel {
         JPanel panelvision = new JPanel();
         panelEscudo = new JPanel();
         JPanel panelvida = new JPanel();
-        JLabel tituloVida = new JLabel("Vida:");
-        JLabel tituloEscudo = new JLabel("Escudo:");
-        JLabel tituloVision = new JLabel("Rango De Vision:");
+        JLabel tituloVida = new JLabel("Vida: ");
+        JLabel tituloEscudo = new JLabel("Escudo: ");
+        JLabel tituloVision = new JLabel("Rango De Vision: ");
 
         panelNombre.setLayout(new BoxLayout(panelNombre, BoxLayout.X_AXIS));
         panelNombre.setOpaque(false);

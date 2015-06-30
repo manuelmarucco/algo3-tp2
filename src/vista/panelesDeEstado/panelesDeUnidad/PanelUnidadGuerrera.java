@@ -40,10 +40,10 @@ public class PanelUnidadGuerrera extends PanelUnidad{
         JPanel paneldanioAereo = new JPanel();
         JPanel panelrangoAtaqueTerrestre = new JPanel();
         JPanel panelrangoAtaqueAereo = new JPanel();
-        JLabel tituloDanioTerrestre = new JLabel("Danio Terrestre:");
-        JLabel tituloDanioAereo = new JLabel("Danio Aereo:");
-        JLabel tituloRangoAtaqueTerrestre = new JLabel("Rango De Ataque Terrestre:");
-        JLabel tituloRangoAtaqueAereo = new JLabel("Rango De Ataque Aereo:");
+        JLabel tituloDanioTerrestre = new JLabel("Danio Terrestre: ");
+        JLabel tituloDanioAereo = new JLabel("Danio Aereo: ");
+        JLabel tituloRangoAtaqueTerrestre = new JLabel("Rango De Ataque Terrestre: ");
+        JLabel tituloRangoAtaqueAereo = new JLabel("Rango De Ataque Aereo: ");
 
         paneldanioTerrestre.setLayout(new BoxLayout(paneldanioTerrestre, BoxLayout.X_AXIS));
         paneldanioTerrestre.setOpaque(false);

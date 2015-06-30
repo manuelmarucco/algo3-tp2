@@ -41,7 +41,7 @@ public class PanelUnidadTransporte extends PanelUnidad{
         super.crearPaneles();
 
         JPanel panelCapacidad = new JPanel();
-        JLabel tituloCapacidad = new JLabel("Capacidad:");
+        JLabel tituloCapacidad = new JLabel("Capacidad: ");
 
         panelCapacidad.setLayout(new BoxLayout(panelCapacidad, BoxLayout.X_AXIS));
         panelCapacidad.setOpaque(false);

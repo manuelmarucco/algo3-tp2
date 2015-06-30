@@ -112,21 +112,22 @@ public abstract class VentanaJugador extends JFrame {
         this.panelSuperior.setLayout(new BoxLayout(panelSuperior, BoxLayout.X_AXIS));
         this.panelSuperior.setPreferredSize(new Dimension(700, 35));
 
-        this.displaySonido = new DisplaySonido(soundtrack);;
+        this.displaySonido = new DisplaySonido(soundtrack);
         this.panelSuperior.add(displaySonido);
         this.contenedor.add(this.panelSuperior, "North");
 
     }
 
     protected void crearPanelInferior(){
-        this.panelAcciones=new PanelAcciones(accionActuarEnEspera);
         this.panelInferior = new JPanel( new BorderLayout() );
-        this.panelInferior.add(new PanelTerminarTurno(ventanaJuego), "East");
 
+        this.panelAcciones = new PanelAcciones(accionActuarEnEspera);
         DisplayAcciones displayAcciones = new DisplayAcciones();
         displayAcciones.agregarBotonera(panelAcciones);
-       // this.panelInferior.add(panelAcciones, "Center");
+
         this.panelInferior.add(displayAcciones, "Center");
+
+        this.panelInferior.add(new PanelTerminarTurno(ventanaJuego), "East");
 
         this.contenedor.add(this.panelInferior, "South");
 
