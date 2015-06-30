@@ -170,7 +170,7 @@ public class PanelAcciones extends JPanel {
         this.button1.setVisible(true);
         this.button1.addMouseListener(new ActionEntrenarZealot(unidad));
         // Boton 2 -----------------------------------------------------------------------------------------------------
-        this.button1.actualizarCaracteristicas("Entrenar Dragon", "125", "50", "2");
+        this.button2.actualizarCaracteristicas("Entrenar Dragon", "125", "50", "2");
         this.button2.setEnabled(true);
         this.button2.setVisible(true);
         this.button2.addMouseListener(new ActionEntrenarDragon(unidad));
