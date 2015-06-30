@@ -25,11 +25,7 @@ public class NaveCiencia extends UnidadMagica {
 
     public void EMP(Coordenada c) throws ExcepcionDeAccionDeUnidad {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
-        try {
             this.energia.gastar(100);
-        } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {
-            energiaInsuficiente.printStackTrace();
-        }
         ProxyDeHechizos.EMP(this,c);
         this.accion.actuo();
 

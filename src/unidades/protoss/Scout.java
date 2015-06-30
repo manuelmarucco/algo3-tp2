@@ -35,4 +35,9 @@ public class Scout extends UnidadGuerrera {
 
     }
 
+    @Override
+    public  void recibirEMP(){
+        this.resistencia.quitar(this.getEscudo());
+    }
+
 }

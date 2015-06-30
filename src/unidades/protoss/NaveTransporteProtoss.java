@@ -34,4 +34,9 @@ public class NaveTransporteProtoss extends UnidadTransporte implements Clonable 
         mapa.moverEnCapaAerea(this, hasta);
 
     }
+
+    @Override
+    public  void recibirEMP(){
+        this.resistencia.quitar(this.getEscudo());
+    }
 }

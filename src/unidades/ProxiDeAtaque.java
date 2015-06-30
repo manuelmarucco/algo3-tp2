@@ -2,6 +2,7 @@ package unidades;
 
 import excepciones.Unidades.ExcepcionAtacarAUnidadAliada;
 import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
+import excepciones.Unidades.ExcepcionNoPuedeAtacarAire;
 import excepciones.Unidades.ExcepcionObjetivoFueraDeRango;
 import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
@@ -37,6 +38,7 @@ public class ProxiDeAtaque {
 
     public static void comprobarRangoAereo(UnidadGuerrera atacante,Daniable defensor) throws ExcepcionDeAccionDeUnidad {
         ProxyMapa mapa = ProxyMapa.getInstance();
+        if(atacante.getRangoAereo()==0)throw new ExcepcionNoPuedeAtacarAire();
         Coordenada c1=mapa.getCoordenada(atacante);
         Coordenada c2=mapa.getCoordenada((ColocableEnMapa)defensor);
         if(c1.distancia(c2)> atacante.getRangoAereo()) throw new ExcepcionObjetivoFueraDeRango();

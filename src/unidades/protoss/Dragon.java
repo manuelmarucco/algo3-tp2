@@ -37,4 +37,9 @@ public class Dragon extends UnidadGuerrera implements Cargable, Clonable {
         mapa.moverEnCapaTerrestre(this, hasta);
 
     }
+
+    @Override
+    public  void recibirEMP(){
+        this.resistencia.quitar(this.getEscudo());
+    }
 }

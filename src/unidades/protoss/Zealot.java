@@ -44,4 +44,9 @@ public class Zealot extends UnidadGuerrera implements Cargable {
         mapa.moverEnCapaTerrestre(this, hasta);
 
     }
+
+    @Override
+    public  void recibirEMP(){
+        this.resistencia.quitar(this.getEscudo());
+    }
 }
