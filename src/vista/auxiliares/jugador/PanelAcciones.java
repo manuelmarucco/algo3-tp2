@@ -28,7 +28,7 @@ public class PanelAcciones extends JPanel {
     private JButton button1;
     private JButton button2;
     private JButton button3;
-    private JPanel panel;
+    private JPanel contenedor;
     private WraperAccionActuar accionActuarEnEspera;
 
     public  PanelAcciones(WraperAccionActuar accionActuarEnEspera){
@@ -37,7 +37,8 @@ public class PanelAcciones extends JPanel {
     }
 
     private void init() {
-        this.add(panel);
+        contenedor.setOpaque(false);
+        this.add(contenedor);
         this.limpiar();
     }
 

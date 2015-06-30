@@ -122,7 +122,11 @@ public abstract class VentanaJugador extends JFrame {
         this.panelAcciones=new PanelAcciones(accionActuarEnEspera);
         this.panelInferior = new JPanel( new BorderLayout() );
         this.panelInferior.add(new PanelTerminarTurno(ventanaJuego), "East");
-        this.panelInferior.add(panelAcciones, "Center");
+
+        DisplayAcciones displayAcciones = new DisplayAcciones();
+        displayAcciones.agregarBotonera(panelAcciones);
+       // this.panelInferior.add(panelAcciones, "Center");
+        this.panelInferior.add(displayAcciones, "Center");
 
         this.contenedor.add(this.panelInferior, "South");
 
