@@ -76,8 +76,8 @@ public class DisplayMapa extends JPanel {
         JPanel vision=controlador.armarPanelDeVisionDisponible(this.cantidadTilesHorizontales, this.cantidadTilesVerticales, this.ventana.obtenerJugador());
         JPanel poderes=controlador.armarPanelPoderes(this.cantidadTilesHorizontales,this.cantidadTilesVerticales,this.ventana);
         paneles.add(accionable);
-        paneles.add(poderes);
         paneles.add(vision);
+        paneles.add(poderes);
         paneles.add(aereo);
         paneles.add(recursos);
         paneles.add(terrestre);
