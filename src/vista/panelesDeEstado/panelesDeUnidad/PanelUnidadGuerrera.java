@@ -1,5 +1,8 @@
 package vista.panelesDeEstado.panelesDeUnidad;
 
+import unidades.UnidadGuerrera;
+import unidades.protoss.ResistenciaProtoss;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,6 +12,7 @@ public class PanelUnidadGuerrera extends PanelUnidad{
     private JLabel danioAereo;
     private  JLabel rangoAtaqueTerrestre;
     private  JLabel rangoAtaqueAereo;
+    private UnidadGuerrera unidadGuerrera;
 
 
     public PanelUnidadGuerrera(){
@@ -98,6 +102,20 @@ public class PanelUnidadGuerrera extends PanelUnidad{
     }
     public void setRangoAtaqueAereo(String string){
         rangoAtaqueAereo.setText(string);
+    }
+
+    public void cargarDatosActualizables(UnidadGuerrera unidadGuerrera){
+        this.unidadGuerrera = unidadGuerrera;
+        this.setVida(String.valueOf(unidadGuerrera.getVida()));
+        if(escudo.isVisible()){
+            this.setEscudo(String.valueOf(((ResistenciaProtoss) unidadGuerrera.getResistencia()).getEscudoActual()));
+        }
+    }
+    @Override
+    public void repaint(){
+        if(unidadGuerrera!= null) {
+            this.cargarDatosActualizables(this.unidadGuerrera);
+        }
     }
 
 }

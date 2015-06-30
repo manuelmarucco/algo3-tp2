@@ -79,6 +79,7 @@ public abstract class PanelUnidad extends JPanel {
         panelPrincipal.add(panelEscudo);
         panelPrincipal.add(Box.createRigidArea(new Dimension(10, 10)));
 
+        escudo.setVisible(false);
         panelEscudo.setVisible(false);
 
 
@@ -96,6 +97,7 @@ public abstract class PanelUnidad extends JPanel {
 
     public void setEscudo(String string){
         escudo.setText(string);
+        escudo.setVisible(true);
         panelEscudo.setVisible(true);
     }
 

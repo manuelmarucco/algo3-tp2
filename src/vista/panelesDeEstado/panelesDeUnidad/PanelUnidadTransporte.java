@@ -1,6 +1,8 @@
 package vista.panelesDeEstado.panelesDeUnidad;
 
 import interfaces.Cargable;
+import unidades.UnidadTransporte;
+import unidades.protoss.ResistenciaProtoss;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -14,6 +16,7 @@ public class PanelUnidadTransporte extends PanelUnidad{
     private Container contenedorDePanelUnidadCargadas;
     private DefaultMutableTreeNode root;
     private Queue<Cargable> unidadesCargadas;
+    private UnidadTransporte unidadTransporte;
 
 
     public PanelUnidadTransporte() {
@@ -66,7 +69,7 @@ public class PanelUnidadTransporte extends PanelUnidad{
     }
 
     private void crearTreeUnidadesCargadas(Queue<Cargable> unidadesCargadas) {
-        root = new DefaultMutableTreeNode(String.valueOf(unidadesCargadas.size())+" unidad/s cargada/s");
+        root = new DefaultMutableTreeNode(String.valueOf(unidadesCargadas.size())+" unidadTransporte/s cargada/s");
         treeUnidadesCargadas = new JTree(root);
         treeUnidadesCargadas.setOpaque(false);
         treeUnidadesCargadas.setPreferredSize(new Dimension(100,20));
@@ -80,15 +83,8 @@ public class PanelUnidadTransporte extends PanelUnidad{
         //TODO no logré hacer que sea scrolleable
     }
 
-    @Override
-    public void repaint(){
-        if(this.unidadesCargadas!= null) {
-            this.contenedorDePanelUnidadCargadas.removeAll();
-            this.cargarDatosDeUnidadesCargadas(this.unidadesCargadas);
-        }
-    }
 
-    public void cargarDatosDeUnidadesCargadas(Queue<Cargable> unidadesCargadas) {
+    private void cargarDatosDeUnidadesCargadas(Queue<Cargable> unidadesCargadas) {
         this.unidadesCargadas = unidadesCargadas;
         this.mostrarUnidadesCargadas(unidadesCargadas);
     }
@@ -96,4 +92,24 @@ public class PanelUnidadTransporte extends PanelUnidad{
     public void cargarCapacidad(String string){
         this.capacidad.setText(string);
     }
+
+    public void cargarDatosActualizables(UnidadTransporte unidad) {
+        this.unidadTransporte = unidad;
+        this.setVida(String.valueOf(unidadTransporte.getVida()));
+        this.cargarDatosDeUnidadesCargadas(unidadTransporte.getUnidadesCargadas());
+        if(escudo.isVisible()){
+            this.setEscudo(String.valueOf(((ResistenciaProtoss) unidadTransporte.getResistencia()).getEscudoActual()));
+        }
+
+    }
+
+
+    @Override
+    public void repaint(){
+        if(unidadTransporte!= null) {
+            this.contenedorDePanelUnidadCargadas.removeAll();
+            this.cargarDatosActualizables(this.unidadTransporte);
+        }
+    }
+
 }

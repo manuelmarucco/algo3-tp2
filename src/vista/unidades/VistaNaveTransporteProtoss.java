@@ -44,10 +44,9 @@ public class VistaNaveTransporteProtoss extends ImagePanel implements IVista {
     private void cargarInfoAlPanelDeEstado(PanelUnidadTransporte panelDeUnidad) {
 
         panelDeUnidad.setNombre(unidad.getClass().getSimpleName());
-        panelDeUnidad.setVida(String.valueOf(unidad.getVida()));
+        panelDeUnidad.cargarDatosActualizables(unidad);
         panelDeUnidad.setVision(String.valueOf(unidad.getVision()));
         panelDeUnidad.setEscudo(String.valueOf(unidad.getEscudo()));
         panelDeUnidad.cargarCapacidad(String.valueOf(unidad.getCapacidadMaxima()));
-        panelDeUnidad.cargarDatosDeUnidadesCargadas(unidad.getUnidadesCargadas());
     }
 }

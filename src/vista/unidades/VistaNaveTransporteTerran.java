@@ -44,9 +44,8 @@ public class VistaNaveTransporteTerran extends ImagePanel implements IVista{
     private void cargarInfoAlPanelDeEstado(PanelUnidadTransporte panelDeUnidad) {
 
         panelDeUnidad.setNombre(unidad.getClass().getSimpleName());
-        panelDeUnidad.setVida(String.valueOf(unidad.getVida()));
         panelDeUnidad.setVision(String.valueOf(unidad.getVision()));
+        panelDeUnidad.cargarDatosActualizables(unidad);
         panelDeUnidad.cargarCapacidad(String.valueOf(unidad.getCapacidadMaxima()));
-        panelDeUnidad.cargarDatosDeUnidadesCargadas(unidad.getUnidadesCargadas());
     }
 }

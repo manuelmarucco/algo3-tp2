@@ -42,9 +42,8 @@ public class VistaNaveCiencia extends ImagePanel implements IVista{
     private void cargarInfoAlPanelDeEstado(PanelUnidadMagica panelDeUnidad) {
 
         panelDeUnidad.setNombre(unidad.getClass().getSimpleName());
-        panelDeUnidad.setVida(String.valueOf(unidad.getVida()));
         panelDeUnidad.setEnergiaTotal(String.valueOf(unidad.getEnergia().getEnergiaTotal()));
-        panelDeUnidad.setEnergiaActual(String.valueOf(unidad.getEnergiaActual()));
         panelDeUnidad.setVision(String.valueOf(unidad.getVision()));
+        panelDeUnidad.cargarDatosActualizables(unidad);
     }
 }

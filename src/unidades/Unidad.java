@@ -158,4 +158,9 @@ public abstract class Unidad implements Actualizable, ColocableEnMapa , Hechizab
         this.recibirDanio(danio);
     }
 
+
+    public Resistencia getResistencia(){
+        return resistencia;
+    }
+
 }

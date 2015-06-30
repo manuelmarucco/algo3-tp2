@@ -72,19 +72,18 @@ public class PanelUnidadMagica extends PanelUnidad {
         energiaTotal.setText(string);
     }
 
-    public void cargarDatosActualizablesDeUnidadMagica(UnidadMagica unidadMagica){
+    public void cargarDatosActualizables(UnidadMagica unidadMagica){
         this.unidadMagica = unidadMagica;
         this.setVida(String.valueOf(unidadMagica.getVida()));
         this.setEnergiaActual(String.valueOf(unidadMagica.getEnergiaActual()));
-        if(escudo != null){
+        if(escudo.isVisible()){
             this.setEscudo(String.valueOf(((ResistenciaProtoss) unidadMagica.getResistencia()).getEscudoActual()));
         }
     }
-
     @Override
     public void repaint(){
-        if(this.unidadMagica!= null) {
-            this.cargarDatosActualizablesDeUnidadMagica(this.unidadMagica);
+        if(unidadMagica!= null) {
+            this.cargarDatosActualizables(this.unidadMagica);
         }
     }
 }

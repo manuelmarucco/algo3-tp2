@@ -44,9 +44,9 @@ public class VistaScout extends ImagePanel implements IVista{
     private void cargarInfoAlPanelDeEstado(PanelUnidadGuerrera panelDeUnidad) {
 
         panelDeUnidad.setNombre(unidad.getClass().getSimpleName());
-        panelDeUnidad.setVida(String.valueOf(unidad.getVida()));
         panelDeUnidad.setVision(String.valueOf(unidad.getVision()));
         panelDeUnidad.setEscudo(String.valueOf(unidad.getEscudo()));
+        panelDeUnidad.cargarDatosActualizables(unidad);
         panelDeUnidad.setDanioTerrestre(String.valueOf(unidad.getDanioTerrestre()));
         panelDeUnidad.setDanioAereo(String.valueOf(unidad.getDanioAereo()));
         panelDeUnidad.setRangoAtaqueTerrestre(String.valueOf(unidad.getRangoTerrestre()));

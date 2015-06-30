@@ -44,7 +44,7 @@ public class VistaAltoTemplario extends ImagePanel implements IVista{
         panelDeUnidad.setNombre(altoTemplario.getClass().getSimpleName());
         panelDeUnidad.setEnergiaTotal(String.valueOf(altoTemplario.getEnergia().getEnergiaTotal()));
         panelDeUnidad.setVision(String.valueOf(altoTemplario.getVision()));
-        panelDeUnidad.setEscudo(String.valueOf(altoTemplario.getEscudo())); //TODO ver como hacer con el escud actualizavble
-        panelDeUnidad.cargarDatosActualizablesDeUnidadMagica(altoTemplario);
+        panelDeUnidad.setEscudo(String.valueOf(altoTemplario.getEscudo()));
+        panelDeUnidad.cargarDatosActualizables(altoTemplario);
     }
 }
