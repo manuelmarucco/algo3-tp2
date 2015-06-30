@@ -10,6 +10,7 @@ import excepciones.construcciones.ExcepcionRecursosInsuficientes;
 import interfaces.ColocableEnMapa;
 import interfaces.Construible;
 import interfaces.Daniable;
+import interfaces.Hechizable;
 import jugabilidad.Mapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.auxiliares.Costo;
@@ -21,7 +22,7 @@ import java.util.ArrayList;
 
 
 
-public abstract class Construccion implements ColocableEnMapa,Construible, Daniable {
+public abstract class Construccion implements ColocableEnMapa,Construible, Daniable , Hechizable {
 	
 	//protected Regeneracion regenerar;
 
@@ -102,6 +103,10 @@ public abstract class Construccion implements ColocableEnMapa,Construible, Dania
 	public  void recibirEMP(){}
 
 	public void recibirRadiacion(int danio){}
+
+	public void irradiar(){
+
+	}
 
 /*
 	@Override

@@ -78,5 +78,11 @@ public class ArchivosTemplarios extends CentroDeEntrenamiento implements IEdific
 	public Clon getClon() throws ExcepcionNoSePuedeClonarEdificio {
 		throw new ExcepcionNoSePuedeClonarEdificio();
 	}
+
+	@Override
+	public void update(){
+		super.update();
+		this.resistencia.regenerar();
+	}
 }
 

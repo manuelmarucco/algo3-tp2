@@ -88,4 +88,10 @@ public class PortalEstelar extends CentroDeEntrenamiento implements IEdificioPro
 	public Clon getClon() throws ExcepcionNoSePuedeClonarEdificio {
 		throw new ExcepcionNoSePuedeClonarEdificio();
 	}
+
+	@Override
+	public void update(){
+		super.update();
+		this.resistencia.regenerar();
+	}
 }

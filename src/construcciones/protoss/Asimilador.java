@@ -58,6 +58,7 @@ public class Asimilador extends CentroDeRecoleccion implements IEdificioProtoss,
 	public void update() {
 		super.update();
 		recursosDeJugador.agregarRecursos(0, this.obtenerRecurso());
+		resistencia.regenerar();
 	}
 
 	@Override

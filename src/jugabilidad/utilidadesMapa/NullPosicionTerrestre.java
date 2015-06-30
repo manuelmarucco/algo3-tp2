@@ -2,9 +2,10 @@ package jugabilidad.utilidadesMapa;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.ColocableEnMapa;
+import interfaces.Hechizable;
 import jugabilidad.Mapa;
 
-public class NullPosicionTerrestre implements ColocableEnMapa {
+public class NullPosicionTerrestre implements ColocableEnMapa, Hechizable {
 
     public NullPosicionTerrestre(){
 
@@ -19,6 +20,26 @@ public class NullPosicionTerrestre implements ColocableEnMapa {
 
     @Override
     public void moverse(Coordenada hasta, Mapa mapa) throws ExcepcionNoSePudoAgregarAlMapa{
+
+    }
+
+    @Override
+    public void recibirEMP() {
+
+    }
+
+    @Override
+    public void irradiar() {
+
+    }
+
+    @Override
+    public void recibirDanio(int danio) {
+
+    }
+
+    @Override
+    public void recibirRadiacion(int danioAire) {
 
     }
 }

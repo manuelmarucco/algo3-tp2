@@ -84,4 +84,5 @@ public class EdificioEnInvocacion implements ColocableEnMapa, Daniable , Clonabl
     public Clon getClon() throws ExcepcionNoSePuedeClonarEdificio {
         throw new ExcepcionNoSePuedeClonarEdificio();
     }
+
 }

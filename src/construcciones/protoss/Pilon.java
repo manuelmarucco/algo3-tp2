@@ -37,4 +37,9 @@ public class Pilon extends CentroDeSuministros implements IEdificioProtoss , Clo
 		throw new ExcepcionNoSePuedeClonarEdificio();
 	}
 
+	@Override
+	public void update(){
+		super.update();
+		this.resistencia.regenerar();
+	}
 }

@@ -57,6 +57,7 @@ public class NexoMineral extends CentroDeRecoleccion implements IEdificioProtoss
 	public void update() {
 		super.update();
 		recursosDeJugador.agregarRecursos(this.obtenerRecurso(), 0);
+		this.resistencia.regenerar();
 	}
 
 	@Override
@@ -68,4 +69,6 @@ public class NexoMineral extends CentroDeRecoleccion implements IEdificioProtoss
 	public Clon getClon() throws ExcepcionNoSePuedeClonarEdificio {
 		throw new ExcepcionNoSePuedeClonarEdificio();
 	}
+
+
 }

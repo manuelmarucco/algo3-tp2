@@ -70,4 +70,10 @@ public class Acceso extends CentroDeEntrenamiento implements IEdificioProtoss, C
 	public Clon getClon() throws ExcepcionNoSePuedeClonarEdificio {
 		throw new ExcepcionNoSePuedeClonarEdificio();
 	}
+
+	@Override
+	public void update(){
+		super.update();
+		this.resistencia.regenerar();
+	}
 }
