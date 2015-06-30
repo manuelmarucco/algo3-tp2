@@ -14,9 +14,8 @@ import java.util.ArrayList;
 public class ProxiDeAtaque {
     private static ArrayList<Jugador> jugadores= new ArrayList<>();
 
-    public static void inicializar(Jugador j1,Jugador j2){
-        jugadores.add(j1);
-        jugadores.add(j2);
+    public static void inicializar(Jugador jugador){
+        jugadores.add(jugador);
     }
 
     public void agregarJugador(Jugador jugador){

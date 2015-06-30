@@ -19,6 +19,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import unidades.ProxiDeAtaque;
+import unidades.ProxyDeHechizos;
 import unidades.terrran.Marine;
 
 public class ConstrucionesUnidadesYSuministros {
@@ -120,7 +121,10 @@ public class ConstrucionesUnidadesYSuministros {
         j1.setVisibilidad(Vision.VisionCompleta(20, 20));
         JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(0,20));
         j2.setVisibilidad(Vision.VisionCompleta(20, 20));
-        ProxiDeAtaque.inicializar(j2, j1);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
+        ProxyDeHechizos.inicializar(j1);
+        ProxyDeHechizos.inicializar(j2);
         DepositoDeSuministros d;
         Marine m = new Marine(Vision.VisionCompleta(10,10));
         Coordenada coordDeDepot = new Coordenada(5, 6);
@@ -143,7 +147,7 @@ public class ConstrucionesUnidadesYSuministros {
 
         Assert.assertEquals( 20,s.getSuministrosLimiteActuales());
         Assert.assertFalse(j1.buscarConstruccion(d));
-        Assert.assertTrue(proxyMapa.posicionTerrestreOcupada(coordDeDepot));
+        Assert.assertFalse(proxyMapa.posicionTerrestreOcupada(coordDeDepot));
     }
 
     @Test
@@ -156,7 +160,10 @@ public class ConstrucionesUnidadesYSuministros {
         j1.setVisibilidad(Vision.VisionCompleta(20, 20));
         JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(1,20));
         j2.setVisibilidad(Vision.VisionCompleta(20, 20));
-        ProxiDeAtaque.inicializar(j2, j1);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
+        ProxyDeHechizos.inicializar(j1);
+        ProxyDeHechizos.inicializar(j2);
         Pilon p;
         Marine m = new Marine(Vision.VisionCompleta(10,10));
         Coordenada coordDePilon = new Coordenada(7, 6);
@@ -179,7 +186,7 @@ public class ConstrucionesUnidadesYSuministros {
 
         Assert.assertEquals( 20,s.getSuministrosLimiteActuales());
         Assert.assertFalse(j1.buscarConstruccion(p));
-        Assert.assertTrue(proxyMapa.posicionTerrestreOcupada(coordDePilon));
+        Assert.assertFalse(proxyMapa.posicionTerrestreOcupada(coordDePilon));
     }
 
 }

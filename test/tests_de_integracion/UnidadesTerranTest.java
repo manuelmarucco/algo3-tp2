@@ -32,7 +32,10 @@ public class UnidadesTerranTest {
     public void MarineAtacaAZealotDentroDeSuRango() throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePudoAgregarAlMapa {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorProtoss(new Recursos(200,200),new Suministros(100,200));
-        ProxiDeAtaque.inicializar(j1, j2);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
+        ProxyDeHechizos.inicializar(j1);
+        ProxyDeHechizos.inicializar(j2);
         Marine marine = new Marine(v);
         j1.agregarUnidad(marine);
         Zealot zealot = new Zealot(v);
@@ -51,7 +54,10 @@ public class UnidadesTerranTest {
     public void MarineAtacaAZealotFueraDeSuRango() throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePudoAgregarAlMapa {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorProtoss(new Recursos(200,200),new Suministros(100,200));
-        ProxiDeAtaque.inicializar(j1, j2);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
+        ProxyDeHechizos.inicializar(j1);
+        ProxyDeHechizos.inicializar(j2);
         Marine marine = new Marine(v);
         j1.agregarUnidad(marine);
         Zealot zealot = new Zealot(v);
@@ -69,7 +75,10 @@ public class UnidadesTerranTest {
     public void NaveCienciaLanzaEMPDejaSinEscudoYEnergiaAUnAltoTemplario() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
-        ProxyDeHechizos.inicializar(j1, j2);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
+        ProxyDeHechizos.inicializar(j1);
+        ProxyDeHechizos.inicializar(j2);
         NaveCiencia nc = new NaveCiencia(v);
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
@@ -94,7 +103,10 @@ public class UnidadesTerranTest {
     public void NaveCienciaLanzaRadiacionYBajaLaVidaAlTemplario() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad {//baja de a 6 por q recupera 10% de escudo por turno (4)
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
-        ProxyDeHechizos.inicializar(j1, j2);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
+        ProxyDeHechizos.inicializar(j1);
+        ProxyDeHechizos.inicializar(j2);
         NaveCiencia nc = new NaveCiencia(Vision.VisionCompleta(10,10));
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
@@ -140,7 +152,10 @@ public class UnidadesTerranTest {
     public void testAltoTemplarioSeClonaYUnaNaveDeCienciaMataAlosClones() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeClonarEdificio {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
-        ProxyDeHechizos.inicializar(j1, j2);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
+        ProxyDeHechizos.inicializar(j1);
+        ProxyDeHechizos.inicializar(j2);
         NaveCiencia nc = new NaveCiencia(v);
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
@@ -188,7 +203,10 @@ public class UnidadesTerranTest {
     public void MarineNoPuedeAtacar2VecesPorTurno() throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePudoAgregarAlMapa {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorProtoss(new Recursos(200,200),new Suministros(100,200));
-        ProxiDeAtaque.inicializar(j1, j2);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
+        ProxyDeHechizos.inicializar(j1);
+        ProxyDeHechizos.inicializar(j2);
         Marine marine = new Marine(v);
         j1.agregarUnidad(marine);
         Zealot zealot = new Zealot(v);

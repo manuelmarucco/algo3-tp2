@@ -35,8 +35,10 @@ public class unidadesTest {
         asignadorDeTurnos.agregarJugador(j1);
         asignadorDeTurnos.agregarJugador(j2);
         ProxyMapa.resetear();
-        ProxiDeAtaque.inicializar(j1, j2);
-        ProxyDeHechizos.inicializar(j1,j2);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
+        ProxyDeHechizos.inicializar(j1);
+        ProxyDeHechizos.inicializar(j2);
         v = Vision.VisionCompleta(20,20);
         this.mapa = ProxyMapa.getInstance();
         mapa.setCoordenadasMaximas(20,20);

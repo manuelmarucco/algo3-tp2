@@ -44,7 +44,8 @@ public class simulacionGanador {
         j1.setVisibilidad(Vision.VisionCompleta(25,25));
         j2.setVisibilidad(Vision.VisionCompleta(25,25));
 
-        ProxiDeAtaque.inicializar(j1, j2);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
 
         c1 =j1.construirNexoMineral(new Coordenada(3, 23)); //hay un cristal en 3,23 por defecto
         for(int i = 0; i<c1.getTiempoDeConstruccion()*2; i++ ) {
@@ -99,7 +100,8 @@ public class simulacionGanador {
         j1.setVisibilidad(Vision.VisionCompleta(25,25));
         j2.setVisibilidad(Vision.VisionCompleta(25,25));
 
-        ProxiDeAtaque.inicializar(j1, j2);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
 
         c1 =j1.construirNexoMineral(new Coordenada(3, 23)); //hay un cristal en 3,23 por defecto
         for(int i = 0; i<c1.getTiempoDeConstruccion()*2; i++ ) {

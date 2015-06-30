@@ -26,7 +26,8 @@ public class DestruccionDeEdificios {
         JugadorTerran j2 = new JugadorTerran(new Recursos(200,200),new Suministros(0,20));
         j1.setVisibilidad(Vision.VisionCompleta(20, 20));
         j2.setVisibilidad(Vision.VisionCompleta(20, 20));
-        ProxiDeAtaque.inicializar(j2, j1);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
         Marine m = new Marine(Vision.VisionCompleta(10, 10));
         Coordenada coordDePilon = new Coordenada(7, 6);
         EdificioEnInvocacion edifEnConst;

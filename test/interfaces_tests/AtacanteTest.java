@@ -32,7 +32,8 @@ public class AtacanteTest {
 
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
-        ProxiDeAtaque.inicializar(j1,j2);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
         UnidadGuerrera golliat = new Golliat();
         j1.agregarUnidad(golliat);
         Unidad objetivo = new NaveCiencia();
@@ -51,7 +52,8 @@ public class AtacanteTest {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
 
-        ProxiDeAtaque.inicializar(j1, j2);
+        ProxiDeAtaque.inicializar(j1);
+        ProxiDeAtaque.inicializar(j2);
         UnidadGuerrera golliat = new Golliat();
         j1.agregarUnidad(golliat);
         proxyMapa.agregar(golliat, new Coordenada(5, 5));

@@ -1,5 +1,6 @@
 package vista.Actions.accionesMenu;
 
+import jugabilidad.Juego;
 import jugabilidad.Jugador;
 import unidades.ProxiDeAtaque;
 import unidades.ProxyDeHechizos;
@@ -27,16 +28,18 @@ public class AccionJugar implements ActionListener {
         VentanaJugador ventana1;
         VentanaJugador ventana2;
 
+        Juego juego = this.ventanaJuego.getJuego();
+
         nombreUsado= new String();
         colorUsado= new String();
         JButton c = (JButton) (e.getSource());
         c.setVisible(false);
-        ventana1=this.crearJugador("Crear Jugador 1");
-        ventana2=this.crearJugador("Crear Jugador 2");
-        Jugador jugador1 = ventana1.obtenerJugador();
-        Jugador jugador2 = ventana2.obtenerJugador();
-        ProxyDeHechizos.inicializar(jugador1, jugador2); //TODO PONERLO EN EL MODELO
-        ProxiDeAtaque.inicializar(jugador1, jugador2);
+
+        ventana1 = this.crearJugador("Crear Jugador 1");
+        ventana2 = this.crearJugador("Crear Jugador 2");
+
+        juego.inicializarProxysDeAtaqueYHechizosDeJugadores();
+
         ventanaJuego.agregarVentana(ventana1);
         ventanaJuego.agregarVentana(ventana2);
 
