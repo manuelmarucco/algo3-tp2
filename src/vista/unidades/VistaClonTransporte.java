@@ -43,7 +43,7 @@ public class VistaClonTransporte extends ImagePanel implements IVista {
     private void cargarInfoAlPanelDeEstado(PanelUnidadGuerrera panelDeUnidad) {
 
         panelDeUnidad.setNombre(clonTransporte.getClass().toString());
-        panelDeUnidad.setVida(String.valueOf(clonTransporte.getVida()));
+        panelDeUnidad.setVida(String.valueOf(0));
         panelDeUnidad.setVision(String.valueOf(clonTransporte.getVision()));
         panelDeUnidad.setEscudo(String.valueOf(clonTransporte.getEscudo()));
     }

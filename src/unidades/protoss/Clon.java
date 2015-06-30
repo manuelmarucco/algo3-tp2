@@ -25,6 +25,7 @@ public class Clon extends Unidad implements ColocableEnMapa {
     public void matar(){
             ProxyMapa mapa = ProxyMapa.getInstance();
             mapa.quitar(this);
+            this.resistencia.quitar(resistencia.getVidaActual());
     }
 
     public  void recibirEMP(){
