@@ -6,15 +6,18 @@ import construcciones.terran.*;
 import interfaces.ColocableEnMapa;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
+import jugabilidad.auxiliares.TormentaPsionica;
 import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenada;
 import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
 import recursos.Cristal;
 import recursos.Volcan;
+import unidades.ProxyDeHechizos;
 import unidades.protoss.*;
 import unidades.terrran.*;
 import vista.IVista;
 import vista.ParselaAccionable;
+import vista.VistaTormentaPsionica;
 import vista.auxiliares.ImagePanel;
 import vista.auxiliares.jugador.imagenesMapa.HashMapParaMapa;
 import vista.edificios.protoss.*;
@@ -40,12 +43,14 @@ public class ControladorDeVistaMapa {
     private HashMapParaMapa<Class, Class> asociadorDeVistasAereas;
     private HashMap<Coordenada,ImagePanel> capaSuperior=new HashMap<>();
     private ProxyMapa proxyMapa = ProxyMapa.getInstance();
+    private HashMapParaMapa<Class, Class> asociadorDeVistasPoderes;
 
     public ControladorDeVistaMapa() {
 
         this.crearAsociadorDeClasesTerrestresConSusVistas();
         this.crearAsociadorDeClasesAereasConSusVistas();
         this.crearAsociadorDeClasesDeRecursosConSusVistas();
+        this.crearAsociadorDeClasesDePoderesConSusVistas();
 
     }
 
@@ -101,8 +106,8 @@ public class ControladorDeVistaMapa {
     public JPanel armarPanelAereo(int cantidadTilesHorizontales, int cantidadTilesVerticales, VentanaJugador ventana){
 
         JPanel panelAereo = new JPanel(new GridLayout(25,25));
-        panelAereo.setPreferredSize(new Dimension(1600,1600));
-        panelAereo.setBounds(0,0,1600,1600);
+        panelAereo.setPreferredSize(new Dimension(1600, 1600));
+        panelAereo.setBounds(0, 0, 1600, 1600);
         panelAereo.setOpaque(false);
 
         for (int j = 0; j < cantidadTilesHorizontales; j++ ){
@@ -139,7 +144,7 @@ public class ControladorDeVistaMapa {
                 parsela.setBackground(new Color(0, 0, 0, 0));
                 Coordenada coordenada = new Coordenada(i + 1, cantidadTilesHorizontales - j);
 
-                parsela.addMouseListener(new ParselaAccionable(ventana, coordenada,(IVista) capaSuperior.get(coordenada)));
+                parsela.addMouseListener(new ParselaAccionable(ventana, coordenada, (IVista) capaSuperior.get(coordenada)));
 
                 panelAccionable.add(parsela);
 
@@ -155,7 +160,7 @@ public class ControladorDeVistaMapa {
 
         JPanel panelDeVision = new JPanel(new GridLayout(25,25));
         panelDeVision.setPreferredSize(new Dimension(1600,1600));
-        panelDeVision.setBounds(0,0,1600,1600);
+        panelDeVision.setBounds(0, 0, 1600, 1600);
         panelDeVision.setBackground(new Color(0, 0, 0, 0));
         panelDeVision.setOpaque(false);
 
@@ -183,6 +188,36 @@ public class ControladorDeVistaMapa {
         }
 
         return (panelDeVision);
+    }
+
+    public JPanel armarPanelPoderes(int cantidadTilesHorizontales, int cantidadTilesVerticales,VentanaJugador ventana) {
+        JPanel panelPoderes = new JPanel(new GridLayout(25,25));
+        panelPoderes.setPreferredSize(new Dimension(1600, 1600));
+        panelPoderes.setBounds(0, 0, 25 * 64, 25 * 64);
+        panelPoderes.setOpaque(false);
+        for (int j = 0; j < cantidadTilesHorizontales; j++ ){
+
+            for (int i = 0; i < cantidadTilesVerticales; i++){
+                Coordenada coordenada = new Coordenada( i + 1, cantidadTilesHorizontales - j );
+                for(Jugador jugador: ProxyDeHechizos.getJugadores()){
+                    try {
+                        Object poder=jugador.getPodereActivado(coordenada);
+                        Class clase=null;
+                        if(poder!=null) {
+                            clase = poder.getClass();
+                        }
+                        Constructor constructor = asociadorDeVistasPoderes.get(clase).getConstructor(ColocableEnMapa.class, VentanaJugador.class);
+                        panelPoderes.add((ImagePanel) constructor.newInstance(null, ventana));
+                    } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+
+        }
+
+        return (panelPoderes);
     }
 
     // Metodos Privados ------------------------------------------------------------------------------------------------
@@ -262,6 +297,11 @@ public class ControladorDeVistaMapa {
 
     // Cargador de Hash Maps -------------------------------------------------------------------------------------------
 
+    private void crearAsociadorDeClasesDePoderesConSusVistas() {
+        asociadorDeVistasPoderes = new HashMapParaMapa<Class, Class>(VistaAire.class);
+        asociadorDeVistasPoderes.put(TormentaPsionica.class, VistaTormentaPsionica.class);
+    }
+
     private void crearAsociadorDeClasesTerrestresConSusVistas(){
 
         asociadorDeVistasTerrestres = new HashMapParaMapa<Class, Class>(VistaPasto.class);
@@ -329,5 +369,4 @@ public class ControladorDeVistaMapa {
         asociadorDeVistasRecursos.put(Cristal.class, VistaCristales.class);
 
     }
-
 }

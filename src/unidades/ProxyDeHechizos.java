@@ -21,6 +21,10 @@ public class ProxyDeHechizos {
         jugadores.add(j2);
     }
 
+    public static ArrayList<Jugador> getJugadores() {
+        return jugadores;
+    }
+
     public void agregarJugador(Jugador jugador){
         jugadores.add(jugador);
     }

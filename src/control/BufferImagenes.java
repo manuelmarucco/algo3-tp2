@@ -77,6 +77,7 @@ public class BufferImagenes {
         buffer.put("Aire", new ImageIcon("src/vista/paisaje/imagenes/aire.png"));
         buffer.put("Rocas", new ImageIcon("src/vista/paisaje/imagenes/rocas.png"));
         buffer.put("Pasto", new ImageIcon("src/vista/paisaje/imagenes/pasto.png"));
+        buffer.put("TormentaPsionica",new ImageIcon("images/tormenta.png"));
 
     }
 

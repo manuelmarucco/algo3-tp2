@@ -124,4 +124,6 @@ public abstract class Jugador implements Actualizable{
 	public void setCoordenadaDeBase(Coordenada coordenadaInicial) {
 		this.coordenadaDeBase = coordenadaInicial;
 	}
+
+	public abstract Object getPodereActivado(Coordenada coordenada);
 }

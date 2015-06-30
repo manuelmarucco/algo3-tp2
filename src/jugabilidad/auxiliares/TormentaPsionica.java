@@ -37,4 +37,8 @@ public class TormentaPsionica {
     public int getTurnos() {
         return turnos;
     }
+
+    public Coordenada getCoordenadas() {
+        return c;
+    }
 }

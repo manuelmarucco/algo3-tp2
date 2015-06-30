@@ -143,5 +143,10 @@ public class JugadorTerran extends Jugador {
         return ( construccionesCreadas.size() == 0 && unidadesCreadas.size() == 0 && edificiosEnConstruccion.size() == 0 );
     }
 
+    @Override
+    public Object getPodereActivado(Coordenada coordenada) {
+        return null;
+    }
+
 
 }

@@ -160,4 +160,12 @@ public class JugadorProtoss extends Jugador {
     public boolean noTieneMasConstruccionesYUnidades() {
         return ( construccionesCreadas.size() == 0 && unidadesCreadas.size() == 0 && edificiosEnInvocacion.size() == 0 );
     }
+
+    @Override
+    public Object getPodereActivado(Coordenada coordenada) {
+        for(TormentaPsionica t:tormentasPsionica){
+            if(t.getCoordenadas().equals(coordenada)) return t;
+        }
+        return null;
+    }
 }
