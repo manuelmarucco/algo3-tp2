@@ -22,6 +22,7 @@ public abstract class PanelUnidad extends JPanel {
         panelPrincipal = new JPanel();
         panelPrincipal.setLayout(new BoxLayout(panelPrincipal, BoxLayout.Y_AXIS));
         panelPrincipal.setOpaque(false);
+
         SonidosDelJuego.getInstance().reproducirSeleccionarUnidad();
     }
 

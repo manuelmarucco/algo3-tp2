@@ -36,6 +36,7 @@ public class BotoneraDeConstruccionesProtoss extends JPanel {
     private void init(){
 
         this.panel = new JPanel( new GridLayout(2,3,10,10));
+        this.panel.setOpaque(false);
 
         this.crearBotones();
         this.agregarBotonesAlPanel();

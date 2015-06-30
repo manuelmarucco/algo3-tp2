@@ -15,7 +15,7 @@ public class BotoneraDeConstruccionesTerran extends JPanel {
 
     // Atributos ---------------------
 
-    private JPanel panel;
+    private JPanel contenedor;
 
     private BotonConInformacionDesplegable botonCentroDeMineral;
     private BotonConInformacionDesplegable botonRefineria;
@@ -45,12 +45,12 @@ public class BotoneraDeConstruccionesTerran extends JPanel {
 
     private void init(){
 
-        this.panel = new JPanel( new GridLayout(2,3,10,10));
-
+        this.contenedor = new JPanel( new GridLayout(2,3,10,10));
+        this.contenedor.setOpaque(false);
         this.crearBotones();
         this.agregarBotonesAlPanel();
 
-        this.add(this.panel);
+        this.add(this.contenedor);
 
     }
 
@@ -86,12 +86,12 @@ public class BotoneraDeConstruccionesTerran extends JPanel {
 
     private void agregarBotonesAlPanel(){
 
-        this.panel.add(botonCentroDeMineral);
-        this.panel.add(botonRefineria);
-        this.panel.add(botonBarraca);
-        this.panel.add(botonDepositoDeSuministros);
-        this.panel.add(botonFabrica);
-        this.panel.add(botonPuertoEstelar);
+        this.contenedor.add(botonCentroDeMineral);
+        this.contenedor.add(botonRefineria);
+        this.contenedor.add(botonBarraca);
+        this.contenedor.add(botonDepositoDeSuministros);
+        this.contenedor.add(botonFabrica);
+        this.contenedor.add(botonPuertoEstelar);
 
     }
 
