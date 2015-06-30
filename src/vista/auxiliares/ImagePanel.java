@@ -39,8 +39,8 @@ public class ImagePanel extends JPanel {
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         if(bg!=null)
-            g.drawImage(bg, posicioEnPantalla.getX(), posicioEnPantalla.getY(), null);
-        g.drawImage(img, posicioEnPantalla.getX(), posicioEnPantalla.getY(), null);
+            g.drawImage(bg, posicioEnPantalla.getX(), posicioEnPantalla.getY(), this);
+        g.drawImage(img, posicioEnPantalla.getX(), posicioEnPantalla.getY(), this);
 
     }
 

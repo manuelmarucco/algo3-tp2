@@ -23,7 +23,7 @@ public class MenuPrincipal extends JFrame {
     }
 
     private void init() {
-
+        System.setProperty("sun.java2d.opengl","True");
         //inicializacion del juego en general
         ventanaJuego = new VentanaJuego(new Juego(2)); //TODO agregar opcion para mas jugadores
 
