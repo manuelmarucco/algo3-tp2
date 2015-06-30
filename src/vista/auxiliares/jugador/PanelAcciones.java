@@ -38,17 +38,6 @@ public class PanelAcciones extends JPanel {
 
     private WraperAccionActuar accionActuarEnEspera;
 
-    // -----------------------------------------------------------------------------------------------------------------
-    public static void main(String[] args){
-        PanelAcciones2 panel = new PanelAcciones2(new WraperAccionActuar());
-
-        panel.pack();
-        panel.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        panel.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        panel.setVisible(true);
-    }
-    // -----------------------------------------------------------------------------------------------------------------
-
     public  PanelAcciones(WraperAccionActuar accionActuarEnEspera){
         this.accionActuarEnEspera=accionActuarEnEspera;
         this.createUIComponents();
