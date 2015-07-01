@@ -5,8 +5,6 @@ import vista.VentanaJuego;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.font.TextAttribute;
 import java.util.Map;
 
@@ -14,9 +12,9 @@ public class VentanaGanador extends JFrame {
 
     JPanel contenedor;
 
-    public VentanaGanador(VentanaJuego ventanaJuego) {
+    public VentanaGanador(VentanaJuego ventanaJuego,String nombreGanador) {
         this.init();
-        this.mostrarGanador(ventanaJuego.getJuego().getJugadorGanador().getNombre());
+        this.mostrarGanador(nombreGanador);
         this.mostrarVentanaGanador();
         ventanaJuego.cerrarVentanas();
     }

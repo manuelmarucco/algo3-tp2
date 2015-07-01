@@ -9,6 +9,7 @@ public class AdministradorDeTurnos implements Actualizable{
     private Jugador jugadorDelTurnoActual;
     private ArrayList<Jugador> jugadores = new ArrayList<>();
     private int iterador;
+    private boolean primerTurno=true;
 
     public AdministradorDeTurnos(){
 
@@ -43,10 +44,11 @@ public class AdministradorDeTurnos implements Actualizable{
         Jugador j;
         for(int i = 0; i < jugadores.size(); i++){
             j = jugadores.get(i);
-            if(j != jugadorDelTurnoActual && j.noTieneMasConstruccionesYUnidades()){
+            if(!primerTurno&& j.noTieneMasConstruccionesYUnidades()){
                 jugadores.remove(j);
             }
         }
+        primerTurno=false;
     }
 
     public Jugador getGanador(){
