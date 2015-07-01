@@ -2,6 +2,7 @@ package construcciones;
 
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Mapa.ExcepcionPosicionOcupada;
+import excepciones.construcciones.ExcepcionLaConstruccionDebeConstruiseSobreUnRecurso;
 import interfaces.ColocableEnMapa;
 import interfaces.Recolectable;
 import jugabilidad.Mapa;
@@ -17,17 +18,21 @@ public abstract class CentroDeRecoleccion extends Construccion {
     @Override
     public void agregarse(Mapa mapa, Coordenada coordenada) {
 
-        this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaDeRecursos(coordenada);
+        if ( mapa.posicionDeRecursosOcupada(coordenada)) {
 
-        // Borra el NULL OBJECT
-        mapa.borrarEnCapaTerrestre(coordenada);
-        // Saco el recurso del mapa. Cuando el edificio sea destruido lo repongo.
-        mapa.borrarEnCapaDeRecursos(coordenada);
+            this.estructuraRecolectable = (Recolectable) mapa.obtenerDeCapaDeRecursos(coordenada);
 
-        try {
-            mapa.agregarEnCapaTerrestre(this, coordenada);
-        } catch (ExcepcionPosicionOcupada e) {
-            e.printStackTrace();
+            // Borra el NULL OBJECT
+            mapa.borrarEnCapaTerrestre(coordenada);
+            // Saco el recurso del mapa. Cuando el edificio sea destruido lo repongo.
+            mapa.borrarEnCapaDeRecursos(coordenada);
+
+            try {
+                mapa.agregarEnCapaTerrestre(this, coordenada);
+            } catch (ExcepcionPosicionOcupada e) {
+                e.printStackTrace();
+            }
+
         }
 
     }
