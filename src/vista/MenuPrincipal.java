@@ -34,7 +34,7 @@ public class MenuPrincipal extends JFrame {
         jugarBoton.addActionListener(new AccionJugar(ventanaJuego));
 
 
-        //configuracion del boton "Jugar"
+        //configuracion del boton "Salir"
         salirBoton.setIcon(new ImageIcon("images/menu/salirBoton.png"));
         salirBoton.setBackground(new Color(0,0,150,80));
         salirBoton.setMargin(new Insets(0, 0, 0, 0));
