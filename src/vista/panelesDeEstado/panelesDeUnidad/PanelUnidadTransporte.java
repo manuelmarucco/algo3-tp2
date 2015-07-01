@@ -80,7 +80,7 @@ public class PanelUnidadTransporte extends PanelUnidad{
         this.contenedorDePanelUnidadCargadas.add(panelUnidadesCargadas);
 
 
-        //TODO no logré hacer que sea scrolleable
+        //TODO no logro hacer que sea scrolleable
     }
 
 

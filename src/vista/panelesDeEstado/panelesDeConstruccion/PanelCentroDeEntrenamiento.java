@@ -45,7 +45,7 @@ public class PanelCentroDeEntrenamiento extends PanelConstruccion {
         this.contenedorColaYTiempo.add(panelColaDeEntrenamiento);
 
 
-        //TODO no logré hacer que sea scrolleable
+        //TODO no logro hacer que sea scrolleable
     }
 
     private void mostrarTiempoDeEntrenamiento(Entrenable unidad){
