@@ -10,11 +10,6 @@ public class PanelTerminarTurno extends JPanel {
 
     private JButton terminarTurnoBoton;
 
-/*
-    public PanelTerminarTurno(){
-        this.init();
-    }
-    */
     public PanelTerminarTurno(VentanaJuego ventanaJuego){
         this.init(ventanaJuego);
     }
@@ -29,7 +24,6 @@ public class PanelTerminarTurno extends JPanel {
         this.terminarTurnoBoton.setIcon(new ImageIcon(resizedimg));
         this.terminarTurnoBoton.setMargin(new Insets(0, 0, 0, 0));
         this.terminarTurnoBoton.addActionListener(new AccionPasarTurno(ventanaJuego));
-        //this.terminarTurnoBoton.setBorder(null);
 
         this.add(terminarTurnoBoton);
     }

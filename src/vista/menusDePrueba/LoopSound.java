@@ -1,7 +1,7 @@
 package vista.menusDePrueba;
 
 
-import vista.sonido.Sound;
+import vista.sonido.Sonido;
 
 public class LoopSound {
 
@@ -26,8 +26,8 @@ public class LoopSound {
         });
 
 */
-       // Sound soundtrack = new Sound("sounds/soundtrack.wav");
-        Sound soundtrack = new Sound("sounds/construcciones/destruccionEdificio.wav");
+       // Sonido soundtrack = new Sonido("sounds/soundtrack.wav");
+        Sonido soundtrack = new Sonido("sounds/construcciones/destruccionEdificio.wav");
 
        // soundtrack.playLoop();
         soundtrack.playSingleTime();

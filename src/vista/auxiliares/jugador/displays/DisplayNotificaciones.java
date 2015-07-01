@@ -1,4 +1,4 @@
-package vista.auxiliares.jugador;
+package vista.auxiliares.jugador.displays;
 
 import control.ObservadorDeExcepciones;
 

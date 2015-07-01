@@ -1,6 +1,6 @@
 package control;
 
-import vista.auxiliares.jugador.DisplayNotificaciones;
+import vista.auxiliares.jugador.displays.DisplayNotificaciones;
 import vista.sonido.SonidosDelJuego;
 
 import java.util.ArrayList;

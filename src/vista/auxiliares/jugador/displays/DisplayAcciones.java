@@ -1,4 +1,4 @@
-package vista.ventanaJugadores;
+package vista.auxiliares.jugador.displays;
 
 import vista.auxiliares.jugador.PanelAcciones;
 

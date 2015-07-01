@@ -5,7 +5,8 @@ import jugabilidad.RazaDeJugador.JugadorTerran;
 import jugabilidad.utilidadesMapa.Coordenada;
 import vista.VentanaJuego;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
-import vista.auxiliares.jugador.DisplayRecursos;
+import vista.auxiliares.jugador.displays.DisplayConstrucciones;
+import vista.auxiliares.jugador.displays.DisplayRecursos;
 
 import javax.swing.*;
 

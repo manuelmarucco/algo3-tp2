@@ -1,4 +1,4 @@
-package vista.ventanaJugadores;
+package vista.auxiliares.jugador.displays;
 
 import javax.swing.*;
 import java.awt.*;

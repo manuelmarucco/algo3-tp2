@@ -1,4 +1,4 @@
-package vista.Actions;
+package vista.Actions.accionesMenu;
 
 import jugabilidad.RazaDeJugador.JugadorProtoss;
 import vista.CrearJugador;
@@ -35,11 +35,11 @@ public class CrearProtoss implements ActionListener {
                     "InputError", JOptionPane.ERROR_MESSAGE);
             return;
         }
-       // Coordenada coordenadaDeBase = ventanaJuego.getJuego().getCoordenadaDeBaseDeJugadorAAgregarse();
+
         JugadorProtoss jugador = ventanaJuego.getJuego().crearJugadorProtoss(form.getNombreJugador(), form.getColorJugador());
         nombreUsado.concat(form.getNombreJugador());
         colorUsado.concat(form.getColorJugador());
-       // form.setVentana(new VentanaJugadorProtoss( jugador, ventanaJuego, coordenadaDeBase));
+
         form.setVentana(new VentanaJugadorProtoss( jugador, ventanaJuego, jugador.getCoordenadaDeBase()));
         form.dispose();
     }

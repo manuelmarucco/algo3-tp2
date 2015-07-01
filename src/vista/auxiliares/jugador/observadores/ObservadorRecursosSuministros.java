@@ -1,6 +1,6 @@
-package vista.ventanaJugadores;
+package vista.auxiliares.jugador.observadores;
 
-import vista.auxiliares.jugador.DisplayRecursos;
+import vista.auxiliares.jugador.displays.DisplayRecursos;
 
 import java.util.ArrayList;
 

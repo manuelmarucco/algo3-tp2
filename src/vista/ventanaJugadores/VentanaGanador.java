@@ -1,6 +1,7 @@
 package vista.ventanaJugadores;
 
 
+import vista.Actions.accionesJuego.ActionTerminarJuego;
 import vista.VentanaJuego;
 import vista.auxiliares.ImagePanel;
 

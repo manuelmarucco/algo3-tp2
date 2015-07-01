@@ -5,7 +5,8 @@ import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.utilidadesMapa.Coordenada;
 import vista.VentanaJuego;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
-import vista.auxiliares.jugador.DisplayRecursos;
+import vista.auxiliares.jugador.displays.DisplayConstrucciones;
+import vista.auxiliares.jugador.displays.DisplayRecursos;
 
 import javax.swing.*;
 

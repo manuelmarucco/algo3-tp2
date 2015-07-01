@@ -1,4 +1,4 @@
-package vista.ventanaJugadores;
+package vista.Actions.accionesJuego;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;

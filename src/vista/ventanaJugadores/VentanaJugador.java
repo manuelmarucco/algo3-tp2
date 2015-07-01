@@ -8,11 +8,12 @@ import vista.Actions.accionesUnidades.AccionUnidad;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
 import vista.Actions.accionesVentanaJugador.WraperAccionConstruir;
 import vista.VentanaJuego;
-import vista.auxiliares.jugador.DisplayMapa;
-import vista.auxiliares.jugador.DisplayNotificaciones;
+import vista.auxiliares.jugador.AutoScrollablePanel;
 import vista.auxiliares.jugador.PanelAcciones;
 import vista.auxiliares.jugador.PanelTerminarTurno;
-import vista.sonido.Sound;
+import vista.auxiliares.jugador.displays.*;
+import vista.auxiliares.jugador.observadores.ObservadorEstado;
+import vista.sonido.Sonido;
 
 import javax.swing.*;
 import java.awt.*;
@@ -30,7 +31,7 @@ public abstract class VentanaJugador extends JFrame {
     private DisplaySonido displaySonido;
     private DisplayAcciones displayAcciones;
 
-    private Sound soundtrack;
+    private Sonido soundtrack;
 
     protected WraperAccionConstruir accionConstruirEnEspera;
     private WraperAccionActuar accionActuarEnEspera;
@@ -46,7 +47,6 @@ public abstract class VentanaJugador extends JFrame {
 
     // Metodos -------------------------
     protected void init(){
-        ObservadorEstado.getInstance().agregarVentana(this);
         this.accionConstruirEnEspera = new WraperAccionConstruir();
         this.accionActuarEnEspera = new WraperAccionActuar();
         this.inicializarSonido();
@@ -54,10 +54,12 @@ public abstract class VentanaJugador extends JFrame {
         this.add(this.contenedor);
 
 
+       // ObservadorEstado.getInstance().agregarVentana(this);
+        ObservadorEstado.getInstance().agregarDisplayEstadoDelJugador(displayEstado);
     }
 
     private void inicializarSonido(){
-        this.soundtrack = new Sound("sounds/soundtrack.wav");
+        this.soundtrack = new Sonido("sounds/soundtrack.wav");
     }
 
     public void activarMusica(){

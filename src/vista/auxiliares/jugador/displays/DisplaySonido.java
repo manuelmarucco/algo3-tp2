@@ -1,7 +1,7 @@
-package vista.ventanaJugadores;
+package vista.auxiliares.jugador.displays;
 
 import vista.Actions.accionesVentanaJugador.AccionBotonSonido;
-import vista.sonido.Sound;
+import vista.sonido.Sonido;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +13,7 @@ public class DisplaySonido extends JPanel {
     private JButton botonSonido;
     private JLabel background;
 
-    public DisplaySonido(Sound soundtrack){
+    public DisplaySonido(Sonido soundtrack){
 
         this.initBotonSonido(soundtrack);
         this.initBackground();
@@ -22,7 +22,7 @@ public class DisplaySonido extends JPanel {
 
     }
 
-    private void initBotonSonido(Sound soundtrack) {
+    private void initBotonSonido(Sonido soundtrack) {
         this.botonSonido = new JButton();
         this.botonSonido.setIcon(new ImageIcon( "images/menu/botonSonido/soundOff.png" ));
         this.botonSonido.addActionListener(new AccionBotonSonido(soundtrack));
