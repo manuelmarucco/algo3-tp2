@@ -12,43 +12,47 @@ import java.util.Map;
 public class VentanaGanador extends JFrame {
 
 
-    JPanel contenedor;
-    private ImagePanel imageBackground;
+    private JLayeredPane contenedor;
 
     public VentanaGanador(VentanaJuego ventanaJuego,String nombreGanador) {
-        this.init();
-        this.mostrarGanador(nombreGanador);
-        this.mostrarVentanaGanador();
+
+        this.init(nombreGanador);
         ventanaJuego.cerrarVentanas();
+
     }
 
-    private void init() {
-        this.contenedor.setOpaque(false);
-        this.contenedor.setLayout(new BoxLayout(this.contenedor,BoxLayout.Y_AXIS));
-        this.contenedor.add(this.imageBackground);
+    private void init(String nombreGanador) {
+
+        this.contenedor = new JLayeredPane();
+
+        this.armarComponentes(nombreGanador);
+        this.configurarVentana();
 
         this.add(contenedor);
-    }
 
-    private void mostrarVentanaGanador() {
-        this.setPreferredSize(new Dimension(657,364));
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.pack();
-        this.setVisible(true);
     }
 
 
-    private void mostrarGanador(String nombreGanador) {
-        JLabel ganador = new JLabel();
-        this.setearFuenteDeJLabel(ganador, false, Font.BOLD, 30);
-        ganador.setText(nombreGanador);
-        this.contenedor.add(ganador);
+    private void armarComponentes(String nombreGanador) {
 
-        JButton botonTerminar = new JButton();
-        botonTerminar.setText("Salir");
-        botonTerminar.addActionListener(new ActionTerminarJuego(this));
-        this.contenedor.add(botonTerminar);
+        ImagePanel imageBackground = new ImagePanel("images/menu/panelGanador.jpg", 657, 364);
 
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel,BoxLayout.Y_AXIS));
+        panel.setOpaque(false);
+
+        JLabel nombre = new JLabel();
+        this.setearFuenteDeJLabel(nombre, false, Font.BOLD, 45);
+        nombre.setText(nombreGanador);
+        panel.add(nombre);
+
+        JButton botonSalir = new JButton();
+        botonSalir.setText("Salir");
+        botonSalir.addActionListener(new ActionTerminarJuego(this));
+        panel.add(botonSalir);
+
+        //this.contenedor.add(imageBackground); // Esta se agrega
+        this.contenedor.add(panel); // No se agrega
 
     }
 
@@ -65,7 +69,16 @@ public class VentanaGanador extends JFrame {
 
     }
 
-    private void createUIComponents() {
-        this.imageBackground = new ImagePanel("images/menu/panelGanador.jpg",657,364);
+    private void configurarVentana() {
+
+        //this.setUndecorated(true);
+        //this.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
+
+        this.setPreferredSize(new Dimension(657,364));
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack();
+        this.setVisible(true);
+
     }
+
 }
