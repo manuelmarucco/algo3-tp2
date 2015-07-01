@@ -56,23 +56,5 @@ public class MenuPrincipal extends JFrame {
     private void createUIComponents() throws IOException, FontFormatException {
         imageBackground = new ImagePanel("images/menu/background.jpg",1280,720);
     }
-/*
-    public void soundplay(String wavefile) throws Exception {
-        File soundFile = new File(wavefile);
-        AudioInputStream soundIn = AudioSystem.getAudioInputStream(soundFile);
-        AudioFormat format = soundIn.getFormat();
-        DataLine.Info info = new DataLine.Info(Clip.class, format);
-
-        Clip clip = (Clip)AudioSystem.getLine(info);
-       // Clip clip = AudioSystem.getClip();
-        clip.open(soundIn);
-        clip.start();
-        while(clip.isRunning())
-        {
-            Thread.yield();
-        }
-
-    }
-*/
 
 }

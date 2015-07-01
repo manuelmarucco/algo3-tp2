@@ -89,7 +89,7 @@ public class Juego implements Actualizable{
 
     }
 
-    public Jugador ganador(){
+    public Jugador getJugadorGanador(){
         if(administradorDeTurnos.hayGanador()){
             return administradorDeTurnos.getGanador();
         }else

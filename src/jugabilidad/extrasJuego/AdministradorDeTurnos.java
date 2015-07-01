@@ -43,7 +43,7 @@ public class AdministradorDeTurnos implements Actualizable{
         Jugador j;
         for(int i = 0; i < jugadores.size(); i++){
             j = jugadores.get(i);
-            if(j.noTieneMasConstruccionesYUnidades()){
+            if(j != jugadorDelTurnoActual && j.noTieneMasConstruccionesYUnidades()){
                 jugadores.remove(j);
             }
         }

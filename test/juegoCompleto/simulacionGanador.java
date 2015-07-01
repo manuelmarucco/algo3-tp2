@@ -79,7 +79,7 @@ public class simulacionGanador {
 
         }
 
-        Assert.assertEquals(j1, juego.ganador());
+        Assert.assertEquals(j1, juego.getJugadorGanador());
 
     }
 
@@ -136,7 +136,7 @@ public class simulacionGanador {
 
         j2.construirDepositoDeSuministros(new Coordenada(11,24)); //edificio en Construccion
 
-        Assert.assertEquals(null, juego.ganador());
+        Assert.assertEquals(null, juego.getJugadorGanador());
 
     }
 

@@ -67,4 +67,10 @@ public class VentanaJuego {
     public VentanaJugador getVentanaJugadorActual(){
         return ventanaJugadorActual;
     }
+
+    public void cerrarVentanas(){
+        for(JFrame ventana: ventanasDeJugadores){
+            ventana.dispose();
+        }
+    }
 }
