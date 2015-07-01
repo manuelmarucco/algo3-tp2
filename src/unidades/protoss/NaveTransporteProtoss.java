@@ -21,7 +21,9 @@ public class NaveTransporteProtoss extends UnidadTransporte implements Clonable 
     }
 
     public ColocableEnMapa getClon() {
-        return new ClonTransporte((ResistenciaProtoss)this.resistencia,this.vision,this.ubicacion,this.movilidad,this.transporte, this);
+        ResistenciaProtoss resistenciaProtoss = new ResistenciaProtoss(resistencia.getVidaMaxima(),((ResistenciaProtoss) resistencia).getEscudoActual());
+
+        return new ClonTransporte(resistenciaProtoss,this.vision,this.ubicacion,this.movilidad,this.transporte, this);
     }
 
     public int getEscudo() {

@@ -24,7 +24,9 @@ public class Dragon extends UnidadGuerrera implements Cargable, Clonable {
     }
 
     public ColocableEnMapa getClon() throws ExcepcionNoSePuedeClonarEdificio{
-        return new ClonGuerrero((ResistenciaProtoss)this.resistencia,this.vision,this.ubicacion,this.movilidad,this.transporte,this);
+        ResistenciaProtoss resistenciaProtoss = new ResistenciaProtoss(resistencia.getVidaMaxima(),((ResistenciaProtoss) resistencia).getEscudoActual());
+
+        return new ClonGuerrero(resistenciaProtoss,this.vision,this.ubicacion,this.movilidad,this.transporte,this);
     }
 
     public int getEscudo() {
