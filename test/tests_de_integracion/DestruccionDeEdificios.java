@@ -39,7 +39,7 @@ public class DestruccionDeEdificios {
         edifEnConst = (EdificioEnInvocacion) proxyMapa.obtenerDeCapaTerrestre(coordDePilon);
 
         while(edifEnConst.getVida()!= 0){
-            m.atacarTierra(edifEnConst);
+            m.atacar(coordDePilon);
             j2.update();
         }
 

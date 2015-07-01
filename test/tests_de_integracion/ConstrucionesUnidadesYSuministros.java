@@ -139,7 +139,7 @@ public class ConstrucionesUnidadesYSuministros {
         Assert.assertEquals( 25,s.getSuministrosLimiteActuales());
 
         while(d.getVida()!= 0){
-            m.atacarTierra(d);
+            m.atacar(coordDeDepot);
             j2.update();
         }
 
@@ -178,7 +178,7 @@ public class ConstrucionesUnidadesYSuministros {
         Assert.assertEquals(25, s.getSuministrosLimiteActuales());
 
         while(p.getVida()!= 0){
-            m.atacarTierra(p);
+            m.atacar(coordDePilon);
             j2.update();
         }
 

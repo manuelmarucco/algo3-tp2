@@ -40,7 +40,7 @@ public class AtacanteTest {
         j2.agregarUnidad(objetivo);
         proxyMapa.agregar(objetivo, new Coordenada(5, 5));
         proxyMapa.agregar(golliat, new Coordenada(6, 5));
-        golliat.atacarAire(objetivo);
+        golliat.atacar(new Coordenada(5, 5));
         Assert.assertEquals(190, objetivo.getVida());
     }
 
@@ -60,7 +60,7 @@ public class AtacanteTest {
         Unidad marine = new Marine();
         j2.agregarUnidad(golliat);
         proxyMapa.agregar(marine, new Coordenada(6, 5));
-        golliat.atacarTierra(marine);
+        golliat.atacar(new Coordenada(6, 5));
         Assert.assertEquals(28, marine.getVida());
     }
 }

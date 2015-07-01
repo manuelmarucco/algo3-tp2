@@ -1,7 +1,7 @@
 package unidades;
 
-import excepciones.Unidades.*;
-import interfaces.Daniable;
+import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
+import excepciones.Unidades.ExcepcionYaActuo;
 import jugabilidad.auxiliares.Costo;
 import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenada;
@@ -18,18 +18,6 @@ public abstract class UnidadGuerrera extends Unidad {
     public UnidadGuerrera(Resistencia resistencia, Danio danio, int vision, Ubicacion ubicacion, int suministro, Costo costo, int tiempoDeEntrenamiento, int movilidad) {
         super(resistencia,vision,ubicacion,suministro,costo,tiempoDeEntrenamiento,movilidad);
         this.danio=danio;
-    }
-
-    public void atacarTierra(Daniable objetivo) throws ExcepcionDeAccionDeUnidad {
-        if(!this.accion.puedoActuar())throw new ExcepcionYaActuo();
-        ProxiDeAtaque.atacarTierra(this, objetivo);
-        this.accion=this.accion.actuo();
-    }
-
-    public void atacarAire(Daniable objetivo) throws ExcepcionDeAccionDeUnidad {
-        if(!this.accion.puedoActuar())throw new ExcepcionYaActuo();
-        ProxiDeAtaque.atacarAire(this, objetivo);
-        this.accion=this.accion.actuo();
     }
 
     public int getRangoAereo(){

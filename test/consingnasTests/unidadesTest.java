@@ -173,7 +173,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(2,2);
         mapa.agregar(m, c1);
         mapa.agregar(zl, c2);
-        m.atacarTierra(zl);
+        m.atacar(c2);
         Assert.assertEquals(54, zl.getEscudo());
     }
 
@@ -187,7 +187,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(5,2);
         mapa.agregar(m, c1);
         mapa.agregar(zl, c2);
-        m.atacarTierra(zl);
+        m.atacar(c2);
         Assert.assertEquals(54, zl.getEscudo());
     }
 
@@ -201,7 +201,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(2,2);
         mapa.agregar(g, c1);
         mapa.agregar(zl, c2);
-        g.atacarTierra(zl);
+        g.atacar(c2);
         Assert.assertEquals(48, zl.getEscudo());
     }
 
@@ -215,7 +215,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(7,3);
         mapa.agregar(g, c1);
         mapa.agregar(zl,c2);
-        g.atacarTierra(zl);
+        g.atacar(c2);
         Assert.assertEquals(54,zl.getEscudo());
     }
 
@@ -229,7 +229,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(2,2);
         mapa.agregar(e, c1);
         mapa.agregar(zl, c2);
-        e.atacarTierra(zl);
+        e.atacar(c2);
         Assert.assertEquals(52, zl.getEscudo());
     }
 
@@ -243,7 +243,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(6,2);
         mapa.agregar(e, c1);
         mapa.agregar(zl, c2);
-        e.atacarTierra(zl);
+        e.atacar(c2);;
         Assert.assertEquals(52, zl.getEscudo());
     }
 
@@ -257,7 +257,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(1,2);
         mapa.agregar(m, c1);
         mapa.agregar(zl, c2);
-        zl.atacarTierra(m);
+        zl.atacar(c1);
         Assert.assertEquals(32, m.getVida());
     }
 
@@ -271,7 +271,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(2,2);
         mapa.agregar(m, c1);
         mapa.agregar(zl, c2);
-        zl.atacarTierra(m);
+        zl.atacar(c1);
         Assert.assertEquals(54, m.getVida());
     }
 
@@ -285,7 +285,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(1,2);
         mapa.agregar(m, c1);
         mapa.agregar(zl, c2);
-        zl.atacarTierra(m);
+        zl.atacar(c1);
         Assert.assertEquals(20, m.getVida());
     }
 
@@ -299,7 +299,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(5,2);
         mapa.agregar(m, c1);
         mapa.agregar(zl, c2);
-        zl.atacarTierra(m);
+        zl.atacar(c1);
         Assert.assertEquals(54, m.getVida());
     }
 
@@ -313,7 +313,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(1,2);
         mapa.agregar(m, c1);
         mapa.agregar(zl, c2);
-        zl.atacarTierra(m);
+        zl.atacar(c1);
         Assert.assertEquals(32, m.getVida());
     }
 
@@ -327,7 +327,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(5,2);
         mapa.agregar(m, c1);
         mapa.agregar(zl, c2);
-        zl.atacarTierra(m);
+        zl.atacar(c1);
         Assert.assertEquals(54, m.getVida());
     }
 
@@ -498,7 +498,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(2,2);
         mapa.agregar(g, c1);
         mapa.agregar(zl, c2);
-        g.atacarTierra(zl);
+        g.atacar(c2);
         Assert.assertEquals(48, zl.getEscudo());
         asignadorDeTurnos.update();
         asignadorDeTurnos.update();
@@ -515,7 +515,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(2,2);
         mapa.agregar(g, c1);
         mapa.agregar(zl, c2);
-        g.atacarTierra(zl);
+        g.atacar(c2);
         Assert.assertEquals(68, zl.getEscudo());
         asignadorDeTurnos.update();
         asignadorDeTurnos.update();
@@ -532,7 +532,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(2,2);
         mapa.agregar(g, c1);
         mapa.agregar(zl, c2);
-        g.atacarAire(zl);
+        g.atacar(c2);
         Assert.assertEquals(90, zl.getEscudo());
         asignadorDeTurnos.update();
         asignadorDeTurnos.update();
@@ -549,7 +549,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(2,2);
         mapa.agregar(g, c1);
         mapa.agregar(zl, c2);
-        g.atacarTierra(zl);
+        g.atacar(c2);
         Assert.assertEquals(28, zl.getEscudo());
         asignadorDeTurnos.update();
         asignadorDeTurnos.update();
@@ -566,7 +566,7 @@ public class unidadesTest {
         Coordenada c2 = new Coordenada(2,2);
         mapa.agregar(g, c1);
         mapa.agregar(zl, c2);
-        g.atacarAire(zl);
+        g.atacar(c2);
         Assert.assertEquals(50, zl.getEscudo());
         asignadorDeTurnos.update();
         asignadorDeTurnos.update();
