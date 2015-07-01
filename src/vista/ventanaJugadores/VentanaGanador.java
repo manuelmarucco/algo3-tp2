@@ -12,7 +12,7 @@ import java.util.Map;
 public class VentanaGanador extends JFrame {
 
 
-    JPanel contenedor;
+    private JPanel contenedor;
     private ImagePanel imageBackground;
 
     public VentanaGanador(VentanaJuego ventanaJuego,String nombreGanador) {

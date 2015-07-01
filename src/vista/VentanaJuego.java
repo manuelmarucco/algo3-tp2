@@ -83,5 +83,6 @@ public class VentanaJuego {
         for(JFrame ventana: ventanasDeJugadores){
             ventana.dispose();
         }
+
     }
 }

@@ -16,7 +16,7 @@ public class MenuPrincipal extends JFrame {
     private JButton jugarBoton;
     private JButton salirBoton;
 
-    private VentanaJuego ventanaJuego;
+    //private VentanaJuego ventanaJuego;
 
     public MenuPrincipal(){
         this.init();
@@ -25,7 +25,7 @@ public class MenuPrincipal extends JFrame {
     private void init() {
         System.setProperty("sun.java2d.opengl","True");
         //inicializacion del juego en general
-        ventanaJuego = new VentanaJuego(new Juego(2)); //TODO agregar opcion para mas jugadores
+        VentanaJuego ventanaJuego = new VentanaJuego(new Juego(2)); //TODO agregar opcion para mas jugadores
 
         //configuracion del boton "Jugar"
         jugarBoton.setIcon( new ImageIcon("images/menu/botonJugar.png"));
