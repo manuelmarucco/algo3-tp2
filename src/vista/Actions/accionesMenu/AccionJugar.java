@@ -1,9 +1,6 @@
 package vista.Actions.accionesMenu;
 
 import jugabilidad.Juego;
-import jugabilidad.Jugador;
-import unidades.ProxiDeAtaque;
-import unidades.ProxyDeHechizos;
 import vista.CrearJugador;
 import vista.VentanaJuego;
 import vista.ventanaJugadores.VentanaJugador;
@@ -36,8 +33,17 @@ public class AccionJugar implements ActionListener {
         c.setVisible(false);
 
         ventana1 = this.crearJugador("Crear Jugador 1");
+        if(ventana1==null){
+            c.setVisible(true);
+            juego.reiniciar(2);
+            return;
+        }
         ventana2 = this.crearJugador("Crear Jugador 2");
-
+        if(ventana2==null){
+            c.setVisible(true);
+            juego.reiniciar(2);
+            return;
+        }
         juego.inicializarProxysDeAtaqueYHechizosDeJugadores();
 
         ventanaJuego.agregarVentana(ventana1);
