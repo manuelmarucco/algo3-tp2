@@ -3,9 +3,9 @@ package vista.Actions.accionesEntrenar;
 import construcciones.protoss.PortalEstelar;
 import control.ObservadorDeExcepciones;
 import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import vista.auxiliares.jugador.observadores.ObservadorEstado;
+import vista.auxiliares.jugador.observadores.ObservadorRecursosSuministros;
 import vista.sonido.SonidosDelJuego;
-import vista.ventanaJugadores.ObservadorEstado;
-import vista.ventanaJugadores.ObservadorRecursosSuministros;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;

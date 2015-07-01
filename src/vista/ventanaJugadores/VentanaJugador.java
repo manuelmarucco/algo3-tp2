@@ -8,34 +8,30 @@ import vista.Actions.accionesUnidades.AccionUnidad;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
 import vista.Actions.accionesVentanaJugador.WraperAccionConstruir;
 import vista.VentanaJuego;
-import vista.auxiliares.jugador.DisplayMapa;
-import vista.auxiliares.jugador.DisplayNotificaciones;
+import vista.auxiliares.jugador.AutoScrollablePanel;
 import vista.auxiliares.jugador.PanelAcciones;
 import vista.auxiliares.jugador.PanelTerminarTurno;
-import vista.sonido.Sound;
+import vista.auxiliares.jugador.displays.*;
+import vista.auxiliares.jugador.observadores.ObservadorEstado;
+import vista.sonido.Sonido;
 
 import javax.swing.*;
 import java.awt.*;
 
 public abstract class VentanaJugador extends JFrame {
 
-    // Atributos --------------------- //TODO creo q tiene muchos atributos
+    // Atributos ---------------------
     protected VentanaJuego ventanaJuego ;
     protected Coordenada coordenadaDeBase;
 
+    protected JPanel contenedor;
     protected DisplayNotificaciones displayNotificaciones;
     private DisplayEstado displayEstado;
     private DisplayMapa displayMapa;
     private DisplaySonido displaySonido;
+    private DisplayAcciones displayAcciones;
 
-    private Sound soundtrack;
-
-  //  private JScrollPane panelMapa;
-   // private JPanel panelLateral;
-    protected JPanel contenedor;
-    protected JPanel panelSuperior;
-    protected JPanel panelInferior;
-    private PanelAcciones panelAcciones;
+    private Sonido soundtrack;
 
     protected WraperAccionConstruir accionConstruirEnEspera;
     private WraperAccionActuar accionActuarEnEspera;
@@ -51,7 +47,6 @@ public abstract class VentanaJugador extends JFrame {
 
     // Metodos -------------------------
     protected void init(){
-        ObservadorEstado.getInstance().agregarVentana(this);
         this.accionConstruirEnEspera = new WraperAccionConstruir();
         this.accionActuarEnEspera = new WraperAccionActuar();
         this.inicializarSonido();
@@ -59,10 +54,12 @@ public abstract class VentanaJugador extends JFrame {
         this.add(this.contenedor);
 
 
+       // ObservadorEstado.getInstance().agregarVentana(this);
+        ObservadorEstado.getInstance().agregarDisplayEstadoDelJugador(displayEstado);
     }
 
     private void inicializarSonido(){
-        this.soundtrack = new Sound("sounds/soundtrack.wav");
+        this.soundtrack = new Sonido("sounds/soundtrack.wav");
     }
 
     public void activarMusica(){
@@ -83,7 +80,6 @@ public abstract class VentanaJugador extends JFrame {
         this.crearPanelLateral();
         this.crearPanelInferior();
 
-        //this.agregarAlContenedor();
 
     }
     private void crearPanelLateral() {
@@ -91,8 +87,6 @@ public abstract class VentanaJugador extends JFrame {
         panelLateral.setLayout(new BoxLayout(panelLateral, BoxLayout.Y_AXIS));
         this.displayNotificaciones = new DisplayNotificaciones();
         this.displayEstado = new DisplayEstado();
-       // this.panelLateral.setPreferredSize(displayNotificaciones.getDimension());
-       // this.panelLateral.setMaximumSize(displayNotificaciones.getDimension());
 
         panelLateral.add(displayNotificaciones);
         panelLateral.add(displayEstado);
@@ -106,31 +100,31 @@ public abstract class VentanaJugador extends JFrame {
         this.contenedor.setLayout(new BorderLayout());
 
     }
-
-    protected void crearPanelSuperior(){
-        this.panelSuperior = new JPanel();
-        this.panelSuperior.setLayout(new BoxLayout(panelSuperior, BoxLayout.X_AXIS));
-        this.panelSuperior.setPreferredSize(new Dimension(700, 35));
+    protected JPanel crearPanelSuperior(){
+        JPanel panelSuperior = new JPanel();
+        panelSuperior.setLayout(new BoxLayout(panelSuperior, BoxLayout.X_AXIS));
+        panelSuperior.setPreferredSize(new Dimension(700, 35));
 
         this.displaySonido = new DisplaySonido(soundtrack);
-        this.panelSuperior.add(displaySonido);
-        this.contenedor.add(this.panelSuperior, "North");
+        panelSuperior.add(displaySonido);
+        this.contenedor.add(panelSuperior, "North");
 
+        return panelSuperior;
     }
 
-    protected void crearPanelInferior(){
-        this.panelInferior = new JPanel( new BorderLayout() );
+    protected JPanel crearPanelInferior(){
+        JPanel panelInferior = new JPanel( new BorderLayout() );
 
-        this.panelAcciones = new PanelAcciones(accionActuarEnEspera);
-        DisplayAcciones displayAcciones = new DisplayAcciones();
-        displayAcciones.agregarBotonera(panelAcciones);
+        PanelAcciones panelAcciones = new PanelAcciones(accionActuarEnEspera);
+        this.displayAcciones = new DisplayAcciones(panelAcciones);
 
-        this.panelInferior.add(displayAcciones, "Center");
+        panelInferior.add(displayAcciones, "Center");
 
-        this.panelInferior.add(new PanelTerminarTurno(ventanaJuego), "East");
+        panelInferior.add(new PanelTerminarTurno(ventanaJuego), "East");
 
-        this.contenedor.add(this.panelInferior, "South");
+        this.contenedor.add(panelInferior, "South");
 
+        return panelInferior;
     }
 
     private void crearPanelMapa(){
@@ -150,23 +144,12 @@ public abstract class VentanaJugador extends JFrame {
 
     }
 
-
-/*
-    private void agregarAlContenedor(){
-
-        this.contenedor.add(this.panelSuperior, "North");
-        this.contenedor.add(this.panelLateral, "West");
-        this.contenedor.add(this.panelMapa, "Center");
-        this.contenedor.add(this.panelInferior, "South");
-
-    }
-    */
     public void mostrarPanelDeEstado(JPanel panelDeEstado){
         this.displayEstado.mostrarPanel(panelDeEstado);
     }
 
     public PanelAcciones getPanelAcciones() {
-        return panelAcciones;
+        return this.displayAcciones.getPanelAcciones();
     }
 
     public void borrarPanelDeEstadoAnterior() {

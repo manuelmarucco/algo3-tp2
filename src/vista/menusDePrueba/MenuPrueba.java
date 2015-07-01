@@ -1,6 +1,6 @@
 package vista.menusDePrueba;
 
-import vista.auxiliares.jugador.DisplayNotificaciones;
+import vista.auxiliares.jugador.displays.DisplayNotificaciones;
 
 import javax.swing.*;
 import java.awt.*;

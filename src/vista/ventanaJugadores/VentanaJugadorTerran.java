@@ -1,13 +1,12 @@
 package vista.ventanaJugadores;
 
-import jugabilidad.Juego;
 import jugabilidad.Jugador;
 import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.extrasJuego.CreadorDeMapa;
 import jugabilidad.utilidadesMapa.Coordenada;
 import vista.VentanaJuego;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesTerran;
-import vista.auxiliares.jugador.DisplayRecursos;
+import vista.auxiliares.jugador.displays.DisplayConstrucciones;
+import vista.auxiliares.jugador.displays.DisplayRecursos;
 
 import javax.swing.*;
 
@@ -28,19 +27,24 @@ public class VentanaJugadorTerran extends VentanaJugador {
 
 
     @Override
-    protected void crearPanelSuperior(){
-        super.crearPanelSuperior();
-        this.panelSuperior.add( new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros() ));
+    protected JPanel crearPanelSuperior(){
+        JPanel panelSuperior = super.crearPanelSuperior();
+
+        panelSuperior.add( new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros() ));
+
+        return panelSuperior;
     }
 
     @Override
-    protected void crearPanelInferior(){
-        super.crearPanelInferior();
+    protected JPanel crearPanelInferior(){
+        JPanel panelInferior = super.crearPanelInferior();
 
         DisplayConstrucciones botoneraConstrucciones = new DisplayConstrucciones();
         botoneraConstrucciones.agregarBotonera(new BotoneraDeConstruccionesTerran(jugador, accionConstruirEnEspera));
 
-        this.panelInferior.add(botoneraConstrucciones,"West");
+        panelInferior.add(botoneraConstrucciones,"West");
+
+        return panelInferior;
     }
 
     @Override
@@ -49,7 +53,7 @@ public class VentanaJugadorTerran extends VentanaJugador {
     }
 
     // Main ---------------------------
-
+/*
     public static void main(String[] args){
 
         CreadorDeMapa creador = new CreadorDeMapa(2);
@@ -62,5 +66,5 @@ public class VentanaJugadorTerran extends VentanaJugador {
         ventanaJugador.setVisible(true);
 
     }
-
+*/
 }

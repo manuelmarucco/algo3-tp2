@@ -8,10 +8,10 @@ import interfaces.ColocableEnMapa;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.ProxyDeHechizos;
-import vista.auxiliares.jugador.DisplayNotificaciones;
+import vista.auxiliares.jugador.displays.DisplayNotificaciones;
+import vista.auxiliares.jugador.observadores.ObservadorEstado;
+import vista.auxiliares.jugador.observadores.ObservadorRecursosSuministros;
 import vista.sonido.SonidosDelJuego;
-import vista.ventanaJugadores.ObservadorEstado;
-import vista.ventanaJugadores.ObservadorRecursosSuministros;
 import vista.ventanaJugadores.VentanaJugador;
 
 import java.awt.event.MouseEvent;

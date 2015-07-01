@@ -5,7 +5,10 @@ import jugabilidad.RazaDeJugador.JugadorProtoss;
 import jugabilidad.utilidadesMapa.Coordenada;
 import vista.VentanaJuego;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
-import vista.auxiliares.jugador.DisplayRecursos;
+import vista.auxiliares.jugador.displays.DisplayConstrucciones;
+import vista.auxiliares.jugador.displays.DisplayRecursos;
+
+import javax.swing.*;
 
 public class VentanaJugadorProtoss extends VentanaJugador {
 
@@ -24,20 +27,22 @@ public class VentanaJugadorProtoss extends VentanaJugador {
     }
 
     @Override
-    protected void crearPanelSuperior(){
-        super.crearPanelSuperior();
-        this.panelSuperior.add( new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros() ));
-
+    protected JPanel crearPanelSuperior(){
+        JPanel panelSuperior = super.crearPanelSuperior();
+        panelSuperior.add( new DisplayRecursos(jugador.getRecursos(), jugador.getSuministros() ));
+        return panelSuperior;
     }
 
     @Override
-    protected void crearPanelInferior(){
-        super.crearPanelInferior();
+    protected JPanel crearPanelInferior(){
+        JPanel panelInferior = super.crearPanelInferior();
 
         DisplayConstrucciones botoneraConstrucciones = new DisplayConstrucciones();
         botoneraConstrucciones.agregarBotonera(new BotoneraDeConstruccionesProtoss(jugador, accionConstruirEnEspera));
 
-        this.panelInferior.add(botoneraConstrucciones,"West");
+        panelInferior.add(botoneraConstrucciones,"West");
+
+        return panelInferior;
     }
 
     @Override

@@ -3,8 +3,8 @@ package vista.Actions.accionesVentanaJugador;
 import control.ObservadorDeExcepciones;
 import control.vistaMapa.ObservadorMapa;
 import vista.VentanaJuego;
-import vista.ventanaJugadores.ObservadorEstado;
-import vista.ventanaJugadores.ObservadorRecursosSuministros;
+import vista.auxiliares.jugador.observadores.ObservadorEstado;
+import vista.auxiliares.jugador.observadores.ObservadorRecursosSuministros;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,7 +20,8 @@ public class AccionPasarTurno implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         ventanaJuego.pasarTurno();
-        ventanaJuego.getVentanaJugadorActual().revalidate(); //actualiza la ventana del jugador
+
+        ventanaJuego.getVentanaJugadorActual().revalidate();
         ObservadorDeExcepciones.getInstance().borrarDisplay();
         ObservadorEstado.getInstance().informarCambios();
         ObservadorRecursosSuministros.getInstance().informarCambios();

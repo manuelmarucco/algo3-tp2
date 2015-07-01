@@ -1,4 +1,6 @@
-package vista.ventanaJugadores;
+package vista.auxiliares.jugador.displays;
+
+import vista.auxiliares.jugador.PanelAcciones;
 
 import javax.swing.*;
 import java.awt.*;
@@ -8,11 +10,14 @@ public class DisplayAcciones extends JPanel {
     private JLayeredPane layeredPane;
     private JPanel botonera;
     private JLabel background;
+    private PanelAcciones panelAcciones;
 
-    public DisplayAcciones(){
+    public DisplayAcciones(PanelAcciones panelAcciones){
 
         this.initBackground();
         this.initLayeredPane();
+        this.panelAcciones = panelAcciones;
+        this.agregarBotonera(panelAcciones);
 
     }
 
@@ -33,7 +38,7 @@ public class DisplayAcciones extends JPanel {
         this.add(layeredPane);
     }
 
-    public void agregarBotonera(JPanel botonera) {
+    private void agregarBotonera(JPanel botonera) {
         this.botonera = botonera;
         this.botonera.setOpaque(false);
         this.botonera.setBounds( 0, 25,  background.getIcon().getIconWidth(), background.getIcon().getIconHeight());
@@ -41,4 +46,7 @@ public class DisplayAcciones extends JPanel {
 
     }
 
+    public PanelAcciones getPanelAcciones() {
+        return panelAcciones;
+    }
 }

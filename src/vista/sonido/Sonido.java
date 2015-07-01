@@ -5,11 +5,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
-public class Sound {
+public class Sonido {
     private Clip clip;
     private boolean playing;
 
-    public Sound(String fileName) {
+    public Sonido(String fileName) {
         playing = false;
         try {
             File file = new File(fileName);
@@ -19,20 +19,20 @@ public class Sound {
                 this.clip.open(ais);
             }
             else {
-                throw new RuntimeException("Sound: file not found: " + fileName);
+                throw new RuntimeException("Sonido: file not found: " + fileName);
             }
         }
         catch (MalformedURLException e) {
-            throw new RuntimeException("Sound: Malformed URL: " + e);
+            throw new RuntimeException("Sonido: Malformed URL: " + e);
         }
         catch (UnsupportedAudioFileException e) {
-            throw new RuntimeException("Sound: Unsupported Audio File: " + e);
+            throw new RuntimeException("Sonido: Unsupported Audio File: " + e);
         }
         catch (IOException e) {
-            throw new RuntimeException("Sound: Input/Output Error: " + e);
+            throw new RuntimeException("Sonido: Input/Output Error: " + e);
         }
         catch (LineUnavailableException e) {
-            throw new RuntimeException("Sound: Line Unavailable: " + e);
+            throw new RuntimeException("Sonido: Line Unavailable: " + e);
         }
     }
     public void playSingleTime(){

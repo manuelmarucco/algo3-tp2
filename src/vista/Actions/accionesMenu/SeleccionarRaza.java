@@ -1,4 +1,4 @@
-package vista.Actions;
+package vista.Actions.accionesMenu;
 
 import vista.CrearJugador;
 import vista.VentanaJuego;

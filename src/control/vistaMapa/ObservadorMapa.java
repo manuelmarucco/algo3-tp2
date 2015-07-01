@@ -1,6 +1,6 @@
 package control.vistaMapa;
 
-import vista.auxiliares.jugador.DisplayMapa;
+import vista.auxiliares.jugador.displays.DisplayMapa;
 
 import java.util.ArrayList;
 

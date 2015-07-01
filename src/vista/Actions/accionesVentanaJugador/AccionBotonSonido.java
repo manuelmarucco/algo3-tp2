@@ -1,16 +1,16 @@
 package vista.Actions.accionesVentanaJugador;
 
-import vista.sonido.Sound;
+import vista.sonido.Sonido;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class AccionBotonSonido implements ActionListener {
-    private Sound soundtrack;
+    private Sonido soundtrack;
     private Boolean accionSilenciarSonido;
 
-    public AccionBotonSonido(Sound soundtrack){
+    public AccionBotonSonido(Sonido soundtrack){
         this.soundtrack = soundtrack;
         accionSilenciarSonido = false;
     }
