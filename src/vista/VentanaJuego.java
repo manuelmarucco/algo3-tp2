@@ -13,6 +13,7 @@ public class VentanaJuego {
     private Juego juego;
     private VentanaJugador ventanaJugadorActual;
     private int iterador;
+    private boolean GanoAlguien=false;
 
     public VentanaJuego(Juego juego){
         this.juego = juego;
@@ -21,13 +22,13 @@ public class VentanaJuego {
 
     public void pasarTurno() {
         this.determinarSiHayGanador();
-
         if(ventanasDeJugadores.size() == 0) return; // TODO tirar excepcion
         
         this.juego.update();
 
         this.desactivarVentanaJugadorActual();
-        this.activarVentanaJugadorSiguiente();
+        if(!this.GanoAlguien)
+            this.activarVentanaJugadorSiguiente();
         
     }
 
@@ -35,6 +36,7 @@ public class VentanaJuego {
         Jugador ganador = juego.getJugadorGanador();
         if(ganador!= null){
             new VentanaGanador(this,ganador.getNombre());
+            this.GanoAlguien=true;
         }
     }
 
