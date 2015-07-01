@@ -14,5 +14,6 @@ public class ActionTerminarJuego implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         ventana.dispose();
+        System.exit(0);
     }
 }
