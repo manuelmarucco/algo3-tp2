@@ -117,7 +117,7 @@ public class PanelAcciones extends JPanel {
         this.button2.setVisible(true);
         this.button2.addMouseListener(new ActionEmp(unidad, accionActuarEnEspera));
         // Boton 3 -----------------------------------------------------------------------------------------------------
-        this.button3.actualizarCaracteristicas("Radiacion", "50");
+        this.button3.actualizarCaracteristicas("Radiacion", "75");
         this.button3.setEnabled(true);
         this.button3.setVisible(true);
         this.button3.addMouseListener(new ActionRadiacion(unidad, accionActuarEnEspera));

@@ -14,5 +14,6 @@ public class AccionSalir implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         ventana.dispose();
+        System.exit(0);
     }
 }
