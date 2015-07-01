@@ -2,17 +2,18 @@ package vista.ventanaJugadores;
 
 
 import vista.VentanaJuego;
+import vista.auxiliares.ImagePanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.awt.font.TextAttribute;
 import java.util.Map;
 
 public class VentanaGanador extends JFrame {
 
+
     JPanel contenedor;
+    private ImagePanel imageBackground;
 
     public VentanaGanador(VentanaJuego ventanaJuego) {
         this.init();
@@ -23,15 +24,15 @@ public class VentanaGanador extends JFrame {
 
     private void init() {
         //this.getContentPane().setBackground(new Color(0, 50, 100));
-        this.contenedor = new JPanel();
         this.contenedor.setOpaque(false);
         this.contenedor.setLayout(new BoxLayout(this.contenedor,BoxLayout.Y_AXIS));
+        this.contenedor.add(this.imageBackground);
 
         this.add(contenedor);
     }
 
     private void mostrarVentanaGanador() {
-        this.setPreferredSize(new Dimension(200, 400));
+        this.setPreferredSize(new Dimension(657,364));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
@@ -45,6 +46,7 @@ public class VentanaGanador extends JFrame {
         this.contenedor.add(ganador);
 
         JButton botonTerminar = new JButton();
+        botonTerminar.setText("Salir");
         botonTerminar.addActionListener(new ActionTerminarJuego(this));
         this.contenedor.add(botonTerminar);
 
@@ -62,5 +64,9 @@ public class VentanaGanador extends JFrame {
         }
         label.setForeground(new Color(200, 200, 20));
 
+    }
+
+    private void createUIComponents() {
+        this.imageBackground = new ImagePanel("images/menu/panelGanador.jpg",657,364);
     }
 }
