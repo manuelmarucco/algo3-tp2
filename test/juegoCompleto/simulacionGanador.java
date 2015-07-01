@@ -73,12 +73,12 @@ public class simulacionGanador {
 
         zealot.mover(new Coordenada(9, 24));
         while (depositoDeSuministrosDeJugador2.getVida()!=0) {
-            zealot.atacarTierra(depositoDeSuministrosDeJugador2);
+            zealot.atacar(new Coordenada(10, 24));
             juego.update();
             juego.update();
 
         }
-
+        juego.update();
         Assert.assertEquals(j1, juego.getJugadorGanador());
 
     }
@@ -128,7 +128,7 @@ public class simulacionGanador {
         }
         d.mover(new Coordenada(9,24));
         while (c3.getVida()!=0) {
-            d.atacarTierra(c3);
+            d.atacar(new Coordenada(10, 24));
             juego.update();
             juego.update();
 
