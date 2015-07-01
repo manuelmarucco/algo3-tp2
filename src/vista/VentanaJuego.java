@@ -1,6 +1,8 @@
 package vista;
 
 import jugabilidad.Juego;
+import jugabilidad.Jugador;
+import vista.ventanaJugadores.VentanaGanador;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
@@ -18,6 +20,8 @@ public class VentanaJuego {
     }
 
     public void pasarTurno() {
+        this.determinarSiHayGanador();
+
         if(ventanasDeJugadores.size() == 0) return; // TODO tirar excepcion
         
         this.juego.update();
@@ -25,6 +29,13 @@ public class VentanaJuego {
         this.desactivarVentanaJugadorActual();
         this.activarVentanaJugadorSiguiente();
         
+    }
+
+    private void determinarSiHayGanador() {
+        Jugador ganador = juego.getJugadorGanador();
+        if(ganador!= null){
+            new VentanaGanador(this,ganador.getNombre());
+        }
     }
 
     private void activarVentanaJugadorSiguiente() {

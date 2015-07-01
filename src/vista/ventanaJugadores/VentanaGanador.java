@@ -23,7 +23,6 @@ public class VentanaGanador extends JFrame {
     }
 
     private void init() {
-        //this.getContentPane().setBackground(new Color(0, 50, 100));
         this.contenedor.setOpaque(false);
         this.contenedor.setLayout(new BoxLayout(this.contenedor,BoxLayout.Y_AXIS));
         this.contenedor.add(this.imageBackground);
