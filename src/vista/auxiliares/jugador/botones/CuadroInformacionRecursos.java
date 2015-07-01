@@ -1,17 +1,15 @@
 package vista.auxiliares.jugador.botones;
 
-import javax.imageio.ImageIO;
+import control.BufferImagenes;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.font.TextAttribute;
-import java.awt.image.BufferedImage;
-import java.io.IOException;
 import java.util.Map;
 
 public class CuadroInformacionRecursos extends JFrame {
 
     private JPanel contenedor;
-    private BufferedImage[] imagenes;
+    private BufferImagenes bufferImagenes;
 
     // Para construcciones ---------------------------------------------------------------------------------------------
     public CuadroInformacionRecursos(String cristalNecesario, String gasNecesario){
@@ -22,10 +20,10 @@ public class CuadroInformacionRecursos extends JFrame {
         this.setContentPane(new JLabel(new ImageIcon("images/menu/boton.png")));
         this.setLayout(new FlowLayout());
 
+        this.bufferImagenes = new BufferImagenes();
+
         this.contenedor = new JPanel(new GridLayout(1,3,0,1));
         this.contenedor.setOpaque(false);
-
-        this.cargarImagenes();
 
         this.contenedor.add(this.armarLabelTituloCosto());
         this.contenedor.add(this.armarLabelCristaleNecesario(cristalNecesario));
@@ -44,10 +42,10 @@ public class CuadroInformacionRecursos extends JFrame {
         this.setContentPane(new JLabel(new ImageIcon("images/menu/boton.png")));
         this.setLayout(new FlowLayout());
 
+        this.bufferImagenes = new BufferImagenes();
+
         this.contenedor = new JPanel(new GridLayout(1,4,0,1));
         this.contenedor.setOpaque(false);
-
-        this.cargarImagenes();
 
         this.contenedor.add(this.armarLabelTituloCosto());
         this.contenedor.add(this.armarLabelCristaleNecesario(cristalNecesario));
@@ -67,10 +65,10 @@ public class CuadroInformacionRecursos extends JFrame {
         this.setContentPane(new JLabel(new ImageIcon("images/menu/boton.png")));
         this.setLayout(new FlowLayout());
 
+        this.bufferImagenes = new BufferImagenes();
+
         this.contenedor = new JPanel(new GridLayout(1,2,0,1));
         this.contenedor.setOpaque(false);
-
-        this.cargarImagenes();
 
         this.contenedor.add(this.armarLabelTituloCosto());
         this.contenedor.add(this.armarLabelEnergiaNecesaria(energiaNecesaria));
@@ -80,26 +78,6 @@ public class CuadroInformacionRecursos extends JFrame {
     }
 
     // Metodos privados ------------------------------------------------------------------------------------------------
-    private void cargarImagenes(){
-
-        try{
-
-            this.imagenes = new BufferedImage[4];
-            //String pathCarpetas = "src/vista/auxiliares/jugador/imagenesRecursos/";
-            this.imagenes[0] = ImageIO.read(getClass().getResource("iconoMineral.png"));
-            this.imagenes[1] = ImageIO.read(getClass().getResource("iconoGasVespeno.png"));
-            this.imagenes[2] = ImageIO.read(getClass().getResource("man.jpg"));
-            this.imagenes[3] = ImageIO.read(getClass().getResource("iconoEnergia.png"));
-
-            imagenes[0] = cambiarTamanio(imagenes[0], 17, 17); // se cambia el tamanio sin que se pixele
-            imagenes[1] = cambiarTamanio(imagenes[1], 17, 17);
-            imagenes[3] = cambiarTamanio(imagenes[3], 17, 17);
-
-        } catch ( IOException e){
-            e.printStackTrace();
-        }
-
-    }
 
     private Component armarLabelTituloCosto() {
         JLabel titulo = new JLabel("Costo: ");
@@ -118,7 +96,7 @@ public class CuadroInformacionRecursos extends JFrame {
 
         JLabel label = new JLabel();
         label.setForeground(new Color(200,200,20));
-        label.setIcon(new ImageIcon(imagenes[0]));
+        label.setIcon( this.bufferImagenes.obtenerImagen("iconoCristal") );
         label.setText(cristalNecesario);
         label.setOpaque(false);
 
@@ -136,7 +114,7 @@ public class CuadroInformacionRecursos extends JFrame {
 
         JLabel label = new JLabel();
         label.setForeground(new Color(200,200,20));
-        label.setIcon(new ImageIcon(imagenes[1]));
+        label.setIcon( this.bufferImagenes.obtenerImagen("iconoGas") );
         label.setText(gasNecesario);
         label.setOpaque(false);
 
@@ -154,7 +132,7 @@ public class CuadroInformacionRecursos extends JFrame {
 
         JLabel label = new JLabel();
         label.setForeground(new Color(200,200,20));
-        label.setIcon(new ImageIcon(imagenes[2]));
+        label.setIcon( this.bufferImagenes.obtenerImagen("iconoSuministro") );
         label.setText(suministroNecesario);
         label.setOpaque(false);
 
@@ -171,7 +149,7 @@ public class CuadroInformacionRecursos extends JFrame {
 
         JLabel label = new JLabel();
         label.setForeground(new Color(200,200,20));
-        label.setIcon(new ImageIcon(imagenes[3]));
+        label.setIcon( this.bufferImagenes.obtenerImagen("iconoEnergia") );
         label.setText(energiaNecesaria);
         label.setOpaque(false);
 
@@ -179,17 +157,6 @@ public class CuadroInformacionRecursos extends JFrame {
 
         return panel;
 
-    }
-
-    private static BufferedImage cambiarTamanio(BufferedImage img, int newW, int newH) {
-        Image tmp = img.getScaledInstance(newW, newH, Image.SCALE_SMOOTH);
-        BufferedImage dimg = new BufferedImage(newW, newH, BufferedImage.TYPE_INT_ARGB);
-
-        Graphics2D g2d = dimg.createGraphics();
-        g2d.drawImage(tmp, 0, 0, null);
-        g2d.dispose();
-
-        return dimg;
     }
 
 }
