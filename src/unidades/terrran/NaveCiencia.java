@@ -1,5 +1,6 @@
 package unidades.terrran;
 
+import excepciones.Mapa.ExcepcionCasillaVacia;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import excepciones.Unidades.ExcepcionEnergiaInsuficiente;
@@ -20,7 +21,7 @@ public class NaveCiencia extends UnidadMagica {
         super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10,8);
     }
     public NaveCiencia(Vision visionJugador){
-        super(new ResistenciaTerran(200),new Energia(200,50,10),10,new Aereo(),2,new Costo(100,255),10,8,visionJugador,0);
+        super(new ResistenciaTerran(200), new Energia(200, 50, 10), 10, new Aereo(), 2, new Costo(100, 255), 10, 8, visionJugador, 0);
     }
 
     public void EMP(Coordenada c) throws ExcepcionDeAccionDeUnidad {
@@ -51,7 +52,7 @@ public class NaveCiencia extends UnidadMagica {
         this.accion.actuo();
     }
 
-    public void Radiacion(Coordenada objetivo) throws ExcepcionDeAccionDeUnidad {
+    public void Radiacion(Coordenada objetivo) throws ExcepcionDeAccionDeUnidad, ExcepcionCasillaVacia {
         if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
         Coordenada nc=ProxyMapa.getInstance().getCoordenada(this);
         if(this.getVision()<nc.distancia(objetivo)) throw new ExcepcionObjetivoFueraDeRango();
@@ -64,7 +65,9 @@ public class NaveCiencia extends UnidadMagica {
         else if(objTerrestre!=null){
             ((Hechizable)objTerrestre).irradiar();
         }
-        //todo agregar Excepcion
+        else{
+        throw new ExcepcionCasillaVacia();
+        }
 
         this.accion.actuo();
     }

@@ -1,5 +1,6 @@
 package vista.Actions.accionesUnidades;
 
+import excepciones.Mapa.ExcepcionCasillaVacia;
 import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
 import jugabilidad.utilidadesMapa.Coordenada;
 import unidades.terrran.NaveCiencia;
@@ -43,7 +44,7 @@ public class ActionRadiacion implements MouseListener, AccionUnidad {
 
     }
     @Override
-    public void actuarEn(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad {
+    public void actuarEn(Coordenada coordenada) throws ExcepcionDeAccionDeUnidad, ExcepcionCasillaVacia {
         unidad.Radiacion(coordenada);
         wraperAccionActuar.setAccionActuar(null);
         SonidosDelJuego.getInstance().reproducirRadiacion();
