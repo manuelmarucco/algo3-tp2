@@ -16,6 +16,7 @@ public class VistaTormentaPsionica  extends ImagePanel implements IVista {
     public VistaTormentaPsionica(ColocableEnMapa foo,VentanaJugador ventanaJugador) {
         super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("TormentaPsionica").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
         this.ventanaJugador=ventanaJugador;
+        this.setOpaque(false);
     }
 
     @Override

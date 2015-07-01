@@ -58,7 +58,7 @@ public class NaveCiencia extends UnidadMagica {
         if(this.getVision()<nc.distancia(objetivo)) throw new ExcepcionObjetivoFueraDeRango();
             this.energia.gastar(75);
         ColocableEnMapa objAereo = ProxyMapa.getInstance().obtenerDeCapaAerea(objetivo);
-        ColocableEnMapa objTerrestre = ProxyMapa.getInstance().obtenerDeCapaAerea(objetivo);
+        ColocableEnMapa objTerrestre = ProxyMapa.getInstance().obtenerDeCapaTerrestre(objetivo);
         if(objAereo!=null) {
             ((Hechizable) objAereo).irradiar();
         }
