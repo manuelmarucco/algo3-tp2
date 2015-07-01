@@ -31,7 +31,7 @@ public class CrearJugador extends JDialog {
     // Metodos publicos ------------------------------------------------------------------------------------------------
 
     public CrearJugador(VentanaJuego ventanaJuego, String titulo, String nombreUsado, String colorUsado){
-  //      this.setModalityType(ModalityType.APPLICATION_MODAL);
+        this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setTitle(titulo);
         this.init(ventanaJuego, nombreUsado, colorUsado);
     }
