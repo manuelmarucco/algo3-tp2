@@ -19,7 +19,6 @@ public class Juego implements Actualizable{
     AdministradorDeTurnos administradorDeTurnos;
     CreadorDeMapa creadorDeMapa;
     ArrayList<Coordenada> bases;
-    ArrayList<Jugador> jugadores;
 
     // Metodos
 
@@ -28,7 +27,6 @@ public class Juego implements Actualizable{
         this.administradorDeTurnos = new AdministradorDeTurnos();
         this.creadorDeMapa = new CreadorDeMapa( cantidadDeJuegadores );
         this.bases = this.creadorDeMapa.obtenerCoordenadasDeLasBases();
-        this.jugadores = new ArrayList<>();
 
     }
 
@@ -51,7 +49,7 @@ public class Juego implements Actualizable{
 
         administradorDeTurnos.agregarJugador(jugador);
 
-        this.jugadores.add(jugador);
+        this.inicializarProxysDeAtaqueYHechizosDeJugadores(jugador);
         return jugador;
     }
 
@@ -70,16 +68,14 @@ public class Juego implements Actualizable{
 
         administradorDeTurnos.agregarJugador(jugador);
 
-        this.jugadores.add(jugador);
+        this.inicializarProxysDeAtaqueYHechizosDeJugadores(jugador);
         return jugador;
     }
 
-    public void inicializarProxysDeAtaqueYHechizosDeJugadores(){
+    private void inicializarProxysDeAtaqueYHechizosDeJugadores(Jugador jugador){
 
-        for ( Jugador jugador : this.jugadores ){
-            ProxyDeHechizos.inicializar(jugador);
-            ProxiDeAtaque.inicializar(jugador);
-        }
+        ProxyDeHechizos.inicializar(jugador);
+        ProxiDeAtaque.inicializar(jugador);
 
     }
 
@@ -107,6 +103,5 @@ public class Juego implements Actualizable{
         this.administradorDeTurnos = new AdministradorDeTurnos();
         this.creadorDeMapa = new CreadorDeMapa( cantidadDeJuegadores );
         this.bases = this.creadorDeMapa.obtenerCoordenadasDeLasBases();
-        this.jugadores = new ArrayList<>();
     }
 }
