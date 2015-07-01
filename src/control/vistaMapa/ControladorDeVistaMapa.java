@@ -1,33 +1,15 @@
 package control.vistaMapa;
 
-import construcciones.EdificioEnConstruccion;
-import construcciones.protoss.*;
-import construcciones.terran.*;
 import interfaces.ColocableEnMapa;
 import jugabilidad.Jugador;
 import jugabilidad.ProxyMapa;
-import jugabilidad.auxiliares.TormentaPsionica;
 import jugabilidad.auxiliares.Vision;
 import jugabilidad.utilidadesMapa.Coordenada;
-import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
-import recursos.Cristal;
-import recursos.Volcan;
 import unidades.ProxyDeHechizos;
-import unidades.protoss.*;
-import unidades.terrran.*;
 import vista.IVista;
 import vista.ParselaAccionable;
-import vista.VistaTormentaPsionica;
 import vista.auxiliares.ImagePanel;
 import vista.auxiliares.jugador.imagenesMapa.HashMapParaMapa;
-import vista.edificios.protoss.*;
-import vista.edificios.terran.*;
-import vista.paisaje.VistaAire;
-import vista.paisaje.VistaNullPosicionTerrestre;
-import vista.paisaje.VistaPasto;
-import vista.recursos.VistaCristales;
-import vista.recursos.VistaVolcan;
-import vista.unidades.*;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
@@ -38,19 +20,24 @@ import java.util.HashMap;
 
 public class ControladorDeVistaMapa {
 
+    private AsociadorDeVistas asociadorDeVistas;
+
     private HashMapParaMapa<Class, Class> asociadorDeVistasRecursos;
     private HashMapParaMapa<Class, Class> asociadorDeVistasTerrestres;
     private HashMapParaMapa<Class, Class> asociadorDeVistasAereas;
     private HashMap<Coordenada,ImagePanel> capaSuperior=new HashMap<>();
-    private ProxyMapa proxyMapa = ProxyMapa.getInstance();
     private HashMapParaMapa<Class, Class> asociadorDeVistasPoderes;
+
+    private ProxyMapa proxyMapa = ProxyMapa.getInstance();
 
     public ControladorDeVistaMapa() {
 
-        this.crearAsociadorDeClasesTerrestresConSusVistas();
-        this.crearAsociadorDeClasesAereasConSusVistas();
-        this.crearAsociadorDeClasesDeRecursosConSusVistas();
-        this.crearAsociadorDeClasesDePoderesConSusVistas();
+        this.asociadorDeVistas = new AsociadorDeVistas();
+
+        this.asociadorDeVistasRecursos = this.asociadorDeVistas.crearAsociadorDeClasesDeRecursosConSusVistas();
+        this.asociadorDeVistasTerrestres = this.asociadorDeVistas.crearAsociadorDeClasesTerrestresConSusVistas();
+        this.asociadorDeVistasAereas = this.asociadorDeVistas.crearAsociadorDeClasesAereasConSusVistas();
+        this.asociadorDeVistasPoderes = this.asociadorDeVistas.crearAsociadorDeClasesDePoderesConSusVistas();
 
     }
 
@@ -190,6 +177,7 @@ public class ControladorDeVistaMapa {
         return (panelDeVision);
     }
 
+    @SuppressWarnings("all")
     public JPanel armarPanelPoderes(int cantidadTilesHorizontales, int cantidadTilesVerticales,VentanaJugador ventana) {
         JPanel panelPoderes = new JPanel(new GridLayout(25,25));
         panelPoderes.setPreferredSize(new Dimension(1600, 1600));
@@ -222,7 +210,7 @@ public class ControladorDeVistaMapa {
 
     // Metodos Privados ------------------------------------------------------------------------------------------------
 
-    @SuppressWarnings("unused")
+    @SuppressWarnings("all")
     private JPanel getVistaTerrestreEnPosicion(Coordenada coordenada, VentanaJugador ventana) {
 
         Class clase = null;
@@ -247,7 +235,7 @@ public class ControladorDeVistaMapa {
 
     }
 
-    @SuppressWarnings("unused")
+    @SuppressWarnings("all")
     private JPanel getVistaAereaEnPosicion(Coordenada coordenada, VentanaJugador ventana) {
 
         Class clase = null;
@@ -270,7 +258,7 @@ public class ControladorDeVistaMapa {
 
     }
 
-    @SuppressWarnings("unused")
+    @SuppressWarnings("all")
     private JPanel getVistaRecursosEnPosicion(Coordenada coordenada, VentanaJugador ventana) {
 
         Class clase = null;
@@ -295,78 +283,4 @@ public class ControladorDeVistaMapa {
 
     }
 
-    // Cargador de Hash Maps -------------------------------------------------------------------------------------------
-
-    private void crearAsociadorDeClasesDePoderesConSusVistas() {
-        asociadorDeVistasPoderes = new HashMapParaMapa<Class, Class>(VistaAire.class);
-        asociadorDeVistasPoderes.put(TormentaPsionica.class, VistaTormentaPsionica.class);
-    }
-
-    private void crearAsociadorDeClasesTerrestresConSusVistas(){
-
-        asociadorDeVistasTerrestres = new HashMapParaMapa<Class, Class>(VistaPasto.class);
-
-        //////////////////// Unidades.
-        // Terran.
-        asociadorDeVistasTerrestres.put(Marine.class, VistaMarine.class);
-        asociadorDeVistasTerrestres.put(Golliat.class, VistaGolliat.class);
-        // Protoss.
-        asociadorDeVistasTerrestres.put(ClonGuerrero.class, VistaClonGuerrero.class);
-        asociadorDeVistasTerrestres.put(ClonMagico.class, VistaClonMagico.class);
-        asociadorDeVistasTerrestres.put(ClonTransporte.class, VistaClonTransporte.class);
-        asociadorDeVistasTerrestres.put(Zealot.class, VistaZealot.class);
-        asociadorDeVistasTerrestres.put(Dragon.class, VistaDragon.class);
-        asociadorDeVistasTerrestres.put(AltoTemplario.class, VistaAltoTemplario.class);
-
-        ///////////////////// Construcciones.
-        // Terran.
-        asociadorDeVistasTerrestres.put(CentroDeMineral.class, VistaCentroDeMinerales.class);
-        asociadorDeVistasTerrestres.put(Refineria.class, VistaRefineria.class);
-        asociadorDeVistasTerrestres.put(Barraca.class, VistaBarraca.class);
-        asociadorDeVistasTerrestres.put(DepositoDeSuministros.class, VistaDepositoDeSuministros.class);
-        asociadorDeVistasTerrestres.put(Fabrica.class, VistaFabrica.class);
-        asociadorDeVistasTerrestres.put(PuertoEstelar.class, VistaPuertoEstelar.class);
-        // Protoss.
-        asociadorDeVistasTerrestres.put(NexoMineral.class, VistaNexoMineral.class);
-        asociadorDeVistasTerrestres.put(Asimilador.class, VistaAsimilador.class);
-        asociadorDeVistasTerrestres.put(Pilon.class, VistaPilon.class);
-        asociadorDeVistasTerrestres.put(Acceso.class, VistaAcceso.class);
-        asociadorDeVistasTerrestres.put(PortalEstelar.class, VistaPortalEstelar.class);
-        asociadorDeVistasTerrestres.put(ArchivosTemplarios.class, VistaArchivosTemplarios.class);
-        //Edificio en Construccion
-        asociadorDeVistasTerrestres.put(EdificioEnConstruccion.class, VistaEdificioEnConstruccion.class);
-        asociadorDeVistasTerrestres.put(EdificioEnInvocacion.class, VistaEdificioEnInvocacion.class);
-        // Paisaje.////////////////
-        asociadorDeVistasTerrestres.put(NullPosicionTerrestre.class, VistaNullPosicionTerrestre.class);
-
-
-
-    }
-
-    private void crearAsociadorDeClasesAereasConSusVistas(){
-
-        asociadorDeVistasAereas = new HashMapParaMapa<Class, Class>(VistaAire.class);
-
-        // Unidades.
-        // Terran.
-        asociadorDeVistasAereas.put(Espectro.class, VistaEspectro.class);
-        asociadorDeVistasAereas.put(NaveCiencia.class, VistaNaveCiencia.class);
-        asociadorDeVistasAereas.put(NaveTransporteTerran.class, VistaNaveTransporteTerran.class);
-        // Protoss.
-        asociadorDeVistasAereas.put(Scout.class, VistaScout.class);
-        asociadorDeVistasAereas.put(NaveTransporteProtoss.class, VistaNaveTransporteProtoss.class);
-        asociadorDeVistasAereas.put(ClonGuerrero.class, VistaClonGuerrero.class);
-        asociadorDeVistasAereas.put(ClonMagico.class, VistaClonMagico.class);
-        asociadorDeVistasAereas.put(ClonTransporte.class, VistaClonTransporte.class);
-
-    }
-
-    private void crearAsociadorDeClasesDeRecursosConSusVistas() {
-
-        asociadorDeVistasRecursos = new HashMapParaMapa<Class, Class>(VistaAire.class);
-
-        asociadorDeVistasRecursos.put(Volcan.class, VistaVolcan.class);
-        asociadorDeVistasRecursos.put(Cristal.class, VistaCristales.class);
-
-    }
 }
