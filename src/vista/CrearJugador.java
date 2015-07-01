@@ -137,7 +137,7 @@ public class CrearJugador extends JDialog {
     }
 
     private void createUIComponents() throws IOException, FontFormatException {
-        imagePanel1= new ImagePanel("src/vista/resourses/bg-creador.jpg",400,300);
+        imagePanel1= new ImagePanel("src/vista/resourses/bg-crearjugador.jpg",400,300);
         retrato = new ImagePanel("src/vista/resourses/retratoTerran.jpg",100,152);
     }
 

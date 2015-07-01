@@ -44,7 +44,6 @@ public class AccionJugar implements ActionListener {
             juego.reiniciar(2);
             return;
         }
-        juego.inicializarProxysDeAtaqueYHechizosDeJugadores();
 
         ventanaJuego.agregarVentana(ventana1);
         ventanaJuego.agregarVentana(ventana2);

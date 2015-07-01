@@ -26,11 +26,14 @@ public class VentanaGanador extends JFrame {
         this.contenedor = new JPanel();
         this.contenedor.setOpaque(false);
         this.contenedor.setLayout(new BoxLayout(this.contenedor,BoxLayout.Y_AXIS));
+
+        this.add(contenedor);
     }
 
     private void mostrarVentanaGanador() {
         this.setPreferredSize(new Dimension(200, 400));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack();
         this.setVisible(true);
     }
 
@@ -44,6 +47,8 @@ public class VentanaGanador extends JFrame {
         JButton botonTerminar = new JButton();
         botonTerminar.addActionListener(new ActionTerminarJuego(this));
         this.contenedor.add(botonTerminar);
+
+
     }
 
 
