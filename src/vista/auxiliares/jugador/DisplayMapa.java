@@ -48,8 +48,10 @@ public class DisplayMapa extends JPanel {
         this.layeredPane.removeAll();
         this.armarPaneles();
 
-        // this.layeredPane.paintComponents(this.layeredPane.getGraphics());
-        this.layeredPane.update(this.layeredPane.getGraphics());
+         //this.layeredPane.paintComponents(this.layeredPane.getGraphics());
+        //this.layeredPane.update(this.layeredPane.getGraphics());
+        this.revalidate();
+        this.repaint();
     }
 
     private void init() {
