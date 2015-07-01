@@ -20,4 +20,8 @@ public abstract class Resistencia {
     public int getVidaActual(){
         return this.vidaActual;
     }
+
+    public int getVidaMaxima() {
+        return vidaMaxima;
+    }
 }

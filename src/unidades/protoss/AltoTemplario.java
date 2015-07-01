@@ -107,6 +107,7 @@ public class AltoTemplario extends UnidadMagica implements Cargable, Clonable {
 
     @Override
     public ColocableEnMapa getClon() throws ExcepcionNoSePuedeClonarEdificio {
-        return new ClonMagico((ResistenciaProtoss)this.resistencia,this.energia,this.vision,this.ubicacion,this.movilidad,this.transporte,this);
+        ResistenciaProtoss resistenciaProtoss = new ResistenciaProtoss(resistencia.getVidaMaxima(),((ResistenciaProtoss) resistencia).getEscudoActual());
+        return new ClonMagico(resistenciaProtoss ,this.energia,this.vision,this.ubicacion,this.movilidad,this.transporte,this);
     }
 }
