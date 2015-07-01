@@ -41,23 +41,24 @@ public class VentanaGanador extends JFrame {
         panel.setOpaque(false);
 
         JLabel nombre = new JLabel();
-        this.setearFuenteDeJLabel(nombre, false, Font.BOLD, 40);
-        nombre.setText("     Felicidades: " + nombreGanador);
+        this.setearFuenteDeJLabel(nombre, Font.BOLD, 20);
+        nombre.setText("       Felicidades: " + nombreGanador);
         panel.add(nombre);
 
         JLabel infoGanador = new JLabel();
-        this.setearFuenteDeJLabel(infoGanador, false, Font.BOLD, 40);
+        this.setearFuenteDeJLabel(infoGanador, Font.BOLD, 20);
         infoGanador.setText("Por ser el ganador de la partida.");
         panel.add(infoGanador);
 
         JLabel agradecimiento = new JLabel();
-        this.setearFuenteDeJLabel(agradecimiento, false, Font.BOLD, 40);
-        agradecimiento.setText("Gracias por jugar Algocraft");
+        this.setearFuenteDeJLabel(agradecimiento, Font.BOLD, 20);
+        agradecimiento.setText("    Gracias por jugar Algocraft");
         panel.add(agradecimiento);
 
         JButton botonSalir = new JButton();
-        botonSalir.setSize(new Dimension(600, 30));
-        botonSalir.setText("Salir");
+        botonSalir.setIcon(new ImageIcon("images/menu/salirBoton.png"));
+        botonSalir.setBackground(new Color(0,0,150,80));
+        botonSalir.setMargin(new Insets(0, 0, 0, 0));
         botonSalir.addActionListener(new ActionTerminarJuego(this));
         panel.add(botonSalir);
 
@@ -66,14 +67,13 @@ public class VentanaGanador extends JFrame {
     }
 
 
-    protected void setearFuenteDeJLabel(JLabel label,boolean underline,int fontType,int fontSize){
+    protected void setearFuenteDeJLabel(JLabel label,int fontType,int fontSize){
 
         Font font = new Font("images/StarcraftNormal.ttf", fontType, fontSize);
-        if(underline){
-            Map attributes = font.getAttributes();
-            attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-            label.setFont(font.deriveFont(attributes));
-        }
+
+        Map attributes = font.getAttributes();
+        label.setFont(font.deriveFont(attributes));
+
         label.setForeground(new Color(200, 200, 20));
 
     }
@@ -84,7 +84,7 @@ public class VentanaGanador extends JFrame {
         this.getRootPane().setWindowDecorationStyle(JRootPane.NONE);
         this.setAlwaysOnTop(true);
 
-        this.setPreferredSize(new Dimension(657,364));
+        this.setPreferredSize(new Dimension(657, 364));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack();
         this.setVisible(true);
