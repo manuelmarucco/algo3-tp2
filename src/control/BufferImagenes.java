@@ -1,6 +1,9 @@
 package control;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 
@@ -17,6 +20,7 @@ public class BufferImagenes {
             this.cargarImagenesDeConstrucciones();
             this.cargarImagenesDeUnidades();
             this.cargarImagenesDePaisaje();
+            this.cargarImagenesDeIconos();
 
             } catch (IOException e) {
             e.printStackTrace();
@@ -78,6 +82,15 @@ public class BufferImagenes {
         buffer.put("Rocas", new ImageIcon("src/vista/paisaje/imagenes/rocas.png"));
         buffer.put("Pasto", new ImageIcon("src/vista/paisaje/imagenes/pasto.png"));
         buffer.put("TormentaPsionica",new ImageIcon("images/tormenta.png"));
+
+    }
+
+    private void cargarImagenesDeIconos(){
+
+        buffer.put("iconoCristal", new ImageIcon("images/iconos/iconoMineral.png"));
+        buffer.put("iconoGas", new ImageIcon("images/iconos/iconoGas.png"));
+        buffer.put("iconoSuministro", new ImageIcon("images/iconos/iconoSuministro.jpg"));
+        buffer.put("iconoEnergia",new ImageIcon("images/iconos/iconoEnergia.png"));
 
     }
 
