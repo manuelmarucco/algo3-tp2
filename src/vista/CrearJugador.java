@@ -2,6 +2,7 @@ package vista;
 
 import vista.Actions.CrearTerran;
 import vista.Actions.SeleccionarRaza;
+import vista.Actions.accionesMenu.ActionCerrarCreador;
 import vista.auxiliares.IconoColor;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;
@@ -24,12 +25,13 @@ public class CrearJugador extends JDialog {
     private JLabel razaLabel;
     private JButton aceptarButton;
     private ImagePanel retrato;
+    private JButton botonSalir;
     private VentanaJugador ventana;
 
     // Metodos publicos ------------------------------------------------------------------------------------------------
 
     public CrearJugador(VentanaJuego ventanaJuego, String titulo, String nombreUsado, String colorUsado){
-        this.setModalityType(ModalityType.APPLICATION_MODAL);
+  //      this.setModalityType(ModalityType.APPLICATION_MODAL);
         this.setTitle(titulo);
         this.init(ventanaJuego, nombreUsado, colorUsado);
     }
@@ -64,14 +66,13 @@ public class CrearJugador extends JDialog {
     // Metodos privados ------------------------------------------------------------------------------------------------
 
     private void init(VentanaJuego ventanaJuego, String nombreUsado, String colorUsuado) {
-
         aceptarButton.setIcon(new ImageIcon("src/vista/resourses/botonAceptar.png"));
         aceptarButton.setMargin(new Insets(0, 0, 0, 0));
         aceptarButton.setBackground(new Color(0, 0, 150, 80));
         aceptarButton.setVerticalTextPosition(SwingConstants.BOTTOM);
         aceptarButton.setHorizontalTextPosition(SwingConstants.CENTER);
-        aceptarButton.addActionListener(new CrearTerran(ventanaJuego, this, nombreUsado,colorUsuado));
-
+        aceptarButton.addActionListener(new CrearTerran(ventanaJuego, this, nombreUsado, colorUsuado));
+        botonSalir.addActionListener(new ActionCerrarCreador(this));
         this.add(panel1);
         raza.addItem("Terran");
         raza.addItem("Protoss");

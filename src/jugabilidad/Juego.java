@@ -102,4 +102,11 @@ public class Juego implements Actualizable{
 
     }
 
+    public void reiniciar(int cantidadDeJuegadores) {
+        ProxyMapa.resetear();
+        this.administradorDeTurnos = new AdministradorDeTurnos();
+        this.creadorDeMapa = new CreadorDeMapa( cantidadDeJuegadores );
+        this.bases = this.creadorDeMapa.obtenerCoordenadasDeLasBases();
+        this.jugadores = new ArrayList<>();
+    }
 }
