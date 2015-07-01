@@ -89,27 +89,6 @@ public class AltoTemplario extends UnidadMagica implements Cargable, Clonable {
         return true;
 
     }
-//todo no va mas este(Hay q cambiar los tests)
-    public void alucinacion(Unidad objetivo,Coordenada destino1,Coordenada destino2) throws ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeClonarEdificio {
-        if(!this.accion.puedoActuar()) throw new ExcepcionYaActuo();
-        Coordenada coordenadaObjetivo =ProxyMapa.getInstance().getCoordenada(objetivo);
-        Coordenada coordenadaAltoTemplario = ProxyMapa.getInstance().getCoordenada(this);
-        ProxyMapa mapa = ProxyMapa.getInstance();
-        if(coordenadaObjetivo.distancia(coordenadaAltoTemplario)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
-        if(coordenadaObjetivo.distancia(destino1)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
-        if(coordenadaObjetivo.distancia(destino2)>this.vision) throw new ExcepcionObjetivoFueraDeRango();
-        try {
-            this.energia.gastar(100);
-            // Por el proxy agrego que tiran excepciones
-            mapa.agregar(objetivo.getClon(), destino1);
-            mapa.agregar(objetivo.getClon(), destino2);
-        } catch (ExcepcionEnergiaInsuficiente energiaInsuficiente) {
-            energiaInsuficiente.printStackTrace();
-        } catch (ExcepcionNoSePudoAgregarAlMapa excepcionNoSePudoAgregarAlMapa) {
-            excepcionNoSePudoAgregarAlMapa.printStackTrace();
-        }
-        this.accion.actuo();
-    }
 
     public void recibirEMP(){
         super.recibirEMP();

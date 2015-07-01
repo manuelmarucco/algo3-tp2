@@ -1,5 +1,6 @@
 package tests_de_integracion;
 
+import excepciones.Mapa.ExcepcionCasillaVacia;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.*;
 import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
@@ -149,7 +150,7 @@ public class UnidadesTerranTest {
     }
 
     @Test
-    public void testAltoTemplarioSeClonaYUnaNaveDeCienciaMataAlosClones() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeClonarEdificio {
+    public void testAltoTemplarioSeClonaYUnaNaveDeCienciaMataAlosClones() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeClonarEdificio, ExcepcionCasillaVacia {
         Jugador j1 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         Jugador j2 = new JugadorTerran(new Recursos(200,200),new Suministros(100,200));
         ProxiDeAtaque.inicializar(j1);
@@ -162,8 +163,8 @@ public class UnidadesTerranTest {
         j2.agregarUnidad(at);
         Coordenada c1 = new Coordenada(3,2);
         Coordenada c2 = new Coordenada(8,8);
-        Coordenada c3 = new Coordenada(9,8);
-        Coordenada c4 = new Coordenada(8,9);
+        Coordenada c3 = new Coordenada(7,7);
+        Coordenada c4 = new Coordenada(8,7);
         ProxyMapa mapa = ProxyMapa.getInstance();
         ProxyMapa.getInstance().setCoordenadasMaximas(10, 10);
 
@@ -180,7 +181,7 @@ public class UnidadesTerranTest {
         at.update();
         at.update();
         at.update();
-        at.alucinacion(at, c3, c4);
+        at.alucinacion(c2);
         Assert.assertEquals(ClonMagico.class, mapa.obtenerDeCapaTerrestre(c3).getClass());
         Assert.assertEquals(ClonMagico.class, mapa.obtenerDeCapaTerrestre(c4).getClass());
         nc.EMP(c2);

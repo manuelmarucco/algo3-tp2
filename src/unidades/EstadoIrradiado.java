@@ -1,23 +1,26 @@
 package unidades;
 
+import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import interfaces.ColocableEnMapa;
 import interfaces.Daniable;
 import jugabilidad.ProxyMapa;
 import jugabilidad.utilidadesMapa.Coordenada;
 
+import java.util.ArrayList;
+
 public class EstadoIrradiado implements EstadoUnidad {
-    @Override//todo cambiar esto
+    @Override
     public void update(ColocableEnMapa daniable) {
         ProxyMapa mapa = ProxyMapa.getInstance();
-        Coordenada c=mapa.getCoordenada(daniable);
-        for (int i=-1;i<2;i++){
-            for (int j=-1;j<2;j++){
-                Coordenada c1 = new Coordenada(c.getX() + i, c.getY() + j);
-                if(mapa.posicionAereaOcupada(c1))
-                    ((Daniable)mapa.obtenerDeCapaAerea(c1)).recibirDanio(10);
-                if(mapa.posicionTerrestreOcupada(c1))
-                    ((Daniable)mapa.obtenerDeCapaTerrestre(c1)).recibirDanio(10);
+        Coordenada coordenada=mapa.getCoordenada(daniable);
+        try {
+            ArrayList<ColocableEnMapa> objetivos = mapa.obtenerUnidadesYConstruccionesEncerradasEnCircunferenciaDe(coordenada, 1);
+            for(ColocableEnMapa unidad:objetivos){
+                ((Daniable)unidad).recibirDanio(10);
             }
+        } catch (ExcepcionNoSePudoAgregarAlMapa excepcionNoSePudoAgregarAlMapa) {
+            excepcionNoSePudoAgregarAlMapa.printStackTrace();
         }
+
     }
 }

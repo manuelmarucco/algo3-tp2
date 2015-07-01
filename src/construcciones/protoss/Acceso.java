@@ -33,7 +33,6 @@ public class Acceso extends CentroDeEntrenamiento implements IEdificioProtoss, C
 
 
 	public int getEscudo() {
-		//TODO no deberían castear.
 		return ((ResistenciaProtoss)resistencia).getEscudoActual();
 	}
 

@@ -1,6 +1,7 @@
 package consingnasTests;
 
 
+import excepciones.Mapa.ExcepcionCasillaVacia;
 import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
 import excepciones.Unidades.*;
 import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
@@ -120,12 +121,12 @@ public class unidadesTest {
    /* Se contruye un alto templario, se pasan turnos  para que acumule la suficiente energía.
     se sitúan unidades enemigas, se lanza la tormenta psiónica. Se comprueba el daño.
     Se sitúa una unidad propia y se le aplica la alucinación. Se corrobora:
-    Solo poseen escudo y no vida //TODO:preguntar por esto
+    Solo poseen escudo y no vida
     Se les hace pelear contra un enemigo y el enemigo no recibe daño.
     Al recibir un EMP, mueren instantáneamente.*/
 
     @Test
-    public void cuartoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeClonarEdificio {
+    public void cuartoTest() throws ExcepcionNoSePudoAgregarAlMapa, ExcepcionDeAccionDeUnidad, ExcepcionNoSePuedeClonarEdificio, ExcepcionCasillaVacia {
         NaveCiencia nc = new NaveCiencia(v);
         j1.agregarUnidad(nc);
         AltoTemplario at = new AltoTemplario(v);
@@ -135,13 +136,13 @@ public class unidadesTest {
         Coordenada c1 = new Coordenada(7,7);
         Coordenada c2 = new Coordenada(6,5);
         Coordenada c3 = new Coordenada(6,6);
-        Coordenada c4 = new Coordenada(6,7);
+        Coordenada c4 = new Coordenada(5,5);
         Coordenada c5 = new Coordenada(7,6);
         mapa.agregar(nc, c1);
         mapa.agregar(at, c2);
         mapa.agregar(zl, c3);
         for(int i = 0;i<10;i++) asignadorDeTurnos.update();//paso 5 turnos
-        at.alucinacion(zl, c4, c5);
+        at.alucinacion(c3);
         ((ClonGuerrero)mapa.obtenerDeCapaTerrestre(c4)).atacarTierra(c1);
         Assert.assertEquals(200, nc.getVida());
         asignadorDeTurnos.update();
