@@ -32,7 +32,7 @@ public class DestruccionDeEdificios {
         Coordenada coordDePilon = new Coordenada(7, 6);
         EdificioEnInvocacion edifEnConst;
 
-        proxyMapa.agregar(m, new Coordenada(7, 5));
+        proxyMapa.agregar(m, new Coordenada(6, 5));
         j2.agregarUnidad(m);
 
         j1.construirPilon(coordDePilon);
