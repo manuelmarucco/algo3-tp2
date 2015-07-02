@@ -16,7 +16,7 @@ public class VistaNaveTransporteProtoss extends ImagePanel implements IVista {
     private static final int ALTO = 64;
     private final NaveTransporteProtoss unidad;
     private final VentanaJugador ventanaJugador;
-    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
+    private static final BufferImagenes BUFFERIMAGENES = BufferImagenes.getInstance();
 
     public VistaNaveTransporteProtoss(ColocableEnMapa nave,VentanaJugador ventanaJugador) {
 

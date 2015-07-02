@@ -15,7 +15,7 @@ public class VistaClonGuerrero extends ImagePanel implements IVista {
     private static final int ALTO = 64;
     private final ClonGuerrero clonGuerrero;
     private final VentanaJugador ventanaJugador;
-    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
+    private static final BufferImagenes BUFFERIMAGENES = BufferImagenes.getInstance();
 
     public VistaClonGuerrero(ColocableEnMapa clonGuerrero,VentanaJugador ventanaJugador) {
         super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen(((ClonGuerrero) clonGuerrero).getUnidad().getClass().getSimpleName()).getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));

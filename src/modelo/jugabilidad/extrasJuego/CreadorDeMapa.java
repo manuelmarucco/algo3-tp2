@@ -31,7 +31,7 @@ public class CreadorDeMapa {
 
     public CreadorDeMapa(int cantidadDeJugadores){
 
-        this.armarMatrizDeMapa("src/modelo/jugabilidad/extrasJuego/mapaPara" + cantidadDeJugadores + "Jugadores.txt");
+        this.armarMatrizDeMapa("archivosConfiguracionDeMapa/mapaPara" + cantidadDeJugadores + "Jugadores.txt");
 
         this.guardarDimensionesDelMapa();
 
@@ -39,7 +39,7 @@ public class CreadorDeMapa {
 
         this.crearMapa();
 
-        this.crearBases("src/modelo/jugabilidad/extrasJuego/coordenadasBasesPara" + cantidadDeJugadores + "Jugadores.txt");
+        this.crearBases("archivosConfiguracionDeMapa/coordenadasBasesPara" + cantidadDeJugadores + "Jugadores.txt");
 
     }
 

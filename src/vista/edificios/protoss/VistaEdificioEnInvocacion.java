@@ -1,5 +1,6 @@
 package vista.edificios.protoss;
 
+import control.BufferImagenes;
 import modelo.construcciones.protoss.EdificioEnInvocacion;
 import modelo.interfaces.ColocableEnMapa;
 import vista.IVista;
@@ -8,6 +9,7 @@ import vista.panelesDeEstado.panelesDeConstruccion.PanelEdificioEnInvocacion;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class VistaEdificioEnInvocacion  extends ImagePanel implements IVista {
 
@@ -15,11 +17,11 @@ public class VistaEdificioEnInvocacion  extends ImagePanel implements IVista {
     private static final int ALTO = 64;
     private final EdificioEnInvocacion edificio;
     private final VentanaJugador ventanaJugador;
-    private static String imagePath="images/construcciones/edificioEnInvocacion.png";
+    private static final BufferImagenes BUFFERIMAGENES = BufferImagenes.getInstance();
 
     public VistaEdificioEnInvocacion(ColocableEnMapa edificioEnConstruccion, VentanaJugador ventanaJugador) {
-        super(ANCHO,ALTO,new ImageIcon(imagePath).getImage().getScaledInstance(ANCHO, ALTO,  java.awt.Image.SCALE_SMOOTH));
-        super.setBackground(new ImageIcon("src/vista/paisaje/imagenes/pasto.png").getImage());
+        super(ANCHO,ALTO,BUFFERIMAGENES.obtenerImagen("EdificioEnInvocacion").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));
+        super.setBackground(BUFFERIMAGENES.obtenerImagen("Pasto").getImage());
         this.edificio= (EdificioEnInvocacion) edificioEnConstruccion;
         this.ventanaJugador=ventanaJugador;
     }

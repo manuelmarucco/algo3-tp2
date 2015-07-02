@@ -1,17 +1,27 @@
 package control;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.HashMap;
 
 public class BufferImagenes {
 
-    private static HashMap<String,ImageIcon> buffer;
+    private HashMap<String,ImageIcon> buffer;
+    private static BufferImagenes bufferImagenes;
 
-    public BufferImagenes(){
+    public static BufferImagenes getInstance(){
+
+        if( bufferImagenes == null){
+
+            bufferImagenes = new BufferImagenes();
+
+        }
+
+        return bufferImagenes;
+
+    }
+
+    private BufferImagenes(){
 
         buffer = new HashMap<>();
 
@@ -20,7 +30,9 @@ public class BufferImagenes {
             this.cargarImagenesDeConstrucciones();
             this.cargarImagenesDeUnidades();
             this.cargarImagenesDePaisaje();
+            this.cargarImagenesDeRecursos();
             this.cargarImagenesDeIconos();
+            this.cargarImagenesDeEdificioEnConstruccion();
 
             } catch (IOException e) {
             e.printStackTrace();
@@ -78,10 +90,17 @@ public class BufferImagenes {
 
     private void cargarImagenesDePaisaje() throws IOException {
 
-        buffer.put("Aire", new ImageIcon("src/vista/paisaje/imagenes/aire.png"));
-        buffer.put("Rocas", new ImageIcon("src/vista/paisaje/imagenes/rocas.png"));
-        buffer.put("Pasto", new ImageIcon("src/vista/paisaje/imagenes/pasto.png"));
-        buffer.put("TormentaPsionica",new ImageIcon("images/tormenta.png"));
+        buffer.put("Aire", new ImageIcon("images/paisaje/aire.png"));
+        buffer.put("Rocas", new ImageIcon("images/paisaje/rocas.png"));
+        buffer.put("Pasto", new ImageIcon("images/paisaje/pasto.png"));
+        buffer.put("TormentaPsionica",new ImageIcon("images/paisaje/tormenta.png"));
+
+    }
+
+    private void cargarImagenesDeRecursos(){
+
+        buffer.put("Cristal", new ImageIcon("images/recursos/cristal.png"));
+        buffer.put("Volcan", new ImageIcon("images/recursos/volcan.png"));
 
     }
 
@@ -91,6 +110,14 @@ public class BufferImagenes {
         buffer.put("iconoGas", new ImageIcon("images/iconos/iconoGas.png"));
         buffer.put("iconoSuministro", new ImageIcon("images/iconos/iconoSuministro.jpg"));
         buffer.put("iconoEnergia",new ImageIcon("images/iconos/iconoEnergia.png"));
+
+    }
+
+    private void cargarImagenesDeEdificioEnConstruccion(){
+
+        buffer.put("EdificioEnConstruccion", new ImageIcon("images/construcciones/edificioEnConstruccion.png"));
+        buffer.put("EdificioEnInvocacion", new ImageIcon("images/construcciones/edificioEnInvocacion.png"));
+
 
     }
 

@@ -16,7 +16,7 @@ public class PanelTerminarTurno extends JPanel {
 
     private void init(VentanaJuego ventanaJuego) {
         terminarTurnoBoton = new JButton();
-        ImageIcon icon = new ImageIcon( "images/menu/botonTerminarTurno.png" );
+        ImageIcon icon = new ImageIcon( "images/menu/botones/botonTerminarTurno.png" );
         Image img = icon.getImage() ;
 
         Image resizedimg = img.getScaledInstance( 150, 150,  java.awt.Image.SCALE_SMOOTH ) ;

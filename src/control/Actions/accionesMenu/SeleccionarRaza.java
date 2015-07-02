@@ -30,13 +30,13 @@ public class SeleccionarRaza implements java.awt.event.ActionListener {
             case "Protoss":
                 form.getAceptarButton().removeActionListener(form.getAceptarButton().getActionListeners()[0]);
                 form.getAceptarButton().addActionListener(new CrearProtoss(ventanaJuego,form,nombreUsado,colorUsado));
-                retrato.setImage(new ImageIcon("src/vista/resourses/retratoProtoss.jpg").getImage());
+                retrato.setImage(new ImageIcon("images/menu/retratos/retratoProtoss.jpg").getImage());
                 retrato.repaint();
                 break;
             case "Terran":
                 form.getAceptarButton().removeActionListener(form.getAceptarButton().getActionListeners()[0]);
                 form.getAceptarButton().addActionListener(new CrearTerran(ventanaJuego,form,nombreUsado,colorUsado));
-                retrato.setImage(new ImageIcon("src/vista/resourses/retratoTerran.jpg").getImage());
+                retrato.setImage(new ImageIcon("images/menu/retratos/retratoTerran.jpg").getImage());
                 retrato.repaint();
         }
     }

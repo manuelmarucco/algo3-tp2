@@ -66,7 +66,7 @@ public class CrearJugador extends JDialog {
     // Metodos privados ------------------------------------------------------------------------------------------------
 
     private void init(VentanaJuego ventanaJuego, String nombreUsado, String colorUsuado) {
-        aceptarButton.setIcon(new ImageIcon("src/vista/resourses/botonAceptar.png"));
+        aceptarButton.setIcon(new ImageIcon("images/menu/botones/botonAceptar.png"));
         aceptarButton.setMargin(new Insets(0, 0, 0, 0));
         aceptarButton.setBackground(new Color(0, 0, 150, 80));
         aceptarButton.setVerticalTextPosition(SwingConstants.BOTTOM);
@@ -86,7 +86,7 @@ public class CrearJugador extends JDialog {
 
     private void setFuenteParaLosComponentes(){
 
-        File font_file = new File("src/vista/resourses/StarcraftNormal.ttf");
+        File font_file = new File("images/StarcraftNormal.ttf");
         Font font = null;
 
         try {
@@ -137,8 +137,8 @@ public class CrearJugador extends JDialog {
     }
 
     private void createUIComponents() throws IOException, FontFormatException {
-        imagePanel1= new ImagePanel("src/vista/resourses/bg-crearJugador.jpg",400,300);
-        retrato = new ImagePanel("src/vista/resourses/retratoTerran.jpg",100,152);
+        imagePanel1= new ImagePanel("images/menu/fondos/bg-crearJugador.jpg",400,300);
+        retrato = new ImagePanel("images/menu/retratos/retratoTerran.jpg",100,152);
     }
 
 }

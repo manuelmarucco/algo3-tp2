@@ -28,7 +28,7 @@ public class DisplayRecursos extends JPanel {
 
     private void init(){
 
-        this.bufferImagenes = new BufferImagenes();
+        this.bufferImagenes = BufferImagenes.getInstance();
 
         this.panel = new JPanel( new GridLayout(1,3,0,3));
 

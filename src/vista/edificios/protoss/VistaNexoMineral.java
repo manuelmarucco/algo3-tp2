@@ -16,7 +16,7 @@ public class VistaNexoMineral extends ImagePanel implements IVista{
     private static final int ALTO = 64;
     private final NexoMineral edificio;
     private final VentanaJugador ventanaJugador;
-    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
+    private static final BufferImagenes BUFFERIMAGENES = BufferImagenes.getInstance();
 
     public VistaNexoMineral(ColocableEnMapa nexoMineral, VentanaJugador ventanaJugador) {
         super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("NexoMineral").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));

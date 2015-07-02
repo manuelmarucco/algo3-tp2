@@ -9,7 +9,7 @@ import java.util.Map;
 public class CuadroInformacionRecursos extends JFrame {
 
     private JPanel contenedor;
-    private BufferImagenes bufferImagenes;
+    private BufferImagenes bufferImagenes = BufferImagenes.getInstance();
 
     // Para construcciones ---------------------------------------------------------------------------------------------
     public CuadroInformacionRecursos(String cristalNecesario, String gasNecesario){
@@ -19,8 +19,6 @@ public class CuadroInformacionRecursos extends JFrame {
         this.setLayout(new BorderLayout());
         this.setContentPane(new JLabel(new ImageIcon("images/menu/boton.png")));
         this.setLayout(new FlowLayout());
-
-        this.bufferImagenes = new BufferImagenes();
 
         this.contenedor = new JPanel(new GridLayout(1,3,0,1));
         this.contenedor.setOpaque(false);
@@ -42,8 +40,6 @@ public class CuadroInformacionRecursos extends JFrame {
         this.setContentPane(new JLabel(new ImageIcon("images/menu/boton.png")));
         this.setLayout(new FlowLayout());
 
-        this.bufferImagenes = new BufferImagenes();
-
         this.contenedor = new JPanel(new GridLayout(1,4,0,1));
         this.contenedor.setOpaque(false);
 
@@ -64,8 +60,6 @@ public class CuadroInformacionRecursos extends JFrame {
         this.setLayout(new BorderLayout());
         this.setContentPane(new JLabel(new ImageIcon("images/menu/boton.png")));
         this.setLayout(new FlowLayout());
-
-        this.bufferImagenes = new BufferImagenes();
 
         this.contenedor = new JPanel(new GridLayout(1,2,0,1));
         this.contenedor.setOpaque(false);

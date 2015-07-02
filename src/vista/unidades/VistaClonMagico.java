@@ -15,7 +15,7 @@ public class VistaClonMagico extends ImagePanel implements IVista {
     private static final int ALTO = 64;
     private final ClonMagico clonMagico;
     private final VentanaJugador ventanaJugador;
-    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
+    private static final BufferImagenes BUFFERIMAGENES = BufferImagenes.getInstance();
 
     public VistaClonMagico(ColocableEnMapa clonMagico,VentanaJugador ventanaJugador) {
         super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen(((ClonMagico) clonMagico).getUnidad().getClass().getSimpleName()).getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));

@@ -16,7 +16,7 @@ public class VistaClonTransporte extends ImagePanel implements IVista {
     private static final int ALTO = 64;
     private final ClonTransporte clonTransporte;
     private final VentanaJugador ventanaJugador;
-    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
+    private static final BufferImagenes BUFFERIMAGENES = BufferImagenes.getInstance();
 
     public VistaClonTransporte(ColocableEnMapa clonTransporte,VentanaJugador ventanaJugador) {
         super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen(((ClonGuerrero) clonTransporte).getUnidad().getClass().getSimpleName()).getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));

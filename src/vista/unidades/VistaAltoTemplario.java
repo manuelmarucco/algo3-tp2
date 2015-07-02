@@ -15,7 +15,7 @@ public class VistaAltoTemplario extends ImagePanel implements IVista{
     private static final int ALTO = 64;
     private final AltoTemplario altoTemplario;
     private final VentanaJugador ventanaJugador;
-    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
+    private static final BufferImagenes BUFFERIMAGENES = BufferImagenes.getInstance();
 
     public VistaAltoTemplario(ColocableEnMapa altoTemplario,VentanaJugador ventanaJugador) {
         super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("AltoTemplario").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));

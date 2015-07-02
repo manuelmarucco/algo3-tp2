@@ -16,7 +16,7 @@ public class VistaPilon extends ImagePanel implements IVista{
     private static final int ALTO = 64;
     private final Pilon edificio;
     private final VentanaJugador ventanaJugador;
-    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
+    private static final BufferImagenes BUFFERIMAGENES = BufferImagenes.getInstance();
 
     public VistaPilon(ColocableEnMapa pilon, VentanaJugador ventanaJugador) {
         super(ANCHO, ALTO, BUFFERIMAGENES.obtenerImagen("Pilon").getImage().getScaledInstance(ANCHO, ALTO, Image.SCALE_FAST));

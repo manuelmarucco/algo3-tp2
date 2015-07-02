@@ -16,7 +16,7 @@ public class VistaPortalEstelar extends ImagePanel implements IVista{
     private static final int ALTO = 64;
     private final PortalEstelar edificio;
     private final VentanaJugador ventanaJugador;
-    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
+    private static final BufferImagenes BUFFERIMAGENES = BufferImagenes.getInstance();
 
 
     public VistaPortalEstelar(ColocableEnMapa portalEstelar,VentanaJugador ventanaJugador) {

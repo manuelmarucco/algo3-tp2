@@ -25,17 +25,17 @@ public class MenuPrincipal extends JFrame {
     private void init() {
         System.setProperty("sun.java2d.opengl","True");
         //inicializacion del juego en general
-        VentanaJuego ventanaJuego = new VentanaJuego(new Juego(2)); //TODO agregar opcion para mas jugadores
+        VentanaJuego ventanaJuego = new VentanaJuego(new Juego(2));
 
         //configuracion del boton "Jugar"
-        jugarBoton.setIcon( new ImageIcon("images/menu/botonJugar.png"));
+        jugarBoton.setIcon( new ImageIcon("images/menu/botones/botonJugar.png"));
         jugarBoton.setMargin(new Insets(0, 0, 0, 0));
         jugarBoton.setOpaque(false);
         jugarBoton.addActionListener(new AccionJugar(ventanaJuego));
 
 
         //configuracion del boton "Salir"
-        salirBoton.setIcon(new ImageIcon("images/menu/salirBoton.png"));
+        salirBoton.setIcon(new ImageIcon("images/menu/botones/salirBoton.png"));
         salirBoton.setBackground(new Color(0,0,150,80));
         salirBoton.setMargin(new Insets(0, 0, 0, 0));
         salirBoton.addActionListener(new AccionSalir(this));
@@ -54,7 +54,7 @@ public class MenuPrincipal extends JFrame {
     }
 
     private void createUIComponents() throws IOException, FontFormatException {
-        imageBackground = new ImagePanel("images/menu/background.jpg",1280,720);
+        imageBackground = new ImagePanel("images/menu/fondos/background.jpg",1280,720);
     }
 
 }

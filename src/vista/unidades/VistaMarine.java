@@ -15,7 +15,7 @@ public class VistaMarine extends ImagePanel implements IVista{
     private static final int ANCHO = 64;
     private static final int ALTO = 64;
     private final Marine unidad;
-    private static final BufferImagenes BUFFERIMAGENES = new BufferImagenes();
+    private static final BufferImagenes BUFFERIMAGENES = BufferImagenes.getInstance();
     private final VentanaJugador ventanaJugador;
 
     public VistaMarine(ColocableEnMapa unidad,VentanaJugador ventanaJugador) {
