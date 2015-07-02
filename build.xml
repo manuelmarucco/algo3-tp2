@@ -178,4 +178,8 @@
 		</pmd>
 	</target>
 
+	<target name="jugar">
+		<java jar="build/jar/MenuPrincipal.jar" fork="true"/>
+	</target>
+
 </project>
