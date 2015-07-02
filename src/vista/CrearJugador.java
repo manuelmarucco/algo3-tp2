@@ -1,8 +1,8 @@
 package vista;
 
-import vista.Actions.accionesMenu.ActionCerrarCreador;
-import vista.Actions.accionesMenu.CrearTerran;
-import vista.Actions.accionesMenu.SeleccionarRaza;
+import control.Actions.accionesMenu.ActionCerrarCreador;
+import control.Actions.accionesMenu.CrearTerran;
+import control.Actions.accionesMenu.SeleccionarRaza;
 import vista.auxiliares.IconoColor;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;

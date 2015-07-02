@@ -18,9 +18,9 @@ import modelo.unidades.protoss.ClonGuerrero;
 import modelo.unidades.protoss.ClonMagico;
 import modelo.unidades.protoss.ClonTransporte;
 import modelo.unidades.terrran.NaveCiencia;
-import vista.Actions.accionesEntrenar.*;
-import vista.Actions.accionesUnidades.*;
-import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
+import control.Actions.accionesEntrenar.*;
+import control.Actions.accionesUnidades.*;
+import control.Actions.accionesVentanaJugador.WraperAccionActuar;
 import vista.auxiliares.jugador.botones.BotonConInformacionDesplegable;
 
 import javax.swing.*;

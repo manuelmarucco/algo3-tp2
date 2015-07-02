@@ -1,12 +1,10 @@
 package vista.ventanaJugadores;
 
-import vista.Actions.accionesJuego.ActionTerminarJuego;
+import control.Actions.accionesJuego.ActionTerminarJuego;
 import vista.VentanaJuego;
-import vista.auxiliares.ImagePanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.font.TextAttribute;
 import java.util.Map;
 
 public class VentanaGanador extends JFrame {

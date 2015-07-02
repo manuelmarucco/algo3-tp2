@@ -1,6 +1,6 @@
 package vista.auxiliares.jugador;
 
-import vista.Actions.accionesVentanaJugador.AccionPasarTurno;
+import control.Actions.accionesVentanaJugador.AccionPasarTurno;
 import vista.VentanaJuego;
 
 import javax.swing.*;

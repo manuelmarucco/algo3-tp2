@@ -1,8 +1,8 @@
 package vista;
 
 import modelo.jugabilidad.Juego;
-import vista.Actions.accionesMenu.AccionJugar;
-import vista.Actions.accionesMenu.AccionSalir;
+import control.Actions.accionesMenu.AccionJugar;
+import control.Actions.accionesMenu.AccionSalir;
 import vista.auxiliares.ImagePanel;
 
 import javax.swing.*;

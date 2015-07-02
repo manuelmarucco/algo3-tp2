@@ -1,6 +1,6 @@
 package vista.auxiliares.jugador.displays;
 
-import vista.Actions.accionesVentanaJugador.AccionBotonSonido;
+import control.Actions.accionesVentanaJugador.AccionBotonSonido;
 import vista.sonido.Sonido;
 
 import javax.swing.*;
