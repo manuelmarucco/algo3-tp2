@@ -1,4 +1,4 @@
-package vista.auxiliares.jugador.imagenesMapa;
+package vista.auxiliares.jugador.extrasMapa;
 
 import java.util.HashMap;
 

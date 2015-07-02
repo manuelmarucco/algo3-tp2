@@ -11,7 +11,7 @@ import modelo.recursos.Volcan;
 import modelo.unidades.protoss.*;
 import modelo.unidades.terrran.*;
 import vista.VistaTormentaPsionica;
-import vista.auxiliares.jugador.imagenesMapa.HashMapParaMapa;
+import vista.auxiliares.jugador.extrasMapa.HashMapParaMapa;
 import vista.edificios.protoss.*;
 import vista.edificios.terran.*;
 import vista.paisaje.VistaAire;

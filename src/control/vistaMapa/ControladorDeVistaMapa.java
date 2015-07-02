@@ -9,7 +9,7 @@ import modelo.unidades.ProxyDeHechizos;
 import vista.IVista;
 import vista.ParselaAccionable;
 import vista.auxiliares.ImagePanel;
-import vista.auxiliares.jugador.imagenesMapa.HashMapParaMapa;
+import vista.auxiliares.jugador.extrasMapa.HashMapParaMapa;
 import vista.ventanaJugadores.VentanaJugador;
 
 import javax.swing.*;
