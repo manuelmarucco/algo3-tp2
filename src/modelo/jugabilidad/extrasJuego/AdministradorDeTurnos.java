@@ -9,7 +9,7 @@ public class AdministradorDeTurnos implements Actualizable{
     private Jugador jugadorDelTurnoActual;
     private ArrayList<Jugador> jugadores = new ArrayList<>();
     private int iterador;
-    private boolean primerTurno=true;
+    private boolean ultimoTurno=false;
 
     public AdministradorDeTurnos(){
 
@@ -18,10 +18,12 @@ public class AdministradorDeTurnos implements Actualizable{
 
     @Override
     public void update() {
-        if(iterador == jugadores.size()) iterador=0;
+        if(iterador == jugadores.size()){ iterador=0;}
         jugadorDelTurnoActual = jugadores.get(iterador);
         jugadorDelTurnoActual.update();
         iterador++;
+
+        if(iterador == jugadores.size()-1){  ultimoTurno = true;}
     }
 
     public Jugador getJugadorDelTurnoActual(){
@@ -44,11 +46,11 @@ public class AdministradorDeTurnos implements Actualizable{
         Jugador j;
         for(int i = 0; i < jugadores.size(); i++){
             j = jugadores.get(i);
-            if(!primerTurno&& j.noTieneMasConstruccionesYUnidades()){
+            if(ultimoTurno && j.noTieneMasConstruccionesYUnidades()){
                 jugadores.remove(j);
+                ultimoTurno = false;
             }
         }
-        primerTurno=false;
     }
 
     public Jugador getGanador(){

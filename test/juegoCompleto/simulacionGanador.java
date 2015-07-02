@@ -78,7 +78,6 @@ public class simulacionGanador {
             juego.update();
 
         }
-        juego.update();
         Assert.assertEquals(j1, juego.getJugadorGanador());
 
     }
