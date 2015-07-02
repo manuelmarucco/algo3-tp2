@@ -1,8 +1,8 @@
 package vista.edificios.protoss;
 
-import construcciones.protoss.Acceso;
+import modelo.construcciones.protoss.Acceso;
 import control.BufferImagenes;
-import interfaces.ColocableEnMapa;
+import modelo.interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeConstruccion.PanelCentroDeEntrenamiento;

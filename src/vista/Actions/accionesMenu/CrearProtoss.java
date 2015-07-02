@@ -1,6 +1,6 @@
 package vista.Actions.accionesMenu;
 
-import jugabilidad.RazaDeJugador.JugadorProtoss;
+import modelo.jugabilidad.RazaDeJugador.JugadorProtoss;
 import vista.CrearJugador;
 import vista.VentanaJuego;
 import vista.ventanaJugadores.VentanaJugadorProtoss;

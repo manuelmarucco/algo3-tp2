@@ -1,26 +1,26 @@
 package tests_de_integracion;
 
-import construcciones.protoss.Acceso;
-import construcciones.protoss.Pilon;
-import construcciones.terran.DepositoDeSuministros;
-import excepciones.ExcepcionNoSePuedeEntrenarUnidadPorSuministrosInsuficientes;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
-import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
-import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
-import jugabilidad.ProxyMapa;
-import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.auxiliares.Suministros;
-import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.construcciones.protoss.Acceso;
+import modelo.construcciones.protoss.Pilon;
+import modelo.construcciones.terran.DepositoDeSuministros;
+import modelo.excepciones.ExcepcionNoSePuedeEntrenarUnidadPorSuministrosInsuficientes;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.Unidades.ExcepcionDeAccionDeUnidad;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.RazaDeJugador.JugadorProtoss;
+import modelo.jugabilidad.RazaDeJugador.JugadorTerran;
+import modelo.jugabilidad.auxiliares.Recursos;
+import modelo.jugabilidad.auxiliares.Suministros;
+import modelo.jugabilidad.auxiliares.Vision;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import unidades.ProxiDeAtaque;
-import unidades.ProxyDeHechizos;
-import unidades.terrran.Marine;
+import modelo.unidades.ProxiDeAtaque;
+import modelo.unidades.ProxyDeHechizos;
+import modelo.unidades.terrran.Marine;
 
 public class ConstrucionesUnidadesYSuministros {
     ProxyMapa proxyMapa;

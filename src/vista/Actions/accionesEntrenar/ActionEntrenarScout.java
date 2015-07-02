@@ -1,8 +1,8 @@
 package vista.Actions.accionesEntrenar;
 
-import construcciones.protoss.PortalEstelar;
+import modelo.construcciones.protoss.PortalEstelar;
 import control.ObservadorDeExcepciones;
-import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
 import vista.auxiliares.jugador.observadores.ObservadorEstado;
 import vista.auxiliares.jugador.observadores.ObservadorRecursosSuministros;
 import vista.sonido.SonidosDelJuego;

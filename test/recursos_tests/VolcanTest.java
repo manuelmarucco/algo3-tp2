@@ -2,7 +2,7 @@ package recursos_tests;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
-import recursos.Volcan;
+import modelo.recursos.Volcan;
 
 public class VolcanTest {
 

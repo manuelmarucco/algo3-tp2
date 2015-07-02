@@ -1,10 +1,10 @@
 package vista.Actions.accionesUnidades;
 
-import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
-import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.utilidadesMapa.Coordenada;
-import unidades.ProxyDeHechizos;
-import unidades.protoss.AltoTemplario;
+import modelo.excepciones.Unidades.ExcepcionDeAccionDeUnidad;
+import modelo.jugabilidad.RazaDeJugador.JugadorProtoss;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
+import modelo.unidades.ProxyDeHechizos;
+import modelo.unidades.protoss.AltoTemplario;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
 import vista.sonido.SonidosDelJuego;
 

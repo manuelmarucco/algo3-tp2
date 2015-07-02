@@ -1,7 +1,7 @@
 package jugabilidad_tests;
 
-import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.jugabilidad.auxiliares.Vision;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Test;
 
 import static org.junit.Assert.assertFalse;

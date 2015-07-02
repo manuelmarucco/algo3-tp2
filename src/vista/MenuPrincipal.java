@@ -1,6 +1,6 @@
 package vista;
 
-import jugabilidad.Juego;
+import modelo.jugabilidad.Juego;
 import vista.Actions.accionesMenu.AccionJugar;
 import vista.Actions.accionesMenu.AccionSalir;
 import vista.auxiliares.ImagePanel;

@@ -1,12 +1,12 @@
 package jugabilidad_tests;
 
-import excepciones.jugador.ExcepcionElColorIngresadoRepiteAlDeOtroJugador;
-import excepciones.jugador.ExcepcionElNombreIngresadoRepiteAlDeOtroJugador;
-import excepciones.jugador.ExcepcionNoSePudoCrearElJugador;
-import excepciones.jugador.ExcepcionNombreDeJugadorMenorACuatroCaracteres;
-import jugabilidad.Jugador;
-import jugabilidad.extrasJuego.CreadorDeJugador;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.excepciones.jugador.ExcepcionElColorIngresadoRepiteAlDeOtroJugador;
+import modelo.excepciones.jugador.ExcepcionElNombreIngresadoRepiteAlDeOtroJugador;
+import modelo.excepciones.jugador.ExcepcionNoSePudoCrearElJugador;
+import modelo.excepciones.jugador.ExcepcionNombreDeJugadorMenorACuatroCaracteres;
+import modelo.jugabilidad.Jugador;
+import modelo.jugabilidad.extrasJuego.CreadorDeJugador;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;

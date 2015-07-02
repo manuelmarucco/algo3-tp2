@@ -1,23 +1,23 @@
 package tests_de_integracion;
 
-import construcciones.protoss.*;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
-import excepciones.construcciones.*;
-import interfaces.Construible;
-import jugabilidad.ProxyMapa;
-import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.auxiliares.Suministros;
-import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.construcciones.protoss.*;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.Mapa.ExcepcionPosicionOcupada;
+import modelo.excepciones.construcciones.*;
+import modelo.interfaces.Construible;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.RazaDeJugador.JugadorProtoss;
+import modelo.jugabilidad.auxiliares.Recursos;
+import modelo.jugabilidad.auxiliares.Suministros;
+import modelo.jugabilidad.auxiliares.Vision;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
-import recursos.Cristal;
-import recursos.Volcan;
+import modelo.recursos.Cristal;
+import modelo.recursos.Volcan;
 
 import java.util.ArrayList;
 

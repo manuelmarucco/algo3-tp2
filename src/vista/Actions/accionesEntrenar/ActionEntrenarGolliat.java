@@ -1,8 +1,8 @@
 package vista.Actions.accionesEntrenar;
 
-import construcciones.terran.Fabrica;
+import modelo.construcciones.terran.Fabrica;
 import control.ObservadorDeExcepciones;
-import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
 import vista.auxiliares.jugador.observadores.ObservadorEstado;
 import vista.auxiliares.jugador.observadores.ObservadorRecursosSuministros;
 import vista.sonido.SonidosDelJuego;

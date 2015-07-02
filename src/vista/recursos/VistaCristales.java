@@ -1,7 +1,7 @@
 package vista.recursos;
 
-import interfaces.ColocableEnMapa;
-import recursos.Cristal;
+import modelo.interfaces.ColocableEnMapa;
+import modelo.recursos.Cristal;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.ventanaJugadores.VentanaJugador;

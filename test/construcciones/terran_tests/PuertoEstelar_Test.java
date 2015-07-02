@@ -1,6 +1,6 @@
 package construcciones.terran_tests;
 
-import construcciones.terran.PuertoEstelar;
+import modelo.construcciones.terran.PuertoEstelar;
 import org.junit.Assert;
 import org.junit.Test;
 

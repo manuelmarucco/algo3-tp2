@@ -1,9 +1,9 @@
 package construcciones.protoss_tests;
 
-import jugabilidad.auxiliares.Suministros;
+import modelo.jugabilidad.auxiliares.Suministros;
 import org.junit.Assert;
 import org.junit.Test;
-import construcciones.protoss.Pilon;
+import modelo.construcciones.protoss.Pilon;
 
 public class Pilon_Test {
 	@Test

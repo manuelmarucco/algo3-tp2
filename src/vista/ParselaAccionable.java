@@ -2,12 +2,12 @@ package vista;
 
 import control.ObservadorDeExcepciones;
 import control.vistaMapa.ObservadorMapa;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
-import interfaces.ColocableEnMapa;
-import jugabilidad.ProxyMapa;
-import jugabilidad.utilidadesMapa.Coordenada;
-import unidades.ProxyDeHechizos;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import modelo.interfaces.ColocableEnMapa;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
+import modelo.unidades.ProxyDeHechizos;
 import vista.auxiliares.jugador.displays.DisplayNotificaciones;
 import vista.auxiliares.jugador.observadores.ObservadorEstado;
 import vista.auxiliares.jugador.observadores.ObservadorRecursosSuministros;

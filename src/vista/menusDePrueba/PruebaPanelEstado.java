@@ -1,8 +1,8 @@
 package vista.menusDePrueba;
 
-import jugabilidad.Juego;
-import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.jugabilidad.Juego;
+import modelo.jugabilidad.RazaDeJugador.JugadorProtoss;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import vista.VentanaJuego;
 import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadGuerrera;
 import vista.ventanaJugadores.VentanaJugador;

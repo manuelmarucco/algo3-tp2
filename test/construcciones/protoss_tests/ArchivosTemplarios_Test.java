@@ -3,7 +3,7 @@ package construcciones.protoss_tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import construcciones.protoss.ArchivosTemplarios;
+import modelo.construcciones.protoss.ArchivosTemplarios;
 
 public class ArchivosTemplarios_Test {
 

@@ -1,20 +1,20 @@
 package tests_de_integracion;
 
-import construcciones.protoss.Acceso;
-import construcciones.protoss.ArchivosTemplarios;
-import construcciones.protoss.PortalEstelar;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
-import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
-import jugabilidad.ProxyMapa;
-import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.construcciones.protoss.Acceso;
+import modelo.construcciones.protoss.ArchivosTemplarios;
+import modelo.construcciones.protoss.PortalEstelar;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.RazaDeJugador.JugadorProtoss;
+import modelo.jugabilidad.auxiliares.Recursos;
+import modelo.jugabilidad.auxiliares.Vision;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
+import modelo.unidades.protoss.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import unidades.protoss.*;
 
 public class EntrenamientoUnidadesProtossTest {
     ProxyMapa proxyMapa;

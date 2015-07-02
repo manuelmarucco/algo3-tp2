@@ -1,10 +1,10 @@
 package vista.Actions.accionesUnidades;
 
-import excepciones.Mapa.ExcepcionCasillaVacia;
-import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
-import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
-import jugabilidad.utilidadesMapa.Coordenada;
-import unidades.protoss.AltoTemplario;
+import modelo.excepciones.Mapa.ExcepcionCasillaVacia;
+import modelo.excepciones.Unidades.ExcepcionDeAccionDeUnidad;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
+import modelo.unidades.protoss.AltoTemplario;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
 import vista.sonido.SonidosDelJuego;
 

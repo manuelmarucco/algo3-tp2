@@ -1,7 +1,7 @@
 package construcciones.terran_tests;
 
 
-import construcciones.terran.Barraca;
+import modelo.construcciones.terran.Barraca;
 import org.junit.Assert;
 import org.junit.Test;
 

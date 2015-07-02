@@ -1,8 +1,8 @@
 package vista.unidades;
 
 import control.BufferImagenes;
-import interfaces.ColocableEnMapa;
-import unidades.protoss.ClonMagico;
+import modelo.interfaces.ColocableEnMapa;
+import modelo.unidades.protoss.ClonMagico;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadMagica;

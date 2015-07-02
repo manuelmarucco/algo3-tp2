@@ -1,14 +1,13 @@
 package vista.edificios.protoss;
 
-import construcciones.protoss.Asimilador;
+import modelo.construcciones.protoss.Asimilador;
 import control.BufferImagenes;
-import interfaces.ColocableEnMapa;
+import modelo.interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeConstruccion.PanelConstruccion;
 import vista.ventanaJugadores.VentanaJugador;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class VistaAsimilador extends ImagePanel implements IVista{

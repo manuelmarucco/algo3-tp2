@@ -1,25 +1,25 @@
 package consingnasTests;
 
 
-import excepciones.Mapa.ExcepcionCasillaVacia;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Unidades.*;
-import excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
-import jugabilidad.ProxyMapa;
-import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.auxiliares.Suministros;
-import jugabilidad.auxiliares.Vision;
-import jugabilidad.extrasJuego.AdministradorDeTurnos;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.excepciones.Mapa.ExcepcionCasillaVacia;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.Unidades.*;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeClonarEdificio;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.RazaDeJugador.JugadorProtoss;
+import modelo.jugabilidad.RazaDeJugador.JugadorTerran;
+import modelo.jugabilidad.auxiliares.Recursos;
+import modelo.jugabilidad.auxiliares.Suministros;
+import modelo.jugabilidad.auxiliares.Vision;
+import modelo.jugabilidad.extrasJuego.AdministradorDeTurnos;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
+import modelo.unidades.protoss.*;
+import modelo.unidades.terrran.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import unidades.ProxiDeAtaque;
-import unidades.ProxyDeHechizos;
-import unidades.protoss.*;
-import unidades.terrran.*;
+import modelo.unidades.ProxiDeAtaque;
+import modelo.unidades.ProxyDeHechizos;
 
 public class unidadesTest {
 

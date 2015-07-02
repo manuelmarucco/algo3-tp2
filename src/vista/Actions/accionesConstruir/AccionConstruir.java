@@ -1,8 +1,8 @@
 package vista.Actions.accionesConstruir;
 
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 
 public interface AccionConstruir {
     void construirEn(Coordenada coordenada) throws ExcepcionNoSePuedeConstruir, ExcepcionNoSePudoAgregarAlMapa;

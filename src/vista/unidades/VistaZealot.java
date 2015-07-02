@@ -1,8 +1,8 @@
 package vista.unidades;
 
 import control.BufferImagenes;
-import interfaces.ColocableEnMapa;
-import unidades.protoss.Zealot;
+import modelo.interfaces.ColocableEnMapa;
+import modelo.unidades.protoss.Zealot;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadGuerrera;

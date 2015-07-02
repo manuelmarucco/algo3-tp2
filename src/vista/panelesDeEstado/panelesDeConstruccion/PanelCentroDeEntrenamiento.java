@@ -1,6 +1,6 @@
 package vista.panelesDeEstado.panelesDeConstruccion;
 
-import interfaces.Entrenable;
+import modelo.interfaces.Entrenable;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;

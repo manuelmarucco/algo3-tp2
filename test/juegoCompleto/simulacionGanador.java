@@ -1,23 +1,23 @@
 package juegoCompleto;
 
-import construcciones.Construccion;
-import construcciones.protoss.Acceso;
-import construcciones.protoss.Pilon;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Unidades.*;
-import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
-import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
-import jugabilidad.Juego;
-import jugabilidad.ProxyMapa;
-import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.construcciones.Construccion;
+import modelo.construcciones.protoss.Acceso;
+import modelo.construcciones.protoss.Pilon;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.Unidades.ExcepcionDeAccionDeUnidad;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import modelo.jugabilidad.Juego;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.RazaDeJugador.JugadorProtoss;
+import modelo.jugabilidad.RazaDeJugador.JugadorTerran;
+import modelo.jugabilidad.auxiliares.Vision;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import unidades.ProxiDeAtaque;
-import unidades.protoss.Zealot;
+import modelo.unidades.ProxiDeAtaque;
+import modelo.unidades.protoss.Zealot;
 
 public class simulacionGanador {
 

@@ -1,6 +1,6 @@
 package vista.auxiliares.jugador;
 
-import jugabilidad.RazaDeJugador.JugadorProtoss;
+import modelo.jugabilidad.RazaDeJugador.JugadorProtoss;
 import vista.Actions.accionesConstruir.AccionConstruirEdificiosProtoss.*;
 import vista.Actions.accionesVentanaJugador.WraperAccionConstruir;
 import vista.auxiliares.jugador.botones.BotonConInformacionDesplegable;

@@ -1,8 +1,8 @@
 package unidades.creacionDeUnidades_tests;
 
+import modelo.unidades.protoss.*;
 import org.junit.Assert;
 import org.junit.Test;
-import unidades.protoss.*;
 
 public class UnidadProtossTest {
     @Test

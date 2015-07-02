@@ -1,14 +1,14 @@
 package jugabilidad_tests;
 
-import excepciones.Mapa.ExcepcionCoordenadaXIngresadaFueraDelMapa;
-import excepciones.Mapa.ExcepcionCoordenadaYIngresadaFueraDelMapa;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
-import jugabilidad.ProxyMapa;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.excepciones.Mapa.ExcepcionCoordenadaXIngresadaFueraDelMapa;
+import modelo.excepciones.Mapa.ExcepcionCoordenadaYIngresadaFueraDelMapa;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.Mapa.ExcepcionPosicionOcupada;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Before;
 import org.junit.Test;
-import unidades.terrran.Marine;
+import modelo.unidades.terrran.Marine;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

@@ -1,6 +1,6 @@
 package vista.panelesDeEstado.panelesDeConstruccion;
 
-import construcciones.EdificioEnConstruccion;
+import modelo.construcciones.EdificioEnConstruccion;
 import vista.sonido.SonidosDelJuego;
 
 import javax.swing.*;

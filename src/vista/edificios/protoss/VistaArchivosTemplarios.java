@@ -1,14 +1,13 @@
 package vista.edificios.protoss;
 
-import construcciones.protoss.ArchivosTemplarios;
+import modelo.construcciones.protoss.ArchivosTemplarios;
 import control.BufferImagenes;
-import interfaces.ColocableEnMapa;
+import modelo.interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeConstruccion.PanelCentroDeEntrenamiento;
 import vista.ventanaJugadores.VentanaJugador;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class VistaArchivosTemplarios extends ImagePanel implements IVista{

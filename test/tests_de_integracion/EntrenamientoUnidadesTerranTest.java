@@ -1,20 +1,20 @@
 package tests_de_integracion;
 
-import construcciones.terran.Barraca;
-import construcciones.terran.Fabrica;
-import construcciones.terran.PuertoEstelar;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
-import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
-import jugabilidad.ProxyMapa;
-import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.construcciones.terran.Barraca;
+import modelo.construcciones.terran.Fabrica;
+import modelo.construcciones.terran.PuertoEstelar;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.RazaDeJugador.JugadorTerran;
+import modelo.jugabilidad.auxiliares.Recursos;
+import modelo.jugabilidad.auxiliares.Vision;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
+import modelo.unidades.terrran.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import unidades.terrran.*;
 
 public class EntrenamientoUnidadesTerranTest {
 

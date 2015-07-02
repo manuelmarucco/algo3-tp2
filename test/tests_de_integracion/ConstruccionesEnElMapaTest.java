@@ -1,15 +1,15 @@
 package tests_de_integracion;
 
-import construcciones.terran.Barraca;
-import construcciones.terran.Fabrica;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
-import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
-import jugabilidad.ProxyMapa;
-import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.construcciones.terran.Barraca;
+import modelo.construcciones.terran.Fabrica;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.Mapa.ExcepcionPosicionOcupada;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.RazaDeJugador.JugadorTerran;
+import modelo.jugabilidad.auxiliares.Recursos;
+import modelo.jugabilidad.auxiliares.Vision;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

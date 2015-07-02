@@ -1,8 +1,8 @@
 package vista.edificios.terran;
 
-import construcciones.terran.PuertoEstelar;
+import modelo.construcciones.terran.PuertoEstelar;
 import control.BufferImagenes;
-import interfaces.ColocableEnMapa;
+import modelo.interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeConstruccion.PanelCentroDeEntrenamiento;

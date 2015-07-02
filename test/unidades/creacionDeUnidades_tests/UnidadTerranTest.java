@@ -1,9 +1,9 @@
 package unidades.creacionDeUnidades_tests;
 
+import modelo.unidades.terrran.*;
 import org.junit.Assert;
 import org.junit.Test;
-import unidades.Unidad;
-import unidades.terrran.*;
+import modelo.unidades.Unidad;
 
 public class UnidadTerranTest {
     @Test

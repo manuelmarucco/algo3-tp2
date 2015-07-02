@@ -1,7 +1,7 @@
 package vista.edificios.terran;
 
-import construcciones.EdificioEnConstruccion;
-import interfaces.ColocableEnMapa;
+import modelo.construcciones.EdificioEnConstruccion;
+import modelo.interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeConstruccion.PanelEdificioEnConstruccion;

@@ -1,22 +1,22 @@
 package consingnasTests;
 
-import construcciones.terran.Barraca;
-import construcciones.terran.Fabrica;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
-import excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
-import jugabilidad.Jugador;
-import jugabilidad.ProxyMapa;
-import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.auxiliares.Suministros;
-import jugabilidad.auxiliares.Vision;
-import jugabilidad.extrasJuego.CreadorDeMapa;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.construcciones.terran.Barraca;
+import modelo.construcciones.terran.Fabrica;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeEntrenarUnidad;
+import modelo.jugabilidad.Jugador;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.RazaDeJugador.JugadorTerran;
+import modelo.jugabilidad.auxiliares.Recursos;
+import modelo.jugabilidad.auxiliares.Suministros;
+import modelo.jugabilidad.auxiliares.Vision;
+import modelo.jugabilidad.extrasJuego.CreadorDeMapa;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Before;
 import org.junit.Test;
-import unidades.terrran.Golliat;
-import unidades.terrran.Marine;
+import modelo.unidades.terrran.Golliat;
+import modelo.unidades.terrran.Marine;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

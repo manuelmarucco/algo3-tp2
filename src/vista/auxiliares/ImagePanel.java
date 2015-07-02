@@ -1,6 +1,6 @@
 package vista.auxiliares;
 
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 
 import javax.swing.*;
 import java.awt.*;

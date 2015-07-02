@@ -1,6 +1,6 @@
 package construcciones.terran_tests;
 
-import construcciones.terran.Fabrica;
+import modelo.construcciones.terran.Fabrica;
 import org.junit.Assert;
 import org.junit.Test;
 

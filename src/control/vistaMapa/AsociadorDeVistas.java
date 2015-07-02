@@ -1,15 +1,15 @@
 package control.vistaMapa;
 
 
-import construcciones.EdificioEnConstruccion;
-import construcciones.protoss.*;
-import construcciones.terran.*;
-import jugabilidad.auxiliares.TormentaPsionica;
-import jugabilidad.utilidadesMapa.NullPosicionTerrestre;
-import recursos.Cristal;
-import recursos.Volcan;
-import unidades.protoss.*;
-import unidades.terrran.*;
+import modelo.construcciones.EdificioEnConstruccion;
+import modelo.construcciones.protoss.*;
+import modelo.construcciones.terran.*;
+import modelo.jugabilidad.auxiliares.TormentaPsionica;
+import modelo.jugabilidad.utilidadesMapa.NullPosicionTerrestre;
+import modelo.recursos.Cristal;
+import modelo.recursos.Volcan;
+import modelo.unidades.protoss.*;
+import modelo.unidades.terrran.*;
 import vista.VistaTormentaPsionica;
 import vista.auxiliares.jugador.imagenesMapa.HashMapParaMapa;
 import vista.edificios.protoss.*;

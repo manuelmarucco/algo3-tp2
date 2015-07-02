@@ -1,8 +1,8 @@
 package vista.Actions.accionesUnidades;
 
-import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
-import jugabilidad.utilidadesMapa.Coordenada;
-import unidades.protoss.ClonGuerrero;
+import modelo.excepciones.Unidades.ExcepcionDeAccionDeUnidad;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
+import modelo.unidades.protoss.ClonGuerrero;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
 import vista.sonido.SonidosDelJuego;
 

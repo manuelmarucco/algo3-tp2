@@ -1,9 +1,9 @@
 package vista.Actions.accionesUnidades;
 
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
-import jugabilidad.utilidadesMapa.Coordenada;
-import unidades.Unidad;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.Unidades.ExcepcionDeAccionDeUnidad;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
+import modelo.unidades.Unidad;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
 
 import java.awt.event.MouseEvent;

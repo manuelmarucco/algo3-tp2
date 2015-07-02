@@ -1,8 +1,8 @@
 package vista.unidades;
 
 import control.BufferImagenes;
-import interfaces.ColocableEnMapa;
-import unidades.terrran.Marine;
+import modelo.interfaces.ColocableEnMapa;
+import modelo.unidades.terrran.Marine;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadGuerrera;

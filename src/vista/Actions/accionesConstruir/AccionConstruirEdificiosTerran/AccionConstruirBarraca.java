@@ -1,9 +1,9 @@
 package vista.Actions.accionesConstruir.AccionConstruirEdificiosTerran;
 
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
-import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import modelo.jugabilidad.RazaDeJugador.JugadorTerran;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import vista.Actions.accionesConstruir.AccionConstruir;
 import vista.Actions.accionesVentanaJugador.WraperAccionConstruir;
 

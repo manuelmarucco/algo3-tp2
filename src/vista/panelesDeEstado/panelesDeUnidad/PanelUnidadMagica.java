@@ -1,7 +1,7 @@
 package vista.panelesDeEstado.panelesDeUnidad;
 
-import unidades.UnidadMagica;
-import unidades.protoss.ResistenciaProtoss;
+import modelo.unidades.UnidadMagica;
+import modelo.unidades.protoss.ResistenciaProtoss;
 
 import javax.swing.*;
 import java.awt.*;

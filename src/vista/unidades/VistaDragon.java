@@ -1,14 +1,13 @@
 package vista.unidades;
 
 import control.BufferImagenes;
-import interfaces.ColocableEnMapa;
-import unidades.protoss.Dragon;
+import modelo.interfaces.ColocableEnMapa;
+import modelo.unidades.protoss.Dragon;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadGuerrera;
 import vista.ventanaJugadores.VentanaJugador;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class VistaDragon extends ImagePanel implements IVista {

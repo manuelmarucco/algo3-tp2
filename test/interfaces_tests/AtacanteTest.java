@@ -1,23 +1,23 @@
 package interfaces_tests;
 
 
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Unidades.*;
-import jugabilidad.Jugador;
-import jugabilidad.ProxyMapa;
-import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.auxiliares.Suministros;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.Unidades.ExcepcionDeAccionDeUnidad;
+import modelo.jugabilidad.Jugador;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.RazaDeJugador.JugadorTerran;
+import modelo.jugabilidad.auxiliares.Recursos;
+import modelo.jugabilidad.auxiliares.Suministros;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import unidades.ProxiDeAtaque;
-import unidades.Unidad;
-import unidades.UnidadGuerrera;
-import unidades.terrran.Golliat;
-import unidades.terrran.Marine;
-import unidades.terrran.NaveCiencia;
+import modelo.unidades.ProxiDeAtaque;
+import modelo.unidades.Unidad;
+import modelo.unidades.UnidadGuerrera;
+import modelo.unidades.terrran.Golliat;
+import modelo.unidades.terrran.Marine;
+import modelo.unidades.terrran.NaveCiencia;
 
 public class AtacanteTest {
     @Before

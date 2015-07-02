@@ -1,8 +1,8 @@
 package JugadoresYTurnosTest;
 
-import jugabilidad.Juego;
-import jugabilidad.Jugador;
-import jugabilidad.ProxyMapa;
+import modelo.jugabilidad.Juego;
+import modelo.jugabilidad.Jugador;
+import modelo.jugabilidad.ProxyMapa;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

@@ -1,8 +1,8 @@
 package vista.unidades;
 
 import control.BufferImagenes;
-import interfaces.ColocableEnMapa;
-import unidades.terrran.NaveCiencia;
+import modelo.interfaces.ColocableEnMapa;
+import modelo.unidades.terrran.NaveCiencia;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeUnidad.PanelUnidadMagica;

@@ -1,9 +1,9 @@
 package vista.Actions.accionesUnidades;
 
-import excepciones.Mapa.ExcepcionCasillaVacia;
-import excepciones.Unidades.ExcepcionDeAccionDeUnidad;
-import jugabilidad.utilidadesMapa.Coordenada;
-import unidades.UnidadTransporte;
+import modelo.excepciones.Mapa.ExcepcionCasillaVacia;
+import modelo.excepciones.Unidades.ExcepcionDeAccionDeUnidad;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
+import modelo.unidades.UnidadTransporte;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;
 import vista.auxiliares.jugador.observadores.ObservadorEstado;
 

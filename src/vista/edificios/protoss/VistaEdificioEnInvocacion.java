@@ -1,7 +1,7 @@
 package vista.edificios.protoss;
 
-import construcciones.protoss.EdificioEnInvocacion;
-import interfaces.ColocableEnMapa;
+import modelo.construcciones.protoss.EdificioEnInvocacion;
+import modelo.interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeConstruccion.PanelEdificioEnInvocacion;

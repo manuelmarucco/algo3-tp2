@@ -1,8 +1,8 @@
 package vista.edificios.terran;
 
-import construcciones.terran.CentroDeMineral;
+import modelo.construcciones.terran.CentroDeMineral;
 import control.BufferImagenes;
-import interfaces.ColocableEnMapa;
+import modelo.interfaces.ColocableEnMapa;
 import vista.IVista;
 import vista.auxiliares.ImagePanel;
 import vista.panelesDeEstado.panelesDeConstruccion.PanelConstruccion;

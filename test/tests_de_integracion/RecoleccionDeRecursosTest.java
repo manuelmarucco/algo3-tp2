@@ -1,20 +1,20 @@
 package tests_de_integracion;
 
-import construcciones.terran.CentroDeMineral;
-import construcciones.terran.Refineria;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.construcciones.ExcepcionNoSePuedeConstruir;
-import jugabilidad.Juego;
-import jugabilidad.Jugador;
-import jugabilidad.ProxyMapa;
-import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.RazaDeJugador.JugadorTerran;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.construcciones.terran.CentroDeMineral;
+import modelo.construcciones.terran.Refineria;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.construcciones.ExcepcionNoSePuedeConstruir;
+import modelo.jugabilidad.Juego;
+import modelo.jugabilidad.Jugador;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.RazaDeJugador.JugadorProtoss;
+import modelo.jugabilidad.RazaDeJugador.JugadorTerran;
+import modelo.jugabilidad.auxiliares.Recursos;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Before;
 import org.junit.Test;
-import recursos.Cristal;
-import recursos.Volcan;
+import modelo.recursos.Cristal;
+import modelo.recursos.Volcan;
 
 import static org.junit.Assert.assertEquals;
 

@@ -1,7 +1,7 @@
 package construcciones.terran_tests;
 
-import construcciones.terran.CentroDeMineral;
-import jugabilidad.auxiliares.Recursos;
+import modelo.construcciones.terran.CentroDeMineral;
+import modelo.jugabilidad.auxiliares.Recursos;
 import org.junit.Assert;
 import org.junit.Test;
 

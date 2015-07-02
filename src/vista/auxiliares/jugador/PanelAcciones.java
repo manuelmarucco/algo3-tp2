@@ -2,22 +2,22 @@ package vista.auxiliares.jugador;
 
 
 
-import construcciones.CentroDeRecoleccion;
-import construcciones.CentroDeSuministros;
-import construcciones.protoss.Acceso;
-import construcciones.protoss.ArchivosTemplarios;
-import construcciones.protoss.PortalEstelar;
-import construcciones.terran.Barraca;
-import construcciones.terran.Fabrica;
-import construcciones.terran.PuertoEstelar;
-import recursos.Recurso;
-import unidades.UnidadGuerrera;
-import unidades.UnidadTransporte;
-import unidades.protoss.AltoTemplario;
-import unidades.protoss.ClonGuerrero;
-import unidades.protoss.ClonMagico;
-import unidades.protoss.ClonTransporte;
-import unidades.terrran.NaveCiencia;
+import modelo.construcciones.CentroDeRecoleccion;
+import modelo.construcciones.CentroDeSuministros;
+import modelo.construcciones.protoss.Acceso;
+import modelo.construcciones.protoss.ArchivosTemplarios;
+import modelo.construcciones.protoss.PortalEstelar;
+import modelo.construcciones.terran.Barraca;
+import modelo.construcciones.terran.Fabrica;
+import modelo.construcciones.terran.PuertoEstelar;
+import modelo.recursos.Recurso;
+import modelo.unidades.UnidadGuerrera;
+import modelo.unidades.UnidadTransporte;
+import modelo.unidades.protoss.AltoTemplario;
+import modelo.unidades.protoss.ClonGuerrero;
+import modelo.unidades.protoss.ClonMagico;
+import modelo.unidades.protoss.ClonTransporte;
+import modelo.unidades.terrran.NaveCiencia;
 import vista.Actions.accionesEntrenar.*;
 import vista.Actions.accionesUnidades.*;
 import vista.Actions.accionesVentanaJugador.WraperAccionActuar;

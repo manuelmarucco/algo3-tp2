@@ -1,8 +1,8 @@
 package vista.panelesDeEstado.panelesDeUnidad;
 
-import interfaces.Cargable;
-import unidades.UnidadTransporte;
-import unidades.protoss.ResistenciaProtoss;
+import modelo.interfaces.Cargable;
+import modelo.unidades.UnidadTransporte;
+import modelo.unidades.protoss.ResistenciaProtoss;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;

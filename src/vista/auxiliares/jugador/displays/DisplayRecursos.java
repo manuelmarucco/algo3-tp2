@@ -1,8 +1,8 @@
 package vista.auxiliares.jugador.displays;
 
 import control.BufferImagenes;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.auxiliares.Suministros;
+import modelo.jugabilidad.auxiliares.Recursos;
+import modelo.jugabilidad.auxiliares.Suministros;
 import vista.auxiliares.jugador.observadores.ObservadorRecursosSuministros;
 
 import javax.swing.*;

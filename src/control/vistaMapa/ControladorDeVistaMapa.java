@@ -1,11 +1,11 @@
 package control.vistaMapa;
 
-import interfaces.ColocableEnMapa;
-import jugabilidad.Jugador;
-import jugabilidad.ProxyMapa;
-import jugabilidad.auxiliares.Vision;
-import jugabilidad.utilidadesMapa.Coordenada;
-import unidades.ProxyDeHechizos;
+import modelo.interfaces.ColocableEnMapa;
+import modelo.jugabilidad.Jugador;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.auxiliares.Vision;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
+import modelo.unidades.ProxyDeHechizos;
 import vista.IVista;
 import vista.ParselaAccionable;
 import vista.auxiliares.ImagePanel;

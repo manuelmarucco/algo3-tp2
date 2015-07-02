@@ -1,16 +1,16 @@
 package jugabilidad_tests;
 
-import construcciones.terran.CentroDeMineral;
-import construcciones.terran.Refineria;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import jugabilidad.ProxyMapa;
-import jugabilidad.auxiliares.Recursos;
-import jugabilidad.extrasJuego.CreadorDeMapa;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.construcciones.terran.CentroDeMineral;
+import modelo.construcciones.terran.Refineria;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.jugabilidad.ProxyMapa;
+import modelo.jugabilidad.auxiliares.Recursos;
+import modelo.jugabilidad.extrasJuego.CreadorDeMapa;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Before;
 import org.junit.Test;
-import unidades.terrran.Marine;
-import unidades.terrran.NaveCiencia;
+import modelo.unidades.terrran.Marine;
+import modelo.unidades.terrran.NaveCiencia;
 
 import java.util.ArrayList;
 

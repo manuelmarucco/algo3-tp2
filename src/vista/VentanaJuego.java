@@ -1,7 +1,7 @@
 package vista;
 
-import jugabilidad.Juego;
-import jugabilidad.Jugador;
+import modelo.jugabilidad.Juego;
+import modelo.jugabilidad.Jugador;
 import vista.ventanaJugadores.VentanaGanador;
 import vista.ventanaJugadores.VentanaJugador;
 

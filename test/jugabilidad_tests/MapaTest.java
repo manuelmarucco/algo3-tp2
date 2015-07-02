@@ -1,17 +1,17 @@
 package jugabilidad_tests;
 
-import construcciones.terran.Barraca;
-import excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
-import excepciones.Mapa.ExcepcionPosicionOcupada;
-import interfaces.ColocableEnMapa;
-import jugabilidad.Mapa;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.construcciones.terran.Barraca;
+import modelo.excepciones.Mapa.ExcepcionNoSePudoAgregarAlMapa;
+import modelo.excepciones.Mapa.ExcepcionPosicionOcupada;
+import modelo.interfaces.ColocableEnMapa;
+import modelo.jugabilidad.Mapa;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Test;
-import recursos.Cristal;
-import unidades.protoss.NaveTransporteProtoss;
-import unidades.terrran.Marine;
-import unidades.terrran.NaveCiencia;
-import unidades.terrran.NaveTransporteTerran;
+import modelo.recursos.Cristal;
+import modelo.unidades.protoss.NaveTransporteProtoss;
+import modelo.unidades.terrran.Marine;
+import modelo.unidades.terrran.NaveCiencia;
+import modelo.unidades.terrran.NaveTransporteTerran;
 
 import java.util.ArrayList;
 

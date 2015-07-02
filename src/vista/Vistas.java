@@ -1,12 +1,12 @@
 package vista;
 
-import construcciones.CentroDeSuministros;
-import construcciones.protoss.*;
-import construcciones.terran.*;
-import recursos.Cristal;
-import recursos.Volcan;
-import unidades.protoss.*;
-import unidades.terrran.*;
+import modelo.construcciones.CentroDeSuministros;
+import modelo.construcciones.protoss.*;
+import modelo.construcciones.terran.*;
+import modelo.recursos.Cristal;
+import modelo.recursos.Volcan;
+import modelo.unidades.protoss.*;
+import modelo.unidades.terrran.*;
 import vista.edificios.protoss.*;
 import vista.edificios.terran.*;
 import vista.recursos.VistaCristales;

@@ -3,7 +3,7 @@ package construcciones.protoss_tests;
 import org.junit.Assert;
 import org.junit.Test;
 
-import construcciones.protoss.PortalEstelar;
+import modelo.construcciones.protoss.PortalEstelar;
 
 
 public class PortalEstelar_Test {

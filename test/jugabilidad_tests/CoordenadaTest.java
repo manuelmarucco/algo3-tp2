@@ -1,6 +1,6 @@
 package jugabilidad_tests;
 
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.equalTo;

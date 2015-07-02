@@ -1,8 +1,8 @@
 package vista.ventanaJugadores;
 
-import jugabilidad.Jugador;
-import jugabilidad.RazaDeJugador.JugadorProtoss;
-import jugabilidad.utilidadesMapa.Coordenada;
+import modelo.jugabilidad.Jugador;
+import modelo.jugabilidad.RazaDeJugador.JugadorProtoss;
+import modelo.jugabilidad.utilidadesMapa.Coordenada;
 import vista.VentanaJuego;
 import vista.auxiliares.jugador.BotoneraDeConstruccionesProtoss;
 import vista.auxiliares.jugador.displays.DisplayConstrucciones;
