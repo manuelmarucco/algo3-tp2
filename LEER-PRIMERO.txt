@@ -1,0 +1,7 @@
+Algoritmos y programacion 3 - TP2
+
+Uso:
+
+(1) Crear .jar escribir: ant empaquetar
+
+(2) Correr la aplicacion escribir: ant jugar
