@@ -4,6 +4,7 @@ import modelo.jugabilidad.Juego;
 import control.Actions.accionesMenu.AccionJugar;
 import control.Actions.accionesMenu.AccionSalir;
 import javax.swing.*;
+import javax.swing.border.AbstractBorder;
 import java.awt.*;
 
 public class MenuPrincipal extends JFrame {
@@ -32,7 +33,6 @@ public class MenuPrincipal extends JFrame {
         this.contenedor = new JLayeredPane();
         this.contenedor.setPreferredSize(new Dimension(background.getIcon().getIconWidth(),background.getIcon().getIconHeight()));
         this.contenedor.add(this.background, new Integer(50),0);
-
         this.add(contenedor);
 
     }
