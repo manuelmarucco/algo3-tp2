@@ -22,7 +22,7 @@ public class VentanaJuego {
 
     public void pasarTurno() {
         this.determinarSiHayGanador();
-        if(ventanasDeJugadores.size() == 0) return; // TODO tirar excepcion
+        if(ventanasDeJugadores.size() == 0) return;
         
         this.juego.update();
 

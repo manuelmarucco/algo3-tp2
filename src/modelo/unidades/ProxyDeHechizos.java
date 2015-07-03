@@ -46,8 +46,6 @@ public class ProxyDeHechizos {
         }
         */
 
-        // TODO:  Ver si se puede sacar el casteo.
-
         // Obtengo todas las unidades alcanzables por el EMP.
         ArrayList<ColocableEnMapa> unidadesYConstruccionesDentroDeRango = new ArrayList<>();
 
