@@ -79,8 +79,6 @@ public class PanelUnidadTransporte extends PanelUnidad{
         panelUnidadesCargadas.setPreferredSize(new Dimension(170,60));
         this.contenedorDePanelUnidadCargadas.add(panelUnidadesCargadas);
 
-
-        //TODO no logro hacer que sea scrolleable
     }
 
 

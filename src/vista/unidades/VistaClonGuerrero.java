@@ -41,7 +41,7 @@ public class VistaClonGuerrero extends ImagePanel implements IVista {
 
     private void cargarInfoAlPanelDeEstado(PanelUnidadGuerrera panelDeUnidad) {
 
-        panelDeUnidad.setNombre(clonGuerrero.getClass().getSimpleName()); //TODO me parece que deberia tener el nombre de la unidad clonada y no el nombre "ClonGuerrero"
+        panelDeUnidad.setNombre(clonGuerrero.getClass().getSimpleName());
         panelDeUnidad.setVida(String.valueOf(0));
         panelDeUnidad.setVision(String.valueOf(clonGuerrero.getVision()));
         panelDeUnidad.setEscudo(String.valueOf(clonGuerrero.getEscudo()));

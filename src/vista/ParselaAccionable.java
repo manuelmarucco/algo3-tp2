@@ -71,12 +71,15 @@ public class ParselaAccionable implements MouseListener {
 
             ObservadorDeExcepciones.getInstance().borrarDisplay();
 
-            //TODO refactorizar esto
-            ventana.borrarPanelDeEstadoAnterior(); // el tema es que caundo tocas el pasto no se activa la VistaPasto entonces hay q borrar manualmente
-            vista.actualizarPanelEstado();
+            this.actualizarPanelesDeEstado();
 
         }
 
+    }
+
+    private void actualizarPanelesDeEstado() {
+        ventana.borrarPanelDeEstadoAnterior(); // el tema es que caundo tocas el pasto no se activa la VistaPasto entonces hay q borrar manualmente
+        vista.actualizarPanelEstado();
     }
 
     private boolean verificarAccionEnEspera() {
