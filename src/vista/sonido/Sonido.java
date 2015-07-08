@@ -14,8 +14,11 @@ public class Sonido {
         try {
             File file = new File(fileName);
             if (file.exists()) {
-                this.clip = AudioSystem.getClip();
                 AudioInputStream ais = AudioSystem.getAudioInputStream(file.toURI().toURL());
+                AudioFormat format = ais.getFormat();
+                DataLine.Info info = new DataLine.Info(Clip.class, format);
+                //this.clip = AudioSystem.getClip();
+                this.clip = (Clip)AudioSystem.getLine(info);
                 this.clip.open(ais);
             }
             else {
